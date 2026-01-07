@@ -1,0 +1,26 @@
+The MEASURE program uses analog and digital inputs to 
+simulate a datalogger.
+
+You may watch the value of analog input ADC0, ADC1 and the state 
+of USR_LEFT, USR_RIGHT Buttons on SAM3U-EK evaluation board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                  =  12 MHz
+   - PLLA                  = 168 MHz
+   - Main Clock = PLLA / 2 =  84 MHz
+
+ - USART1 (COM1) settings:
+   - 115200 baud, 8 data bits, 1 stop bit, no parity
+
+ - ADC
+   - ADC0 channel3 connected to PB4 
+   - ADC1 channel0 connected to PB5 
+
+
+The program is available in different targets:
+  Simulator:    configured for software Simulator
+                Serial Window #3
+                ADC1 channel 1 simulated using a debug function.
+  ATSAM3U-EK:   runs from Internal Flash located on chip
+                (used for production or target debugging)

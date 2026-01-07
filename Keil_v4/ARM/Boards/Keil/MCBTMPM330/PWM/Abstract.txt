@@ -1,0 +1,17 @@
+The PWM project is a simple demo program for the Toshiba 'TMPM330'
+using Keil 'MCBTMPM330' Evaluation Board, compliant to 
+Cortex Microcontroller Software Interface Standard (CMSIS v1.0).
+
+It generates a PWM signal on N38 at a rate depending on AD potentiometer 
+position. Button PH1 updates new cycle. Button NMI causes 
+NMI Interrupt.
+
+
+Core Speed:        40MHz
+
+The PWM program is available in different targets:
+  Simulator:       runs in µVision Simulator
+  TMPM330 Flash:   runs from Internal Flash located on chip
+                   (used for production or target debugging)
+  TMPM330 RAM:     runs from Internal RAM located on chip
+                   (used for target debugging)

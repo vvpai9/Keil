@@ -1,0 +1,22 @@
+The Blinky project is a simple program for the S3F4A0KR
+using Samsung 'S3F4A0K EVA BD' Evaluation Board and 
+demonstrating interrupt functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - PLL              = 40   MHz
+   - CORECLK          = 40   MHz
+   - GICCLK = PCLK    = 10   MHz
+ - 4 LEDs blink from left to right and back
+   - Simple Timer 1 is used in interrupt mode
+     (interrupt happens every 10 ms)
+ - pressing button SW1 speeds up led blinking
+ - pressing button SW2 slows down up led blinking
+ 
+The Blinky program is available for target:
+  S3F4A0K Flash: runs from Internal Flash located on chip
+                 (used for production or target debugging)
+
+Note: When low power clock is used chip must be reset 
+      manually and flash programming must be started 
+      within approximately 2 second after power-on.

@@ -1,0 +1,17 @@
+This is a simple RTX Kernel based example which simulates
+the step-motor driver. Four output driver stages are used:
+
+- phase A
+- phase B
+- phase C
+- phase D
+
+The blinking LED shows the activation of the CLoCK task.
+
+This example simulates Half step driver mode and
+CW rotation direction.
+
+The Blinky program is available in different targets:
+  Simulator:   - configured for software Simulator
+  CQ-STARM:    - runs from Internal Flash located on chip
+                 (used for production or target debugging)

@@ -1,0 +1,2232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package schemaVersion="1.6.0" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>Infineon</vendor>
+  <name>CAT1B_DFP</name>
+  <description>Infineon CAT1B (PSoC C3) Device Support</description>
+  <url>https://itools.infineon.com/cmsis_packs/CAT1B_DFP/</url>
+  <supportContact>https://www.infineon.com/support</supportContact>
+  <license>APACHE_LICENSE.txt</license>
+  <releases>
+    <release version="1.1.0" date="2025-03-13">
+      Updated CAT1B CMSIS Flash Loaders to v2.0.1.587: bugfixes and stability improvements.
+    </release>
+    <release version="1.0.0" date="2024-11-14">
+      First Release version of CAT1B Device Family Pack.
+      Based on Infineon CAT1B CMSIS Flash Loaders v2.0.1.524.
+    </release>
+  </releases>
+  <keywords>
+    <keyword>Infineon</keyword>
+    <keyword>CAT1B</keyword>
+    <keyword>PSoC C3</keyword>
+    <keyword>DFP</keyword>
+  </keywords>
+  <devices>
+    <!-- PSC3 -->
+    <family Dfamily="PSC3" Dvendor="Infineon:7">
+      <processor Pname="Cortex-M33" Dcore="Cortex-M33" DcoreVersion="r1p0" Dfpu="SP_FPU" Dmpu="MPU" Dtz="TZ" Dendian="Little-endian" />
+      <debug Pname="Cortex-M33" __apid="1" defaultResetSequence="ResetSystem" svd="SVD/psc3.svd" />
+      <description>PSoC C3: Cortex-M33 MCU series with integrated analog and digital peripherals.</description>
+      <book name="README.txt" title="Infineon CAT1B DFP user guide" />
+      <book name="known_issues.txt" title="Infineon CAT1B DFP known issues" />
+      <accessportV2 __apid="0" address="0xF0000000" />
+      <accessportV2 __apid="1" address="0xF0002000" />
+      <memory name="IRAM1" access="rwxn" start="0x24000000" size="0x10000" default="1" />
+      <memory name="IRAM2" access="rwxs" start="0x34000000" size="0x10000" alias="IRAM1" default="1" />
+      <debugvars configfile="Debug/PSC3.dbgconf" version="1.0">
+        // Trace-related settings
+        __var __TPIU_pinlocation = 1;                      // Select one of the possible TPIU pin locations
+        __var __TPIU_clocksetup =  1;                      // Enable(1) or Disable(0) setup of trace source clock
+        __var __TPIU_clockdivval = 0;                      // Clock divider value for trace clock
+        // TraceClock configuration data
+        __var PERI_PCLK_DIV_TYPE                   = 3;          // Divider Type is a 24.5 bit fractional divider
+        __var PERI_PCLK_DIV_NUM                    = 0;          // Divider index which is used for tracing
+        __var PERI_PCLK_GROUP0_CLOCK_CTL           = 0x42040C00; // Clock control register for cpuss.clock_trace_in
+        __var PERI_PCLK_GROUP0_DIV_24_5_CTL        = 0x42041C00; // Divider control (for 24.5 divider)
+        __var PERI_PCLK_GROUP0_DIV_CMD             = 0x42040000; // Divider command
+        __var PERI_PCLK_GR_DIV_CMD_DIV_SEL_Pos     = 0;
+        __var PERI_PCLK_GR_DIV_CMD_DIV_SEL_Msk     = 0x000000FF;
+        __var PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Pos    = 8;
+        __var PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Msk    = 0x00000300;
+        __var PERI_PCLK_GR_DIV_CMD_PA_DIV_SEL_Msk  = 0x00FF0000;
+        __var PERI_PCLK_GR_DIV_CMD_PA_TYPE_SEL_Msk = 0x03000000;
+        __var PERI_PCLK_GR_DIV_CMD_ENABLE_Msk      = 0x80000000; // ENABLE field in PERI_DIV_CMD
+        __var PERI_PCLK_GR_DIV_CMD_DISABLE_Msk     = 0x40000000; // DISABLE field in PERI_DIV_CMD
+        // TPIU pins configuration data
+        __var GPIO_BASE                     = 0x42410000;
+        __var GPIO_CFG_DM_MASK              = 0x0000000F; // Single pin mask for drive mode in CFG register
+        __var GPIO_CFG_DRIVE_SEL_EXT_MASK   = 0x0000001F; // Single pin mask for drive strength in CFG DRIVE EXT register
+        __var GPIO_CFG_DRIVE_SEL_EXT_OFFSET = 3;          // Offset for CFG SLEW EXT
+        __var GPIO_CFG_SLEW_EXT_MASK        = 0x00000007; // Single pin mask for slew rate in CFG SLEW EXT register
+        __var GPIO_CFG_SLEW_EXT_OFFSET      = 2;          // Offset for CFG SLEW EXT
+        __var GPIO_DRIVE_MODE_OFFSET        = 2;          // Offset for Drive mode
+        __var GPIO_HSIOM_MASK               = 0x0000001F; // HSIOM selection mask
+        __var GPIO_HSIOM_OFFSET             = 3;          // Offset for HSIOM
+        __var GPIO_HSIOM_SEC_MASK           = 0x00000001; // Single pin mask for NONSECURE_MASK register
+        __var GPIO_PRT_CFG_OFFSET           = 0x00000044; // Port configuration register
+        __var GPIO_PRT_CFG_OUT3_OFFSET      = 0x00000070; // Port output buffer configuration register 3
+        __var GPIO_PRT_DRIVE_EXT0_OFFSET    = 0x00000068; // Port output buffer drive sel extension configuration register (Pins 0-3)
+        __var GPIO_PRT_DRIVE_EXT1_OFFSET    = 0x0000006C; // Port output buffer drive sel extension configuration register (Pins 4-7)
+        __var GPIO_PRT_HALF                 = 4;          // Half-way point of a GPIO port
+        __var GPIO_PRT_SECTION_SIZE         = 0x00000080;
+        __var GPIO_PRT_SLEW_EXT_OFFSET      = 0x00000064; // Port output buffer slew extension configuration register
+        __var HSIOM_BASE                    = 0x42400000;
+        __var HSIOM_PRT_PORT_SEL1_OFFSET    = 4;
+        __var HSIOM_PRT_SECTION_SIZE        = 0x00000010;
+        __var HSIOM_SECURE_BASE             = 0x42401000;
+        __var HSIOM_SECURE_PRT_SECTION_SIZE = 0x00000010;
+        // Customizing reset delay
+        __var __Reset_Finish_Delay = 350000; // Delay to let reset finish. Otherwise access to device can fail with too fast debug units.
+      </debugvars>
+      <sequences>
+        <!-- DAP handshake -->
+        <sequence name="DAP_Handshake">
+          <block>
+            __var isSWJ      = ((__protocol &amp; 0x00010000) != 0);
+            __var hasDormant = __protocol &amp; 0x00020000;
+            __var protType   = __protocol &amp; 0x0000FFFF;
+            __var DPIDR = 0;
+            __errorcontrol = 1;
+          </block>
+          <control while="(DPIDR &amp; 0x00000FFF) != 0x00000477" timeout="1200000">
+            <!-- JTAG Protocol -->
+            <control if="protType == 1">
+              <control if="hasDormant">
+                <block atomic="true">
+                  // Ensure current debug interface is in reset state
+                  DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);
+                  // Select Dormant State (from SWD)
+                  DAP_SWJ_Sequence(16, 0xE3BC);
+                  // At least 8 cycles SWDIO/TMS HIGH
+                  DAP_SWJ_Sequence(8, 0xFF);
+                  // Alert Sequence Bits  0.. 63
+                  DAP_SWJ_Sequence(64, 0x86852D956209F392);
+                  // Alert Sequence Bits 64..127
+                  DAP_SWJ_Sequence(64, 0x19BC0EA2E3DDAFE9);
+                  // 4 cycles SWDIO/TMS LOW + 8-Bit JTAG Activation Code (0x0A)
+                  DAP_SWJ_Sequence(12, 0x0A0);
+                  // Ensure JTAG interface is reset
+                  DAP_SWJ_Sequence(6, 0x3F);
+                </block>
+              </control>
+              <control if="!hasDormant">
+                <block atomic="true">
+                  // Ensure current debug interface is in reset state
+                  DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);
+                  // Execute SWJ-DP Switch Sequence SWD to JTAG (0xE73C)
+                  // Change if SWJ-DP uses deprecated switch code (0xAEAE)
+                  DAP_SWJ_Sequence(16, 0xE73C);
+                  // Ensure JTAG interface is reset
+                  DAP_SWJ_Sequence(6, 0x3F);
+                </block>
+              </control>
+              <block atomic="true">
+                // JTAG "Soft" Reset
+                DAP_JTAG_Sequence(6, 1, 0x3F);
+                DAP_JTAG_Sequence(1, 0, 0x01);
+                // Get IDCODE to make sure that JTAG-DP is available
+                DAP_JTAG_Sequence(4, 0, 0x00);                          // 4*Run-Test/Idle
+                DAP_JTAG_Sequence(2, 1, 0x00);                          // ~ Select-DR ~ Select-IR
+                DAP_JTAG_Sequence(2, 0, 0x00);                          // ~ Capture-IR ~ Shift-IR
+                DAP_JTAG_Sequence(7, 0, 0xFE);                          // Shift-IR (IDCODE BYPASS)
+                DAP_JTAG_Sequence(2, 1, 0x01);                          // ~ Exit1-IR (IDCODE BYPASS) ~ Update-IR
+                DAP_JTAG_Sequence(4, 0, 0x00);                          // Make sure that we go through Idle state in TAP controller
+                DAP_JTAG_Sequence(1, 1, 0x00);                          // Select-DR
+                DAP_JTAG_Sequence(2, 0, 0x00);                          // ~ Capture-DR ~ Shift-DR
+                DPIDR = DAP_JTAG_Sequence(33, 0, 0x00000000);           // Shift 33-bits data
+                DAP_JTAG_Sequence(2, 1, 0x00);                          // ~ Exit2-DR ~ Update-DR
+                DAP_JTAG_Sequence(4, 0, 0x00);                          // Make sure that we go through Idle state in TAP controller
+              </block>
+            </control>
+            <!-- SWD Protocol -->
+            <control if="protType == 2">
+              <control if="isSWJ">
+                <control if="hasDormant">
+                  <block atomic="true">
+                    // Ensure current debug interface is in reset state
+                    DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);
+                    // Select Dormant State (from JTAG)
+                    DAP_SWJ_Sequence(31, 0x33BBBBBA);
+                    // At least 8 cycles SWDIO/TMS HIGH
+                    DAP_SWJ_Sequence(8, 0xFF);
+                    // Alert Sequence Bits  0.. 63
+                    DAP_SWJ_Sequence(64, 0x86852D956209F392);
+                    // Alert Sequence Bits 64..127
+                    DAP_SWJ_Sequence(64, 0x19BC0EA2E3DDAFE9);
+                    // 4 cycles SWDIO/TMS LOW + 8-Bit SWD Activation Code (0x1A)
+                    DAP_SWJ_Sequence(12, 0x1A0);
+                    // Enter SWD Line Reset State
+                    DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);  // &gt; 50 cycles SWDIO/TMS High
+                    DAP_SWJ_Sequence(3,  0x00);                // At least 2 idle cycles (SWDIO/TMS Low)
+                  </block>
+                </control>
+                <control if="!hasDormant">
+                  <block atomic="true">
+                    // Ensure current debug interface is in reset state
+                    DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);
+                    // Execute SWJ-DP Switch Sequence JTAG to SWD (0xE79E)
+                    // Change if SWJ-DP uses deprecated switch code (0xEDB6)
+                    DAP_SWJ_Sequence(16, 0xE79E);
+                    // Enter SWD Line Reset State
+                    DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);  // &gt; 50 cycles SWDIO/TMS High
+                    DAP_SWJ_Sequence(3,  0x00);                // At least 2 idle cycles (SWDIO/TMS Low)
+                  </block>
+                </control>
+              </control>
+              <control if="!isSWJ">
+                <control if="hasDormant">
+                  <block atomic="true">
+                    // Ensure current debug interface is in reset state
+                    DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);
+                    // At least 8 cycles SWDIO/TMS HIGH
+                    DAP_SWJ_Sequence(8, 0xFF);
+                    // Alert Sequence Bits  0.. 63
+                    DAP_SWJ_Sequence(64, 0x86852D956209F392);
+                    // Alert Sequence Bits 64..127
+                    DAP_SWJ_Sequence(64, 0x19BC0EA2E3DDAFE9);
+                    // 4 cycles SWDIO/TMS LOW + 8-Bit SWD Activation Code (0x1A)
+                    DAP_SWJ_Sequence(12, 0x1A0);
+                    // Enter SWD Line Reset State
+                    DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);  // &gt; 50 cycles SWDIO/TMS High
+                    DAP_SWJ_Sequence(3,  0x00);                // At least 2 idle cycles (SWDIO/TMS Low)
+                  </block>
+                </control>
+                <control if="!hasDormant">
+                  <block atomic="true">
+                    // Enter SWD Line Reset State
+                    DAP_SWJ_Sequence(51, 0x0007FFFFFFFFFFFF);  // &gt; 50 cycles SWDIO/TMS High
+                    DAP_SWJ_Sequence(3,  0x00);                // At least 2 idle cycles (SWDIO/TMS Low)
+                  </block>
+                </control>
+              </control>
+              <block atomic="false">
+                // Read DPIDR to enable SWD interface (SW-DPv1 and SW-DPv2)
+                DPIDR = ReadDP(0x0);
+              </block>
+            </control>
+          </control>
+        </sequence>
+        <!-- DebugPortStart sequence prepares the target debug port for connection; is executed before acquiring access to the debug port.
+             May include for example an SWJ-DP switch sequence as defined in the Arm Debug Interface (ADI) Architecture Specification.
+             This sequence must not contain debug port/access port register and target memory accesses other than:
+             - Reading the DPIDR debug port register to release an SWD connection from its line reset.
+             - Writing the TARGETSEL debug port register (SWD protocol v2).
+        -->
+        <sequence name="DebugPortStart">
+          <block info="Read DP CTRL/STAT">
+            __var DP_ABORT  = 0x0;
+            __var DP_CTRL_STAT = 0x4;
+            __var DP_SELECT    = 0x8;
+            __var powered_down = 0;
+            // Switch to DP Register Bank 0
+            WriteDP(DP_SELECT, 0x00000000);
+            // Read DP CTRL/STAT Register and check if CSYSPWRUPACK and CDBGPWRUPACK bits are set
+            powered_down = ((ReadDP(DP_CTRL_STAT) &amp; 0xA0000000) != 0xA0000000);
+          </block>
+          <control if="powered_down">
+            <block info="Power Up System &amp; Debug">
+              // Request Debug/System Power-Up
+              // Ignore error here: even there is a polling in the next block, CMSIS-DAP transports reads DP.RDBUFF register
+              // right after write to DP.CTRL_STAT. This will fail for some cases - for example if device is waking from DeepSleep.
+              __errorcontrol = 1;
+              WriteDP(DP_CTRL_STAT, 0x50000000);
+              __errorcontrol = 0;
+            </block>
+            <!-- Wait for Power-Up Request to be acknowledged -->
+            <control while="(ReadDP(DP_CTRL_STAT) &amp; 0xA0000000) != 0xA0000000" timeout="1000000" info="Wait for power acknowledged" />
+            <!-- CDBGRSTREQ on CYW20829 behaves like Power-On Reset. Not desired when starting the Debug Port
+            <block info="Debug Reset">
+              __errorcontrol = 1;
+              // Request Debug Reset
+              WriteDP(DP_CTRL_STAT, 0x54000000);
+              // CDBGRSTREQ is equivalent to Power-On Reset and fully reboots the device.
+              // Depending on the user application the reboot can take up to 1200ms.
+              DAP_Delay(1200000);
+              __errorcontrol = 0;
+            </block>
+            -->
+            <!-- Wait for Debug Reset to be acknowledged, don't issue error on timeout to deal with improperly connected Debug Reset -->
+            <!-- <control while="(ReadDP(DP_CTRL_STAT) &amp; 0xA8000000) != 0xA8000000" timeout="300000" info="Wait for Debug Reset Acknowledge"/> -->
+          </control>
+          <!-- JTAG Specific Part of sequence -->
+          <control if="(__protocol &amp; 0xFFFF) == 1">
+            <block info="JTAG: Clear Sticky Bits">
+              // Init AP Transfer Mode, Transaction Counter, and Lane Mask (Normal Transfer Mode, Include all Byte Lanes)
+              // Additionally clear STICKYORUN, STICKYCMP, and STICKYERR bits by writing '1'
+              WriteDP(DP_CTRL_STAT, 0x50000F32);
+            </block>
+          </control>
+          <!-- SWD Specific Part of sequence -->
+          <control if="(__protocol &amp; 0xFFFF) == 2">
+            <block info="SWD: Init SWD &amp; Clear Sticky Bits">
+              // Init AP Transfer Mode, Transaction Counter, and Lane Mask (Normal Transfer Mode, Include all Byte Lanes)
+              WriteDP(DP_CTRL_STAT, 0x50000F00);
+              // Clear WDATAERR, STICKYORUN, STICKYCMP, and STICKYERR bits of CTRL/STAT Register by write to ABORT register
+              WriteDP(DP_ABORT, 0x0000001E);
+            </block>
+          </control>
+        </sequence>
+        <!-- Acquires the target in WFA mode using request code for debug certificates -->
+        <sequence name="AcquireInWFAMode2">
+          <block>
+            __var SRSS_BOOT_DLM_CTL_Addr      = 0x52200404;
+            __var SRSS_BOOT_DLM_CTL_WFA_MASK  = 0x80000000;
+            __var WFA_REQUEST_DEBUG_CERT      = 2;
+            __var SRSS_RES_SOFT_CTL_Addr      = 0x52200410;
+            __var SRSS_RES_SOFT_CTL_TRIG_SOFT = 0x00000001;
+            __apid = 0;
+            WriteAP(0xD00, 0xAB000002);
+            __var DebugStatus = Read32(SRSS_BOOT_DLM_CTL_Addr);
+          </block>
+          <control if="(DebugStatus &amp; SRSS_BOOT_DLM_CTL_WFA_MASK) != 0">
+            <block>
+              Message(0, "** Pre-reset before Request WFA DEBUG_CERT ...");
+              Write32(SRSS_BOOT_DLM_CTL_Addr, SRSS_BOOT_DLM_CTL_WFA_MASK);
+              __errorcontrol = 1;
+              Write32(SRSS_RES_SOFT_CTL_Addr, SRSS_RES_SOFT_CTL_TRIG_SOFT);
+              __errorcontrol = 0;
+              DAP_Delay(__Reset_Finish_Delay); // Give a time for processing the soft reset request
+            </block>
+            <control if="(__protocol &amp; 0x0000FFFF) == 1">
+              <block>
+                DAP_Delay(__Reset_Finish_Delay * 2); // Give an additional time for JATG pins to be re-enabled by boot code.
+              </block>
+            </control>
+            <block>
+              sequence("DAP_Handshake");
+              __var AP_CSW;
+              AP_CSW = ReadAP(0xD00);
+            </block>
+            <!-- Check against CSW.DeviceEn -->
+            <control while="(AP_CSW &amp; 0x00000040) == 0" timeout="500000">
+              <block>
+                AP_CSW = ReadAP(0xD00);
+              </block>
+            </control>
+          </control>
+          <block>
+            Message(0, "** Request WFA DEBUG_CERT ...");
+            WriteAP(0xD00, 0xAB000002);
+            Write32(SRSS_BOOT_DLM_CTL_Addr, WFA_REQUEST_DEBUG_CERT);
+            __errorcontrol = 1;
+            Write32(SRSS_RES_SOFT_CTL_Addr, SRSS_RES_SOFT_CTL_TRIG_SOFT);
+            __errorcontrol = 0;
+            DAP_Delay(__Reset_Finish_Delay); // Wait for bootloader allows access to device
+          </block>
+          <control if="(__protocol &amp; 0x0000FFFF) == 1">
+            <block>
+              DAP_Delay(__Reset_Finish_Delay * 2); // Give an additional time for JATG pins to be re-enabled by boot code.
+            </block>
+          </control>
+          <block>
+            sequence("DAP_Handshake");
+            WriteAP(0xD00, 0xAB000002);
+            DebugStatus = Read32(SRSS_BOOT_DLM_CTL_Addr);
+          </block>
+          <!-- Wait for WFA -->
+          <control while="(DebugStatus &amp; SRSS_BOOT_DLM_CTL_WFA_MASK) == 0" timeout="500000">
+            <block>
+              DebugStatus = Read32(SRSS_BOOT_DLM_CTL_Addr);
+            </block>
+          </control>
+          <control if="(DebugStatus &amp; SRSS_BOOT_DLM_CTL_WFA_MASK) == 0">
+            <block>
+              Message(2, "** Acquisition in WFA mode FAILED!");
+            </block>
+          </control>
+        </sequence>
+        <!-- Check if the device is in a locked state and unlock it. Executed after having powered up the debug port. -->
+        <sequence name="DebugDeviceUnlock">
+          <block>
+            // Print device info
+            Sequence("PrintDeviceInfo");
+            __var AP_CSW;  // AP CSW value
+            AP_CSW = ReadAP(0xD00);
+          </block>
+          <!-- Check against CSW.DeviceEn -->
+          <control if="(AP_CSW &amp; 0x00000040) == 0">
+            <block>
+              __var fileExists = 0;
+              __var DEBUG_CERTIFICATE_ADDR = 0x34004000;
+              Message(0, "** CM33 AP is closed, CSW: 0x%08X", AP_CSW);
+              Message(0, "** DEBUG_CERTIFICATE_PATH = %s", "./packets/debug_token.bin");
+              Message(0, "** DEBUG_CERTIFICATE_ADDR = 0x%08X", DEBUG_CERTIFICATE_ADDR);
+              fileExists = FilePathExists("$P/packets/debug_token.bin", 0);
+            </block>
+            <control if="fileExists == 0">
+              <block>
+                __var certLength = BufferStreamIn(0, 0, 0xFFFFFFFFFFFFFFFF , "$P/packets/debug_token.bin", 0, 0);
+                Message(0, "** The Debug Certificate File loaded, %u byte(s).", certLength);
+                sequence("AcquireInWFAMode2");
+                __apid = 0;
+                WriteAP(0xD00, 0xAB000012); // AddrInc=Increment single, Size=Word (32 bits)
+                BufferWrite(0, 0, DEBUG_CERTIFICATE_ADDR, certLength, (32|1));
+                __var SRSS_BOOT_DLM_CTL_Addr     = 0x52200404;
+                __var SRSS_BOOT_DLM_CTL_2_Addr   = 0x52200408;
+                __var SRSS_BOOT_DLM_STATUS_Addr  = 0x5220040C;
+                __var WFA_REQUEST_DEBUG_CERT     = 2;
+                // Clear status
+                Write32(SRSS_BOOT_DLM_STATUS_Addr, 0);
+                // Write cert addr
+                Write32(SRSS_BOOT_DLM_CTL_2_Addr, DEBUG_CERTIFICATE_ADDR);
+                // Issue request to validate cert
+                Write32(SRSS_BOOT_DLM_CTL_Addr, WFA_REQUEST_DEBUG_CERT);
+                DAP_Delay(__Reset_Finish_Delay); // Give a time for processing the recently uploaded certificate
+                __apid = 1;
+                __errorcontrol = 1;
+                AP_CSW = ReadAP(0xD00);
+                __errorcontrol = 0;
+              </block>
+              <!-- Check against CSW.DeviceEn -->
+              <control while="(AP_CSW &amp; 0x00000040) == 0" timeout="2000000">
+                <block>
+                  sequence("DAP_Handshake");
+                  __errorcontrol = 1;
+                  AP_CSW = ReadAP(0xD00);
+                  __errorcontrol = 0;
+                </block>
+              </control>
+              <control if="(AP_CSW &amp; 0x00000040) == 0">
+                <block>
+                  __apid = 0;
+                  WriteAP(0xD00, 0xAB000002);
+                  // Get boot status per SRSS_BOOT_DLM_STATUS
+                  __var BootStatus = Read32(SRSS_BOOT_DLM_STATUS_Addr);
+                  Message(0, "** The debug certificate was not accepted by device, Boot Status: 0x%08X", BootStatus);
+                  Message(2, "** CM33 AP still closed.");
+                </block>
+              </control>
+            </control>
+            <control if="fileExists != 0">
+              <block>
+                Message(2, "** The File packets/debug_cert.bin does not exist!");
+              </block>
+            </control>
+          </control>
+          <!-- Update CSW.HNONSEC according to CSW.SDeviceEn -->
+          <control if="(AP_CSW &amp; 0x00800000) != 0">
+            <block>
+              // Clear CSW.HNONSEC
+              AP_CSW = (AP_CSW &amp; 0xB0FFFFC0) | 0x0B000052;
+              WriteAP(0xD00, AP_CSW);
+            </block>
+          </control>
+          <control if="(AP_CSW &amp; 0x00800000) == 0">
+            <block>
+              // Set CSW.HNONSEC
+              AP_CSW = (AP_CSW &amp; 0xB0FFFFC0) | 0x4B000052;
+              WriteAP(0xD00, AP_CSW);
+            </block>
+          </control>
+          <block>
+            AP_CSW = ReadAP(0xD00);
+          </block>
+          <control if="(AP_CSW &amp; 0x00000040) != 0">
+            <block>
+              Message(0, "** CM33 AP is open, CSW: 0x%08X", AP_CSW);
+            </block>
+          </control>
+          <block>
+            __var DSCSR_ADDR = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var DSCSR = Read32(DSCSR_ADDR);
+            __var BOOTROW_ADDR;
+          </block>
+          <!-- Detect Current domain secure state -->
+          <control if="(DSCSR &amp; 0x00010000) != 0">
+            <block>
+              Message(0, "** Current domain secure state: Secure");
+              BOOTROW_ADDR = 0x52610180;
+            </block>
+          </control>
+          <control if="(DSCSR &amp; 0x00010000) == 0">
+            <block>
+              Message(0, "** Current domain secure state: Non-secure");
+              BOOTROW_ADDR = 0x42610180;
+            </block>
+          </control>
+          <block>
+            // LCS
+            __apid = 0;
+            __var v = Read32(BOOTROW_ADDR) &amp; 0x0000FFFF;
+            __var isCorrupted = 1;
+          </block>
+          <control if="v == 0">
+            <block>
+              Message(0, "** Life Cycle : VIRGIN");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0x29">
+            <block>
+              Message(0, "** Life Cycle : SORT");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xE9">
+            <block>
+              Message(0, "** Life Cycle : PROVISIONED");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xC029">
+            <block>
+              Message(0, "** Life Cycle : NORMAL");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xCC29">
+            <block>
+              Message(0, "** Life Cycle : NORMAL_NO_SECURE");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xC0E9">
+            <block>
+              Message(0, "** Life Cycle : NORMAL_PROVISIONED");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xC3E9">
+            <block>
+              Message(0, "** Life Cycle : SECURE");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xF029">
+            <block>
+              Message(0, "** Life Cycle : RMA_NORMAL");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xFC29">
+            <block>
+              Message(0, "** Life Cycle : RMA_NORMAL_NO_SECURE");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="v == 0xF3E9">
+            <block>
+              Message(0, "** Life Cycle : RMA_SECURE");
+              isCorrupted = 0;
+            </block>
+          </control>
+          <control if="isCorrupted != 0">
+            <block>
+              Message(0, "** Life Cycle : CORRUPTED");
+            </block>
+          </control>
+          <block>
+            //Get Flash bank mode
+            __var FLASHC_FLASH_CTL = 0x52150000;
+            __apid = 1;
+            __errorcontrol = 1;
+            v = Read32(FLASHC_FLASH_CTL) &amp; 0x00001000;
+            __errorcontrol = 0;
+          </block>
+          <control if="v == 0">
+            <block>
+              Message(0, "** Flash Bank Mode : Single bank mode");
+            </block>
+          </control>
+          <control if="v != 0">
+            <block>
+              Message(0, "** Flash Bank Mode : Dual bank mode");
+            </block>
+          </control>
+          <block>
+            Message(0, "****************************************************");
+          </block>
+        </sequence>
+        <sequence name="PrintDeviceInfo">
+          <block>
+            __var siId;
+            __var siFamily;
+            __var siRev;
+            __var isCorrupted = 1;
+            __var SIID_ADDR = 0x03400000;
+            __var FAMILY_ADDR = 0x03400004;
+            // Get Si Id, Rev
+            __apid = 0;
+            WriteAP(0xD00, 0xAB000002);
+            __var v = Read32(SIID_ADDR);
+            siId = (v &amp; 0xFFFF0000) &gt;&gt; 16;
+            siRev = (v &amp; 0x0000FF00) &gt;&gt; 8;
+            // Get Si Family
+            v = Read32(FAMILY_ADDR);
+            siFamily = v &amp; 0x0000FFFF;
+            Message(0, "****************************************************");
+            Message(0, "** Silicon: 0x%04X, Family: 0x%03X, Rev.: 0x%02X", siId, siFamily, siRev);
+            // ROM BOOT
+            __var ROM_BOOT_VERSION_ADDR = 0x1080FFF8;
+            __var ROM_BOOT_BUILD_ADDR   = 0x1080FFFC;
+            __var bootVerMajor;
+            __var bootVerMinor;
+            __var bootVerPatch;
+            __var bootVerBuild;
+            v = Read32(ROM_BOOT_VERSION_ADDR);
+            bootVerMajor = (v &amp; 0x00FF0000) &gt;&gt; 16;
+            bootVerMinor = (v &amp; 0x0000FF00) &gt;&gt; 8;
+            bootVerPatch = v &amp; 0x000000FF;
+            bootVerBuild = Read32(ROM_BOOT_BUILD_ADDR);
+            Message(0, "** ROM Boot version: %u.%u.%u.%u", bootVerMajor, bootVerMinor, bootVerPatch, bootVerBuild);
+            // FLASH BOOT
+            __var FB_VER_HI_ADDR = 0x13401404;
+            __var FB_VER_LO_ADDR = 0x13401408;
+            v = Read32(FB_VER_HI_ADDR);
+            bootVerMajor = (v &amp; 0x00FF0000) &gt;&gt; 16;
+            bootVerMinor = (v &amp; 0x0000FF00) &gt;&gt; 8;
+            bootVerPatch = v &amp; 0x000000FF;
+            bootVerBuild = Read32(FB_VER_LO_ADDR);
+            Message(0, "** Flash Boot version: %u.%u.%u.%u", bootVerMajor, bootVerMinor, bootVerPatch, bootVerBuild);
+          </block>
+        </sequence>
+        <!-- HW Reset causes a reboot of the device which also resets debug.
+             - Using this as a prereset is OK to potentially wake up the system from DeepSleep.
+             - Using this in the middle of the debug session will break the connection unless recovery
+               from a connection loss is supported by the debug IDE.
+        -->
+        <sequence name="ResetHardware">
+          <block>
+            __var nReset      = 0x80;
+            __var canReadPins = 0;
+            // Capture VC_CORERESET bit of DEMCR register
+            __var VC_CORERESET = (Read32(0xE000EDFC) &amp; 1);
+            // Deassert nRESET line
+            canReadPins = (DAP_SWJ_Pins(0x00, nReset, 0) != 0xFFFFFFFF);
+          </block>
+          <!-- Keep reset active for 50 ms -->
+          <control while="1" timeout="50000" />
+          <control if="canReadPins">
+            <!-- Assert nRESET line and wait max. 1s for recovery -->
+            <control while="(DAP_SWJ_Pins(nReset, nReset, 0) &amp; nReset) == 0" timeout="1000000" />
+          </control>
+          <control if="!canReadPins">
+            <block>
+              // Assert nRESET line
+              DAP_SWJ_Pins(nReset, nReset, 0);
+            </block>
+            <!-- Wait 100ms for recovery if nRESET not readable -->
+            <control while="1" timeout="100000" />
+          </control>
+          <block>
+            DAP_Delay(__Reset_Finish_Delay); // Wait for bootloader allows access to device
+            sequence("DAP_Handshake");
+            sequence("DebugPortStart");
+            sequence("DebugDeviceUnlock");
+            __var DHCSR_Addr   = 0xE000EDF0;
+            __var DHCSR = Read32(DHCSR_Addr);
+          </block>
+          <!-- Reset Recovery: Wait for DHCSR.S_RESET_ST bit to clear on read -->
+          <control while="(DHCSR &amp; 0x02000000)" timeout="500000">
+            <block>
+              DHCSR = Read32(DHCSR_Addr);
+            </block>
+          </control>
+          <!-- Check against C_DEBUGEN -->
+          <control if="(DHCSR &amp; 0x00000001) != 0x00000001">
+            <block>
+              // Enables debug.
+              Write32(DHCSR_Addr, 0xA05F0001);
+              DHCSR = Read32(DHCSR_Addr);
+            </block>
+          </control>
+          <!-- Check against S_SLEEP and !S_HALT -->
+          <control if="(DHCSR &amp; 0x00060000) != 0x00020000">
+            <block>
+              // Core is sleeping (WFI, WFE or SLEEP-ON-EXIT) or just not halted. Must use C_HALT to gain control.
+              Write32(DHCSR_Addr, 0xA05F0003);
+            </block>
+          </control>
+          <!-- Check against halt was requested by VC_CORERESET bit -->
+          <control if="VC_CORERESET == 0">
+            <block>
+              // Clear C_HALT if halt isn't requested.
+              Write32(DHCSR_Addr, 0xA05F0001);
+            </block>
+          </control>
+        </sequence>
+        <!-- SYSRESETREQ via AIRCR does not work on this device, use software reset via SRSS CTL -->
+        <sequence name="ResetSystem">
+          <block>
+            // System Control Space (SCS) offset as defined in Armv6-M/Armv7-M.
+            __var DHCSR_Addr = 0xE000EDF0;
+            __var DSCSR_ADDR = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var DSCSR = Read32(DSCSR_ADDR);
+            __var SRSS_RES_SOFT_CTL_Addr      = (DSCSR &amp; 0x00010000) != 0 ? 0x52200410 : 0x42200410;
+            __var SRSS_RES_SOFT_CTL_TRIG_SOFT = 0x00000001;
+            // Execute software reset via SRSS CTL
+            __errorcontrol = 1;
+            Write32(SRSS_RES_SOFT_CTL_Addr, SRSS_RES_SOFT_CTL_TRIG_SOFT);
+            __errorcontrol = 0;
+            DAP_Delay(__Reset_Finish_Delay); // Wait for bootloader allows access to device
+            sequence("DebugDeviceUnlock");
+          </block>
+          <!-- Reset Recovery: Wait for DHCSR.S_RESET_ST bit to clear on read -->
+          <control while="(Read32(DHCSR_Addr) &amp; 0x02000000)" timeout="500000" />
+        </sequence>
+        <sequence name="DebugCoreStart">
+          <block>
+            // System Control Space (SCS) offset as defined in Armv6-M/Armv7-M.
+            __var DHCSR_Addr = 0xE000EDF0;
+            // Enable Core Debug via DHCSR
+            __var v = Read32(DHCSR_Addr) &amp; 0x0000FFFF;
+            Write32(DHCSR_Addr, 0xA05F0001 | v);
+          </block>
+          <!-- Enable clock to trace resources for any requested trace (SWO/ETM/ETB/MTB) during Debug session. -->
+          <control if="((__TPIU_clocksetup != 0) &amp;&amp; (__connection &amp; 0x00000001) != 0) &amp;&amp; ((__traceout &amp; 0x00000007) != 0)">
+            <block>
+              Sequence("SetupTraceClock");
+            </block>
+          </control>
+        </sequence>
+        <sequence name="SetupTraceClock">
+          <block>
+            Message(0, "Setup trace clock");
+            // DISABLE 24.5 DIV in PERI_DIV_CMD:
+            __var ClockDivCmd = PERI_PCLK_GR_DIV_CMD_DISABLE_Msk | ((PERI_PCLK_DIV_TYPE &lt;&lt; PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Pos) &amp; PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Msk) | (PERI_PCLK_DIV_NUM &amp; PERI_PCLK_GR_DIV_CMD_DIV_SEL_Msk);
+            Write32(PERI_PCLK_GROUP0_DIV_CMD, ClockDivCmd);
+            // Set 24.5 DIV = ClockDivVal
+            __var ClockDivVal = (__TPIU_clockdivval &lt;&lt; 8); // Set only int value
+            Write32(PERI_PCLK_GROUP0_DIV_24_5_CTL + (PERI_PCLK_DIV_NUM * 4), ClockDivVal);
+            // ENABLE 24.5 DIV
+            ClockDivCmd = PERI_PCLK_GR_DIV_CMD_ENABLE_Msk | PERI_PCLK_GR_DIV_CMD_PA_TYPE_SEL_Msk | PERI_PCLK_GR_DIV_CMD_PA_DIV_SEL_Msk | ((PERI_PCLK_DIV_TYPE &lt;&lt; PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Pos) &amp; PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Msk) | (PERI_PCLK_DIV_NUM &amp; PERI_PCLK_GR_DIV_CMD_DIV_SEL_Msk);
+            Write32(PERI_PCLK_GROUP0_DIV_CMD, ClockDivCmd);
+            // Use selected divider (24.5) for cpuss.clock_trace_in
+            Write32(PERI_PCLK_GROUP0_CLOCK_CTL + (PERI_PCLK_DIV_NUM * 4), ((PERI_PCLK_DIV_TYPE &lt;&lt; PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Pos) &amp; PERI_PCLK_GR_DIV_CMD_TYPE_SEL_Msk) | (PERI_PCLK_DIV_NUM &amp; PERI_PCLK_GR_DIV_CMD_DIV_SEL_Msk));
+          </block>
+        </sequence>
+        <!-- Configure pins trace pins if Parallel Trace Port enabled -->
+        <sequence name="TraceStart">
+          <block>
+            Sequence("SetupTraceClock");
+            __var CSTFCTL_Addr = 0xE0088000;
+            __var CSTFCTL_Mask = 0x00000050; // Enable slave ports #4 and #6 mask for M33 core
+            __var reg;
+            // Configure Coresight TF(Trace Funnel)
+            reg = Read32(CSTFCTL_Addr);
+            reg |= CSTFCTL_Mask;
+            Write32(CSTFCTL_Addr, reg);
+          </block>
+          <control if="(__traceout &amp; 0x00000002) != 0" info="Parallel Trace Port enabled">
+            <block>
+              __var tpWidth = (__traceout &amp; 0x003F0000) &gt;&gt; 16;
+            </block>
+            <control if="__TPIU_pinlocation == 1" info="KIT_PSC3M5_EVK">
+              <block>
+                sequence("SetupTracePin_P7_4");
+                sequence("SetupTracePin_P8_0");
+              </block>
+              <control if="tpWidth &gt; 1">
+                <block>
+                  sequence("SetupTracePin_P8_1");
+                </block>
+              </control>
+              <control if="tpWidth &gt; 2">
+                <block>
+                  sequence("SetupTracePin_P8_2");
+                  sequence("SetupTracePin_P8_3");
+                </block>
+              </control>
+            </control>
+            <control if="__TPIU_pinlocation == 2" info="KIT_PSC3M5_CC2 Option #1">
+              <block>
+                sequence("SetupTracePin_P7_4");
+                sequence("SetupTracePin_P7_0");
+              </block>
+              <control if="tpWidth &gt; 1">
+                <block>
+                  sequence("SetupTracePin_P7_1");
+                </block>
+              </control>
+              <control if="tpWidth &gt; 2">
+                <block>
+                  sequence("SetupTracePin_P7_2");
+                  sequence("SetupTracePin_P7_3");
+                </block>
+              </control>
+            </control>
+            <control if="__TPIU_pinlocation == 3" info="KIT_PSC3M5_CC2 Option #2">
+              <block>
+                sequence("SetupTracePin_P9_2");
+                sequence("SetupTracePin_P7_0");
+              </block>
+              <control if="tpWidth &gt; 1">
+                <block>
+                  sequence("SetupTracePin_P7_1");
+                </block>
+              </control>
+              <control if="tpWidth &gt; 2">
+                <block>
+                  sequence("SetupTracePin_P7_2");
+                  sequence("SetupTracePin_P7_3");
+                </block>
+              </control>
+            </control>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P7_4 as TRACECLK  -->
+        <sequence name="SetupTracePin_P7_4">
+          <block>
+            __var portNum = 7;   // Port number
+            __var pinNum = 4;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACECLK to P7_4");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P7_0 as TRACEDATA[0]  -->
+        <sequence name="SetupTracePin_P7_0">
+          <block>
+            __var portNum = 7;   // Port number
+            __var pinNum = 0;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[0] to P7_0");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P7_1 as TRACEDATA[1]  -->
+        <sequence name="SetupTracePin_P7_1">
+          <block>
+            __var portNum = 7;   // Port number
+            __var pinNum = 1;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[1] to P7_1");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P7_2 as TRACEDATA[2]  -->
+        <sequence name="SetupTracePin_P7_2">
+          <block>
+            __var portNum = 7;   // Port number
+            __var pinNum = 2;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[2] to P7_2");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P7_3 as TRACEDATA[3]  -->
+        <sequence name="SetupTracePin_P7_3">
+          <block>
+            __var portNum = 7;   // Port number
+            __var pinNum = 3;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[3] to P7_3");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P9_2 as TRACECLK  -->
+        <sequence name="SetupTracePin_P9_2">
+          <block>
+            __var portNum = 9;   // Port number
+            __var pinNum = 2;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACECLK to P9_2");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P8_0 as TRACEDATA[0]  -->
+        <sequence name="SetupTracePin_P8_0">
+          <block>
+            __var portNum = 8;   // Port number
+            __var pinNum = 0;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[0] to P8_0");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P8_1 as TRACEDATA[1]  -->
+        <sequence name="SetupTracePin_P8_1">
+          <block>
+            __var portNum = 8;   // Port number
+            __var pinNum = 1;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[1] to P8_1");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P8_2 as TRACEDATA[2]  -->
+        <sequence name="SetupTracePin_P8_2">
+          <block>
+            __var portNum = 8;   // Port number
+            __var pinNum = 2;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[2] to P8_2");
+            </block>
+          </control>
+        </sequence>
+        <!-- Setup Trace Pin P8_3 as TRACEDATA[3]  -->
+        <sequence name="SetupTracePin_P8_3">
+          <block>
+            __var portNum = 8;   // Port number
+            __var pinNum = 3;    // Pin number
+            __var ioSelVal = 21; // IO[pin]_SEL field value (connection) for HSIOM_PRT[port]_PORT_SEL register. Connection route for debug600 signals
+            __var regOld;        // Old register value
+            __var regNew;        // New register value
+            __var driveMode = 0x06; // Constants to be used for setting the drive mode of the pin:
+                                    // 0x00 - Analog High-Z. Input buffer off
+                                    // 0x02 - Resistive Pull-Up. Input buffer off
+                                    // 0x03 - Resistive Pull-Down. Input buffer off
+                                    // 0x04 - Open Drain, Drives Low. Input buffer off
+                                    // 0x05 - Open Drain, Drives High. Input buffer off
+                                    // 0x06 - Strong Drive. Input buffer off
+                                    // 0x07 - Resistive Pull-Up/Down. Input buffer off
+                                    // 0x08 - Digital High-Z. Input buffer on
+                                    // 0x0A - Resistive Pull-Up. Input buffer on
+                                    // 0x0B - Resistive Pull-Down. Input buffer on
+                                    // 0x0C - Open Drain, Drives Low. Input buffer on
+                                    // 0x0D - Open Drain, Drives High. Input buffer on
+                                    // 0x0E - Strong Drive. Input buffer on
+                                    // 0x0F - Resistive Pull-Up/Down. Input buffer on
+            __var slewRate = 0x00;  // Constants to be used for setting the slew rate of the pin:
+                                    // 0x00 - Fast slew rate
+                                    // 0x01 - Slow slew rate
+            __var driveSel = 0x02;  // Constants to be used for setting the drive strength of the pin:
+                                    // 0x00 - Full drive strength: Max drive current
+                                    // 0x01 - 1/2 drive strength: 1/2 drive current
+                                    // 0x02 - 1/4 drive strength: 1/4 drive current
+                                    // 0x03 - 1/8 drive strength: 1/8 drive current
+            __var confChanged = 0; // Pin's configuration change flag
+            __var addr = 0xE000EE08; // DCB.DSCSR: Debug Security Control and Status Register
+            __var domainSecure = Read32(addr) &amp; 0x00010000;
+            __var v = (domainSecure != 0) ? 0 : 1 ; // 0 - Secure transaction, 1 - Non-Secure transaction
+            addr = HSIOM_SECURE_BASE + (HSIOM_SECURE_PRT_SECTION_SIZE * portNum) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            __var pos = pinNum;
+            __var mask = GPIO_HSIOM_SEC_MASK &lt;&lt; pinNum;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = driveMode;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_CFG_OUT3_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET;
+            mask = GPIO_CFG_DM_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_DRIVE_MODE_OFFSET);
+            v = 0;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = HSIOM_BASE + (HSIOM_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? 0 : HSIOM_PRT_PORT_SEL1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET;
+            mask = GPIO_HSIOM_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_HSIOM_OFFSET);
+            v = ioSelVal;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + GPIO_PRT_SLEW_EXT_OFFSET + ((domainSecure != 0) ? 0x10000000 : 0);
+            regOld = Read32(addr);
+            pos = pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET;
+            mask = GPIO_CFG_SLEW_EXT_MASK &lt;&lt; (pinNum &lt;&lt; GPIO_CFG_SLEW_EXT_OFFSET);
+            v = slewRate;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <block>
+            addr = GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum) + ((pinNum &lt; GPIO_PRT_HALF) ? GPIO_PRT_DRIVE_EXT0_OFFSET : GPIO_PRT_DRIVE_EXT1_OFFSET) + ((domainSecure != 0) ? 0x10000000 : 0);
+            pos = ((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET;
+            mask = GPIO_CFG_DRIVE_SEL_EXT_MASK &lt;&lt; (((pinNum &lt; GPIO_PRT_HALF) ? pinNum : pinNum - GPIO_PRT_HALF) &lt;&lt; GPIO_CFG_DRIVE_SEL_EXT_OFFSET);
+            v = driveSel;
+            regNew = (regOld &amp; (~(mask))) | ((v &lt;&lt; pos) &amp; mask);
+          </block>
+          <control if="regOld |= regNew">
+            <block>
+              Write32(addr, regNew);
+              confChanged = 1;
+            </block>
+          </control>
+          <control if="confChanged |= 0">
+            <block>
+              Message(0, "Set TRACEDATA[3] to P8_3");
+            </block>
+          </control>
+        </sequence>
+      </sequences>
+      <!-- PSC3M3Ex, 128K of Main Flash -->
+      <subFamily DsubFamily="PSC3M3Ex">
+        <processor Pname="Cortex-M33" Dclock="100000000" />
+        <debugconfig clock="1000000" dormant="1" />
+        <memory name="IROM1" access="rxn" start="0x22000000" size="0x20000" default="1" />
+        <memory name="IROM2" access="rxs" start="0x32000000" size="0x20000" default="1" alias="IROM1" startup="1" />
+        <memory name="IROM3" access="rxn" start="0x22800000" size="0x10000" default="0" />
+        <memory name="IROM4" access="rxs" start="0x32800000" size="0x10000" default="0" alias="IROM3" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE.FLM" start="0x22000000" size="0x20000" RAMstart="0x34000000" RAMsize="0x3000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE_S.FLM" start="0x32000000" size="0x20000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE.FLM" start="0x22800000" size="0x10000" default="0" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE_S.FLM" start="0x32800000" size="0x10000" default="0" style="Keil" />
+        <device Dname="PSC3M3EDABQ1">
+          <compile define="PSC3M3EDABQ1" />
+        </device>
+        <device Dname="PSC3M3EDACQ1">
+          <compile define="PSC3M3EDACQ1" />
+        </device>
+        <device Dname="PSC3M3EDLGQ1">
+          <compile define="PSC3M3EDLGQ1" />
+        </device>
+        <device Dname="PSC3M3EDLHQ1">
+          <compile define="PSC3M3EDLHQ1" />
+        </device>
+      </subFamily>
+      <!-- PSC3P2Ex, 128K of Main Flash -->
+      <subFamily DsubFamily="PSC3P2Ex">
+        <processor Pname="Cortex-M33" Dclock="100000000" />
+        <debugconfig clock="1000000" dormant="1" />
+        <memory name="IROM1" access="rxn" start="0x22000000" size="0x20000" default="1" />
+        <memory name="IROM2" access="rxs" start="0x32000000" size="0x20000" default="1" alias="IROM1" startup="1" />
+        <memory name="IROM3" access="rxn" start="0x22800000" size="0x10000" default="0" />
+        <memory name="IROM4" access="rxs" start="0x32800000" size="0x10000" default="0" alias="IROM3" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE.FLM" start="0x22000000" size="0x20000" RAMstart="0x34000000" RAMsize="0x3000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE_S.FLM" start="0x32000000" size="0x20000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE.FLM" start="0x22800000" size="0x10000" default="0" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE_S.FLM" start="0x32800000" size="0x10000" default="0" style="Keil" />
+        <device Dname="PSC3P2EDABQ1">
+          <compile define="PSC3P2EDABQ1" />
+        </device>
+        <device Dname="PSC3P2EDACQ1">
+          <compile define="PSC3P2EDACQ1" />
+        </device>
+        <device Dname="PSC3P2EDLGQ1">
+          <compile define="PSC3P2EDLGQ1" />
+        </device>
+        <device Dname="PSC3P2EDLHQ1">
+          <compile define="PSC3P2EDLHQ1" />
+        </device>
+      </subFamily>
+      <!-- PSC3x5Ex, 128K of Main Flash -->
+      <subFamily DsubFamily="PSC3x5Ex">
+        <processor Pname="Cortex-M33" Dclock="180000000" />
+        <debugconfig clock="1000000" dormant="1" />
+        <memory name="IROM1" access="rxn" start="0x22000000" size="0x20000" default="1" />
+        <memory name="IROM2" access="rxs" start="0x32000000" size="0x20000" default="1" alias="IROM1" startup="1" />
+        <memory name="IROM3" access="rxn" start="0x22800000" size="0x10000" default="0" />
+        <memory name="IROM4" access="rxs" start="0x32800000" size="0x10000" default="0" alias="IROM3" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE.FLM" start="0x22000000" size="0x20000" RAMstart="0x34000000" RAMsize="0x3000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE_S.FLM" start="0x32000000" size="0x20000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE.FLM" start="0x22800000" size="0x10000" default="0" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxE_S.FLM" start="0x32800000" size="0x10000" default="0" style="Keil" />
+        <device Dname="PSC3M5EDABQ1">
+          <compile define="PSC3M5EDABQ1" />
+        </device>
+        <device Dname="PSC3M5EDACQ1">
+          <compile define="PSC3M5EDACQ1" />
+        </device>
+        <device Dname="PSC3M5EDAFQ1">
+          <compile define="PSC3M5EDAFQ1" />
+        </device>
+        <device Dname="PSC3M5EDLGQ1">
+          <compile define="PSC3M5EDLGQ1" />
+        </device>
+        <device Dname="PSC3M5EDLHQ1">
+          <compile define="PSC3M5EDLHQ1" />
+        </device>
+        <device Dname="PSC3P5EDABQ1">
+          <compile define="PSC3P5EDABQ1" />
+        </device>
+        <device Dname="PSC3P5EDACQ1">
+          <compile define="PSC3P5EDACQ1" />
+        </device>
+        <device Dname="PSC3P5EDLGQ1">
+          <compile define="PSC3P5EDLGQ1" />
+        </device>
+        <device Dname="PSC3P5EDLHQ1">
+          <compile define="PSC3P5EDLHQ1" />
+        </device>
+      </subFamily>
+      <!-- PSC3M3Fx, 256K of Main Flash -->
+      <subFamily DsubFamily="PSC3M3Fx">
+        <processor Pname="Cortex-M33" Dclock="100000000" />
+        <debugconfig clock="1000000" dormant="1" />
+        <memory name="IROM1" access="rxn" start="0x22000000" size="0x40000" default="1" />
+        <memory name="IROM2" access="rxs" start="0x32000000" size="0x40000" default="1" alias="IROM1" startup="1" />
+        <memory name="IROM3" access="rxn" start="0x22800000" size="0x20000" default="0" />
+        <memory name="IROM4" access="rxs" start="0x32800000" size="0x20000" default="0" alias="IROM3" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF.FLM" start="0x22000000" size="0x40000" RAMstart="0x34000000" RAMsize="0x3000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF_S.FLM" start="0x32000000" size="0x40000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF.FLM" start="0x22800000" size="0x20000" default="0" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF_S.FLM" start="0x32800000" size="0x20000" default="0" style="Keil" />
+        <device Dname="PSC3M3FDS2ABQ1">
+          <compile define="PSC3M3FDS2ABQ1" />
+        </device>
+        <device Dname="PSC3M3FDS2ACQ1">
+          <compile define="PSC3M3FDS2ACQ1" />
+        </device>
+        <device Dname="PSC3M3FDS2LGQ1">
+          <compile define="PSC3M3FDS2LGQ1" />
+        </device>
+        <device Dname="PSC3M3FDS2LHQ1">
+          <compile define="PSC3M3FDS2LHQ1" />
+        </device>
+      </subFamily>
+      <!-- PSC3P2Fx, 256K of Main Flash -->
+      <subFamily DsubFamily="PSC3P2Fx">
+        <processor Pname="Cortex-M33" Dclock="100000000" />
+        <debugconfig clock="1000000" dormant="1" />
+        <memory name="IROM1" access="rxn" start="0x22000000" size="0x40000" default="1" />
+        <memory name="IROM2" access="rxs" start="0x32000000" size="0x40000" default="1" alias="IROM1" startup="1" />
+        <memory name="IROM3" access="rxn" start="0x22800000" size="0x20000" default="0" />
+        <memory name="IROM4" access="rxs" start="0x32800000" size="0x20000" default="0" alias="IROM3" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF.FLM" start="0x22000000" size="0x40000" RAMstart="0x34000000" RAMsize="0x3000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF_S.FLM" start="0x32000000" size="0x40000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF.FLM" start="0x22800000" size="0x20000" default="0" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF_S.FLM" start="0x32800000" size="0x20000" default="0" style="Keil" />
+        <device Dname="PSC3P2FDS2ABQ1">
+          <compile define="PSC3P2FDS2ABQ1" />
+        </device>
+        <device Dname="PSC3P2FDS2ACQ1">
+          <compile define="PSC3P2FDS2ACQ1" />
+        </device>
+        <device Dname="PSC3P2FDS2LGQ1">
+          <compile define="PSC3P2FDS2LGQ1" />
+        </device>
+        <device Dname="PSC3P2FDS2LHQ1">
+          <compile define="PSC3P2FDS2LHQ1" />
+        </device>
+      </subFamily>
+      <!-- PSC3x5Fx, 256K of Main Flash -->
+      <subFamily DsubFamily="PSC3x5Fx">
+        <processor Pname="Cortex-M33" Dclock="180000000" />
+        <debugconfig clock="1000000" dormant="1" />
+        <memory name="IROM1" access="rxn" start="0x22000000" size="0x40000" default="1" />
+        <memory name="IROM2" access="rxs" start="0x32000000" size="0x40000" default="1" alias="IROM1" startup="1" />
+        <memory name="IROM3" access="rxn" start="0x22800000" size="0x20000" default="0" />
+        <memory name="IROM4" access="rxs" start="0x32800000" size="0x20000" default="0" alias="IROM3" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF.FLM" start="0x22000000" size="0x40000" RAMstart="0x34000000" RAMsize="0x3000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF_S.FLM" start="0x32000000" size="0x40000" default="1" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF.FLM" start="0x22800000" size="0x20000" default="0" style="Keil" />
+        <algorithm Pname="Cortex-M33" name="Flash/PSC3xxF_S.FLM" start="0x32800000" size="0x20000" default="0" style="Keil" />
+        <device Dname="PSC3M5FDS2ABQ1">
+          <compile define="PSC3M5FDS2ABQ1" />
+        </device>
+        <device Dname="PSC3M5FDS2ACQ1">
+          <compile define="PSC3M5FDS2ACQ1" />
+        </device>
+        <device Dname="PSC3M5FDS2AFQ1">
+          <compile define="PSC3M5FDS2AFQ1" />
+        </device>
+        <device Dname="PSC3M5FDS2LGQ1">
+          <compile define="PSC3M5FDS2LGQ1" />
+        </device>
+        <device Dname="PSC3M5FDS2LHQ1">
+          <compile define="PSC3M5FDS2LHQ1" />
+        </device>
+        <device Dname="PSC3P5FDS2ABQ1">
+          <compile define="PSC3P5FDS2ABQ1" />
+        </device>
+        <device Dname="PSC3P5FDS2ACQ1">
+          <compile define="PSC3P5FDS2ACQ1" />
+        </device>
+        <device Dname="PSC3P5FDS2LGQ1">
+          <compile define="PSC3P5FDS2LGQ1" />
+        </device>
+        <device Dname="PSC3P5FDS2LHQ1">
+          <compile define="PSC3P5FDS2LHQ1" />
+        </device>
+      </subFamily>
+    </family>
+  </devices>
+  <conditions>
+    <condition id="PSC3">
+      <description>PSC3 devices</description>
+      <accept condition="PSC3xxE" />
+      <accept condition="PSC3xxF" />
+      <require Cclass="Device" Cgroup="Startup" />
+    </condition>
+    <condition id="PSC3xxE">
+      <description>PSC3xxE devices</description>
+      <accept Dvendor="Infineon:7" Dname="PSC3M3EDABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M3EDACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M3EDLGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M3EDLHQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5EDABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5EDACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5EDAFQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5EDLGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5EDLHQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2EDABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2EDACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2EDLGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2EDLHQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5EDABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5EDACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5EDLGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5EDLHQ1" />
+    </condition>
+    <condition id="PSC3xxF">
+      <description>PSC3xxF devices</description>
+      <accept Dvendor="Infineon:7" Dname="PSC3M3FDS2ABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M3FDS2ACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M3FDS2LGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M3FDS2LHQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5FDS2ABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5FDS2ACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5FDS2AFQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5FDS2LGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3M5FDS2LHQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2FDS2ABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2FDS2ACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2FDS2LGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P2FDS2LHQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5FDS2ABQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5FDS2ACQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5FDS2LGQ1" />
+      <accept Dvendor="Infineon:7" Dname="PSC3P5FDS2LHQ1" />
+    </condition>
+  </conditions>
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="PSC3">
+      <!-- This is a dummy startup implementation that emits a compiler error once
+           this software component is enabled in the CMSIS RTE project configuration.
+           It exists to silence PackChk WARNING M350: No 'Startup' component found.
+           Refer to README.txt in the pack root directory for the guidance on the
+           intended use of this CSMIS pack. -->
+      <description>Dummy startup component, do not use</description>
+      <files>
+        <file category="doc" name="README.txt" />
+        <file category="source" name="Device/Source/startup_error.c" version="1.0.0" />
+      </files>
+    </component>
+  </components>
+</package>

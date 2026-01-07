@@ -1,0 +1,20 @@
+The Blinky project is a simple program for the 'TMS470R1A256'
+using the Texas Instruments 'TMS470R1A256' Evaluation Board.
+
+Example functionality:                                                   
+ - 2 LEDs blink (one chases the other)
+
+The Blinky program is available in:
+  TMS470R1A256: configured for on-chip Flash ROM using 
+                RT Agent for debugging 
+                (used for target debugging)
+
+IMPORTANT !!!
+- R4 resistor (under the ARM-JTAG connector) has to be removed
+  (unsoldered) to enable ULINK support, not necessary for ULINK2
+- Jumpers on board TMS470R1A256 have to be set as follows:
+  J_1.8V ON, J_3.3V ON, EN_L (1-2), AWD ON, TEST OFF, PLLDIS OFF
+- When developing application never change protection keys
+- NEVER USE 0x00000000 VALUES FOR MEMORY PROTECTION KEYS BECAUSE 
+  THE DEVICE WILL NOT BE ACCESSIBLE AFTER THAT, AND CAN NOT BE 
+  ERASED OR PROGRAMMED ANY MORE

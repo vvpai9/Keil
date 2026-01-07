@@ -1,0 +1,285 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (AT91SAM9_DF_P528_CS0), 0x0004 // Tools: 'ARM-ADS'
+Target (AT91SAM9_DF_P1056_CS0), 0x0004 // Tools: 'ARM-ADS'
+Target (AT91SAM9_DF_P1056_CS1), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Program Functions)
+Group (Device Description)
+
+File 1,1,<.\FlashPrg.c><FlashPrg.c>
+File 1,1,<.\DFlashHW.c><DFlashHW.c>
+File 2,1,<.\FlashDev.c><FlashDev.c>
+
+
+Options 1,0,0  // Target 'AT91SAM9_DF_P528_CS0'
+ Device (AT91SAM9260)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x200FFF) IRAM2(0x300000-0x300FFF) IROM(0x100000-0x107FFF) CLOCK(18432000) CPUTYPE(ARM926EJ-S))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\SAM9260.s" ("Atmel AT91SAM9260 Startup Code"))
+ FlashDR ()
+ DevID (4210)
+ Rgf (AT91SAM9260.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM9260\)
+ OrgReg (ÿAtmel\SAM9260\)
+ TgStat=16
+ OutDir (.\Out\)
+ OutName (AT91SAM9_DF_P528_CS0)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Out\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Out\AT91SAM9_DF_P528_CS0.axf ..\AT91SAM9_DF_P528_CS0.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,12,16,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,32,0,0,16,0,0 }
+ OCMADSIROM { 1,0,0,16,0,0,128,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,48,0,0,14,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,48,0,0,2,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 4,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 61)
+ ADSCDEFN (P528_CS0)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9260)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9260)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'AT91SAM9_DF_P1056_CS0'
+ Device (AT91SAM9260)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x200FFF) IRAM2(0x300000-0x300FFF) IROM(0x100000-0x107FFF) CLOCK(18432000) CPUTYPE(ARM926EJ-S))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\SAM9260.s" ("Atmel AT91SAM9260 Startup Code"))
+ FlashDR ()
+ DevID (4210)
+ Rgf (AT91SAM9260.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM9260\)
+ OrgReg (ÿAtmel\SAM9260\)
+ TgStat=16
+ OutDir (.\Out\)
+ OutName (AT91SAM9_DF_P1056_CS0)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Out\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Out\AT91SAM9_DF_P1056_CS0.axf ..\AT91SAM9_DF_P1056_CS0.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,12,16,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,32,0,0,16,0,0 }
+ OCMADSIROM { 1,0,0,16,0,0,128,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,48,0,0,14,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,48,0,0,2,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 4,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 61)
+ ADSCDEFN (P1056_CS0)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9260)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9260)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'AT91SAM9_DF_P1056_CS1'
+ Device (AT91SAM9260)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x200FFF) IRAM2(0x300000-0x300FFF) IROM(0x100000-0x107FFF) CLOCK(18432000) CPUTYPE(ARM926EJ-S))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\SAM9260.s" ("Atmel AT91SAM9260 Startup Code"))
+ FlashDR ()
+ DevID (4210)
+ Rgf (AT91SAM9260.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM9260\)
+ OrgReg (ÿAtmel\SAM9260\)
+ TgStat=16
+ OutDir (.\Out\)
+ OutName (AT91SAM9_DF_P1056_CS1)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Out\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Out\AT91SAM9_DF_P1056_CS1.axf ..\AT91SAM9_DF_P1056_CS1.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,12,16,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,32,0,0,16,0,0 }
+ OCMADSIROM { 1,0,0,16,0,0,128,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,48,0,0,14,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,48,0,0,2,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 4,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 61)
+ ADSCDEFN (P1056_CS1)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9260)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9260)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

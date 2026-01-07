@@ -1,0 +1,30 @@
+The RTX_Traffic project is a simple RTX Kernel based example
+for Atmel AT91SAM3U microcontroller using Atmel ATSAM3U-EK 
+evaluation board and is compliant to Cortex Microcontroller 
+Software Interface Standard (CMSIS v1.20).
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                  =  12 MHz
+   - PLLA                  = 168 MHz
+   - Main Clock = PLLA / 2 =  84 MHz
+
+Traffic is a program that controls a traffic light.
+
+The traffic light is timed and lets cars pass during a
+specific time period.  There is a pedestrial crossing button (USR-LEFT)
+that lets pedestrians cross.  
+
+There are several things of interest here:
+
+*  This program uses RTX Kernel. Program initialization
+   and operation code are in Traffic. Look for the
+   init task to see where everything starts.
+
+*  COM1 port settings: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+
+The Traffic program is available in different targets:
+  Simulator:    - configured for software Simulator
+  ATSAM3U-EK:   - runs from Internal Flash located on chip
+                 (used for production or target debugging)

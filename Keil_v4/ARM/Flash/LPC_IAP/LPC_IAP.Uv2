@@ -1,0 +1,739 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (LPC1300_IAP_8), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC1300_IAP_16), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC1300_IAP_32), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC1700_IAP_32), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC1700_IAP_64), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC1700_IAP_128), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC1700_IAP_256), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC1700_IAP_512), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Program Functions)
+Group (Device Description)
+
+File 1,1,<.\FlashPrg.c><FlashPrg.c>
+File 2,1,<.\FlashDev.c><FlashDev.c>
+
+
+Options 1,0,0  // Target 'LPC1300_IAP_8'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC13xx_8)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC13xx_8.axf ..\LPC13xx_8.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1300 FLASH_8)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'LPC1300_IAP_16'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC13xx_16)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC13xx_16.axf ..\LPC13xx_16.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1300 FLASH_16)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'LPC1300_IAP_32'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC13xx_32)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC13xx_32.axf ..\LPC13xx_32.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1300 FLASH_32)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 4,0,0  // Target 'LPC1700_IAP_32'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC_IAP_32)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC_IAP_32.axf ..\LPC_IAP_32.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1700 FLASH_32)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 5,0,0  // Target 'LPC1700_IAP_64'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC_IAP_64)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC_IAP_64.axf ..\LPC_IAP_64.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1700 FLASH_64)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 6,0,0  // Target 'LPC1700_IAP_128'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC_IAP_128)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC_IAP_128.axf ..\LPC_IAP_128.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1700 FLASH_128)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 7,0,0  // Target 'LPC1700_IAP_256'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC_IAP_256)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC_IAP_256.axf ..\LPC_IAP_256.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1700 FLASH_256)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 8,0,0  // Target 'LPC1700_IAP_512'
+ Device (LPC1766)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x10000000-0x10007FFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC17xx.s" ("NXP LPC17xx Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4629)
+ Rgf (LPC17xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\)
+ OutName (LPC_IAP_512)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy LPC_IAP_512.axf ..\LPC_IAP_512.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,80,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,32,0,128,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (LPC1700 FLASH_512)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)(-MPU)(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

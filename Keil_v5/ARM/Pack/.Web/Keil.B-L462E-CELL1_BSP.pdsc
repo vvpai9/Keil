@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>B-L462E-CELL1_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32L4 Series B-L462E-CELL1 Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/ST_B-L462E-CELL1_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.0" date="2025-08-21" tag="v1.1.0">
+      CMSIS-Driver:
+      - VIO: Corrected pin for LED2
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Updated RTE_Components.h files
+      - Added DWARF-5 debug information
+      - Added generated output files
+    </release>
+    <release version="1.0.0" date="2025-03-19" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for B-L462E-CELL1
+      Blinky example (CMSIS Solution)
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32L4</keyword>
+    <keyword>B-L462E-CELL1</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32L4xx_DFP"      version="3.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="B-L462E-CELL1">
+      <description>STMicroelectronics B-L462E-CELL1 Board</description>
+      <require Bvendor="STMicroelectronics" Bname="B-L462E-CELL1"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="B-L462E-CELL1 GPIO">
+      <description>STMicroelectronics B-L462E-CELL1 Board with CMSIS Driver GPIO</description>
+      <require condition="B-L462E-CELL1"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for B-L462E-CELL1 -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.1" Capiversion="1.0.0" condition="B-L462E-CELL1 GPIO">
+      <description>I/O implementation for B-L462E-CELL1</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_B_L462E_CELL1
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_B-L462E-CELL1.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- B-L462E-CELL1 -->
+    <board vendor="STMicroelectronics" name="B-L462E-CELL1" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Discovery development board with STM32L462REYx MCU</description>
+      <image small="Images/b-l462e-cell1_small.png"
+             large="Images/b-l462e-cell1_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/b-l462e-cell1.html" title="B-L462E-CELL1 Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/b-l462e-cell1.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2743-discovery-kit-for-lte-cat-mnbiot-with-stm32l4-series-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1508-l462re-c03_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32L462REYx"/>
+      <feature type="ODbg"          n="1"            name="On-board ST-LINK/V2-1"/>
+      <feature type="XTAL"          n="8000000"/>
+      <feature type="ROM"           n="1"            name="8-Mbit Quad-SPI Flash memory (U8)"/>
+      <feature type="MemoryOther"   n="1"            name="128-Kbit I2C EEPROM (U23)"/>
+      <feature type="PWR"           n="5"            name="USB Powered"/>
+      <feature type="PWR"           n="3" m="5"      name="External Supply"/>
+      <feature type="USB"           n="1"            name="USB device FS with Micro-AB connector (CN8)"/>
+      <feature type="GLCD"          n="1" m="128.64" name="0.96 inch color OLED screen with SPI interface (U1)"/>
+      <feature type="Button"        n="2"            name="Push-Buttons for Reset and User"/>
+      <feature type="LED"           n="7"            name="LEDs: COM, Power, User LEDs"/>
+      <feature type="LineIn"        n="1"            name="Low-power Audio CODEC with PCM bus and I2C interface (CN14)"/>
+      <feature type="LineOut"       n="1"            name="Low-power Audio CODEC with PCM bus and I2C interface (CN14)"/>
+      <feature type="Accelerometer" n="1"            name="Ultra-low-power 3D accelerometer (LSM303AGR)"/>
+      <feature type="TempSens"      n="1"            name="Capacitive digital sensor for temperature (HTS221)"/>
+      <feature type="PressSens"     n="1"            name="260-1260 hPa absolute digital output barometer (LPS22HH)"/>
+      <feature type="SensOther"     n="1"            name="Capacitive digital sensor for relative humidity (HTS221)"/>
+      <feature type="SensOther"     n="1"            name="Ultra-low-power 3D magnetometer (LSM303AGR)"/>
+      <feature type="ConnOther"     n="1"            name="SIM card slot(CN2)"/>
+      <feature type="ConnOther"     n="1"            name="SMA connector for antenna (CN1)"/>
+      <feature type="ConnOther"     n="1"            name="STMod+ expansion connector (P1)"/>
+      <feature type="ConnOther"     n="1"            name="Extension pin header for MCU (CN12)"/>
+      <feature type="ConnOther"     n="1"            name="Extension pin header for modem (CN13)"/>
+      <feature type="Batt"          n="3"            name="Battery case (BT1)"/>
+      <debugInterface adapter="JTAG/SW" connector="10-pin TAG probe TC2050-IDC-NL"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="B-L462E-CELL1" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

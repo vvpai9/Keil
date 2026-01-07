@@ -1,0 +1,32 @@
+The Blinky project is a demo program for the ML67Q4061
+using OKI ML67Q4061 Microcontroller Board.
+
+It blinks 3 LEDs and displays numbers on the 7-segment LED Display
+(0, 1, ..., A, b, C, d, E, F).
+
+The demo continues to count on the 7-segment LED Display
+in an infinite loop. Pressing the EXINT1 button on the
+board will reverse the counting direction.
+
+Boards switches and jumper setting:
+
+   RTCK        -> "ON" position
+   RS232C SEL1 -> "SIO" position
+   RS232C SEL2 -> "SIO"  position
+
+   No.| SW1 DIP Switches | Setting
+   ===============================
+    1 |   JTAGE          | ON
+    2 |   EFIQ_N         | ON
+    3 |   EXTINT         | ON
+    4 |   BOOTCLK        | OFF
+    5 |   BOOT0          | OFF
+    6 |   U0_FC          | OFF
+    7 |   OP1            | OFF
+    8 |   OP2            | OFF
+
+The Blinky program is available in different targets:
+  ML67Q4061 Int. Flash: configured for on-chip Flash ROM
+                        (used for production or target debugging)
+  ML67Q4061 Int. RAM:   configured to run from on-chip RAM
+                        (may be used for target debugging) 

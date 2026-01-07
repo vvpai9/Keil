@@ -1,0 +1,36 @@
+This example program shows how to use the RTX CAN Driver on 
+'Phytec phyCORE LPC229x Evaluation Board' with 
+'NXP LPC2294' microcontroller.
+
+Clock Settings:
+ - XTAL  =  10 MHz
+ - PLL   = 240 MHz
+ - CCLK  =  60 MHz
+
+Example functionality:
+ - send incrementing byte value in first byte in CAN message on 
+   CAN 2 controller every 1 second
+ - display lowest bit of received byte on CAN 1 controller 
+   CAN 1 controller speed: 500 kbits
+   CAN 2 controller speed: 500 kbits
+
+This example shows how to use RTX CAN Driver.
+
+The CAN_Ex1 example program is available for several targets:
+
+Simulator:         configured for software Simulator
+LPC229x Ext Flash: runs from External Flash
+                   (used for production or target debugging)
+
+Notes:      
+  - For CAN signals to be routed out to P2 DB-9 connectors 
+    jumpers have to be set as according:
+    JP31: 2-3, JP32: 2-3, JP33: 2-4, JP34: 2-3
+    (for detail on jumper settings see picture Board.png 
+     that can be found in this example root folder)
+  - CAN1 is on P2A (lower)  DB-9 connector 
+    CAN2 is on P2B (higher) DB-9 connector
+  - To see the example functionality on hardware, loopback has 
+    to be connected between CAN1 and CAN2 (pins 7 on both DB-9 
+    connectors shorted, and pins 2 on both DB-9 connectors 
+    shorted)

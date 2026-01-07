@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package schemaVersion="1.7.27"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.27/schema/PACK.xsd">
+  <vendor>Puya</vendor>
+  <url>https://www.puyasemi.com/uploadfiles/</url>
+  <name>PY32L0xx_DFP</name>
+  <description>Puya PY32L0 Series Device Support</description>
+  <releases>
+    <release version="1.0.3" date="2025-07-31">
+        Add old FLM file of all Device Family.
+    </release>
+    <release version="1.0.2" date="2025-05-27">
+        Add PY32L090xB version of PY32L090 Device Family Pack.
+    </release>
+    <release version="1.0.1" date="2025-03-25">
+        First Release version of PY32L090 Device Family Pack.
+    </release>
+    <release version="1.0.0" date="2023-04-03">
+        First Release version of PY32L0 Device Family Pack.
+    </release>
+  </releases>
+  <keywords>
+    <keyword>Puya</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>PY32L0</keyword>
+  </keywords>
+  <devices>
+    <family Dfamily="PY32L0 Series" Dvendor="Puya:176">
+      <processor Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="0" Dendian="Little-endian"/>
+      <description>
+  The PY32L0 mainstream microcontrollers are based on high-performance Arm Cortex-M0+ 32-bit RISC core.
+
+  The chip provides sleep and stop low-power operating modes to meet different low-power applications.
+  Offering a high level of integration, they are suitable for a variety of application scenarios, such as controllers, handheld devices, PC peripherals, games and GPS platforms, industrial applications, etc.
+      </description>
+
+      <sequences>
+        <!-- Override for Pre-Defined Sequences -->
+        <sequence name="DebugCoreStart">
+          <block>
+            // Replication of Standard Functionality
+            Write32(0xE000EDF0, 0xA05F0001);                                        // Enable Core Debug via DHCSR
+          </block>
+
+          <block info="DbgMCU registers">
+            // Device Specific Debug Setup
+            Write32(0x4002103C, Read32(0x4002103C) | 0x08000000);                   // Set RCC_APBENR1.DBGEN
+
+            Write32(0x40015804, DbgMCU_CR);                                         // DBGMCU_CR: Configure MCU Debug
+            Write32(0x40015808, DbgMCU_APB_Fz1);                                    // DBGMCU_APB_FZ1: Configure APB Peripheral Freeze1 Behavior
+            Write32(0x4001580C, DbgMCU_APB_Fz2);                                    // DBGMCU_APB_FZ2: Configure APB Peripheral Freeze2 Behavior
+          </block>
+        </sequence>
+      </sequences>
+
+      <!-- ************************  Subfamily 'PY32L020'  **************************** -->
+      <subFamily DsubFamily="PY32L020">
+        <processor Dclock="48000000"/>
+        <debug svd="CMSIS/SVD/PY32L020xx.svd"/>
+        <debugvars configfile="CMSIS/Debug/PY32L020xx.dbgconf">
+          __var DbgMCU_CR      = 0x00000002;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB_Fz1 = 0x00000000;   // DGBMCU_APB_FZ1: All Peripherals Operate as in Normal Mode
+          __var DbgMCU_APB_Fz2 = 0x00000000;   // DGBMCU_APB_FZ2: All Peripherals Operate as in Normal Mode
+        </debugvars>
+        <memory name="OPT" access="r" start="0x1FFF0080" size="0x00000010" />
+        <memory name="OTP" access="r" start="0x1FFF0280" size="0x00000080" />
+        <algorithm name="CMSIS/Flash/PY064xx_OB.FLM" start="0x1FFF0080" size="0x00000010" default="0"/>
+        <algorithm name="CMSIS/Flash/PY064xx_OTP.FLM" start="0x1FFF0280" size="0x00000080" default="0"/>
+
+        <!-- *************************  Device 'PY32L020x5'  ***************************** -->
+        <device Dname="PY32L020x5">
+          <compile header="Drivers/CMSIS/Device/PUYA/PY32L0xx/Include/py32l0xx.h" define="PY32L020x5" />
+          <memory id="IROM1" name="Flash" access="rx" start="0x08000000" size="0x00006000" startup="1" default="1"/>
+          <memory id="IRAM1" name="SRAM1" access="rwx" start="0x20000000" size="0x00000C00" init   ="0" default="1"/>
+          <algorithm name="CMSIS/Flash/PY064xx_24.FLM" start="0x08000000" size="0x00006000" default="1"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'PY32L090'  **************************** -->
+      <subFamily DsubFamily="PY32L090">
+        <processor Dclock="48000000"/>
+        <debug svd="CMSIS/SVD/PY32L090xx.svd"/>
+        <debugvars configfile="CMSIS/Debug/PY32L090xx.dbgconf">
+          __var DbgMCU_CR      = 0x00000002;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB_Fz1 = 0x00000000;   // DGBMCU_APB_FZ1: All Peripherals Operate as in Normal Mode
+          __var DbgMCU_APB_Fz2 = 0x00000000;   // DGBMCU_APB_FZ2: All Peripherals Operate as in Normal Mode
+        </debugvars>
+        <memory name="OPT" access="r" start="0x1FFF1D00" size="0x00000040" />
+        <memory name="OTP" access="r" start="0x1FFF1A00" size="0x00000100" />
+        <algorithm name="CMSIS/Flash/PY088xx_OB.FLM" start="0x1FFF1D00" size="0x00000040" default="0"/>
+        <algorithm name="CMSIS/Flash/PY088xx_OTP.FLM" start="0x1FFF1A00" size="0x00000100" default="0"/>
+
+        <!-- *************************  Device 'PY32L090xB'  ***************************** -->
+        <device Dname="PY32L090xB">
+          <compile header="Drivers/CMSIS/Device/PUYA/PY32L0xx/Include/py32l090xB.h" />
+          <memory id="IROM1" name="Flash" access="rx" start="0x08000000" size="0x00020000" startup="1" default="1"/>
+          <memory id="IRAM1" name="SRAM1" access="rwx" start="0x20000000" size="0x00004000" init   ="0" default="1"/>
+          <algorithm name="CMSIS/Flash/PY088xx_128.FLM" start="0x08000000" size="0x00020000" default="1"/>
+        </device>
+
+        <!-- *************************  Device 'PY32L090xC'  ***************************** -->
+        <device Dname="PY32L090xC">
+          <compile header="Drivers/CMSIS/Device/PUYA/PY32L0xx/Include/py32l090xC.h" />
+          <memory id="IROM1" name="Flash" access="rx" start="0x08000000" size="0x00040000" startup="1" default="1"/>
+          <memory id="IRAM1" name="SRAM1" access="rwx" start="0x20000000" size="0x00008000" init   ="0" default="1"/>
+          <algorithm name="CMSIS/Flash/PY088xx_256.FLM" start="0x08000000" size="0x00040000" default="1"/>
+        </device>
+      </subFamily>
+
+    </family>
+  </devices>
+
+  <conditions>
+    <!-- Compiler Conditions -->
+    <condition id="Compiler ARMCC">
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="PY32L0">
+      <description>Puya PY32L0 Series Devices</description>
+      <require Dvendor="Puya:176" Dname="PY32L0*"/>
+    </condition>
+
+    <condition id="PY32L0 CMSIS">
+      <description>Puya PY32L0 Series devices and CMSIS</description>
+      <require condition="PY32L0"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="PY32L020x5">
+      <description>Puya PY32L020x5 Devices</description>
+      <require Dvendor="Puya:176" Dname="PY32L020?5*"/>
+    </condition>
+
+    <condition id="PY32L020x5 ARMCC">
+      <description>Puya PY32L020x5 Devices and ARMCC Compiler</description>
+      <require condition="PY32L020x5"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+
+    <condition id="PY32L020">
+      <description>Puya PY32L020 Series devices</description>
+      <accept condition="PY32L020x5" />
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="PY32L090xB">
+      <description>Puya PY32L090xB Series Devices</description>
+      <require Dvendor="Puya:176" Dname="PY32L090?B*"/>
+    </condition>
+
+    <condition id="PY32L090xC">
+      <description>Puya PY32L090xC Series Devices</description>
+      <require Dvendor="Puya:176" Dname="PY32L090?C*"/>
+    </condition>
+
+    <condition id="PY32L090">
+      <description>Puya PY32L090 Series devices</description>
+      <accept condition="PY32L090xB" />
+      <accept condition="PY32L090xC" />
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="PY32L020 ARMCC">
+      <description>Puya PY32L020 Devices and ARMCC Compiler</description>
+      <require condition="PY32L020"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+
+    <condition id="PY32L020 CMSIS">
+      <description>Puya PY32L020 Series devices and CMSIS</description>
+      <require condition="PY32L020"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="PY32L090 ARMCC">
+      <description>Puya PY32L090 Devices and ARMCC Compiler</description>
+      <require condition="PY32L090"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+
+    <condition id="PY32L090 CMSIS">
+      <description>Puya PY32L090 Series devices and CMSIS</description>
+      <require condition="PY32L090"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="PY32L0 CMSIS">
+      <description>System Startup for Puya PY32L0 Series</description>
+      <files>
+        <!--  include folder -->
+        <file category="include" name="Drivers/CMSIS/Device/PUYA/PY32L0xx/Include/"/>
+        <!-- common device header file -->
+        <file category="header" name="Drivers/CMSIS/Device/PUYA/PY32L0xx/Include/py32l0xx.h"/>
+
+        <file category="source" condition="PY32L090 ARMCC" name="Drivers/CMSIS/Device/PUYA/PY32L0xx/Source/ARM/startup_py32l090xx.s" attr="config" version="0.0.1"/>
+        <file category="source" condition="PY32L020 ARMCC" name="Drivers/CMSIS/Device/PUYA/PY32L0xx/Source/ARM/startup_py32l020xx.s" attr="config" version="0.0.1"/>
+
+        <file category="source" condition="PY32L020 ARMCC" name="Drivers/CMSIS/Device/PUYA/PY32L0xx/Source/system_py32l020.c" attr="config" version="0.0.1"/>
+        <file category="source" condition="PY32L090 ARMCC" name="Drivers/CMSIS/Device/PUYA/PY32L0xx/Source/system_py32l090.c" attr="config" version="0.0.1"/>
+      
+      </files>
+    </component>
+  </components>
+</package>

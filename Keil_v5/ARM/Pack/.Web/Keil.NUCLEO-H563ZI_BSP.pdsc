@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>NUCLEO-H563ZI_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32H5 Series NUCLEO-H563ZI Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/ST_NUCLEO-H563ZI_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.1" date="2025-09-10" tag="v1.1.1">
+      Blinky project:
+      - Updated debug configuration file (MCU APBx Freeze registers)
+    </release>
+    <release version="1.1.0" date="2025-07-01" tag="v1.1.0">
+      Pack Description:
+      - Removed 'compatibleDevice' elements
+      Blinky example:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added DWARF-5 debug information
+      - Added dbgconf files
+      - Added RTE_Components file
+    </release>
+    <release version="1.0.0" date="2024-12-19" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for NUCLEO-H563ZI
+      Default Board Layer
+      Blinky example (CMSIS Solution)
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32H5</keyword>
+    <keyword>NUCLEO-H563ZI</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32H5xx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="NUCLEO-H563ZI">
+      <description>STMicroelectronics NUCLEO-H563ZI Board</description>
+      <require Bvendor="STMicroelectronics" Bname="NUCLEO-H563ZI"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="NUCLEO-H563ZI GPIO">
+      <description>STMicroelectronics NUCLEO-H563ZI Board with CMSIS Driver GPIO</description>
+      <require condition="NUCLEO-H563ZI"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for NUCLEO-H563ZI -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="NUCLEO-H563ZI GPIO">
+      <description>I/O implementation for NUCLEO-H563ZI</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_NUCLEO_H563ZI
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_NUCLEO-H563ZI.c"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <clayer type="Board" path="Layers/Default" file="Board.clayer.yml" copy-to="Board/NUCLEO-H563ZI" condition="NUCLEO-H563ZI"/>
+  </csolution>
+
+  <boards>
+    <!-- NUCLEO-H563ZI -->
+    <board vendor="STMicroelectronics" name="NUCLEO-H563ZI" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Nucleo-144 development board with STM32H563ZITx MCU</description>
+      <image small="Images/nucleo-h563zi_small.png"
+             large="Images/nucleo-h563zi_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/nucleo-h563zi.html" title="NUCLEO-H563ZI Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/nucleo-h563zi.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um3115-stm32h5-nucleo144-board-mb1404-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1404-h563zi-c01-schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32H563ZITx"/>
+      <feature type="ODbg"      n="1"              name="On-board STLINK-V3EC"/>
+      <feature type="PWR"       n="5"              name="USB VBUS(STLINK), ext. VIN, ext. 5V, ext +3.3V, USB USER"/>
+      <feature type="CustomFF"  n="2"              name="STMicroelectronics Morpho connector"/>
+      <feature type="ArduinoFF" n="2"              name="STMicroelectronics Arduino connector"/>
+      <feature type="USB"       n="1"              name="USB Type-C Sink device FS"/>
+      <feature type="ETH"       n="1"              name="10/100 Ethernet Port"/>
+      <feature type="Button"    n="2"              name="Push-buttons: User and Reset"/>
+      <feature type="LED"       n="7"              name="LEDs: COM, Power, User LEDs"/>
+      <debugInterface adapter="JTAG/SW" connector="20-pin Cortex debug + ETM MIPI20 Trace (0.05 inch connector)"/>
+      <debugInterface adapter="ST-Link" connector="USB-C"/>
+      <debugProbe connector="USB-C" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="NUCLEO-H563ZI" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

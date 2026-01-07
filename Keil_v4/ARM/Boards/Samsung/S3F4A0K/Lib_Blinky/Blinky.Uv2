@@ -1,0 +1,106 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (S3F4A0K Flash), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (Library)
+Group (Source Code)
+Group (Documentation)
+
+File 1,2,<.\S3F4A.s><S3F4A.s> 0x46F20373 
+File 2,4,<C:\Keil\ARM\RV31\LIB\Samsung\S3F4A.LIB><S3F4A.LIB> 0x46F117A9 
+File 3,1,<.\IRQ.c><IRQ.c> 0x46F25E7F 
+File 3,1,<.\Blinky.c><Blinky.c> 0x46F25D9A 
+File 4,5,<.\Abstract.txt><Abstract.txt> 0x46F26A15 
+
+
+Options 1,0,0  // Target 'S3F4A0K Flash'
+ Device (S3F4A0KR)
+ Vendor (Samsung)
+ Cpu (IRAM(0x300000-0x307FFF) IROM(0-0xFFFFF) IROM1(0x80000000-0x80007FFF) CLOCK(4000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("STARTUP\Samsung\S3F4A.s" ("Samsung S3F4A Startup Code"))
+ FlashDR ()
+ DevID (4379)
+ Rgf (S3F4A.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿSamsung\S3F4A\)
+ OrgReg (ÿSamsung\S3F4A\)
+ TgStat=16
+ OutDir (.\Flash\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Flash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 243,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ()
+ ADSTFLGA { 0,12,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,48,0,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 1,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 815)
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x000000)
+ ADSLDDA (0x300000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)()(DARMP.DLL)(-pS3F4A0KR)(SARM.DLL)()(TARMP.DLL)(-pS3F4A0KR)
+  OPTDBG 45054,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

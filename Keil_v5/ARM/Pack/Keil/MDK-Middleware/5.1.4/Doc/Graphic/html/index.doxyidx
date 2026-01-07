@@ -1,0 +1,23 @@
+/****************************************************************************************************//**
+ *
+ *  DoxyIndex Converter V1.01 
+ *  Copyright (C) 2013 ARM Ltd and ARM Germany GmbH. All rights reserved.
+ *
+ *  File: index.doxyidx
+ *  Date: 28. November 2025
+ *
+ *  Note: Generated with DoxyIndex V1.01  on Friday, 28.11.2025 14:03:21
+ *
+ *******************************************************************************************************/
+
+
+'cgr'
+Create a Dialog Application, gui_gs_dialog.html, index
+Graphic.txt, _graphic_8txt.html, 
+Graphic_Concepts.txt, _graphic___concepts_8txt.html, 
+Graphic_Doc.txt, _graphic___doc_8txt.html, 
+Graphic_GS.txt, _graphic___g_s_8txt.html, 
+Graphic_resource_requirements.txt, _graphic__resource__requirements_8txt.html, 
+Resource Requirements, graphic_resource_requirements.html, 
+Reference Documentation, gui_documentation.html, index
+

@@ -1,0 +1,104 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (LPC32x0 NOR Bootloader), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Bootloader Code)
+Group (Documentation)
+
+File 1,2,<.\LPC32x0.s><LPC32x0.s>
+File 1,1,<.\Bootloader.c><Bootloader.c>
+File 1,1,<.\FlashHW.c><FlashHW.c>
+File 2,5,<.\Abstract.txt><Abstract.txt>
+
+
+Options 1,0,0  // Target 'LPC32x0 NOR Bootloader'
+ Device (LPC3250)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x08000000-0x0803FFFF) IROM(0-0x3FFF) CLOCK(13000000) CPUTYPE(ARM926EJ-S) FPU(ANSI))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC3000.s" ("Philips LPC3000 Startup Code"))
+ FlashDR ()
+ DevID (4596)
+ Rgf (LPC32x0.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (LPC32x0_NOR_Bootloader)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,204,64,16,96,0,64,64,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,8,0,0,4,0 }
+ OCMADSIROM { 1,0,0,0,0,0,64,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,224,0,128,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,64,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,4,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 4,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0xE0000000)
+ ADSLDDA (0x08000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cLPC3000)(DARMP3.DLL)(-pLPC3250)(SARM.DLL)()(TARMP3.DLL)(-pLPC3000)
+  OPTDBG 43518,0,()()()()()()()()()(.\Debug_Boot.ini) (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 (.\Prog_NOR.ini)
+EndOpt
+

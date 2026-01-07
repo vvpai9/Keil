@@ -1,0 +1,14 @@
+The Blinky project is a simple program for the LPC2103
+using Silica 'SILICA-LPC2103' Board.
+
+It displays scrolling text on LED matrix and outputs 
+text to the Serial Port 1 (UART1 at 19200 baud, 8 data bits, 
+1 stop bit, no parity).
+The scrolling direction can be changed by pressing 
+BUT1 button and intensity of LEDs can be changed by pressing 
+the BUT2 button.
+
+The Blinky program is available in different targets:
+  Simulator:      runs in software Simulator
+  MCB2103 Flash:  runs from Internal Flash located on chip
+                  (used for final aplication version)

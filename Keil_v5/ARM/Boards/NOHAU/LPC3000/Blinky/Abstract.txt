@@ -1,0 +1,20 @@
+The Blinky project is an simple example program for 
+the LPC3180 using NOHAU 'Philips LPC3000 Evaluation 
+Board 201'.
+
+Example functionality:
+ - 2 LEDs blink (D3, D4)
+
+The Blinky program is available for different targets:
+  LPC3180 Int RAM:   configured for on-chip RAM
+                     (may be used for target debugging)
+  LPC3180 Ext SDRAM: configured for external SDRAM 
+                     (may be used for target debugging
+                      or production)
+
+Notes: 
+  - for standalone application you have to:
+    1. Download the 2-nd level bootloader 
+       (from Keil) to NAND Flash 
+    2. Download application built for 'Ext SDRAM' 
+       target to NAND Flash

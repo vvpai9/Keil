@@ -1,0 +1,386 @@
+##############################################################################
+#  Copyright @ 2007 by austriamicrosystems AG
+#  All rights are reserved.
+#
+#  Reproduction in whole or in part is prohibited without the written consent
+#  of the copyright owner. Austriamicrosystems reserves the right to make
+#  changes without notice at any time. The software is provided as is and
+#  Austriamicrosystems makes no warranty, expressed, implied or statutory,
+#  including but not limited to any implied warranty of merchantability or
+#  fitness for any particular purpose, or that the use will not infringe any
+#  third party patent, copyright or trademark. Austriamicrosystems should
+#  not be liable for any loss or damage arising from its use.
+##############################################################################
+
+#############################################################################
+#
+#        PROJECT: AS353x
+#      COPYRIGHT: austriamicrosystems 2007
+#      $Revision: 759 $
+#         AUTHOR: M. Arpa
+#     SUBSTITUTE: W. Schoegler
+#    DESCRIPTION: Makefile include which has to be included by all makefiles
+#                 for project AS353x This file defines the tools which shall
+#                 be used for compilation, linking and binding.
+#                 This file has to be changed, when the software shall be
+#                 compiled with a different tool chain.
+#
+#                 Currently the following tool chains are defined:
+#
+#                 1. ARM ADS 1.2
+#
+#############################################################################
+
+#############################################################################
+# target rules
+#############################################################################
+
+# generate an executable
+ifdef TARGET_BIN
+.PHONY: $(TARGET_BIN)
+$(TARGET_BIN): $(TARGET_BIN).axf
+
+$(TARGET_BIN).axf $(TARGET_BIN).sym: $(LIBS) $(LD_FILES) $(MAP_FILE) Makefile
+	$(RM) $(TARGET_BIN).sym
+	$(RM) -r ./out_hex
+	$(LD) --datacompressor off $(LDFLAGS) -o $(TARGET_BIN).axf $(LIB_DIRS) $(LIBS) $(LD_FILES) --scatter $(MAP_FILE)
+	@echo "*****************************************************************************";
+	@echo "********* compiling and linking of $(APPL) finished successfully ********";
+	@echo "**************** on `hostname` at `date` ****************";
+	@echo "*****************************************************************************";
+	# fromelf will generate a file or a directory of hexfiles:
+	$(FE) $(TARGET_BIN).axf --m32 --base 0 -o ./out_hex
+endif
+
+#generate a library
+ifdef TARGET_LIB
+.PHONY: $(TARGET_LIB)
+$(TARGET_LIB): $(TARGET_LIB).a
+$(TARGET_LIB).a: $(LIB_FILES)
+	$(AR) $(ARFLAGS) $(TARGET_LIB).a $(LIB_FILES)
+endif
+
+#generate additional library
+ifdef TARGET_LIB_ADD
+.PHONY: $(TARGET_LIB_ADD)
+$(TARGET_LIB_ADD): $(TARGET_LIB_ADD).a
+$(TARGET_LIB_ADD).a: $(LIB_FILES_ADD)
+	$(AR) $(ARFLAGS) $(TARGET_LIB_ADD).a $(LIB_FILES_ADD)
+endif
+
+#generate o files
+ifdef TARGET_OBJ
+.PHONY: $(TARGET_OBJ)
+$(TARGET_OBJ): $(LIB_FILES)
+endif
+
+#############################################################################
+# rules
+#############################################################################
+
+%.o $(OBJECTS_FOLDER)/%.o: %.cpp $(OBJECTS_FOLDER)/.dir
+	$(CXX) $(CXXFLAGS) $(INCLUDE_DIRS) -c $< -o $@
+
+%.o $(OBJECTS_FOLDER)/%.o: %.c $(OBJECTS_FOLDER)/.dir
+ifdef KEEP_PREPROCESSED
+	$(CC) -E $(CFLAGS) $(ARM_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH) $(INCLUDE_DIRS) -c $< -o $<.ppd
+endif
+	$(CC) $(CFLAGS) $(ARM_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH) $(INCLUDE_DIRS) -c $< -o $@
+
+# Thumb source code
+%.to $(OBJECTS_FOLDER)/%.to: %.c $(OBJECTS_FOLDER)/.dir
+ifdef KEEP_PREPROCESSED
+	$(TC) -E $(CFLAGS) $(THUMB_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH) $(INCLUDE_DIRS) -c $< -o $<.ppd
+endif
+	$(TC) $(CFLAGS) $(THUMB_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH) $(INCLUDE_DIRS) -c $< -o $@
+
+$(OBJECTS_FOLDER)/%.to: %.cpp $(OBJECTS_FOLDER)/.dir
+%.to: %.cpp
+	$(TXX) $(CXXFLAGS) $(THUMB_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH) $(INCLUDE_DIRS) -c $< -o $@
+
+# Assembler files
+%.o $(OBJECTS_FOLDER)/%.o: %.s $(OBJECTS_FOLDER)/.dir
+	$(AS) $(ASFLAGS) -o $@ $<
+
+# pre-processed asm files generation / e.g. header expansion
+%.s: %.template.s
+	$(RM) $@
+	$(CXX) $(INCLUDE_DIRS) -E < $< > $@
+
+# pre-processed scf files generation
+%.scf: %.pre.scf
+	$(RM) $@
+	$(CC) $(INCLUDE_DIRS) -E < $< > $@
+
+# Binary files
+%.bin: %.axf
+	$(FE) --bin --output $@ $<
+
+#Motorola 32 files
+%.hex: %.axf
+	$(FE) --m32 --output $@ $<
+
+SKIPPER=[ -f $$module/.omit ] && echo "...omitting $$module, no src" && continue ;
+
+# used for building loops for build_all rules
+BUILD_ALL_CALLER=@if [ -f $@/.omit ]; then echo "...omitting $@, no src"; else $(MAKE) -C $@  build_all; fi
+
+###########################################################################
+# make all   - create and copy config-file
+#            - compile all modules and application
+###########################################################################
+#all: create_versionfile cfg_copy
+#	@for module in $(ALL_MODULES) ; do \
+#	   set -e ; \
+#	   $(SKIPPER)\
+#	   $(MAKE) -C $$module $(TARGET_LIB) APPL=NAF_RLD_APPL1 ; \
+#	done;
+all: app
+
+###########################################################################
+# copy sdk_config.h file into global directory
+###########################################################################
+.PHONY: cfg_copy
+cfg_copy: config
+
+.PHONY: config
+config: $(SDK_CFG_FILE_COPIED)
+
+
+ifdef SDK_CFG_FILE_COPIED
+
+#set SDK_CFG_FILE_ORIG to sdk_config.h if it was undefined
+SDK_CFG_FILE_ORIG?=sdk_config.h
+$(SDK_CFG_FILE_COPIED):
+	cp  $(SDK_CORE_PATH)/include/do_not_edit_header.h $(SDK_CFG_FILE_COPIED)
+	echo "/* Copied in $(PWD) */"                     >> $(SDK_CFG_FILE_COPIED)
+	echo "/* Copied from $(SDK_CFG_FILE_ORIG) */"  >> $(SDK_CFG_FILE_COPIED)
+	echo "/* Copied to $(SDK_CFG_FILE_COPIED) */"  >> $(SDK_CFG_FILE_COPIED)
+	cat $(SDK_CFG_FILE_ORIG)                       >> $(SDK_CFG_FILE_COPIED)
+
+endif
+
+#############################################################################
+# build an application
+#############################################################################
+.PHONY: app
+app: $(TARGET_BIN)
+
+#############################################################################
+# build a library
+#############################################################################
+.PHONY: lib
+lib: $(TARGET_LIB)
+
+#############################################################################
+# add additional build of module
+#############################################################################
+.PHONY: make_parent
+module: 
+	$(MAKE) -C ../
+
+###########################################################################
+# clean custom directories
+###########################################################################
+#.PHONY: clean
+#clean:
+#	@for module in $(INT_MODULES) ; do \
+#	   set -e ; \
+#	   $(SKIPPER)\
+#           $(MAKE) -C $$module stdclean ; \
+#	done;
+
+###########################################################################
+# very clean all directories
+###########################################################################
+.PHONY: veryclean
+veryclean:
+ifdef SDK_CFG_FILE_COPIED
+	$(RM) $(SDK_CFG_FILE_COPIED)
+endif
+	@for module in $(ALL_MODULES) ; do \
+	   set -e ; \
+	   $(SKIPPER)\
+	   $(MAKE) -C $$module clean clean_allfiles; \
+	done;
+	$(RM) TAGS
+
+############################################################################
+# remove default generated files any directory specifics have to be added
+# in modules own makefile
+#############################################################################
+.PHONY: stdclean
+stdclean: hex_clean $(CLEAN_SUBDIRS)
+	$(RM) *.lst *.d *.out *.a *.axf *.sym *.map *.ppd dependencies.mk 
+	$(RM) ./tests/*.map ./tests/*.lst ./tests/*.d ./tests/*.out ./tests/*~ ./tests/*.o ./tests/*.to ./tests/*.a ./tests/*.axf ./tests/*.hex tests/*.ppd
+	$(RM) -rf ./tests/objs ./tests/out_hex
+	$(RM) -rf $(OBJECTS_FOLDER)
+
+##############################################################################
+# remove files added by RM_ALL_FILES in the module Makefile
+#############################################################################
+.PHONY: clean_allfiles
+clean_allfiles:
+	@$(RM) $(RM_ALL_FILES)
+
+#############################################################################
+# build an hex file from the axf file
+#############################################################################
+$(TARGET_BIN).hex : $(TARGET_BIN) $(TARGET_BIN).axf
+	fromelf -m32 $(TARGET_BIN).axf -output hexfiles
+        # fromelf will generate a directory of hexfiles since we have
+        # multiple load regions, get the relevant hex file
+        # Note: Since make executes each line of a rule in a subshell,
+        #       sequences must be put in a single line, separated by
+        #       semicolons! This is better than just ignoring the error.
+	@if [ ! -z "$(shell find $(HEX_OUTPUT_DIR) -name *_CODE)" ] ; then \
+	cp $(HEX_OUTPUT_DIR)/*_CODE $(SDK_CORE_PATH)/promer && \
+	echo "CODE segment(s) copied." ; \
+	fi; \
+	if [ ! -z "$(shell find $(HEX_OUTPUT_DIR) -name *_MISC)" ] ; then \
+	cp $(HEX_OUTPUT_DIR)/*_MISC $(SDK_CORE_PATH)/promer && \
+	echo "MISC segment(s) copied." ; \
+	fi;
+
+#############################################################################
+# copy hex files
+#############################################################################
+.PHONY: hex_copy
+hex_copy:
+	@echo "Copy segments to promer directory, if applicable..."
+        # Note: Since make executes each line of a rule in a subshell,
+        #       sequences must be put in a single line, separated by
+        #       semicolons! This is better than just ignoring the error.
+	@if [ ! -z "$(shell find $(HEX_OUTPUT_DIR) -name *_CODE)" ] ; then \
+	cp $(HEX_OUTPUT_DIR)/*_CODE $(SDK_CORE_PATH)/../application/ams/promer && \
+	echo "CODE segment(s) copied." ; \
+	fi; \
+	if [ ! -z "$(shell find $(HEX_OUTPUT_DIR) -name *_MISC)" ] ; then \
+	cp $(HEX_OUTPUT_DIR)/*_MISC $(SDK_CORE_PATH)/../application/ams/promer && \
+	echo "MISC segment(s) copied." ; \
+	fi;
+
+#############################################################################
+# clean hex files
+#############################################################################
+.PHONY: hex_clean
+hex_clean:
+ifdef HEX_OUTPUT_DIR
+        # Note: Since make executes each line of a rule in a subshell,
+        #       sequences must be put in a single line, separated by
+        #       semicolons! This is better than just ignoring the error.
+	@if [ ! -z "$(shell find $(HEX_OUTPUT_DIR) )" ] ; then \
+	$(RM) $(HEX_OUTPUT_DIR)/* ; \
+        $(RM) -rf $(HEX_OUTPUT_DIR) ; \
+	fi; \
+	if [ ! -z "$(shell find $(SDK_CORE_PATH)/../application/ams/promer -name *_CODE)" ] ; then \
+	$(RM) $(SDK_CORE_PATH)/../application/ams/promer/*_CODE && \
+	echo "CODE segment(s) removed from promer." ; \
+	fi; \
+	if [ ! -z "$(shell find $(SDK_CORE_PATH)/../application/ams/promer -name *_MISC)" ] ; then \
+	$(RM) $(SDK_CORE_PATH)/../application/ams/promer/*_MISC && \
+	echo "MISC segment(s) removed from promer." ; \
+	fi;
+endif
+
+#############################################################################
+# standard help to be printed from other Makefiles
+#############################################################################
+.PHONY: stdhelp
+stdhelp:
+	@echo "make USER_CFLAGS=-03 adds -O3 to the CFLAGS"
+	@echo "     same holds for USER_CXXFLAGS,USER_TCFLAGS,USER_TXXFLAGS"
+	@echo "     DEFINES can be used to add preprocessor defines for C"
+	@echo "     and Assembler. E.g. DEFINE=SDK_DEBUG_CONSOLE"
+
+
+
+#############################################################################
+# standard makedepend modifies module makefiles to add dependencies
+#############################################################################
+.PHONY: depend
+depend:
+	@for module in $(ALL_MODULES) ; do \
+	   $(RM) dependencies.mk dependencies.tmp \
+	   set -e ; \
+	   $(SKIPPER)\
+	   $(MAKE) -C $$module dependencies.mk ; \
+	done;
+
+ifdef USE_DEPENDENCIES
+dependencies.mk: dependencies.tmp
+	fixDependencyPaths.pl $< >$@
+else
+dependencies.mk:
+	touch $@  # create a dummy file to be included
+endif
+
+dependencies.tmp: $(C_FILES) $(TC_FILES) $(CXX_FILES) $(TXX_FILES)
+ifdef USE_DEPENDENCIES
+ifdef C_FILES
+	$(CC) -M $(USER_CXXFLAGS) $(CDEFINES) $(INCLUDE_DIRS) $(C_FILES) > $@
+else
+	rm -f $@  # make sure it is deleted and recreated even if no C_FILES exist
+	touch $@  #               "
+endif
+ifdef CXX_FILES
+	$(CXX) -M $(USER_CXXFLAGS) $(CDEFINES) $(INCLUDE_DIRS) $(CXX_FILES) >> $@
+endif
+ifdef TC_FILES
+	$(TC) -M $(USER_CXXFLAGS) $(CDEFINES) $(INCLUDE_DIRS) $(TC_FILES) | sed 's/\.o:/\.to:/' >> $@
+endif
+ifdef TXX_FILES
+	$(TXX) -M $(USER_CXXFLAGS) $(CDEFINES) $(INCLUDE_DIRS) $(TXX_FILES) >> $@
+endif
+else
+	touch $@  # create a dummy file to be included
+endif
+
+ifndef OWN_BUILD_ALL_RULE
+build_all: $(OBJECTS_FOLDER)/.dir
+ifdef C_FILES
+	cd $(OBJECTS_FOLDER); $(CC) $(CFLAGS) $(ARM_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH:%=../%) $(INCLUDE_DIRS:-I%=-I../%) -c $(C_FILES:%=../%)
+endif
+ifdef C_FILES_ADD
+	cd $(OBJECTS_FOLDER); $(CC) $(CFLAGS) $(ARM_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH:%=../%) $(INCLUDE_DIRS:-I%=-I../%) -c $(C_FILES_ADD:%=../%)
+endif
+ifdef TC_FILES
+	cd $(OBJECTS_FOLDER); $(TC) $(CFLAGS) $(ARM_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH:%=../%) $(INCLUDE_DIRS:-I%=-I../%) -c $(TC_FILES:%=../%)
+	cd $(OBJECTS_FOLDER); for obj in $(notdir $(TC_FILES:%.c=%.o)) ; do \
+	echo mv $$obj $${obj/%.o/.to} ; \
+	mv $$obj $${obj/%.o/.to} ; \
+	done;
+endif
+ifdef TC_FILES_ADD
+	cd $(OBJECTS_FOLDER); $(TC) $(CFLAGS) $(ARM_CODE_FLAGS) $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH:%=../%) $(INCLUDE_DIRS:-I%=-I../%) -c $(TC_FILES_ADD:%=../%)
+	cd $(OBJECTS_FOLDER); for obj in $(notdir $(TC_FILES_ADD:%.c=%.o)) ; do \
+	echo mv $$obj $${obj/%.o/.to} ; \
+	mv $$obj $${obj/%.o/.to} ; \
+	done;
+endif
+	$(MAKE) # do everything which is normally done, 
+endif
+
+
+#order-only prerequisites appear not to work under make 3.80, thus this solution
+$(OBJECTS_FOLDER)/.dir: 
+	mkdir $(OBJECTS_FOLDER)
+	touch $(OBJECTS_FOLDER)/.dir
+
+#############################################################################
+# Rebuild a test application
+# Use the defined sdk_config_tst.h to rebuild the core modules and the
+# to build the test application afterwards
+#############################################################################
+rebuild:
+ifdef SDK_CFG_FILE_ORIG
+	$(MAKE) -C $(SDK_CORE_PATH) clean
+	$(MAKE) cfg_copy
+	$(MAKE) -C $(SDK_CORE_PATH) build_all
+	$(MAKE) clean all
+else
+	@echo "ERROR: Makefile variable SDK_CFG_FILE_ORIG not set in Makefile"
+endif
+
+
+

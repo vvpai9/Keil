@@ -1,0 +1,29 @@
+The Blinky project is an simple example program for the  
+LPC3250 using PHYTEC 'PCM-967' with 'PCM-1304.0' Board.
+
+Example functionality:
+ - 2 LEDs blink (LED1, LED2)
+
+Clocks: XTAL                      =  13.00 MHz, 
+        SYSCLK                    =  13.00 MHz, 
+        HCLKPLL                   = 208.00 MHz, 
+        ARM_CLK    = HCLKPLL      = 208.00 MHz
+        HCLK       = HCLKPLL / 2  = 104.00 MHz
+        PERIPH_CLK = HCLKPLL / 16 =  13.00 MHz
+
+The Blinky program is available for different targets:
+  LPC3250 Int RAM:          configured for on-chip RAM
+              (may be used for target debugging)
+  LPC3250 Ext SDRAM (NOR):  configured to run in external 
+              SDRAM and loaded to external NOR flash
+              (may be used for target debugging or production)
+  LPC3250 Ext SDRAM (NAND): configured to run in external 
+              SDRAM and loaded to external NAND flash
+              (may be used for target debugging or production)
+
+Notes: 
+  - for standalone application (NOR, NAND) you have to:
+    1. Download the 2-nd level bootloader 
+       (from Keil) to appropriate external flash 
+    2. Download application built for 'Ext SDRAM' 
+       target to appropriate Flash					 

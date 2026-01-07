@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package schemaVersion="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+    <vendor>Geehy</vendor>
+    <url>https://www.geehy.com/uploads/tool/</url>
+    <supportContact>https://www.geehy.com/support</supportContact>
+    <name>BMP561_DFP</name>
+    <description>Geehy Semiconductor BMP561 Device Support</description>
+    <releases>
+        <release version="1.0.1" date="2025-04-21">
+Fixed some known bugs.
+        </release>
+        <release version="1.0.0" date="2025-01-31">
+First Release version of BMP561 Device Pack.
+        </release>
+    </releases>
+    <keywords>
+        <!-- keywords for indexing -->
+        <keyword>Geehy</keyword>
+        <keyword>Device Support</keyword>
+        <keyword>Device Family Package Geehy Semiconductor</keyword>
+        <keyword>BMP561</keyword>
+        <keyword>BMP</keyword>
+    </keywords>
+    <devices>
+        <family Dfamily="BMP Series" Dvendor="Geehy:163">
+            <processor Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="0" Dendian="Little-endian"/>
+            <book name="Documents/DUI0662B_cortex_m0p_r0p1_dgug.pdf" title="Cortex-M0+ Generic User Guide"/>
+            <description>
+        Geehy Semiconductor' BMP561 based on ARM Cortex'-M0+ core.
+        Core
+        - ARM 32-bit Cortex-M0+ CPU
+        Memories
+        - 64 Kbytes of Main Flash memory
+        - 4 Kbytes of Data Flash memory
+        - 8 Kbytes of SRAM
+        Reset and power management
+        - Power-on/Power down reset (POR/PDR)
+        - Low power modes: Wait, Sleep, Deep sleep, Hibernate
+        Clock management
+        - 1 to 16 MHz high frequency oscillator
+        - 65 kHz low frequency oscillator
+            </description>
+            <!-- ******************************  BMP  ****************************** -->
+            <subFamily DsubFamily="BMP">
+                <!-- ******************************  BMP561  ****************************** -->
+                <device Dname="BMP561">
+                    <processor Dclock="4000000"/>
+                    <compile header="Device/Device/Geehy/BMP561/Include/bmp561.h" define="BMP561"/>
+                    <debug svd="SVD/BMP561.svd"/>
+                    <memory id="IROM1" start="0x08000000" size="0x10000" startup="1" default="1"/>
+                    <memory id="IRAM1" start="0x20000000" size="0x2000" init="0" default="1"/>
+                    <algorithm name="Flash/BMP561_64K.FLM" start="0x08000000" size="0x10000" default="1"/>
+                    <algorithm name="Flash/BMP561_data.FLM" start="0x08010000" size="0x1000" default="0"/>
+                    <feature type="Timer" count="2" name="16-Bit Timer with Input Capture, Output Compare and PWM"/>
+                    <feature type="Timer" count="2" name="Watchdog"/>
+                    <feature type="A/D" count="2" name="16-Bit Analog to Digital Converter"/>
+                    <feature type="I/O" count="10" name="Input and Output Ports"/>
+                    <feature type="Com" count="1" name="HSC Interface"/>
+                    <feature type="Com" count="1" name="I2C Interface"/>
+                    <feature type="Com" count="1" name="UART Interface"/>
+                </device>
+            </subFamily>
+        </family>
+    </devices>
+    <conditions>
+        <!-- conditions are dependecy rules that can apply to a component or an individual file -->
+        <condition id="Compiler ARM">
+            <!-- conditions selecting ARM Compiler -->
+            <require Tcompiler="ARMCC"/>
+        </condition>
+        <condition id="BMP561">
+            <description>Geehy Semiconductor BMP561 devices</description>
+            <require Dname="BMP561"/>
+        </condition>
+        <condition id="BMP561 CMSIS Device">
+            <!-- conditions selecting Devices -->
+            <description>Geehy Semiconductor BMP561 Series devices and CMSIS-CORE</description>
+            <require Cclass="CMSIS" Cgroup="CORE"/>
+            <require Dvendor="Geehy:163" Dname="BMP561"/>
+        </condition>
+        <condition id="BMP561 STDPERIPH">
+            <description>Geehy Semiconductor BMP561 with Standard Peripherals Drivers Framework</description>
+            <require condition="BMP561 CMSIS Device"/>
+            <require Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="Framework"/>
+        </condition>
+    </conditions>
+    <components>
+        <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="BMP561 CMSIS Device">
+            <!-- Cversion is necessary -->
+            <description>System Startup for Geehy Semiconductor BMP561</description>
+            <files>
+                <!-- startup files -->
+                <file category="source" name="Device/Device/Geehy/BMP561/Source/arm/startup_bmp561.s" attr="config" condition="BMP561"/>
+                <!-- system file -->
+                <file category="source" name="Device/Device/Geehy/BMP561/Source/system_bmp561.c" attr="config"/>
+            </files>
+        </component>
+        <!-- START: Geehy Semiconductor Standard Peripherals Drivers -->
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="Framework" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Standard Peripherals Drivers Framework</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_FRAMEWORK</RTE_Components_h>
+            <files>
+                <file category="include" name="Device/BMP561_StdPeriphDriver/inc/"/>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_misc.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_misc.c"/>
+                <file category="header" name="Device/Templates/inc/bmp561_int.h" attr="template" select="Interrupt Service Routines"/>
+                <file category="source" name="Device/Templates/src/bmp561_int.c" attr="template" select="Interrupt Service Routines"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="CADC" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Analog-to-digital converter (CADC) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_CADC</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_cadc.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_cadc.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="EINT" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>External interrupt (EINT) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_EINT</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_eint.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_eint.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="FLASH_CTRL" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Flash controller (FLASH_CTRL) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_FLASH_CTRL</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_flash_ctrl.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_flash_ctrl.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="GPIO" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>General-purpose I/O (GPIO) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_GPIO</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_gpio.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_gpio.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="HMAC" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>HMAC algorithm (HMAC) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_HMAC</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_hmac.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_hmac.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="HSC" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>HSC controller (HSC) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_HSC</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_hsc.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_hsc.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="I2C" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Inter-integrated circuit (I2C) interface driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_I2C</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_i2c.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_i2c.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="IWDT" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Independent watch dog (IWDT) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_IWDT</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_iwdt.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_iwdt.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="SYSCTRL" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>System controller (SYSCTRL) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_SYSCTRL</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_sysctrl.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_sysctrl.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="TMR" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Timer controller (TMR) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_TMR</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_tmr.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_tmr.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="UART" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Universal asynchronous receiver transmitter (UART) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_UART</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_uart.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_uart.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="VADC" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Analog-to-digital converter (VADC) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_VADC</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_vadc.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_vadc.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="WUPT" Cversion="1.0.0" condition="BMP561 STDPERIPH ">
+            <description>Wake up (WUPT) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_WUPT</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_wupt.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_wupt.c"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="BMP561 StdPeriph Drivers" Csub="WWDT" Cversion="1.0.0" condition="BMP561 STDPERIPH">
+            <description>Window watch dog (WWDT) driver for BMP561</description>
+            <RTE_Components_h>#define RTE_DEVICE_STDPERIPH_WWDT</RTE_Components_h>
+            <files>
+                <file category="header" name="Device/BMP561_StdPeriphDriver/inc/bmp561_wwdt.h"/>
+                <file category="source" name="Device/BMP561_StdPeriphDriver/src/bmp561_wwdt.c"/>
+            </files>
+        </component>
+        <!-- END: Geehy Semiconductor Standard Peripherals Drivers -->
+    </components>
+    <boards>
+        <board vendor="Geehy" name="BMP561" revision="Ver 1.0">
+            <description>Geehy BMP561 Development Board</description>
+            <mountedDevice deviceIndex="0" Dvendor="Geehy:163" Dname="BMP561" />
+            <compatibleDevice deviceIndex="0" Dvendor="Geehy:163" DsubFamily="BMP" />
+        </board>
+    </boards>
+    <examples>
+        <!--APM32F4xx example information-->
+        <example name="BMP561-Blinky" doc="readme.txt" folder="Boards/Geehy/BMP561EVM/Blinky">
+            <description>BMP561 Blinky example</description>
+            <board name="BMP561" vendor="Geehy"/>
+            <project>
+                <environment name="uv" load="BMP561-Blinky.uvprojx"/>
+            </project>
+            <attributes>
+                <component Cclass="CMSIS" Cgroup="CORE"/>
+                <component Cclass="Device" Cgroup="Startup"/>
+                <category>Getting Started</category>
+                <keyword>BMP561</keyword>
+            </attributes>
+        </example>
+    </examples>
+</package>

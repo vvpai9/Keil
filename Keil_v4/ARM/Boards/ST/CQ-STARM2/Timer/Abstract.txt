@@ -1,0 +1,26 @@
+The 'Timer' project is a simple program for the STM32F103VBT6 
+using CQ-STARM2, CQ-STARM BaseBoard and demonstrating 
+the use of timer TIM1.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL    =            8.00 MHz
+   - SYSCLK  =           72.00 MHz
+   - HCLK    = SYSCLK  = 72.00 MHz
+   - PCLK1   = HCLK/2  = 36.00 MHz
+   - PCLK2   = HCLK    = 72.00 MHz
+   - ADCLK   = PCLK2/6 = 12.00 MHz
+   - SYSTICK = HCLK/8  =  9.00 MHz
+
+ - Timer TIM1 is configured to generate an interrupt every 10 ms
+ - displays the seconds on 7 segment display.
+ 
+The Timer program is available in different targets:
+  Simulator:    - configured for software Simulator
+  CQ-STARM:     - runs from Internal Flash located on chip
+                 (used for production or target debugging)
+  CQ-STARM SWV: - runs from Internal Flash located on chip 
+                  configured for Trace. Shows variables DBG_secCnt, 
+                  and DBG_msecCnt in LogicAnalyzer window.
+                  applicable only in Target Debug Session using
+                  ULINK2 or ULINK-ME.

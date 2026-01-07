@@ -1,0 +1,23 @@
+The VoicePlayer project is a simple program for the LPC2138
+using Keil MCB2130 Microcontroller Board.
+
+It demonstrates the Digital/Analog Conversion capabilities
+of the LPC2130 series. 
+
+Severeal Audio Files are stored into the on-chip Flash ROM. 
+The flash is organized into 8 blocks of each 64KB by the 
+application . This allows each block to store 4 seconds of 
+16-bit PCM-encoded audio data with 8kHz sample frequency.
+
+Wave files are stored into a Hex-386 file with the BIN2HEX
+converter. You can download it for free from www.keil.com:
+  http://www.keil.com/download/docs/bin2hex.zip.asp
+Wave files can be replaced with any file, that is stored
+in 16-bit PCM / mono / 8000Hz WAVE/RIFF format. Length is
+automatically limited. Files and coversion batch are located
+in ./AudioData/.
+
+The VoicePlayer program is available in different targets:
+  Simulator:      runs in software Simulator
+  MCB2100 Flash:  runs from on-chip Flash ROM
+                   (used for target debugging and free-run)

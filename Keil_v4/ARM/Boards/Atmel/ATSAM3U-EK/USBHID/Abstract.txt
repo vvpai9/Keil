@@ -1,0 +1,15 @@
+The HID project is a demo program for the AT91SAM3U4E
+using the Atmel ATSAM3U-EK Microcontroller Board.
+
+It demonstrates an USB HID (Human Interface Device):
+  - 2 LEDs (D2..3)
+  - 2 Push Buttons (USR_LEFT, USR_RIGHT)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  ATSAM3U-EK: configured for on-chip Flash ROM
+                (used for production or target debugging)

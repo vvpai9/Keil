@@ -1,0 +1,1914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <vendor>Keil</vendor>
+  <name>STM32F0xx_DFP</name>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32F0 Series Device Support</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32F0xx_DFP.git</repository>
+  <license>LICENSE</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons" name="LICENSE" spdx="Apache-2.0"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="3.1.1" date="2025-09-10" tag="v3.1.1">
+      Updated debug configuration files
+      Package Description (pdsc):
+      - Shortened device family description
+      - Added Ddsp processor attribute
+    </release>
+    <release version="3.1.0" date="2025-07-01" tag="v3.1.0">
+      Updated Templates:
+      - Added DWARF-5 debug information
+      - Added generated output files
+    </release>
+    <release version="3.0.0" date="2025-03-24" tag="v3.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Removed STM32CubeMX_FW_F0
+      Removed board drivers (Basic I/O, ...)
+      Removed all examples
+      Removed previous generator (gpdsc)
+      Added new global generator
+      Package Description (pdsc):
+      - Removed Device:Startup component
+      - Removed Device:STM32Cube HAL components
+      - Removed Device:STM32Cube LL components
+      - Removed Board descriptions
+      - Removed compile device header from device description
+      - Removed unused conditions
+      - Replaced documentation files with permalinks
+      - Added LICENSE file
+    </release>
+    <release version="2.1.1" date="2022-02-01">
+      Updated Pack to STM32Cube_FW_F0 Firmware Package version V1.11.3.
+      STM32CubeMX integration: Synchronized versions of generated component ::Device:STM32Cube Framework:STM32CubeMX (in gpdsc) and its bootstrap (in pdsc).
+      Package Description (pdsc):
+      - Added global define USE_HAL_DRIVER and USE_FULL_LL_DRIVER to the component STM32CubeMX:Device:STM32Cube HAL.
+      - Added global define USE_HAL_DRIVER and USE_FULL_LL_DRIVER to the component Standalone:Device:Startup.
+      - STM32072B-EVAL, STM32091C-EVAL: Added board components drivers.
+      - Removed unnecessary condition for 'emWin LCD' and 'Graphics Display' components (Removed SPI CMSIS Driver).
+      - Changed schemaVersion (1.7.2).
+      - Corrected device in board description attribute 'mountedDevice'.
+      - Added debugProbe board description.
+      Updated Documentation files.
+      CMSIS-Driver:
+      - Updated disclaimers.
+      - I2C:
+      -- Corrected usage function name.
+      -- Corrected pins configuration.
+      - USBD:
+      -- Removed include of stm32f0xx_hal_pcd.h header.
+      Board Examples:
+      - Migrated CubeMX projects to V6.4.0.
+      - Overridden default HAL_InitTick function.
+      - Changed Assembler option to armclang(Auto Select).
+      - Updated config files to CMSIS 5.8.0.
+      - USB:
+      -- Updated all examples with user templates from MDK-Middleware v7.11.1.
+      -- Changed variant selection to "MDK-Plus".
+    </release>
+    <release version="2.1.0" date="2020-05-04">
+      Device support:
+      - Updated Cube FW to STM32Cube_FW_F0 V1.11.0.
+      - Updated SVD file.
+      - Updated documentation.
+      - Corrected flash programming algorithms.
+      - Added capability to launch the Option Byte Loading after flash download.
+      STM32CubeMX integration:
+      - Added support for Timebase Source TIMx in gpdsc.ftl.
+      - Corrected launching STM32CubeMX via "play" button for existing projects overwrites with a new STM32CubeMX project file instead of loading it.
+      - MX_Devive_h.ftl:
+      -- Updated parsing of USART virtual mode.
+      -- Updated generation of macros: Added handling for '(' and ')' symbols.
+      Examples:
+      - Updated compiler to AC6.
+      - Added Event Recorder.
+      CMSIS-Driver:
+      - CAN:
+      -- Corrected SetBitrate function to leave Silent and Loopback mode as they were.
+      -- Corrected SetMode function to clear Silent and Loopback mode when NORMAL mode is activated.
+      -- Corrected MessageSend function to only access required data for sending.
+      -- Corrected abort message send functionality.
+      - I2C:
+      -- Corrected pin configuration: MX_I2C2_SMBA_GPIO_PuPdOD replaced with MX_I2Cx_yyy_GPIO_PuPdOD.
+      - USART: Corrected UARTx/USARTx related identifiers.
+      - USB Device:
+      -- Updated USBD_EndpointConfigure function to check that maximum packet size requested fits into configured FIFO (compile time configured).
+      -- Corrected transmitted count for non-control IN endpoints.
+    </release>
+    <release version="2.0.0" date="2018-01-18">
+      This DFP works either with STM32CubeMX (STM32CubeMX V4.23.0 and STM32Cube_FW_F0 V1.9.0 or higher)
+      or Standalone (no support for STM32CubeMX). STM32CubeMX is mandatory for use of CMSIS-Driver and MDK-Middleware.
+      - New projects require the component 'Device:STM32Cube Framework:STM32CubeMX' from the STM32Cube MX bundle for configuration of pins and clocks via STM32CubeMX.
+      This pack only contains a subset of the files from STM32Cube_FW_F0 version 1.9.0  (ST Drivers, STM32Cube documentation and fonts).
+      Updated documentation for STM32Cube Framework usage.
+      Device support:
+      - Updated device names to match STM32CubeMX notation
+      - Added DBGMCU INI files configuring debug settings of the target for debug units without support for debug sequences
+      - Updated documentation.
+      CMSIS Driver:
+      - Added CAN driver
+      - Added I2C driver
+      - Added SPI driver
+      - Added UART/USART/IrDA/SmartCard driver
+      - Added USB Device driver
+      Board support:
+      - Added STM32072B-EVAL and STM32091C-EVAL
+      Example projects:
+      - added emWin graphics library on STM32072B-EVAL and STM32091C-EVAL boards
+      - added USB Device HID on STM32F072-Discovery Board
+      - updated all examples to use STM32CubeMX integration
+    </release>
+    <release version="1.5.0" date="2016-04-04">
+      Added new devices:
+      - STM32F031E6, STM32F051T8
+      - STM32F038E6, STM32F058T8, STM32F098CC, STM32F098RC, STM32F098VC
+      Updated Device support files (STM32Cube_FW_F0_V1.5.0).
+      Updated SVD files.
+      Updated User manuals and datasheets.
+      Updated example projects.
+    </release>
+    <release version="1.4.0" date="2015-02-23">
+      Added board support:
+      - STM32F030-Discovery board
+      - STM32F072-Discovery board
+      Updated board support:
+      - STM32F051-Discovery board
+      Updated Flash Option Byte Template
+    </release>
+    <release version="1.3.0" date="2015-01-13">
+      Added: STM32F091xx, STM32F070xx, STM32F030xC devices.
+      Updated: STM32F0xx device support files.
+      Added: Flash Option Byte Template
+    </release>
+    <release version="1.2.0" date="2014-10-01">
+      Added: Added missing devices.
+            - STM32F038C6, STM32F038F6, STM32F038G6, STM32F038K6
+            - STM32F048C6, STM32F048G6, STM32F048T6
+            - STM32F058C8, STM32F058R8
+    </release>
+    <release version="1.1.0" date="2014-09-18">
+      Added: Devices STM32F071V8, STM32F078RB.
+      Added: STM32F0-Discovery board description and examples.
+      Updated: CMSIS-CORE (Ver 1.4.0).
+      Updated: device documentation.
+    </release>
+    <release version="1.0.3">
+      Added: STM32F042 subfamily
+    </release>
+    <release version="1.0.2">
+      Deleted: Book Entry "STM32F0 Discovery Board" from device section
+    </release>
+    <release version="1.0.1">
+      Updated: device names changed in accordance to STMicroelectronics
+    </release>
+    <release version="1.0.0">
+      First Release version of STM32F0 Device Family Pack.
+    </release>
+  </releases>
+
+  <keywords>
+    <keyword>ST</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package STMicroelectronics</keyword>
+    <keyword>STM32F0</keyword>
+    <keyword>STM32F0xx</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="STM32F0 Series" Dvendor="STMicroelectronics:13">
+      <processor Dcore="Cortex-M0" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Ddsp="NO_DSP"/>
+
+      <book name="https://developer.arm.com/documentation/dui0497/latest" title="Cortex-M0 Generic User Guide"/>
+
+      <description>
+High-performance STM32F0 MCUs with Arm Cortex-M0 core, frequency up to 48 MHz.
+      </description>
+
+      <sequences>
+        <!-- Override for Pre-Defined Sequences -->
+        <sequence name="DebugDeviceUnlock">
+          <block>
+            Sequence("CheckID");
+          </block>
+        </sequence>
+
+        <sequence name="DebugCoreStart">
+          <block>
+            // Replication of Standard Functionality
+            Write32(0xE000EDF0, 0xA05F0001);                                        // Enable Core Debug via DHCSR
+          </block>
+
+          <block info="DbgMCU registers">
+            // Device Specific Debug Setup
+            Write32(0x40021018, Read32(0x40021018) | 0x00400000);                   // Set RCC_APB2ENR.DBGMCUEN
+
+            Write32(0x40015804, DbgMCU_CR);                                         // DBGMCU_CR: Configure MCU Debug
+            Write32(0x40015808, DbgMCU_APB1_Fz);                                    // DBGMCU_APB1_FZ: Configure APB1 Peripheral Freeze Behavior
+            Write32(0x4001580C, DbgMCU_APB2_Fz);                                    // DBGMCU_APB1_FZ: Configure APB2 Peripheral Freeze Behavior
+          </block>
+        </sequence>
+
+        <!-- User-Defined Sequences -->
+        <sequence name="CheckID">
+          <block>
+            __var pidr1 = 0;
+            __var pidr2 = 0;
+            __var jep106id = 0;
+            __var ROMTableBase = 0;
+
+            __ap = 0;      // AHB-AP
+
+            ROMTableBase = ReadAP(0xF8) &amp; ~0x3;
+
+            pidr1 = Read32(ROMTableBase + 0x0FE4);
+            pidr2 = Read32(ROMTableBase + 0x0FE8);
+            jep106id = ((pidr2 &amp; 0x7) &lt;&lt; 4 ) | ((pidr1 &gt;&gt; 4) &amp; 0xF);
+          </block>
+
+          <control if="jep106id != 0x20">
+            <block>
+              Query(0, "Not a genuine ST Device! Abort connection", 1);
+              Message(2, "Not a genuine ST Device! Abort connection.");
+            </block>
+          </control>
+        </sequence>
+
+        <!-- default DebugPortStop extended with Option Byte Loading capability -->
+        <sequence name="DebugPortStop">
+          <block>
+            __var connectionFlash = ( __connection &amp; 0xF ) == 2 ;
+            __var FLASH_BASE = 0x40022000 ;
+            __var FLASH_CR = FLASH_BASE + 0x10 ;
+            __var OBL_LAUNCH_BIT = ( 1 &lt;&lt; 13 ) ;
+            __var FLASH_CR_Value = 0 ;
+            __var DoDebugPortStop = 1 ;
+            __var DP_CTRL_STAT = 0x4 ;
+            __var DP_SELECT = 0x8 ;
+          </block>
+
+          <control if="connectionFlash &amp;&amp; DoOptionByteLoading">
+            <block>
+              DoDebugPortStop = 0 ;
+              FLASH_CR_Value = Read32( FLASH_CR ) ;
+              __errorcontrol = 1 ;
+              // write OBL_LAUNCH bit (causes a reset)
+              Write32( FLASH_CR, FLASH_CR_Value | ( OBL_LAUNCH_BIT ) ) ;
+              __errorcontrol = 0 ;
+            </block>
+          </control>
+          <control if="DoDebugPortStop">
+            <block>
+              // Switch to DP Register Bank 0
+              WriteDP(DP_SELECT, 0x00000000);
+              // Power Down Debug port
+              WriteDP(DP_CTRL_STAT, 0x00000000);
+            </block>
+          </control>
+        </sequence>
+      </sequences>
+
+      <!-- ************************  Subfamily 'STM32F030'  **************************** -->
+      <subFamily DsubFamily="STM32F030">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F030xx"/>
+        <debug svd="CMSIS/SVD/STM32F0x0.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F030_070.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x00201932;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0360-stm32f030x4x6x8xc-and-stm32f070x6xb-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F030x4/x6/x8/xC, STM32F070x6/xB Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f030f4.pdf" title="STM32F030 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="ADC"           n="1"       m="12"/>
+        <feature type="Temp"          n="-40"     m="85"/>
+        <feature type="VCC"           n="2.40"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F030C6'  ***************************** -->
+        <device Dname="STM32F030C6">
+          <compile define="STM32F030x6"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="4"       m="16"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F030C6Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F030C8'  ***************************** -->
+        <device Dname="STM32F030C8">
+          <compile define="STM32F030x8"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="6"       m="16"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <feature type="I2C"           n="2"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F030C8Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F030CC'  ***************************** -->
+        <device Dname="STM32F030CC">
+          <compile define="STM32F030xC"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="4"       m="16"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F030CCTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F030F4'  ***************************** -->
+        <device Dname="STM32F030F4">
+          <compile define="STM32F030x6"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="4"       m="16"/>
+          <feature type="IOs"           n="15"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F030F4Px">
+            <feature type="SOP" n="20"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F030K6'  ***************************** -->
+        <device Dname="STM32F030K6">
+          <compile define="STM32F030x6"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="4"       m="16"/>
+          <feature type="IOs"           n="26"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F030K6Tx">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F030R8'  ***************************** -->
+        <device Dname="STM32F030R8">
+          <compile define="STM32F030x8"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="6"       m="16"/>
+          <feature type="IOs"           n="55"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <feature type="I2C"           n="2"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F030R8Tx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F030RC'  ***************************** -->
+        <device Dname="STM32F030RC">
+          <compile define="STM32F030xC"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="4"       m="16"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F030RCTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F031'  **************************** -->
+      <subFamily DsubFamily="STM32F031">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F031x6"/>
+        <debug svd="CMSIS/SVD/STM32F0x1.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f031c4.pdf" title="STM32F031 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="5"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="SPI"           n="1"       m="18000000"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="I2C"           n="1"/>
+        <feature type="USART"         n="1"       m="6000000"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F031C4'  ***************************** -->
+        <device Dname="STM32F031C4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="39"/>
+          <variant Dvariant="STM32F031C4Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031C6'  ***************************** -->
+        <device Dname="STM32F031C6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="39"/>
+          <variant Dvariant="STM32F031C6Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031E6'  ***************************** -->
+        <device Dname="STM32F031E6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="10"      m="12"/>
+          <feature type="IOs"           n="20"/>
+          <variant Dvariant="STM32F031E6Yx">
+            <feature type="CSP" n="25"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031F4'  ***************************** -->
+        <device Dname="STM32F031F4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="12"      m="12"/>
+          <feature type="IOs"           n="13"/>
+          <variant Dvariant="STM32F031F4Px">
+            <feature type="SOP" n="20"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031F6'  ***************************** -->
+        <device Dname="STM32F031F6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="12"      m="12"/>
+          <feature type="IOs"           n="13"/>
+          <variant Dvariant="STM32F031F6Px">
+            <feature type="SOP" n="20"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031G4'  ***************************** -->
+        <device Dname="STM32F031G4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="21"/>
+          <variant Dvariant="STM32F031G4Ux">
+            <feature type="QFP" n="28"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031G6'  ***************************** -->
+        <device Dname="STM32F031G6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="21"/>
+          <variant Dvariant="STM32F031G6Ux">
+            <feature type="QFP" n="28"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031K4'  ***************************** -->
+        <device Dname="STM32F031K4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="27"/>
+          <variant Dvariant="STM32F031K4Ux">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F031K6'  ***************************** -->
+        <device Dname="STM32F031K6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="27"/>
+          <variant Dvariant="STM32F031K6Tx">
+            <feature type="QFP" n="32"/>
+          </variant>
+          <variant Dvariant="STM32F031K6Ux">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F038'  **************************** -->
+      <subFamily DsubFamily="STM32F038">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F038xx"/>
+        <debug svd="CMSIS/SVD/STM32F0x8.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f038c6.pdf" title="STM32F038 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="5"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="SPI"           n="1"       m="18000000"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="I2C"           n="1"/>
+        <feature type="USART"         n="1"       m="6000000"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F038C6'  ***************************** -->
+        <device Dname="STM32F038C6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="39"/>
+          <variant Dvariant="STM32F038C6Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F038E6'  ***************************** -->
+        <device Dname="STM32F038E6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="10"      m="12"/>
+          <feature type="IOs"           n="20"/>
+          <variant Dvariant="STM32F038E6Yx">
+            <feature type="CSP" n="25"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F038F6'  ***************************** -->
+        <device Dname="STM32F038F6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="12"      m="12"/>
+          <feature type="IOs"           n="13"/>
+          <variant Dvariant="STM32F038F6Px">
+            <feature type="SOP" n="20"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F038G6'  ***************************** -->
+        <device Dname="STM32F038G6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="21"/>
+          <variant Dvariant="STM32F038G6Ux">
+          <feature type="QFP" n="28"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F038K6'  ***************************** -->
+        <device Dname="STM32F038K6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="27"/>
+          <variant Dvariant="STM32F038K6Ux">
+          <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F042'  **************************** -->
+      <subFamily DsubFamily="STM32F042">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F042x6"/>
+        <debug svd="CMSIS/SVD/STM32F0x2.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f042c4.pdf" title="STM32F042 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="DMA"           n="5"/>
+        <feature type="Timer"         n="5"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="I2C"           n="1"/>
+        <feature type="USART"         n="2"       m="6000000"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="USBD"          n="1"/>
+        <feature type="CAN"           n="1"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F042C4'  ***************************** -->
+        <device Dname="STM32F042C4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="38"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <variant Dvariant="STM32F042C4Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F042C4Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042C6'  ***************************** -->
+        <device Dname="STM32F042C6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="38"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <variant Dvariant="STM32F042C6Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F042C6Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042F4'  ***************************** -->
+        <device Dname="STM32F042F4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="12"      m="12"/>
+          <feature type="IOs"           n="16"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F042F4Px">
+            <feature type="SOP" n="20"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042F6'  ***************************** -->
+        <device Dname="STM32F042F6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="12"      m="12"/>
+          <feature type="IOs"           n="16"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F042F6Px">
+            <feature type="SOP" n="20"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042G4'  ***************************** -->
+        <device Dname="STM32F042G4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="24"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F042G4Ux">
+            <feature type="QFP" n="28"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042G6'  ***************************** -->
+        <device Dname="STM32F042G6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="24"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F042G6Ux">
+            <feature type="QFP" n="28"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042K4'  ***************************** -->
+        <device Dname="STM32F042K4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="28"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F042K4Tx">
+            <feature type="QFP" n="32"/>
+          </variant>
+          <variant Dvariant="STM32F042K4Ux">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042K6'  ***************************** -->
+        <device Dname="STM32F042K6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="28"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F042K6Tx">
+            <feature type="QFP" n="32"/>
+          </variant>
+          <variant Dvariant="STM32F042K6Ux">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F042T6'  ***************************** -->
+        <device Dname="STM32F042T6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="30"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F042T6Yx">
+            <feature type="CSP" n="36"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F048'  **************************** -->
+      <subFamily DsubFamily="STM32F048">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F048xx"/>
+        <debug svd="CMSIS/SVD/STM32F0x8.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f048c6.pdf" title="STM32F048 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="DMA"           n="5"/>
+        <feature type="Timer"         n="5"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="I2C"           n="1"/>
+        <feature type="USART"         n="2"       m="6000000"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="USBD"          n="1"/>
+        <feature type="CAN"           n="1"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F048C6'  ***************************** -->
+        <device Dname="STM32F048C6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="38"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <variant Dvariant="STM32F048C6Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F048G6'  ***************************** -->
+        <device Dname="STM32F048G6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="24"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F048G6Ux">
+            <feature type="QFP" n="28"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F048T6'  ***************************** -->
+        <device Dname="STM32F048T6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="30"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <variant Dvariant="STM32F048T6Yx">
+            <feature type="CSP" n="36"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F051'  **************************** -->
+      <subFamily DsubFamily="STM32F051">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F051x8"/>
+        <debug svd="CMSIS/SVD/STM32F0x1.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f051c4.pdf" title="STM32F051 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="7"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="DAC"           n="1"       m="12"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F051C4'  ***************************** -->
+        <device Dname="STM32F051C4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F051C4Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F051C4Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051C6'  ***************************** -->
+        <device Dname="STM32F051C6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F051C6Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F051C6Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051C8'  ***************************** -->
+        <device Dname="STM32F051C8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <feature type="I2C"           n="2"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F051C8Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F051C8Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051K4'  ***************************** -->
+        <device Dname="STM32F051K4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="27"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F051K4Tx">
+            <feature type="QFP" n="32"/>
+          </variant>
+          <variant Dvariant="STM32F051K4Ux">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051K6'  ***************************** -->
+        <device Dname="STM32F051K6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="27"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F051K6Tx">
+            <feature type="QFP" n="32"/>
+          </variant>
+          <variant Dvariant="STM32F051K6Ux">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051K8'  ***************************** -->
+        <device Dname="STM32F051K8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="27"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F051K8Tx">
+            <feature type="QFP" n="32"/>
+          </variant>
+          <variant Dvariant="STM32F051K8Ux">
+            <feature type="QFP" n="32"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051R4'  ***************************** -->
+        <device Dname="STM32F051R4">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00004000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_16.FLM"     start="0x08000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="55"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="1"       m="6000000"/>
+          <variant Dvariant="STM32F051R4Tx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051R6'  ***************************** -->
+        <device Dname="STM32F051R6">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="55"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F051R6Tx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051R8'  ***************************** -->
+        <device Dname="STM32F051R8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="55"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <feature type="I2C"           n="2"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F051R8Tx">
+            <feature type="QFP" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F051R8Hx">
+            <feature type="BGA" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F051T8'  ***************************** -->
+        <device Dname="STM32F051T8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="10"      m="12"/>
+          <feature type="IOs"           n="29"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F051T8Yx">
+            <feature type="CSP" n="36"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F058'  **************************** -->
+      <subFamily DsubFamily="STM32F058">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F058xx"/>
+        <debug svd="CMSIS/SVD/STM32F0x8.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f058c8.pdf" title="STM32F058 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="7"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="DAC"           n="1"       m="12"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F058C8'  ***************************** -->
+        <device Dname="STM32F058C8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="39"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <feature type="I2C"           n="2"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F058C8Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F058R8'  ***************************** -->
+        <device Dname="STM32F058R8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="55"/>
+          <feature type="SPI"           n="2"       m="18000000"/>
+          <feature type="I2C"           n="2"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F058R8Hx">
+            <feature type="BGA" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F058R8Tx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F058T8'  ***************************** -->
+        <device Dname="STM32F058T8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00002000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64.FLM"     start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="10"      m="12"/>
+          <feature type="IOs"           n="28"/>
+          <feature type="SPI"           n="1"       m="18000000"/>
+          <feature type="I2C"           n="1"/>
+          <feature type="USART"         n="2"       m="6000000"/>
+          <variant Dvariant="STM32F058T8Yx">
+            <feature type="CSP" n="36"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F070'  **************************** -->
+      <subFamily DsubFamily="STM32F070">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F070xx"/>
+        <debug svd="CMSIS/SVD/STM32F0x0.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F030_070.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x00201932;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0360-stm32f030x4x6x8xc-and-stm32f070x6xb-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F030x4/x6/x8/xC, STM32F070x6/xB Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f070c6.pdf" title="STM32F070 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="8"       m="16"/>
+        <feature type="SPI"           n="2"       m="18000000"/>
+        <feature type="I2C"           n="2"/>
+        <feature type="USART"         n="4"       m="6000000"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F070C6'  ***************************** -->
+        <device Dname="STM32F070C6">
+          <compile define="STM32F070x6"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="87"/>
+          <feature type="QFP"           n="100"/>
+          <variant Dvariant="STM32F070C6Tx">
+            <feature type="BGA" n="100"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F070CB'  ***************************** -->
+        <device Dname="STM32F070CB">
+          <compile define="STM32F070xB"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="37"/>
+          <variant Dvariant="STM32F070CBTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+         <!-- *************************  Device 'STM32F070F6'  ***************************** -->
+        <device Dname="STM32F070F6">
+          <compile define="STM32F070x6"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00008000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00001800" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_32.FLM"     start="0x08000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="87"/>
+          <variant Dvariant="STM32F070F6Px">
+            <feature type="SOP" n="20"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F070RB'  ***************************** -->
+        <device Dname="STM32F070RB">
+          <compile define="STM32F070xB"/>
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="51"/>
+          <variant Dvariant="STM32F070RBTx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F071'  **************************** -->
+      <subFamily DsubFamily="STM32F071">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F071xB"/>
+        <debug svd="CMSIS/SVD/STM32F0x1.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f071cb.pdf" title="STM32F071 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="DAC"           n="1"       m="12"/>
+        <feature type="SPI"           n="2"       m="18000000"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="I2C"           n="2"/>
+        <feature type="USART"         n="4"       m="6000000"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F071C8'  ***************************** -->
+        <device Dname="STM32F071C8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64_2K.FLM"  start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="7"       m="16"/>
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="37"/>
+          <variant Dvariant="STM32F071C8Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F071C8Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F071CB'  ***************************** -->
+        <device Dname="STM32F071CB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="7"       m="16"/>
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="37"/>
+          <variant Dvariant="STM32F071CBTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F071CBUx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F071CBYx">
+            <feature type="CSP" n="49"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F071RB'  ***************************** -->
+        <device Dname="STM32F071RB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="7"       m="16"/>
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="51"/>
+          <variant Dvariant="STM32F071RBTx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F071V8'  ***************************** -->
+        <device Dname="STM32F071V8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64_2K.FLM"  start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="9"       m="16"/>
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="87"/>
+          <variant Dvariant="STM32F071V8Hx">
+            <feature type="BGA" n="100"/>
+          </variant>
+          <variant Dvariant="STM32F071V8Tx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F071VB'  ***************************** -->
+        <device Dname="STM32F071VB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="Timer"         n="9"       m="16"/>
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="87"/>
+          <variant Dvariant="STM32F071VBHx">
+            <feature type="BGA" n="100"/>
+          </variant>
+          <variant Dvariant="STM32F071VBTx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F072'  **************************** -->
+      <subFamily DsubFamily="STM32F072">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F072xB"/>
+        <debug svd="CMSIS/SVD/STM32F0x2.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f072c8.pdf" title="STM32F072 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="8"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="DAC"           n="2"       m="12"/>
+        <feature type="SPI"           n="2"       m="18000000"/>
+        <feature type="I2S"           n="2"/>
+        <feature type="I2C"           n="2"/>
+        <feature type="USART"         n="4"       m="6000000"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="USBD"          n="1"/>
+        <feature type="CAN"           n="1"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F072C8'  ***************************** -->
+        <device Dname="STM32F072C8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64_2K.FLM"  start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="37"/>
+          <variant Dvariant="STM32F072C8Tx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F072C8Ux">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F072CB'  ***************************** -->
+        <device Dname="STM32F072CB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="37"/>
+          <variant Dvariant="STM32F072CBTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F072CBUx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F072CBYx">
+            <feature type="CSP" n="49"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F072R8'  ***************************** -->
+        <device Dname="STM32F072R8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64_2K.FLM"  start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="51"/>
+          <variant Dvariant="STM32F072R8Tx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F072RB'  ***************************** -->
+        <device Dname="STM32F072RB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="51"/>
+          <variant Dvariant="STM32F072RBTx">
+            <feature type="QFP" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F072RBIx">
+            <feature type="BGA" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F072RBHx">
+            <feature type="BGA" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F072V8'  ***************************** -->
+        <device Dname="STM32F072V8">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00010000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_64_2K.FLM"  start="0x08000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="87"/>
+          <variant Dvariant="STM32F072V8Hx">
+            <feature type="BGA" n="100"/>
+          </variant>
+          <variant Dvariant="STM32F072V8Tx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F072VB'  ***************************** -->
+        <device Dname="STM32F072VB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="87"/>
+          <variant Dvariant="STM32F072VBHx">
+            <feature type="BGA" n="100"/>
+          </variant>
+          <variant Dvariant="STM32F072VBTx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F078'  **************************** -->
+      <subFamily DsubFamily="STM32F078">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F078xx"/>
+        <debug svd="CMSIS/SVD/STM32F0x8.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f078cb.pdf" title="STM32F078 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="8"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="DAC"           n="2"       m="12"/>
+        <feature type="SPI"           n="2"       m="18000000"/>
+        <feature type="I2S"           n="2"/>
+        <feature type="I2C"           n="2"/>
+        <feature type="USART"         n="4"       m="6000000"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="USBD"          n="1"/>
+        <feature type="CAN"           n="1"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F078CB'  ***************************** -->
+        <device Dname="STM32F078CB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="36"/>
+          <variant Dvariant="STM32F078CBTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F078CBUx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F078CBYx">
+            <feature type="CSP" n="49"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F078RB'  ***************************** -->
+        <device Dname="STM32F078RB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="50"/>
+          <variant Dvariant="STM32F078RBHx">
+            <feature type="BGA" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F078RBTx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F078VB'  ***************************** -->
+        <device Dname="STM32F078VB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00004000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="86"/>
+          <variant Dvariant="STM32F078VBHx">
+            <feature type="BGA" n="100"/>
+          </variant>
+          <variant Dvariant="STM32F078VBTx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F091'  **************************** -->
+      <subFamily DsubFamily="STM32F091">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F091xC"/>
+        <debug svd="CMSIS/SVD/STM32F0x1.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f091cc.pdf" title="STM32F091 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="Timer"         n="8"       m="16"/>
+        <feature type="DAC"           n="1"       m="12"/>
+        <feature type="SPI"           n="2"       m="18000000"/>
+        <feature type="I2S"           n="1"/>
+        <feature type="I2C"           n="2"/>
+        <feature type="USART"         n="8"       m="6000000"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F091CB'  ***************************** -->
+        <device Dname="STM32F091CB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="38"/>
+          <variant Dvariant="STM32F091CBTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F091CBUx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F091CC'  ***************************** -->
+        <device Dname="STM32F091CC">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="38"/>
+          <variant Dvariant="STM32F091CCTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F091CCUx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F091RB'  ***************************** -->
+        <device Dname="STM32F091RB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="51"/>
+          <variant Dvariant="STM32F091RBTx">
+            <feature type="QFP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F091RC'  ***************************** -->
+        <device Dname="STM32F091RC">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="13"      m="12"/>
+          <feature type="IOs"           n="52"/>
+          <variant Dvariant="STM32F091RCHx">
+            <feature type="BGA" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F091RCTx">
+            <feature type="QFP" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F091RCYx">
+            <feature type="CSP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F091VB'  ***************************** -->
+        <device Dname="STM32F091VB">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00020000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_128_2K.FLM" start="0x08000000" size="0x00020000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="51"/>
+          <variant Dvariant="STM32F091VBTx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F091VC'  ***************************** -->
+        <device Dname="STM32F091VC">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="19"      m="12"/>
+          <feature type="IOs"           n="88"/>
+          <variant Dvariant="STM32F091VCHx">
+            <feature type="BGA" n="100"/>
+          </variant>
+          <variant Dvariant="STM32F091VCTx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32F098'  **************************** -->
+      <subFamily DsubFamily="STM32F098">
+        <processor Dclock="48000000"/>
+        <compile define="STM32F098xx"/>
+        <debug svd="CMSIS/SVD/STM32F0x8.svd"/>
+
+        <debugvars configfile="CMSIS/Debug/STM32F0x1_0x2_0x8.dbgconf" version="1.0.1">
+          __var DbgMCU_CR      = 0x00000006;   // DBGMCU_CR:  DBG_STOP, DBG_STANDBY
+          __var DbgMCU_APB1_Fz = 0x02201933;   // DGBMCU_APB1_FZ: Configure APB1 peripheral freeze behavior
+          __var DbgMCU_APB2_Fz = 0x00070800;   // DGBMCU_APB2_FZ: Configure APB2 peripheral freeze behavior
+          __var DoOptionByteLoading = 0;       // Disabled
+        </debugvars>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0091-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32f098cc.pdf" title="STM32F098 Data Sheet"/>
+
+        <feature type="WDT"           n="2"/>
+        <feature type="RTC"           n="32768"/>
+        <feature type="Timer"         n="8"       m="16"/>
+        <feature type="Timer"         n="1"       m="32"/>
+        <feature type="DAC"           n="2"       m="12"/>
+        <feature type="SPI"           n="2"       m="18000000"/>
+        <feature type="I2S"           n="2"/>
+        <feature type="I2C"           n="2"/>
+        <feature type="USART"         n="8"       m="6000000"/>
+        <feature type="ComOther"      n="1"                           name="CEC Interface"/>
+        <feature type="CAN"           n="1"/>
+        <feature type="Temp"          n="-40"     m="105"/>
+        <feature type="VCC"           n="2.00"    m="3.60"/>
+
+        <!-- *************************  Device 'STM32F098CC'  ***************************** -->
+        <device Dname="STM32F098CC">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="16"      m="12"/>
+          <feature type="IOs"           n="37"/>
+          <variant Dvariant="STM32F098CCTx">
+            <feature type="QFP" n="48"/>
+          </variant>
+          <variant Dvariant="STM32F098CCUx">
+            <feature type="QFP" n="48"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F098RC'  ***************************** -->
+        <device Dname="STM32F098RC">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="16"      m="12"/>
+          <feature type="IOs"           n="51"/>
+          <variant Dvariant="STM32F098RCHx">
+            <feature type="BGA" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F098RCTx">
+            <feature type="QFP" n="64"/>
+          </variant>
+          <variant Dvariant="STM32F098RCYx">
+            <feature type="CSP" n="64"/>
+          </variant>
+        </device>
+
+        <!-- *************************  Device 'STM32F098VC'  ***************************** -->
+        <device Dname="STM32F098VC">
+          <memory name="Flash" access="rx"                   start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM"  access="rwx"                  start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_256_2K.FLM" start="0x08000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32F0xx_OPT.FLM"    start="0x1FFFF800" size="0x00000010" default="0"/>
+
+          <feature type="ADC"           n="10"      m="12"/>
+          <feature type="IOs"           n="87"/>
+          <variant Dvariant="STM32F098VCHx">
+            <feature type="BGA" n="100"/>
+          </variant>
+          <variant Dvariant="STM32F098VCTx">
+            <feature type="QFP" n="100"/>
+          </variant>
+        </device>
+      </subFamily>
+
+    </family>
+
+  </devices>
+
+  <conditions>
+    <!-- Device Conditions -->
+    <condition id="STM32F0">
+      <description>STMicroelectronics STM32F0 Series devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32F0*"/>
+    </condition>
+
+    <!-- Device + CMSIS Conditions -->
+    <condition id="STM32F0 CMSIS">
+      <description>STMicroelectronics STM32F0 Device and CMSIS-CORE</description>
+      <require condition="STM32F0"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+  </conditions>
+
+  <components>
+    <!-- CubeMX Generator -->
+    <component generator="CubeMX" Cclass="Device" Cgroup="CubeMX" Cversion="1.0.0" condition="STM32F0 CMSIS">
+      <description>Configuration via STM32CubeMX</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_CUBE_MX
+        #define CMSIS_device_header "stm32f0xx.h"
+      </RTE_Components_h>
+      <files>
+        <file category="doc" name="https://open-cmsis-pack.github.io/cmsis-toolbox/CubeMX/"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <!-- CubeMX Basic CMSIS Solution template -->
+    <template name="CubeMX Basic solution" path="Templates/CubeMX" file="CubeMX.csolution.yml" condition="STM32F0">
+      <description>Create a CubeMX basic solution with project</description>
+    </template>
+
+  </csolution>
+</package>

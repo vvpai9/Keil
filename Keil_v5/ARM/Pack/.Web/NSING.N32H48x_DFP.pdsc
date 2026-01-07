@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package schemaVersion="1.7.37" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.37/schema/PACK.xsd">
+    <vendor>NSING</vendor>
+    <url>https://www.nsing.com.sg/public/uploads/armpacks/</url>
+    <name>N32H48x_DFP</name>
+
+    <description>NSING N32H48x Series Device Support, Drivers and Examples</description>
+
+    <releases>
+        <release date="2024-11-28" version="1.0.1">
+           Add N32H481RE series.
+        </release>
+        <release date="2024-09-14" version="0.9.0">
+            First version of N32H48x Device Family Pack.
+        </release>
+    </releases>
+
+    <keywords>
+        <keyword>NSING</keyword>
+        <keyword>Device Support</keyword>
+        <keyword>N32H48x</keyword>
+        <keyword>N32</keyword>
+    </keywords>
+
+    <devices>
+        <family Dfamily="N32H48x Series" Dvendor="NSING:185">
+            <processor Dcore="Cortex-M4" DcoreVersion="r0p1" Dfpu="1" Dmpu="0" Dendian="Little-endian"/>
+           <description>
+Up to 240MHz ARM Cortex-M4F, 512KB Flash, 160KB SRAM, 32KB CCM SRAM, 4KB Backup SRAM.
+            </description>
+          <subFamily DsubFamily="N32H481">
+            <processor Dclock="240000000"/>
+            <compile header="firmware/CMSIS/device/n32h47x_48x.h" define="N32H48X N32H48X USE_STDPERIPH_DRIVER"/>
+	  	    <feature type="XTAL"     n="4000000"     m="32000000" name="External Crystal Oscillator"/>		   
+	  	    <feature type="VCC"      n="1.80"        m="3.60"/>		
+		    <feature type="RTC"      n="32768"/>
+			<feature type="ADC"      n="4"           name="4x ADC"/>	
+			<feature type="DAC"      n="8"           name="8x 1DAC"/>			
+            <feature type="DMA"      n="2"/>			
+	        <feature type="CAN"      n="2"           name="2x FDCAN"/>
+		    <feature type="Temp"     n="-40"         m="105"/>	
+			
+		  <!-- *************************  Device 'N32H481RE'  ***************************** -->
+		  <device Dname="N32H481RE">
+			<feature type="QFP"      count="64" name="LQFP64"/>
+		    <feature type="Memory"   n="512"    name="Flash"/>			
+			<feature type="IOs"      n="54"     name="Input and Output Ports"/>
+			<feature type="Timer"    n="18"/>	
+			<feature type="UART"     n="3"/>	
+            <feature type="USART"    n="4"/>			
+			<feature type="SPI"      n="6"/>	
+			<feature type="I2C"      n="4"/>	
+			<memory id="IRAM1"   start="0x20000000" size="0x30000" default="1" init="0"/>
+			<memory id="IROM1"   start="0x08000000" size="0x80000" default="1" startup="1"/>
+			<algorithm name="Flash/N32H48x_512.FLM"  start="0x08000000" size="0x80000" default="1"/>
+			<debug svd="svd/N32H481.svd"/>
+          </device>	
+
+		</subFamily>
+			
+		<subFamily DsubFamily="N32H482">
+           <processor Dclock="240000000"/>
+           <compile header="firmware/CMSIS/device/n32h47x_48x.h" define="N32H48X N32H48X USE_STDPERIPH_DRIVER"/>
+
+		  <!-- *************************  Device 'N32H482RE'  ***************************** -->
+		  <device Dname="N32H482RE">
+			<feature type="QFP"      count="64" name="LQFP64"/>
+		    <feature type="Memory"   n="512"    name="Flash"/>			
+			<feature type="IOs"      n="42"     name="Input and Output Ports"/>
+			<feature type="UART"     n="4"/>	
+            <feature type="USART"    n="4"/>			
+			<feature type="SPI"      n="5"/>	
+			<feature type="I2C"      n="4"/>	
+			<memory id="IRAM1"   start="0x20000000" size="0x30000" default="1" init="0"/>
+			<memory id="IROM1"   start="0x08000000" size="0x80000" default="1" startup="1"/>
+			<algorithm name="Flash/N32H48x_512.FLM" start="0x08000000" size="0x80000" default="1"/>
+			<debug svd="svd/N32H482.svd"/>
+          </device>
+
+		  <!-- *************************  Device 'N32H482VE'  ***************************** -->
+		  <device Dname="N32H482VE">
+			<feature type="QFP"      count="100" name="LQFP100"/>
+		    <feature type="Memory"   n="512"    name="Flash"/>			
+			<feature type="IOs"      n="85"     name="Input and Output Ports"/>
+			<feature type="UART"     n="4"/>	
+            <feature type="USART"    n="4"/>			
+			<feature type="SPI"      n="6"/>	
+			<feature type="I2C"      n="4"/>	
+			<memory id="IRAM1"   start="0x20000000" size="0x30000" default="1" init="0"/>
+			<memory id="IROM1"   start="0x08000000" size="0x80000" default="1" startup="1"/>
+			<algorithm name="Flash/N32H48x_512.FLM" start="0x08000000" size="0x80000" default="1"/>
+			<debug svd="svd/N32H482.svd"/>
+          </device>
+		  
+		  <!-- *************************  Device 'N32H482ZE'  ***************************** -->
+		  <device Dname="N32H482ZE">
+			<feature type="QFP"      count="144" name="LQFP144"/>
+		    <feature type="Memory"   n="512"    name="Flash"/>			
+			<feature type="IOs"      n="118"     name="Input and Output Ports"/>
+			<feature type="UART"     n="4"/>	
+            <feature type="USART"    n="4"/>			
+			<feature type="SPI"      n="6"/>	
+			<feature type="I2C"      n="4"/>	
+			<memory id="IRAM1"   start="0x20000000" size="0x30000" default="1" init="0"/>
+			<memory id="IROM1"   start="0x08000000" size="0x80000" default="1" startup="1"/>
+			<algorithm name="Flash/N32H48x_512.FLM" start="0x08000000" size="0x80000" default="1"/>
+			<debug svd="svd/N32H482.svd"/>
+          </device>
+		  
+        </subFamily>
+			
+			
+		<subFamily DsubFamily="N32H487">
+          <processor Dclock="240000000"/>
+          <compile header="firmware/CMSIS/device/n32h47x_48x.h" define="N32H48X N32H48X USE_STDPERIPH_DRIVER"/>
+
+		  <!-- *************************  Device 'N32H484QE'  ***************************** -->
+		  <device Dname="N32H484QE">
+			<feature type="QFP"      count="64" name="LQFP64"/>
+		    <feature type="Memory"   n="512"    name="Flash"/>			
+			<feature type="IOs"      n="54"     name="Input and Output Ports"/>
+			<feature type="UART"     n="4"/>	
+            <feature type="USART"    n="4"/>			
+			<feature type="SPI"      n="5"/>	
+			<feature type="I2C"      n="4"/>	
+			<memory id="IRAM1"   start="0x20000000" size="0x30000" default="1" init="0"/>
+			<memory id="IROM1"   start="0x08000000" size="0x80000" default="1" startup="1"/>
+			<algorithm name="Flash/N32H48x_512.FLM" start="0x08000000" size="0x80000" default="1"/>
+			<debug svd="svd/N32H487.svd"/>
+          </device>
+
+		  <!-- *************************  Device 'N32H487VE'  ***************************** -->
+		  <device Dname="N32H487VE">
+			<feature type="QFP"      count="100" name="LQFP100"/>
+		    <feature type="Memory"   n="512"    name="Flash"/>			
+			<feature type="IOs"      n="54"     name="Input and Output Ports"/>
+			<feature type="UART"     n="4"/>	
+            <feature type="USART"    n="4"/>			
+			<feature type="SPI"      n="6"/>	
+			<feature type="I2C"      n="4"/>	
+			<memory id="IRAM1"   start="0x20000000" size="0x30000" default="1" init="0"/>
+			<memory id="IROM1"   start="0x08000000" size="0x80000" default="1" startup="1"/>
+			<algorithm name="Flash/N32H48x_512.FLM" start="0x08000000" size="0x80000" default="1"/>
+			<debug svd="svd/N32H487.svd"/>
+          </device>
+ 
+		  <!-- *************************  Device 'N32H487ZE'  ***************************** -->
+		  <device Dname="N32H487ZE">
+			<feature type="QFP"      count="144" name="LQFP144"/>
+		    <feature type="Memory"   n="512"    name="Flash"/>			
+			<feature type="IOs"      n="118"     name="Input and Output Ports"/>
+			<feature type="UART"     n="4"/>	
+            <feature type="USART"    n="4"/>			
+			<feature type="SPI"      n="6"/>	
+			<feature type="I2C"      n="4"/>	
+			<memory id="IRAM1"   start="0x20000000" size="0x30000" default="1" init="0"/>
+			<memory id="IROM1"   start="0x08000000" size="0x80000" default="1" startup="1"/>
+			<algorithm name="Flash/N32H48x_512.FLM" start="0x08000000" size="0x80000" default="1"/>
+			<debug svd="svd/N32H487.svd"/>
+          </device>
+
+		  
+         </subFamily>
+	
+		</family>
+    </devices>
+        
+
+   <conditions>
+        <condition id="Compiler ARM">            <!-- conditions selecting ARM Compiler -->
+            <require Tcompiler="ARMCC"/>
+        </condition>
+
+        <condition id="N32H48x CMSIS Device">            <!-- conditions selecting Devices -->
+            <description>NSING N32H48x Series devices</description>
+            <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+            <require Dvendor="NSING:185" Dname="N32*"/>
+        </condition>
+
+        <condition id="N32H48x STDPERIPH">
+            <description>NSING N32H48x Standard Peripherals Drivers</description>
+            <require condition="N32H48x CMSIS Device"/>
+            <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="Framework"/>
+        </condition>
+
+        <condition id="N32H48x STDPERIPH RCC">
+            <description>NSING N32H48x Standard Peripherals Drivers with RCC</description>
+            <require condition="N32H48x STDPERIPH"/>
+            <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RCC"/>
+        </condition>
+
+        <condition id="N32H48x Algorithm Common" >
+            <description>NSING N32H48x Series Algorithm Libraries Common Functions.</description>
+            <require condition="N32H48x CMSIS Device"/>
+            <require Cclass ="Device" Cgroup="Algorithm Libs" Csub="Common"/>
+        </condition>
+
+    </conditions>
+
+    <components>
+        <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="N32H48x CMSIS Device">
+            <description>Startup File for NSING N32H48x Series</description>
+            <files>
+                <!--  include folder -->
+				<file category="include" name="firmware/CMSIS/device/"/>
+                <file category="header" name="firmware/CMSIS/device/n32h47x_48x.h"/>
+                <file category="source" name="firmware/CMSIS/device/startup/startup_n32h482.s" attr="config" condition="Compiler ARM" version="1.0.0"/>	
+				<file category="source" name="firmware/CMSIS/device/system_n32h47x_48x.c" attr="config" version="1.0.0"/>
+            </files>
+        </component> 
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="Framework" Cversion="1.0.0" condition="N32H48x STDPERIPH">
+            <description>Standard Peripherals Drivers Framework</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_FRAMEWORK
+            </RTE_Components_h>
+            <files>
+                <file category="include" name="firmware/n32h47x_48x_std_periph_driver/inc/"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/misc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ADC" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Analog-to-digital converter (ADC) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_ADC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_adc.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_adc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="CAN" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Controller area network (CAN) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_CAN
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_fdcan.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_fdcan.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="COMP" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Comparator (COMP) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_COMP
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_comp.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_comp.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="CRC" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>CRC calculation unit (CRC) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_CRC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_crc.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_crc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DAC" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Digital-to-analog converter (DAC) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DAC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_dac.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_dac.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="MCUDBG" Cversion="1.0.0" condition="N32H48x STDPERIPH">
+            <description>MCU debug component (MCUDBG) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DBG
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_dbg.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_dbg.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DMA" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>DMA controller (DMA) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DMA
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_dma.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_dma.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="EXTI" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>External interrupt/event controller (EXTI) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_EXTI
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_exti.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_exti.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="FLASH" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Embedded Flash memory (FLASH) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_FLASH
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_flash.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_flash.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="GPIO" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>General-purpose I/O (GPIO) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_GPIO
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_gpio.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_gpio.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="I2C" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Inter-integrated circuit (I2C) interface driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_I2C
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_i2c.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_i2c.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="IWDG" Cversion="1.0.0" condition="N32H48x STDPERIPH">
+            <description>Independent watchdog (IWDG) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_IWDG
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_iwdg.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_iwdg.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="LPTIM" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Low Power Timers (LPTIM) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_LPTIM
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_lptim.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_lptim.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="PWR" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Power controller (PWR) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_PWR
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_pwr.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_pwr.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RCC" Cversion="1.0.0" condition="N32H48x STDPERIPH">
+            <description>Reset and clock control (RCC) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_RCC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_rcc.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_rcc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RTC" Cversion="1.0.0" condition="N32H48x STDPERIPH">
+            <description>Real-time clock (RTC) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_RTC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_rtc.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_rtc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="SPI" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Serial peripheral interface (SPI) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_SPI
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_spi.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_spi.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="TIMER" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Timers (TIMER) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_TIM
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_tim.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_tim.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="USART" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Universal synchronous asynchronous receiver transmitter (USART) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_USART
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_usart.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_usart.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="WWDG" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>Window watchdog (WWDG) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_WWDG
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_std_periph_driver/inc/n32h47x_48x_wwdg.h"/>
+                <file category="source" name="firmware/n32h47x_48x_std_periph_driver/src/n32h47x_48x_wwdg.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="USBDEV" Cversion="1.0.0" condition="N32H48x STDPERIPH RCC">
+            <description>USB device (USBDEV) driver for N32H48x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_USBDEV
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_core.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_def.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_init.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_int.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_lib.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_mem.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_regs.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_sil.h"/>
+                <file category="header" name="firmware/n32h47x_48x_usbfsd_driver/inc/usbfsd_type.h"/>
+                <file category="source" name="firmware/n32h47x_48x_usbfsd_driver/src/usbfsd_core.c"/>
+                <file category="source" name="firmware/n32h47x_48x_usbfsd_driver/src/usbfsd_init.c"/>
+                <file category="source" name="firmware/n32h47x_48x_usbfsd_driver/src/usbfsd_int.c"/>
+                <file category="source" name="firmware/n32h47x_48x_usbfsd_driver/src/usbfsd_mem.c"/>
+                <file category="source" name="firmware/n32h47x_48x_usbfsd_driver/src/usbfsd_regs.c"/>
+                <file category="source" name="firmware/n32h47x_48x_usbfsd_driver/src/usbfsd_sil.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="Algorithm Libs" Csub="Common" Cversion="1.0.0" condition="N32H48x CMSIS Device">
+		    <description>AES algorithm library for N32H48x</description>
+			<environments>
+				<!-- Add supported environment configurations here -->
+				<environment name="Keil uVision" />
+			</environments>		
+            <RTE_Components_h>
+        #define RTE_DEVICE_ALGO_COMMON
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_algo_lib/inc/n32h47x_48x_algo_common.h"/>
+                <file category="source" name="firmware/n32h47x_48x_algo_lib/lib/n32h47x_48x_algo_common.lib"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="Algorithm Libs" Csub="AES" Cversion="1.0.0" condition="N32H48x Algorithm Common">
+		    <description>AES algorithm library for N32H48x</description>
+			<environments>
+				<!-- Add supported environment configurations here -->
+				<environment name="Keil uVision" />
+			</environments>			
+            <RTE_Components_h>
+        #define RTE_DEVICE_ALGO_AES
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_algo_lib/inc/n32h47x_48x_aes.h"/>
+                <file category="source" name="firmware/n32h47x_48x_algo_lib/lib/n32h47x_48x_aes.lib"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="Algorithm Libs" Csub="DES" Cversion="1.0.0" condition="N32H48x Algorithm Common">
+		    <description>AES algorithm library for N32H48x</description>
+			<environments>
+				<!-- Add supported environment configurations here -->
+				<environment name="Keil uVision" />
+			</environments>			
+            <RTE_Components_h>
+        #define RTE_DEVICE_ALGO_DES
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_algo_lib/inc/n32h47x_48x_des.h"/>
+                <file category="source" name="firmware/n32h47x_48x_algo_lib/lib/n32h47x_48x_des.lib"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="Algorithm Libs" Csub="HASH" Cversion="1.0.0" condition="N32H48x Algorithm Common">
+		    <description>AES algorithm library for N32H48x</description>
+			<environments>
+				<!-- Add supported environment configurations here -->
+				<environment name="Keil uVision" />
+			</environments>			
+            <RTE_Components_h>
+        #define RTE_DEVICE_ALGO_HASH
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_algo_lib/inc/n32h47x_48x_hash.h"/>
+                <file category="source" name="firmware/n32h47x_48x_algo_lib/lib/n32h47x_48x_hash.lib"/>
+            </files>
+        </component>
+        <component Cclass="Device" Cgroup="Algorithm Libs" Csub="RNG" Cversion="1.0.0" condition="N32H48x Algorithm Common">
+		    <description>AES algorithm library for N32H48x</description>
+			<environments>
+				<!-- Add supported environment configurations here -->
+				<environment name="Keil uVision" />
+			</environments>			
+            <RTE_Components_h>
+        #define RTE_DEVICE_ALGO_RNG
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32h47x_48x_algo_lib/inc/n32h47x_48x_rng.h"/>
+                <file category="source" name="firmware/n32h47x_48x_algo_lib/lib/n32h47x_48x_rng.lib"/>
+            </files>
+        </component>
+    </components>
+</package>

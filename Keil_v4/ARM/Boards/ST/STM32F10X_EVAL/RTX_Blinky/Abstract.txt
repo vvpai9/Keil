@@ -1,0 +1,19 @@
+This is a simple RTX Kernel based example which simulates
+the step-motor driver. Four LEDs are blinking simulating
+the activation of the four output driver stages:
+
+- phase A
+- phase B
+- phase C
+- phase D
+
+It simulates Half step driver mode and CW rotation direction.
+In addition it also drives the Color LCD on the Eval Board
+and displays the Keyboard states.
+
+The BLINKY example program is available for several targets:
+
+Simulator: uVision Simulator for evaluation
+
+STM32F10x: Evaluation board with ULINK debugger
+           Application is loaded to internal Flash.

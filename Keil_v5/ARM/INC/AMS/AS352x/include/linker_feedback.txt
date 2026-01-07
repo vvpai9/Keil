@@ -1,0 +1,772 @@
+;#<FEEDBACK># ARM Linker, RVCT3.0 [Build 586]: Last Updated: Wed Sep 26 14:10:16 2007
+;VERSION 0.2
+;FILE AACloseFile.o
+;FILE AADecodePCMAudio.o
+;FILE AAMetadataPieces.o
+AAGetMetaProductId <= USED 0
+AAGetMetaDescription <= USED 0
+AAGetMetaNarrator <= USED 0
+AAGetMetaProvider <= USED 0
+AAGetMetaPubDate <= USED 0
+AAGetMetaParentTitle <= USED 0
+AAGetMetaImageSize <= USED 0
+AAGetMetaImage <= USED 0
+;FILE AANavigation.o
+AATimeMsToBytes <= USED 0
+AAMoveNextSection <= USED 0
+AAMovePrevSection <= USED 0
+AABytesToSection <= USED 0
+;FILE AAOpenFile.o
+;FILE AAReadEncodedAudio.o
+;FILE AAValidateFile.o
+;FILE Audible_decoder_hull.o
+;FILE D_gain2.o
+;FILE D_gains.o
+;FILE Dec45_85.o
+;FILE Dec_swt.o
+;FILE FAT_DirEntry.to
+FS_FAT_SetDirEntryInfo <= USED 0
+;FILE FAT_DiskInfo.to
+FS_FAT_GetDiskSpace <= USED 0
+;FILE FAT_Format.to
+;FILE FAT_Move.to
+FS_FAT_Move <= USED 0
+FS__FAT_Move <= USED 0
+;FILE FAT_Rename.to
+FS_FAT_Rename <= USED 0
+;FILE FAT_VolumeLabel.to
+FS_FAT_GetVolumeLabel <= USED 0
+FS_FAT_SetVolumeLabel <= USED 0
+;FILE FS_AssignCache.to
+FS_AssignCache <= USED 0
+FS_CACHE_Command <= USED 0
+FS_CACHE_SetMode <= USED 0
+FS_CACHE_SetQuota <= USED 0
+;FILE FS_Attrib.to
+FS_SetFileAttributes <= USED 0
+FS__SetFileAttributes <= USED 0
+;FILE FS_CopyFile.to
+FS_CopyFile <= USED 0
+FS__CopyFile <= USED 0
+;FILE FS_Core.to
+FS_InitSectorBuffer <= USED 0
+FS_SetBusyLEDCallback <= USED 0
+;FILE FS_CreateDir.to
+;FILE FS_ErrorNo2Text.to
+FS_ErrorNo2Text <= USED 0
+;FILE FS_Format.to
+FS_FormatLow <= USED 0
+;FILE FS_GetFileSize.to
+;FILE FS_GetNumFiles.to
+FS_GetNumFiles <= USED 0
+FS__GetNumFiles <= USED 0
+;FILE FS_Init.to
+FS_Init <= USED 0
+;FILE FS_Move.to
+FS_Move <= USED 0
+;FILE FS_NonBlock.to
+FS_FReadNonBlock <= USED 0
+FS_IsCompleted <= USED 0
+;FILE FS_Read.to
+FS_Read <= USED 0
+;FILE FS_Rename.to
+FS_Rename <= USED 0
+;FILE FS_SD_Format.to
+;FILE FS_Time.to
+FS_FileTimeToTimeStamp <= USED 0
+FS_GetFileTime <= USED 0
+FS_SetFileTime <= USED 0
+FS_TimeStampToFileTime <= USED 0
+FS__GetFileTime <= USED 0
+FS__SetFileTime <= USED 0
+;FILE FS_Unmount.to
+;FILE FS_Verify.to
+FS_Verify <= USED 0
+FS__Verify <= USED 0
+;FILE FS_Volume.to
+FS__AddDevice <= USED 0
+FS_AddDevice <= USED 0
+FS_GetVolumeFreeSpace <= USED 0
+FS_GetVolumeInfo <= USED 0
+FS_GetVolumeLabel <= USED 0
+FS_GetVolumeSize <= USED 0
+FS_IsVolumeMounted <= USED 0
+FS_RemoveDevice <= USED 0
+FS_SetVolumeLabel <= USED 0
+;FILE FS_Write.to
+FS_Write <= USED 0
+;FILE FS__CLIB_atoi.to
+;FILE FS__CLIB_strlen.to
+;FILE FS__CLIB_toupper.to
+;FILE Find_f.o
+;FILE GUI2DLib.to
+GL_MoveTo <= USED 0
+GUI_MoveRel <= USED 0
+GUI_MoveTo <= USED 0
+;FILE GUIChar.to
+GL_DispChar <= USED 0
+GUI_DispNextLine <= USED 0
+;FILE GUICharLine.to
+;FILE GUICore.to
+;FILE GUIVal.to
+GUI_DispDec <= USED 0
+GUI_DispDecMin <= USED 0
+GUI_DispDecShift <= USED 0
+GUI_DispDecSpace <= USED 0
+GUI_DispSDec <= USED 0
+GUI_DispSDecShift <= USED 0
+;FILE GUI_AddDecMin.to
+GUI_AddDecMin <= USED 0
+;FILE GUI_AddDecShift.to
+GUI_AddSign <= USED 0
+GUI_Long2Len <= USED 0
+;FILE GUI_AddHex.to
+;FILE GUI_DispCEOL.to
+;FILE GUI_DispHex.to
+GUI_DispHexAt <= USED 0
+;FILE GUI_DispString.to
+;FILE GUI_DispStringAt.to
+;FILE GUI_DispStringAtCEOL.to
+;FILE GUI_DispStringHCenter.to
+;FILE GUI_DrawBitmap.to
+;FILE GUI_DrawHLine.to
+;FILE GUI_DrawPixel.to
+;FILE GUI_DrawVLine.to
+;FILE GUI_FillRect.to
+;FILE GUI_GetColor.to
+GUI_GetBkColor <= USED 0
+GUI_GetBkColorIndex <= USED 0
+GUI_GetColorIndex <= USED 0
+;FILE GUI_GetDispPos.to
+GUI_GetDispPosY <= USED 0
+;FILE GUI_Goto.to
+GUI_GotoX <= USED 0
+GUI_GotoY <= USED 0
+;FILE GUI_OnKey.to
+GUI_ClearKeyBuffer <= USED 0
+GUI_GetKey <= USED 0
+GUI_SendKeyMsg <= USED 0
+;FILE GUI_RectsIntersect.to
+;FILE GUI_SetColor.to
+;FILE GUI_SetColorIndex.to
+GUI_SetBkColorIndex <= USED 0
+;FILE GUI_SetDrawMode.to
+;FILE GUI_SetFont.to
+;FILE GUI_SetTextAlign.to
+;FILE GUI_UC.to
+GUI_UC_Encode <= USED 0
+GUI_UC_GetCharCode <= USED 0
+GUI_UC_GetCharSize <= USED 0
+GUI_UC__CalcSizeOfChar <= USED 0
+GUI_UC__NumBytes2NumChars <= USED 0
+;FILE GUI_UC_EncodeNone.to
+GUI_UC_SetEncodeNone <= USED 0
+;FILE GUI_UC_EncodeUTF8.to
+;FILE GUI_X_embOS.to
+GUI_X_Delay <= USED 0
+GUI_X_ErrorOut <= USED 0
+GUI_X_ExecIdle <= USED 0
+GUI_X_GetTaskId <= USED 0
+GUI_X_GetTime <= USED 0
+GUI_X_InitOS <= USED 0
+GUI_X_Lock <= USED 0
+GUI_X_Log <= USED 0
+GUI_X_SignalEvent <= USED 0
+GUI_X_Unlock <= USED 0
+GUI_X_WaitEvent <= USED 0
+GUI_X_Warn <= USED 0
+;FILE GUI__DrawBitmap16bpp.to
+;FILE Harmmc~1.o
+;FILE Hp_2nd.o
+;FILE IAAActivationRecords.o
+;FILE IAAAllocationStatic.o
+AAGetHeapMemory <= USED 0
+;FILE IAACircularBuffer.o
+;FILE IAAClib.o
+IAAStrcpy <= USED 0
+IAAStrstr <= USED 0
+IAAStrncmp <= USED 0
+IAAStrcat <= USED 0
+IAAStrchr <= USED 0
+IAAStrlwr <= USED 0
+IAAUltoa <= USED 0
+IAALtoa <= USED 0
+;FILE IAACodecCreate.o
+CAcelpCodec <= USED 0
+;FILE IAACodecDecode.o
+;FILE IAACodecEncodedFrameSize.o
+;FILE IAACodecInit.o
+;FILE IAACodecPCMFrameSize.o
+;FILE IAACoreEncryption.o
+;FILE IAACoreEncryptionInit.o
+;FILE IAADSAVerify.o
+;FILE IAADecryptHeader.o
+;FILE IAAFileMiscHelpers.o
+;FILE IAAFindSection.o
+;FILE IAAMetadataCodecHelper.o
+;FILE IAAMetadataImageHelper.o
+IAAReadImage <= USED 0
+IAAFillImageInfoFromInternalData <= USED 0
+;FILE IAAPlayPos.o
+;FILE IAAReadAudioOffsets.o
+;FILE IAAReadFileSections.o
+;FILE IAAReadIDList.o
+;FILE IAARonsDSA.o
+;FILE IAASha.o
+;FILE Int_lpc.o
+;FILE Int_lpcw.o
+;FILE Isp2a.o
+;FILE LCD.to
+;FILE LCDColor.to
+;FILE LCDP565.to
+LCD_GetIndexMask_565 <= USED 0
+;FILE LCD_DrawVLine.to
+;FILE LCD_GetColorIndex.to
+LCD_GetBkColorIndex <= USED 0
+;FILE LCD_GetEx.to
+LCD_GetBitsPerPixelEx <= USED 0
+LCD_GetBitsPerPixel_L0Ex <= USED 0
+LCD_GetDeltaModeEx <= USED 0
+LCD_GetFixedPaletteEx <= USED 0
+LCD_GetMirrorXEx <= USED 0
+LCD_GetMirrorYEx <= USED 0
+LCD_GetNumColorsEx <= USED 0
+LCD_GetSwapRBEx <= USED 0
+LCD_GetSwapXYEx <= USED 0
+LCD_GetVXSizeEx <= USED 0
+LCD_GetVYSizeEx <= USED 0
+LCD_GetXMagEx <= USED 0
+LCD_GetXSizeEx <= USED 0
+LCD_GetYMagEx <= USED 0
+LCD_GetYSizeEx <= USED 0
+LCD_GetpfColor2IndexEx <= USED 0
+;FILE LCD_L0_Generic.to
+LCD_L0_GetIndexMask <= USED 0
+LCD_L0_GetpfColor2Index <= USED 0
+;FILE LCD_sharp_display_parallel.to
+LCD_Clear <= USED 0
+LCD_InitLcdDrawWindowForVideo <= USED 0
+LCD_X_Read01 <= USED 0
+LCD_X_ReadM01 <= USED 0
+;FILE LCD_wrapper.to
+LCD_L0_GetDevFunc <= USED 0
+LCD_L0_Off <= USED 0
+LCD_L0_SetLUTEntry <= USED 0
+LCD_L0_SetOrg <= USED 0
+;FILE Log2.o
+;FILE MyFileIO.to
+;FILE OAAInputFileAccess.o
+;FILE OSCPU1.o
+;FILE OSCSEM.o
+OS_CreateCSema <= USED 0
+;FILE OSCom.o
+OS_COM_ClearIn <= USED 0
+OS_COM_EvaPacket <= USED 0
+OS_COM_GetInU16 <= USED 0
+OS_COM_GetInU32 <= USED 0
+OS_COM_GetInU8 <= USED 0
+OS_COM_GetOutU8 <= USED 0
+OS_COM_StoreInU8 <= USED 0
+OS_COM_StoreOutU16 <= USED 0
+OS_COM_StoreOutU32 <= USED 0
+OS_COM_StoreOutU8 <= USED 0
+;FILE OSComRxTx1.o
+OS_COM_StartSend <= USED 0
+OS_OnRx <= USED 0
+OS_OnTx <= USED 0
+;FILE OSINFO.o
+OS_GetCPU <= USED 0
+OS_GetLibMode <= USED 0
+OS_GetLibName <= USED 0
+OS_GetModel <= USED 0
+OS_GetTaskName <= USED 0
+OS_GetTimeSliceRem <= USED 0
+;FILE OSSend.o
+OS_SendString <= USED 0
+OS_SendStringFast <= USED 0
+;FILE OSTIME.o
+;FILE OS_DeactivateP.o
+;FILE OS_DeactivateV.o
+;FILE OS_Error.o
+;FILE OS_Wait.o
+;FILE Pit_shrp.o
+;FILE Pow2.o
+;FILE Pred_lt.o
+;FILE Pred_ltw.o
+;FILE RTOSINIT.o
+OS_COM_ISR_Handler <= USED 0
+OS_COM_Init <= USED 0
+OS_COM_Send1 <= USED 0
+OS_ConvertCycles2us <= USED 0
+OS_GetTime_Cycles <= USED 0
+OS_InitHW <= USED 0
+OS_irq_handler <= USED 0
+;FILE ResamplingIntegral.o
+AADecodePCMAudioUpsampled <= USED 0
+;FILE Scale.o
+;FILE Syn_filt.o
+;FILE Synflt32.o
+;FILE Util.o
+;FILE abrepeat.to
+;FILE acelpdec.o
+decodeStreamType16k <= USED 0
+decodeStreamType8k5 <= USED 0
+;FILE adc_driver.to
+adcInitialise <= USED 0
+;FILE afe_driver.to
+afeReset <= USED 0
+afeInitialise <= USED 0
+afeModifyRegister <= USED 0
+afeGetInterruptStatus <= USED 0
+afeEnableInterrupt <= USED 0
+afeRegisterInterruptCallback <= USED 0
+afeClearError <= USED 0
+afeGetError <= USED 0
+afeIsInterruptEnabled <= USED 0
+afeIsRequestHandled <= USED 0
+;FILE ams_fs_api.o
+AMS_FS_AddDevice <= USED 0
+AMS_FS_CACHE_Clean <= USED 0
+AMS_FS_CloseDir <= USED 0
+AMS_FS_CopyFile <= USED 0
+AMS_FS_DelDirContents <= USED 0
+AMS_FS_DirEnt2Attr <= USED 0
+AMS_FS_DirEnt2Name <= USED 0
+AMS_FS_DirEnt2Size <= USED 0
+AMS_FS_DirEnt2Time <= USED 0
+AMS_FS_ErrorNo2Text <= USED 0
+AMS_FS_Exit <= USED 0
+AMS_FS_FileTimeToTimeStamp <= USED 0
+AMS_FS_FileTreeWalk <= USED 0
+AMS_FS_FormatLow <= USED 0
+AMS_FS_GetFileAttributes <= USED 0
+AMS_FS_GetFileTime <= USED 0
+AMS_FS_GetNumFiles <= USED 0
+AMS_FS_GetVolumeFreeSpace <= USED 0
+AMS_FS_GetVolumeInfo <= USED 0
+AMS_FS_GetVolumeSize <= USED 0
+AMS_FS_Init <= USED 0
+AMS_FS_IoCtl <= USED 0
+AMS_FS_MkDir <= USED 0
+AMS_FS_Move <= USED 0
+AMS_FS_OpenDir <= USED 0
+AMS_FS_Read <= USED 0
+AMS_FS_ReadDir <= USED 0
+AMS_FS_RemoveDevice <= USED 0
+AMS_FS_Rename <= USED 0
+AMS_FS_RewindDir <= USED 0
+AMS_FS_RmDir <= USED 0
+AMS_FS_SetFileAttributes <= USED 0
+AMS_FS_SetFileTime <= USED 0
+AMS_FS_TimeStampToFileTime <= USED 0
+AMS_FS_Verify <= USED 0
+AMS_FS_WCopyFile <= USED 0
+AMS_FS_WDirEnt2Name <= USED 0
+AMS_FS_WFOpen <= USED 0
+AMS_FS_WGetFileAttributes <= USED 0
+AMS_FS_WGetFileTime <= USED 0
+AMS_FS_WMkDir <= USED 0
+AMS_FS_WMove <= USED 0
+AMS_FS_WOpenDir <= USED 0
+AMS_FS_WRemove <= USED 0
+AMS_FS_WRename <= USED 0
+AMS_FS_WRmDir <= USED 0
+AMS_FS_WSetFileAttributes <= USED 0
+AMS_FS_WSetFileTime <= USED 0
+AMS_FS_Write <= USED 0
+;FILE ams_heap.to
+__rt_heap_extend <= USED 0
+;FILE api_dev.to
+;FILE api_dir.to
+FS_DirEnt2Attr <= USED 0
+FS_DirEnt2Name <= USED 0
+FS_DirEnt2Size <= USED 0
+FS_DirEnt2Time <= USED 0
+FS_MkDir <= USED 0
+FS_RmDir <= USED 0
+FS__DirEnt2Attr <= USED 0
+FS__MkDir <= USED 0
+FS__RmDir <= USED 0
+;FILE api_misc.to
+FS_GetTotalSpace <= USED 0
+FS_IoCtl <= USED 0
+FS__GetFileObj <= USED 0
+;FILE app_backlight.to
+;FILE app_bookmark.to
+;FILE app_bookmark_handler.to
+;FILE app_contrast.to
+;FILE app_control.to
+;FILE app_currentPlaying.to
+;FILE app_display.to
+;FILE app_equaliser.to
+;FILE app_factory_reset.to
+;FILE app_filebrowser.to
+;FILE app_information.to
+;FILE app_main.to
+;FILE app_output.to
+;FILE app_play_music_file.to
+;FILE app_playlist.to
+;FILE app_playlist_browser.to
+;FILE app_playmode.to
+;FILE app_playspeed.to
+;FILE app_recorder.to
+;FILE app_recorder_delete.to
+;FILE app_recorder_setting.to
+;FILE app_recorder_start.to
+;FILE app_settings.to
+;FILE app_startup.to
+;FILE app_usb_device.to
+;FILE app_volume.to
+;FILE aud_driver.to
+audClearError <= USED 0
+audGetDeviceVolume <= USED 0
+audGetRecorderVolume <= USED 0
+audSetRecorderVolume <= USED 0
+;FILE aud_fader.to
+;FILE basic_op.o
+div_s <= USED 0
+;FILE bat_service.to
+;FILE bitwise.o
+oggpack_bits <= USED 0
+oggpack_bytes <= USED 0
+;FILE ccu_driver.to
+ccuSetDmaToHighPriority <= USED 0
+;FILE cfg_application.to
+cfgApplicationReset <= USED 0
+cfgApplicationInitialise <= USED 0
+;FILE cgu_driver.to
+cguInitialise <= USED 0
+cguGetMpmcFrequency <= USED 0
+cguGetBusFrequency <= USED 0
+cguAwake <= USED 0
+cguGetBusFrequencyNew <= USED 0
+cguGetCpuFrequency <= USED 0
+cguGetDbopFrequency <= USED 0
+cguGetI2SInMclkFrequency <= USED 0
+cguGetI2SOutMclkFrequency <= USED 0
+cguGetIdeFrequency <= USED 0
+cguGetMemoryStickFrequency <= USED 0
+cguGetUsbFrequency <= USED 0
+cguIdeFrequencyChange <= USED 0
+cguLogGetClockInfo <= USED 0
+cguLogGetSourceInfo <= USED 0
+cguLogHwRegisters <= USED 0
+cguMemoryStickFrequencyChange <= USED 0
+cguSleep <= USED 0
+cguUsbFrequencyChange <= USED 0
+;FILE clock_handler.to
+clhInitialise <= USED 0
+;FILE codebook.o
+_ilog <= USED 0
+vorbis_book_decodev_set <= USED 0
+;FILE d_acb.o
+;FILE d_isp.o
+;FILE d_isp_5.o
+;FILE dec_info.to
+decInfoInitialise <= USED 0
+decInfoClearVideoFlag <= USED 0
+decInfoGetPlayRelativePosition <= USED 0
+decInfoRequestAccess <= USED 0
+decInfoSetPlayRelativePosition <= USED 0
+decInfoSetVideoFlag <= USED 0
+;FILE dec_lag3.o
+;FILE dec_wb.o
+Find_max2 <= USED 0
+find_excw <= USED 0
+;FILE decoder.to
+decInitialise <= USED 0
+decDeinitialise <= USED 0
+decSignalInfo <= USED 0
+decSignalJump <= USED 0
+decSignalSearch <= USED 0
+;FILE display_draw_bmp.to
+;FILE display_scroll.to
+;FILE dlag85.o
+;FILE dma.to
+apDMA_Initialize <= USED 0
+apDMA_AbortTransferHoldChannel <= USED 0
+apDMA_GetDestDataPointer <= USED 0
+apDMA_GetSrcDataPointer <= USED 0
+apDMA_HaltTransfer <= USED 0
+apDMA_LinkedMemPeripheralTransferRequest <= USED 0
+apDMA_RawISR <= USED 0
+;FILE dsp.o
+;FILE dspe_eq.o
+eqSetCoeffients <= USED 0
+;FILE encoder.to
+encInitialise <= USED 0
+;FILE eq_hull.o
+eqHullSharedGainDataInitialize <= USED 0
+;FILE factory_reset.to
+;FILE fat_dir.to
+FS_FAT_RemoveDir <= USED 0
+;FILE fat_in.to
+;FILE fat_misc.to
+;FILE fat_open.to
+FS_FAT_FindEmptyDirEntry <= USED 0
+FS_FAT_IncDirPos <= USED 0
+FS_FAT_WriteDirEntryShort <= USED 0
+;FILE fat_out.to
+;FILE fca_control.to
+fcaGetPlaySpeed <= USED 0
+;FILE find_exc.o
+;FILE floor1.o
+;FILE framing.o
+ogg_page_bos <= USED 0
+ogg_page_packets <= USED 0
+ogg_page_pageno <= USED 0
+ogg_page_version <= USED 0
+ogg_sync_pageout <= USED 0
+;FILE fs_x_embos.to
+FS_X_OS_Init <= USED 0
+FS_X_ErrorOut <= USED 0
+FS_X_Log <= USED 0
+FS_X_Warn <= USED 0
+;FILE heap1a.to
+Heap1_ProvideMemory <= USED 0
+Heap1_Stats <= USED 0
+;FILE heapalloc.to
+calloc <= USED 0
+;FILE i2c_driver.to
+i2cReset <= USED 0
+i2cInitialise <= USED 0
+i2cClearError <= USED 0
+i2cDeInitialise <= USED 0
+i2cGetAuFrequency <= USED 0
+i2cGetError <= USED 0
+i2cGetFrequency <= USED 0
+i2cGetMSFrequency <= USED 0
+i2cIsRxDone <= USED 0
+i2cIsTxDone <= USED 0
+i2cModifyRegister <= USED 0
+i2cNumberOfBytesRxed <= USED 0
+i2cNumberOfBytesTxed <= USED 0
+i2cReadRegister <= USED 0
+i2cWriteRegister <= USED 0
+;FILE i2sin_driver.to
+i2sinConfigParams <= USED 0
+i2sinClearErrors <= USED 0
+i2sinGetErrors <= USED 0
+i2sinIsRxDone <= USED 0
+i2sinNumberOfBytesRxed <= USED 0
+;FILE i2sout_driver.to
+i2soutGetError <= USED 0
+i2soutIsDone <= USED 0
+i2soutNumberOfBytesTxed <= USED 0
+;FILE ima_decoder.o
+imaInBufMaxLen <= USED 0
+;FILE ima_decoder_hull.o
+imaFaderCallbackFadeOut <= USED 0
+imaFaderCallbackFadeIn <= USED 0
+imaDecOutReady <= USED 0
+;FILE ima_encoder.o
+imaEncFinishFileHeader <= USED 0
+;FILE imacommon.o
+imaBytesPerBlock <= USED 0
+imaSamplesIn <= USED 0
+;FILE imadec.o
+imaBlockExpandM <= USED 0
+;FILE imaenc.o
+imaBlockMashI <= USED 0
+imaCompress <= USED 0
+;FILE info.o
+vorbis_comment_query <= USED 0
+vorbis_comment_query_count <= USED 0
+vorbis_info_blocksize <= USED 0
+;FILE isr_i2c_driver.o
+isrI2CMasterSlave <= USED 0
+;FILE keyscan_driver.to
+keyScanDeInitialize <= USED 0
+;FILE lb_misc.to
+FS_LB_GetCounters <= USED 0
+FS_LB_ResetCounters <= USED 0
+;FILE lfn.to
+;FILE lfn_utf8.to
+;FILE main.o
+C_Entry <= USED 0
+;FILE mapping0.o
+;FILE mdct.o
+;FILE mmu_driver.o
+mmuMakeSectionCacheable <= USED 0
+mmuInitialize <= USED 0
+mmuInvalidateAllCaches <= USED 0
+mmuInvalidateDCache <= USED 0
+;FILE mp3_decoder_hull.o
+mp3FaderCallbackFadeOut <= USED 0
+mp3FaderCallbackFadeIn <= USED 0
+;FILE mp3_id3.to
+ID3_ClearMEMDEV <= USED 0
+ID3_CreateMEMDEV <= USED 0
+ID3_DeleteMEMDEV <= USED 0
+ID3_InitImage <= USED 0
+ID3_ShowImage <= USED 0
+;FILE mpeg2audiodec_little_hpq_L3_rvds_ads_arch4t_ropi.o
+MP3BitstreamSeekBytes <= USED 0
+getbits <= USED 0
+skipbits <= USED 0
+rewindbits <= USED 0
+sstell <= USED 0
+bscom_setup <= USED 0
+bscom_return <= USED 0
+crc_calc_sub32 <= USED 0
+crc_bitstream <= USED 0
+;FILE mpmc_driver.to
+mpmcConfigureDynamicMemory <= USED 0
+mpmcEnterPowerDownMode <= USED 0
+mpmcEnterSelfRefreshMode <= USED 0
+mpmcExitPowerDownMode <= USED 0
+mpmcExitSelfRefreshMode <= USED 0
+mpmcSetCaseTemperature <= USED 0
+;FILE naf_driver.to
+nafCheckAllBlocks <= USED 0
+nafDummyNBlockFlush <= USED 0
+nafFunctionTable <= USED 0
+nafIsMediaConnected <= USED 0
+nafIsMediaRemovable <= USED 0
+nafIsReadDone <= USED 0
+nafIsWriteDone <= USED 0
+nafNumberOfBlocksRead <= USED 0
+nafNumberOfBlocksWritten <= USED 0
+nafReadNBlockFlush <= USED 0
+;FILE naf_hwl_driver.to
+nafHwlEraseBlockBootstrapMode <= USED 0
+nafHwlProgramPageBootstrapMode <= USED 0
+nafHwlProgramSpareBootstrapMode <= USED 0
+nafHwlReadSpareBootstrapMode <= USED 0
+;FILE ogg_decoder_hull.to
+;FILE ogg_malloc.o
+;FILE oskern.o
+OS_InitKern <= USED 0
+;FILE pls_parser.to
+;FILE preemph.o
+Find_synth <= USED 0
+Comp_synth <= USED 0
+;FILE random.o
+;FILE recorder.to
+recGetNrOfSettings <= USED 0
+;FILE reorder.o
+;FILE reorderw.o
+;FILE res012.o
+;FILE rld_appl_reloader.o
+applRldLoadApplication <= USED 0
+applRldSwapApplication <= USED 0
+;FILE rld_naf_driver.to
+rldNafInit <= USED 0
+;FILE rld_reloader_hull.to
+rldInitialise <= USED 0
+;FILE rtc_driver.to
+rtcInitialise <= USED 0
+rtcGetTime <= USED 0
+rtcDisableRtc <= USED 0
+rtcGetResetState <= USED 0
+rtcSetResetState <= USED 0
+rtcSetTime <= USED 0
+;FILE serial_number.to
+serialNumberInitialize <= USED 0
+getLunSerialNumber <= USED 0
+;FILE shuffle.to
+;FILE system_init.to
+sysReset <= USED 0
+sysInitialise <= USED 0
+sysStartOS <= USED 0
+sysInformOSLeaveISRNoContextSwitch <= USED 0
+;FILE system_random.to
+;FILE task_control.to
+taskControl <= USED 0
+;FILE task_decoder.to
+taskDecoder <= USED 0
+;FILE task_encoder.to
+taskEncoder <= USED 0
+;FILE task_fca.to
+taskFca <= USED 0
+;FILE task_fs_daemon.to
+taskFsDaemon <= USED 0
+;FILE task_recorder.to
+taskRecorder <= USED 0
+;FILE task_user_if.o
+taskUserIf <= USED 0
+;FILE timer_driver.to
+timer1Initialise <= USED 0
+timer1TicksDoneAfterLoad <= USED 0
+;FILE usb_otg_if.o
+usbOtgIfDeviceDisconnect <= USED 0
+usbOtgIfDeviceConnect <= USED 0
+usbOtgIfChangeOccured <= USED 0
+usbOtgIfDefaultLunFunctionTable <= USED 0
+usbOtgIfDefaultNumberOfLuns <= USED 0
+usbOtgIfDeinitialise <= USED 0
+usbOtgIfInitialise <= USED 0
+usbOtgIfLunFunctionTable <= USED 0
+usbOtgIfNumberOfLuns <= USED 0
+usbOtgIfRegisterHandler <= USED 0
+usbOtgIfReset <= USED 0
+usbOtgIfVBusOff <= USED 0
+usbOtgIfVBusOn <= USED 0
+;FILE user_api.to
+usrApiGetOutput <= USED 0
+usrApiGetVolume <= USED 0
+usrApiPlaybackSpeedDefault <= USED 0
+;FILE user_dec_errorhandling.to
+;FILE user_display.to
+usd_itoa <= USED 0
+usdClearIconLine <= USED 0
+usdClearTitleLine <= USED 0
+usdFillSk1Key <= USED 0
+usdGetCurentCursorPosition <= USED 0
+;FILE user_equalizer.to
+;FILE user_file.to
+;FILE user_keys.to
+keyClearKeyPermission <= USED 0
+keyScan_Key12Down <= USED 0
+keyScan_Key12Time <= USED 0
+keyScan_Key12Up <= USED 0
+keyScan_Key13Down <= USED 0
+keyScan_Key14Down <= USED 0
+keyScan_Key15Down <= USED 0
+keyScan_Key16Down <= USED 0
+keyScan_Key16Time <= USED 0
+keyScan_Key16Up <= USED 0
+keyScan_Key8Down <= USED 0
+keyScan_Key8Time <= USED 0
+keyScan_Key8Up <= USED 0
+keySetSimulatedUpKey <= USED 0
+;FILE user_menus.to
+usmAutoPowerOff <= USED 0
+usmRetriggerMenuTimer <= USED 0
+usm_MenuBrowseMedium <= USED 0
+usm_MenuUsbHost <= USED 0
+;FILE user_playmode_control.to
+;FILE user_playstate_control.to
+;FILE user_timer.to
+;FILE user_usb_if.to
+uuiSignalUsbAction <= USED 0
+uuiGetUserAction <= USED 0
+;FILE utf8.o
+utf_Utf8CharAtIndex <= USED 0
+;FILE vic_small.o
+vicReset <= USED 0
+vicInitialise <= USED 0
+vicDeinitialise <= USED 0
+vicInterruptClear <= USED 0
+;FILE vorbisfile.o
+ov_bitrate <= USED 0
+ov_bitrate_instant <= USED 0
+ov_pcm_seek <= USED 0
+ov_pcm_tell <= USED 0
+ov_raw_tell <= USED 0
+ov_raw_total <= USED 0
+ov_seekable <= USED 0
+ov_serialnumber <= USED 0
+ov_streams <= USED 0
+ov_test_callbacks <= USED 0
+ov_test_open <= USED 0
+ov_time_seek <= USED 0
+;FILE vsn_version.o
+vsnGetSizeOfGlobalVersStringPointer <= USED 0
+;FILE wav_decoder.o
+;FILE wav_decoder_hull.o
+wavFaderCallbackFadeOut <= USED 0
+wavFaderCallbackFadeIn <= USED 0
+wavDecOutReady <= USED 0
+;FILE wav_encoder.to
+;FILE weight_a.o

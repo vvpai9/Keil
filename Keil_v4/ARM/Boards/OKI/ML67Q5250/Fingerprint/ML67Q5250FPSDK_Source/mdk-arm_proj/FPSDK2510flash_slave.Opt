@@ -1,0 +1,95 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (FPSDK2510flash_slave), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(FPSDK),0,0,0
+GRPOPT 2,(APP),0,0,0
+GRPOPT 3,(DMAC),0,0,0
+GRPOPT 4,(FLASH),0,0,0
+GRPOPT 5,(FPAE),0,0,0
+GRPOPT 6,(FPSP),0,0,0
+GRPOPT 7,(KEY),0,0,0
+GRPOPT 8,(ml675250),0,0,0
+GRPOPT 9,(SPI),0,0,0
+GRPOPT 10,(Sensor),0,0,0
+GRPOPT 11,(Timer),0,0,0
+GRPOPT 12,(DigitalIndicator),0,0,0
+GRPOPT 13,(SIO),0,0,0
+GRPOPT 14,(SSIO),0,0,0
+GRPOPT 15,(LED),0,0,0
+GRPOPT 16,(Lib),0,0,0
+GRPOPT 17,(UsbPeri_Drv),0,0,0
+GRPOPT 18,(UsbPeri_usbfp),0,0,0
+
+OPTFFF 1,1,1,0,0,0,0,0,<..\source\APP\main.c><main.c> 
+OPTFFF 2,2,1,0,0,0,0,0,<..\source\APP\src\unused_port.c><unused_port.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<..\source\APP\src\Assert.c><Assert.c> 
+OPTFFF 2,4,1,0,0,0,0,0,<..\source\APP\src\console_out.c><console_out.c> 
+OPTFFF 2,5,1,0,0,0,0,0,<..\source\APP\src\Indicator.c><Indicator.c> 
+OPTFFF 2,6,1,0,0,0,0,0,<..\source\APP\src\IndicatorDevKit.c><IndicatorDevKit.c> 
+OPTFFF 2,7,1,0,0,0,0,0,<..\source\APP\src\main_spectral_demo.c><main_spectral_demo.c> 
+OPTFFF 3,8,1,0,0,0,0,0,<..\source\DMAC\dmac.c><dmac.c> 
+OPTFFF 4,9,1,0,0,0,0,0,<..\source\FLASH\flash_sdp.c><flash_sdp.c> 
+OPTFFF 4,10,1,0,0,0,0,0,<..\source\FLASH\flash_memory.c><flash_memory.c> 
+OPTFFF 5,11,1,0,0,0,0,0,<..\source\FPAE\tsmwrp.c><tsmwrp.c> 
+OPTFFF 5,12,1,0,0,0,0,0,<..\source\FPAE\fpaehal.c><fpaehal.c> 
+OPTFFF 6,13,1,0,0,0,0,0,<..\source\FPSP\fpsp_wrp_rel.c><fpsp_wrp_rel.c> 
+OPTFFF 6,14,1,0,0,0,0,0,<..\source\FPSP\fpsp_heap.c><fpsp_heap.c> 
+OPTFFF 7,15,1,0,0,0,0,0,<..\source\KEY\src\key.c><key.c> 
+OPTFFF 8,16,1,0,0,0,0,0,<..\source\HAL\ML675250\SRC\retarget.c><retarget.c> 
+OPTFFF 8,17,1,0,0,0,0,0,<..\source\HAL\ML675250\SRC\irq.c><irq.c> 
+OPTFFF 8,18,1,0,0,0,0,0,<..\source\HAL\ML675250\SRC\irq_api.c><irq_api.c> 
+OPTFFF 8,19,2,0,0,0,0,0,<..\source\HAL\ML675250\SRC\swi_handler.s><swi_handler.s> 
+OPTFFF 8,20,2,0,0,0,0,0,<..\source\HAL\ML675250\SRC\init.s><init.s> 
+OPTFFF 8,21,2,0,0,0,0,0,<..\source\HAL\ML675250\SRC\irq_handler.s><irq_handler.s> 
+OPTFFF 8,22,2,0,0,0,0,0,<..\source\HAL\ML675250\SRC\stack.s><stack.s> 
+OPTFFF 9,23,1,0,0,0,0,0,<..\source\SPI\spi.c><spi.c> 
+OPTFFF 10,24,1,0,0,0,0,0,<..\source\Sensor\SlideSensor\sensor_port.c><sensor_port.c> 
+OPTFFF 10,25,1,0,0,0,0,0,<..\source\Sensor\SlideSensor\sensor_heap.c><sensor_heap.c> 
+OPTFFF 11,26,1,0,0,0,0,0,<..\source\Timer\src\timera.c><timera.c> 
+OPTFFF 12,27,1,0,0,0,0,0,<..\source\DigitalIndicator\digital_indicator.c><digital_indicator.c> 
+OPTFFF 13,28,1,0,0,0,0,0,<..\source\SIO\src\sio.c><sio.c> 
+OPTFFF 14,29,1,0,0,0,0,0,<..\source\SSIO\ssio.c><ssio.c> 
+OPTFFF 15,30,1,0,0,0,0,0,<..\source\LED\src\led.c><led.c> 
+OPTFFF 16,31,4,0,0,0,0,0,<..\mdk-arm_lib\mFPAE.lib><mFPAE.lib> 
+OPTFFF 16,32,4,0,0,0,0,0,<..\mdk-arm_lib\mFPSP.lib><mFPSP.lib> 
+OPTFFF 16,33,4,0,0,0,0,0,<..\mdk-arm_lib\mSensor2510slave.lib><mSensor2510slave.lib> 
+OPTFFF 17,34,1,0,0,0,0,0,<..\source\UsbPeri\Drv\src\descript.c><descript.c> 
+OPTFFF 17,35,1,0,0,0,0,0,<..\source\UsbPeri\Drv\src\intr.c><intr.c> 
+OPTFFF 17,36,1,0,0,0,0,0,<..\source\UsbPeri\Drv\src\req_clss.c><req_clss.c> 
+OPTFFF 17,37,1,0,0,0,0,0,<..\source\UsbPeri\Drv\src\request.c><request.c> 
+OPTFFF 17,38,1,0,0,0,0,0,<..\source\UsbPeri\Drv\src\trans.c><trans.c> 
+OPTFFF 17,39,1,0,0,0,0,0,<..\source\UsbPeri\Drv\src\usb_api.c><usb_api.c> 
+OPTFFF 17,40,1,0,0,0,0,0,<..\source\UsbPeri\Drv\src\usb_init.c><usb_init.c> 
+OPTFFF 18,41,2,0,0,0,0,0,<..\source\UsbPeri\USBFp\avoid_link_float.s><avoid_link_float.s> 
+OPTFFF 18,42,1,0,0,0,0,0,<..\source\UsbPeri\USBFp\usbfphal.c><usbfphal.c> 
+OPTFFF 18,43,1,0,0,0,0,0,<..\source\UsbPeri\USBFp\usbfp.c><usbfp.c> 
+
+
+TARGOPT 1, (FPSDK2510flash_slave)
+ ADSCLK=33000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\FPSDK2510flash_slave_Data\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTBL 0,(Data Sheet)<DATASHTS\Oki\ML67Q5250_DS.PDF>
+  OPTDL (SARM.DLL)(-cML67)(DARMO.DLL)(-pML675250)(SARM.DLL)()(TARMO.DLL)(-pML675250)
+  OPTDBG 48126,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTDF 0x0
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

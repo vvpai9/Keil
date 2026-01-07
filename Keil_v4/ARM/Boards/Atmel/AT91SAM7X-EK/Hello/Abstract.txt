@@ -1,0 +1,23 @@
+The Hello project is a demo program for the AT91SAM7X256
+using Atmel AT91SAM7X-EK Microcontroller Board.
+
+It prints "Hello World" to the serial port and blinks
+LEDs according to the push buttons on the board:
+ - pressing SW1 (Joystick UP)    prints "Hello World" and blinks LED1
+ - pressing SW3 (Joystick LEFT)  turns on LED2
+ - pressing SW4 (Joystick RIGHT) turns off LED2
+ - LED3 blinks at 100Hz rate
+ - LED4 blinks at   1Hz rate
+
+The example shows:
+ - how to setup the Vectored Interrupt Controller (VIC)
+ - how to setup Periodic Interval Timer (PIT)
+ - how to use the UART Interface
+ - how to use the Parallel I/O (PIO) Controller
+
+The Hello program is available in different targets:
+  Simulator:       configured for software Simulator
+  AT91SAM7X Flash: configured for on-chip Flash ROM
+                   (used for production or target debugging)
+  AT91SAM7X RAM:   configured to run from on-chip RAM
+                   (may be used for target debugging) 

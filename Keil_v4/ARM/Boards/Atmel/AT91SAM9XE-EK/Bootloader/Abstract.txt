@@ -1,0 +1,34 @@
+SAM9XE DF        P1056              CS1
+SAM9XE DataFlash Page 1056 bytes on Chip Select 1
+
+The 1-st level Bootloader for Atmel 'AT91SAM9XE' 
+running from Internal Flash using Chip Select 1 
+for DataFlash interfacing.
+
+It downloads to Internal Flash.
+
+1-st level bootloader's main function is to 
+copy user program from DataFlash to External 
+SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to Internal Flash.
+
+Clocks: Oscillator      =  18.432000 MHz
+        PLLA            =  96.109714 MHz
+        Processor Clock =  96.109714 MHz
+        Master Clock    =  96.109714 MHz
+
+Important: !!! Do not rebuild with EVAL version !!!
+
+DataFlash Organization:
+
+           _ ____________________________
+0x00000000  |                            |
+            :         Not used           :
+0x000041FF _|____________________________|
+0x00004200  |                            |
+            :                            :
+            :       User Program         :
+            :                            :
+0x0083FFFF _|____________________________|

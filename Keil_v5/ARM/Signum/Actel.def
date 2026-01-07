@@ -1,0 +1,132 @@
+Device {
+    IRLength = 8;
+    ID =  0x015941CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "apa1000pq208 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x01A461CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "apa150fg144 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x01A081CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "apa300fg144 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x01B081CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "apa450fg144 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength =    5;
+    ID =  0x0000005F;
+    IDMask =  0x00000FFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "ex64cs49 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x0138C1CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "apa600fg256 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x014101CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "apa750fg676 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x001A71CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "a500k050bg272 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x002CA1CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "a500k130bg272 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x0034C1CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "a500k180bg456 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x003CF1CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "a500k270bg456 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x019C41CF;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Actel";
+    Family  = "";
+    Model  = "apa075pq208 ";
+    Part  = "";
+    Manufacturer  = "Actel";
+}
+ 

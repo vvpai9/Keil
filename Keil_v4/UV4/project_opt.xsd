@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProjectOpt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SchemaVersion" type="xs:string" />
+        <xs:element name="Header" type="xs:string" />
+        <xs:element name="Extensions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cExt" type="xs:string" />
+              <xs:element name="aExt" type="xs:string" />
+              <xs:element name="oExt" type="xs:string" />
+              <xs:element name="lExt" type="xs:string" />
+              <xs:element name="tExt" type="xs:string" />
+              <xs:element name="pExt" type="xs:string" />
+              <xs:element name="CppX" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DaveTm">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dwLowDateTime" type="xs:long" />
+              <xs:element name="dwHighDateTime" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Target">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TargetName" type="xs:string" />
+              <xs:element name="ToolsetNumber" type="HexOrLong" />
+              <xs:element name="ToolsetName" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="TargetOption">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:choice>
+                      <xs:element name="CLK51" type="xs:integer"/>
+                      <xs:element name="CLK251" type="xs:integer"/>
+                      <xs:element name="MCS166">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="Clock" type="xs:integer" />
+                            <xs:element name="uocRom" type="switcher" />
+                            <xs:element name="uocXCAN" type="switcher" />
+                            <xs:element name="hadROM" type="switcher" />
+                            <xs:element name="hadXRAM" type="switcher" />
+                            <xs:element name="hadICAN" type="switcher" />
+                            <xs:element name="uocIROM2" type="switcher" />
+                            <xs:element name="uocIROM3" type="switcher" />
+                            <xs:element name="uocXRAM3" type="switcher" />
+                            <xs:element name="OnChipMemories">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="Ocm1" type="MemoryRange"/>
+                                  <xs:element name="Ocm2" type="MemoryRange"/>
+                                  <xs:element name="Ocm3" type="MemoryRange"/>
+                                  <xs:element name="Ocm4" type="MemoryRange"/>
+                                  <xs:element name="Ocm5" type="MemoryRange"/>
+                                  <xs:element name="Ocm6" type="MemoryRange"/>
+                                  <xs:element name="ICAN" type="MemoryRange"/>
+                                  <xs:element name="IROM" type="MemoryRange"/>
+                                  <xs:element name="XRAM" type="MemoryRange"/>
+                                  <xs:element name="IRAM" type="MemoryRange"/>
+                                  <xs:element name="IROM2" type="MemoryRange"/>
+                                  <xs:element name="IROM3" type="MemoryRange"/>
+                                  <xs:element name="XRAM3" type="MemoryRange"/>
+                                </xs:sequence>
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element name="CLKARM" type="xs:integer"/>
+                      <xs:element name="CLKADS" type="xs:integer"/>
+                    </xs:choice>
+                    <xs:element name="OPTTT">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="gFlags" type="xs:unsignedLong" />
+                          <xs:element name="BeepAtEnd" type="switcher" />
+                          <xs:element name="RunSim" type="switcher" />
+                          <xs:element name="RunTarget" type="switcher" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="OPTHX">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="HexSelection" type="xs:unsignedByte" />
+                          <xs:element name="FlashByte" type="xs:unsignedShort" />
+                          <xs:element name="HexRangeLowAddress" type="xs:unsignedInt" />
+                          <xs:element name="HexRangeHighAddress" type="xs:unsignedInt" />
+                          <xs:element name="HexOffset" type="xs:unsignedInt"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="OPTLEX">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="PageWidth" type="xs:unsignedShort" />
+                          <xs:element name="PageLength" type="xs:unsignedShort" />
+                          <xs:element name="TabStop" type="xs:unsignedByte" />
+                          <xs:element name="ListingPath" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Oh166RecLen" type="xs:unsignedInt" />
+                    <xs:element name="ListingPage">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CreateCListing" type="switcher" />
+                          <xs:element name="CreateAListing" type="switcher" />
+                          <xs:element name="CreateLListing" type="switcher" />
+                          <xs:element name="CreateIListing" type="switcher" />
+                          <xs:element name="AsmCond" type="switcher" />
+                          <xs:element name="AsmSymb" type="switcher" />
+                          <xs:element name="AsmXref" type="switcher" />
+                          <xs:element name="CCond" type="switcher" />
+                          <xs:element name="CCode" type="switcher" />
+                          <xs:element name="CListInc" type="switcher" />
+                          <xs:element name="CSymb" type="switcher" />
+                          <xs:element name="LinkerCodeListing" type="switcher" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="OPTXL">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="LMap" type="switcher" />
+                          <xs:element name="LComments" type="switcher" />
+                          <xs:element name="LGenerateSymbols" type="switcher"/>
+                          <xs:element name="LLibSym" type="switcher" />
+                          <xs:element name="LLines" type="switcher" />
+                          <xs:element name="LLocSym" type="switcher" />
+                          <xs:element name="LPubSym" type="switcher" />
+                          <xs:element name="LXref" type="switcher" />
+                          <xs:element name="LExpSel" type="switcher" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="OPTFL">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="tvExp" type="switcher" />
+                          <xs:element name="tvExpOptDlg" type="switcher" />
+                          <xs:element name="IsCurrentTarget" type="switcher" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="CpuCode" type="xs:unsignedByte" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="Books" type="BookEntry"/>
+                    <xs:element name="DllOpt">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SimDllName" type="xs:string"/>
+                          <xs:element name="SimDllArguments" type="xs:string"/>
+                          <xs:element name="SimDlgDllName" type="xs:string"/>
+                          <xs:element name="SimDlgDllArguments" type="xs:string"/>
+                          <xs:element name="TargetDllName" type="xs:string"/>
+                          <xs:element name="TargetDllArguments" type="xs:string"/>
+                          <xs:element name="TargetDlgDllName" type="xs:string"/>
+                          <xs:element name="TargetDlgDllArguments" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DebugOpt">
+                      <xs:complexType>
+                        <xs:sequence>
+                        <xs:element name="uSim" type="switcher" />
+                        <xs:element name="uTrg" type="switcher" />
+                        <xs:element name="sLdApp" type="switcher" />
+                        <xs:element name="sGomain" type="switcher" />
+                        <xs:element name="sRbreak" type="switcher" />
+                        <xs:element name="sRwatch" type="switcher" />
+                        <xs:element name="sRmem" type="switcher" />
+                        <xs:element name="sRfunc" type="switcher" />
+                        <xs:element name="sRbox" type="switcher" />
+                        <xs:element name="tLdApp" type="switcher" />
+                        <xs:element name="tGomain" type="switcher" />
+                        <xs:element name="tRbreak" type="switcher" />
+                        <xs:element name="tRwatch" type="switcher" />
+                        <xs:element name="tRmem" type="switcher" />
+                        <xs:element name="tRfunc" type="switcher" />
+                        <xs:element name="tRbox" type="switcher" />
+                        <xs:element name="sRunDeb" type="switcher" />
+                        <xs:element name="sLrtime" type="switcher" />
+                        <xs:element name="nTsel" type="xs:integer" />
+                        <xs:element name="sDll" type="xs:string" />
+                        <xs:element name="sDllPa" type="xs:string" />
+                        <xs:element name="sDlgDll" type="xs:string" />
+                        <xs:element name="sDlgPa" type="xs:string" />
+                        <xs:element name="sIfile" type="xs:string" />
+                        <xs:element name="tDll" type="xs:string" />
+                        <xs:element name="tDllPa" type="xs:string" />
+                        <xs:element name="tDlgDll" type="xs:string" />
+                        <xs:element name="tDlgPa" type="xs:string" />
+                        <xs:element name="tIfile" type="xs:string" />
+                        <xs:element name="pMon" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element minOccurs="0" maxOccurs="1" name="TargetDriverDllRegistry" type="SettingsRegistry"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="UserSettingsRegistry" type="SettingsRegistry"/>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Breakpoint" />
+
+                    <xs:element minOccurs="0" maxOccurs="1" name="WatchWindow1" type="ListItem"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="WatchWindow2" type="ListItem"/>
+
+                    <xs:element minOccurs="0" maxOccurs="1" name="MemoryWindow1" type="ListItem2"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="MemoryWindow2" type="ListItem2"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="MemoryWindow3" type="ListItem2"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="MemoryWindow4" type="ListItem2"/>
+                    
+                    <xs:element minOccurs="0" maxOccurs="1" name="ToolboxButtons" type="WinItem"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PerformanceAnalyzer" type="ListItem3"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SymDlgSettings" type="WinItem2"/>
+                    
+                    <xs:element ref="DebugFlag" />
+                    <xs:element name="LintExecutable" type="xs:string"/>
+                    <xs:element name="LintConfigFile" type="xs:string"/>
+                    
+                    <xs:element minOccurs="0" maxOccurs="1" name="LintIncludes" type="ListItem3"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="LogicAnalyzers" type="WinItem"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SystemViewers" type="SystemViewerType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Group">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GroupName" type="xs:string" />
+              <xs:element name="tvExp" type="switcher" />
+              <xs:element name="tvExpOptDlg" type="switcher" />
+              <xs:element name="cbSel" type="switcher" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="File">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="GroupNumber" type="xs:unsignedShort" />
+                    <xs:element name="FileNumber" type="xs:unsignedShort" />
+                    <xs:element name="FileType" type="xs:unsignedByte" />
+                    <xs:element name="tvExp" type="switcher" />
+                    <xs:element name="Focus" type="switcher" />
+                    <xs:element name="ColumnNumber" type="xs:unsignedByte" />
+                    <xs:element name="tvExpOptDlg" type="switcher" />
+                    <xs:element name="TopLine" type="xs:unsignedInt" />
+                    <xs:element name="CurrentLine" type="xs:unsignedInt" />
+                    <xs:element name="bDave2" type="switcher" />
+                    <xs:element name="PathWithFileName" type="xs:string" />
+                    <xs:element name="FilenameWithoutPath" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="WindowPosition" type="WindowPlacement"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="AlienFiles">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PathWithFilename" type="xs:string" />
+              <xs:element name="TopLine" type="xs:unsignedLong" />
+              <xs:element name="CurrentLine" type="xs:unsignedLong" />
+              <xs:element fixed="0" name="Constant" type="xs:unsignedInt"/>
+              <xs:element name="WindowPosition" type="WindowPlacement" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="WinLayout">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sActiveDebugView" type="xs:string"/>
+              <xs:element name="iActiveDebugViewLocation" type="xs:integer"/>
+              <xs:element name="sActiveBuildView" type="xs:string"/>
+              <xs:element name="iActiveBuildViewLocation" type="xs:integer"/>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="View">
+                  <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ViewName" type="xs:string" />
+                    <xs:element name="ViewType" type="xs:integer" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Window" type="WinLayPar"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="MDIGroups" type="MDIGroupsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--types used by ProjectOpt-->
+  <xs:element name="DebugFlag" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="trace" type="switcher" />
+        <xs:element name="periodic" type="switcher" />
+        <xs:element name="aLwin" type="switcher" />
+        <xs:element name="aCover" type="switcher" />
+        <xs:element name="aSer1" type="switcher" />
+        <xs:element name="aSer2" type="switcher" />
+        <xs:element name="aPa" type="switcher" />
+        <xs:element name="viewmode" type="threeBits" />
+        <xs:element name="vrSel" type="fourBits" />
+        <xs:element name="aSym" type="switcher" />
+        <xs:element name="aTbox" type="switcher" />
+        <xs:element name="AscS1" type="switcher" />
+        <xs:element name="AscS2" type="switcher" />
+
+        <xs:element name="AscS3" type="switcher" />
+        <xs:element name="aSer3" type="switcher" />
+        <xs:element name="eProf" type="fourBits" />
+
+        <xs:element name="aLa" type="switcher" />
+        <xs:element name="aPa1" type="switcher" />
+
+        <xs:element name="AscS4" type="switcher" />
+        <xs:element name="aSer4" type="switcher" />
+        <xs:element name="StkLoc" type="switcher" />
+        <xs:element name="TrcWin" type="switcher" />
+
+        <xs:element name="newCpu" type="switcher" />
+        <xs:element name="uProt" type="switcher" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="SystemViewerType">
+    <xs:sequence>
+       <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WinLayPar">
+    <xs:sequence>
+      <xs:element name="WinId" type="xs:string" />
+      <xs:element name="ItemNo" type="xs:integer" />
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="AnchorWinID" type="xs:integer" />
+      <xs:element name="AnchorWinName" type="xs:string" />
+      <xs:element name="OtherWinID" type="xs:integer" />
+      <xs:element name="OtherWinName" type="xs:string" />
+      <xs:element name="WinType" type="xs:integer" />
+      <xs:element name="DockType" type="xs:integer" />
+      <xs:element name="DockLocation" type="xs:integer" />
+      <xs:element name="Pinned" type="xs:integer" />
+      <xs:element name="DockedRect_top" type="xs:integer" />
+      <xs:element name="DockedRect_left" type="xs:integer" />
+      <xs:element name="DockedRect_bottom" type="xs:integer" />
+      <xs:element name="DockedRect_right" type="xs:integer" />
+      <xs:element name="FloatingRect_top" type="xs:integer" />
+      <xs:element name="FloatingRect_left" type="xs:integer" />
+      <xs:element name="FloatingRect_bottom" type="xs:integer" />
+      <xs:element name="FloatingRect_right" type="xs:integer" />
+      <xs:element name="ContainerPercent" type="xs:integer" />
+      <xs:element name="ActiveTab" type="xs:integer" />
+      <xs:element name="Visible" type="xs:integer" />
+      <xs:element name="Dynamic" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MDIGroupsType">
+    <xs:sequence>
+      <xs:element name="Orientation" type="xs:integer" />
+      <xs:element name="ActiveMDIGroup" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MDIGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Size" type="xs:integer" />
+            <xs:element name="ActiveTab" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Documents">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Doc">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Name" type="xs:string" />
+                        <xs:element name="ColumnNumber" type="xs:unsignedByte" />
+                        <xs:element name="TopLine" type="xs:unsignedInt" />
+                        <xs:element name="CurrentLine" type="xs:unsignedInt" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="WindowPlacement">
+    <xs:sequence>
+      <xs:element name="length" type="xs:unsignedInt" />
+      <xs:element name="flags" type="xs:unsignedInt" />
+      <xs:element name="showCmd" type="xs:unsignedInt" />
+      <xs:element name="MinPosition" type="Position"/>
+      <xs:element name="MaxPosition" type="Position"/>
+      <xs:element name="NormalPosition" type="Rectangle"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="MacDevice" type="Rectangle"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Rectangle">
+    <xs:sequence>
+      <xs:element name="Top" type="xs:long" />
+      <xs:element name="Left" type="xs:long" />
+      <xs:element name="Right" type="xs:long" />
+      <xs:element name="Bottom" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Position">
+    <xs:sequence>
+      <xs:element name="xPos" type="xs:long" />
+      <xs:element name="yPos" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WinItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Wi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IntNumber" type="xs:unsignedInt" />
+            <xs:element name="FirstString" type="xs:string"/>
+            <xs:element name="SecondString" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WinItem2">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Sw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FirstString" type="xs:string"/>
+            <xs:element name="IntNumber" type="xs:unsignedInt" />
+            <xs:element name="SecondString" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ListItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ww">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="count" type="xs:unsignedInt" />
+            <xs:element name="WinNumber" type="xs:unsignedInt" />
+            <xs:element name="ItemText" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ListItem2">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Mm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="WinNumber" type="xs:unsignedInt" />
+            <xs:element name="SubType" type="xs:unsignedInt" />
+            <xs:element name="ItemText" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ListItem3">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Li">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IntNumber" type="xs:unsignedInt" />
+            <xs:element name="ItemText" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Breakpoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Bp">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Number" type="xs:unsignedInt" />
+              <xs:element name="Type" type="threeBits"/>
+              <xs:element name="LineNumber" type="xs:unsignedLong" />
+              <xs:element name="EnabledFlag" type="switcher" />
+              <xs:element name="Address" type="xs:integer" />
+              <xs:element name="ByteObject" type="switcher" />
+              <xs:element name="ManyObjects" type="xs:unsignedLong" />
+              <xs:element name="SizeOfObject" type="xs:unsignedLong" />
+              <xs:element name="BreakByAccess" type="xs:unsignedShort" />
+              <xs:element name="BreakIfRCount" type="xs:unsignedInt" />
+              <xs:element name="Filename" type="xs:string"/>
+              <xs:element name="ExecCommand" type="xs:string"/>
+              <xs:element name="Expression" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+    </xs:sequence>
+      </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="SettingsRegistry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SetRegEntry">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Number" type="xs:unsignedInt" />
+            <xs:element name="Key" type="xs:string" />
+            <xs:element name="Name" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DllSettings">
+    <xs:sequence>
+      <xs:element name="CpuDll" type="xs:string"/>
+      <xs:element name="CmdLineToCpuDll" type="xs:string"/>
+      <xs:element name="PeriDll" type="xs:string"/>
+      <xs:element name="CmdLineToPeriDll" type="xs:string"/>
+      <xs:element name="IniFileName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DebugPageSwitcher">
+    <xs:sequence>
+      <xs:element name="LoadAppAtStartup" type="switcher"/>
+      <xs:element name="GoToMain" type="switcher"/>
+      <xs:element name="RestoreBreakpoints" type="switcher"/>
+      <xs:element name="RestoreWatchpoints" type="switcher"/>
+      <xs:element name="RestoreMemoryDisplay" type="switcher"/>
+      <xs:element name="RestoreFunctions" type="switcher"/>
+      <xs:element name="RestoreToolbox" type="switcher"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BookEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Book">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Number" type="xs:unsignedInt" />
+            <xs:element name="Title" type="xs:string" />
+            <xs:element name="Path" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="MemoryRange">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:unsignedByte" />
+      <xs:element name="StartAddress" type="HexOrLong" />
+      <xs:element name="Size" type="HexOrLong" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="HexOrLong">    <!--Datatype which can contain either UL or Hex number-->
+    <xs:union memberTypes="xs:long hexadecimal"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name='hexadecimal'>
+    <xs:restriction base='xs:string'>
+      <xs:pattern value='(0)(x|X)(([0-9])|[A-F]|[a-f])+'/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="switcher">
+    <!--one bit value: 0|1 -->
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="twoBits">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="threeBits">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="7"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="fourBits">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="15"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="fiveBits">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="31"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="sixBits">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="63"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="sevenBits">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="127"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

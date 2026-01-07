@@ -1,0 +1,1232 @@
+Device {
+    IRLength = 8;
+    ID =  0x09506093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95108 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09508093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95144_tq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09512093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95216 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09516093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95288 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0060C093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "Spartan-II";
+    Model  = "xc2s30_tq144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x00610093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "Spartan-II";
+    Model  = "xc2s50_pq208 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x00614093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "Spartan-II";
+    Model  = "xc2s100_fg456 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x00618093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "Spartan-II";
+    Model  = "xc2s150_bg352 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0061C093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "Spartan-II";
+    Model  = "xc2s200_bg352 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x00608093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "Spartan-II";
+    Model  = "xc2s15_pq208 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x0140D093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s50_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x01414093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s200_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x0141C093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s400_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x01428093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s1000_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x01434093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s1500_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x01440093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s2000_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x01448093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s4000_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 6;
+    ID =  0x01450093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "Spartan-3";
+    Model  = "xc3s5000_bare ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05025093;
+    IDMask =  0x0FFEFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc18v02 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05026093;
+    IDMask =  0x0FFEFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc18v04 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05022093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc18v256 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05023093;
+    IDMask =  0x0FFEFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc18v512 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05004093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc1801_pc20 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05005093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc1802_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05006093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc1804_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05002093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc18256_pc20 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05003093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc18512_pc20 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05024093;
+    IDMask =  0x0FFEFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xc18v01 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09502093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc9536 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29502093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc9536 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09504093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc9572_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29504093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc9572 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x19506093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95108 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29506093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95108 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29508093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x19508093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x19512093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95216 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29512093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95216 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29516093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500";
+    Model  = "xc95288 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29602093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc9536xl_v1 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09602093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc9536xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09604093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc9572xl_cs48 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29604093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc9572xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09608093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc95144xl_cs144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29608093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc95144xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x09616093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc95288xl_bg256 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x29616093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc95288xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x19602093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "XC9500XL";
+    Model  = "xc9536xl_v1 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05044093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcf01s ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05045093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcf02s ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x05046093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcf04s ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 16;
+    ID =  0x05057093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "";
+    Model  = "xcf08p_fs48 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 16;
+    ID =  0x05058093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "";
+    Model  = "xcf16p_fs48 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 16;
+    ID =  0x05059093;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "";
+    Model  = "xcf32p_fs48 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0001902B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner";
+    Model  = "xcr3032c_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0001A02B;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner";
+    Model  = "xcr3032c_vq44c ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04808001;
+    IDMask =  0xFFFF8001;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3032xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0480C093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3032xl_cs48 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0480D093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3032xl_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0480E093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3032xl_vq44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0085902B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner";
+    Model  = "xcr3064a_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0085A02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner";
+    Model  = "xcr3064a_vq44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0085C02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner";
+    Model  = "xcr3064a_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04848003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3064xl_cp56 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04848093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3064xl_cp56 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0484C003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3064xl_cs48 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0484D003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3064xl_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x09048093;
+    IDMask =  0xFFFF8FFF;
+    Name  = "Xilinx";
+    Family = "CoolRunner XPLA3";
+    Model  = "xcr3064xl_tq144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0484E003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3064xl_vq44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04849003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3064xl_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008D02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3128_pc84 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x2008902B;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3128_pq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008B02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3128_pq160 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008A02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3128_tq128c ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008C02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3128_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0089A02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3128a_tq128 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0089C02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3128a_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04888001;
+    IDMask =  0x0FFF8001;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3128xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0488C003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3128xl_cs144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0488B003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3128xl_tq144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04889003;
+    IDMask =  0xFFFFFF47;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3128xl_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04948001;
+    IDMask =  0xFFFF8001;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3256xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0494D093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3256xl_cs280 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0494E093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3256xl_ft256 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0494B093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3256xl_tq144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0250802B;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "cr320_bs_design ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04958001;
+    IDMask =  0xFFFF8001;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3384xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0495A093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3384xl_fg324 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0495E093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3384xl_ft256 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0495C093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3384xl_pq208 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0495B093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3384xl_tq144 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x04978001;
+    IDMask =  0xFFFF8001;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3512xl ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0497D093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3512xl_fg324 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0497E093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3512xl_ft256 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0497C093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner XPLA3";
+    Model  = "xcr3512xl_pq208 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 5;
+    ID =  0x0268802B;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "top_cr960_bs_bst_design ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0001202B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5032c_vq44c ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0001102B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5032c_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0005102B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5064c_pc44c ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x060502AD;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5064c_vq44c ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0005402B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5064c_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008502B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5128_pc84 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x2008102B;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5128_pq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008302B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5128_pq160 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008202B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5128_tq128c ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0008402B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5128_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0009202B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5128c_tq128 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0009402B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "";
+    Model  = "xcr5128c_vq100 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x06E59093;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner-II";
+    Model  = "xc2c64a_qf48 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 8;
+    ID =  0x06D58093;
+    IDMask =  0xFFFF8FFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner-II";
+    Model  = "xc2c384 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0080902B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3032a_pc44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 
+Device {
+    IRLength = 4;
+    ID =  0x0080A02B;
+    IDMask =  0x0FFFFFFF;
+    Name  = "Xilinx";
+    Family  = "CoolRunner";
+    Model  = "xcr3032a_vq44 ";
+    Part  = "";
+    Manufacturer  = "Xilinx";
+}
+ 

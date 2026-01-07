@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32L552E-EV_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32L5 Series STM32L552E-EV Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32L552E-EV_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="2.1.0" date="2025-09-17" tag="v2.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Added DWARF-5 debug information
+      - Added generated output files
+      - Updated RTE_Components.h file
+      Package Description (pdsc):
+      - Removed 'compatibleDevice' element
+    </release>
+    <release version="2.0.0" date="2024-12-18" tag="v2.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Removed BSP drivers
+      Removed Platform project
+      Migrated Blinky example to CMSIS Solution
+      CMSIS Drivers:
+      - Updated VIO driver to API 1.0.0
+      Pack Description:
+      - Added LICENSE files
+      - Updated schemaVersion (1.7.36)
+    </release>
+    <release version="1.1.0" date="2021-12-15">
+      Synchronize with STM32CubeL5 Firmware Package version V1.4.0
+      Drivers:
+      - CMSIS-Driver VIO: Correct reading joystick
+      Projects:
+      - Update CubeMX project
+      - Override default HAL_InitTick function
+      - Update Platform project: Blocking stdin_getchar in stdio retarget
+      Replace documentation files with links
+      Update schemaVersion (1.7.2)
+    </release>
+    <release version="1.0.1" date="2021-07-12">
+      Example projects:
+      - update RTX configuration (CMSIS 5.8.0)
+      - change assembler option to armclang (Auto Select)
+      - add .dbgconf file
+    </release>
+    <release version="1.0.0" date="2020-11-19">
+      Board description and documentation for STM32L552E-EV
+      Synchronized with STM32CubeL5 Firmware Package version V1.3.1
+      Drivers:
+      - Board Drivers, Components, Config files
+      - CMSIS-Driver VIO
+      Utilities:
+      - LCD Utility Drivers
+      Example projects:
+      - CMSIS-RTOS2 Blinky (verify the basic tool setup)
+      - CMSIS-RTOS2 Platform (configure the board hardware)
+      - Bare-metal secure/non-secure Blinky example without RTOS
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32L5</keyword>
+    <keyword>STM32L552E-EV</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32L5xx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32L552E-EV">
+      <description>STMicroelectronics STM32L552E-EV Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32L552E-EV"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32L552E-EV GPIO">
+      <description>STMicroelectronics STM32L552E-EV Board with CMSIS Driver GPIO</description>
+      <require condition="STM32L552E-EV"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32L552E-EV -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.0.0" Capiversion="1.0.0" condition="STM32L552E-EV GPIO">
+      <description>I/O implementation for STM32L552E-EV</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32L552E_EV
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32L552E-EV.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- STM32L552E-EV -->
+    <board vendor="STMicroelectronics" name="STM32L552E-EV" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Evaluation development board with STM32L552ZETxQ MCU</description>
+      <image small="Images/stm32l552e-ev_small.png"
+             large="Images/stm32l552e-ev_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/stm32l552e-ev.html" title="STM32L552E-EV Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/stm32l552e-ev.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2597-evaluation-board-with-stm32l552ze-mcu-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1372-l552zeq-c02_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32L552ZETxQ"/>
+      <feature type="ODbg"        n="1"             name="On-board ST-LINK/V2-1"/>
+      <feature type="XTAL"        n="16000000"      name="16 MHz Crystal Oscillator"/>
+      <feature type="PWR"         n="5"             name="USB VBUS, ext. VIN, ext. 5V, ext +3.3V, 5V_USB_C"/>
+      <feature type="USB"         n="1"             name="USB Type-C Sink device FS"/>
+      <feature type="ROM"         n="1"             name="512-Mbit Octal-SPI Flash"/>
+      <feature type="RAM"         n="1"             name="64-Mbit Octal HyperRAM"/>
+      <feature type="RAM"         n="1"             name="16-Mbit SRAM"/>
+      <feature type="MemoryOther" n="1"             name="128-Kbit I2C EEPROM"/>
+      <feature type="CAN"         n="1"/>
+      <feature type="RS232"       n="1"/>
+      <feature type="MIC"         n="2"             name="Digital microphones"/>
+      <feature type="LightSens"   n="1"             name="Light-dependent resistor"/>
+      <feature type="Batt"        n="1"             name="Coin-battery cell holder for power backup"/>
+      <feature type="MemCard"     n="1"             name="SDIO interface microSD card"/>
+      <feature type="MemCard"     n="1"             name="Smartcard socket"/>
+      <feature type="LineIn"      n="1"             name="Audio CODEC with Stereo Line-In/Out and Speaker/Microphone"/>
+      <feature type="LineOut"     n="1"             name="Audio CODEC with Stereo Line-In/Out and Speaker/Microphone"/>
+      <feature type="GLCD"        n="1" m="240.320" name="2.8 inch Color QVGA TFT LCD with resistive touchscreen"/>
+      <feature type="Joystick"    n="1"             name="5-position Joystick"/>
+      <feature type="Poti"        n="1"             name="Analog Voltage Control for ADC Input (potentiometer)"/>
+      <feature type="Button"      n="4"             name="Push-Buttons for Reset, Tamper and User"/>
+      <feature type="Other"       n="1"             name="Touch sensing button"/>
+      <feature type="LED"         n="4"             name="LEDs: COM, Power, User LEDs"/>
+      <feature type="ConnOther"   n="4"             name="I/O expansion connector"/>
+      <feature type="ConnOther"   n="1"             name="MEMS expansion connector"/>
+      <feature type="ConnOther"   n="1"             name="STMod+ expansion connector"/>
+      <feature type="ConnOther"   n="1"             name="Pmod expansion connector"/>
+      <feature type="ConnOther"   n="1"             name="Motor control connector"/>
+      <feature type="ConnOther"   n="1"             name="EXT_I2C connector"/>
+      <debugInterface adapter="JTAG/SW" connector="20-pin JTAG (0.1 inch connector)"/>
+      <debugInterface adapter="JTAG/SW" connector="20-pin Cortex debug + ETM Trace (0.05 inch connector)"/>
+      <debugInterface adapter="JTAG/SW" connector="14-pin JTAG STDC14 interface (0.05 inch connector)"/>
+      <debugInterface adapter="JTAG/SW" connector="10-pin TAG probe TC2050-IDC-NL"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32L552E-EV" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

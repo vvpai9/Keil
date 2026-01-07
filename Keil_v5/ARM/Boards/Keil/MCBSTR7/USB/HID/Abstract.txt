@@ -1,0 +1,16 @@
+The HID project is a demo program for the Keil MCBSTR7 Board
+using a ST ST STR71x Microcontroller.
+
+It demonstrates an USB HID (Human Interface Device):
+  - 8 LEDs		   (P2.08 .. P2.15)
+  - 2 Push Buttons (S2,S3)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  MCBSTR7: configured for on-chip Flash ROM
+           (used for production or target debugging)
+

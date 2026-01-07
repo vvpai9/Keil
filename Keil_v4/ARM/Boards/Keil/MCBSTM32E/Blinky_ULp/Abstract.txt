@@ -1,0 +1,51 @@
+The Blinky project is a simple demo program for the STM 'STM32F103ZE' 
+microcontroller using Keil 'MCBSTM32E' Evaluation Board, compliant 
+to Cortex Microcontroller Software Interface Standard (CMSIS v1.20).
+
+It demonstrates the use of ULINKpro Debugger.
+
+Clock Settings:
+ - XTAL    =            8.00 MHz
+ - SYSCLK  =           72.00 MHz
+ - HCLK    = SYSCLK  = 72.00 MHz
+ - PCLK1   = HCLK/2  = 36.00 MHz
+ - PCLK2   = HCLK    = 72.00 MHz
+ - ADCLK   = PCLK2/6 = 12.00 MHz
+
+
+Example functionality:                                                   
+ - SysTick Timer is used in interrupt mode
+ - 8 LEDs blink with speed depending on potentiometer position
+ - AD conversion is done in interrupt mode
+ - AD settings: 12 bit resolution
+ - AD value is output onto ITM debug port #0  
+
+The Blinky program is available in different targets:
+  Simulator:            configured for uVision Simulator
+
+  SWO Trace:                 runs from Internal Flash
+                             shows use of LogicAnalyzer, ITM output, Exception Trace
+					         use connector "Trace" or "JTAG"
+
+  TracePort Trace:           runs from Internal Flash
+                             shows use of LogicAnalyzer, ITM output, Exception Trace
+					         use connector "Trace"
+
+  TracePort IntructionTrace: runs from Internal Flash
+                             shows use of Instruction Trace
+					         use connector "Trace"
+
+
+ULINKpro notes
+--------------
+STM32_TP.ini enables synchronous 4bit Trace Interface
+ETM Trace pins:  TRACECK         PE2
+                 TRACED0..3      PE3..PE6    (4 bit trace data)
+                 do not use these pins in your application!
+
+Instruction trace is very time and resource consuming
+therefore if you want to use instruction trace use
+nothing else (no LA, no exceptions, no ITM, no ...).
+
+STM32_SWO.ini enables asynchronous Trace Interface
+

@@ -1,0 +1,15 @@
+The Memory project is a demo program for the AT91SAM3U4E
+using the Atmel ATSAM3U-EK Microcontroller Board.
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+LEDs are used to display the following:
+  - PB0: LED_CFG  is on when USB Device is configured
+  - PB1: LED_SUSP is on when USB Device is suspended
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  ATSAM3U-EK: configured for on-chip Flash ROM
+                (used for production or target debugging)

@@ -1,0 +1,606 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\LETIMER0.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                       LETIMER0                                       -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// --------------------------------------  LETIMER0_CTRL  -----------------------------------------
+
+unsigned int LETIMER0_CTRL __AT (0x40082000);
+
+//  <item> Reg_LETIMER0_CTRL
+//    <i> LETIMER0_CTRL [31..0] (@ 0x40082000) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_CTRL>>0) & 0xFFFFFFFF), ( (LETIMER0_CTRL &= ~(0xFFFFFFFF<<0)), (LETIMER0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_REPMODE
+//    <i> REPMODE [1..0] (@ 0x40082000) </i>
+//    <edit> 
+//      <loc> ( (char)((LETIMER0_CTRL>>0) & 0x2), ( (LETIMER0_CTRL &= ~(0x2<<0)), (LETIMER0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_UFOA0
+//    <i> UFOA0 [3..2] (@ 0x40082000) </i>
+//    <edit> 
+//      <loc> ( (char)((LETIMER0_CTRL>>2) & 0x2), ( (LETIMER0_CTRL &= ~(0x2<<2)), (LETIMER0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<2)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_UFOA1
+//    <i> UFOA1 [5..4] (@ 0x40082000) </i>
+//    <edit> 
+//      <loc> ( (char)((LETIMER0_CTRL>>4) & 0x2), ( (LETIMER0_CTRL &= ~(0x2<<4)), (LETIMER0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_OPOL0
+//    <i> OPOL0 [6] (@ 0x40082000) </i>
+//    <check> 
+//      <loc> LETIMER0_CTRL </loc>
+//      <o.6..6> OPOL0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_OPOL1
+//    <i> OPOL1 [7] (@ 0x40082000) </i>
+//    <check> 
+//      <loc> LETIMER0_CTRL </loc>
+//      <o.7..7> OPOL1
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_BUFTOP
+//    <i> BUFTOP [8] (@ 0x40082000) </i>
+//    <check> 
+//      <loc> LETIMER0_CTRL </loc>
+//      <o.8..8> BUFTOP
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_COMP0TOP
+//    <i> COMP0TOP [9] (@ 0x40082000) </i>
+//    <check> 
+//      <loc> LETIMER0_CTRL </loc>
+//      <o.9..9> COMP0TOP
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_RTCC0TEN
+//    <i> RTCC0TEN [10] (@ 0x40082000) </i>
+//    <check> 
+//      <loc> LETIMER0_CTRL </loc>
+//      <o.10..10> RTCC0TEN
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_RTCC1TEN
+//    <i> RTCC1TEN [11] (@ 0x40082000) </i>
+//    <check> 
+//      <loc> LETIMER0_CTRL </loc>
+//      <o.11..11> RTCC1TEN
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CTRL_DEBUGRUN
+//    <i> DEBUGRUN [12] (@ 0x40082000) </i>
+//    <check> 
+//      <loc> LETIMER0_CTRL </loc>
+//      <o.12..12> DEBUGRUN
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  LETIMER0_CMD  ------------------------------------------
+
+unsigned int LETIMER0_CMD __AT (0x40082004);
+
+//  <item> Reg_LETIMER0_CMD
+//    <i> LETIMER0_CMD [31..0] (@ 0x40082004) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_CMD>>0) & 0xFFFFFFFF), ( (LETIMER0_CMD &= ~(0xFFFFFFFF<<0)), (LETIMER0_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_CMD_START
+//    <i> START [0] (@ 0x40082004) </i>
+//    <check> 
+//      <loc> LETIMER0_CMD </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CMD_STOP
+//    <i> STOP [1] (@ 0x40082004) </i>
+//    <check> 
+//      <loc> LETIMER0_CMD </loc>
+//      <o.1..1> STOP
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CMD_CLEAR
+//    <i> CLEAR [2] (@ 0x40082004) </i>
+//    <check> 
+//      <loc> LETIMER0_CMD </loc>
+//      <o.2..2> CLEAR
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CMD_CTO0
+//    <i> CTO0 [3] (@ 0x40082004) </i>
+//    <check> 
+//      <loc> LETIMER0_CMD </loc>
+//      <o.3..3> CTO0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_CMD_CTO1
+//    <i> CTO1 [4] (@ 0x40082004) </i>
+//    <check> 
+//      <loc> LETIMER0_CMD </loc>
+//      <o.4..4> CTO1
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LETIMER0_STATUS  ----------------------------------------
+
+unsigned int LETIMER0_STATUS __AT (0x40082008);
+
+//  <item> Reg_LETIMER0_STATUS
+//    <i> LETIMER0_STATUS [31..0] (@ 0x40082008) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_STATUS>>0) & 0xFFFFFFFF), ( (LETIMER0_STATUS &= ~(0xFFFFFFFF<<0)), (LETIMER0_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_STATUS_RUNNING
+//    <i> RUNNING [0] (@ 0x40082008) </i>
+//    <check> 
+//      <loc> LETIMER0_STATUS </loc>
+//      <o.0..0> RUNNING
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  LETIMER0_CNT  ------------------------------------------
+
+unsigned int LETIMER0_CNT __AT (0x4008200C);
+
+//  <item> Reg_LETIMER0_CNT
+//    <i> LETIMER0_CNT [31..0] (@ 0x4008200C) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_CNT>>0) & 0xFFFFFFFF), ( (LETIMER0_CNT &= ~(0xFFFFFFFF<<0)), (LETIMER0_CNT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_CNT_CNT
+//    <i> CNT [15..0] (@ 0x4008200C) </i>
+//    <edit> 
+//      <loc> ( (short int)((LETIMER0_CNT>>0) & 0xFFFE), ( (LETIMER0_CNT &= ~(0xFFFE<<0)), (LETIMER0_CNT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  LETIMER0_COMP0  -----------------------------------------
+
+unsigned int LETIMER0_COMP0 __AT (0x40082010);
+
+//  <item> Reg_LETIMER0_COMP0
+//    <i> LETIMER0_COMP0 [31..0] (@ 0x40082010) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_COMP0>>0) & 0xFFFFFFFF), ( (LETIMER0_COMP0 &= ~(0xFFFFFFFF<<0)), (LETIMER0_COMP0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_COMP0_COMP0
+//    <i> COMP0 [15..0] (@ 0x40082010) </i>
+//    <edit> 
+//      <loc> ( (short int)((LETIMER0_COMP0>>0) & 0xFFFE), ( (LETIMER0_COMP0 &= ~(0xFFFE<<0)), (LETIMER0_COMP0 |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  LETIMER0_COMP1  -----------------------------------------
+
+unsigned int LETIMER0_COMP1 __AT (0x40082014);
+
+//  <item> Reg_LETIMER0_COMP1
+//    <i> LETIMER0_COMP1 [31..0] (@ 0x40082014) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_COMP1>>0) & 0xFFFFFFFF), ( (LETIMER0_COMP1 &= ~(0xFFFFFFFF<<0)), (LETIMER0_COMP1 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_COMP1_COMP1
+//    <i> COMP1 [15..0] (@ 0x40082014) </i>
+//    <edit> 
+//      <loc> ( (short int)((LETIMER0_COMP1>>0) & 0xFFFE), ( (LETIMER0_COMP1 &= ~(0xFFFE<<0)), (LETIMER0_COMP1 |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  LETIMER0_REP0  -----------------------------------------
+
+unsigned int LETIMER0_REP0 __AT (0x40082018);
+
+//  <item> Reg_LETIMER0_REP0
+//    <i> LETIMER0_REP0 [31..0] (@ 0x40082018) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_REP0>>0) & 0xFFFFFFFF), ( (LETIMER0_REP0 &= ~(0xFFFFFFFF<<0)), (LETIMER0_REP0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_REP0_REP0
+//    <i> REP0 [7..0] (@ 0x40082018) </i>
+//    <edit> 
+//      <loc> ( (char)((LETIMER0_REP0>>0) & 0xFE), ( (LETIMER0_REP0 &= ~(0xFE<<0)), (LETIMER0_REP0 |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  LETIMER0_REP1  -----------------------------------------
+
+unsigned int LETIMER0_REP1 __AT (0x4008201C);
+
+//  <item> Reg_LETIMER0_REP1
+//    <i> LETIMER0_REP1 [31..0] (@ 0x4008201C) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_REP1>>0) & 0xFFFFFFFF), ( (LETIMER0_REP1 &= ~(0xFFFFFFFF<<0)), (LETIMER0_REP1 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_REP1_REP1
+//    <i> REP1 [7..0] (@ 0x4008201C) </i>
+//    <edit> 
+//      <loc> ( (char)((LETIMER0_REP1>>0) & 0xFE), ( (LETIMER0_REP1 &= ~(0xFE<<0)), (LETIMER0_REP1 |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LETIMER0_IF  ------------------------------------------
+
+unsigned int LETIMER0_IF __AT (0x40082020);
+
+//  <item> Reg_LETIMER0_IF
+//    <i> LETIMER0_IF [31..0] (@ 0x40082020) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_IF>>0) & 0xFFFFFFFF), ( (LETIMER0_IF &= ~(0xFFFFFFFF<<0)), (LETIMER0_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_IF_COMP0
+//    <i> COMP0 [0] (@ 0x40082020) </i>
+//    <check> 
+//      <loc> LETIMER0_IF </loc>
+//      <o.0..0> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IF_COMP1
+//    <i> COMP1 [1] (@ 0x40082020) </i>
+//    <check> 
+//      <loc> LETIMER0_IF </loc>
+//      <o.1..1> COMP1
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IF_UF
+//    <i> UF [2] (@ 0x40082020) </i>
+//    <check> 
+//      <loc> LETIMER0_IF </loc>
+//      <o.2..2> UF
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IF_REP0
+//    <i> REP0 [3] (@ 0x40082020) </i>
+//    <check> 
+//      <loc> LETIMER0_IF </loc>
+//      <o.3..3> REP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IF_REP1
+//    <i> REP1 [4] (@ 0x40082020) </i>
+//    <check> 
+//      <loc> LETIMER0_IF </loc>
+//      <o.4..4> REP1
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  LETIMER0_IFS  ------------------------------------------
+
+unsigned int LETIMER0_IFS __AT (0x40082024);
+
+//  <item> Reg_LETIMER0_IFS
+//    <i> LETIMER0_IFS [31..0] (@ 0x40082024) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_IFS>>0) & 0xFFFFFFFF), ( (LETIMER0_IFS &= ~(0xFFFFFFFF<<0)), (LETIMER0_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_IFS_COMP0
+//    <i> COMP0 [0] (@ 0x40082024) </i>
+//    <check> 
+//      <loc> LETIMER0_IFS </loc>
+//      <o.0..0> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFS_COMP1
+//    <i> COMP1 [1] (@ 0x40082024) </i>
+//    <check> 
+//      <loc> LETIMER0_IFS </loc>
+//      <o.1..1> COMP1
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFS_UF
+//    <i> UF [2] (@ 0x40082024) </i>
+//    <check> 
+//      <loc> LETIMER0_IFS </loc>
+//      <o.2..2> UF
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFS_REP0
+//    <i> REP0 [3] (@ 0x40082024) </i>
+//    <check> 
+//      <loc> LETIMER0_IFS </loc>
+//      <o.3..3> REP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFS_REP1
+//    <i> REP1 [4] (@ 0x40082024) </i>
+//    <check> 
+//      <loc> LETIMER0_IFS </loc>
+//      <o.4..4> REP1
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  LETIMER0_IFC  ------------------------------------------
+
+unsigned int LETIMER0_IFC __AT (0x40082028);
+
+//  <item> Reg_LETIMER0_IFC
+//    <i> LETIMER0_IFC [31..0] (@ 0x40082028) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_IFC>>0) & 0xFFFFFFFF), ( (LETIMER0_IFC &= ~(0xFFFFFFFF<<0)), (LETIMER0_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_IFC_COMP0
+//    <i> COMP0 [0] (@ 0x40082028) </i>
+//    <check> 
+//      <loc> LETIMER0_IFC </loc>
+//      <o.0..0> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFC_COMP1
+//    <i> COMP1 [1] (@ 0x40082028) </i>
+//    <check> 
+//      <loc> LETIMER0_IFC </loc>
+//      <o.1..1> COMP1
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFC_UF
+//    <i> UF [2] (@ 0x40082028) </i>
+//    <check> 
+//      <loc> LETIMER0_IFC </loc>
+//      <o.2..2> UF
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFC_REP0
+//    <i> REP0 [3] (@ 0x40082028) </i>
+//    <check> 
+//      <loc> LETIMER0_IFC </loc>
+//      <o.3..3> REP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IFC_REP1
+//    <i> REP1 [4] (@ 0x40082028) </i>
+//    <check> 
+//      <loc> LETIMER0_IFC </loc>
+//      <o.4..4> REP1
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  LETIMER0_IEN  ------------------------------------------
+
+unsigned int LETIMER0_IEN __AT (0x4008202C);
+
+//  <item> Reg_LETIMER0_IEN
+//    <i> LETIMER0_IEN [31..0] (@ 0x4008202C) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_IEN>>0) & 0xFFFFFFFF), ( (LETIMER0_IEN &= ~(0xFFFFFFFF<<0)), (LETIMER0_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_IEN_COMP0
+//    <i> COMP0 [0] (@ 0x4008202C) </i>
+//    <check> 
+//      <loc> LETIMER0_IEN </loc>
+//      <o.0..0> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IEN_COMP1
+//    <i> COMP1 [1] (@ 0x4008202C) </i>
+//    <check> 
+//      <loc> LETIMER0_IEN </loc>
+//      <o.1..1> COMP1
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IEN_UF
+//    <i> UF [2] (@ 0x4008202C) </i>
+//    <check> 
+//      <loc> LETIMER0_IEN </loc>
+//      <o.2..2> UF
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IEN_REP0
+//    <i> REP0 [3] (@ 0x4008202C) </i>
+//    <check> 
+//      <loc> LETIMER0_IEN </loc>
+//      <o.3..3> REP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_IEN_REP1
+//    <i> REP1 [4] (@ 0x4008202C) </i>
+//    <check> 
+//      <loc> LETIMER0_IEN </loc>
+//      <o.4..4> REP1
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LETIMER0_FREEZE  ----------------------------------------
+
+unsigned int LETIMER0_FREEZE __AT (0x40082030);
+
+//  <item> Reg_LETIMER0_FREEZE
+//    <i> LETIMER0_FREEZE [31..0] (@ 0x40082030) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_FREEZE>>0) & 0xFFFFFFFF), ( (LETIMER0_FREEZE &= ~(0xFFFFFFFF<<0)), (LETIMER0_FREEZE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_FREEZE_REGFREEZE
+//    <i> REGFREEZE [0] (@ 0x40082030) </i>
+//    <check> 
+//      <loc> LETIMER0_FREEZE </loc>
+//      <o.0..0> REGFREEZE
+//    </check>
+//  </item>
+//  
+
+
+// ------------------------------------  LETIMER0_SYNCBUSY  ---------------------------------------
+
+unsigned int LETIMER0_SYNCBUSY __AT (0x40082034);
+
+//  <item> Reg_LETIMER0_SYNCBUSY
+//    <i> LETIMER0_SYNCBUSY [31..0] (@ 0x40082034) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_SYNCBUSY>>0) & 0xFFFFFFFF), ( (LETIMER0_SYNCBUSY &= ~(0xFFFFFFFF<<0)), (LETIMER0_SYNCBUSY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_SYNCBUSY_CTRL
+//    <i> CTRL [0] (@ 0x40082034) </i>
+//    <check> 
+//      <loc> LETIMER0_SYNCBUSY </loc>
+//      <o.0..0> CTRL
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_SYNCBUSY_CMD
+//    <i> CMD [1] (@ 0x40082034) </i>
+//    <check> 
+//      <loc> LETIMER0_SYNCBUSY </loc>
+//      <o.1..1> CMD
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_SYNCBUSY_COMP0
+//    <i> COMP0 [2] (@ 0x40082034) </i>
+//    <check> 
+//      <loc> LETIMER0_SYNCBUSY </loc>
+//      <o.2..2> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_SYNCBUSY_COMP1
+//    <i> COMP1 [3] (@ 0x40082034) </i>
+//    <check> 
+//      <loc> LETIMER0_SYNCBUSY </loc>
+//      <o.3..3> COMP1
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_SYNCBUSY_REP0
+//    <i> REP0 [4] (@ 0x40082034) </i>
+//    <check> 
+//      <loc> LETIMER0_SYNCBUSY </loc>
+//      <o.4..4> REP0
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_SYNCBUSY_REP1
+//    <i> REP1 [5] (@ 0x40082034) </i>
+//    <check> 
+//      <loc> LETIMER0_SYNCBUSY </loc>
+//      <o.5..5> REP1
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LETIMER0_ROUTE  -----------------------------------------
+
+unsigned int LETIMER0_ROUTE __AT (0x40082040);
+
+//  <item> Reg_LETIMER0_ROUTE
+//    <i> LETIMER0_ROUTE [31..0] (@ 0x40082040) </i>
+//    <edit> 
+//      <loc> ( (int)((LETIMER0_ROUTE>>0) & 0xFFFFFFFF), ( (LETIMER0_ROUTE &= ~(0xFFFFFFFF<<0)), (LETIMER0_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LETIMER0_ROUTE_OUT0PEN
+//    <i> OUT0PEN [0] (@ 0x40082040) </i>
+//    <check> 
+//      <loc> LETIMER0_ROUTE </loc>
+//      <o.0..0> OUT0PEN
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_ROUTE_OUT1PEN
+//    <i> OUT1PEN [1] (@ 0x40082040) </i>
+//    <check> 
+//      <loc> LETIMER0_ROUTE </loc>
+//      <o.1..1> OUT1PEN
+//    </check>
+//  </item>
+//  
+//  <item> LETIMER0_ROUTE_LOCATION
+//    <i> LOCATION [9..8] (@ 0x40082040) </i>
+//    <edit> 
+//      <loc> ( (char)((LETIMER0_ROUTE>>8) & 0x2), ( (LETIMER0_ROUTE &= ~(0x2<<8)), (LETIMER0_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

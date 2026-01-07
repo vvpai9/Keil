@@ -1,0 +1,28 @@
+The MEASURE program uses analog and digital inputs to simulate a datalogger.
+
+You may watch the value of analog input POT1 and the state of the
+Joystick (Buttons right, left, up, select) on MCBSTM32E evaluation board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL    =            8.00 MHz
+   - SYSCLK  =           72.00 MHz
+   - HCLK    = SYSCLK  = 72.00 MHz
+   - PCLK1   = HCLK/2  = 36.00 MHz
+   - PCLK2   = HCLK    = 72.00 MHz
+   - ADCLK   = PCLK2/6 = 12.00 MHz
+   - SYSTICK = HCLK/8  =  9.00 MHz
+
+ - USART2 settings:
+   - 115200 baud, 8 data bits, 1 stop bit, no parity
+
+ - ADC
+   - ADC1 channel14 connected to potentiometer POT1 
+ 
+
+The program is available in different targets:
+  Simulator:   configured for software Simulator
+               Serial Window #2
+               ADC1 channel 14 simulated using a debug function.
+  MCBSTM32E:   runs from Internal Flash located on chip
+               (used for production or target debugging)

@@ -1,0 +1,34 @@
+The LCD_Blinky project is a simple program for the NXP 'LPC2468' 
+microcontroller using MCB2400 Evaluation Board.
+
+- Displays rotating ARM 3D logo
+
+
+The LCD_Blinky program is available for target:
+  MCB2400: runs from Internal Flash located on chip
+          (used for production or target debugging)
+
+Notes: - Jumper positions:
+           - PSX   - H
+           - DTX1  - H
+           - DTX2  - L
+           - BWS0  - H
+           - BWS1  - does not matter
+           - BWS2  - does not matter
+           - CS    - CS2
+           - RST   - RST
+           - RS    - A1
+           - WR/RW - WE
+           - P0.15 - closed
+           - P0.17 - closed
+           - P0.18 - closed
+           - P2.13 - does not matter
+           
+       - QVGA (320xRGBx240) TFT LCD V2.x is used 
+
+       - In EVAL version of uVision do not rebuild the target as 
+         this example's size exceeds EVAL version limitation
+
+Picture conversion procedure:
+1. Convert picture to 16 BPP (R - 5bits, G - 6bits, B - 5bits)
+2. Convert prepared file without header to C array

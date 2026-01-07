@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <vendor>Keil</vendor>
+  <name>STM32WBAxx_DFP</name>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32WBA Series Device Support</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32WBAxx_DFP.git</repository>
+  <license>LICENSE</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons" name="LICENSE" spdx="Apache-2.0"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="2.1.0" date="2025-09-25" tag="v2.1.0">
+      Updated documentation references
+      Updated Templates:
+      - Added DWARF-5 debug information
+      - Added generated output files
+      Package Description (pdsc):
+      - Reorganized Flash and SRAM memory regions
+      - Shortened device family description
+    </release>
+    <release version="2.0.0" date="2025-02-28" tag="v2.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Removed CMSIS Drivers
+      Removed STM32Cube_FW_WBA
+      Removed previous generator (gpdsc)
+      Added new global generator
+      Updated SVD files
+      Package Description (pdsc):
+      - Updated STM32WBA50xExx/52xExx/54xExx/55xExx device list
+      - Added support for STM32WBA5Mxx/6xx devices
+      - Removed Device:Startup component
+      - Removed Device:STM32Cube HAL components
+      - Removed Device:STM32Cube LL components
+      - Removed compile device header from device description
+      - Removed unused conditions
+      - Updated memories regions
+      - Replaced documentation files with permalinks
+    </release>
+    <release version="1.3.0" date="2024-04-30">
+      Updated STM32Cube FW to STM32Cube_FW_WBA_V1.3.0 (HAL V1.3.0).
+      Added LICENSE file
+      Device support:
+      - Added STM32WBA50, STM32WBA54, STM32WBA55 device subfamilies, aligned with CubeMX V6.11.0
+      - Updated documentation
+      - Updated SVD files.
+    </release>
+    <release version="1.2.1" date="2023-07-20">
+      Device Support:
+      - Updated public devices
+    </release>
+    <release version="1.2.0" date="2023-05-31">
+      Devices Support:
+      - Added CubeMX support
+      - Added Data sheets, reference manuals
+    </release>
+    <release version="1.1.0" date="2023-03-10">
+      Initial public release based on STM32Cube_FW_WBA Firmware Package version V1.0.0
+    </release>
+    <!-- non-public history
+      version 1.0.0:
+      Updated Pack to STM32Cube_FW_WBA Firmware Package version V0.3.0:
+      - Updated CMSIS device
+      - adding spport to STM32WBA52 SVD file
+      - Updated Documentation.
+
+      version 0.0.1:
+      First release:
+      - STM32WBA55x/WBA54x/WBA52x/WBA50x Subfamilies support
+      - Internal Flash loader support
+     -->
+  </releases>
+
+  <keywords>
+    <keyword>ST</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package STMicroelectronics</keyword>
+    <keyword>STM32WBA</keyword>
+    <keyword>STM32WBAx</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="STM32WBA Series" Dvendor="STMicroelectronics:13">
+      <processor Dcore="Cortex-M33" DcoreVersion="r0p0" Dfpu="SP_FPU" Dmpu="MPU" Ddsp="DSP" Dendian="Little-endian" Dclock="100000000"/>
+
+      <description>
+Ultra-low-power wireless STM32WBA MCUs with Arm Cortex-M33 core, MPU, cache, DSP, FPU, 150 DMIPS at 100 MHz.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/100235/latest/" title="Cortex-M33 Generic User Guide"/>
+
+      <!-- ************************  Subfamily 'STM32WBA50'  ************************** -->
+      <subFamily DsubFamily="STM32WBA50">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA50.svd"/>
+        <compile define="STM32WBA50xx"/>
+
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA50KGUx'  ********************** -->
+        <device Dname="STM32WBA50KGUx">
+          <memory name="Flash" access="rx"                      start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1" access="rwx"                     start="0x20000000" size="0x00004000" default="1"/>
+          <memory name="SRAM2" access="rwx"                     start="0x20010000" size="0x0000C000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA50KGUxT'  ********************* -->
+        <device Dname="STM32WBA50KGUxT">
+          <memory name="Flash" access="rx"                      start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1" access="rwx"                     start="0x20000000" size="0x00004000" default="1"/>
+          <memory name="SRAM2" access="rwx"                     start="0x20010000" size="0x0000C000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- ################################### 512KB ################################ -->
+        <!-- *************************  Device 'STM32WBA50KEUx'  ********************** -->
+        <device Dname="STM32WBA50KEUx">
+          <memory name="Flash" access="rx"                      start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1" access="rwx"                     start="0x20000000" size="0x00004000" default="1"/>
+          <memory name="SRAM2" access="rwx"                     start="0x20010000" size="0x0000C000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA50KEUxT'  ********************* -->
+        <device Dname="STM32WBA50KEUxT">
+          <memory name="Flash" access="rx"                      start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1" access="rwx"                     start="0x20000000" size="0x00004000" default="1"/>
+          <memory name="SRAM2" access="rwx"                     start="0x20010000" size="0x0000C000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WBA52'  ************************** -->
+      <subFamily DsubFamily="STM32WBA52">
+        <processor Dtz="TZ"/>
+        <compile define="STM32WBA52xx"/>
+        <debug svd="CMSIS/SVD/STM32WBA52.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0493-multiprotocol-wireless-bluetooth-lowenergy-and-ieee802154-stm32wba5xxx-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32WBA52xx Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wba52ce.pdf" title="STM32WBA52xx Data Sheet"/>
+
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA52CGUx'  ********************** -->
+        <device Dname="STM32WBA52CGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA52CGUxT'  ********************* -->
+        <device Dname="STM32WBA52CGUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA52CGUxU'  ********************* -->
+        <device Dname="STM32WBA52CGUxU">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA52KGUx'  ********************** -->
+        <device Dname="STM32WBA52KGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA52KGUxT'  ********************* -->
+        <device Dname="STM32WBA52KGUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- ################################### 512KB ################################ -->
+        <!-- *************************  Device 'STM32WBA52CEUx'  ********************** -->
+        <device Dname="STM32WBA52CEUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA52KEUx'  ********************** -->
+        <device Dname="STM32WBA52KEUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WBA54'  ************************** -->
+      <subFamily DsubFamily="STM32WBA54">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA54.svd"/>
+        <compile define="STM32WBA54xx"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0493-multiprotocol-wireless-bluetooth-lowenergy-and-ieee802154-stm32wba5xxx-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32WBA52xx Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wba52ce.pdf" title="STM32WBA52xx Data Sheet"/>
+
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA54CGUx'   ********************* -->
+        <device Dname="STM32WBA54CGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA54CGUxT'  ********************* -->
+        <device Dname="STM32WBA54CGUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA54KGUx'   ********************* -->
+        <device Dname="STM32WBA54KGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA54KGUxT'  ********************* -->
+        <device Dname="STM32WBA54KGUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- ################################### 512KB ################################ -->
+        <!-- *************************  Device 'STM32WBA54CEUx'  ********************** -->
+        <device Dname="STM32WBA54CEUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA54CEUxT'  **************************** -->
+        <device Dname="STM32WBA54CEUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA54KEUx'  ********************** -->
+        <device Dname="STM32WBA54KEUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA54KEUxT'  ********************* -->
+        <device Dname="STM32WBA54KEUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WBA55'  ************************** -->
+      <subFamily DsubFamily="STM32WBA55">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA55.svd"/>
+        <compile define="STM32WBA55xx"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0493-multiprotocol-wireless-bluetooth-lowenergy-and-ieee802154-stm32wba5xxx-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32WBA52xx Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wba52ce.pdf" title="STM32WBA52xx Data Sheet"/>
+
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA55CGUx'  ********************** -->
+        <device Dname="STM32WBA55CGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55CGUxT'  ********************* -->
+        <device Dname="STM32WBA55CGUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55CGUxU'  ********************* -->
+        <device Dname="STM32WBA55CGUxU">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="32"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55UGIx'  ********************** -->
+        <device Dname="STM32WBA55UGIx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="59"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55HGFx'  ********************** -->
+        <device Dname="STM32WBA55HGFx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="41"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55UGIxT'  ********************* -->
+        <device Dname="STM32WBA55UGIxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="59"/>
+        </device>
+
+        <!-- ################################### 512KB ################################ -->
+        <!-- *************************  Device 'STM32WBA55CEUx'  ********************** -->
+        <device Dname="STM32WBA55CEUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55CEUxT'  ********************* -->
+        <device Dname="STM32WBA55CEUxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55UEIx'  ********************** -->
+        <device Dname="STM32WBA55UEIx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="59"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55UEIxT'  ********************* -->
+        <device Dname="STM32WBA55UEIxT">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="59"/>
+        </device>
+
+        <!-- *************************  Device 'STM32WBA55HEFx'  ********************** -->
+        <device Dname="STM32WBA55HEFx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00080000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00080000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00008000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00008000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0800.FLM" start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_512K_0C00.FLM" start="0x0C000000" size="0x00080000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="41"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WBA5M''  ************************* -->
+      <subFamily DsubFamily="STM32WBA5M">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA55.svd"/>
+        <compile define="stm32WBA55xx"/>
+
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA5MJGHxU'  ********************* -->
+        <device Dname="STM32WBA5MJGHxU">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+        </device>
+
+       <!-- *************************  Device 'STM32WBA5MJGHx'  *********************** -->
+       <device Dname="STM32WBA5MJGHx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00010000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20010000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30010000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WBA62'  ************************** -->
+      <subFamily DsubFamily="STM32WBA62">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA62.svd"/>
+        <compile define="stm32WBA62xx"/>
+
+        <!-- ################################### 2MB ################################## -->
+        <!-- *************************  Device 'STM32WBA62MIFx'  ********************** -->
+        <device Dname="STM32WBA62MIFx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="88"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA62CIUx'  ********************** -->
+        <device Dname="STM32WBA62CIUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA62PIIx'  ********************** -->
+        <device Dname="STM32WBA62PIIx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="121"/>
+        </device>
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA62CGUx'  ********************** -->
+        <device Dname="STM32WBA62CGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00030000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00030000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA62MGFx'  *********************** -->
+        <device Dname="STM32WBA62MGFx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00030000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00030000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="88"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA62PGIx'  ********************** -->
+        <device Dname="STM32WBA62PGIx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00030000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00030000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="121"/>
+        </device>
+      </subFamily>
+
+        <!-- ************************  Subfamily 'STM32WBA63'  ************************ -->
+      <subFamily DsubFamily="STM32WBA63">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA63.svd"/>
+        <compile define="stm32WBA63xx"/>
+          
+        <!-- ################################### 2MB ################################## -->
+        <!-- *************************  Device 'STM32WBA63CIUx'  ********************** -->
+        <device Dname="STM32WBA63CIUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA63CGUx'  ********************** -->
+        <device Dname="STM32WBA63CGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WBA64'  ************************** -->
+      <subFamily DsubFamily="STM32WBA64">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA64.svd"/>
+        <compile define="stm32WBA64xx"/>
+         
+        <!-- ################################### 2MB ################################## -->
+        <!-- *************************  Device 'STM32WBA64CIUx'  ********************** -->
+        <device Dname="STM32WBA64CIUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA64CGUx'  ********************** -->
+        <device Dname="STM32WBA64CGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WBA65'  ************************** -->
+      <subFamily DsubFamily="STM32WBA65">
+        <processor Dtz="TZ"/>
+        <debug svd="CMSIS/SVD/STM32WBA65.svd"/>
+        <compile define="stm32WBA65xx"/>
+
+        <!-- ################################### 2MB ################################## -->
+        <!-- *************************  Device 'STM32WBA65CIUx'  ********************** -->
+        <device Dname="STM32WBA65CIUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA65RIVx'  ********************** -->
+        <device Dname="STM32WBA65RIVx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="68"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA65MIFx'  ********************** -->
+        <device Dname="STM32WBA65MIFx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="88"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA65PIIx'  ********************** -->
+        <device Dname="STM32WBA65PIIx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00200000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00200000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00070000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00070000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0800.FLM"   start="0x08000000" size="0x00200000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_2M_0C00.FLM"   start="0x0C000000" size="0x00200000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="121"/>
+        </device>
+        <!-- ################################### 1MB ################################## -->
+        <!-- *************************  Device 'STM32WBA65CGUx'  ********************** -->
+        <device Dname="STM32WBA65CGUx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00030000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00030000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA65RGVx'  ********************** -->
+        <device Dname="STM32WBA65RGVx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00030000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00030000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="68"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA65MGFx'  ********************** -->
+        <device Dname="STM32WBA65MGFx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00030000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00030000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="88"/>
+        </device>
+        <!-- *************************  Device 'STM32WBA65PGIx'  ********************** -->
+        <device Dname="STM32WBA65PGIx">
+          <memory name="Flash_NS" access="rx"  start="0x08000000" size="0x00100000" default="1" startup="1" />
+          <memory name="Flash_S"  access="rx"  start="0x0C000000" size="0x00100000" alias="Flash_NS" />
+          <memory name="SRAM1_NS" access="rwx" start="0x20000000" size="0x00030000" default="1" init="0" />
+          <memory name="SRAM1_S"  access="rwx" start="0x30000000" size="0x00030000" alias="SRAM1_NS" />
+          <memory name="SRAM2_NS" access="rwx" start="0x20070000" size="0x00010000" default="1" init="0" />
+          <memory name="SRAM2_S"  access="rwx" start="0x30070000" size="0x00010000" alias="SRAM2_NS" />
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0800.FLM"   start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WBAx_1M_0C00.FLM"   start="0x0C000000" size="0x00100000" RAMstart="0x30000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="121"/>
+        </device>
+      </subFamily>
+
+    </family>
+
+  </devices>
+
+  <conditions>
+    <!-- Device Conditions -->
+    <condition id="STM32WBA">
+      <description>STMicroelectronics STM32WBA Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32WBA*"/>
+    </condition>
+
+    <!-- Device + CMSIS Conditions -->
+    <condition id="STM32WBA CMSIS">
+      <description>STMicroelectronics STM32WBA Device and CMSIS-CORE</description>
+      <require condition="STM32WBA"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+  </conditions>
+
+  <components>
+    <!-- CubeMX Generator -->
+    <component generator="CubeMX" Cclass="Device" Cgroup="CubeMX" Cversion="1.0.0" condition="STM32WBA CMSIS">
+      <description>Configuration via STM32CubeMX</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_CUBE_MX
+        #define CMSIS_device_header "stm32wbaxx.h"
+      </RTE_Components_h>
+      <files>
+        <file category="doc" name="https://open-cmsis-pack.github.io/cmsis-toolbox/CubeMX"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <!-- CubeMX Basic CMSIS Solution template -->
+    <template name="CubeMX Basic solution" path="Templates/CubeMX" file="CubeMX.csolution.yml" condition="STM32WBA">
+      <description>Create a CubeMX basic solution with project</description>
+    </template>
+
+    <!-- CubeMX TrustZone CMSIS Solution template -->
+    <template name="CubeMX TrustZone solution" path="Templates/CubeMX_TZ" file="CubeMX_TZ.csolution.yml" condition="STM32WBA">
+      <description>Create a CubeMX TrustZone solution with secure and non-secure projects</description>
+    </template>
+
+  </csolution>
+</package>

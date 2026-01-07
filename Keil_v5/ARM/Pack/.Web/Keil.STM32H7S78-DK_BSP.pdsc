@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32H7S78-DK_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32H7RS Series STM32H7S78-DK Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32H7S78-DK_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.0" date="2025-08-21" tag="v1.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Added DWARF-5 debug information
+      - Added generated output files
+    </release>
+    <release version="1.0.0" date="2025-03-18" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for STM32H7S78-DK
+      Blinky example (CMSIS Solution)
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32H7S7</keyword>
+    <keyword>STM32H7S78</keyword>
+    <keyword>STM32H7S78-DK</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32H7RSxx_DFP"    version="1.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32H7S78-DK">
+      <description>STMicroelectronics STM32H7S78-DK Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32H7S78-DK"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32H7S78-DK GPIO">
+      <description>STMicroelectronics STM32H7S78-DK Board with CMSIS Driver GPIO</description>
+      <require condition="STM32H7S78-DK"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32H7S78-DK -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="STM32H7S78-DK GPIO">
+      <description>I/O implementation for STM32H7S78-DK</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32H7S78_DK
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32H7S78-DK.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- STM32H7S78-DK Board Support -->
+    <board vendor="STMicroelectronics" name="STM32H7S78-DK" revision="Rev.D"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html"
+           orderForm   ="https://www.st.com/en/evaluation-tools/stm32h7s78-dk.html">
+      <description>STM32 Discovery development board with STM32H7S7L8 MCU</description>
+      <image small="Images/stm32h7s78-dk_small.png"
+             large="Images/stm32h7s78-dk_large.png" public="true"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/stm32h7s78-dk.html" title="STM32H7S78-DK board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/stm32h7s78-dk.pdf" title="Data brief" public="true"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um3289-discovery-kit-with-stm32h7s7l8-mcu-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1736-h7s7l8-d01-schematic.pdf" title="Schematics" public="true"/>
+      <book category="other"     name="Documents/README.md" title="Guide" public="true"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32H7S7L8HxH"/>
+      <feature type="ODbg"      n="1"              name="On-board ST-LINK-V3EC"/>
+      <feature type="XTAL"      n="24000000"       name="Crystal Oscillator"/>
+      <feature type="ROM"       n="1"              name="1-Gbit Octal-SPI NOR flash memory"/>
+      <feature type="RAM"       n="1"              name="256-Mbit Hexadeca-SPI PSRAM"/>
+      <feature type="PWR"       n="4"              name="USB Powered"/>
+      <feature type="PWR"       n="1V8"  m="5"     name="External Supply"/>
+      <feature type="CustomFF"  n="2"              name="STMicroelectronics Pmod, STMod+ connector"/>
+      <feature type="ArduinoFF" n="1"              name="STMicroelectronics Arduino Uno connector"/>
+      <feature type="ETH"       n="1"              name="10/100 Ethernet Port"/>
+      <feature type="USB"       n="2"              name="USB Type-C Sink and Source"/>
+      <feature type="Button"    n="2"              name="Push-buttons: User and Reset"/>
+      <feature type="LED"       n="8"              name="4 User LEDs"/>
+      <feature type="LineOut"   n="1"              name="Stereo Line OUT headset jack"/>
+      <feature type="MIC"       n="1"              name="Digital microphone"/>
+      <feature type="GLCD"      n="1"  m="800.480" name="5-inch 800x480 TFT color LCD with capacitive touch panel"/>
+      <feature type="MemCard"   n="1"              name="microSD card"/>
+      <feature type="ConnOther" n="1"              name="Camera module expansion connector"/>
+      <feature type="ConnOther" n="1"              name="STMod+ expansion connector"/>
+      <feature type="ConnOther" n="1"              name="Pmod expansion connector"/>
+      <debugInterface adapter="JTAG/SW" connector="10-pin TAG probe TC2050-IDC-NL"/>
+      <debugInterface adapter="ST-Link" connector="USB-C"/>
+      <debugProbe connector="USB-C" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32H7S78-DK" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

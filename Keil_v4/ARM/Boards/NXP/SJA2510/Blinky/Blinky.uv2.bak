@@ -1,0 +1,193 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (Simulator), 0x0004 // Tools: 'ARM-ADS'
+Target (SJA2510 Flash), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (Source Code)
+Group (Documentation)
+
+File 1,2,<.\SJA2510.s><SJA2510.s> 0x468E1DF0 
+File 2,1,<.\Blinky.c><Blinky.c> 0x468E1DC8 
+File 3,5,<.\Abstract.txt><Abstract.txt> 0x468DE55C 
+
+
+Options 1,0,0  // Target 'Simulator'
+ Device (SJA2510HL/696)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x80000000-0x80013FFF) IROM(0x20000000-0x200BFFFF) CLOCK(10000000) CPUTYPE(ARM968E-S))
+ FlashUt ()
+ StupF ("STARTUP\Philips\SJA2510.s" ("Philips SJA2510 Startup Code"))
+ FlashDR (UL2ARM(-U268761108 -O7 -S0 -C0 -FO15 -FD80000000 -FC800 -FN1 -FF0SJA2510_768 -FS020000000 -FL0C0000))
+ DevID (4373)
+ Rgf (SJA2510.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\Flash\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Flash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM968E-S)
+ ADSTFLGA { 0,12,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,128,0,64,1,0 }
+ OCMADSIROM { 1,0,0,0,32,0,0,12,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,32,0,0,12,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,128,0,64,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x20000000)
+ ADSLDDA (0x80000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cSJA2510)(DARMP.DLL)(-pSJA2510)(SARM.DLL)()(TARMP.DLL)(-pSJA2510)
+  OPTDBG 49149,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'SJA2510 Flash'
+ Device (SJA2510HL/696)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x80000000-0x80013FFF) IROM(0x20000000-0x200BFFFF) CLOCK(10000000) CPUTYPE(ARM968E-S))
+ FlashUt ()
+ StupF ("STARTUP\Philips\SJA2510.s" ("Philips SJA2510 Startup Code"))
+ FlashDR (UL2ARM(-U268761108 -O7 -S0 -C0 -FO15 -FD40000000 -FC800 -FN1 -FF0LPC_IAP2_512 -FS00 -FL07D000))
+ DevID (4373)
+ Rgf (SJA2510.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\Flash\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Flash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 243,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM968E-S)
+ ADSTFLGA { 0,12,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,128,0,64,1,0 }
+ OCMADSIROM { 1,0,0,0,32,0,0,12,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,32,0,0,12,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,128,0,64,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x20000000)
+ ADSLDDA (0x80000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cSJA2510)(DARMP.DLL)(-pSJA2510)(SARM.DLL)()(TARMP.DLL)(-pSJA2510)
+  OPTDBG 49150,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

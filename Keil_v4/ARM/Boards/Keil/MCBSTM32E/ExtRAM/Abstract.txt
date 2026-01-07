@@ -1,0 +1,23 @@
+
+The 'ExtRAM' project is a simple program for the STM32F103ZE 
+using Keil 'MCBSTM32E' Evaluation Board and demonstrating 
+external SRAM functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL    =            8.00 MHz
+   - SYSCLK  =           72.00 MHz
+
+
+
+General description:
++++++++++++++++++++++
+
+This example uses the external SRAM on the MCBSTM32E. A message is printed to the ITM printf Viewer when running in Debug mode.
+
+There are two configured targets:
+
+* ExtRAM: Initializes and tests the external RAM with a simple count value that is read and written.
+* Run from ExtRAM: Initializes the ExtRAM via ExtRAM.ini, loads the application code into the external RAM and runs from there.
+
+

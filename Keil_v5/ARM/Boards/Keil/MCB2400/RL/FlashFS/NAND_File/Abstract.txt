@@ -1,0 +1,23 @@
+This is an RL Flash File System file manipulation example.
+You can create, read, copy, delete files on the NAND Flash
+Memory.
+
+The NAND_FILE program is a standalone application loaded into
+on-chip flash and available for two targets:
+
+MCB2400 Flash:
+           Standalone application for Keil MCB2400 Board using
+           COM1 port as a communication interface..
+
+           Connect a serial cable to RS232 UART1 port using
+           HyperTerminal at 115200 baud, 8-bits, no parity,
+           1 stop bit, XON/XOFF.
+
+MCB2400 Flash RT_Agent:
+           Standalone application for Keil MCB2400 Board using
+           RT Agent as a communication interface. You can test
+           it only with ULINK2 from uVision debugger.
+
+Note:   MCB2400 Base Board Jumper settings:
+           
+           - Jumper P2.12<->NAND_RDY must be connected

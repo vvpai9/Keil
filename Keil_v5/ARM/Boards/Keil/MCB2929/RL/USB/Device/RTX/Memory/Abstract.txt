@@ -1,0 +1,21 @@
+The Memory project is a demo program for the Keil MCB2900 Board 
+using a NXP LPC2929 Microcontroller.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - PLL                    = 196 MHz
+   - processor clock = CCLK =  48 MHz
+   - USB clock              =  48 MHz
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following target:
+  MCB2900 RTX: configured for on-chip Flash ROM - RTX version
+              (used for production or target debugging)
+
+Note: set jumper J7 to 1[2 3] (jumper towards JTAG connector)
+      for USB soft connect

@@ -1,0 +1,19 @@
+The 2-nd level Bootloader for LPC3000 
+
+This is a 2-nd level bootloader for Philips 
+LPC3180 microcontroller with NAND Flash and 
+External SDRAM. 
+It downloads to PAGE 1 .. PAGE 31 of BANK 0 
+of NAND Flash.
+1-st level bootloader that is in ROM of LPC3180 
+first downloads this 2-nd level bootloader to 
+internal RAM and starts it.
+
+2-nd level bootloader's main function is to 
+copy user program from NAND Flash to 
+External SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to NAND Flash.
+
+Note: Bad block skipping is supported

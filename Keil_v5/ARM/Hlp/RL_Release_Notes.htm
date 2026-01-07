@@ -1,0 +1,2479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>RL-ARM Release Notes</title>
+<meta http-equiv=content-language content=en-us>
+<meta name=GENERATOR content="Microsoft FrontPage 12.0">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<style>
+p            {font-family:verdana;font-size:10pt}
+.LI2         {margin-top:6px;margin-bottom:6px}
+.Release     {background-color:#ccc;font-weight:bold;padding:6px}
+.ToolT       {font-size:8pt;color:#808080}
+.TinyT       {font-size:8pt;text-align:center}
+h1           {font-family:verdana;font-size:18pt;color:#000080;font-weight:bold;text-align:center;margin-right:3px}
+h2           {font-family:verdana;font-size:14pt;color:#000080;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+h3           {font-family:verdana;font-size:10pt;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+pre          {font-family:courier new;font-size:10pt;background-color:#cfc;margin-left:24px;margin-right:24px}
+ul           {font-family:verdana;font-size:10pt;list-style-type:square}
+ol           {font-family:verdana;font-size:10pt}
+li           {margin-left:12pt;padding-left:0;margin-top:12px;margin-bottom:6px}
+ul li pre    {margin-top:6pt;font-family:courier new;font-size:9pt;background-color:#cfc;margin-left:0px;margin-right:0px}
+ul li ul     {margin-top:6pt;margin-bottom:6pt;margin-left:0pt;padding-left:0}
+ul li ul li  {margin-top:3pt;margin-bottom:3pt}
+ul li ol     {margin-top:6pt;margin-bottom:6pt;margin-left:12pt;padding-left:0}
+ul li ol li  {margin-top:3pt;margin-bottom:3pt}
+.prelim      {color: Red; }
+</style>
+</head>
+
+<body>
+
+<h1>Release Notes for RL-ARM<br>
+Real-Time Library for ARM-powered Microcontrollers</h1>
+
+<p align="center">This file contains release notes and last minute changes.</p>
+
+<p class="TinyT">Information in this file, the accompany manuals, and software is<br>
+Copyright © ARM Ltd. and Keil - An ARM Company.<br>
+All rights reserved.</p>
+
+<hr>
+
+<h2>Contents</h2>
+
+<ol>
+  <li class="LI2"><a href="#WhatsNew">What's New in RL-ARM</a></li>
+  <li class="LI2"><a href="#TechnicalSupport">Technical Support</a></li>
+  <li class="LI2"><a href="#ContactDetails">Contact Details</a></li>
+</ol>
+
+<h2><a name="WhatsNew"></a>What's New in RL-ARM Real-Time Library</h2>
+
+<p>The following sections list the changes instituted in each release of the RL-ARM.</p>
+
+<h3>RL-ARM Version 4.22</h3>
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>See <a href="Release_Notes.htm"><b>MDK Release Notes</b></a>.
+      </li>
+    </ul>
+  </li>  
+</ul>
+
+<h3>RL-ARM Version 4.21</h3>
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Actel Cortex-M3 <b>SmartFusion</b> devices (Cortex-M3 
+	    devices without exclusive access instructions LDREX/STREX/CLREX).
+	  </li>
+      <li>Added: support for interrupt priority grouping in <b>Cortex-M3</b> and 
+	    <b>Cortex-M4</b> library.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+   <ul>
+    <li>Added: File <b>update mode</b> (r+, w+, a+) support for FAT.
+    <li>Added: <b>FAT File System Journal</b> to protect file system from power failure.
+    </li>
+    <li>Added: SDIO and NAND driver for <b>STM32F2xx</b> devices.
+    </li>
+    <li>Added: <b>SD_File</b> and <b>NAND_File</b> examples for <b>ST STM3220-EVAL</b>
+        evaluation board. Examples can be found in <b>..\ARM\Boards\ST\STM3220F-EVAL\RL\FlashFS</b>
+        folder.
+    </li>       
+   </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a file modification time in file <b>append</b> mode is now 
+        updated to current time.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+   <ul>
+    <li>Added: <b>BSD socket</b> application programming interface.
+    </li>
+    <li>Added: <b>BSD_server</b> and <b>BSD_client</b> demo examples for various
+	  evaluation boards.
+    </li>
+    <li>Added: new file types/extensions in Web server [MIME types]:
+      <ul>
+		<li><b>txt</b> [text/plain]
+        <li><b>svg</b> [image/svg+xml]
+		<li><b>svgz</b> [image/svg+xml], encoding gzip
+		<li><b>jar</b> [application/java-archive]
+		<li><b>jz</b> [application/x-javascript], encoding gzip
+        <li><b>js.gz</b> [application/x-javascript], encoding gzip
+      </ul>		 
+    <li>Added: big endian TCPnet libraries for <b>Cortex-M0</b>, <b>Cortex-M1</b>,
+	 <b>Cortex-M3</b>, <b>ARM7</b> and <b>ARM9</b>.
+    </li>
+    <li>Added: Ethernet driver for <b>STM32F2xx</b> devices.
+    </li>   
+    <li>Added: TCPnet examples for <b>ST STM3220-EVAL</b> evaluation board. The
+        examples can be found in <b>..\ARM\Boards\ST\STM3220F-EVAL\RL\TCPnet</b> folder.
+    </li>       
+   </ul>
+  </li>  
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: parameter <i>locport</i> checking in <b>tcp_connect()</b> 
+	    function. If TCP socket type is TCP_TYPE_CLIENT_SERVER, and socket is 
+		listening, the tcp_connect() function accepts only 0 or listening port 
+		number as <i>locport</i> parameter.
+	  </li>
+      <li>Corrected: potential DMA receive lock up in <b>ETH_STM32x.c</b> ethernet 
+        driver caused by IP packet flooding attacks.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[USB - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: USB Host core support for High-speed Mass Storage Devices. 
+      </li>
+      <li>Added: USB Host <b>HID_Kbd</b> and <b>MSD_File </b> examples for <b>ST STM3220F-EVAL</b> 
+        evaluation board in <b>..\ARM\Boards\ST\STM3220F-EVAL\RL\USB\Host\</b> folder.
+      </li>
+      <li>Added: USB Device <b>HID</b>, <b>Memory</b> and <b>Memory_FlashFS</b> 
+        examples for <b>ST STM3220F-EVAL</b> evaluation board in 
+        <b>..\ARM\Boards\ST\STM3220F-EVAL\RL\USB\Device\</b> folder.
+      </li>
+      <li>Added: USB Device <b>HID</b> example for <b>Keil MCB1000(MCB11U10)</b> 
+        evaluation board in <b>..\ARM\Boards\Keil\MCB1000\MCB11U10\RL\USB\Device\</b> folder.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 4.20</h3>
+<ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: the FlashFS library to allow <b>concurrent operation</b>
+        of multiple FAT drives.
+      </li>
+      <li>Enhanced: the <b>system driver</b> interface. An interface to the system 
+        is a <b>driver control block</b> variable. This concept allows multiple 
+	drivers to the system. 
+      </li>
+      <li>Added: support for <b>NAND Flash</b> drive (N:) to File_Config.c
+        configuration file and FlashFS library. It supports wear leveling, error
+        correction and bad block replacement.
+      </li>
+      <li>Added: <b>NAND_File</b> example for <b>Atmel SAM3U-EK</b> evaluation 
+        board in <b>..\ARM\Boards\Atmel\SAM3U-EK\RL\FlashFS</b> folder.
+      </li>
+      <li>Added: <b>NAND_File</b> example for <b>Phytec LPC3250</b> evaluation 
+        board in <b>..\ARM\Boards\Phytec\LPC3250\RL\FlashFS</b> folder.
+      </li>
+    </ul>
+    <b>Warning</b>: The <b>File_Config.c</b> configuration file and <b>system
+    drivers</b> are no more compatible to older versions and need to be replaced. 
+    Incompatible files will not compile and build. Read the 
+    <a href=RL_420_Migration.htm><b>instructions</b></a> for porting older projects.
+  </li>
+  <li><font color="#800000" size="1"><b>[USB]</b></font><br>
+    <ul>
+      <li>Added: <b>USB Device </b> is packed into common library together with 
+        USB Host. USB library simplifies creating embedded applications with 
+        USB Device functionality. USB library can be used for RTX RTOS or 
+        non-RTOS based applications.
+      </li>
+      <li>Enhanced: USB Device settings are done through common 
+        <b>usb_config.c </b> file. 
+      </li>
+      <li>Enhanced: USB Device Descriptor creation is based on configuration 
+        settings and automated. 
+      </li>
+      <li>Updated: most of existing <b>Audio, CDC, HID </b> and <b>Memory </b> 
+        examples are updated to work with USB library. 
+      </li>
+      <li>Added: <b>MSD_SD_File </b> example for <b>Keil MCB1700</b> 
+        evaluation board in <b>..\ARM\Boards\Keil\MCB1700\RL\USB\Host\</b> folder.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>TCP_TYPE_KEEP_ALIVE</b> socket attribute. With this attribute
+        set, TCP socket sends 0-data packet on keepalive timeout to keep the socket 
+	alive.</li>
+      <li>Enhanced: <b>TCP debug</b> messages.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 4.13</h3>
+<ul>
+  <li><font color="#800000" size="1"><b>[USB-Host - Initial Release]</b></font><br>
+    <ul>
+      <li>Added: <b>USB Host</b> library supporting <b>OHCI</b> and <b>STM32</b>
+        USB Host Controllers and one <b>Mass Storage Device (MSC)</b> or one 
+	<b>Human Interface Device (HID)</b>. 
+      </li>
+      <li>Added: <b>MSD_File</b> example for <b>Keil MCB1700</b> board  
+        can be found in <b>..\ARM\Boards\Keil\MCB1700\RL\USB\Host</b> folder.
+      </li>
+      <li>Added: <b>HID_Kbd</b> example for <b>Keil MCB1700</b> board  
+        can be found in <b>..\ARM\Boards\Keil\MCB1700\RL\USB\Host</b> folder.
+      </li>
+      <li>Added: <b>MSD_File</b> example for <b>Keil MCB2300</b> board  
+        can be found in <b>..\ARM\Boards\Keil\MCB2300\RL\USB\Host</b> folder.
+      </li>
+      <li>Added: <b>MSD_File</b> example for <b>Keil MCB2400</b> board  
+        can be found in <b>..\ARM\Boards\Keil\MCB2400\RL\USB\Host</b> folder.
+      </li>
+      <li>Added: <b>MSD_File</b> example for <b>Keil MCBSTM32C</b> board  
+        can be found in <b>..\ARM\Boards\Keil\MCBSTM32C\RL\USB\Host</b> folder.
+      </li>
+      <li>Added: <b>HID_Kbd</b> example for <b>Keil MCBSTM32C</b> board  
+        can be found in <b>..\ARM\Boards\Keil\MCBSTM32C\RL\USB\Host</b> folder.
+      </li>
+      <li>Added: <b>MSD_File</b> example for <b>Phytec LPC3250</b> board  
+        can be found in <b>..\ARM\Boards\Phytec\LPC3250\RL\USB\Host</b> folder.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: RTX configuration for ROHM <b>BU1511KV2</b> device. Preconfigured
+        <b>RTX_Blinky</b> example for the ROHM BU1511KV2-EB evaluation board
+        can be found in <b>..\ARM\Boards\ROHM\BU1511KV2</b> folder.
+      </li>
+      <li>Added: RTX Kernel support for <b>Cortex-R4</b> architecture. An 
+        <b>RTX_Blinky</b> example for the <b>Keil MCBTMS570</b> board 
+        can be found in <b>..\ARM\Boards\Keil\MCBTMS570</b> folder.
+      </li>
+      <li>Added: big endian RTX libraries for <b>Cortex-M0</b>, <b>Cortex-M1</b>,
+        <b>Cortex-M3</b> and <b>Cortex-M4</b>.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem in <b>isr_mbx_receive()</b> function for <b>Cortex-M</b>
+        library. If sending task was suspended on a full mailbox, a message was lost.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: processing of <b>TCP keep-alive</b> packets.</li>
+      <li>Enhanced: <b>PPP debug</b> messages.</li>
+      <li>Added: a library function <b>snmp_set_community()</b> to change a 
+        SNMP community at runtime.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: receive filtering of <b>subnet's broadcast</b> to accept only
+        local subnet's broadcasts.
+      </li>
+      <li>Extended: filename length limitation in <b>WEB Server</b> for fopen
+        request from 40 to 120 characters.
+      </li>
+      <li>Corrected: a connection fail problem in <b>PPP client</b>. Some PPP
+        servers require LCP MRU option. If this option is not accepted, PPP connection
+	fails.
+      </li>
+      <li>Corrected: a connection fail problem in <b>PPP server</b>. PC clients
+        were unable to connect at low speed (9600 baud) in high latency (2 sec) 
+	GPRS networks. 
+      </li>
+      <li>Corrected: extended character handling in <b>Web server</b> CGI scripts
+        for Windows (ANSI) 8-bit code pages.   
+      </li>
+      <li>Corrected: a compatibility issue in <b>FTP Server</b> for other mostly
+        used FTP clients such as: FireFox browser, WS_FTP, Core FTP and others. 
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for <b>USB Flash</b> drive (U:) to File_Config.c
+        configuration file and FlashFS library.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a file <b>append</b> problem, when a size of a file opened
+        for appending, is a multiple of cluster size. 
+      </li>
+      <li>Corrected: Subfolder <b>..</b> entry.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FCARM - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: optional <b>~<i>filename</i></b> prefix switch to disable the 
+        FCARM optimization for <b>java</b>, <b>css</b> or <b>html</b> files. 
+	A filename that begins with the <b>~</b> character has FCARM optimization
+	disabled. 
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem in <b>java</b> script compression. Regular expressions
+        were not correctly optimized.
+      </li>
+      <li>Corrected: a problem in <b>CGI</b> script compression for Windows (ANSI)
+        code page extended characters.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[CAN - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: Extended identifier handling for <b>TI devices</b> (Luminary 
+      - LM3Sxxxx). 
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 4.12</h3>
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: RTX Kernel support for <b>Cortex-M4</b> architecture. It supports
+        Floating Point extension and FP lazy context save.
+      </li>
+    </ul>
+    <ul>
+      <li>Added: <b>RTX_Blinky</b> example for the <b>Keil MCBTMPM360</b> board 
+        can be found in <b>..\ARM\Boards\Keil\MCBTMPM360</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem in <b>stack checking</b> for <b>Cortex-M</b> library.
+        The stack was checked before the task context was completely stacked.
+      </li>
+      <li>Moved: RTX_Blinky example for Samsung <b>S3C2440</b> device to 
+        <b>..\ARM\Boards\Clabsys\LN2440SBC</b> folder.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Increased: number of MIB objects in <b>SNMP</b> message to max.
+        <b>20 objects</b>, and message size to max. <b>1472 bytes</b>.
+      </li>
+      <li>Added: a Vendor Class Identification option in <b>DHCP</b> client.
+      </li>
+      <li>Added: Ethernet driver and TCPnet examples for Actel SmartFusion
+        <b>A2F-EVAL-KIT</b> evaluation board. The examples can be found in 
+	    <b>..\ARM\Boards\Actel\SmartFusion\RL\TCPnet</b> folder.
+      </li>
+      <li>Added: TCPnet examples for <b>LM3S9B92-EK</b> Luminary evaluation board.
+        The examples can be found in <b>..\ARM\Boards\Luminary\LM3S9B92-EK\RL\TCPnet</b>
+	folder.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a signed integer object type handling for <b>SNMP</b>. Signed
+        integer objects were incorrectly handled as unsigned.
+      </li>
+      <li>Corrected: a delay function in <b>EMAC_LPC17xx.c</b> Ethernet driver,
+        to prevent from being optimized out by the compiler optimization level O3.
+      </li>
+      <li>Corrected: potential deadlock in Web server when <b>uploading</b> large
+        files with Internet Explorer 8.
+      </li>
+      <li>Corrected: a problem in <b>STR9_ENET.c</b> Ethernet driver transmit
+        function.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Added: <b>CRC7 calculation</b> for commands in <b>SPI Mode</b>.
+      </li>
+      <li>Corrected: <b>Multiple Block Write</b> functionality in <b>SPI Mode</b>.
+      </li>
+      <li>Corrected: <b>Rename</b> for FAT long file names.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>CAN_Ex1</b> and <b>CAN_Ex2</b> examples for <b>Toshiba TMPM364</b> 
+        on <b>Keil MCBTMPM360</b> board in  
+        <b>..\ARM\Boards\Keil\MCBTMPM360\RL\CAN</b> folder.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem in <b>CGI</b> script compression if java script
+        //-style comments are used.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 4.11</h3>
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: unaligned access in <b>Cortex-M</b> library, which might
+        produce hardfault for CM1/CM0.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Updated: FAT <b>format</b> function:
+        <ul>
+          <li>added dummy SecPerTrk, NumHeads in Boot Sector 
+	  (required by Linux fsck utility).
+	  <li>added missing FSInfo and BkBootSec sectors for FAT32.
+	 </ul>
+      </li>
+      <li>Added: <b>mirroring</b> of FAT 1 into FAT 2.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: TotSector count in Boot Sector (removed inconsistency reported 
+        by Linux fsck utility).
+      </li>
+      <li>Removed: minor inconsistency in cluster allocation for files with sizes
+        equal to multiple cluster size.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[CAN - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: interrupt handling for <b>NXP devices (LPC17xx, LPC23xx, 
+        LPC24xx)</b> with common CAN interrupt handler. 
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 4.10</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: potential wrong return value of <b>os_mbx_send()</b> function
+        in <b>Cortex-M</b> library.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for <b>Cortex-M1</b> devices. Free <b>TCP_CM1.lib</b> 
+        and debug <b>TCPD_CM1.lib</b> library have been added.
+      </li>
+      <li>Added: a <b>SNMP Agent</b> implementation and <b>SNMP_demo</b> example
+        for various evaluation boards. SNMP version 1 with <b>trap messages</b>
+	is supported.
+      </li>
+      <li>Added: a <b>Gratuitous ARP</b> implementation. If this feature is enabled,
+        the embedded host <b>broadcasts</b> an ARP notification at startup or if
+	local IP address changed.
+      </li>
+      <li>Added: a new file type <b>php-script</b>, file extension <b>php</b> 
+        [text/html] to the Web server. 
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Added: <b>MSS option</b> (maximum segment size) to SYN packet for outgoing
+        TCP connections. Because this option was missing, PC used reduced segment 
+	size of 536 bytes in communication.
+      </li>
+      <li>Corrected: auto disconnect problem in <b>FTP Server</b> during large 
+        file transfer.
+      </li>
+      <li>Corrected: a problem in <b>WEB Server</b>. It failed to load pages from
+        SPI or parallel flash.
+      </li>
+      <li>Corrected: a <b>Null Modem</b> driver problem. It failed to connect 
+        in client mode, if connect request was issued delayed from application reset. 
+      </li>
+      <li>Corrected: a problem in <b>PPP</b> module which sometimes fails to connect. 
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: Support for <b>SDHC Cards</b>.  
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li><font color="#800000" size="1"><b>[CAN - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: function <b>CAN_set</b> now returns error code. 
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FCARM - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a simple compression for <b>Cascading Style Sheet</b> files. 
+      </li>
+      <li>Improved: compression ratio for <b>Java Script</b> files. 
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem in <b>Java</b> and <b>CGI</b> script 
+        compression. 
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 4.05</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: configurable <b>FIFO Queue size</b> for ISR requests in RTX_Config.c
+        configuration file.
+      </li>
+      <li>Added: runtime error function <b>os_error()</b> to RTX_Config.c file. The
+        runtime error codes are defined in RTL.h 
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem in <b>Round Robin</b> task switching. This failed
+        if robin task was suspended by a higher priority task.
+      </li>
+      <li>Corrected: two problems in <b>ARM</b> library: 
+        <ul>
+	  <li>The <b>Stack checking</b> did not work on system tick timer interrupt,
+	    only on preemptive task switches.
+          <li>Task switch monitoring in <b>RT Agent</b> did not work for Round 
+	    Robin task switching.
+          </li>
+	</ul>   
+      </li>
+      <li>Corrected: incorrect <b>event flag</b> clearing in <b>os_evt_wait_and()</b>
+        function if event flags were set separately. The following example shows
+	the problem.
+<pre>
+__task void send_task (void) {
+  os_evt_set (0x1, t_wait);
+  os_evt_set (0x2, t_wait);
+  os_evt_wait_or (0x1, 0xFFFF);
+  os_evt_set (0x2, t_wait);
+  ...
+}
+
+__task void wait_task (void) {
+  os_evt_wait_and (0x3, 0xFFFF);
+  os_evt_set (0x1, t_send);
+  os_evt_wait_and (0x3, 0xFFFF);
+  // Should never come here
+}
+</pre>
+      </li>
+    </ul>
+    <ul>
+      <li>Corrected: support for NXP <b>LPC3180</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was corrected. Added <b>RTX_IRQ_Blinky</b> example for Phytec LPC3180  
+        evaluation board, it can be found in <b>..\ARM\Boards\Phytec\LPC3180</b> folder.
+      </li>
+    </ul>
+    <ul>
+      <li>Corrected: support for NXP <b>LPC3250</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was corrected. Added <b>RTX_IRQ_Blinky</b> example for Phytec LPC3250  
+        evaluation board, it can be found in <b>..\ARM\Boards\Phytec\LPC3250</b> folder.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a <b>FTP Server</b> implementation and <b>FTP_demo</b> example for
+        various evaluation boards. FTP protocol allows you to manipulate with files
+	and folders on SD card. 
+      </li>
+     </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: processing of DNS response in <b>DNS Resolver</b>. Resolver 
+        failed to get an IP address from DNS response if the host name was not 
+	compressed in the answer record.
+      </li>
+      <li>Corrected: a problem in <b>PPP</b> module which might fail to connect 
+        to ISP provider when the DNS Server has been negotiated. 
+      </li>
+      <li>Corrected: a <b>multipacket POST</b> processing for Silverlight post 
+        requests in case of abnormal post termination (error, RST packet received). 
+      </li>
+    </ul>
+  </li>
+  <b>Warning</b>: The configuration files <b>Net_Config.c</b> and <b>Net_Debug.c</b>
+  are no more compatible to older versions and need to be replaced. Incompatible 
+  configuration files will not compile and build.
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>CAN_Ex1</b> and <b>CAN_Ex2</b> examples for <b>NXP LPC229x</b> to 
+        <b>..\ARM\Boards\Phytec\LPC229x\RL\CAN</b> folder.
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<h3>RL-ARM Version 4.01</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: automatic <b>DNS Server</b> configuration for PPP links when 
+        dialing into ISP provider in client mode. 
+      </li>
+      <li>Improved: PPP link debug messages in <b>TCPnet debug</b> library. 
+      </li>
+      <li>Added: a <b>multipacket POST</b> processing in web server. Multipacket
+        post requests from <b>web browser</b> (x-www-form-urlencoded) are 
+	<b>buffered</b>. The web server collects the post data and when completed,
+	calls the callback function. The <b>Silverlight</b> post requests 
+	(xml-encoded) are <b>not buffered</b>. The web server deliveres the post 
+	data in multiple callback function calls directly to the user. 
+      </li>
+      <li>Changed: a <b>socket/session numbering</b> in <b>TCPnet debug</b> library.
+        Now the socket/session numbers printed in the log are the same as they are 
+	used in the program.
+      </li>
+     </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: handling of <b>extended ASCII</b> characters in cgi scripts
+        generated by FCARM.
+      </li>
+      <li>Corrected: a problem in <b>STR9_ENET.c</b> Ethernet driver transmit
+        function.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem of <b>recursive</b> __swi function calls in <b>ARM</b> 
+        library. An example of such problem is <b>malloc()</b> function from standard 
+	arm library, if it is executed in SWI mode.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[CAN - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem of <b>race condition</b> for sending CAN messages.
+      </li>
+      <li>Corrected: a problem of <b>receive hanging</b> if software buffer for 
+        messages is full.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: wrong compression of <b>extended ASCII</b> characters in 
+        cgi scripts.
+      </li>
+    </ul>
+</ul>  
+
+<h3>RL-ARM Version 4.00</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a <b>tsk_lock</b> problem in <b>ARM</b> library. After a tick
+        timer interrupt was disabled, the interrupt was not immediatelly blocked but
+	a few cycles later. Therefore in some rare situations (very timing specific) 
+	it could happen that a blocked interrupt was still executed which eventually 
+	lead to RTX failure. 
+      </li>
+      <li>Updated: RTX configuration files for STMicroelectronics <b>STR71x</b>, 
+        <b>STR73x</b> and <b>STR75x</b> devices. Older RTX_Config.c files have to be
+	replaced.
+      </li>
+      <li>Corrected: a SVC_Handler problem in <b>Cortex-M1</b> library. The <b>__svc</b> 
+        function return value was wrong. 
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: an option to skip <b>user authentication</b> advertised by SMTP
+        Server. It general is not needed to authenticate when sending emails with 
+	SMTP server of the local Internet Service Provider.
+      </li>
+      <li>Added: support for <b>web caching</b>. This improves the web server
+        performance and reduces the traffic on the net. It solves also the 
+	<b>java archive</b> (jar) file cache problem. If web content is stored on 
+	SD card, the <b>HTTP_uif.c</b> interface has to be replaced.
+      </li>
+      <li>Added: implementation of <b>InARP</b> (Inverse ARP) protocol.
+      </li>
+      <li>Improved: printed debug messages in <b>TCPnet debug</b> library.
+      </li>
+      <li>Added: support for <b>compressed files</b> generated by FCARM.
+      </li>
+      <li>Added: a serial driver for STmicroelectronics <b>STM32F10x</b> devices.
+       This driver is used for serial PPP or SLIP connections. An <b>HTTP_demo</b>
+       example for MCBSTM32 Keil evaluation board can be found in 
+       <b>..\ARM\Boards\Keil\MCBSTM32\RL\TCPnet</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: TFTP server <b>error checking</b> of file write requests. 
+        The server now responds with an error message if a block cannot be written 
+	and closes the connection.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: <b>MBR</b> geometry generation on formatting SD Card.
+      </li>
+      <li>Corrected: <b>free space calculation</b> during work for FAT32 formatted
+        cards.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FCARM - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a simple <b>compression</b> for html, java script and cgi
+        script files. This reduces the image size of Http_demo example for 3.6 kbytes.
+      </li>
+      <li>Added: a <b>last modified</b> time stamp in output file. This is an
+        information for the Web server when the web page was last modified. It is
+        used for web cache control. 
+    </ul>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: wrong LF <b>line termination</b> handling. FCARM now correctly
+        handles CR-LF or LF-only line termination sequences.
+      </li>
+    </ul>
+</ul>  
+
+<h3>RL-ARM Version 3.80</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>CAN_Ex1</b> example for <b>MCBSTM32C</b> to 
+        <b>..\ARM\Boards\Keil\MCBSTM32C\RL\CAN</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a dynamic default page <b>index.cgi</b> to web server. To use
+        a dynamic default page a static page <b>index.htm</b> must not exist.
+      </li>
+      <li>Added: a <b>http_accept_host()</b> callback function for remote host
+        filtering. 
+      </li>
+      <li>Added: Ethernet driver and TCPnet examples for Keil <b>MCBSTM32C</b> 
+        evaluation board. The examples can be found in 
+	<b>..\ARM\Boards\Keil\MCBSTM32C\RL\TCPnet</b> folder.
+      </li>
+      <li>Added: Ethernet driver and TCPnet examples for <b>STM3210C-EVAL</b> 
+        evaluation board from ST Microelectronics. The examples can be found in
+	<b>..\ARM\Boards\ST\STM3210C-EVAL\RL\TCPnet</b> folder.
+      </li>
+    </ul>  
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>SD_File</b> example for <b>MCBZ32AN</b> to 
+        <b>..\ARM\Boards\Keil\MCBZ32AN\RL\FlashFS</b> folder.
+      </li>
+      <li>Added: SPI Interface driver for <b>Zilog Z32AN</b> devices for SD/MMC Flash
+        Memory Card.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: two problems in <b>ARM</b> library: 
+        <ul>
+	  <li>Frequently calling <b>isr_xxx</b> functions from interrupt handlers
+	    has disturbed (shortened) the system delays and timeouts for <b>os_xxx</b>
+	    functions with delays.
+          <li>Corrected re-entrance problem of <b>isr_xxx</b> functions when called 
+	    from <b>os_tmr_call</b> user timer callback function.
+          </li>
+	</ul>   
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: http <b>header checking</b>. Some browsers incorrectly encode 
+        http headers in small letters. The following headers are now all identified
+	as valid:
+<pre>
+Content-Type: text/xml; charset=utf-8
+Content-type: text/xml; charset=utf-8
+content-Type: text/xml; charset=utf-8
+content-type: text/xml; charset=utf-8
+</pre>
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<h3>RL-ARM Version 3.70</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>CAN_Ex1</b> example for <b>MCB1700</b> to 
+        <b>..\ARM\Boards\Keil\MCB1700\RL\CAN</b> folder.
+      </li>
+      <li>Added: CAN driver for NXP <b>LPC17xx</b> devices.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>SD_File</b> example for <b>MCB1700</b> to 
+        <b>..\ARM\Boards\Keil\MCB1700\RL\FlashFS</b> folder.
+      </li>
+      <li>Added: SPI Interface driver for <b>LPC17xx</b> devices for SD/MMC Flash
+        Memory Card.
+      </li>
+      <li>Added: <b>SD_File</b> example for <b>MCBSTM32E</b> to 
+        <b>..\ARM\Boards\Keil\MCBSTM32E\RL\FlashFS</b> folder.
+      </li>
+      <li>Added: Memory Card Interface driver for 
+        <b>STM32x high-density performance line devices</b> for SD/MMC Flash Memory
+	Card.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: RTX configuration for Atmel <b>AT91SAM9260</b> devices. Preconfigured
+        <b>RTX_Blinky</b> example for the Atmel AT91SAM9260-EK evaluation board
+        can be found in <b>..\ARM\Boards\Atmel\AT91SAM9260-EK</b> folder.
+      </li>
+    </ul>  
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a <b>SOAP</b> protocol support to HTTP server. SOAP is a simple 
+        <b>XML-based</b> protocol to let applications exchange information over 
+	HTTP. It is used by Microsoft Silverlight web service application.
+      </li>
+      <li>Added: Ethernet drivers and TCPnet examples for <b>AT91SAM9G20</b>, 
+        <b>AT91SAM9260</b> and <b>AT91SAM9263</b> evaluation boards from Atmel.
+        The examples can be found in <b>..\ARM\Boards\Atmel\...\RL\TCPnet</b> folders.
+      </li>
+      <li>Renamed: Ethernet driver for Atmel <b>AT91SAM7X</b> from <b>AT91_EMAC.c</b> 
+        to <b>EMAC_SAM7X.c</b>.
+      </li>
+    </ul>  
+  </li>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: several problems in <b>Cortex-M</b> library: 
+        <ul>
+	  <li>The <b>_alloc_box</b> and <b>_free_box</b> functions have re-enabled 
+	    globally disabled interrupts.
+	  <li>When deleting the preceeding task (by order of TID's), the
+	    <b>os_tsk_delete</b> function has deleted the current running task 
+	    instead. 
+          <li>The system might incorrectly execute <b>svc</b> system calls in a 
+	    very rare timing sequences when followed by the SysTick timer interrupt.   
+	</ul>   
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: second <b>fopen()</b> fail problem, when two simultaneously
+        opened files are not located on the same drive. 
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: auto select port range for <b>TCP</b> and <b>UDP sockets</b>.
+        TCPnet now selects higher ports numbers than well-known ports in the range 
+	from 1024 to 65535. 
+      </li>
+      <li>Corrected: nested include file problem in HTTP server when processing
+        the <b>cgx scripts</b>. This problem has generated wrong Content-type 
+	header in xml responses.  
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<h3>RL-ARM Version 3.50 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: the <b>user authentication</b> problem with some SMTP servers.
+        If the multiline response from SMTP server is fragmented, the authentication
+	did not work.
+      </li>
+    </ul>  
+  </li>
+</ul>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Luminary <b>LM3S9Bxx</b> devices. Preconfigured
+        <b>RTX_Blinky</b> example for the Luminary EK-LM3S9Bxx evaluation board
+        can be found in <b>..\ARM\Boards\Luminary\EK-LM3S9Bxx</b> folder.
+      </li>
+    </ul>  
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: an <b>user authentication</b> for SMTP server. This allows
+        sending emails from external SMTP servers with a valid user account.
+	In general this solves the <i>Mail relaying not allowed</i> problem. 
+      </li>
+    </ul>  
+  </li>
+</ul>
+
+<h3>RL-ARM Version 3.46 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a <b>product version</b> number in <b>RTL.h</b>. It is encoded 
+        in decimal format. For RL-ARM version 3.46 it is defined as: 
+<pre>
+#define __RL_ARM_VER    346
+</pre>
+      </li>
+    </ul>  
+  </li>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Toshiba <b>TMPA910</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: checking of function return values in <b>FAT</b> module. This  
+        improves the stability and trouble-free usage of the Flash File System.
+      </li>
+      <li>Added: an RTX <b>multithreading protection</b> to the File System. This 
+        allows to read and write files or use standard input output from different 
+	tasks simultaneously in an RTX environment.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a <b>Silverlight hosting</b> to the Web server. In order to deploy
+        the Silverlight content, the following new file extensions [MIME types]
+	were added:
+        <ul>
+	  <li><b>xap</b> [application/x-silverlight-app]
+	  <li><b>xaml</b> [application/xaml+xml].
+	</ul>  
+      </li>
+      <li>Added: a <b>HEAD</b> method in the Web server. The Java applets use this
+        method to check the URL for validity, accessibility or recent modification.
+      </li>
+      <li>Added: a HTTP Error message <b>501 Not Implemented</b> in the Web server.
+        The Web server now responds with status code 501 if the requested method is 
+	unrecognized or not implemented.
+      </li>
+      <li>Updated: a Web server <b>HTTP_Upload</b> examples with a file download
+        option. This allows to download the files, which were previously uploaded
+	to server.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a Web server <b>16 MB</b> file size limitation. The size of 
+        a download file, which is located on external drive, is now limited to 2 GB.
+      </li>
+      <li>Corrected: a problem in <b>AT91_EMAC.c</b> driver which failed to dump
+        bad CRC packet fragments from DMA memory buffer. 
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[USB - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: USB examples <b>SD_File</b> and <b>SD_Memory</b> for MCB2300 and
+        MCB2400.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.40 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: the <b>S8</b> type definition in <b>RTL.h</b>. It has been 
+         changed from plain <b>char</b> to a <b>signed char</b>. Plain char is 
+	 defined as an unsigned byte by default.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: the RTX core to support a <b>multithreading</b> for the standard 
+        runtime library:
+	<ul>
+	 <li>provides a separate library space for each task,
+	 <li>protects non thread safe library functions with mutexes.
+	</ul>
+	<b>Note:</b> The new RTX-V2 ARM library is rewritten, the <b>os_clock_demon()</b>
+	task scheduler has been removed and replaced with the system function calls.
+	New RTX-V2 library is faster and uses up to 300 bytes less ram.
+      </li>
+      <li>Added: the <b>__task</b> attribute. The __task attribute must be used
+        in precedence to the function definition.
+<pre>
+<font color=#880000>__task</font> void display_control (void) {}   // correct usage
+void display_control (void) <font color=#880000>__task</font> {}   // generates compiler error
+</pre>
+        The __task attribute saves up to 32 bytes of stack space per each task and
+        saves a few instructions in the code.
+      </li>
+      <li>Updated: all RTX examples for the new RTX-V2 configuration and the new
+        __task attribute definition.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for the <b>XML</b> technology in the <b>HTTP Server</b>. 
+        With XML requests the monitoring web page is not regenerated again, but 
+	updated locally in the Browser with Java script. This allows smooth,
+	<b>flicker-free</b> periodic page updates for the realtime process monitoring.
+      </li>
+    </ul>
+  </li>
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for NXP <b>LPC24x8</b> devices. A <b>CAN_Ex1</b> example 
+        for MCB2400 Keil evaluation board can be found in 
+	<b>..\ARM\Boards\Keil\MCB2400\RL\CAN</b> folder.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 3.24a Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Updated: <b>SPI_SAM7X.c</b> driver for Atmel <b>AT91SAM7X</b>. This driver
+        supports both SPI Flash devices and SD Cards.
+      </li>
+      <li>Added: <b>SD_File</b> example for <b>AT91SAM7X</b> evaluation board to 
+	<b>..\ARM\Boards\Atmel\AT91SAM7X-EK\RL\FlashFS</b> folder.
+      </li>
+      <li>Added: Memory Card Interface driver for <b>LPC3250</b> for SD/MMC Flash
+        Memory Card. An <b>SD_File</b> example can be found in 
+	<b>..\ARM\Boards\Phytec\LPC3250\RL\FlashFS</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: the <b>Telnet Server</b> to correctly process <b>line</b> and 
+        <b>character</b> input. Allows copy & paste of telnet commands into a 
+	Telnet Client window.
+      </li>
+      <li>Added: command <b>history</b> buffering to <b>Telnet Server</b> to
+        allow retrieving of recently typed commands.
+      </li>
+      <li>Updated: all <b>Telnet_demo</b> examples.</li>
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem in <b>PPP module</b> which might cause a memory
+         corruption and application crash if PPP and interrupt driven Ethernet
+	 are used at the same time. 
+      </li>
+    </ul>
+</ul>
+
+
+<h3>RL-ARM Version 3.24 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Atmel <b>AT91SAM9RL</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>SD_File</b> example for <b>LPC3180</b> to 
+	<b>..\ARM\Boards\Phytec\LPC3180\RL\FlashFS</b> folder.
+      </li>
+      <li>Added: Memory Card Interface driver for <b>LPC3250</b> for SD/MMC Flash
+        Memory Card. An <b>SD_File</b> example can be found in 
+	<b>..\ARM\Boards\Phytec\LPC3250\RL\FlashFS</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Changed: <b>ffind()</b> function to process filename parameter case
+         insensitive. 
+      </li>
+      <li>Corrected: reusage of erased entries for lfn records in FAT file system.
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: Ethernet driver and TCPnet examples for <b>MCIMX27</b> evaluation
+        board from Phytec. The examples can be found in 
+	<b>..\ARM\Boards\Phytec\i.MX27\RL\TCPnet</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem with default <b>__weak</b> library functions. 
+        The linker might fail to link a correct function into the image for 
+	complex projects.  
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.23 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Freescale <b>i.MX27</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for the
+	Phytec PHYCORE-i.MX27 evaluation board can be found in 
+	<b>..\ARM\Boards\Phytec\i.MX27</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: Cache-Control header for <b>cgi</b> files in <b>HTTP Server</b>.
+        The Cache-Control value is <b>no-cache</b> to prevent caching of dynamic pages.
+      </li>
+      <li>Added: Ethernet driver and TCPnet examples for <b>LPC3250</b> evaluation
+        board from Phytec. The examples can be found in 
+	<b>..\ARM\Boards\Phytec\LPC3250\RL\TCPnet</b> folder.
+      </li>
+      <li>Added: a <b>Sliding Window</b> flow control protocol to the TCP module.
+        This allows the server to control the remote TCP host transmitter.
+      </li>
+      <li>Updated: web pages for <b>HTTP_demo</b> examples. The web pages have been
+        redesigned to use a common template.
+      </li>
+      <li>Optimized: <b>LM3S_EMAC.c</b> and <b>STR9_ENET.c</b> Ethernet drivers. 
+        Received packet size is now calculated correctly without additional CRC.
+      </li>
+      <li>Added: configurable listening ports for <b>HTTP</b>, <b>Telnet</b>
+        and <b>TFTP</b> Server. Configuration file <b>Net_Config.c</b> has been
+	changed and is not compatible to older versions. 
+      </li>
+      <li>Added: http <b>file upload</b> feature to WEB Server and <b>HTTP_upload</b>
+        example which allows to upload files to an SD Card. This example has been 
+	added for Keil <b>MCB2300</b>, <b>MCB2400</b>, <b>MCBSTR9</b> and Luminary 
+	<b>EK-LM3S6965</b> and <b>EK-LM3S8962</b> evaluation boards. HTTP_upload
+	examples can be found in <b>..\ARM\Boards\...\RL\TCPnet</b> folders.
+      </li>
+      <li>Updated: all <b>HTTP_demo</b> examples to allow switching on/off LED's
+        <b>'on_click'</b> without a need to click on additional SUBMIT button.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FCARM - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>xml</b>, <b>xsl</b> and <b>js</b> file types. Additional file
+        types are now converted in ascii format.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a mailbox problem in <b>ARM</b> library. The message
+        sent from <b>os_mbx_send</b> function was lost if slot was not available in 
+	a mailbox and function returned a timeout status.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: invalid Content-Type header for <b>xml</b>, <b>xsl</b>, 
+        <b>js</b> and <b>ico</b> file types in <b>HTTP Server</b>.
+      </li>
+      <li>Corrected: a problem in <b>HTTP Server</b> because of which the Server
+        failed to download files larger than 64 Kbytes from Internal File System
+	(compiled into the code).
+      </li>
+      <li>Corrected: a problem in <b>DHCP Client</b> which failed to obtain an IP
+        address if <b>DHCP Option Overload</b> was found in DHCP Option area. 
+	Overloaded DHCP Options are now correctly processed.
+      </li>
+      <li>Corrected: an <b>STR9_ENET.c</b> Ethernet driver problem which has 
+        by mistake ignored all packets with lengths over 1510 bytes. This has been 
+	corrected to 1514 bytes.
+      </li>
+      <li>Corrected: examples for Luminary <b>EK-LM6965</b> evaluation board.
+        System clock was set incorrectly.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: invalid filename <b>extension check</b> for the file conversion. 
+        For example an image with filename <i>back_htm.jpg</i> would be converted
+	in ascii format instead of in binary format.
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.22a Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: problem in <b>Cortex-M</b> library which was introduced in version 3.22 
+        (re-entrance of <b>isr_xxx</b> functions).
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.22 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for Parallel Flash Memory for STmicroelectronics <b>SST39FV320</b>
+        device. An <b>Em_File</b> example for MCB2400 Keil evaluation board can be found in 
+        <b>..\ARM\Boards\Keil\MCB2400\RL\FlashFS</b> folder.
+      </li>
+      <li>Optimized: formating of SD/MMC memory cards. Function <b>fat_format()</b>
+        has been optimized for maximum Memory Card performance. This format chooses
+	optimal Cluster size and Cluster alignment for the Memory Card being formatted. 
+      </li>
+      <li>Updated: drivers <b>MCI_LPC23xx.c</b> and <b>MCI_LPC24xx.c</b> to support 
+        faster data read and data write with Multiple Block read and Multiple Block 
+	write commands.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: re-entrance problem of <b>isr_xxx</b> functions in <b>Cortex-M</b>
+        library when using nested interrupts.
+      </li>
+      <li>Corrected: a mailbox problem in <b>Cortex-M</b> library. A message sent to 
+        a mailbox from an interrupt handler was lost in some rare timing situations. 
+      </li>
+      <li>Corrected: a timing problem in <b>ARM</b> library. When <b>isr_xxx()</b> functions
+        were called from more than one interrupt handler with a very high repetition rate,
+        system delays might expire sooner than expected. This has happened because
+        the RTX kernel has detected a false tick timer overflow and decremented timeouts 
+	also within an interval time.
+      </li>
+      <li>Corrected: wrong <b>task priority</b> handling of the <b>mutex owner</b> task.
+        When the <b>priority inversion</b> has been applied to a task which was the owner
+	of the mutex, the original task's priority might not have been restored correctly.
+      </li>
+      <li>Corrected: range checking in <b>Cortex-M</b> library for <b>__svc</b> functions.
+        The __svc function with the highest svc number would never execute because
+	of wrong svc range checking.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: several problems with <b>FAT</b> file system <b>folder</b> handling 
+        and file <b>append</b>.
+      </li>
+      </li>
+      <li>Corrected: a problem of <b>FAT</b> file system. After 512 times of creating 
+        and deleting a file, root directory for FAT12/FAT16 was exhausted and it was not 
+	possible to create a new file in the root directory. Deleted files marked with 0xE5
+        are now reused as free directory entries.
+      </li>
+      <li>Corrected: potential <b>SPI driver</b> problem that might corrupt the FAT file
+        system on SD/MMC Card. Automatic Slave Select SPI mode might deassert SS signal,
+	if data transfer from CPU is paused for longer time. Instead of automatic SS
+	a function <b>spi_ss()</b> is used which controls the SS signal.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem of hanging the application in sys_error() function
+         caused by IP Packet <b>Flooding Attacks</b> and overload. A memory block 
+	 for the received packet is allocated if there is at least 25% of available
+	 memory free after the allocation. Othervise a packet is discarded.
+      </li>
+      <li>Corrected: a problem in <b>debug library</b>. Debug messages from  
+        <b>alloc_mem()</b> function are not printed anymore when this function is
+	 called from an IRQ handler. 
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.21 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: SD/MMC <b>file caching</b> to increase the speed of file write and
+        file read. Cache buffer size is configured in File_Config.c file. Using the file
+	caching SD/MMC file write is several times faster than before. 
+      </li>
+      <li>Added: implementation of <b>FAT32</b> file system, <b>sub-folders</b> and 
+        <b>long file names</b>. Sub-folders and Long File names may be used also 
+	with FAT12 or FAT16 file system.
+      </li>
+      <li>Added: an <b>SPI_File</b> example for Atmel AT91SAM7X-EK evaluation board. 
+        This example is configured for AT45DB321C - 32MBit serial SPI Data Flash device
+        from Atmel. It is located in <b>..\ARM\Boards\Atmel\AT91SAM7X-EK\FlashFS</b>
+        folder.  
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Cortex-M3 <b>RTX Event Viewer</b>. It allows task execution
+        and task switch monitoring in real-time.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: generation of HardFault Exception in <b>Cortex-M</b> library when
+        user timers were enabled. The configuration file <b>RTX_Conf_CM.c</b> has been
+        updated. Older configuration file is not compatible and need to be replaced
+        with a new version.
+      </li>
+      <li>Corrected: invalid return value of create task functions for <b>Cortex-M</b> 
+        library. Functions <b>os_tsk_create_user()</b> and <b>os_tsk_create_user_ex()</b></b>
+	have returned wrong task ID value. 
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: SPI configuration problems of several SPI drivers. <b>SPI Mode</b> 
+        is changed to Clock Polarity low (CPOL=0), and Clock Phase low (CPHA=0).
+      </li>
+      <li>Corrected: a problem of handling <b>0-size files</b> for Embedded Flash/RAM 
+        file system. Opening a 0-size file for <b>reading</b> has failed. Opening a
+	0-size file for <b>appending</b> did not fail, but no data was actually written 
+	to the file.
+      </li>
+      <li>Corrected: a problem in <b>fcheck()</b> function. This problem has reported
+        a false error when checking SPI Flash or Parallel Flash file system. 
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: wrong handling of <b>TCP retransmit packets</b>. Wrong handling could cause
+         <b>sporadic stalls</b> on high traffic TCP sockets if a packet has been lost. The socket
+	 would recover after a retry-timeout of 4 seconds. 
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.20 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>Changed: the <a href=http://www.keil.com/support/man/docs/rlarm/rlarm_lib_files.htm><b>
+        library names</b></a> to be consistent with the Endianess type. RTX libraries are 
+        automatically included by &microVision IDE, other libraries need to be included manually 
+        into the project.</li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Updated: the RTX library for <b>Cortex-M</b> devices. In the new library the
+        system calls (all os_xxx functions) are executed in <b>svc</b> mode and extended
+        features of Cortex-M devices for RTOS support are used. The library is more
+        roboust and fail-proof. New concept allows tasks to run in <b>protected</b>
+        (unpriviliged) mode. The task <b>run mode</b> (priviliged or unpriviliged) is
+        selectable from the config file.<br><br>
+        <b>Note:</b> The code from old RTX projects is <b>compatible</b> to the new
+        library, however old configuration files need to be <b>replaced</b> with the new 
+        </b>RTX_Conf_CM.c</b> file and old startup files updated with access to
+        <b>SVC_Handler</b>, <b>PendSV_Handler</b> and <b>SysTick_Handler</b> exception
+        handlers.<br><br>
+<pre>
+                <font color=#880000>IMPORT  SVC_Handler
+                IMPORT  PendSV_Handler
+                IMPORT  SysTick_Handler</font>
+                
+Vectors         ..
+                <font color=#880000>DCD     SVC_Handler             ; SVCall Handler</font>
+                DCD     Default_Handler         ; Debug Monitor Handler
+                DCD     0                       ; Reserved
+                <font color=#880000>DCD     PendSV_Handler          ; PendSV Handler
+                DCD     SysTick_Handler         ; SysTick Handler</font>
+                ..
+</pre>   
+      </li>
+      <li>Added: support for Texas Instruments <b>TMS470R1B1M</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for TMS470R1B1M  
+        evaluation board can be found in <b>..\ARM\Boards\TI\TMS470R1B1M</b> folder.
+      </li>
+      <li>Added: support for NXP <b>LPC3180</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for Phytec LPC3180  
+        evaluation board can be found in <b>..\ARM\Boards\Phytec\LPC3180</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: script <b>cgi</b> files for the WEB server may may now be stored on 
+         external File System, for example on exernal SD Card. There is no limitation
+         where the <b>cgi</b> files are stored. Additional function <b>http_fgets</b> 
+         for script buffering has been added to <b>HTTP_uif.c</b> user interface module.
+      </li>
+      <li>Added: <b>IP Multicasting</b> with <b>IGMP</b> - Internet Group Management Protocol.
+         IP Multicasting allows sending and reciving Multicast UDP datagrams to several hosts
+         simultaneously.<br>
+         <b>Note:</b> All Ethernet drivers have been updated to enable receiving of Multicast
+         packets.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for STMicroelectronics <b>STM32x</b> devices. An <b>SD_File</b>
+        example for MCBSTM32 Keil evaluation board can be found in
+        <b>..\ARM\Boards\Keil\MCBSTM32\RL\FlashFS</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: core problems for <b>Cortex-M</b> devices. Handling of <b>isr_xxx</b>
+        function calls was incorrect and could cause task locks. Wrong handling of task switches
+        and <b>__svc</b> functions could cause sporadic application crashes if additional
+        user interrupts were enabled.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: Memory Card Interface driver problem for <b>LPC23xx</b> devices silicon 
+         rev. 'B'. Updated driver works with all silicon revisions: rev. '-', rev. 'A' 
+         and rev. 'B'. 
+      </li>
+      <li>Corrected: potential unaligned Flash/RAM device access for <b>fread()</b> and 
+         <b>fwrite()</b> functions. The fix required an update of Flash Programming algorithms
+         which are located in <b>..\ARM\RL\FlashFS\Flash</b> folder. The function
+         <b>fs_ProgramPage()</b> was updated to allow unaligned buffer access.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: Ethernet driver problem for STMicroelectronics <b>STR912</b> devices.
+         Updated driver now works correctly when the user application calls init_TcpNet()
+         again to restart the TCPnet library.  
+      </li>
+      <li>Corrected: Ethernet driver problem for <b>LPC24xx</b> devices. Updated driver works with
+         both old LPC24xx device rev. '-' and new LPC24xx device rev. 'A' and later. 
+      </li>
+      <li>Corrected: a problem of <b>truncating NetBIOS names</b>. By a mistake only 12 characters 
+         of the host name were decoded from the NBNS packet. This has been corrected to decode 
+         all 16 characters.
+      </li>
+      <li>Corrected: Ethernet driver problem for <b>LPC24xx</b> devices. Clock divider setting 
+         definitions from the LPC24xx_EMAC.h were incorrect. All <b>MCB2400</b> examples were
+         updated and the startup file was replaced with <b>LPC2400.s</b> startup file.
+      </li>
+      <li>Corrected: Ethernet driver problem for <b>LPC23xx</b> and <b>LPC24xx</b> devices. Receive 
+         Packet filtering was set incorrectly and enabled the promiscuous mode. All 
+		Ethernet
+         packets were received and not filtered by hardware. The IP layer from the software has
+         filtered the packets, what has caused unnecessary CPU load and reduced performance. 
+      </li>
+    </ul>
+    <b>Warning</b>: The configuration files <b>Net_Config.c</b> and <b>Net_Debug.c</b> are no more
+    compatible to older versions and need to be replaced. Incompatible configuration files will
+    not compile and build.
+</ul>
+
+
+<h3>RL-ARM Version 3.13 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: library support for serial <b>SPI Flash</b> devices. Additional drive letter
+        for SPI Flash memory <b>S:</b> is added. A driver for Intel S33 serial SPI Flash device 
+        <b>25F640S33</b> is located in <b>..\ARM\RL\FlashFS\Flash\25F640S33</b> folder.
+      </li>
+      <li>Added: driver for Luminary <b>LM3S8962</b> devices. An <b>SD_File</b> example for 
+        EK-LM3S8962 Luminary evaluation board can be found in
+        <b>..\ARM\Boards\Luminary\EK-LM3S8962\RL\FlashFS</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: unsolicited <b>message interface</b> to the Telnet Server. With this interface
+        the application layer (for example a basic interpreter) may use the Telnet Server to send 
+        unsolicited messages to the remote user.
+      </li>
+      <li>Added: Ethernet driver and TCPnet examples for <b>LM3S8962</b> Luminary evaluation board.
+        The examples can be found in <b>..\ARM\Boards\Luminary\EK-LM3S8962\RL\TCPnet</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for Luminary <b>LM3S2110</b> and <b>LM3S8962</b> devices. A <b>CAN_Ex1</b> 
+        and <b>CAN_Ex2</b> examples for EK-LM3S2110 and EK-LM3S8962 Luminary evaluation boards can 
+        be found in <b>..\ARM\Boards\Luminary\[board]\RL\CAN</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of <b>fseek</b> function when it was called after file read functions
+         fgetc, fread, etc. When an Early End of File flag was set in the file buffering, this 
+         sequence of function calls would fail. This has occurred at the end of file when the last 
+         block was read and it had less than 512 bytes.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of incorrect <b>Flag Character</b> processing in <b>PPP module</b>. 
+         PPP Stack has expected a Start and a Stop Flag. This has been fixed and now a frame can 
+         be correctly received between any two flags. 
+      </li>
+      <li>Fixed: a problem of HTTP Server when serving the <b>Mozilla Firefox</b> web-browser. 
+         HTTP Server failed to process a Firefox <b>POST</b> requests correctly and because of this 
+         web pages generated with POST method did not work for this browser.
+      </li>
+      <li>Fixed: a problem of <b>incorrect file closing</b> in HTTP Server script interpreter.
+         The files included with 'i' script command were not closed correctly when they were located
+         on external File System and accessed via <b>http_uif.c</b> interface primitives.
+      </li>
+    </ul>
+</ul>
+
+
+<h3>RL-ARM Version 3.12 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>Added: RTX Kernel support for <b>Cortex-M1</b> architecture. An RTX_Blinky example 
+        for ARM Cortex-M1 device is added to <b>..\ARM\Boards\ARM\Cortex-M1</b> folder.
+      <li>Added: support for Samsung <b>S3C2440</b> device. <b>RTX_Config.c</b> configuration for 
+        RTX kernel was added. Preconfigured examples for S3C2440 Samsung evaluation board can be 
+        found in <b>..\ARM\Boards\Samsung\S3C2440</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for Luminary <b>LM3S6965</b> devices. An <b>SD_File</b> example for 
+        EK-LM3S6965 Luminary evaluation board can be found in 
+        <b>..\ARM\Boards\Luminary\EK-LM3S6965\RL\FlashFS</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: Ethernet driver problem for <b>LPC23xx</b> devices. Incorrect handling of
+         receive buffer overflows has been corrected.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of <b>opening non-existing file</b> for reading. If a file was not
+        found, a file control block was not released. After 16 retries all FCB's would be used 
+        and any further call to fopen(), ffree(), fformat(), ... would fail.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.11 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>Added: TCPnet, FlashFS and RTX examples for Keil <b>MCB2400</b> evaluation board.
+        RL_ARM examples for this evaluation board can be found in 
+        <b>..\ARM\Boards\Keil\MCB2400</b> folder. This evaluation board is identical to
+        Embedded Artists LPC2468 OEM Board.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: Ethernet driver and TCPnet examples for <b>LM3S6965</b> Luminary evaluation board.
+        The examples can be found in <b>..\ARM\Boards\Luminary\EK-LM3S6965</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: Ethernet driver problem for <b>LPC23xx</b> devices. Updated driver works with both
+         old LPC23xx device rev. '-' and new LPC23xx device rev. 'A' and later. 
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[USB - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: CDC example for <b>MCB2140</b> and <b>MCB2300</b> evaluation boards. This example 
+         implements Virtual COM Port based on a Windows USB host driver.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.10 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>Changed: a <b>folder structure</b> for RL-ARM. The <b>Boards</b> folder has been restructured
+        and all RL-ARM target examples moved to <b>..\ARM\Boards</b> folder. <b>USB</b> and <b>CAN
+        drivers</b> are now located under <b>..\ARM\Boards\[vendor]\[board]\RL\USB</b> and 
+        <b>..\ARM\Boards\[vendor]\[board]\RL\CAN</b> folders.
+      </li>
+      <li>Updated: all RL-ARM examples are adapted for <b>MicroLIB</b>, a tiny C-library. MicroLIB does
+        not support a File System so examples for the File System can not work with MicroLIB and have
+        to use a standard C-library. Some of TCPnet examples which use File System can also not work
+        with MicroLIB, for example TFTP_Demo.
+      </li>
+      <li>Added: support for Atmel <b>AT91SAM7SE</b> device. <b>RTX_Config.c</b> configuration for 
+        RTX kernel was added. Preconfigured examples for AT91SAM7SE-EK Atmel evaluation board can be 
+        found in <b>..\ARM\Boards\Atmel\AT91SAM7SE-EK</b> folder.
+      </li>
+      <li>Added: <b>RTX_Blinky</b> examples for <b>Embedded Artists</b> evaluation boards: 
+        <b>LPC2106 RS232 QSB</b>, <b>LPC2129 CAN QSB</b>, <b>LPC2138 QSB</b> and <b>LPC2148 USB QSB</b>.
+        RTX_Blinky examples can be found in <b>..\ARM\Boards\Embedded Artists</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: TCPnet examples for <b>MCBSTR9</b> evaluation board. System configuration from 
+        <b>STR91x.s</b> startup file (wait states, clocks, etc.) has been reconfigured and optimized 
+        for best Network performance. Ethernet driver <b>STR9_ENET.c</b> has also been optimized.
+        Now TCP benchmarks results are 10 times better than before.
+      </li>
+      <li>Enhanced: processing of CGI script pages. This enhancement has improved the 
+        <b>HTTP Server</b> performance a lot by <b>reducing</b> number of generated TCP packets. 
+        A CGI page with 27 script lines has previously transmitted 54 packets but now only 2 packets. 
+        This enhancement also improves the stability of the Web Browser when browsing web pages 
+        which are continuously refreshing (meta http-equiv="refresh").
+      </li>
+      <li>Added: an <b>AD</b> web page to <b>HTTP_Demo</b> examples for <b>MCB2300</b> and <b>MCBSTR9</b> 
+        evaluation boards. This page demonstrates a continuously refreshing web page showing an analog 
+        voltage on analog potentiometer located on the board.
+      </li>
+      <li>Added: a serial driver for STmicroelectronics <b>STR71x</b> devices. This driver is used for
+       serial PPP or SLIP connections. An <b>HTTP_demo</b> example for MCBSTR7 Keil evaluation board can
+       be found in <b>..\ARM\Boards\Keil\MCBSTR7\RL\TCPnet</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for Embedded Flash Memory for STmicroelectronics <b>STR71x</b> and <b>STR75x</b>
+        devices. An <b>Em_File</b> example for MCBSTR750 Keil evaluation board can be found in 
+        <b>..\ARM\Boards\Keil\MCBSTR750\RL\FlashFS</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for NXP <b>LPC23x8</b> devices. A <b>CAN_Ex1</b> example for MCB2300 Keil 
+        evaluation board can be found in <b>..\ARM\Boards\Keil\MCB2300\RL\CAN</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[USB - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: driver for Atmel <b>AT91SAM7S</b> devices. USB examples for AT91SAM7S-EX Atmel 
+        evaluation board can be found in <b>..\ARM\Boards\Atmel\AT91SAM7S-EK\RL\USB</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a task timing problem for STmicroelectronics <b>STR750</b> devices in <b>RTX_Config.c</b>
+        configuration file. Interrupt function calls of <b>isr_xxx()</b> has reset also the hardware tick 
+        timer prescaler and changed the tick-timer timing cycle. This is now fixed in a new RTX 
+        configuration file.
+      <li>Fixed: a task timing problem for <b>CORTEX-M3</b> devices. When the application has made a very 
+        large number of system calls resulting in frequent task switches, the system clock tick has run slow.
+        This is now fixed in a new <b>RTXCM3.lib</b> library file.
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: several problems of the <b>FAT File System</b> for SD/MMC Flash Memory Cards. A file 
+        reopened again for appending was stored corrupted to a Flash Memory Card. Reading a file from 
+        the Memory Card did not work correctly for the block size of <b>fread()</b> other than 512 bytes.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TCPnet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: improper processing of <b>css files</b> (Cascading Style Sheet). The format has been
+        changed from binary <b>"application/octet-stream"</b> to ascii <b>"text/css"</b> format.
+    </ul>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of wrong <b>css</b> file converting. They are now stored in ascii format to
+        the web server virtual file system.
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.05 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for STmicroelectronics <b>STR750</b> device. <b>RTX_Config.c</b> configuration 
+        for RTX kernel was added. An <b>RTX_Blinky</b> example for MCBSTR750 Keil evaluation board can be 
+        found in <b>..\ARM\RV30\RTL\Boards\Keil\MCBSTR750</b> folder.
+      </li>
+      <li>Updated: examples for Atmel evaluation boards. The startup configuration files <b>SAM7.s</b> and
+        <b>SAM9261.s</b> have been updated.
+      <li>Updated: all <b>HTTP_Demo</b> examples. Default page <b>index.htm</b> has been updated and DHCP
+        client timeout implemented. If DHCP did not obtain an IP address in 5 seconds, it is disabled and 
+        a static IP is used instead.
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: handling of <b>isr_xxx()</b> functions to increase execution speed and preformance.
+      <li>Updated: task create functions <b>os_tsk_create_user()</b> and <b>os_tsk_create_user_ex()</b>.
+        Those functions now autocorrect user provided stack size for 8-byte stack alignment.
+      <li>Improved: RTX configuration for <b>STR71x</b>, <b>STR73x</b> and <b>STR75x</b> devices. 
+        Standard RTX configuration no longer needs a <b>SWI_Table.s</b> System function <b>__swi(8)</b> from
+        RTX_Config.c has been changed to <b>__swi(7)</b> which does not require an external SWI_Table 
+        included into the project anymore.
+    </ul>
+
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: Memory Card Interface driver for <b>MCB2300</b> for SD/MMC Flash Memory Card. An 
+        <b>SD_File</b> example can be found in <b>..\ARM\RV30\RTL\Boards\Keil\MCB2300</b> folder.
+      <li>Added: SPI Interface driver for <b>MCBSTR9</b> for SD/MMC Flash Memory Card. An 
+        <b>SD_File</b> example can be found in <b>..\ARM\RV30\RTL\Boards\Keil\MCBSTR9</b> folder.
+      <li>Added: SPI Interface driver for <b>MCBSTR750</b> for SD/MMC Flash Memory Card. An 
+        <b>SD_File</b> example can be found in <b>..\ARM\RV30\RTL\Boards\Keil\MCBSTR750</b> folder.
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>LEDSwitch</b> server and <b>Client</b> example configured for a serial
+        dial-up PPP connection. This example can be found in <b>..\ARM\RV30\RTL\TcpNet\Examples</b>
+        folder.
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of <b>isr_sem_send()</b> function. This function did not work correctly when 
+        a task was already waiting for a semaphore and might hold a task in <b>WAIT_SEM</b> state for 
+        additional 65536 system tick intervals.
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in FAT module. Flash File System did not work correctly when more than
+        <b>16 files</b> were stored on a Flash Memory Card. The file was stored, but the directory 
+        entry was not updated, so the file was not seen in the directory listing.
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of <b>DHCP client</b> module. When several DHCP clients have started 
+        at the same time (simultaneously powered up), some of them might fail to obtain a valid 
+        IP address. This happened because a DHCP reply checking was not strict and two or more
+        DHCP clients tried to obtain the same IP address. DHCP client which failed would still obtain
+        a valid IP address after DHCP has been internally restarted after 30 seconds.
+      </li>
+      <li>Fixed: a problem of <b>Null_Modem.c</b> modem driver which failed to work with 
+        Windows XP dial-in PPP connection. 
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[CAN - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a potential problem in all <b>CAN drivers</b>. With high baud rate and high traffic
+        rate, old CAN drivers might lose some of the transmit messages.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[USB - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: RTX USB examples for <b>MCB2300</b>. They can be found in <b>..\ARM\RV30\RTL\USB\LPC23xx</b>
+        folder.
+      <li>Added: RTX USB examples for <b>MCBSTR9</b>. They can be found in <b>..\ARM\RV30\RTL\USB\STR91x</b>
+        folder.
+      <li>Added: RTX USB examples for <b>MCBSTR750</b>. They can be found in <b>..\ARM\RV30\RTL\USB\STR75x</b>
+        folder.
+    </ul>
+  <li><font color="#800000" size="1"><b>[FCARM - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of wrong '\' character expansion for creating webserver filesystem files. 
+      This has been expanded to '\\' for <b>.html</b> and <b>.inc</b> files. This problem has created
+      wrong html files when javascript has been used with a code such as:
+<pre>
+t if(ValueString.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&amp;/
+</pre>
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.04 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Updated: examples for <b>MCBSTR9</b>. The startup configuration files <b>STR91x.s</b> 
+        have been updated.
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: RTX Kernel support for <b>Cortex-M3</b> architecture. An RTX_Blinky example 
+        for Luminary Micro LM3S102 device is added to <b>..\ARM\RV30\RTL\Boards\Luminary</b> folder.
+    </ul>
+  <li><font color="#800000" size="1"><b>[FlashFS - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for SD/MMC <b>Flash Memory Card</b> with standard FAT12 and FAT16 file system.
+        Memory Cards up to 2 GBytes are supported.
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: configurable Web Server <b>Error Pages</b>. Http Server 40x Error Pages are extracted 
+        to a single file <b>HTTP_err.c</b> which can be copied to the user project and customized. 
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a core problem of <b>SWI_Handler</b> when accessing user registers. Setting an user 
+        Link Register on task switch has failed for Atmel <b>AT91RM9200</b> devices. Instruction 
+        <b>LDMDB SP,{SP,LR}^</b> does not work for these devices. Implemented workaround uses 
+        a different instruction for setting the user LR and this works for all ARM devices.
+      </li>
+      <li>Fixed: a problem of <b>os_tsk_prio()</b> function. This function did not work correctly
+        when a priority of a task in a delay has been changed.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of <b>PPP</b> module in LCP negotiation phase. Because of this
+        problem it has failed to connect to some GPRS modems when TcpNet was much faster
+        than modem.
+      </li>
+      <li>Fixed: a problem of <b>PPP Client</b> module which has sent a <b>PPP authentication</b> 
+        request also if authentication was not requested by remote PPP Server. 
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.03a Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for NXP (founded by Philips) <b>LPC23xx</b> devices. <b>RTX_Config.c</b> 
+        configuration for RTX kernel and <b>LPC23_EMAC.c</b> driver for embedded EMAC 
+		Ethernet
+        controller were added. Preconfigured examples for MCB2300 Keil evaluation board can be 
+        found in <b>..\ARM\RV30\RTL\Boards\Keil</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in <b>udp_send()</b> function which has limited a data size to 1432 bytes. 
+       This was wrong and has been changed to 1472 bytes as a limit for UDP data size.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Updated: a <b>memory box</b> handling functions. Those functions now properly handle
+        4-byte and 8-byte aligned memory blocks. Added <b>_init_box8()</b> function and memory pool
+        declaration macros <b>_declare_box()</b> and <b>_declare_box8()</b>.
+      </li>
+      <li>Updated: RTOS configuration files for Atmel <b>SAM7S, SAM7A3, SAM7X</b> and <b>SAM79261</b> 
+        devices. In addition to PIT timer, also TC0, TC1 and TC2 timer counter blocks can be selected
+        as a system tick timer. Also a Common System Interrupt Handler is added. It can be used when a 
+        PIT timer is selected as an RTOS tick timer which shares a common IRQ with other SAM7 system
+        peripherals.
+      </li>
+      <li>Updated: RTOS configuration files for Analog Devices <b>ADuC702X</b> devices and OKI 
+        <b>ML67Q4003</b>, <b>ML67Q5003</b> and <b>ML674000</b> devices. The code from assembly 
+        Interrupt Handler module <b>IRQ.s</b> has been integrated into </b>RTX_Config.c</b> 
+        configuration file. This module is no more required for RTOS projects.
+      </li>
+    </ul>
+    <b>Note</b>: All RTOS configuration files <B>RTX_Config.c</B> from Startup folder have been 
+    updated and optimized. It is advised to replace older RTOS configurations with new configurations.
+</ul>
+
+<h3>RTL-ARM Version 3.03 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for Atmel <b>AT91SAM7X</b> device. <b> RTX_Config.c</b> 
+        configuration for RTX kernel and <b>AT91_EMAC.c</b> driver for embedded EMAC 
+		Ethernet 
+        controller were added. Preconfigured examples for AT91SAM7X-EK Atmel evaluation board can be 
+        found in <b>..\ARM\RV30\RTL\Boards\Atmel</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a <b>mutex</b> task priority inversion - <b>priority inheritance</b> has been 
+        implemented. When a medium-priority task preempts a lower-priority task using a shared 
+        resource (a mutex) on which a higher-priority task is pending, a priority of lower-priority 
+        task is temporary raised to the priority level of a higher-priority task. As soon as a 
+        lower-priority task releases a mutex, a priority level of this task is lowered back to a 
+        default value.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a function <b>http_get_session()</b> to HTTP Server module. This function returns
+        a HTTP Server Session instance index. It may be called from the CGI module to identify 
+        a HTTP Client which has issued a request to HTTP Server.
+      </li>
+      <li>Added: PPP Server example <b> Http_demo</b> for Keil MCB2148 evaluation board.
+        This example can be found in <b>..\ARM\RV30\RTL\TcpNet\Examples</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[CAN - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: CAN driver for various arm devices: Atmel <b>AT91SAM7X</b>, STmicroelectronics
+        <b>STR73x</b> and <b>STR91x</b>.
+      </li>
+      <li>CAN Driver Documentation has been updated.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for all Atmel devices. Interrupt acknowledge 
+        sequence was incorrect and could cause <b> system dead-locks</b> when additional IRQ 
+        interrupts were enabled. If <b>isr_xxx_</b> functions were called from the interrupt 
+        handler, the interrupt system might not be properly released and would not accept
+        any further tick-timer interrupts.
+      </li>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for STMicroelectronics STR91x devices.
+        A code to disable interrupts was incorrect. Because of this problem a tick timer 
+        interrupt could happen in a protected section of RTX Kernel system code following 
+        with a stack overflow and user application crash.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of <b>DHCP client</b>. Because of this problem a DHCP client would fail
+        to obtain an IP address if the IP address configured in <b> Net_Config.c</b> matches the subnet
+        address of your local network. For example if your local subnet is <b>192.168.0.*</b>
+        and the local IP address in Net_Config.c is <b>192.168.0.100</b>, the
+        DHCP server will not return an IP address. 
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.02 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for STMicroelectronics <b>STR912</b> device. <b> RTX_Config.c</b> 
+        configuration for RTX kernel and <b>STR9_ENET.c</b> driver for embedded ENET 
+		Ethernet
+        controller were added. Preconfigured examples for MCBSTR9 Keil evaluation board can be 
+        found in <b>..\ARM\RV30\RTL\Boards\Keil</b> folder.
+      </li>
+      <li>Added: support for Atmel <b>AT91RM9200</b> and <b>AT91SAM9261</B> devices. <b>RTX_Config.c</b>
+        configurations for RTX kernel were added. Preconfigured examples for AT91RM9200-EK and AT91SAM9261-EK
+        Atmel evaluation boards can be found in <b>..\ARM\RV30\RTL\Boards\Atmel</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a <b>mutex</b> task deadlock problem. When a task with higher priority would
+        release and again grab a mutex, a lower priority task would become ready. Because of a
+        mutex problem, this task would never get a chance to execute, not even after a timeout.
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.01 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>RTL object libraries and examples are reconfigured and recompiled for 
+        Compiler optimization level O3.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[CAN - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in <b>CAN driver</b> for LPC2000. Acceptance filter
+        configuration problem is corrected.
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.00 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Updated: all references to legacy term 'Advanced' are removed. Include definition files
+        renamed to <b>RTL.h</b>, <b>RTX_Config.h</b>, <b>Net_Config.h</b>. The configuration
+        files are also renamed to <b>RTX_Config.c</b>, <b>Net_Config.c</b>, <b>Net_Debug.c</b>.
+        The documetation is updated to reflect those changes.
+      </li>
+      <li>Added: support for Atmel <b>AT91SAM7X</b> device. <b>RTX_Config.c</b> configuration for
+        RTX kernel and<b> AT91_EMAC.c</b> driver for embedded EMAC Ethernet controller were added.
+        Preconfigured examples for AT91SAM7X-EK Atmel evaluation board can be found in 
+        <b>..\ARM\RV30\RTL\Boards\Atmel</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for ST Microelectronics <b>STR71x</b> device family.
+        If the device was running with a high speed system clock but the EIC peripheral with a slower 
+        PCLK2 clock, the interrupts were not disabled immediately when an interrupt enable register was 
+        written but with a delay. Because of this problem a tick timer interrupt might occur in a protected 
+        region of code. This collision has caused an RTX Kernel malfunctioning or even user application crash. 
+        The fix uses a swi function <b>__swi(8)</b> which is no more free for the user.
+      </li>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for Analog Devices <b>ADuC702x</b> device family. 
+        The problem was in a device inability to mask forced-programming software interrupts.
+        Because of this problem a tick timer interrupt could happen in a protected section of
+        RTX Kernel system code following with a stack overflow and user application crash.
+      </li>
+      <li>Fixed: a problem of potential application crash when a project was build with
+        RealView compiler <b>optimization</b> level other than O0. This was because the 
+        registers <b>R8-R11</b> were not stored for reduced context switch. Now the reduced
+        context switch save also registers R8-R11 on the stack.
+      </li>
+    </ul>
+    <b>Warning</b>: A configuration file <B>RTX_Config.c</B> is not compatible to older versions 
+    and need to be replaced. If the old configuration is used, the application
+    will <b>crash</b> because the initial task stack content is not compatible
+    anymore.
+</ul>
+
+<h3>RTL-ARM Version 2.11 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>RTL components <b>Kernel</b>, <b>TcpNet</b> and <b>USB</b> ported from CARM to RealView Compilation Tools.
+    </ul>
+    
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of wrong operation of <b>os_mbx_send()</b> when a message has 
+        been fetched from a full mailbox and then pushed back again from the same task with
+        no task switch in between. If another task has been waiting to send a message to this
+        mailbox, this task would become ready and would send a message to a mailbox, which 
+        was full with no space for free messages.
+      </li>
+    </ul>
+
+  <li><font color="#800000" size="1"><b>[USB - Enhancements]</b></font><br>
+    <ul>
+      <li>Updated: all ARTX USB examples to pass the <b>USBCV </b>- USB Command
+        Verifier test. All ARTX USB examples can now pass USBCV test.</li>
+    </ul>
+
+  <li><font color="#800000" size="1"><b>[USB - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a potential problem with memory example <b>ARTX_Memory</b>
+        which could cause the application to hang when connected to some of
+        Windows XP hosts.</li>
+    </ul>
+
+  <li><font color="#800000" size="1"><b>[FlashFS - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in <b>fdefrag()</b>. If a defragmentation was requested for
+        a file system with three or more files, and one of them was deleted
+        this function might corrupt the file system. This was the case when one of
+        the files from the middle of the file directory list was deleted before.
+      </li>
+    </ul>
+</ul>
+
+<h3>ARTX Version 2.01 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of potential system hang when <b>os_mbx_send()</b> was called with parameter 
+        timeout set to 0. If a mailbox was already full a system could hang in an endless loop.
+      </li>
+      <li>Fixed: a problem of wrong operation of <b>os_mut_wait()</b> when a mutex was released and 
+        acquired again with no delay in between. If another task has been waiting for this mutex, this 
+        task would become ready and acquire a mutex, which was already owned by another task.
+      </li>
+      <li>Fixed: a problem of failed Round Robin task switching. This problem has shown when 
+        a higher priority tasks were also running in addition. If a higher priority task was delayed by 
+        <b>os_dly_wait()</b> or <b>os_itv_wait()</b> function with a delay time equal to Round Robin timeout
+        or less than this timeout, a Round Robin task switching did not work.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of sending <b> subnet broadcast</b> packets. This problem prevented sending broadcast 
+        UDP packets on local LAN. This is now fixed and UDP subnet broadcast packets are sent to Broadcast 
+        Ethernet address FF:FF:FF:FF:FF:FF
+      </li>
+      <li>Fixed: a problem of handling broadcast and subnet broadcast addresses for <b>arp_cache_ip()</b> 
+        function. If IP address is an IP broadcast or subnet broadcast address, this function returns __TRUE 
+        and does not send an arp request for resolving IP address.
+      </li>
+      <li>Fixed: a problem of sending invalid TCP <b>retransmission packets</b> for second and any further 
+        retransmissions. Each retransmission has extended the packet size by adding a header length and appending 
+        a garbage data to the end of packet.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: physical link speed select macros for <b>LAN91C111.c</b> device driver. 
+        The macros allows you to connect only at 10MBit or 100MBit speed rate. By default 
+        an autonegotiation for speed is used. This might take longer time to connect.
+      </li>
+    </ul>
+</ul>
+
+<h3>ARTX Version 2.00 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[ARTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>Flash File System</b> implementation. It supports embedded Flash drives
+        and RAM drives which can be used simultaneously to store and retrieve files.
+      </li>
+      <li>Added: <b>CAN Driver</b> implementation. It is based on ARTX Kernel and currently 
+        supports Philips LPC2000 and ST STR7 device family. Two examples are provided: <b>CAN_Ex1</b>
+        and <b>CAN_Ex2</b> which are configured to run on Keil <b>MCB2100</b> and <b>MCBSTR7</b> 
+        evaluation boards. 
+      </li>
+      <li>Added: <b>USB Driver</b> implementation. It uses ARTX Kernel to process USB packets.
+        The following examples are provided: <b>ARTX_Audio</b>, <b> ARTX_HID</b> and
+        <b>ARTX_Memory</b>. They run on
+        Keil <b> MCB2140</b> evaluation board.
+      </li>    
+      <li>Added: new type definitions to <b>ARTX.h</b> header file to avoid conflicts. 
+        New types are: U8, U16, U32, S8, S16, S32, BIT, BOOL, __TRUE and __FALSE. New types
+        have replaced old types: BYTE, WORD, DWORD, TRUE and FALSE. Source files and 
+        documentation has been modified to reflect those changes.
+      </li> 
+    </ul>        
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: new synchronization object <b>mutex</b> for mutual exclusion locks. The following
+        functions were implemented: <b>os_mut_init()</b>, <b>os_mut_wait()</b> and <b>os_mut_release()</b>.
+      </li>
+      <li>Added: Stack Checking option to <b>ARTX_Config.c</b> configuration file. When this option is
+        enabled, ARTX Kernel executes additional code to check for stack-overflow error.
+      </li>
+      <li>Added: new functions <b>os_sys_init_user()</b> which allows to start the ARTX Kernel
+        with a task which has assigned an user-provided stack and <b>os_sys_init_prio()</b>
+        which allows you to start the ARTX Kernel with a task which will have
+        assigned a specified priority.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a potential problem of blocking the interrupt system for some of the ARM devices.
+        This could happen if the default interrupt handler <b>os_def_interrupt()</b>
+        has been executed. This handler located in <b>ARTX_Config.c</b> configuration file has now 
+        been updated to release the ARM interrupt system by acknowledging the interrupt.
+      </li>
+      <li>Fixed: a problem of wrong interval delay when execution between <b>os_itv_set()</b> and
+        <b>os_itv_wait()</b> takes more clock ticks than specified with <b> os_itv_set()</b> function.
+        This 
+        problem is shown with the following example:
+<pre>
+void task1 (void) __task {
+    .
+    .
+   os_itv_set (100);
+   for (;;) {
+       .
+       .
+      /* Execution here may take longer than 100 clock ticks.   */
+      os_itv_wait ();  /* If 100 clock ticks have passed,       */
+                       /* this will wait for 65535 clock ticks. */
+   }
+}
+</pre>
+      </li>
+    </ul>
+    A configuration file <B>ARTX_Config.c</B> is not compatible to older versions 
+    and need to be replaced.
+  <li><font color="#800000" size="1"><b>[TcpNet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>TFTP Server</b> has been implemented. It supports file upload/download to the
+        Flash File System drives.
+      </li>
+      <li>Added: an example <b>TFTP_demo</b> which demonstrates the usage of TFTP Server.
+      <li>Added: new ARP cache control function <b>arp_cache_ip().</b> It can be used to
+        resolve the remote MAC address before the first UDP data packet is sent to target. If remote
+        MAC address is not resolved from the ARP cache, sending UDP data packet failed
+        and packets were lost until ARP entry was cached.
+      </li>
+      <li>Added: an example for <b>HTTP Server</b> running with <b>ARTX Kernel</b>. The existing example
+        <b>HTTP_demo</b> has been upgraded for two modes: a standalone application and
+        HTTP Server running with ARTX Kernel.
+      </li>
+      <li>Modified: library function names <b>MemCpy()</b>, <b>MemSet()</b>, <b>MemCmp()</b> and
+        <b>StrCpy()</b> to avoid confusion to standard C string functions. New functions are: 
+        <b>mem_copy()</b>, <b>mem_set()</b>, <b>mem_comp()</b> and <b>str_copy()</b>.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[TcpNet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in ARP module which has transmitted invalid IP address
+        for ARP requests. This happened when an ARP Cache Entry was refreshed or ARP request 
+        was retransmitted.
+      </li>
+      <li>Added: a check for destination IP address <b>0.0.0.0</b> to TCP module. TCP Connect 
+        requests to this address are now blocked by TCP module. This also prevents sending ARP 
+        requests for IP address 0.0.0.0 
+      </li>
+    </ul>
+</ul>
+
+<h3>ARTX Version 1.10 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>os_evt_get()</b> event handling function, which returns 
+        event flags served by the <b>os_evt_wait_or()</b> function.
+      </li>
+      <li>Added: several examples were added to <b>Keil\ARM\ARTX\Examples</b> base folder:
+        <ul>
+        <li><b>Keil\ARM\ARTX\Examples\RoundRobin</b>: shows round-robin task switching.</li>
+        <li><b>Keil\ARM\ARTX\Examples\Semaphore</b>: shows how to use a shared resource
+          UART from different tasks using a semaphore.</li>
+        </ul>
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: configuration problem of tick timer reload in <b>ARTX_Config.C</b> configuration
+       files for OKI and ST devices variants. Improper tick timer reload could 
+       cause stalls in Kernel delay handling when isr_mbx_send(), isr_evt_set() and 
+       isr_sem_send() functions were used. 
+      </li>
+      <li>Fixed: core problem of invalid delays when frequent <b>isr_xxx_xxx</b> function
+       calls were made from interrupt functions. This could cause shorter delays than 
+       specified for os_dly_wait(), os_itv_wait() and other system delay and timeout functions.
+      </li>
+      <li>Fixed: problem in <b>os_mbx_wait()</b> and <b>os_sem_wait()</b> functions when they were 
+       called with <i>timeout</i>  parameter set to 0. In this case the function
+        has returned wrong result value. The <i>timeout</i> value 0 is used to fetch a message
+       or obtain a token from a semaphore without waiting for one.
+      </li>
+      <li>Modified: <b>ARTX_Config.C</b> configuration files for all device variants. 
+       The function <b>os_tmr_set_ovf()</b> has been replaced with <b>os_tmr_force_irq()</b>
+       function. 
+      </li>
+    </ul>
+  A configuration file <b>ARTX_Config.c</b> is not compatible to older versions and
+  need to be replaced.
+
+  <li><font color="#800000" size="1"><b>[TcpNet - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed a problem in Telnet server when some characters were not echoed back. This has happened if
+        typing on remote Telnet client was too fast.
+      <li>Fixed a problem of locking-up an LAN91C111 Ethernet controller on high traffic LANs. This  
+        could happen when a lot of packets are received in short time and the CPU is not fast enough  
+        to process all of the packets. When the MMU unit of LAN91C111 Ethernet controller is locked, 
+        the driver now restarts the MMU unit to prevent lockups.  
+    </ul>
+
+  <li><font color="#800000" size="1"><b>[TcpNet - Enhancements]</b></font><br>
+    <ul>
+      <li>Added configurable PPP retransmissions and timeouts to <b>ANet_Config.c</b> configuration
+       file. You may increase the default timeouts and number of retransmissions when
+       PPP connect fails on slow serial links or when the network latency is
+       high - for example a GSM PPP data link.
+      <li>Added new functions <b>http_get_info()</b> and <b>tnet_get_info()</b> to retrieve the remote
+       machine <b>IP address</b> and <b>MAC adddress</b>. Those functions can be used to limit access
+       rights from remote machines based on remote IP address or MAC address.
+      <li>Added a serial driver for Philips LPC21xx devices. This driver is used for serial PPP or SLIP 
+       connections. The following serial drivers are currently available:
+		<ul>
+		  <li><b>..\ARM\ARTX\SRC\TcpNet\Serial.C</b>: for Philips LPC21xx and LPC22xx devices.</li>
+		  <li><b>..\ARM\ARTX\SRC\TcpNet\Serial_S3C44B0X.C</b>: for Samsung S3C44B0X devices.</li>
+		</ul>
+    </ul>
+  Older versions of <b>ANet_Config.c</b> configuration files are not compatible to this version 
+  and need to be replaced. 
+</ul>
+
+<h3>ARTX Version 1.02 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>ARTX_Config.C</b> configuration files for OKI devices 
+		variants:<ul>
+		<li><b>..\ARM\Startup\OKI\ARTX_Conf_ML67.C</b>: for OKI ML67xxx devices.</li>
+		</ul>
+      </li>
+    </ul>
+	</ul>
+
+<h3>ARTX Version 1.01 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>ARTX_Config.C</b> configuration files for the following
+		devices variants: AT91SAM7Sxx, STR71x, ADuC702x. The configuration files
+		are located in the base folder <b>Keil\ARM\Startup</b>. The following
+		ARTX-ARM configuration files are currently available:
+
+		<ul>
+		<li><b>..\ARM\Startup\Atmel\ARTX_Conf_SAM7S.C</b>: for Atmel AT91SAM7Sxx
+		devices.</li>
+		<li><b>..\ARM\Startup\Philips\ARTX_Config.C</b>: for Philips LPC21xx and
+		LPC22xx devices.</li>
+		<li><b>..\ARM\Startup\ST\ARTX_Conf_STR71x.C</b>: for ST Microelectronics
+		STR71x devices.</li>
+		<li><b>..\ARM\Startup\ADI\ARTX_Conf_ADuC702x.C</b>: for Analog Devices
+		ADuC702x devices.<br>
+&nbsp;</li>
+		</ul>
+      </li>
+    </ul>
+	<ul>
+      <li>Added: example projects for various Evaluation Boards that show the
+		usage of ARTX-ARM on various devices. The following examples are
+		currently available:<ul>
+		<li><b>..\ARM\Boards\Atmel\AT91SAM7S\ARTX_Blinky</b>: for Atmel
+		AT91SAM7S Microcontroller Board.</li>
+		<li><b>..\ARM\Boards\ST\STR7\ARTX_Blinky</b>: for ST
+		Microelectronics STR71x devices running on ST STR7 Evaluation Board.</li>
+		<li><b>..\ARM\Boards\Hitex\STR7\ARTX_Blinky</b>: for ST
+		Microelectronics STR71x devices running on Hitex STR7 Evaluation Board.</li>
+		<li><b>..\ARM\Boards\ADI\ADuC702X\ARTX_Blinky</b>: for Analog Devices
+		ADuC702x devices.</li>
+		</ul>
+		<b>Note:</b>&nbsp; <b>..\ARM\ARTX\Examples\Blinky</b> contains an
+		example that is configured for Philips LPC21xx devices an runs on the
+		Keil MCB2100 and MCB2130 Evaluation Board.<br>
+&nbsp;</li>
+		<li>Modified: the ARTX-ARM specific Software Interrupt Handler in the
+		module <b>Swi_ARTX.S</b> is now generic for all ARM7 devices variants.
+		Some devices require a NOP instruction to avoid DATA ABORT traps between
+		stack switching.
+      </li>
+		<li>Enhanced: the <b>Stack Load</b> display in the dialog <b>Peripherals
+		- Advanced RTX</b> of the RUNNING task is now updated from the current
+		SP value.</li>
+    </ul>
+</ul>
+
+<h3>ARTX Version 1.00a Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>New functions <b>os_tsk_create_ex()</b> and <b>os_tsk_create_user_ex()</b> are
+        implemented. It is now possible to pass a parameter to a task when it is
+        created using this function. This
+        is useful when a single task is started in multiple instances.
+      </li>
+      <li>A function <b>os_tsk_prio()</b> is updated to accept also a task
+        identification to change the execution priority of any other task. A new macro
+        <b>os_tsk_prio_self()</b> is introduced for consistency to change a priority
+        of a currently running task.
+      </li>
+    </ul>
+    A configuration file <b>ARTX_Config.c</b> is not compatible to older versions and
+    need to be replaced.
+</ul>
+
+<h3>ARTX Version 1.00 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    Task switch function has been optimized and updated. ARTX_Config.c configuration
+    file has been updated to support the uVision debug dialog.
+
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    Documentation is updated and <b>Alinks</b> are added. This enables context sensitive
+    help by pressing F1 from &micro;Vision. All examples were updated to run also on
+    Keil evaluation boards MCB2100 and MCB2130.
+</ul>
+
+<h2><a name="TechnicalSupport"></a>Technical Support</h2>
+
+<p>At Keil Software, we are dedicated to providing you with the best development
+tools and technical support. That's why we offer numerous ways you can get the
+technical support you need to complete your embedded projects.</p>
+
+<ul>
+  <li class="LI2"><a href="http://www.keil.com/support"><b>Technical Support
+    Knowledgebase</b></a><br>
+    More than 1500 technical support questions and answers are available in the
+    Support Solutions Knowledgebase. When a new question arises, it is added to
+    the knowledgebase which is continuously published to the Web. This enables
+    you to get technical support at times when our support staff is unavailable.</li>
+  <li class="LI2"><a href="http://www.keil.com/appnotes"><b>Application Notes</b></a><br>
+    Numerous Application Notes help you decipher complex features and implement
+    robust applications.</li>
+  <li class="LI2"><a href="http://www.keil.com/download"><b>Example Programs and
+    Files</b></a><br>
+    Utility programs, example code, and sample projects are regularly added to
+    the Download File section of the web site.</li>
+  <li class="LI2"><a href="http://www.keil.com/discuss"><b>Discussion Forum</b></a><br>
+    Post questions, comments, and suggestions to the Keil Software Discussion
+    Forum and interact with other Keil users around the world.</li>
+</ul>
+
+<p>Many of the features of our Technical Support Knowledgebase and Web Site are
+the results of your suggestions. If you have any ideas that will improve them,
+please <a href="http://www.keil.com/support/feedback.asp">give us your feedback</a>!</p>
+
+<h2><a name="ContactDetails"></a>Contact Details</h2>
+
+<p>If you experience any problems or have any questions about this product,
+contact one of our <a href="http://www.keil.com/distis">distributors</a> or
+offices for assistance.</p>
+
+<div align="center">
+  <center>
+  <table border="0" cellpadding="5" cellspacing="0">
+    <tr>
+      <td valign="top" nowrap bgcolor="#FFFFCC" style="border: 1 solid #800000"><b>In
+        the USA...<br>
+        </b><br>
+        <b>Keil Software, Inc.</b><br>
+        1501 10th Street, Suite 110<br>
+        Plano, TX&nbsp; 75074<br>
+        USA<br>
+        <br>
+        800-348-8051 - Sales<br>
+        972-312-1107 - Support<br>
+        972-312-1159 - Fax<br>
+        <a href="mailto:sales.us@keil.com"><br>
+        sales.us@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.us@keil.com"><br>
+        support.us@keil.com</a> - Support E-mail&nbsp;<br>
+        &nbsp;&nbsp;</td>
+      <td valign="top" width="30" nowrap></td>
+      <td valign="top" nowrap style="border: 1 solid #800000" bgcolor="#FFFFCC"><b>In
+        Europe...<br>
+        </b><br>
+        <b>Keil Elektronik GmbH<br>
+        </b>Bretonischer Ring 15<br>
+        D-85630 Grasbrunn<br>
+        Germany<br>
+        <br>
+        +49 89 456040-0 - Sales<br>
+        +49 89 456040-24 - Support<br>
+        +49 89 468162 - Fax<br>
+        <a href="mailto:sales.intl@keil.com"><br>
+        sales.intl@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.intl@keil.com"><br>
+        support.intl@keil.com</a> - Support E-Mail<br>
+        &nbsp;&nbsp;</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+
+<p class="TinyT">Copyright © ARM Ltd. and Keil - An ARM Company.<br>
+  All rights reserved.<br>
+  Visit our web site at <a href="http://www.keil.com">www.keil.com</a>.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>backoffAlgorithm</name>
+
+  <description>Utility library for calculating exponential backoff with jitter algorithm for retrying failed network operations.</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://freertos-cmsis-packs.s3.us-west-2.amazonaws.com/</url>
+
+  <releases>
+    <release date="2025-06-09" version="4.2.0">Based on the https://github.com/FreeRTOS/backoffAlgorithm/tree/v1.4.1 repository.</release>
+    <release date="2023-02-23" version="4.1.0">Based on the https://github.com/FreeRTOS/backoffAlgorithm/tree/v1.3.0 repository.</release>
+    <release date="2022-06-16" version="4.0.0">Based on the https://github.com/FreeRTOS/backoffAlgorithm/tree/v1.0.0 repository.</release>
+    <release date="2020-12-15" version="1.0.0-Beta">Based on the https://github.com/FreeRTOS/backoffAlgorithm/tree/v1.0.0 repository.</release>
+  </releases>
+
+  <components>
+    <component Cclass="FreeRTOS" Cgroup="backoffAlgorithm" Cversion="1.4.1">
+      <description>Utility library for calculating exponential backoff with jitter algorithm for retrying failed network operations.</description>
+      <files>
+        <file category="source" name="backoffAlgorithm/source/backoff_algorithm.c"/>
+        <file category="include" name="backoffAlgorithm/source/include/"/>
+      </files>
+    </component>
+  </components>
+</package>
+

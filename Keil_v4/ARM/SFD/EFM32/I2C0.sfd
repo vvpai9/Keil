@@ -1,0 +1,1084 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\I2C0.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         I2C0                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  I2C0_CTRL  -------------------------------------------
+
+unsigned int I2C0_CTRL __AT (0x4000A000);
+
+//  <item> Reg_I2C0_CTRL
+//    <i> I2C0_CTRL [31..0] (@ 0x4000A000) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_CTRL>>0) & 0xFFFFFFFF), ( (I2C0_CTRL &= ~(0xFFFFFFFF<<0)), (I2C0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_CTRL_EN
+//    <i> EN [0] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_SLAVE
+//    <i> SLAVE [1] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.1..1> SLAVE
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_AUTOACK
+//    <i> AUTOACK [2] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.2..2> AUTOACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_AUTOSE
+//    <i> AUTOSE [3] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.3..3> AUTOSE
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_AUTOSN
+//    <i> AUTOSN [4] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.4..4> AUTOSN
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_ARBDIS
+//    <i> ARBDIS [5] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.5..5> ARBDIS
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_GCAMEN
+//    <i> GCAMEN [6] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.6..6> GCAMEN
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_CLHR
+//    <i> CLHR [9..8] (@ 0x4000A000) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_CTRL>>8) & 0x2), ( (I2C0_CTRL &= ~(0x2<<8)), (I2C0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_CTRL_BITO
+//    <i> BITO [13..12] (@ 0x4000A000) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_CTRL>>12) & 0x2), ( (I2C0_CTRL &= ~(0x2<<12)), (I2C0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_CTRL_GIBITO
+//    <i> GIBITO [15] (@ 0x4000A000) </i>
+//    <check> 
+//      <loc> I2C0_CTRL </loc>
+//      <o.15..15> GIBITO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CTRL_CLTO
+//    <i> CLTO [18..16] (@ 0x4000A000) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_CTRL>>16) & 0x6), ( (I2C0_CTRL &= ~(0x6<<16)), (I2C0_CTRL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  I2C0_CMD  --------------------------------------------
+
+unsigned int I2C0_CMD __AT (0x4000A004);
+
+//  <item> Reg_I2C0_CMD
+//    <i> I2C0_CMD [31..0] (@ 0x4000A004) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_CMD>>0) & 0xFFFFFFFF), ( (I2C0_CMD &= ~(0xFFFFFFFF<<0)), (I2C0_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_CMD_START
+//    <i> START [0] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CMD_STOP
+//    <i> STOP [1] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.1..1> STOP
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CMD_ACK
+//    <i> ACK [2] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.2..2> ACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CMD_NACK
+//    <i> NACK [3] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.3..3> NACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CMD_CONT
+//    <i> CONT [4] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.4..4> CONT
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CMD_ABORT
+//    <i> ABORT [5] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.5..5> ABORT
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CMD_CLEARTX
+//    <i> CLEARTX [6] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.6..6> CLEARTX
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_CMD_CLEARPC
+//    <i> CLEARPC [7] (@ 0x4000A004) </i>
+//    <check> 
+//      <loc> I2C0_CMD </loc>
+//      <o.7..7> CLEARPC
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  I2C0_STATE  -------------------------------------------
+
+unsigned int I2C0_STATE __AT (0x4000A008);
+
+//  <item> Reg_I2C0_STATE
+//    <i> I2C0_STATE [31..0] (@ 0x4000A008) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_STATE>>0) & 0xFFFFFFFF), ( (I2C0_STATE &= ~(0xFFFFFFFF<<0)), (I2C0_STATE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_STATE_BUSY
+//    <i> BUSY [0] (@ 0x4000A008) </i>
+//    <check> 
+//      <loc> I2C0_STATE </loc>
+//      <o.0..0> BUSY
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATE_MASTER
+//    <i> MASTER [1] (@ 0x4000A008) </i>
+//    <check> 
+//      <loc> I2C0_STATE </loc>
+//      <o.1..1> MASTER
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATE_TRANSMITTER
+//    <i> TRANSMITTER [2] (@ 0x4000A008) </i>
+//    <check> 
+//      <loc> I2C0_STATE </loc>
+//      <o.2..2> TRANSMITTER
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATE_NACKED
+//    <i> NACKED [3] (@ 0x4000A008) </i>
+//    <check> 
+//      <loc> I2C0_STATE </loc>
+//      <o.3..3> NACKED
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATE_BUSHOLD
+//    <i> BUSHOLD [4] (@ 0x4000A008) </i>
+//    <check> 
+//      <loc> I2C0_STATE </loc>
+//      <o.4..4> BUSHOLD
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATE_STATE
+//    <i> STATE [7..5] (@ 0x4000A008) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_STATE>>5) & 0x6), ( (I2C0_STATE &= ~(0x6<<5)), (I2C0_STATE |= ((Gui_u8:GuiVal & 0x6)<<5)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  I2C0_STATUS  ------------------------------------------
+
+unsigned int I2C0_STATUS __AT (0x4000A00C);
+
+//  <item> Reg_I2C0_STATUS
+//    <i> I2C0_STATUS [31..0] (@ 0x4000A00C) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_STATUS>>0) & 0xFFFFFFFF), ( (I2C0_STATUS &= ~(0xFFFFFFFF<<0)), (I2C0_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_STATUS_PSTART
+//    <i> PSTART [0] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.0..0> PSTART
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_PSTOP
+//    <i> PSTOP [1] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.1..1> PSTOP
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_PACK
+//    <i> PACK [2] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.2..2> PACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_PNACK
+//    <i> PNACK [3] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.3..3> PNACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_PCONT
+//    <i> PCONT [4] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.4..4> PCONT
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_PABORT
+//    <i> PABORT [5] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.5..5> PABORT
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_TXC
+//    <i> TXC [6] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.6..6> TXC
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_TXBL
+//    <i> TXBL [7] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.7..7> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_STATUS_RXDATAV
+//    <i> RXDATAV [8] (@ 0x4000A00C) </i>
+//    <check> 
+//      <loc> I2C0_STATUS </loc>
+//      <o.8..8> RXDATAV
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  I2C0_CLKDIV  ------------------------------------------
+
+unsigned int I2C0_CLKDIV __AT (0x4000A010);
+
+//  <item> Reg_I2C0_CLKDIV
+//    <i> I2C0_CLKDIV [31..0] (@ 0x4000A010) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_CLKDIV>>0) & 0xFFFFFFFF), ( (I2C0_CLKDIV &= ~(0xFFFFFFFF<<0)), (I2C0_CLKDIV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_CLKDIV_DIV
+//    <i> DIV [8..0] (@ 0x4000A010) </i>
+//    <edit> 
+//      <loc> ( (short int)((I2C0_CLKDIV>>0) & 0x1FE), ( (I2C0_CLKDIV &= ~(0x1FE<<0)), (I2C0_CLKDIV |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  I2C0_SADDR  -------------------------------------------
+
+unsigned int I2C0_SADDR __AT (0x4000A014);
+
+//  <item> Reg_I2C0_SADDR
+//    <i> I2C0_SADDR [31..0] (@ 0x4000A014) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_SADDR>>0) & 0xFFFFFFFF), ( (I2C0_SADDR &= ~(0xFFFFFFFF<<0)), (I2C0_SADDR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_SADDR_ADDR
+//    <i> ADDR [7..1] (@ 0x4000A014) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_SADDR>>1) & 0x7E), ( (I2C0_SADDR &= ~(0x7E<<1)), (I2C0_SADDR |= ((Gui_u8:GuiVal & 0x7E)<<1)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  I2C0_SADDRMASK  -----------------------------------------
+
+unsigned int I2C0_SADDRMASK __AT (0x4000A018);
+
+//  <item> Reg_I2C0_SADDRMASK
+//    <i> I2C0_SADDRMASK [31..0] (@ 0x4000A018) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_SADDRMASK>>0) & 0xFFFFFFFF), ( (I2C0_SADDRMASK &= ~(0xFFFFFFFF<<0)), (I2C0_SADDRMASK |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_SADDRMASK_MASK
+//    <i> MASK [7..1] (@ 0x4000A018) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_SADDRMASK>>1) & 0x7E), ( (I2C0_SADDRMASK &= ~(0x7E<<1)), (I2C0_SADDRMASK |= ((Gui_u8:GuiVal & 0x7E)<<1)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  I2C0_RXDATA  ------------------------------------------
+
+unsigned int I2C0_RXDATA __AT (0x4000A01C);
+
+//  <item> Reg_I2C0_RXDATA
+//    <i> I2C0_RXDATA [31..0] (@ 0x4000A01C) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_RXDATA>>0) & 0xFFFFFFFF), ( (I2C0_RXDATA &= ~(0xFFFFFFFF<<0)), (I2C0_RXDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_RXDATA_RXDATA
+//    <i> RXDATA [7..0] (@ 0x4000A01C) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_RXDATA>>0) & 0xFE), ( (I2C0_RXDATA &= ~(0xFE<<0)), (I2C0_RXDATA |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  I2C0_RXDATAP  ------------------------------------------
+
+unsigned int I2C0_RXDATAP __AT (0x4000A020);
+
+//  <item> Reg_I2C0_RXDATAP
+//    <i> I2C0_RXDATAP [31..0] (@ 0x4000A020) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_RXDATAP>>0) & 0xFFFFFFFF), ( (I2C0_RXDATAP &= ~(0xFFFFFFFF<<0)), (I2C0_RXDATAP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_RXDATAP_RXDATAP
+//    <i> RXDATAP [7..0] (@ 0x4000A020) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_RXDATAP>>0) & 0xFE), ( (I2C0_RXDATAP &= ~(0xFE<<0)), (I2C0_RXDATAP |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  I2C0_TXDATA  ------------------------------------------
+
+unsigned int I2C0_TXDATA __AT (0x4000A024);
+
+//  <item> Reg_I2C0_TXDATA
+//    <i> I2C0_TXDATA [31..0] (@ 0x4000A024) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_TXDATA>>0) & 0xFFFFFFFF), ( (I2C0_TXDATA &= ~(0xFFFFFFFF<<0)), (I2C0_TXDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_TXDATA_TXDATA
+//    <i> TXDATA [7..0] (@ 0x4000A024) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_TXDATA>>0) & 0xFE), ( (I2C0_TXDATA &= ~(0xFE<<0)), (I2C0_TXDATA |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------------  I2C0_IF  --------------------------------------------
+
+unsigned int I2C0_IF __AT (0x4000A028);
+
+//  <item> Reg_I2C0_IF
+//    <i> I2C0_IF [31..0] (@ 0x4000A028) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_IF>>0) & 0xFFFFFFFF), ( (I2C0_IF &= ~(0xFFFFFFFF<<0)), (I2C0_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_IF_START
+//    <i> START [0] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_RSTART
+//    <i> RSTART [1] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.1..1> RSTART
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_ADDR
+//    <i> ADDR [2] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.2..2> ADDR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_TXC
+//    <i> TXC [3] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.3..3> TXC
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_TXBL
+//    <i> TXBL [4] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.4..4> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_RXDATAV
+//    <i> RXDATAV [5] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.5..5> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_ACK
+//    <i> ACK [6] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.6..6> ACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_NACK
+//    <i> NACK [7] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.7..7> NACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_MSTOP
+//    <i> MSTOP [8] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.8..8> MSTOP
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_ARBLOST
+//    <i> ARBLOST [9] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.9..9> ARBLOST
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_BUSERR
+//    <i> BUSERR [10] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.10..10> BUSERR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_BUSHOLD
+//    <i> BUSHOLD [11] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.11..11> BUSHOLD
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_TXOF
+//    <i> TXOF [12] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.12..12> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_RXUF
+//    <i> RXUF [13] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.13..13> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_BITO
+//    <i> BITO [14] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.14..14> BITO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_CLTO
+//    <i> CLTO [15] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.15..15> CLTO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IF_SSTOP
+//    <i> SSTOP [16] (@ 0x4000A028) </i>
+//    <check> 
+//      <loc> I2C0_IF </loc>
+//      <o.16..16> SSTOP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  I2C0_IFS  --------------------------------------------
+
+unsigned int I2C0_IFS __AT (0x4000A02C);
+
+//  <item> Reg_I2C0_IFS
+//    <i> I2C0_IFS [31..0] (@ 0x4000A02C) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_IFS>>0) & 0xFFFFFFFF), ( (I2C0_IFS &= ~(0xFFFFFFFF<<0)), (I2C0_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_IFS_START
+//    <i> START [0] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_RSTART
+//    <i> RSTART [1] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.1..1> RSTART
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_ADDR
+//    <i> ADDR [2] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.2..2> ADDR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_TXC
+//    <i> TXC [3] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.3..3> TXC
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_TXBL
+//    <i> TXBL [4] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.4..4> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_RXDATAV
+//    <i> RXDATAV [5] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.5..5> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_ACK
+//    <i> ACK [6] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.6..6> ACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_NACK
+//    <i> NACK [7] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.7..7> NACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_MSTOP
+//    <i> MSTOP [8] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.8..8> MSTOP
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_ARBLOST
+//    <i> ARBLOST [9] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.9..9> ARBLOST
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_BUSERR
+//    <i> BUSERR [10] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.10..10> BUSERR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_BUSHOLD
+//    <i> BUSHOLD [11] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.11..11> BUSHOLD
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_TXOF
+//    <i> TXOF [12] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.12..12> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_RXUF
+//    <i> RXUF [13] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.13..13> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_BITO
+//    <i> BITO [14] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.14..14> BITO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_CLTO
+//    <i> CLTO [15] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.15..15> CLTO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFS_SSTOP
+//    <i> SSTOP [16] (@ 0x4000A02C) </i>
+//    <check> 
+//      <loc> I2C0_IFS </loc>
+//      <o.16..16> SSTOP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  I2C0_IFC  --------------------------------------------
+
+unsigned int I2C0_IFC __AT (0x4000A030);
+
+//  <item> Reg_I2C0_IFC
+//    <i> I2C0_IFC [31..0] (@ 0x4000A030) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_IFC>>0) & 0xFFFFFFFF), ( (I2C0_IFC &= ~(0xFFFFFFFF<<0)), (I2C0_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_IFC_START
+//    <i> START [0] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_RSTART
+//    <i> RSTART [1] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.1..1> RSTART
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_ADDR
+//    <i> ADDR [2] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.2..2> ADDR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_TXC
+//    <i> TXC [3] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.3..3> TXC
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_TXBL
+//    <i> TXBL [4] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.4..4> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_RXDATAV
+//    <i> RXDATAV [5] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.5..5> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_ACK
+//    <i> ACK [6] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.6..6> ACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_NACK
+//    <i> NACK [7] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.7..7> NACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_MSTOP
+//    <i> MSTOP [8] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.8..8> MSTOP
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_ARBLOST
+//    <i> ARBLOST [9] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.9..9> ARBLOST
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_BUSERR
+//    <i> BUSERR [10] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.10..10> BUSERR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_BUSHOLD
+//    <i> BUSHOLD [11] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.11..11> BUSHOLD
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_TXOF
+//    <i> TXOF [12] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.12..12> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_RXUF
+//    <i> RXUF [13] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.13..13> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_BITO
+//    <i> BITO [14] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.14..14> BITO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_CLTO
+//    <i> CLTO [15] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.15..15> CLTO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IFC_SSTOP
+//    <i> SSTOP [16] (@ 0x4000A030) </i>
+//    <check> 
+//      <loc> I2C0_IFC </loc>
+//      <o.16..16> SSTOP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  I2C0_IEN  --------------------------------------------
+
+unsigned int I2C0_IEN __AT (0x4000A034);
+
+//  <item> Reg_I2C0_IEN
+//    <i> I2C0_IEN [31..0] (@ 0x4000A034) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_IEN>>0) & 0xFFFFFFFF), ( (I2C0_IEN &= ~(0xFFFFFFFF<<0)), (I2C0_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_IEN_START
+//    <i> START [0] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_RSTART
+//    <i> RSTART [1] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.1..1> RSTART
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_ADDR
+//    <i> ADDR [2] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.2..2> ADDR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_TXC
+//    <i> TXC [3] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.3..3> TXC
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_TXBL
+//    <i> TXBL [4] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.4..4> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_RXDATAV
+//    <i> RXDATAV [5] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.5..5> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_ACK
+//    <i> ACK [6] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.6..6> ACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_NACK
+//    <i> NACK [7] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.7..7> NACK
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_MSTOP
+//    <i> MSTOP [8] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.8..8> MSTOP
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_ARBLOST
+//    <i> ARBLOST [9] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.9..9> ARBLOST
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_BUSERR
+//    <i> BUSERR [10] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.10..10> BUSERR
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_BUSHOLD
+//    <i> BUSHOLD [11] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.11..11> BUSHOLD
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_TXOF
+//    <i> TXOF [12] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.12..12> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_RXUF
+//    <i> RXUF [13] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.13..13> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_BITO
+//    <i> BITO [14] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.14..14> BITO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_CLTO
+//    <i> CLTO [15] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.15..15> CLTO
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_IEN_SSTOP
+//    <i> SSTOP [16] (@ 0x4000A034) </i>
+//    <check> 
+//      <loc> I2C0_IEN </loc>
+//      <o.16..16> SSTOP
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  I2C0_ROUTE  -------------------------------------------
+
+unsigned int I2C0_ROUTE __AT (0x4000A038);
+
+//  <item> Reg_I2C0_ROUTE
+//    <i> I2C0_ROUTE [31..0] (@ 0x4000A038) </i>
+//    <edit> 
+//      <loc> ( (int)((I2C0_ROUTE>>0) & 0xFFFFFFFF), ( (I2C0_ROUTE &= ~(0xFFFFFFFF<<0)), (I2C0_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> I2C0_ROUTE_SDAPEN
+//    <i> SDAPEN [0] (@ 0x4000A038) </i>
+//    <check> 
+//      <loc> I2C0_ROUTE </loc>
+//      <o.0..0> SDAPEN
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_ROUTE_SCLPEN
+//    <i> SCLPEN [1] (@ 0x4000A038) </i>
+//    <check> 
+//      <loc> I2C0_ROUTE </loc>
+//      <o.1..1> SCLPEN
+//    </check>
+//  </item>
+//  
+//  <item> I2C0_ROUTE_LOCATION
+//    <i> LOCATION [9..8] (@ 0x4000A038) </i>
+//    <edit> 
+//      <loc> ( (char)((I2C0_ROUTE>>8) & 0x2), ( (I2C0_ROUTE &= ~(0x2<<8)), (I2C0_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

@@ -1,0 +1,31 @@
+This is a HTTP File Upload example. It allows you to upload
+files to SD Card from a Web browser.
+
+Use this example to connect LPC3250 Board to a LAN with DHCP
+server (most LANs have this). This example will configure the 
+LAN network parameters automatically using a DHCP protocol.
+
+You may connect LPC3250 Board to PC directly over a crosslink
+network cable. In this case configure a PC to use a static 
+IP address 192.168.0.1
+
+If after a timeout of 5 seconds DHCP did not obtain an IP address,
+this example will use a static IP address 192.168.0.100
+
+To test this example, open your web browser and enter the 
+address http://lpc3250/ or http://<boards IP address>
+
+Default user    : admin
+Default password: <none>
+
+The HTTP_upload example is available for one target:
+
+LPC3250:       Standalone application for Phytec LPC3250 board,
+               configured to run in external SDRAM and loaded to
+               external NOR flash. 
+
+Notes: 
+  - for standalone application you have to:
+    1. Download the 2-nd level NOR bootloader
+       ('bootloader_NOR' from Keil) to external NOR flash 
+    2. Download this application to external NOR Flash

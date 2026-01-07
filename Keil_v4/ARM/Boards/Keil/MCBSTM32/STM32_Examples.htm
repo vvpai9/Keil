@@ -1,0 +1,453 @@
+<html>
+
+<head>
+<title>Example Programs for STM32 (CORTEX M3)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<style>
+<!--
+/*-----------------------------------------------------------
+Keil Software CHM Style Sheet
+-----------------------------------------------------------*/
+body         { color: #000000; background-color: #FFFFFF; font-size: 75%; font-family: 
+               Verdana, Arial, 'Sans Serif' }
+a:link       { color: #0000FF; text-decoration: underline }
+a:visited    { color: #0000FF; text-decoration: underline }
+a:active     { color: #FF0000; text-decoration: underline }
+a:hover      { color: #FF0000; text-decoration: underline }
+h1           { font-family: Verdana; font-size: 18pt; color: #000080; font-weight: bold; 
+               text-align: Center; margin-right: 3 }
+h2           { font-family: Verdana; font-size: 14pt; color: #000080; font-weight: bold; 
+               background-color: #CCCCCC; margin-top: 24; margin-bottom: 3; 
+               padding: 6 }
+h3           { font-family: Verdana; font-size: 10pt; font-weight: bold; background-color: 
+               #CCCCCC; margin-top: 24; margin-bottom: 3; padding: 6 }
+pre          { font-family: Courier New; font-size: 10pt; background-color: #CCFFCC; 
+               margin-left: 24; margin-right: 24 }
+ul           { list-style-type: square; margin-top: 6pt; margin-bottom: 0 }
+ol           { margin-top: 6pt; margin-bottom: 0 }
+li           { clear: both; margin-bottom: 6pt }
+table        { font-size: 100%; border-width: 0; padding: 0 }
+th           { color: #FFFFFF; background-color: #000080; text-align: left; vertical-align: 
+               bottom; padding-right: 6pt }
+tr           { text-align: left; vertical-align: top }
+td           { text-align: left; vertical-align: top; padding-right: 6pt }
+.ToolT       { font-size: 8pt; color: #808080 }
+.TinyT       { font-size: 8pt; text-align: Center }
+code         { color: #000000; background-color: #E0E0E0; font-family: 'Courier New', Courier; 
+               line-height: 120%; font-style: normal }
+/*-----------------------------------------------------------
+Notes
+-----------------------------------------------------------*/
+p.note       { font-weight: bold; clear: both; margin-bottom: 3pt; padding-top: 6pt }
+/*-----------------------------------------------------------
+Expanding/Contracting Divisions
+-----------------------------------------------------------*/
+#expand      { text-decoration: none; margin-bottom: 3pt }
+img.expand   { border-style: none; border-width: medium }
+div.expand   { display: none; margin-left: 9pt; margin-top: 0 }
+/*-----------------------------------------------------------
+Where List Tags
+-----------------------------------------------------------*/
+p.wh         { font-weight: bold; clear: both; margin-top: 6pt; margin-bottom: 3pt }
+table.wh     { width: 100% }
+td.whItem    { white-space: nowrap; font-style: italic; padding-right: 6pt; padding-bottom: 
+               6pt }
+td.whDesc    { padding-bottom: 6pt }
+/*-----------------------------------------------------------
+Keil Table Tags
+-----------------------------------------------------------*/
+table.kt     { border: 1pt solid #000000 }
+th.kt        { white-space: nowrap; border-bottom: 1pt solid #000000; padding-left: 6pt; 
+               padding-right: 6pt; padding-top: 4pt; padding-bottom: 4pt }
+tr.kt        {  }
+td.kt        { color: #000000; background-color: #E0E0E0; border-top: 1pt solid #A0A0A0; 
+               padding-left: 6pt; padding-right: 6pt; padding-top: 2pt; 
+               padding-bottom: 2pt }
+/*-----------------------------------------------------------
+-----------------------------------------------------------*/
+-->
+
+</style>
+</head>
+
+<body>
+
+<h1>Example Programs<br>
+ for <br>
+STM32 (Cortex-M3)</h1>
+
+<p align="center">Revision 1.0 - October 2007</p>
+
+<p align="center">This document explains how to configure and use the Example Programs for STM32 (Cortex-M3) to run on the Keil Evaluation Board MCBSTM32.</p>
+<hr>
+
+<h2>Revision History</h2>
+<ul>
+	<li>Revision 1.0 - October 2007: Initial Revision</li>
+	<li>Revision 1.1 - January 2008: Alternate Function remap Configuration added</li>
+</ul>
+
+<hr>
+
+<h2>Contents</h2>
+
+<ol>
+  <li class="LI2"><a href="#Overview">Overview</a></li>
+  <li class="LI2"><a href="#STM32_Init">Usage of STM32_Init.c</a></li>  
+  <li class="LI2"><a href="#Examples">Example Programs</a></li>
+  <ul>
+    <li class="LI2"><a href="#GPIO">GPIO Example Program</a></li>
+    <li class="LI2"><a href="#IWDG">IWDG Example Program</a></li>
+    <li class="LI2"><a href="#RTC">RTC Example Program</a></li>
+    <li class="LI2"><a href="#Timer">Timer Example Program</a></li>
+    <li class="LI2"><a href="#PWM_1">PWM_1 Example Program</a></li>
+    <li class="LI2"><a href="#PWM_2">PWM_2 Example Program</a></li>
+    <li class="LI2"><a href="#USART_Pol">USART_Pol Example Program</a></li>
+    <li class="LI2"><a href="#USART_Irq">USART_Irq Example Program</a></li>
+    <li class="LI2"><a href="#EXTI">EXTI Example Program</a></li>
+    <li class="LI2"><a href="#Tamper">Tamper Example Program</a></li>
+    <li class="LI2"><a href="#CAN">CAN Example Program</a></li>
+    <li class="LI2"><a href="#Blinky">Blinky Example Program</a></li>
+    <li class="LI2"><a href="#Measure">Measure Example Program</a></li>
+    <li class="LI2"><a href="#RTX_Blinky">RTX_Blinky Example Program</a></li>
+    <li class="LI2"><a href="#RTX_Traffic">RTX_Traffic Example Program</a></li>
+    <li class="LI2"><a href="#SVC">SVC Example Program</a></li>
+    <li class="LI2"><a href="#USBHID">USB HID Example Program</a></li>
+    <li class="LI2"><a href="#USBMem">USB Memory Example Program</a></li>
+  </ul>
+</ol>
+
+<h2><a name="Overview"></a>Overview</h2>
+<p>This document describes the example programs provided for <b>STM32 (Cortex-M3)</b>.
+All examples are tested with the <b>Keil Evaluation Board MCBSTM32</b>.<br>
+The examples show how to use certain peripherals or particular functions of the <b>STM32 (Cortex-M3)</b> 
+Microcontroller from STMicroelectronics.
+</p>
+<p>All examples are configured for two <b>µVision</b> targets:
+<ul>
+  <li><b>Simulator</b> where the program runs in the software simulator.</li>
+  <li><b>MCBSTM32</b> where the program runs from internal Flash located on the microcontroller.</li>
+</ul>
+</p>
+<p>
+Also all examples use the same file structure:
+<ul>
+  <li><b>Abstract.txt</b> contains a short description of the example.</li>
+  <li><b>STM32F10x.s</b> contains the startup code for the microcontroller.</li>
+  <li><b>STM32_Init.[c,h]</b> contain the initialisation of the microcontroller's peripherals.</li>
+  <li>Example dependand source code.</li>
+</ul>
+</p>
+<p>STMicroelectronics provides a firmware library with sample code (C sources) but the examples 
+described here do not use this library to keep the executable as small as possible.
+</p>
+
+<h2><a name="STM32_Init"></a>Usage of STM32_Init.c</h2>
+<p>
+The file <b>STM32_Init.c</b> is part of every example. It contains the initialisation of the clocks, 
+independent watchdog (IWDG), system timer (SysTick), realtime clock (RTC), Timers, USARTs,
+general purpose I/O (GPIO) and embedded Flash interface (EFI).
+</p>
+
+<p>
+The configuration of these peripherals can easily be done using the <b>Configuration Wizard</b>.
+</p>
+
+<p>
+File <b>STM32_Init.c</b> provides the function <b>void stm32_Init (void)</b> which initialises the peripherals 
+according the selected configuration. Call <b>stm32_Init()</b> at the beginning of your <b>int main (void)</b> function.
+</p>
+<pre>
+/*----------------------------------------------------------------------------
+  MAIN function
+ *----------------------------------------------------------------------------*/
+int main (void) {
+
+  stm32_Init ();                                  // STM32 setup
+    
+  // ... add a your code here
+
+  while (1) {                                     // Loop forever
+  
+    // ... add your code here
+
+  } // end while
+} // end main
+</pre>
+
+<p>
+Configuration for the following peripherals are available.
+</p>
+
+<p><u><b>Clock Configuration</b></u></p>
+<ul>
+  <li>configure the settings of clock control register (RCC_CR).</li>
+  <li>configure the settings of clock configuration register (RCC_CFGR).</li>
+	<li>configure the External High Speed Clock (HSE) frequency.</li>
+</ul>
+
+<p><u><b>Independent Watchdog Configuration</b></u></p>
+<ul>
+  <li>configure the IWDG period in µs.</li>
+</ul>
+
+<p><u><b>System Timer Configuration</b></u></p>
+<ul>
+  <li>configure the SysTick clock source.</li>
+  <li>configure the SysTick period in ms.</li>
+  <li>enable the SysTick interrupt.</li>
+</ul>
+
+<p><u><b>Realtime clock Configuration</b></u></p>
+<ul>
+  <li>configure the RTC clock source.</li>
+  <li>configure the RTC period in ms.</li>
+  <li>set the RTC time value.</li>
+  <li>set the RTC alarm time.</li>
+  <li>enable the different RTC interrupts.</li>
+</ul>
+
+<p><u><b>Timer Configuration</b></u></p>
+<p>For each timer (TIM1..TIM4) it is possible to change the following settings:</p>
+<ul>
+  <li>configure the timer period in ms.</li>
+  <li>configure the repetition counter (only available for TIM1).</li>
+  <li>select the timers' detailed settings.</li>
+  <li>enable the different timer interrupts.</li>
+</ul>
+<p>Under <b>detailed settings</b> it is possible to set the contents of the single timer register.<br>
+If <b>detailed settings</b> is checked than the settings for <b>period</b> and <b>repetition counter</b> are ignored.</p>
+
+<p><u><b>USART Configuration</b></u></p>
+<p>For each USART (USART1..USART3) it is possible to change the following settings:</p>
+<ul>
+  <li>configure the Baudrate.</li>
+  <li>configure data bits length.</li>
+  <li>configure stop bit length.</li>
+  <li>configure parity.</li>
+  <li>configure flow control.</li>
+  <li>configure the pins used for receive and transmit.</li>
+  <li>enable the different timer interrupts.</li>
+</ul>
+
+<p><u><b>Tamper Configuration</b></u></p>
+<p>For Tamper detection it is possible to change the following settings:</p>
+<ul>
+  <li>Tamper Pin enable.</li>
+  <li>Tamper pin active level.</li>
+  <li>Tamper interrupt enable.</li>
+</ul>
+
+<p><u><b>External interrupt/event Configuration</b></u></p>
+<p>For each external line (EXTI0..EXTI15) it is possible to change the following settings:</p>
+<ul>
+  <li>interrupt enable.</li>
+  <li>generate interrupt.</li>
+  <li>generate event.</li>
+  <li>use rising trigger for interrupt/event.</li>
+  <li>use falling trigger for interrupt/event.</li>
+  <li>select pin for for interrupt/event.</li>
+</ul>
+
+<p><u><b>Alternate Function remap Configuration</b></u></p>
+<p>For some peripherals it is possible to remap the used pins:</p>
+<ul>
+  <li>SPI1 remapping.</li>
+  <li>I2C1 remapping.</li>
+  <li>USART1 remapping.</li>
+  <li>USART2 remapping.</li>
+  <li>USART3 remapping.</li>
+  <li>TIM1 remapping.</li>
+  <li>TIM2 remapping.</li>
+  <li>TIM3 remapping.</li>
+  <li>TIM4 remapping.</li>
+  <li>CAN remapping.</li>
+  <li>PD01 remapping.</li>
+</ul>
+
+<p><u><b>General purpose I/O Configuration</b></u></p>
+<ul>
+  <li>for each GPIO register (GPIOA..GPIOE) change the configuration of every single pin.</li>
+</ul>
+
+<p><u><b>Embedded Fash Configuration</b></u></p>
+<ul>
+  <li>Change the settings of the Flash Access Control register (FLASH_ACR).</li>
+</ul>
+
+<p>
+It is possible to add the configuration of additional peripherals to <b>STM32_Init.c</b>.<br>
+You just have to add a <b>Configuration Wizard</b> section and a dedicated <b>initialisation function</b> 
+for the peripheral you want to add. You need to call the new initialisation function in <b>stm32_Init()</b>.
+</p>
+
+<h2><a name="Examples"></a>Example Programs</h3>
+<p></p>
+
+<h3><a name="GPIO"></a>GPIO Example Program</h3>
+<p>
+The <b>GPIO</b> project is a simple program demonstrating the use of the <b>GPIO ports</b>.<br>
+<br>
+Pins PB8..PB15 (LEDs) are configured as output and the pins PA0 (S2) and PC13 (S3) are configured as input.
+By pressing buttons S2 or S3 the lit LED moves to the left or to the right.
+</p>
+
+<h3><a name="IWDG"></a>IWDG Example Program</h3>
+<p>
+The <b>IWDG</b> project demonstrates the use of the <b>Independent Watchdog</b>.<br>
+<br>
+The independent watchdog is configured to fire after 2 seconds. 
+LED PB15 indicates that the IWDG is no longer reloaded and is now going to reset the board. 
+LED PB12 is lit when the restart was caused by the IWDG.
+</p>
+
+<h3><a name="RTC"></a>RTC Example Program</h3>
+<p>
+Project <b>RTC</b> shows the use of the <b>Realtime Clock in interrupt mode</b>.<br>
+<br>
+The RTC is configured to generate an interrupt every second and also when the alarmtime is reached.
+Time is set to 12:00:00 and alarmtime to 12:00:20. LED PB8 blinks in a second interval and PB10 is lit upon an alarm interrupt.
+</p>
+
+<h3><a name="Timer"></a>Timer Example Program</h3>
+<p>
+The <b>Timer</b> project demonstrates the use of <b>timer TIM1</b>.<br>
+<br>
+TIM1 is configured to generate an update interrupt every 250 ms. The lit LED moves on every timer tick. 
+TIM1 is configured without the use of <b>detailed settings</b>.
+</p>
+
+<h3><a name="PWM_1"></a>PWM_1 Example Program</h3>
+<p>
+Project <b>PWM_1</b> uses the <b>PWM (Pulse Width Modulation)</b> function with <b>timer TIM4</b>.<br>
+<br>
+To use the PWM function it is necessary to configure the <b>detailed settings</b> of TIM4. 
+TIM4 is configured to tick every second. Channel 3, connected to PB8, has a duty cicle of 50% and
+channel 4, connected tp PB9, has a duty cicle of 25%. LEDs PB8, PB9 are lit during the channel's duty cicle.
+</p>
+
+<h3><a name="PWM_2"></a>PWM_2 Example Program</h3>
+<p>
+Project <b>PWM_2</b> uses the <b>PWM (Pulse Width Modulation)</b> function with <b>timer TIM4 in interrupt mode</b>.<br>
+<br>
+To use the PWM function it is necessary to configure the <b>detailed settings</b> of TIM4. 
+TIM4 is configured to generate an update interrupt every 100 ms. On every update interrupt the duty cicles of channel 3 
+and channel 4 are changed. The result is that the LEDs PB8 and PB9 are pulsating.
+</p>
+
+<h3><a name="USART_Pol"></a>USART_Pol Example Program</h3>
+<p>
+The <b>USART_Pol</b> project shows the use of <b>USART1 in polling mode</b>. <br>
+<br>
+The configuration of USART1 is 9600 Baud, 8 data bits, 1 stop bit, no parity and no flow control.
+Retargetting is used to read a character over the serial input and to print out a string to the serial output.
+</p>
+
+<h3><a name="USART_Irq"></a>USART_Irq Example Program</h3>
+<p>
+The <b>USART_Irq</b> project demonstrates the use of <b>USART1 in interrupt driven mode</b>. <br>
+<br>
+The configuration of USART1 is 9600 Baud, 8 data bits, 1 stop bit, no parity and no flow control.
+Retargetting is used to read a character over the serial input and to print out a string to the serial output.
+A buffer handling is implemented for transmit / receive data.
+</p>
+
+<h3><a name="EXTI"></a>EXTI Example Program</h3>
+<p>
+The <b>EXTI</b> project is a simple program which shows the use of <b>external interrupts</b>.<br>
+<br>
+Button S2 (pin PA0) and button S3 (pin PC13) are configured to generate an external interrupt.
+By pressing buttons S2 or S3 the LED PB8 toggles.
+</p>
+
+<h3><a name="Tamper"></a>Tamper Example Program</h3>
+<p>
+The <b>Tamper</b> project is a simple program which shows the use of <b>Tamper detection</b>.<br>
+<br>
+BKP_DR1 and BKP_DR2 are set to specific values. Tamper pin is configured to generate an interrupt.<br>  
+LED PB9 is lit if BKP_DR1, BKP_DR2 are cleared upon a tamper event, LED PB8 is lit if BKP_DR1, BKP_DR2 are not cleared 
+</p>
+
+<h3><a name="CAN"></a>CAN Example Program</h3>
+<p>
+The <b>CAN</b> project is a simple program which demonstrates the use of the <b>CAN peripheral</b>.<br>
+<br>
+The CAN controller is initialized for 500 kbit/s. A converted analog value is send in the first byte of a CAN message. 
+Received and transmitted byte values are displayed on LCD.
+</p>
+
+<h3><a name="Blinky"></a>Blinky Example Program</h3>
+<p>
+The <b>Blinky</b> project shows the combination of configuring peripherals via <b>STM32_Init.c</b> and <b>own</b> initialisation functions.
+GPIO, USART and timer are configured via STM32_Init.c. DMA and ADC are set up with a seperate initialisation function.<br>
+<br>
+The LEDs blink with a speed depending on potentiometer position. SysTimer is used in interrupt mode and ticks every 10ms.
+Character LCD display shows init message and bargraph depending on potentiometer position. AD value is output onto 
+serial port USART1 (115200 baud, 8 data bits, no parity, 1 stop bit). AD is used with DMA and 12 bit resolution.
+</p>
+
+<h3><a name="Measure"></a>Measure Example Program</h3>
+<p>
+The <b>Measure</b> project shows the combination of configuring peripherals via <b>STM32_Init.c</b> and <b>own</b> initialisation functions.
+GPIO, USART and timer are configured via STM32_Init.c. DMA and ADC are set up with a seperate initialisation function.<br>
+<br>
+The Measure program uses analog and digital inputs to simulate a datalogger. A help menue is displayed using the serial port USART1.
+The value of analog input POT1 and the state of S2, S3 Buttons are logged.
+Timer TIM3 is used in interrupt mode and ticks every 1ms. Serial port USART1 (115200 baud, 8 data bits, no parity, 1 stop bit) is
+used in polling mode. AD is used with DMA and 12 bit resolution.
+ </p>
+<h3><a name="RTX_Blinky"></a>RTX_Blinky Example Program</h3>
+<p>
+<b>RTX_Blinky</b> is a simple RTX Kernel based example which simulates a step-motor driver. 
+Four LEDs are blinking simulating the activation of the four output driver stages.</p>
+
+<h3><a name="RTX_Traffic"></a>RTX_Traffic Example Program</h3>
+<p>
+The <b>RTX_Traffic</b> project demonstrates the control of a traffic light.<br>
+<br>
+The traffic light is timed and lets cars pass during a specific time period.  
+There is a pedestrial crossing button (S3) that lets pedestrians cross.  
+The lights are connected to GPIO Port B.<br>
+This program uses RTX Kernel. Serial I/O is interrupt and event driven using USART1.
+USART1 settings are 9600 baud, 8 data bits, no parity, 1 stop bit.
+</p>
+
+<h3><a name="SVC"></a>SVC Example Program</h3>
+<p>
+The <b>SVC</b> project is a simple program showing how to implement <b>software interrupt functions</b>.<br>
+<br> 
+It includes the file SVC.c which implements the SVC handler. The SVC function declarations and 
+implementations are demonstrated in the file Test.c.
+</p>
+
+<h3><a name="USBHID"></a>USB HID Example Program</h3>
+<p>
+The <b>USBHID</b> project is a demo for a <b>USB Human Interface Device</b>.<br>
+<br>
+The USB HID is recognized by the host PC running Windows which will load a generic HID driver. 
+The board LEDs (PB8..PB15) and Push Buttons (S2, S3) can then be accessed from the PC through 
+a custom HID Client Program.<br>
+See also Application Note 195: <a href="http://www.keil.com/appnotes/docs/apnt_195.asp">Developing 
+HID USB Device Drivers For Embedded Systems</a>.
+</p>
+
+<h3><a name="USBMem"></a>USB Memory Example Program</h3>
+<p>
+The <b>USB Memory</b> project is a demo program for an USB Memory based on <b>USB Mass Storage Class</b>.<br>
+<br>
+The USB Memory is automatically recognized by the host PC running Windows which will load 
+a generic Mass Storage driver. Read / write access is displayed using the board LEDs.
+</p>
+
+<hr>
+
+<p class="TinyT">Copyright © KEIL - An ARM Company.<br>
+All rights reserved.<br>
+Visit our web site at <a href="http://www.keil.com">www.keil.com</a>.
+</p>
+
+</body>
+
+</html>

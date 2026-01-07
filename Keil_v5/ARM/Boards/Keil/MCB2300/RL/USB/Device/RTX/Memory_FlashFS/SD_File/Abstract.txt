@@ -1,0 +1,45 @@
+The Memory project is a demo program for the Keil MCB2300
+Board using LPC23xx Microcontroller.
+
+Example functionality:
+
+  - Clock settings:
+    - XTAL                   =  12 MHz
+    - PLL                    = 288 MHz
+    - processor clock = CCLK =  48 MHz
+    - USB clock              =  48 MHz
+    - CCLK / 4 clock         =  12 MHz
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+SD/MMC Card inserted in the target is used for the actual Memory.
+
+The USB Memory is automatically recognized by the host PC running
+Windows which will load a generic Mass Storage driver.
+
+File manipulation from the target is also available over serial port.
+
+When INT0 button is pressed the USB Memory is unmounted from the PC
+and can be accessed from the target over serial port. It allows to 
+create, read, copy, delete files and format the card.
+Pressing INT0 button again, will re-mount the USB Memory on the PC.
+
+Connect a serial cable to RS232 COM1 port using HyperTerminal
+at 115200 baud, 8-bits, no parity, 1 stop bit, No Flow Control.
+
+
+The Memory program is a standalone application loaded into
+on-chip flash and available for one target:
+
+LPC23xx Flash:
+    Standalone application for MCBSTM2300 Board using RTX kernel
+    and serial port as communication interface
+    
+Note: 
+  for Vers.3 board set:
+    - jumper J5 (UMODE) to 1[2 3] for USB soft connect
+    - jumper J1 (D-) on 
+    - jumper J2 (D+) on
+  for Vers.4 board set:
+    - jumper J5 (UMODE) to 1[2 3] for USB soft connect
+    - jumper D- to [1 2]3 
+    - jumper D+ to [1 2]3

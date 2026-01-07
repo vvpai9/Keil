@@ -1,0 +1,53 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Cortex-M0), 0x0004 // Tools: 'ARM-ADS'
+Target (Cortex-M3), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Library Source),1,0,0
+
+OPTFFF 1,1,1,0,0,0,0,0,<.\charlcd.c><charlcd.c> 
+
+
+TARGOPT 1, (Cortex-M0)
+ ADSCLK=50000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 255
+  OPTDL (SARMCM3.DLL)()(DARMCM1.DLL)()(SARMCM3.DLL)()(TARMCM1.DLL)()
+  OPTDBG 48125,-1,()()()()()()()()()() ()()()()
+  OPTDF 0x2
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (Cortex-M3)
+ ADSCLK=50000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTDL (SARMCM3.DLL)()(DLM.DLL)(-pEMBER)(SARMCM3.DLL)()(TLM.DLL)(-pEMBER)
+  OPTDBG 48125,-1,()()()()()()()()()() ()()()()
+  OPTDF 0x2
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

@@ -1,0 +1,961 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>RL-ARM Release Notes</title>
+<meta http-equiv=content-language content=en-us>
+<meta name=GENERATOR content="Microsoft FrontPage 12.0">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<style>
+p            {font-family:verdana;font-size:10pt}
+.LI2         {margin-top:6px;margin-bottom:6px}
+.Release     {background-color:#ccc;font-weight:bold;padding:6px}
+.ToolT       {font-size:8pt;color:#808080}
+.TinyT       {font-size:8pt;text-align:center}
+h1           {font-family:verdana;font-size:18pt;color:#000080;font-weight:bold;text-align:center;margin-right:3px}
+h2           {font-family:verdana;font-size:14pt;color:#000080;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+h3           {font-family:verdana;font-size:10pt;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+pre          {font-family:courier new;font-size:10pt;background-color:#cfc;margin-left:24px;margin-right:24px}
+ul           {font-family:verdana;font-size:10pt;list-style-type:square}
+ol           {font-family:verdana;font-size:10pt}
+li           {margin-left:12pt;padding-left:0;margin-top:12px;margin-bottom:6px}
+ul li pre    {margin-top:6pt;font-family:courier new;font-size:9pt;background-color:#cfc;margin-left:0px;margin-right:0px}
+ul li ul     {margin-top:6pt;margin-bottom:6pt;margin-left:0pt;padding-left:0}
+ul li ul li  {margin-top:3pt;margin-bottom:3pt}
+ul li ol     {margin-top:6pt;margin-bottom:6pt;margin-left:12pt;padding-left:0}
+ul li ol li  {margin-top:3pt;margin-bottom:3pt}
+.style1      {background-color: #CCCCCC;}
+.style2      {color: #FF0000;}
+</style>
+</head>
+
+<body>
+
+<h1>Release Notes for RL-ARM<br>
+Real-Time Library for ARM-powered Microcontrollers</h1>
+
+<p align="center">This file contains release notes and last minute changes.</p>
+
+<p class="TinyT">Information in this file, the accompany manuals, and software is<br>
+Copyright © ARM Ltd. and Keil - An ARM Company.<br>
+All rights reserved.</p>
+
+<hr>
+
+<h2>Contents</h2>
+
+<ol>
+  <li class="LI2"><a href="#WhatsNew">What's New in RL-ARM</a></li>
+  <li class="LI2"><a href="#TechnicalSupport">Technical Support</a></li>
+  <li class="LI2"><a href="#ContactDetails">Contact Details</a></li>
+</ol>
+
+ 
+
+<h2><a name="WhatsNew"></a>What's New in RL-ARM Real-Time Library</h2>
+
+<p>The following sections list the changes instituted in each release of the RL-ARM.</p>
+
+<h3>RL-ARM Version 4.02</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: incorrect <b>event flag</b> clearing in <b>os_evt_wait_and()</b>
+        function if event flags were set separately. The following example shows
+	the problem.
+<pre>
+__task void send_task (void) {
+  os_evt_set (0x1, t_wait);
+  os_evt_set (0x2, t_wait);
+  os_evt_wait_or (0x1, 0xFFFF);
+  os_evt_set (0x2, t_wait);
+  ...
+}
+
+__task void wait_task (void) {
+  os_evt_wait_and (0x3, 0xFFFF);
+  os_evt_set (0x1, t_send);
+  os_evt_wait_and (0x3, 0xFFFF);
+  // Should never come here
+}
+</pre>
+      </li>
+    </ul>
+  </li>
+</ul> 
+
+
+
+<h3>RL-ARM Version 4.01</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a problem of <b>recursive</b> __swi function calls in <b>ARM</b> 
+        library. An example of such problem is <b>malloc()</b> function from standard 
+	arm library, if it is executed in SWI mode.
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<h3>RL-ARM Version 4.00</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a <b>tsk_lock</b> problem in <b>ARM</b> library. After a tick
+        timer interrupt was disabled, the interrupt was not immediatelly blocked but
+	a few cycles later. Therefore in some rare situations (very timing specific) 
+	it could happen that a blocked interrupt was still executed which eventually 
+	lead to RTX failure. 
+      </li>
+      <li>Updated: RTX configuration files for STMicroelectronics <b>STR71x</b>, 
+        <b>STR73x</b> and <b>STR75x</b> devices. Older RTX_Config.c files have to be
+	replaced.
+      </li>
+      <li>Corrected: a SVC_Handler problem in <b>Cortex-M1</b> library. The function
+        return value was wrong. 
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<h3>RL-ARM Version 3.80</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: two problems in <b>ARM</b> library: 
+        <ul>
+	  <li>Frequently calling <b>isr_xxx</b> functions from interrupt handlers
+	    has disturbed (shortened) the system delays and timeouts for <b>os_xxx</b>
+	    functions with delays.
+          <li>Corrected re-entrance problem of <b>isr_xxx</b> functions when called 
+	    from <b>os_tmr_call</b> user timer callback function.
+          </li>
+	</ul>   
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<h3>RL-ARM Version 3.70</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: RTX configuration for Atmel <b>AT91SAM9260</b> devices. Preconfigured
+        <b>RTX_Blinky</b> example for the Atmel AT91SAM9260-EK evaluation board
+        can be found in <b>..\ARM\Boards\Atmel\AT91SAM9260-EK</b> folder.
+      </li>
+    </ul>  
+  </li>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: several problems in <b>Cortex-M</b> library: 
+        <ul>
+	  <li>The <b>_alloc_box</b> and <b>_free_box</b> functions have re-enabled 
+	    globally disabled interrupts.
+	  <li>When deleting the preceeding task (by order of TID's), the
+	    <b>os_tsk_delete</b> function has deleted the current running task 
+	    instead. 
+          <li>The system might incorrectly execute <b>svc</b> system calls in a 
+	    very rare timing sequences when followed by the SysTick timer interrupt.   
+	</ul>   
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<h3>RL-ARM Version 3.50 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Luminary <b>LM3S9Bxx</b> devices. Preconfigured
+        <b>RTX_Blinky</b> example for the Luminary EK-LM3S9Bxx evaluation board
+        can be found in <b>..\ARM\Boards\Luminary\EK-LM3S9Bxx</b> folder.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 3.46 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a <b>product version</b> number in <b>RTL.h</b>. It is encoded 
+        in decimal format. For RL-ARM version 3.46 it is defined as: 
+<pre>
+#define __RL_ARM_VER    346
+</pre>
+      </li>
+    </ul>  
+  </li>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Toshiba <b>TMPA910</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.40 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: the <b>S8</b> type definition in <b>RTL.h</b>. It has been 
+         changed from plain <b>char</b> to a <b>signed char</b>. Plain char is 
+	 defined as an unsigned byte by default.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: the RTX core to support a <b>multithreading</b> for the standard 
+        runtime library:
+	<ul>
+	 <li>provides a separate library space for each task,
+	 <li>protects non thread safe library functions with mutexes.
+	</ul>
+	<b>Note:</b> The new RTX-V2 ARM library is rewritten, the <b>os_clock_demon()</b>
+	task scheduler has been removed and replaced with the system function calls.
+	New RTX-V2 library is faster and uses up to 300 bytes less ram.
+      </li>
+      <li>Added: the <b>__task</b> attribute. The __task attribute must be used
+        in precedence to the function definition.
+<pre>
+<font color=#880000>__task</font> void display_control (void) {}   // correct usage
+void display_control (void) <font color=#880000>__task</font> {}   // generates compiler error
+</pre>
+        The __task attribute saves up to 32 bytes of stack space per each task and
+        saves a few instructions in the code.
+      </li>
+      <li>Updated: all RTX examples for the new RTX-V2 configuration and the new
+        __task attribute definition.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>RL-ARM Version 3.24 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Atmel <b>AT91SAM9RL</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.22e Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Freescale <b>i.MX27</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for the
+	Phytec PHYCORE-i.MX27 evaluation board can be found in 
+	<b>..\ARM\Boards\Phytec\i.MX27</b> folder.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.22b Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: a mailbox problem in <b>ARM</b> library. The message
+        sent from <b>os_mbx_send</b> function was lost if slot was not available in 
+	a mailbox and function returned a timeout status.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.22a Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: problem in <b>Cortex-M</b> library which was introduced in version 3.22 
+        (re-entrance of <b>isr_xxx</b> functions).
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.22 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: re-entrance problem of <b>isr_xxx</b> functions in <b>Cortex-M</b>
+        library when using nested interrupts.
+      </li>
+      <li>Corrected: a mailbox problem in <b>Cortex-M</b> library. A message sent to 
+        a mailbox from an interrupt handler was lost in some rare timing situations. 
+      </li>
+      <li>Corrected: a timing problem in <b>ARM</b> library. When <b>isr_xxx()</b> functions
+        were called from more than one interrupt handler with a very high repetition rate,
+        system delays might expire sooner than expected. This has happened because
+        the RTX kernel has detected a false tick timer overflow and decremented timeouts 
+	also within an interval time.
+      </li>
+      <li>Corrected: wrong <b>task priority</b> handling of the <b>mutex owner</b> task.
+        When the <b>priority inversion</b> has been applied to a task which was the owner
+	of the mutex, the original task's priority might not have been restored correctly.
+      </li>
+      <li>Corrected: range checking in <b>Cortex-M</b> library for <b>__svc</b> functions.
+        The __svc function with the highest svc number would never execute because
+	of wrong svc range checking.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.21 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: support for Cortex-M3 <b>RTX Event Viewer</b>. It allows task execution
+      and task switch monitoring in real-time.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Corrected: generation of HardFault Exception in <b>Cortex-M</b> library when
+        user timers were enabled. The configuration file <b>RTX_Conf_CM.c</b> has been
+        updated. Older configuration file is not compatible and need to be replaced
+        with a new version.
+      </li>
+      <li>Corrected: invalid return value of create task functions for <b>Cortex&trade;M</b> 
+        library. Functions <b>os_tsk_create_user()</b> and <b>os_tsk_create_user_ex()</b></b>
+	have returned wrong task ID value. 
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.20 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>Changed: the <a href=http://www.keil.com/support/man/docs/rlarm/rlarm_lib_files.htm><b>
+        library names</b></a> to be consistent with the Endianess type. RTX libraries are 
+        automatically included by &microVision IDE, other libraries need to be included manually 
+        into the project.</li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Updated: the RTX library for <b>Cortex-M</b> devices. In the new library the
+        system calls (all os_xxx functions) are executed in <b>svc</b> mode and extended
+        features of Cortex-M devices for RTOS support are used. The library is more
+        roboust and fail-proof. New concept allows tasks to run in <b>protected</b>
+        (unpriviliged) mode. The task <b>run mode</b> (priviliged or unpriviliged) is
+        selectable from the config file.<br><br>
+        <b>Note:</b> The code from old RTX projects is <b>compatible</b> to the new
+        library, however old configuration files need to be <b>replaced</b> with the new 
+        </b>RTX_Conf_CM.c</b> file and old startup files updated with access to
+        <b>SVC_Handler</b>, <b>PendSV_Handler</b> and <b>SysTick_Handler</b> exception
+        handlers.<br><br>
+<pre>
+                <font color=#880000>IMPORT  SVC_Handler
+                IMPORT  PendSV_Handler
+                IMPORT  SysTick_Handler</font>
+                
+Vectors         ..
+                <font color=#880000>DCD     SVC_Handler             ; SVCall Handler</font>
+                DCD     Default_Handler         ; Debug Monitor Handler
+                DCD     0                       ; Reserved
+                <font color=#880000>DCD     PendSV_Handler          ; PendSV Handler
+                DCD     SysTick_Handler         ; SysTick Handler</font>
+                ..
+</pre>   
+      </li>
+      <li>Added: support for Texas Instruments <b>TMS470R1B1M</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for TMS470R1B1M  
+        evaluation board can be found in <b>..\ARM\Boards\TI\TMS470R1B1M</b> folder.
+      </li>
+      <li>Added: support for NXP <b>LPC3180</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for Phytec LPC3180  
+        evaluation board can be found in <b>..\ARM\Boards\Phytec\LPC3180</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: core problems for <b>Cortex-M</b> devices. Handling of <b>isr_xxx</b>
+        function calls was incorrect and could cause task locks. Wrong handling of task switches
+        and <b>__svc</b> functions could cause sporadic application crashes if additional
+        user interrupts were enabled.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.12 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>Added: RTX Kernel support for <b>Cortex-M1</b> architecture. An RTX_Blinky example 
+        for ARM Cortex-M1 device is added to <b>..\ARM\Boards\ARM\Cortex-M1</b> folder.
+      <li>Added: support for Samsung <b>S3C2440</b> device. <b>RTX_Config.c</b> configuration for 
+        RTX kernel was added. Preconfigured examples for S3C2440 Samsung evaluation board can be 
+        found in <b>..\ARM\Boards\Samsung\S3C2440</b> folder.
+      </li>
+    </ul>
+</ul>
+
+<h3>RL-ARM Version 3.10 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RL-ARM]</b></font><br>
+    <ul>
+      <li>Changed: a <b>folder structure</b> for RL-ARM. The <b>Boards</b> folder has been restructured
+        and all RL-ARM target examples moved to <b>..\ARM\Boards</b> folder.
+      </li>
+      <li>Added: support for Atmel <b>AT91SAM7SE</b> device. <b>RTX_Config.c</b> configuration for 
+        RTX kernel was added. Preconfigured examples for AT91SAM7SE-EK Atmel evaluation board can be 
+        found in <b>..\ARM\Boards\Atmel\AT91SAM7SE-EK</b> folder.
+      </li>
+      <li>Added: <b>RTX_Blinky</b> examples for <b>Embedded Artists</b> evaluation boards: 
+        <b>LPC2106 RS232 QSB</b>, <b>LPC2129 CAN QSB</b>, <b>LPC2138 QSB</b> and <b>LPC2148 USB QSB</b>.
+        RTX_Blinky examples can be found in <b>..\ARM\Boards\Embedded Artists</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[RTX - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a task timing problem for STmicroelectronics <b>STR750</b> devices in <b>RTX_Config.c</b>
+        configuration file. Interrupt function calls of <b>isr_xxx()</b> has reset also the hardware tick 
+        timer prescaler and changed the tick-timer timing cycle. This is now fixed in a new RTX 
+        configuration file.
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.05 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for STmicroelectronics <b>STR750</b> device. <b>RTX_Config.c</b> configuration 
+        for RTX kernel was added. An <b>RTX_Blinky</b> example for MCBSTR750 Keil evaluation board can be 
+        found in <b>..\ARM\RV30\RTL\Boards\Keil\MCBSTR750</b> folder.
+      </li>
+      <li>Updated: examples for Atmel evaluation boards. The startup configuration files <b>SAM7.s</b> and
+        <b>SAM9261.s</b> have been updated.
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Enhanced: handling of <b>isr_xxx()</b> functions to increase execution speed and preformance.
+      <li>Updated: task create functions <b>os_tsk_create_user()</b> and <b>os_tsk_create_user_ex()</b>.
+        Those functions now autocorrect user provided stack size for 8-byte stack alignment.
+      <li>Improved: RTX configuration for <b>STR71x</b>, <b>STR73x</b> and <b>STR75x</b> devices. 
+        Standard RTX configuration no longer needs a <b>SWI_Table.s</b> System function <b>__swi(8)</b> from
+        RTX_Config.c has been changed to <b>__swi(7)</b> which does not require an external SWI_Table 
+        included into the project anymore.
+    </ul>
+
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of <b>isr_sem_send()</b> function. This function did not work correctly when 
+        a task was already waiting for a semaphore and might hold a task in <b>WAIT_SEM</b> state for 
+        additional 65536 system tick intervals.
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.04 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Updated: examples for <b>MCBSTR9</b>. The startup configuration files <b>STR91x.s</b> 
+        have been updated.
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: RTX Kernel support for <b>Cortex-M3</b> architecture. An RTX_Blinky example 
+        for Luminary Micro LM3S102 device is added to <b>..\ARM\RV30\RTL\Boards\Luminary</b> folder.
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a core problem of <b>SWI_Handler</b> when accessing user registers. Setting an user 
+        Link Register on task switch has failed for Atmel <b>AT91RM9200</b> devices. Instruction 
+        <b>LDMDB SP,{SP,LR}^</b> does not work for these devices. Implemented workaround uses 
+        a different instruction for setting the user LR and this works for all ARM devices.
+      </li>
+      <li>Fixed: a problem of <b>os_tsk_prio()</b> function. This function did not work correctly
+        when a priority of a task in a delay has been changed.
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.03a Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for NXP (founded by Philips) <b>LPC23xx</b> devices. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for MCB2300 Keil evaluation 
+        board can be found in <b>..\ARM\RV30\RTL\Boards\Keil</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Updated: a <b>memory box</b> handling functions. Those functions now properly handle
+        4-byte and 8-byte aligned memory blocks. Added <b>_init_box8()</b> function and memory pool
+        declaration macros <b>_declare_box()</b> and <b>_declare_box8()</b>.
+      </li>
+      <li>Updated: RTOS configuration files for Atmel <b>SAM7S, SAM7A3, SAM7X</b> and <b>SAM79261</b> 
+        devices. In addition to PIT timer, also TC0, TC1 and TC2 timer counter blocks can be selected
+        as a system tick timer. Also a Common System Interrupt Handler is added. It can be used when a 
+        PIT timer is selected as an RTOS tick timer which shares a common IRQ with other SAM7 system
+        peripherals.
+      </li>
+      <li>Updated: RTOS configuration files for Analog Devices <b>ADuC702X</b> devices and OKI 
+        <b>ML67Q4003</b>, <b>ML67Q5003</b> and <b>ML674000</b> devices. The code from assembly 
+        Interrupt Handler module <b>IRQ.s</b> has been integrated into </b>RTX_Config.c</b> 
+        configuration file. This module is nomore required for RTOS projects.
+      </li>
+    </ul>
+    <b>Note</b>: All RTOS configuration files <B>RTX_Config.c</B> from Startup folder have been 
+    updated and optimized. It is advised to replace older RTOS configurations with new configurations.
+</ul>
+
+<h3>RTL-ARM Version 3.03 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for Atmel <b>AT91SAM7X</b> device. <b> RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for AT91SAM7X-EK Atmel
+        evaluation board can be found in <b>..\ARM\RV30\RTL\Boards\Atmel</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: a <b>mutex</b> task priority inversion - <b>priority inheritance</b> has been 
+        implemented. When a medium-priority task preempts a lower-priority task using a shared 
+        resource (a mutex) on which a higher-priority task is pending, a priority of lower-priority 
+        task is temporary raised to the priority level of a higher-priority task. As soon as a 
+        lower-priority task releases a mutex, a priority level of this task is lowered back to a default value.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for all Atmel devices. Interrupt acknowledge 
+        sequence was incorrect and could cause <b>system dead-locks</b> when additional IRQ 
+        interrupts were enabled. If <b>isr_xxx_</b> functions were called from the interrupt 
+        handler, the interrupt system might not be properly released and would not accept
+        any further tick-timer interrupts.
+      </li>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for STMicroelectronics STR91x devices.
+        A code to disable interrupts was incorrect. Because of this problem a tick timer 
+        interrupt could happen in a protected section of RTX Kernel system code following 
+        with a stack overflow and user application crash.
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.02 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Added: support for STMicroelectronics <b>STR912</b> device. <b>RTX_Config.c</b> 
+        configuration for RTX kernel was added. Preconfigured examples for MCBSTR9 Keil 
+        evaluation board can be found in <b>..\ARM\RV30\RTL\Boards\Keil</b> folder.
+      </li>
+      <li>Added: support for Atmel <b>AT91RM9200</b> and <b>AT91SAM9261</B> devices. <b>RTX_Config.c</b>
+        configurations for RTX kernel were added. Preconfigured examples for AT91RM9200-EK and AT91SAM9261-EK
+        Atmel evaluation boards can be found in <b>..\ARM\RV30\RTL\Boards\Atmel</b> folder.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a <b>mutex</b> task deadlock problem. When a task with higher priority would
+        release and again grab a mutex, a lower priority task would become ready. Because of a
+        mutex problem, this task would never get a chance to execute, not even after a timeout.
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.01 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>RTL object libraries and examples are reconfigured and recompiled for 
+        Compiler optimization level O3.
+      </li>
+    </ul>
+    <ul>
+      <li>Added: support for STMicroelectronics <b>STR912</b> device. <b> RTX_Config.c</b> 
+        configuration for RTX kernel and <b>STR9_ENET.c</b> driver for embedded ENET ethernet
+        controller were added. Preconfigured examples for MCBSTR9 Keil evaluation board can be 
+        found in <b>..\ARM\RV30\RTL\Boards\Keil</b> folder.
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 3.00 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[RTL-ARM]</b></font><br>
+    <ul>
+      <li>Updated: all references to legacy term 'Advanced' are removed. Include definition files
+        renamed to <b>RTL.h</b>, <b>RTX_Config.h</b>, <b>Net_Config.h</b>. The configuration
+        files are also renamed to <b>RTX_Config.c</b>, <b>Net_Config.c</b>, <b>Net_Debug.c</b>.
+        The documetation is updated to reflect those changes.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for ST Microelectronics <b>STR71x</b> device family.
+        If the device was running with a high speed system clock but the EIC peripheral with a slower 
+        PCLK2 clock, the interrupts were not disabled immediately when an interrupt enable register was 
+        written but with a delay. Because of this problem a tick timer interrupt might occur in a protected 
+        region of code. This collision has caused an RTX Kernel malfunctioning or even user application crash. 
+        The fix uses a swi function <b>__swi(8)</b> which is no more free for the user.
+      </li>
+      <li>Fixed: a problem in <b>RTX_Config.c</b> for Analog Devices <b>ADuC702x</b> device family. 
+        The problem was in a device inability to mask forced-programming software interrupts.
+        Because of this problem a tick timer interrupt could happen in a protected section of
+        RTX Kernel system code following with a stack overflow and user application crash.
+      </li>
+      <li>Fixed: a problem of potential application crash when a project was build with
+        RealView compiler <b>optimization</b> level other than O0. This was because the 
+        registers <b>R8-R11</b> were not stored for reduced context switch. Now the reduced
+        context switch save also registers R8-R11 on the stack.
+      </li>
+    </ul>
+    <b>Warning</b>: A configuration file <B>RTX_Config.c</B> is not compatible to older versions 
+    and need to be replaced. If the old configuration is used, the application
+    will <b>crash</b> because the initial task stack content is not compatible
+    anymore.
+</ul>
+
+<h3>RTL-ARM Version 2.11 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of wrong operation of <b>os_mbx_send()</b> when a message has 
+        been fetched from a full mailbox and then pushed back again from the same task with
+        no task switch in between. If another task has been waiting to send a message to this
+        mailbox, this task would become ready and would send a message to a mailbox, which 
+        was full with no space for free messages.
+      </li>
+    </ul>
+</ul>
+
+<h3>RTL-ARM Version 2.10 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Ported to RealView Compilation Tools environment.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a problem of potential system hang when <b>os_mbx_send()</b>
+        was called with parameter timeout set to 0. If a mailbox was already
+        full a system could hang in an endless loop.
+      </li>
+      <li>Fixed: a problem of wrong operation of <b>os_mut_wait()</b> when a
+        mutex was released and acquired again with no delay in between. If
+        another task has been waiting for this mutex, this task would become
+        ready and acquire a mutex, which was already owned by another task.
+      </li>
+    </ul>
+    <ul>
+      <li>Fixed: a problem of failed Round Robin task switching. This problem has shown when 
+        a higher priority tasks were also running in addition. If a higher priority task was delayed by 
+        <b>os_dly_wait()</b> or <b>os_itv_wait()</b> function with a delay time equal to Round Robin timeout
+        or less than this timeout, a Round Robin task switching did not work.
+      </li>
+    </ul>
+</ul>
+
+<h3>ARTX Version 2.00 Release</h3>
+
+<ul>
+ <li><font color="#800000" size="1"><b>[ARTX - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: new type definitions to <b> ARTX.h</b> header file to avoid conflicts. 
+        New types are: U8, U16, U32, S8, S16, S32, BIT, BOOL, __TRUE and __FALSE. New types
+        have replaced old types: BYTE, WORD, DWORD, TRUE and FALSE. Source files
+        and documentation has been modified to reflect those changes.
+      </li> 
+    </ul>        
+  </li>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: new synchronization object <b>mutex</b> for mutual exclusion locks. The following
+        functions were implemented: <b>os_mut_init()</b>, <b>os_mut_wait()</b> and <b>os_mut_release()</b>.
+      </li>
+      <li>Added: Stack Checking option to <b>ARTX_Config.c</b> configuration file. When this option is
+        enabled, ARTX Kernel executes additional code to check for stack-overflow error.
+      </li>
+      <li>Added: new functions <b>os_sys_init_user()</b> which allows to start the ARTX Kernel
+        with a task which has assigned an user-provided stack and <b>os_sys_init_prio()</b>
+        which allows you to start the ARTX Kernel with a task which will have
+        assigned a specified priority.
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: a potential problem of blocking the interrupt system for some of the ARM devices.
+        This could happen if the default interrupt handler <b>os_def_interrupt()</b>
+        has been executed. This handler located
+        in <b>ARTX_Config.c</b> configuration file has now been updated to release the ARM interrupt
+        system by acknowledging the interrupt.
+      </li>
+      <li>Fixed: a problem of wrong interval delay when execution between <b>os_itv_set()</b> and
+        <b>os_itv_wait()</b> takes more clock ticks than specified with <b> os_itv_set()</b> function.
+        This problem is shown with the following example:
+<pre>
+void task1 (void) __task {
+    .
+    .
+   os_itv_set (100);
+   for (;;) {
+       .
+       .
+      /* Execution here may take longer than 100 clock ticks.   */
+      os_itv_wait ();  /* If 100 clock ticks have passed,       */
+                       /* this will wait for 65535 clock ticks. */
+   }
+}
+</pre>
+      </li>
+    </ul>
+    A configuration file <B>ARTX_Config.c</B> is not compatible to older versions 
+    and need to be replaced.
+</ul>
+
+<h3>ARTX Version 1.10 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>os_evt_get()</b> event handling function, which returns 
+        event flags served by the <b>os_evt_wait_or()</b> function.
+      </li>
+      <li>Added: several examples were added to <b>Keil\ARM\ARTX\Examples</b> base folder:
+        <ul>
+        <li><b>Keil\ARM\ARTX\Examples\RoundRobin</b>: shows round-robin task switching.</li>
+        <li><b>Keil\ARM\ARTX\Examples\Semaphore</b>: shows how to use a shared resource
+          UART
+          from different tasks using a semaphore.</li>
+        </ul>
+      </li>
+    </ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    <ul>
+      <li>Fixed: configuration problem of tick timer reload in <b>ARTX_Config.C</b> configuration
+       files for OKI and ST devices variants. Improper tick timer reload could 
+       cause stalls in Kernel delay handling when isr_mbx_send(), isr_evt_set() and 
+       isr_sem_send() functions were used. 
+      </li>
+      <li>Fixed: core problem of invalid delays when frequent <b>isr_xxx_xxx</b> function
+       calls were made from interrupt functions. This could cause shorter delays than 
+       specified for os_dly_wait(), os_itv_wait() and other system delay and timeout functions.
+      </li>
+      <li>Fixed: problem in <b>os_mbx_wait()</b> and <b>os_sem_wait()</b> functions when they were 
+       called with <i>timeout</i>  parameter set to 0. In this case the function
+        has returned wrong result value. The <i>timeout</i> value 0 is used to fetch a message
+       or obtain a token from a semaphore without waiting for one.
+      </li>
+      <li>Modified: <b>ARTX_Config.C</b> configuration files for all device variants. 
+       The function <b>os_tmr_set_ovf()</b> has been replaced with <b>os_tmr_force_irq()</b>
+       function. 
+      </li>
+    </ul>
+  A configuration file <b>ARTX_Config.c</b> is not compatible to older versions and
+  need to be replaced.
+</ul>
+
+<h3>ARTX Version 1.02 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>ARTX_Config.C</b> configuration files for OKI devices 
+		variants:<ul>
+		<li><b>..\ARM\Startup\OKI\ARTX_Conf_ML67.C</b>: for OKI ML67xxx devices.</li>
+		</ul>
+      </li>
+    </ul>
+	</ul>
+
+<h3>ARTX Version 1.01 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>Added: <b>ARTX_Config.C</b> configuration files for the following
+		devices variants: AT91SAM7Sxx, STR71x, ADuC702x. The configuration files
+		are located in the base folder <b>Keil\ARM\Startup</b>. The following
+		ARTX-ARM configuration files are currently available:
+
+		<ul>
+		<li><b>..\ARM\Startup\Atmel\ARTX_Conf_SAM7S.C</b>: for Atmel AT91SAM7Sxx
+		devices.</li>
+		<li><b>..\ARM\Startup\Philips\ARTX_Config.C</b>: for Philips LPC21xx and
+		LPC22xx devices.</li>
+		<li><b>..\ARM\Startup\ST\ARTX_Conf_STR71x.C</b>: for ST Microelectronics
+		STR71x devices.</li>
+		<li><b>..\ARM\Startup\ADI\ARTX_Conf_ADuC702x.C</b>: for Analog Devices
+		ADuC702x devices.<br>
+&nbsp;</li>
+		</ul>
+      </li>
+    </ul>
+	<ul>
+      <li>Added: example projects for various Evaluation Boards that show the
+		usage of ARTX-ARM on various devices. The following examples are
+		currently available:<ul>
+		<li><b>..\ARM\Boards\Atmel\AT91SAM7S\ARTX_Blinky</b>: for Atmel
+		AT91SAM7S Microcontroller Board.</li>
+		<li><b>..\ARM\Boards\ST\STR7\ARTX_Blinky</b>: for ST
+		Microelectronics STR71x devices running on ST STR7 Evaluation Board.</li>
+		<li><b>..\ARM\Boards\Hitex\STR7\ARTX_Blinky</b>: for ST
+		Microelectronics STR71x devices running on Hitex STR7 Evaluation Board.</li>
+		<li><b>..\ARM\Boards\ADI\ADuC702X\ARTX_Blinky</b>: for Analog Devices
+		ADuC702x devices.</li>
+		</ul>
+		<b>Note:</b>&nbsp; <b>..\ARM\ARTX\Examples\Blinky</b> contains an
+		example that is configured for Philips LPC21xx devices an runs on the
+		Keil MCB2100 and MCB2130 Evaluation Board.<br>
+&nbsp;</li>
+		<li>Modified: the ARTX-ARM specific Software Interrupt Handler in the
+		module <b>Swi_ARTX.S</b> is now generic for all ARM7 devices variants.
+		Some devices require a NOP instruction to avoid DATA ABORT traps between
+		stack switching.
+      </li>
+		<li>Enhanced: the <b>Stack Load</b> display in the dialog <b>Peripherals
+		- Advanced RTX</b> of the RUNNING task is now updated from the current
+		SP value.</li>
+    </ul>
+</ul>
+
+<h3>ARTX Version 1.00a Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    <ul>
+      <li>New functions <b>os_tsk_create_ex()</b> and <b>os_tsk_create_user_ex()</b> are
+        implemented. It is now possible to pass a parameter to a task when it is
+        created using this function. This
+        is useful when a single task is started in multiple instances.
+      </li>
+      <li>A function <b>os_tsk_prio()</b> is updated to accept also a task
+        identification to change the execution priority of any other task. A new macro
+        <b>os_tsk_prio_self()</b> is introduced for consistency to change a priority
+        of a currently running task.
+      </li>
+    </ul>
+    A configuration file <b>ARTX_Config.c</b> is not compatible to older versions and
+    need to be replaced.
+</ul>
+
+<h3>ARTX Version 1.00 Release</h3>
+
+<ul>
+  <li><font color="#800000" size="1"><b>[Kernel - Problems Solved]</b></font><br>
+    Task switch function has been optimized and updated. ARTX_Config.c configuration
+    file has been updated to support the uVision debug dialog.
+
+  <li><font color="#800000" size="1"><b>[Kernel - Enhancements]</b></font><br>
+    Documentation is updated and <b>Alinks</b> are added. This enables context sensitive
+    help by pressing F1 from &micro;Vision. All examples were updated to run also on
+    Keil evaluation boards MCB2100 and MCB2130.
+</ul>
+
+<h2><a name="TechnicalSupport"></a>Technical Support</h2>
+
+<p>At Keil Software, we are dedicated to providing you with the best development
+tools and technical support. That's why we offer numerous ways you can get the
+technical support you need to complete your embedded projects.</p>
+
+<ul>
+  <li class="LI2"><a href="http://www.keil.com/support"><b>Technical Support
+    Knowledgebase</b></a><br>
+    More than 1500 technical support questions and answers are available in the
+    Support Solutions Knowledgebase. When a new question arises, it is added to
+    the knowledgebase which is continuously published to the Web. This enables
+    you to get technical support at times when our support staff is unavailable.</li>
+  <li class="LI2"><a href="http://www.keil.com/appnotes"><b>Application Notes</b></a><br>
+    Numerous Application Notes help you decipher complex features and implement
+    robust applications.</li>
+  <li class="LI2"><a href="http://www.keil.com/download"><b>Example Programs and
+    Files</b></a><br>
+    Utility programs, example code, and sample projects are regularly added to
+    the Download File section of the web site.</li>
+  <li class="LI2"><a href="http://www.keil.com/discuss"><b>Discussion Forum</b></a><br>
+    Post questions, comments, and suggestions to the Keil Software Discussion
+    Forum and interact with other Keil users around the world.</li>
+</ul>
+
+<p>Many of the features of our Technical Support Knowledgebase and Web Site are
+the results of your suggestions. If you have any ideas that will improve them,
+please <a href="http://www.keil.com/support/feedback.asp">give us your feedback</a>!</p>
+
+<h2><a name="ContactDetails"></a>Contact Details</h2>
+
+<p>If you experience any problems or have any questions about this product,
+contact one of our <a href="http://www.keil.com/distis">distributors</a> or
+offices for assistance.</p>
+
+<div align="center">
+  <center>
+  <table border="0" cellpadding="5" cellspacing="0">
+    <tr>
+      <td valign="top" nowrap bgcolor="#FFFFCC" style="border: 1 solid #800000"><b>In
+        the USA...<br>
+        </b><br>
+        <b>Keil Software, Inc.</b><br>
+        1501 10th Street, Suite 110<br>
+        Plano, TX&nbsp; 75074<br>
+        USA<br>
+        <br>
+        800-348-8051 - Sales<br>
+        972-312-1107 - Support<br>
+        972-312-1159 - Fax<br>
+        <a href="mailto:sales.us@keil.com"><br>
+        sales.us@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.us@keil.com"><br>
+        support.us@keil.com</a> - Support E-mail&nbsp;<br>
+        &nbsp;&nbsp;</td>
+      <td valign="top" width="30" nowrap></td>
+      <td valign="top" nowrap style="border: 1 solid #800000" bgcolor="#FFFFCC"><b>In
+        Europe...<br>
+        </b><br>
+        <b>Keil Elektronik GmbH<br>
+        </b>Bretonischer Ring 15<br>
+        D-85630 Grasbrunn<br>
+        Germany<br>
+        <br>
+        +49 89 456040-0 - Sales<br>
+        +49 89 456040-24 - Support<br>
+        +49 89 468162 - Fax<br>
+        <a href="mailto:sales.intl@keil.com"><br>
+        sales.intl@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.intl@keil.com"><br>
+        support.intl@keil.com</a> - Support E-Mail<br>
+        &nbsp;&nbsp;</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+
+<p class="TinyT">Copyright © ARM Ltd. and Keil - An ARM Company.<br>
+  All rights reserved.<br>
+  Visit our web site at <a href="http://www.keil.com">www.keil.com</a>.</p>
+
+</body>
+
+</html>

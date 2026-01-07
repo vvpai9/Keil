@@ -1,0 +1,67 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (M1A3P Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (M1A3P SRAM), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Startup),1,0,0
+GRPOPT 2,(Source Code),1,0,0
+GRPOPT 3,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\Startup.s><Startup.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\Blinky.c><Blinky.c> 
+OPTFFF 3,3,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,1,0,0,0,202,2,0,0,236,1,0,0 }
+
+
+TARGOPT 1, (M1A3P Flash)
+ ADSCLK=48000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\lst\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTDL (SARMCM3.DLL)()(DARMCM1.DLL)()(SARMCM3.DLL)()(TARMCM1.DLL)()
+  OPTDBG 49142,1,()()()()()()()()()() (BIN\UL2CM3.DLL)()()()
+  OPTKEY 0,(DLGDARM)((1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0))
+  OPTKEY 0,(DLGTARM)((1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)(-T0)
+  OPTKEY 0,(DLGUARM)((105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0))
+  OPTKEY 0,(UL2CM3)(-UV0438N8E -O15 -S0 -C0 -N00("ARM CoreSight JTAG-DP") -D00(3BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC800 -FN1 -FF0RC28F640J3x_x2 -FS00 -FL01000000)
+  OPTDF 0x82
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (M1A3P SRAM)
+ ADSCLK=48000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\lst\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 255
+  OPTDL (SARMCM3.DLL)()(DARMCM1.DLL)()(SARMCM3.DLL)()(TARMCM1.DLL)()
+  OPTDBG 49142,1,()()()()()()()()()() (BIN\UL2CM3.DLL)()()()
+  OPTKEY 0,(DLGDARM)((1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0))
+  OPTKEY 0,(DLGTARM)((1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)(-T0)
+  OPTKEY 0,(DLGUARM)((105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0))
+  OPTKEY 0,(UL2CM3)(-UV1235ABC -O15 -S0 -C0 -N00("ARM CoreSight JTAG-DP") -D00(3BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC800 -FN0)
+  OPTDF 0x82
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

@@ -1,0 +1,29 @@
+The MEASURE project is a simple program for the STM32F103VBT6 and
+uses analog and digital inputs to simulate a datalogger.
+
+You may watch the value of analog input J5.A2 and the state 
+of the SW Buttons on CQ-STARM BaseBoard.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL    =            8.00 MHz
+   - SYSCLK  =           72.00 MHz
+   - HCLK    = SYSCLK  = 72.00 MHz
+   - PCLK1   = HCLK/2  = 36.00 MHz
+   - PCLK2   = HCLK    = 72.00 MHz
+   - ADCLK   = PCLK2/6 = 12.00 MHz
+   - SYSTICK = HCLK/8  =  9.00 MHz
+
+ - USART1 settings:
+   - 115200 baud, 8 data bits, 1 stop bit, no parity
+
+ - ADC
+   - ADC1 channel1 connected to J5.A2 
+ 
+
+The program is available in different targets:
+  Simulator:   configured for software Simulator
+               Serial Window #1
+               ADC1 channel 1 simulated using a debug function.
+  CQ-STARM:    runs from Internal Flash located on chip
+               (used for production or target debugging)

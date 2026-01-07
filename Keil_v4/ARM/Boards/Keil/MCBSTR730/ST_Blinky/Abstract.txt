@@ -1,0 +1,21 @@
+The Blinky project is a simple program for the ST730FZ2T7
+using 'HITEX STR730 EVALBOARD' Evaluation Board.
+
+Example functionality:                                                   
+ - analog conversion of value from potentiometer 
+   (using internal A/D converter in interrupt mode)
+ - diplay converted analog value in hexadecimal representation on 
+   two 7 segment LED displays
+   (using TIM4 PWM in interrupt mode for time multiplexing for display)
+ - if key S2 is pressed make a frequency output on buzzer 
+   (using TIM3 PWM in interrupt mode with frequency 
+   corresponding to converted analog value)
+ - output 'Measured analog value (10 bits) = ' with converted analog 
+   value in decimal notation on UART0
+   (9600 baud, 8 data bits, no parity, 1 stop bit) 
+   
+
+The Blinky program is available in different targets:
+  Simulator:             configured for software Simulator
+  STR730 Board - Flash:  runs from Internal Flash located on chip
+                         (used for production or target debugging)

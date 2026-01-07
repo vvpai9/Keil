@@ -1,0 +1,114 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (LH79524 Library), 0x0004 // Tools: 'ARM-ADS'
+
+Group (ASM Source Files)
+Group (C Source Files)
+
+File 1,2,<.\lh79524_int_vec.s><lh79524_int_vec.s>
+File 2,1,<.\lh79524_adc_driver.c><lh79524_adc_driver.c>
+File 2,1,<.\lh79524_clcdc_driver.c><lh79524_clcdc_driver.c>
+File 2,1,<.\lh79524_dma_driver.c><lh79524_dma_driver.c>
+File 2,1,<.\lh79524_gpio_driver.c><lh79524_gpio_driver.c>
+File 2,1,<.\lh79524_i2s_driver.c><lh79524_i2s_driver.c>
+File 2,1,<.\lh79524_int_driver.c><lh79524_int_driver.c>
+File 2,1,<.\lh79524_mmu_driver.c><lh79524_mmu_driver.c>
+File 2,1,<.\lh79524_rtc_driver.c><lh79524_rtc_driver.c>
+File 2,1,<.\lh79524_ssp_driver.c><lh79524_ssp_driver.c>
+File 2,1,<.\lh79524_timer0_driver.c><lh79524_timer0_driver.c>
+File 2,1,<.\lh79524_timer_driver.c><lh79524_timer_driver.c>
+File 2,1,<.\lh79524_uart_driver.c><lh79524_uart_driver.c>
+File 2,1,<.\lh79524_wdt_driver.c><lh79524_wdt_driver.c>
+
+
+Options 1,0,0  // Target 'LH79524 Library'
+ Device (LH79524)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x60000000-0x60003FFF) CLOCK(11289600) CPUTYPE(ARM720T))
+ FlashUt ()
+ StupF ("STARTUP\Sharp\LH7952x.s" ("Sharp LH7952x Startup Code"))
+ FlashDR ()
+ DevID (4469)
+ Rgf (LH79524.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿSharp\LH79524\)
+ OrgReg (ÿSharp\LH79524\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (LH79524)
+ GenApp=0
+ GenLib=1
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy .\Output\LH79524.LIB ..\LH79524.LIB>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM720T)
+ RVDEV ()
+ ADSTFLGA { 0,8,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,96,0,64,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,68,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,96,0,64,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 1296,111,260,550,3017)
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cLH79500)(DARMSH.DLL)(-pLH79524)(SARM.DLL)()(TARMSH.DLL)(-pLH79524)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

@@ -1,0 +1,36 @@
+The Blinky project is an example program for the AT91RM9200
+using Atmel AT91RM9200-EK Evaluation Board and demonstrating
+interrupt usage.
+
+Example functionality:                                                   
+ - 3 LEDs blink from left to right and back
+ - time of LED switching is determined by Programmable Interrupt 
+   Timer (PIT) working in interrupt mode
+
+The Blinky program is available for different targets:
+  RM9200 Ext Flash:       configured for external Flash
+                          (used for production or target debugging)
+  RM9200 Int RAM:         configured for on-chip RAM
+                          (may be used for target debugging)
+  RM9200 Ext SDRAM Debug: configured for external SDRAM
+                          (may be used for target debugging)
+  RM9200 Ext SDRAM:       configured for code to be in external Flash 
+                          and copy itself to external SDRAM and run from 
+                          there
+                          (may be used for target debugging or 
+                          production)
+
+Warning !!! IF "RM9200 Ext Flash" or "RM92000 Ext SDRAM" ARE SELECTED 
+            AS TARGET AND PROGRAM IS DOWNLOADED TO EXTERNAL FLASH 
+            THE U-BOOT BOOTLOADER WILL BE OVERWRITTEN
+
+Notes: 
+  - If "RM9200 Ext Flash" and "RM9200 Ext SDRAM" are used as 
+    target jumper J15 should be in position EXT (pins 2-3)
+  - For "RM9200 Int RAM" or "RM9200 Ext SDRAM" targets jumper 
+    position is irrelevant as those targets are used for debugging 
+    and program is loaded to Internal RAM or External SDRAM using 
+    debugger scripts (.ini file) and started
+  - For "RM9200 Ext SDRAM" target the code can be built only if 
+    licenced version of tools is used, because it uses custom Linker 
+    script in file ROM_to_RAM.sct

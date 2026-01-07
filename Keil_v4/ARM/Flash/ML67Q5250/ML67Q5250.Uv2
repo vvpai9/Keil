@@ -1,0 +1,102 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (ML67Q5250), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Program Functions)
+Group (Device Description)
+
+File 1,1,<.\FlashPrg.c><FlashPrg.c>
+File 2,1,<.\FlashDev.c><FlashDev.c>
+
+
+Options 1,0,0  // Target 'ML67Q5250'
+ Device (ML67Q5250)
+ Vendor (OKI)
+ Cpu (IRAM(0x10000000-0x10003FFF) IROM(0x08000000-0x0801FFFF) CLOCK(12000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("STARTUP\OKI\ML675250.s" ("OKI ML67Q5250 Startup Code"))
+ FlashDR ()
+ DevID (4626)
+ Rgf (ML675250.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿOKI\)
+ OrgReg (ÿOKI\)
+ TgStat=16
+ OutDir (.\)
+ OutName (ML67Q5250)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy ML67Q5250.axf ..\ML67Q5250.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,64,0,0 }
+ OCMADSIROM { 1,0,0,0,8,0,0,2,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,8,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,64,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cML67)(DARMO.DLL)(-pML675250)(SARM.DLL)()(TARMO.DLL)(-pML675250)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+

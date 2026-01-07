@@ -1,0 +1,14 @@
+This is a PC control application for LEDSwitch example. In order to run 
+this example, you need to set the network parameters to match your local
+area network.
+
+To test this example, run embedded LEDSwitch application on Evaluation
+board and connect it to LAN. Type in the IP address of your Embedded
+LEDSwitch Client into "Board IP" edit box. Type also the number of transfer 
+port into "Transfer port" edit box. Select one of transfer protocol (TCP or
+UDP). When the P2 value in windows application is changed, this value
+is send to the eval-board and the LEDs on the eval-board should set as 
+you specified in the windows application.
+
+
+Note: IP address and control port must match your target settings.

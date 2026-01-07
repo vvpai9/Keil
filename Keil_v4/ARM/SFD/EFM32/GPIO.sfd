@@ -1,0 +1,2031 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\GPIO.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         GPIO                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// --------------------------------------  GPIO_PA_CTRL  ------------------------------------------
+
+unsigned int GPIO_PA_CTRL __AT (0x40006000);
+
+//  <item> Reg_GPIO_PA_CTRL
+//    <i> GPIO_PA_CTRL [31..0] (@ 0x40006000) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_CTRL>>0) & 0xFFFFFFFF), ( (GPIO_PA_CTRL &= ~(0xFFFFFFFF<<0)), (GPIO_PA_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_CTRL_DRIVEMODE
+//    <i> DRIVEMODE [1..0] (@ 0x40006000) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_CTRL>>0) & 0x2), ( (GPIO_PA_CTRL &= ~(0x2<<0)), (GPIO_PA_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PA_MODEL  -----------------------------------------
+
+unsigned int GPIO_PA_MODEL __AT (0x40006004);
+
+//  <item> Reg_GPIO_PA_MODEL
+//    <i> GPIO_PA_MODEL [31..0] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_MODEL>>0) & 0xFFFFFFFF), ( (GPIO_PA_MODEL &= ~(0xFFFFFFFF<<0)), (GPIO_PA_MODEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE0
+//    <i> MODE0 [3..0] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>0) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<0)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE1
+//    <i> MODE1 [7..4] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>4) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<4)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE2
+//    <i> MODE2 [11..8] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>8) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<8)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE3
+//    <i> MODE3 [15..12] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>12) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<12)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE4
+//    <i> MODE4 [19..16] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>16) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<16)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE5
+//    <i> MODE5 [23..20] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>20) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<20)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE6
+//    <i> MODE6 [27..24] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>24) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<24)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEL_MODE7
+//    <i> MODE7 [31..28] (@ 0x40006004) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEL>>28) & 0xE), ( (GPIO_PA_MODEL &= ~(0xE<<28)), (GPIO_PA_MODEL |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PA_MODEH  -----------------------------------------
+
+unsigned int GPIO_PA_MODEH __AT (0x40006008);
+
+//  <item> Reg_GPIO_PA_MODEH
+//    <i> GPIO_PA_MODEH [31..0] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_MODEH>>0) & 0xFFFFFFFF), ( (GPIO_PA_MODEH &= ~(0xFFFFFFFF<<0)), (GPIO_PA_MODEH |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE8
+//    <i> MODE8 [3..0] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>0) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<0)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE9
+//    <i> MODE9 [7..4] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>4) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<4)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE10
+//    <i> MODE10 [11..8] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>8) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<8)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE11
+//    <i> MODE11 [15..12] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>12) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<12)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE12
+//    <i> MODE12 [19..16] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>16) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<16)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE13
+//    <i> MODE13 [23..20] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>20) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<20)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE14
+//    <i> MODE14 [27..24] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>24) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<24)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_MODEH_MODE15
+//    <i> MODE15 [31..28] (@ 0x40006008) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PA_MODEH>>28) & 0xE), ( (GPIO_PA_MODEH &= ~(0xE<<28)), (GPIO_PA_MODEH |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PA_DOUT  ------------------------------------------
+
+unsigned int GPIO_PA_DOUT __AT (0x4000600C);
+
+//  <item> Reg_GPIO_PA_DOUT
+//    <i> GPIO_PA_DOUT [31..0] (@ 0x4000600C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_DOUT>>0) & 0xFFFFFFFF), ( (GPIO_PA_DOUT &= ~(0xFFFFFFFF<<0)), (GPIO_PA_DOUT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_DOUT_DOUT
+//    <i> DOUT [15..0] (@ 0x4000600C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PA_DOUT>>0) & 0xFFFE), ( (GPIO_PA_DOUT &= ~(0xFFFE<<0)), (GPIO_PA_DOUT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PA_DOUTSET  ----------------------------------------
+
+unsigned int GPIO_PA_DOUTSET __AT (0x40006010);
+
+//  <item> Reg_GPIO_PA_DOUTSET
+//    <i> GPIO_PA_DOUTSET [31..0] (@ 0x40006010) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_DOUTSET>>0) & 0xFFFFFFFF), ( (GPIO_PA_DOUTSET &= ~(0xFFFFFFFF<<0)), (GPIO_PA_DOUTSET |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_DOUTSET_DOUTSET
+//    <i> DOUTSET [15..0] (@ 0x40006010) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PA_DOUTSET>>0) & 0xFFFE), ( (GPIO_PA_DOUTSET &= ~(0xFFFE<<0)), (GPIO_PA_DOUTSET |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PA_DOUTCLR  ----------------------------------------
+
+unsigned int GPIO_PA_DOUTCLR __AT (0x40006014);
+
+//  <item> Reg_GPIO_PA_DOUTCLR
+//    <i> GPIO_PA_DOUTCLR [31..0] (@ 0x40006014) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_DOUTCLR>>0) & 0xFFFFFFFF), ( (GPIO_PA_DOUTCLR &= ~(0xFFFFFFFF<<0)), (GPIO_PA_DOUTCLR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_DOUTCLR_DOUTCLR
+//    <i> DOUTCLR [15..0] (@ 0x40006014) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PA_DOUTCLR>>0) & 0xFFFE), ( (GPIO_PA_DOUTCLR &= ~(0xFFFE<<0)), (GPIO_PA_DOUTCLR |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PA_DOUTTGL  ----------------------------------------
+
+unsigned int GPIO_PA_DOUTTGL __AT (0x40006018);
+
+//  <item> Reg_GPIO_PA_DOUTTGL
+//    <i> GPIO_PA_DOUTTGL [31..0] (@ 0x40006018) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_DOUTTGL>>0) & 0xFFFFFFFF), ( (GPIO_PA_DOUTTGL &= ~(0xFFFFFFFF<<0)), (GPIO_PA_DOUTTGL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_DOUTTGL_DOUTTGL
+//    <i> DOUTTGL [15..0] (@ 0x40006018) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PA_DOUTTGL>>0) & 0xFFFE), ( (GPIO_PA_DOUTTGL &= ~(0xFFFE<<0)), (GPIO_PA_DOUTTGL |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  GPIO_PA_DIN  ------------------------------------------
+
+unsigned int GPIO_PA_DIN __AT (0x4000601C);
+
+//  <item> Reg_GPIO_PA_DIN
+//    <i> GPIO_PA_DIN [31..0] (@ 0x4000601C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_DIN>>0) & 0xFFFFFFFF), ( (GPIO_PA_DIN &= ~(0xFFFFFFFF<<0)), (GPIO_PA_DIN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_DIN_DIN
+//    <i> DIN [15..0] (@ 0x4000601C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PA_DIN>>0) & 0xFFFE), ( (GPIO_PA_DIN &= ~(0xFFFE<<0)), (GPIO_PA_DIN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  GPIO_PA_PINLOCKN  ----------------------------------------
+
+unsigned int GPIO_PA_PINLOCKN __AT (0x40006020);
+
+//  <item> Reg_GPIO_PA_PINLOCKN
+//    <i> GPIO_PA_PINLOCKN [31..0] (@ 0x40006020) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PA_PINLOCKN>>0) & 0xFFFFFFFF), ( (GPIO_PA_PINLOCKN &= ~(0xFFFFFFFF<<0)), (GPIO_PA_PINLOCKN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PA_PINLOCKN_PINLOCKN
+//    <i> PINLOCKN [15..0] (@ 0x40006020) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PA_PINLOCKN>>0) & 0xFFFE), ( (GPIO_PA_PINLOCKN &= ~(0xFFFE<<0)), (GPIO_PA_PINLOCKN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PB_CTRL  ------------------------------------------
+
+unsigned int GPIO_PB_CTRL __AT (0x40006024);
+
+//  <item> Reg_GPIO_PB_CTRL
+//    <i> GPIO_PB_CTRL [31..0] (@ 0x40006024) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_CTRL>>0) & 0xFFFFFFFF), ( (GPIO_PB_CTRL &= ~(0xFFFFFFFF<<0)), (GPIO_PB_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_CTRL_DRIVEMODE
+//    <i> DRIVEMODE [1..0] (@ 0x40006024) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_CTRL>>0) & 0x2), ( (GPIO_PB_CTRL &= ~(0x2<<0)), (GPIO_PB_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PB_MODEL  -----------------------------------------
+
+unsigned int GPIO_PB_MODEL __AT (0x40006028);
+
+//  <item> Reg_GPIO_PB_MODEL
+//    <i> GPIO_PB_MODEL [31..0] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_MODEL>>0) & 0xFFFFFFFF), ( (GPIO_PB_MODEL &= ~(0xFFFFFFFF<<0)), (GPIO_PB_MODEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE0
+//    <i> MODE0 [3..0] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>0) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<0)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE1
+//    <i> MODE1 [7..4] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>4) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<4)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE2
+//    <i> MODE2 [11..8] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>8) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<8)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE3
+//    <i> MODE3 [15..12] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>12) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<12)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE4
+//    <i> MODE4 [19..16] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>16) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<16)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE5
+//    <i> MODE5 [23..20] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>20) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<20)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE6
+//    <i> MODE6 [27..24] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>24) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<24)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEL_MODE7
+//    <i> MODE7 [31..28] (@ 0x40006028) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEL>>28) & 0xE), ( (GPIO_PB_MODEL &= ~(0xE<<28)), (GPIO_PB_MODEL |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PB_MODEH  -----------------------------------------
+
+unsigned int GPIO_PB_MODEH __AT (0x4000602C);
+
+//  <item> Reg_GPIO_PB_MODEH
+//    <i> GPIO_PB_MODEH [31..0] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_MODEH>>0) & 0xFFFFFFFF), ( (GPIO_PB_MODEH &= ~(0xFFFFFFFF<<0)), (GPIO_PB_MODEH |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE8
+//    <i> MODE8 [3..0] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>0) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<0)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE9
+//    <i> MODE9 [7..4] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>4) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<4)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE10
+//    <i> MODE10 [11..8] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>8) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<8)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE11
+//    <i> MODE11 [15..12] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>12) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<12)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE12
+//    <i> MODE12 [19..16] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>16) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<16)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE13
+//    <i> MODE13 [23..20] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>20) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<20)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE14
+//    <i> MODE14 [27..24] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>24) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<24)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_MODEH_MODE15
+//    <i> MODE15 [31..28] (@ 0x4000602C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PB_MODEH>>28) & 0xE), ( (GPIO_PB_MODEH &= ~(0xE<<28)), (GPIO_PB_MODEH |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PB_DOUT  ------------------------------------------
+
+unsigned int GPIO_PB_DOUT __AT (0x40006030);
+
+//  <item> Reg_GPIO_PB_DOUT
+//    <i> GPIO_PB_DOUT [31..0] (@ 0x40006030) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_DOUT>>0) & 0xFFFFFFFF), ( (GPIO_PB_DOUT &= ~(0xFFFFFFFF<<0)), (GPIO_PB_DOUT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_DOUT_DOUT
+//    <i> DOUT [15..0] (@ 0x40006030) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PB_DOUT>>0) & 0xFFFE), ( (GPIO_PB_DOUT &= ~(0xFFFE<<0)), (GPIO_PB_DOUT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PB_DOUTSET  ----------------------------------------
+
+unsigned int GPIO_PB_DOUTSET __AT (0x40006034);
+
+//  <item> Reg_GPIO_PB_DOUTSET
+//    <i> GPIO_PB_DOUTSET [31..0] (@ 0x40006034) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_DOUTSET>>0) & 0xFFFFFFFF), ( (GPIO_PB_DOUTSET &= ~(0xFFFFFFFF<<0)), (GPIO_PB_DOUTSET |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_DOUTSET_DOUTSET
+//    <i> DOUTSET [15..0] (@ 0x40006034) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PB_DOUTSET>>0) & 0xFFFE), ( (GPIO_PB_DOUTSET &= ~(0xFFFE<<0)), (GPIO_PB_DOUTSET |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PB_DOUTCLR  ----------------------------------------
+
+unsigned int GPIO_PB_DOUTCLR __AT (0x40006038);
+
+//  <item> Reg_GPIO_PB_DOUTCLR
+//    <i> GPIO_PB_DOUTCLR [31..0] (@ 0x40006038) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_DOUTCLR>>0) & 0xFFFFFFFF), ( (GPIO_PB_DOUTCLR &= ~(0xFFFFFFFF<<0)), (GPIO_PB_DOUTCLR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_DOUTCLR_DOUTCLR
+//    <i> DOUTCLR [15..0] (@ 0x40006038) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PB_DOUTCLR>>0) & 0xFFFE), ( (GPIO_PB_DOUTCLR &= ~(0xFFFE<<0)), (GPIO_PB_DOUTCLR |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PB_DOUTTGL  ----------------------------------------
+
+unsigned int GPIO_PB_DOUTTGL __AT (0x4000603C);
+
+//  <item> Reg_GPIO_PB_DOUTTGL
+//    <i> GPIO_PB_DOUTTGL [31..0] (@ 0x4000603C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_DOUTTGL>>0) & 0xFFFFFFFF), ( (GPIO_PB_DOUTTGL &= ~(0xFFFFFFFF<<0)), (GPIO_PB_DOUTTGL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_DOUTTGL_DOUTTGL
+//    <i> DOUTTGL [15..0] (@ 0x4000603C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PB_DOUTTGL>>0) & 0xFFFE), ( (GPIO_PB_DOUTTGL &= ~(0xFFFE<<0)), (GPIO_PB_DOUTTGL |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  GPIO_PB_DIN  ------------------------------------------
+
+unsigned int GPIO_PB_DIN __AT (0x40006040);
+
+//  <item> Reg_GPIO_PB_DIN
+//    <i> GPIO_PB_DIN [31..0] (@ 0x40006040) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_DIN>>0) & 0xFFFFFFFF), ( (GPIO_PB_DIN &= ~(0xFFFFFFFF<<0)), (GPIO_PB_DIN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_DIN_DIN
+//    <i> DIN [15..0] (@ 0x40006040) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PB_DIN>>0) & 0xFFFE), ( (GPIO_PB_DIN &= ~(0xFFFE<<0)), (GPIO_PB_DIN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  GPIO_PB_PINLOCKN  ----------------------------------------
+
+unsigned int GPIO_PB_PINLOCKN __AT (0x40006044);
+
+//  <item> Reg_GPIO_PB_PINLOCKN
+//    <i> GPIO_PB_PINLOCKN [31..0] (@ 0x40006044) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PB_PINLOCKN>>0) & 0xFFFFFFFF), ( (GPIO_PB_PINLOCKN &= ~(0xFFFFFFFF<<0)), (GPIO_PB_PINLOCKN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PB_PINLOCKN_PINLOCKN
+//    <i> PINLOCKN [15..0] (@ 0x40006044) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PB_PINLOCKN>>0) & 0xFFFE), ( (GPIO_PB_PINLOCKN &= ~(0xFFFE<<0)), (GPIO_PB_PINLOCKN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PC_CTRL  ------------------------------------------
+
+unsigned int GPIO_PC_CTRL __AT (0x40006048);
+
+//  <item> Reg_GPIO_PC_CTRL
+//    <i> GPIO_PC_CTRL [31..0] (@ 0x40006048) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_CTRL>>0) & 0xFFFFFFFF), ( (GPIO_PC_CTRL &= ~(0xFFFFFFFF<<0)), (GPIO_PC_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_CTRL_DRIVEMODE
+//    <i> DRIVEMODE [1..0] (@ 0x40006048) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_CTRL>>0) & 0x2), ( (GPIO_PC_CTRL &= ~(0x2<<0)), (GPIO_PC_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PC_MODEL  -----------------------------------------
+
+unsigned int GPIO_PC_MODEL __AT (0x4000604C);
+
+//  <item> Reg_GPIO_PC_MODEL
+//    <i> GPIO_PC_MODEL [31..0] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_MODEL>>0) & 0xFFFFFFFF), ( (GPIO_PC_MODEL &= ~(0xFFFFFFFF<<0)), (GPIO_PC_MODEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE0
+//    <i> MODE0 [3..0] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>0) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<0)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE1
+//    <i> MODE1 [7..4] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>4) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<4)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE2
+//    <i> MODE2 [11..8] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>8) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<8)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE3
+//    <i> MODE3 [15..12] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>12) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<12)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE4
+//    <i> MODE4 [19..16] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>16) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<16)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE5
+//    <i> MODE5 [23..20] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>20) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<20)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE6
+//    <i> MODE6 [27..24] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>24) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<24)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEL_MODE7
+//    <i> MODE7 [31..28] (@ 0x4000604C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEL>>28) & 0xE), ( (GPIO_PC_MODEL &= ~(0xE<<28)), (GPIO_PC_MODEL |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PC_MODEH  -----------------------------------------
+
+unsigned int GPIO_PC_MODEH __AT (0x40006050);
+
+//  <item> Reg_GPIO_PC_MODEH
+//    <i> GPIO_PC_MODEH [31..0] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_MODEH>>0) & 0xFFFFFFFF), ( (GPIO_PC_MODEH &= ~(0xFFFFFFFF<<0)), (GPIO_PC_MODEH |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE8
+//    <i> MODE8 [3..0] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>0) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<0)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE9
+//    <i> MODE9 [7..4] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>4) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<4)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE10
+//    <i> MODE10 [11..8] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>8) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<8)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE11
+//    <i> MODE11 [15..12] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>12) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<12)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE12
+//    <i> MODE12 [19..16] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>16) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<16)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE13
+//    <i> MODE13 [23..20] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>20) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<20)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE14
+//    <i> MODE14 [27..24] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>24) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<24)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_MODEH_MODE15
+//    <i> MODE15 [31..28] (@ 0x40006050) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PC_MODEH>>28) & 0xE), ( (GPIO_PC_MODEH &= ~(0xE<<28)), (GPIO_PC_MODEH |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PC_DOUT  ------------------------------------------
+
+unsigned int GPIO_PC_DOUT __AT (0x40006054);
+
+//  <item> Reg_GPIO_PC_DOUT
+//    <i> GPIO_PC_DOUT [31..0] (@ 0x40006054) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_DOUT>>0) & 0xFFFFFFFF), ( (GPIO_PC_DOUT &= ~(0xFFFFFFFF<<0)), (GPIO_PC_DOUT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_DOUT_DOUT
+//    <i> DOUT [15..0] (@ 0x40006054) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PC_DOUT>>0) & 0xFFFE), ( (GPIO_PC_DOUT &= ~(0xFFFE<<0)), (GPIO_PC_DOUT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PC_DOUTSET  ----------------------------------------
+
+unsigned int GPIO_PC_DOUTSET __AT (0x40006058);
+
+//  <item> Reg_GPIO_PC_DOUTSET
+//    <i> GPIO_PC_DOUTSET [31..0] (@ 0x40006058) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_DOUTSET>>0) & 0xFFFFFFFF), ( (GPIO_PC_DOUTSET &= ~(0xFFFFFFFF<<0)), (GPIO_PC_DOUTSET |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_DOUTSET_DOUTSET
+//    <i> DOUTSET [15..0] (@ 0x40006058) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PC_DOUTSET>>0) & 0xFFFE), ( (GPIO_PC_DOUTSET &= ~(0xFFFE<<0)), (GPIO_PC_DOUTSET |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PC_DOUTCLR  ----------------------------------------
+
+unsigned int GPIO_PC_DOUTCLR __AT (0x4000605C);
+
+//  <item> Reg_GPIO_PC_DOUTCLR
+//    <i> GPIO_PC_DOUTCLR [31..0] (@ 0x4000605C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_DOUTCLR>>0) & 0xFFFFFFFF), ( (GPIO_PC_DOUTCLR &= ~(0xFFFFFFFF<<0)), (GPIO_PC_DOUTCLR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_DOUTCLR_DOUTCLR
+//    <i> DOUTCLR [15..0] (@ 0x4000605C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PC_DOUTCLR>>0) & 0xFFFE), ( (GPIO_PC_DOUTCLR &= ~(0xFFFE<<0)), (GPIO_PC_DOUTCLR |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PC_DOUTTGL  ----------------------------------------
+
+unsigned int GPIO_PC_DOUTTGL __AT (0x40006060);
+
+//  <item> Reg_GPIO_PC_DOUTTGL
+//    <i> GPIO_PC_DOUTTGL [31..0] (@ 0x40006060) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_DOUTTGL>>0) & 0xFFFFFFFF), ( (GPIO_PC_DOUTTGL &= ~(0xFFFFFFFF<<0)), (GPIO_PC_DOUTTGL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_DOUTTGL_DOUTTGL
+//    <i> DOUTTGL [15..0] (@ 0x40006060) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PC_DOUTTGL>>0) & 0xFFFE), ( (GPIO_PC_DOUTTGL &= ~(0xFFFE<<0)), (GPIO_PC_DOUTTGL |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  GPIO_PC_DIN  ------------------------------------------
+
+unsigned int GPIO_PC_DIN __AT (0x40006064);
+
+//  <item> Reg_GPIO_PC_DIN
+//    <i> GPIO_PC_DIN [31..0] (@ 0x40006064) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_DIN>>0) & 0xFFFFFFFF), ( (GPIO_PC_DIN &= ~(0xFFFFFFFF<<0)), (GPIO_PC_DIN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_DIN_DIN
+//    <i> DIN [15..0] (@ 0x40006064) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PC_DIN>>0) & 0xFFFE), ( (GPIO_PC_DIN &= ~(0xFFFE<<0)), (GPIO_PC_DIN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  GPIO_PC_PINLOCKN  ----------------------------------------
+
+unsigned int GPIO_PC_PINLOCKN __AT (0x40006068);
+
+//  <item> Reg_GPIO_PC_PINLOCKN
+//    <i> GPIO_PC_PINLOCKN [31..0] (@ 0x40006068) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PC_PINLOCKN>>0) & 0xFFFFFFFF), ( (GPIO_PC_PINLOCKN &= ~(0xFFFFFFFF<<0)), (GPIO_PC_PINLOCKN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PC_PINLOCKN_PINLOCKN
+//    <i> PINLOCKN [15..0] (@ 0x40006068) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PC_PINLOCKN>>0) & 0xFFFE), ( (GPIO_PC_PINLOCKN &= ~(0xFFFE<<0)), (GPIO_PC_PINLOCKN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PD_CTRL  ------------------------------------------
+
+unsigned int GPIO_PD_CTRL __AT (0x4000606C);
+
+//  <item> Reg_GPIO_PD_CTRL
+//    <i> GPIO_PD_CTRL [31..0] (@ 0x4000606C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_CTRL>>0) & 0xFFFFFFFF), ( (GPIO_PD_CTRL &= ~(0xFFFFFFFF<<0)), (GPIO_PD_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_CTRL_DRIVEMODE
+//    <i> DRIVEMODE [1..0] (@ 0x4000606C) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_CTRL>>0) & 0x2), ( (GPIO_PD_CTRL &= ~(0x2<<0)), (GPIO_PD_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PD_MODEL  -----------------------------------------
+
+unsigned int GPIO_PD_MODEL __AT (0x40006070);
+
+//  <item> Reg_GPIO_PD_MODEL
+//    <i> GPIO_PD_MODEL [31..0] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_MODEL>>0) & 0xFFFFFFFF), ( (GPIO_PD_MODEL &= ~(0xFFFFFFFF<<0)), (GPIO_PD_MODEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE0
+//    <i> MODE0 [3..0] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>0) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<0)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE1
+//    <i> MODE1 [7..4] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>4) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<4)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE2
+//    <i> MODE2 [11..8] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>8) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<8)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE3
+//    <i> MODE3 [15..12] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>12) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<12)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE4
+//    <i> MODE4 [19..16] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>16) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<16)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE5
+//    <i> MODE5 [23..20] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>20) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<20)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE6
+//    <i> MODE6 [27..24] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>24) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<24)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEL_MODE7
+//    <i> MODE7 [31..28] (@ 0x40006070) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEL>>28) & 0xE), ( (GPIO_PD_MODEL &= ~(0xE<<28)), (GPIO_PD_MODEL |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PD_MODEH  -----------------------------------------
+
+unsigned int GPIO_PD_MODEH __AT (0x40006074);
+
+//  <item> Reg_GPIO_PD_MODEH
+//    <i> GPIO_PD_MODEH [31..0] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_MODEH>>0) & 0xFFFFFFFF), ( (GPIO_PD_MODEH &= ~(0xFFFFFFFF<<0)), (GPIO_PD_MODEH |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE8
+//    <i> MODE8 [3..0] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>0) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<0)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE9
+//    <i> MODE9 [7..4] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>4) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<4)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE10
+//    <i> MODE10 [11..8] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>8) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<8)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE11
+//    <i> MODE11 [15..12] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>12) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<12)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE12
+//    <i> MODE12 [19..16] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>16) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<16)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE13
+//    <i> MODE13 [23..20] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>20) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<20)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE14
+//    <i> MODE14 [27..24] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>24) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<24)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_MODEH_MODE15
+//    <i> MODE15 [31..28] (@ 0x40006074) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PD_MODEH>>28) & 0xE), ( (GPIO_PD_MODEH &= ~(0xE<<28)), (GPIO_PD_MODEH |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PD_DOUT  ------------------------------------------
+
+unsigned int GPIO_PD_DOUT __AT (0x40006078);
+
+//  <item> Reg_GPIO_PD_DOUT
+//    <i> GPIO_PD_DOUT [31..0] (@ 0x40006078) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_DOUT>>0) & 0xFFFFFFFF), ( (GPIO_PD_DOUT &= ~(0xFFFFFFFF<<0)), (GPIO_PD_DOUT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_DOUT_DOUT
+//    <i> DOUT [15..0] (@ 0x40006078) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PD_DOUT>>0) & 0xFFFE), ( (GPIO_PD_DOUT &= ~(0xFFFE<<0)), (GPIO_PD_DOUT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PD_DOUTSET  ----------------------------------------
+
+unsigned int GPIO_PD_DOUTSET __AT (0x4000607C);
+
+//  <item> Reg_GPIO_PD_DOUTSET
+//    <i> GPIO_PD_DOUTSET [31..0] (@ 0x4000607C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_DOUTSET>>0) & 0xFFFFFFFF), ( (GPIO_PD_DOUTSET &= ~(0xFFFFFFFF<<0)), (GPIO_PD_DOUTSET |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_DOUTSET_DOUTSET
+//    <i> DOUTSET [15..0] (@ 0x4000607C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PD_DOUTSET>>0) & 0xFFFE), ( (GPIO_PD_DOUTSET &= ~(0xFFFE<<0)), (GPIO_PD_DOUTSET |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PD_DOUTCLR  ----------------------------------------
+
+unsigned int GPIO_PD_DOUTCLR __AT (0x40006080);
+
+//  <item> Reg_GPIO_PD_DOUTCLR
+//    <i> GPIO_PD_DOUTCLR [31..0] (@ 0x40006080) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_DOUTCLR>>0) & 0xFFFFFFFF), ( (GPIO_PD_DOUTCLR &= ~(0xFFFFFFFF<<0)), (GPIO_PD_DOUTCLR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_DOUTCLR_DOUTCLR
+//    <i> DOUTCLR [15..0] (@ 0x40006080) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PD_DOUTCLR>>0) & 0xFFFE), ( (GPIO_PD_DOUTCLR &= ~(0xFFFE<<0)), (GPIO_PD_DOUTCLR |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PD_DOUTTGL  ----------------------------------------
+
+unsigned int GPIO_PD_DOUTTGL __AT (0x40006084);
+
+//  <item> Reg_GPIO_PD_DOUTTGL
+//    <i> GPIO_PD_DOUTTGL [31..0] (@ 0x40006084) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_DOUTTGL>>0) & 0xFFFFFFFF), ( (GPIO_PD_DOUTTGL &= ~(0xFFFFFFFF<<0)), (GPIO_PD_DOUTTGL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_DOUTTGL_DOUTTGL
+//    <i> DOUTTGL [15..0] (@ 0x40006084) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PD_DOUTTGL>>0) & 0xFFFE), ( (GPIO_PD_DOUTTGL &= ~(0xFFFE<<0)), (GPIO_PD_DOUTTGL |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  GPIO_PD_DIN  ------------------------------------------
+
+unsigned int GPIO_PD_DIN __AT (0x40006088);
+
+//  <item> Reg_GPIO_PD_DIN
+//    <i> GPIO_PD_DIN [31..0] (@ 0x40006088) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_DIN>>0) & 0xFFFFFFFF), ( (GPIO_PD_DIN &= ~(0xFFFFFFFF<<0)), (GPIO_PD_DIN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_DIN_DIN
+//    <i> DIN [15..0] (@ 0x40006088) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PD_DIN>>0) & 0xFFFE), ( (GPIO_PD_DIN &= ~(0xFFFE<<0)), (GPIO_PD_DIN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  GPIO_PD_PINLOCKN  ----------------------------------------
+
+unsigned int GPIO_PD_PINLOCKN __AT (0x4000608C);
+
+//  <item> Reg_GPIO_PD_PINLOCKN
+//    <i> GPIO_PD_PINLOCKN [31..0] (@ 0x4000608C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PD_PINLOCKN>>0) & 0xFFFFFFFF), ( (GPIO_PD_PINLOCKN &= ~(0xFFFFFFFF<<0)), (GPIO_PD_PINLOCKN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PD_PINLOCKN_PINLOCKN
+//    <i> PINLOCKN [15..0] (@ 0x4000608C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PD_PINLOCKN>>0) & 0xFFFE), ( (GPIO_PD_PINLOCKN &= ~(0xFFFE<<0)), (GPIO_PD_PINLOCKN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PE_CTRL  ------------------------------------------
+
+unsigned int GPIO_PE_CTRL __AT (0x40006090);
+
+//  <item> Reg_GPIO_PE_CTRL
+//    <i> GPIO_PE_CTRL [31..0] (@ 0x40006090) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_CTRL>>0) & 0xFFFFFFFF), ( (GPIO_PE_CTRL &= ~(0xFFFFFFFF<<0)), (GPIO_PE_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_CTRL_DRIVEMODE
+//    <i> DRIVEMODE [1..0] (@ 0x40006090) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_CTRL>>0) & 0x2), ( (GPIO_PE_CTRL &= ~(0x2<<0)), (GPIO_PE_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PE_MODEL  -----------------------------------------
+
+unsigned int GPIO_PE_MODEL __AT (0x40006094);
+
+//  <item> Reg_GPIO_PE_MODEL
+//    <i> GPIO_PE_MODEL [31..0] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_MODEL>>0) & 0xFFFFFFFF), ( (GPIO_PE_MODEL &= ~(0xFFFFFFFF<<0)), (GPIO_PE_MODEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE0
+//    <i> MODE0 [3..0] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>0) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<0)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE1
+//    <i> MODE1 [7..4] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>4) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<4)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE2
+//    <i> MODE2 [11..8] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>8) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<8)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE3
+//    <i> MODE3 [15..12] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>12) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<12)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE4
+//    <i> MODE4 [19..16] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>16) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<16)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE5
+//    <i> MODE5 [23..20] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>20) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<20)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE6
+//    <i> MODE6 [27..24] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>24) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<24)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEL_MODE7
+//    <i> MODE7 [31..28] (@ 0x40006094) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEL>>28) & 0xE), ( (GPIO_PE_MODEL &= ~(0xE<<28)), (GPIO_PE_MODEL |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PE_MODEH  -----------------------------------------
+
+unsigned int GPIO_PE_MODEH __AT (0x40006098);
+
+//  <item> Reg_GPIO_PE_MODEH
+//    <i> GPIO_PE_MODEH [31..0] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_MODEH>>0) & 0xFFFFFFFF), ( (GPIO_PE_MODEH &= ~(0xFFFFFFFF<<0)), (GPIO_PE_MODEH |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE8
+//    <i> MODE8 [3..0] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>0) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<0)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE9
+//    <i> MODE9 [7..4] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>4) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<4)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE10
+//    <i> MODE10 [11..8] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>8) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<8)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE11
+//    <i> MODE11 [15..12] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>12) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<12)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE12
+//    <i> MODE12 [19..16] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>16) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<16)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE13
+//    <i> MODE13 [23..20] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>20) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<20)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE14
+//    <i> MODE14 [27..24] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>24) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<24)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_MODEH_MODE15
+//    <i> MODE15 [31..28] (@ 0x40006098) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PE_MODEH>>28) & 0xE), ( (GPIO_PE_MODEH &= ~(0xE<<28)), (GPIO_PE_MODEH |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PE_DOUT  ------------------------------------------
+
+unsigned int GPIO_PE_DOUT __AT (0x4000609C);
+
+//  <item> Reg_GPIO_PE_DOUT
+//    <i> GPIO_PE_DOUT [31..0] (@ 0x4000609C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_DOUT>>0) & 0xFFFFFFFF), ( (GPIO_PE_DOUT &= ~(0xFFFFFFFF<<0)), (GPIO_PE_DOUT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_DOUT_DOUT
+//    <i> DOUT [15..0] (@ 0x4000609C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PE_DOUT>>0) & 0xFFFE), ( (GPIO_PE_DOUT &= ~(0xFFFE<<0)), (GPIO_PE_DOUT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PE_DOUTSET  ----------------------------------------
+
+unsigned int GPIO_PE_DOUTSET __AT (0x400060A0);
+
+//  <item> Reg_GPIO_PE_DOUTSET
+//    <i> GPIO_PE_DOUTSET [31..0] (@ 0x400060A0) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_DOUTSET>>0) & 0xFFFFFFFF), ( (GPIO_PE_DOUTSET &= ~(0xFFFFFFFF<<0)), (GPIO_PE_DOUTSET |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_DOUTSET_DOUTSET
+//    <i> DOUTSET [15..0] (@ 0x400060A0) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PE_DOUTSET>>0) & 0xFFFE), ( (GPIO_PE_DOUTSET &= ~(0xFFFE<<0)), (GPIO_PE_DOUTSET |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PE_DOUTCLR  ----------------------------------------
+
+unsigned int GPIO_PE_DOUTCLR __AT (0x400060A4);
+
+//  <item> Reg_GPIO_PE_DOUTCLR
+//    <i> GPIO_PE_DOUTCLR [31..0] (@ 0x400060A4) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_DOUTCLR>>0) & 0xFFFFFFFF), ( (GPIO_PE_DOUTCLR &= ~(0xFFFFFFFF<<0)), (GPIO_PE_DOUTCLR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_DOUTCLR_DOUTCLR
+//    <i> DOUTCLR [15..0] (@ 0x400060A4) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PE_DOUTCLR>>0) & 0xFFFE), ( (GPIO_PE_DOUTCLR &= ~(0xFFFE<<0)), (GPIO_PE_DOUTCLR |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PE_DOUTTGL  ----------------------------------------
+
+unsigned int GPIO_PE_DOUTTGL __AT (0x400060A8);
+
+//  <item> Reg_GPIO_PE_DOUTTGL
+//    <i> GPIO_PE_DOUTTGL [31..0] (@ 0x400060A8) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_DOUTTGL>>0) & 0xFFFFFFFF), ( (GPIO_PE_DOUTTGL &= ~(0xFFFFFFFF<<0)), (GPIO_PE_DOUTTGL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_DOUTTGL_DOUTTGL
+//    <i> DOUTTGL [15..0] (@ 0x400060A8) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PE_DOUTTGL>>0) & 0xFFFE), ( (GPIO_PE_DOUTTGL &= ~(0xFFFE<<0)), (GPIO_PE_DOUTTGL |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  GPIO_PE_DIN  ------------------------------------------
+
+unsigned int GPIO_PE_DIN __AT (0x400060AC);
+
+//  <item> Reg_GPIO_PE_DIN
+//    <i> GPIO_PE_DIN [31..0] (@ 0x400060AC) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_DIN>>0) & 0xFFFFFFFF), ( (GPIO_PE_DIN &= ~(0xFFFFFFFF<<0)), (GPIO_PE_DIN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_DIN_DIN
+//    <i> DIN [15..0] (@ 0x400060AC) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PE_DIN>>0) & 0xFFFE), ( (GPIO_PE_DIN &= ~(0xFFFE<<0)), (GPIO_PE_DIN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  GPIO_PE_PINLOCKN  ----------------------------------------
+
+unsigned int GPIO_PE_PINLOCKN __AT (0x400060B0);
+
+//  <item> Reg_GPIO_PE_PINLOCKN
+//    <i> GPIO_PE_PINLOCKN [31..0] (@ 0x400060B0) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PE_PINLOCKN>>0) & 0xFFFFFFFF), ( (GPIO_PE_PINLOCKN &= ~(0xFFFFFFFF<<0)), (GPIO_PE_PINLOCKN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PE_PINLOCKN_PINLOCKN
+//    <i> PINLOCKN [15..0] (@ 0x400060B0) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PE_PINLOCKN>>0) & 0xFFFE), ( (GPIO_PE_PINLOCKN &= ~(0xFFFE<<0)), (GPIO_PE_PINLOCKN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PF_CTRL  ------------------------------------------
+
+unsigned int GPIO_PF_CTRL __AT (0x400060B4);
+
+//  <item> Reg_GPIO_PF_CTRL
+//    <i> GPIO_PF_CTRL [31..0] (@ 0x400060B4) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_CTRL>>0) & 0xFFFFFFFF), ( (GPIO_PF_CTRL &= ~(0xFFFFFFFF<<0)), (GPIO_PF_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_CTRL_DRIVEMODE
+//    <i> DRIVEMODE [1..0] (@ 0x400060B4) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_CTRL>>0) & 0x2), ( (GPIO_PF_CTRL &= ~(0x2<<0)), (GPIO_PF_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PF_MODEL  -----------------------------------------
+
+unsigned int GPIO_PF_MODEL __AT (0x400060B8);
+
+//  <item> Reg_GPIO_PF_MODEL
+//    <i> GPIO_PF_MODEL [31..0] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_MODEL>>0) & 0xFFFFFFFF), ( (GPIO_PF_MODEL &= ~(0xFFFFFFFF<<0)), (GPIO_PF_MODEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE0
+//    <i> MODE0 [3..0] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>0) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<0)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE1
+//    <i> MODE1 [7..4] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>4) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<4)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE2
+//    <i> MODE2 [11..8] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>8) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<8)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE3
+//    <i> MODE3 [15..12] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>12) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<12)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE4
+//    <i> MODE4 [19..16] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>16) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<16)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE5
+//    <i> MODE5 [23..20] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>20) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<20)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE6
+//    <i> MODE6 [27..24] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>24) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<24)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEL_MODE7
+//    <i> MODE7 [31..28] (@ 0x400060B8) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEL>>28) & 0xE), ( (GPIO_PF_MODEL &= ~(0xE<<28)), (GPIO_PF_MODEL |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PF_MODEH  -----------------------------------------
+
+unsigned int GPIO_PF_MODEH __AT (0x400060BC);
+
+//  <item> Reg_GPIO_PF_MODEH
+//    <i> GPIO_PF_MODEH [31..0] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_MODEH>>0) & 0xFFFFFFFF), ( (GPIO_PF_MODEH &= ~(0xFFFFFFFF<<0)), (GPIO_PF_MODEH |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE8
+//    <i> MODE8 [3..0] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>0) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<0)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE9
+//    <i> MODE9 [7..4] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>4) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<4)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE10
+//    <i> MODE10 [11..8] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>8) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<8)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE11
+//    <i> MODE11 [15..12] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>12) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<12)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE12
+//    <i> MODE12 [19..16] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>16) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<16)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE13
+//    <i> MODE13 [23..20] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>20) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<20)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE14
+//    <i> MODE14 [27..24] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>24) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<24)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_MODEH_MODE15
+//    <i> MODE15 [31..28] (@ 0x400060BC) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_PF_MODEH>>28) & 0xE), ( (GPIO_PF_MODEH &= ~(0xE<<28)), (GPIO_PF_MODEH |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_PF_DOUT  ------------------------------------------
+
+unsigned int GPIO_PF_DOUT __AT (0x400060C0);
+
+//  <item> Reg_GPIO_PF_DOUT
+//    <i> GPIO_PF_DOUT [31..0] (@ 0x400060C0) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_DOUT>>0) & 0xFFFFFFFF), ( (GPIO_PF_DOUT &= ~(0xFFFFFFFF<<0)), (GPIO_PF_DOUT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_DOUT_DOUT
+//    <i> DOUT [15..0] (@ 0x400060C0) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PF_DOUT>>0) & 0xFFFE), ( (GPIO_PF_DOUT &= ~(0xFFFE<<0)), (GPIO_PF_DOUT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PF_DOUTSET  ----------------------------------------
+
+unsigned int GPIO_PF_DOUTSET __AT (0x400060C4);
+
+//  <item> Reg_GPIO_PF_DOUTSET
+//    <i> GPIO_PF_DOUTSET [31..0] (@ 0x400060C4) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_DOUTSET>>0) & 0xFFFFFFFF), ( (GPIO_PF_DOUTSET &= ~(0xFFFFFFFF<<0)), (GPIO_PF_DOUTSET |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_DOUTSET_DOUTSET
+//    <i> DOUTSET [15..0] (@ 0x400060C4) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PF_DOUTSET>>0) & 0xFFFE), ( (GPIO_PF_DOUTSET &= ~(0xFFFE<<0)), (GPIO_PF_DOUTSET |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PF_DOUTCLR  ----------------------------------------
+
+unsigned int GPIO_PF_DOUTCLR __AT (0x400060C8);
+
+//  <item> Reg_GPIO_PF_DOUTCLR
+//    <i> GPIO_PF_DOUTCLR [31..0] (@ 0x400060C8) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_DOUTCLR>>0) & 0xFFFFFFFF), ( (GPIO_PF_DOUTCLR &= ~(0xFFFFFFFF<<0)), (GPIO_PF_DOUTCLR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_DOUTCLR_DOUTCLR
+//    <i> DOUTCLR [15..0] (@ 0x400060C8) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PF_DOUTCLR>>0) & 0xFFFE), ( (GPIO_PF_DOUTCLR &= ~(0xFFFE<<0)), (GPIO_PF_DOUTCLR |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_PF_DOUTTGL  ----------------------------------------
+
+unsigned int GPIO_PF_DOUTTGL __AT (0x400060CC);
+
+//  <item> Reg_GPIO_PF_DOUTTGL
+//    <i> GPIO_PF_DOUTTGL [31..0] (@ 0x400060CC) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_DOUTTGL>>0) & 0xFFFFFFFF), ( (GPIO_PF_DOUTTGL &= ~(0xFFFFFFFF<<0)), (GPIO_PF_DOUTTGL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_DOUTTGL_DOUTTGL
+//    <i> DOUTTGL [15..0] (@ 0x400060CC) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PF_DOUTTGL>>0) & 0xFFFE), ( (GPIO_PF_DOUTTGL &= ~(0xFFFE<<0)), (GPIO_PF_DOUTTGL |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  GPIO_PF_DIN  ------------------------------------------
+
+unsigned int GPIO_PF_DIN __AT (0x400060D0);
+
+//  <item> Reg_GPIO_PF_DIN
+//    <i> GPIO_PF_DIN [31..0] (@ 0x400060D0) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_DIN>>0) & 0xFFFFFFFF), ( (GPIO_PF_DIN &= ~(0xFFFFFFFF<<0)), (GPIO_PF_DIN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_DIN_DIN
+//    <i> DIN [15..0] (@ 0x400060D0) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PF_DIN>>0) & 0xFFFE), ( (GPIO_PF_DIN &= ~(0xFFFE<<0)), (GPIO_PF_DIN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  GPIO_PF_PINLOCKN  ----------------------------------------
+
+unsigned int GPIO_PF_PINLOCKN __AT (0x400060D4);
+
+//  <item> Reg_GPIO_PF_PINLOCKN
+//    <i> GPIO_PF_PINLOCKN [31..0] (@ 0x400060D4) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_PF_PINLOCKN>>0) & 0xFFFFFFFF), ( (GPIO_PF_PINLOCKN &= ~(0xFFFFFFFF<<0)), (GPIO_PF_PINLOCKN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_PF_PINLOCKN_PINLOCKN
+//    <i> PINLOCKN [15..0] (@ 0x400060D4) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_PF_PINLOCKN>>0) & 0xFFFE), ( (GPIO_PF_PINLOCKN &= ~(0xFFFE<<0)), (GPIO_PF_PINLOCKN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_EXTIPSELL  -----------------------------------------
+
+unsigned int GPIO_EXTIPSELL __AT (0x40006100);
+
+//  <item> Reg_GPIO_EXTIPSELL
+//    <i> GPIO_EXTIPSELL [31..0] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_EXTIPSELL>>0) & 0xFFFFFFFF), ( (GPIO_EXTIPSELL &= ~(0xFFFFFFFF<<0)), (GPIO_EXTIPSELL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL0
+//    <i> EXTIPSEL0 [2..0] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>0) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<0)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL1
+//    <i> EXTIPSEL1 [6..4] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>4) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<4)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL2
+//    <i> EXTIPSEL2 [10..8] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>8) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<8)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL3
+//    <i> EXTIPSEL3 [14..12] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>12) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<12)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL4
+//    <i> EXTIPSEL4 [18..16] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>16) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<16)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL5
+//    <i> EXTIPSEL5 [22..20] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>20) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<20)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL6
+//    <i> EXTIPSEL6 [26..24] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>24) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<24)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELL_EXTIPSEL7
+//    <i> EXTIPSEL7 [30..28] (@ 0x40006100) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELL>>28) & 0x6), ( (GPIO_EXTIPSELL &= ~(0x6<<28)), (GPIO_EXTIPSELL |= ((Gui_u8:GuiVal & 0x6)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  GPIO_EXTIPSELH  -----------------------------------------
+
+unsigned int GPIO_EXTIPSELH __AT (0x40006104);
+
+//  <item> Reg_GPIO_EXTIPSELH
+//    <i> GPIO_EXTIPSELH [31..0] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_EXTIPSELH>>0) & 0xFFFFFFFF), ( (GPIO_EXTIPSELH &= ~(0xFFFFFFFF<<0)), (GPIO_EXTIPSELH |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL8
+//    <i> EXTIPSEL8 [2..0] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>0) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<0)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL9
+//    <i> EXTIPSEL9 [6..4] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>4) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<4)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL10
+//    <i> EXTIPSEL10 [10..8] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>8) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<8)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL11
+//    <i> EXTIPSEL11 [14..12] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>12) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<12)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL12
+//    <i> EXTIPSEL12 [18..16] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>16) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<16)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL13
+//    <i> EXTIPSEL13 [22..20] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>20) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<20)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL14
+//    <i> EXTIPSEL14 [26..24] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>24) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<24)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIPSELH_EXTIPSEL16
+//    <i> EXTIPSEL16 [30..28] (@ 0x40006104) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_EXTIPSELH>>28) & 0x6), ( (GPIO_EXTIPSELH &= ~(0x6<<28)), (GPIO_EXTIPSELH |= ((Gui_u8:GuiVal & 0x6)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_EXTIRISE  -----------------------------------------
+
+unsigned int GPIO_EXTIRISE __AT (0x40006108);
+
+//  <item> Reg_GPIO_EXTIRISE
+//    <i> GPIO_EXTIRISE [31..0] (@ 0x40006108) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_EXTIRISE>>0) & 0xFFFFFFFF), ( (GPIO_EXTIRISE &= ~(0xFFFFFFFF<<0)), (GPIO_EXTIRISE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIRISE_EXTIRISE
+//    <i> EXTIRISE [15..0] (@ 0x40006108) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_EXTIRISE>>0) & 0xFFFE), ( (GPIO_EXTIRISE &= ~(0xFFFE<<0)), (GPIO_EXTIRISE |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_EXTIFALL  -----------------------------------------
+
+unsigned int GPIO_EXTIFALL __AT (0x4000610C);
+
+//  <item> Reg_GPIO_EXTIFALL
+//    <i> GPIO_EXTIFALL [31..0] (@ 0x4000610C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_EXTIFALL>>0) & 0xFFFFFFFF), ( (GPIO_EXTIFALL &= ~(0xFFFFFFFF<<0)), (GPIO_EXTIFALL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_EXTIFALL_EXTIFALL
+//    <i> EXTIFALL [15..0] (@ 0x4000610C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_EXTIFALL>>0) & 0xFFFE), ( (GPIO_EXTIFALL &= ~(0xFFFE<<0)), (GPIO_EXTIFALL |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  GPIO_IEN  --------------------------------------------
+
+unsigned int GPIO_IEN __AT (0x40006110);
+
+//  <item> Reg_GPIO_IEN
+//    <i> GPIO_IEN [31..0] (@ 0x40006110) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_IEN>>0) & 0xFFFFFFFF), ( (GPIO_IEN &= ~(0xFFFFFFFF<<0)), (GPIO_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_IEN_EXT
+//    <i> EXT [15..0] (@ 0x40006110) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_IEN>>0) & 0xFFFE), ( (GPIO_IEN &= ~(0xFFFE<<0)), (GPIO_IEN |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------------  GPIO_IF  --------------------------------------------
+
+unsigned int GPIO_IF __AT (0x40006114);
+
+//  <item> Reg_GPIO_IF
+//    <i> GPIO_IF [31..0] (@ 0x40006114) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_IF>>0) & 0xFFFFFFFF), ( (GPIO_IF &= ~(0xFFFFFFFF<<0)), (GPIO_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_IF_EXT
+//    <i> EXT [15..0] (@ 0x40006114) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_IF>>0) & 0xFFFE), ( (GPIO_IF &= ~(0xFFFE<<0)), (GPIO_IF |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  GPIO_IFS  --------------------------------------------
+
+unsigned int GPIO_IFS __AT (0x40006118);
+
+//  <item> Reg_GPIO_IFS
+//    <i> GPIO_IFS [31..0] (@ 0x40006118) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_IFS>>0) & 0xFFFFFFFF), ( (GPIO_IFS &= ~(0xFFFFFFFF<<0)), (GPIO_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_IFS_EXT
+//    <i> EXT [15..0] (@ 0x40006118) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_IFS>>0) & 0xFFFE), ( (GPIO_IFS &= ~(0xFFFE<<0)), (GPIO_IFS |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  GPIO_IFC  --------------------------------------------
+
+unsigned int GPIO_IFC __AT (0x4000611C);
+
+//  <item> Reg_GPIO_IFC
+//    <i> GPIO_IFC [31..0] (@ 0x4000611C) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_IFC>>0) & 0xFFFFFFFF), ( (GPIO_IFC &= ~(0xFFFFFFFF<<0)), (GPIO_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_IFC_EXT
+//    <i> EXT [15..0] (@ 0x4000611C) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_IFC>>0) & 0xFFFE), ( (GPIO_IFC &= ~(0xFFFE<<0)), (GPIO_IFC |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  GPIO_ROUTE  -------------------------------------------
+
+unsigned int GPIO_ROUTE __AT (0x40006120);
+
+//  <item> Reg_GPIO_ROUTE
+//    <i> GPIO_ROUTE [31..0] (@ 0x40006120) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_ROUTE>>0) & 0xFFFFFFFF), ( (GPIO_ROUTE &= ~(0xFFFFFFFF<<0)), (GPIO_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_ROUTE_SWCLKPEN
+//    <i> SWCLKPEN [0] (@ 0x40006120) </i>
+//    <check> 
+//      <loc> GPIO_ROUTE </loc>
+//      <o.0..0> SWCLKPEN
+//    </check>
+//  </item>
+//  
+//  <item> GPIO_ROUTE_SWDIOPEN
+//    <i> SWDIOPEN [1] (@ 0x40006120) </i>
+//    <check> 
+//      <loc> GPIO_ROUTE </loc>
+//      <o.1..1> SWDIOPEN
+//    </check>
+//  </item>
+//  
+//  <item> GPIO_ROUTE_SWVPEN
+//    <i> SWVPEN [2] (@ 0x40006120) </i>
+//    <check> 
+//      <loc> GPIO_ROUTE </loc>
+//      <o.2..2> SWVPEN
+//    </check>
+//  </item>
+//  
+//  <item> GPIO_ROUTE_SWLOCATION
+//    <i> SWLOCATION [9..8] (@ 0x40006120) </i>
+//    <edit> 
+//      <loc> ( (char)((GPIO_ROUTE>>8) & 0x2), ( (GPIO_ROUTE &= ~(0x2<<8)), (GPIO_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  GPIO_INSENSE  ------------------------------------------
+
+unsigned int GPIO_INSENSE __AT (0x40006124);
+
+//  <item> Reg_GPIO_INSENSE
+//    <i> GPIO_INSENSE [31..0] (@ 0x40006124) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_INSENSE>>0) & 0xFFFFFFFF), ( (GPIO_INSENSE &= ~(0xFFFFFFFF<<0)), (GPIO_INSENSE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_INSENSE_INTSENSE
+//    <i> INTSENSE [0] (@ 0x40006124) </i>
+//    <check> 
+//      <loc> GPIO_INSENSE </loc>
+//      <o.0..0> INTSENSE
+//    </check>
+//  </item>
+//  
+//  <item> GPIO_INSENSE_PRSSENSE
+//    <i> PRSSENSE [1] (@ 0x40006124) </i>
+//    <check> 
+//      <loc> GPIO_INSENSE </loc>
+//      <o.1..1> PRSSENSE
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  GPIO_LOCK  -------------------------------------------
+
+unsigned int GPIO_LOCK __AT (0x40006128);
+
+//  <item> Reg_GPIO_LOCK
+//    <i> GPIO_LOCK [31..0] (@ 0x40006128) </i>
+//    <edit> 
+//      <loc> ( (int)((GPIO_LOCK>>0) & 0xFFFFFFFF), ( (GPIO_LOCK &= ~(0xFFFFFFFF<<0)), (GPIO_LOCK |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> GPIO_LOCK_LOCKKEY
+//    <i> LOCKKEY [15..0] (@ 0x40006128) </i>
+//    <edit> 
+//      <loc> ( (short int)((GPIO_LOCK>>0) & 0xFFFE), ( (GPIO_LOCK &= ~(0xFFFE<<0)), (GPIO_LOCK |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

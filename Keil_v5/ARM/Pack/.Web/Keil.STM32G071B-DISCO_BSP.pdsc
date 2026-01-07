@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32G071B-DISCO_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32G0 Series STM32G071B-DISCO Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32G071B-DISCO_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="2.1.0" date="2025-08-21" tag="v2.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Added DWARF-5 debug information
+      - Added generated output files
+    </release>
+    <release version="2.0.0" date="2025-03-20" tag="v2.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Removed BSP drivers
+      Removed Platform project
+      Migrated Blinky example to CMSIS Solution
+      Drivers:
+      - Updated VIO driver to API 1.0.0
+      Reorganized Licenses:
+      - LICENSES (combined license file: Apache-2.0 and BSD-3-Clause)
+      - LICENSE-Apache-2.0 (for CMSIS add-ons)
+      - LICENSE-BSD-3-Clause (for STM32 HAL)
+    </release>
+    <release version="1.0.0" date="2021-09-29">
+      Board description and documentation for STM32G071B-DISCO
+      Synchronized with STM32CubeG0 Firmware Package version V1.5.0
+      Drivers:
+      - Board Drivers and Config files
+      - CMSIS-Driver VIO
+      Example projects:
+      - CMSIS-RTOS2 Blinky (verify the basic tool setup)
+      - CMSIS-RTOS2 Platform (configure the board hardware)
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32G0</keyword>
+    <keyword>STM32G071B-DISCO</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32G0xx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.2.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32G071B-DISCO">
+      <description>STMicroelectronics STM32G071B-DISCO Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32G071B-DISCO"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32G071B-DISCO GPIO">
+      <description>STMicroelectronics STM32G071B-DISCO Board with CMSIS Driver GPIO</description>
+      <require condition="STM32G071B-DISCO"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32G071B-DISCO -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.0.0" Capiversion="1.0.0" condition="STM32G071B-DISCO GPIO">
+      <description>I/O implementation for STM32G071B-DISCO</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32G071B_DISCO
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32G071B-DISCO.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- STM32G071B-DISCO -->
+    <board vendor="STMicroelectronics" name="STM32G071B-DISCO" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Discovery development board with STM32G071RBTx MCU</description>
+      <image small="Images/stm32g071b-disco_small.png"
+             large="Images/stm32g071b-disco_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/stm32g071b-disco.html" title="STM32G071B-DISCO Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/stm32g071b-disco.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2546-stm32g071bdisco-usbc-discovery-kit-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1378-c02_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32G071RBTx"/>
+      <feature type="ODbg"      n="1"              name="On-board ST-LINK-V2-1"/>
+      <feature type="PWR"       n="5"              name="USB Type-C™ VBUS"/>
+      <feature type="LCD"       n="1"  m="128.64"  name="OLED LCD module with SPI interface"/>
+      <feature type="LED"       n="7"              name="LEDs: COM, Power, User"/>
+      <feature type="Button"    n="1"              name="Reset push-button (B1)"/>
+      <feature type="Joystick"  n="1"              name="4-way joystick with selection button (B2)"/>
+      <feature type="ConnOther" n="1"              name="8-pin user extension connector (CN1)"/>
+      <feature type="ConnOther" n="2"              name="8-pin gpio internal connector (CN8, CN9)"/>
+      <feature type="Other"     n="1"              name="USB Type-C line test points"/>
+      <feature type="Other"     n="3"              name="Bidirectional current and power monitors with I2C interface"/>
+      <feature type="Other"     n="1"              name="DC/DC converter to sustain power supply with VBUS"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32G071B-DISCO" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

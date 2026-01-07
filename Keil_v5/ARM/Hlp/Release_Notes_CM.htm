@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<title>MDK-ARM - Release Notes</title>
+<meta http-equiv=content-language content=en-us>
+<meta name=GENERATOR content="Microsoft FrontPage 12.0">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<style>
+
+
+    p{font-family:verdana;font-size:10pt}
+    .LI2{margin-top:6px;margin-bottom:6px}
+    Release{background-color:#ccc;font-weight:bold;padding:6px}
+    .ToolT{font-size:8pt;color:#808080}
+    .TinyT{font-size:8pt;text-align:center}
+    h1{font-family:verdana;font-size:18pt;color:#000080;font-weight:bold;text-align:center;margin-right:3px}
+    h2{font-family:verdana;font-size:14pt;color:#000080;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+    h3{font-family:verdana;font-size:11pt;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+    h4{font-family:verdana;font-size:10pt;font-weight:bold;color:#FFFFFF;margin-top:24px;margin-bottom:3px;background-color:#0000FF;padding:6px}
+    h5{font-family:verdana;font-size:10pt;font-weight:bold;color:#800000;margin-top:3px;margin-bottom:1px;}
+    pre{font-family:courier new;font-size:10pt;background-color:#cfc;margin-left:24px;margin-right:24px}
+    ul{font-family:verdana;font-size:10pt;list-style-type:square}
+    ol{font-family:verdana;font-size:10pt}li{margin-left:12pt;padding-left:0;margin-top:12px;margin-bottom:6px}
+    ul 
+    li 
+    pre{margin-top:6pt;font-family:courier new;font-size:9pt;background-color:#cfc;margin-left:0px;margin-right:0px}
+    ul 
+    li 
+    ul{margin-top:6pt;margin-bottom:6pt;margin-left:0pt;padding-left:0}ul li ul li{margin-top:3pt;margin-bottom:3pt}
+    ul
+    li 
+    ol{margin-top:6pt;margin-bottom:6pt;margin-left:12pt;padding-left:0}ul li ol li{margin-top:3pt;margin-bottom:3pt}
+.style1 {font-weight: normal;}
+.style2 {color: #FF0000;}
+.prelim {color: Red; }
+</style>
+</head>
+<body><h1>Release Notes for<br>
+MDK Cortex-M legacy support</h1>
+<p align=center>This file contains release notes and last minute changes.</p>
+<p class=TinyT>Information in this file, the accompany manuals, and software is<br>
+Copyright © 2013 ARM Ltd and ARM Germany GmbH.<br>All rights reserved.</p>
+<hr><h2>Contents</h2>
+  <ol>
+    <li class=LI2><a href="#WhatsNew">What's New in the MDK Cortex-M legacy package.</a></li>
+    <li class=LI2><a href="#ExamplePrograms">Example Programs</a></li>
+    <li class=LI2><a href="#DeviceDatabase">Device Database™</a></li>
+    <li class=LI2><a href="#PeripheralSimulation">Peripheral Simulation</a></li>
+    <li class=LI2><a href="#TechnicalSupport">Technical Support</a></li>
+    <li class=LI2><a href="#ContactDetails">Contact Details</a></li>
+  </ol>
+<p>
+  The <a target="_blank" href="http://www.keil.com/arm/mdk.asp"><b>Microcontroller Development Kit (MDK-ARM)</b></a> supports software development for and debugging of 
+  <b>Cortex-M</b> processor-based devices. A detailed description of 
+  <b>MDK-ARM</b> can be found in the section <b>Complete User's Guide Selection</b>
+  of the µVision window <b>Books</b>. 
+  The <b>Getting Started User's Guide</b> is a good introduction to the main concepts of <b>MDK-ARM</b> and gives guidelines for programming ARM devices.
+</p>
+
+<h2><a name="WhatsNew"></a>What's New in the MDK Cortex-M legacy package.</h2>
+
+<p>The next sections list the changes for each release of the MDK Cortex-M legacy package.</p>
+
+
+<h3> MDK Version 5.10 Legacy support for Cortex-M devices</h3>
+<ul>
+
+<li>
+   Thisversion of this legacy support package contains the state of the <b>MDK-ARM 473</b> release with the additions listed below <br>
+   Detailed informations about the current <b>MDK-ARM 473</b> release are included in the <a target="_blank" href="Release_Notes_473.htm"><b>Release_Notes_473</b></a>.
+</li>
+   <ul>
+     <li>
+       <h2>CMSIS</h2>
+          <p>CMSIS-CORE updated to Version 3.30, CMSIS-DSP updated to Version 1.4.2 </p>
+     </li>
+     <li>
+       <h2>Device Support</h2>
+       <ul>
+          <li>Atmel SAMG51 and SAMG53 devices added: SAMG51G18, SAMG51N18, SAMG53G19, SAMG53N19</li>
+          <li>Atmel SAM4C Series devices added: SAM4CP16B, SAM4CMP16C, SAM4CMP8C, SAM5CMS16C, SAM4CMS8C</li> 
+          <li>Cypress PSoC4 devices added: CY8C4013SXI-411, CY8C4013LQI-411, CY8C4013SXI-400, CY8C4013SXI-410, CY8C4014LQI-421, CY8C4014LQI-412, CY8C4014SXI-411, CY8C4014SXI-421, 
+CY8C4014LQI-422, CY8C4014LQI-SLT1, CY8C4014LQI-SLT2</li>
+          <li>Freescale SKEAZ devices added: SKEAZ128xx4, SKEAZ4xxx4, SKEAZN16xxx2, SKEAZN32xxx2, SKEAZN64xxx2, SKEAZN8xxx4</li>
+          <li>Freescale KE04Z and KE02Z devices added: MKE04Z8xxx4, MKE02Z16xxx2, MKE02Z32xxx2, MKE02Z64xxx2</li>
+          <li>Spansion devices added: S6E1A11B0A, S6E1A11C0A, S6E1A12B0A, S6E1A12C0A</li>
+          <li>STMicroelectronics STM32F4 Series Devices added: STM32F401CD, STM32F401RD, STM32F401VD, STM32F401CE, STM32F401RE, STM32F401VE</li>
+       </ul>
+     </li>
+     <li> 
+       <h2>RL-ARM Middleware</h2>
+         <p>Bug fixes in FlashFS: FAT file name processing has been reworked. Library version 4.74. FTP server interface module fixed (filenames with leading '.' were not listed).<p/>
+     </li>
+   </ul>
+</li>
+
+</ul>
+   <h2><a name=DeviceDatabase></a>Device Database™</h2>
+   <p>
+    A unique feature of the Keil µVision IDE is the <a href="http://www.keil.com/dd" target="_blank">Device Database™</a> 
+    which contains information about more than 3000 supported microcontrollers. 
+    When you create a new µVision project and select the target chip from the database, µVision sets all assembler, compiler, linker, and debugger options for you. 
+    The only option you must configure is the memory map.</p><p>As new devices become available, 
+    they are added to the database along with data sheets and header files. 
+   </p>
+
+   <h2><a name=PeripheralSimulation></a>Peripheral Simulation</h2>
+   <p>
+    The µVision5 Debugger provides <a href="http://www.keil.com/uvision/db_sim.asp" target="_blank">complete simulation</a> 
+    for the CPU and on-chip peripherals of the most popular ARM-powered microcontroller devices. 
+    To discover which peripherals of a device are supported, in µVision5 select the Simulated Peripherals item 
+    from the Help menu. You may also use the web-based <a href="http://www.keil.com/dd" target="_blank">Device Database™</a>. 
+    We are constantly adding new devices and simulation support for on-chip peripherals so be sure to check Device Database™ often.
+   </p>
+
+<h2><a name=TechnicalSupport></a>Technical Support</h2>
+   <p>
+    At Keil Software, we are dedicated to providing you with the best development tools and technical support. 
+    That's why we offer numerous ways you can get the technical support you need to complete your embedded projects.
+   </p>
+<ul>
+  <li class=LI2><a href="http://www.keil.com/support" target="_blank"><b>Technical Support Knowledgebase</b></a><br>
+   More than 2500 technical support questions and answers are available in the Support Solutions Knowledgebase. 
+   When a new question arises, it is added to the knowledgebase which is continuously published to the Web. 
+   This enables you to get technical support at times when our support staff is unavailable.</li>
+  <li class=LI2><a href="http://www.keil.com/appnotes" target="_blank"><b>Application Notes</b></a><br>
+   Numerous Application Notes help you decipher complex features and implement robust applications.</li>
+  <li class=LI2><a href="http://www.keil.com/download/file/" target="_blank"><b>Example Programs and Files</b></a><br>
+   Utility programs, example code, and sample projects are regularly added to the Download File section of the web site.</li>
+  <li class=LI2><a href="http://www.keil.com/forum" target="_blank"><b>Discussion Forum</b></a><br>
+   Post questions, comments, and suggestions to the Keil Software Discussion Forum and interact with other Keil users around the world.</li>
+</ul>
+
+<p>Many of the features of our Technical Support Knowledgebase and Web Site are the results of your suggestions. 
+   If you have any ideas that will improve them, please <a href="http://www.keil.com/support/feedback.asp" target="_blank">give us your feedback</a>!</p>
+
+<h2><a name=ContactDetails></a>Contact Details</h2>
+<p>
+  If you experience any problems or have any questions about this product, 
+  contact one of our <a href="http://www.keil.com/distis" target="_blank">distributors</a> or offices for assistance.
+</p>
+
+<div align=center><center><table border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td valign=top nowrap bgcolor="#ffffcc" style="border:1 solid #800000">
+  <p>
+   <b>In the USA...</b></br><br>
+   <b>ARM, Inc.</b><br>
+      4965 Preston Park Blvd, Suite 650<br>
+      Plano, TX&nbsp; 75093<br>
+      USA<br><br>
+      800-348-8051 - Sales<br>
+      972-312-1107 - Support<br>
+      972-312-1159 - Fax<br><br>
+      <a href="mailto:sales.us@keil.com" target="_blank">sales.us@keil.com</a> - Sales E-Mail <br> 
+      <a href="mailto:E-Mailsupport.us@keil.com" target="_blank">support.us@keil.com</a> - Support E-mail &nbsp;&nbsp;&nbsp;<br>
+  </p>
+</td>
+<td valign=top width=30 nowrap></td>
+<td valign=top nowrap style="border:1 solid #800000" bgcolor="#ffffcc">
+  <p>
+   <b>In Europe...</b><br><br>
+   <b>ARM Germany GmbH</b><br>
+      Bretonischer Ring 16<br>
+      D-85630 Grasbrunn<br>
+      Germany<br><br>
+      +49 89 456040-0 - Sales<br>
+      +49 89 456040-24 - Support<br>
+      +49 89 468162 - Fax<br>
+      <a href="mailto:sales.intl@keil.com" target="_blank"><br>
+      sales.intl@keil.com</a> - Sales E-Mail<a href="mailto:e-mailsupport.intl@keil.com" target="_blank"><br>
+      support.intl@keil.com</a> - Support E-Mail &nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;
+   </p>
+</td>
+</tr></table></center></div>
+   <hr><p class=TinyT>Copyright © 2013 ARM Ltd and ARM Germany GmbH.<br>
+       All rights reserved.<br>
+       Visit our web site at <a href="http://www.keil.com" target="_blank">www.keil.com</a>.
+      </p>
+
+</body>
+</html>

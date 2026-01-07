@@ -1,0 +1,11 @@
+This Sound project demonstrates Sound generation with the 
+Philips LPC2138 using Keil MCB2130 Microcontroller Board.
+
+Push button INT1 is used to play the Sound again and the
+Potenciometer is used for setting the Volume Level
+(current Volume Level is shown via the LEDs).
+
+The Sound program is available in different targets:
+  Simulator: configured for software Simulator
+  MCB2130:   configured for on-chip Flash ROM
+             (used for production or target debugging)

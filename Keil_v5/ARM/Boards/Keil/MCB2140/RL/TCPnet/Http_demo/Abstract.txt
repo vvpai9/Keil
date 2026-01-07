@@ -1,0 +1,48 @@
+This is a HTTP Server example. It shows you how to use the
+Web Server CGI interface as well. 
+
+You need to configure the IP address, net mask and default gateway 
+and Primary DNS and Secondary DNS Server manually in the Net_Config.c 
+configuration file. 
+
+The WEB pages are included into the project under HTTP Files 
+group. You can simply add or remove a page or image. Web files
+which are compiled into the project are added to the 'Web.inp'
+Web Converter input file.
+
+This example is configured for a serial PPP connection. You need
+to create a dial-up connection on your PC. Select a modem type 
+'Communication cable between two computers'. Serial connection speed 
+is 115200 baud, 8-bits, no parity, 1 stop bit and no flow control.
+Connect a serial cable to RS232 COM1 port of evaluation board 
+and start a dial-up connection with:
+
+Username: Keil
+Password: test
+
+Open your web browser and enter the IP address http://192.168.125.1
+in the address line.
+
+User name: admin
+Password:  <none>
+
+You can change the password at runtime on page 'system'
+
+The HTTP_demo example is available for several targets:
+
+MCB2140:       Keil MCB2130 evaluation board with ULINK debugger
+               Program code is loaded into on-chip flash.
+
+MCB2140 Debug: Standalone Debug application. Debug level configured
+               in Net_Debug.c debug configuration file.
+               Connect a serial cable to RS232 COM0 port to view
+               output messages using HyperTerminal at 115200 baud,
+               8-bits, no parity, 1 stop bit, XON/XOFF.
+
+
+NOTE: Serial interface uses only TXD, RXD and GND signals from the 
+      RS232 line. However in most cases some additional connections
+      are required by the PC COM interface. For a 9-PIN standard
+      connector you should therefore connect the pin 7 (RTS) to
+      pin 8 (CTS) and pin 1 (CD) to pin 4 (DTR) and to pin 6 (DSR).
+      

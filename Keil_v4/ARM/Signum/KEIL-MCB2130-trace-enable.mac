@@ -1,0 +1,10 @@
+;[SignumSystemsTraceInitFile]
+;Title=Keil MCB2130 LPC2xxx ETM Initialization
+
+; To run at over 40MHz, these ETM settings are needed
+trace clear
+trace enable
+trace etm halfrate = off
+trace calibrate = 5
+
+;*****************************

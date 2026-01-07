@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
+  <vendor>ABOV</vendor>
+  <name>A34M456_Series</name>
+  <description>ABOV Semiconductor A34M456 Device Support, Drivers and Examples</description>
+  <url>https://www.abov.co.kr/data/mds/PACK/</url>
+  <supportContact>abov_fae@abov.co.kr</supportContact>
+  <!-- optional license file -->
+  <!-- 
+  <license>
+  </license>
+  -->
+  
+  <releases>
+    <release version="1.0.0" date="2025-05-07">
+    - First Release for A34M456
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ABOV</keyword>
+    <keyword>A34M456</keyword>
+  </keywords>
+
+  <!-- apis section (optional - for Application Programming Interface descriptions) -->
+  <!-- 
+  <apis>
+  </apis>
+  -->
+
+  <!-- boards section (mandatory for Board Support Packs) -->
+  <boards>
+    <!-- board : STK-A34M456-RK2N-A v1.0 ************************************************************-->
+    <board vendor="ABOV" name="STK-A34M456-RK2N-A" revision="V1.0.0">
+      <description>STK-A34M456-RK2N-A STARTER KIT v1.0.2</description>
+      <mountedDevice deviceIndex="0" Dvendor="ABOV Semiconductor:126" Dname="A34M456" />
+      <feature type="ODbg"   n="1"              name="On-board Type A-Link Debugger"/>
+      <feature type="ROM"                       name="256KB Internal Code Flash Memory" />
+      <feature type="ROM"                       name="32KB Internal Data Flash Memory" />
+      <feature type="RAM"                       name="32KB SRAM" />
+      <feature type="XTAL"   n="8000000"        name="8MHz Crystal Oscillator" />
+      <feature type="Other"                     name="32.768kHz RTC Sub Crystal Oscillator" />
+      <feature type="PWR"    n="3.3"   m="5.0"  name="USB Powered" />
+      <feature type="PWR"    n="2.5"   m="5.0"  name="External Power Supply" />
+      <feature type="Button" n="2"              name="Tact-buttons : USER and nRESET" />
+      <feature type="LED"    n="6"              name="6 LEDs: D101~106" />
+	  <debugInterface adapter="CMSIS-DAP" connector="USB Type C" />
+    </board>
+  </boards>
+
+  <!-- devices section (mandatory for Device Family Packs) -->
+  <devices>
+    <family Dfamily="A34M456 Series" Dvendor="ABOV Semiconductor:126">
+      <processor Dcore="Cortex-M4" DcoreVersion="r0p0" Dfpu="1" Dmpu="0" Dendian="Little-endian" />
+      <description>A34M456 series is a 32 bit high performance microcontroller with up to 256 KB of Flash memory. It is a powerful microcontroller which provides effective solutions to various electrical appliances which require both low power consumption and high performance (Arm Cortex M4 with FPU core)</description>
+      <!-- Subfamily : A34M456 *********************************************************-->
+      <subFamily DsubFamily="A34M456">
+        <processor Dclock="140000000" />
+        <compile header="A34M456\core\device\A34M456\Include\a34m456.h" />
+        <debug svd="A34M456\toolchain\keil\svd\a34m456.svd" />
+          <feature type="VCC" n="2.5" m="5.5" />
+	      <feature type="NVIC"            n="86"                    name="NVIC with 86 Interrupt Sources" />
+	      <feature type="DMA"             n="16"                     name="DMA" />
+	      <feature type="Memory"          n="256"                   name="Internal Code Flash Memory (CFMC)" />
+	      <feature type="Memory"          n="32"                    name="Internal Data Flash Memory (DFMC)" />
+		  <feature type="Memory"          n="64"                    name="Internal SRAM" />
+	      <feature type="XTAL"            n="4000000" m="16000000"  name="External Crystal Oscillator (XTAL) "/>
+	      <feature type="IntRC"           n="8000000"              name="Internal RC Oscillator with +/- 1% accuracy"/>
+          <feature type="PLL"             n="1"                     name="Internal PLL up to 140MHz"/>
+          <feature type="PowerMode"       n="3"                     name="Run, Sleep (Idle), Deep-Sleep (Power-down)"/>
+          <feature type="PowerOther"      n="1"                     name="POR"/>
+          <feature type="IOs"             n="88"                    name="GPIOs of 100-LQFP Package"/>
+          <feature type="IOs"             n="53"                    name="GPIOs of 64-LQFP Package"/>
+	      <feature type="UART"            n="6"                     name="UART Interface" />
+	      <feature type="SPI"             n="2"                     name="SPI Interface" />
+	      <feature type="I2C"             n="2"                     name="I2C Interface" />
+	      <feature type="ADC"             n="3"       m="24"        name="1.5 Msps High Performance 12-bit ADC" />
+	      <feature type="Timer"           n="10"                    name="16-bit Timers" />
+	      <feature type="Timer"           n="1"       m="2"         name="32-bit Free-run Timer" />
+	      <feature type="PWM"             n="3"                     name="3-phase complementary Motor Pulse Width Modulation" />
+	      <feature type="WDT"             n="1"                     name="Watch-dog Timer" />
+		  <feature type="RNG"             n="1"                     name="Random Number Generator" />
+		  <feature type="CoreOther"       n="1"                     name="Cyclic Redundancy Check calculation module(32-bit, 16-bit, 8-bit, 7-bit)" />
+			  <feature type="QFP"             n="100"                   name="100-LQFP Package (12x12, 10x10)"/>
+		  <feature type="QFP"             n="64"                    name="64-LQFP Package (7x7)"/>
+
+        <memory id="IRAM1" start="0x20000000" size="0x8000" init="0" default="1" />
+        <!-- Device : A34M456-->
+        <device Dname="A34M456">
+          <description>256KB Flash Memory</description>
+          <algorithm name="A34M456/toolchain/keil/flashloader/A34M456_CFLASH.FLM" start="0x00000000" size="0x40000" default="1" />
+          <memory id="IROM1" start="0x00000000" size="0x40000" startup="1" default="1" />
+        </device>
+      </subFamily>
+    </family>
+  </devices>
+
+  <!-- examples section (optional for all Software Packs)-->
+  <!-- example : A34M456 **********************************************************-->
+  <examples>
+    <!-- Gpio Led Blinky examples *********************************************************************-->
+    <example name="Gpio Led Blinky Example" doc="Abstract.txt" folder="A34M456/example/starterkit/gpio_ledblinky/a34m456">
+      <description>Gpio Led Blinky Example</description>
+      <board name="STK-A34M456-RK2N-A" vendor="ABOV" />
+      <project>
+        <environment name="uv" load="keil/app.uvprojx" />
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE" />
+        <component Cclass="Device" Cgroup="Startup" />
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+  </examples>
+  
+  <!-- conditions section (optional for all Software Packs)-->
+  <conditions>
+    <!-- condition : A34M456 ********************************************************-->
+    <condition id="A34M456 CMSIS">
+      <description>filter for A34M456 device and athe ARM compiler</description>
+      <require Tcompiler="ARMCC" />
+      <require Cclass="CMSIS" Cgroup="CORE" />
+      <accept Dvendor="ABOV Semiconductor:126" Dname="A34M456" />
+    </condition>
+  </conditions> 
+  
+  <!-- component section (optional for all Software Packs)-->
+  <components>  
+    <!-- component : A34M456 ********************************************************-->
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="A34M456 CMSIS">
+      <description>System Startup for ABOV A34M456 devices</description>
+      <files>
+        <file category="include" name="A34M456/core/device/A34M456/Include/" />
+        <file category="header" version="1.0.0" name="A34M456\core\device\A34M456\Include\a34m456.h" attr="config" />
+        <file category="header" version="1.0.0" name="A34M456/core/device/A34M456/Include/a34m456_system.h" attr="config" />
+
+        <file category="include" name="A34M456/core/device/A34M456/Source/" />
+        <file category="source" version="1.0.0" name="A34M456/core/device/A34M456/Source/a34m456_system.c" attr="config" />
+
+        <file category="include" name="A34M456/core/device/A34M456/Source/" />
+        <file category="source" version="1.0.0" name="A34M456/core/device/A34M456/Source/a34m456_startup_arm.s" attr="config" />
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="Drivers" Csub="Common" Cversion="1.0.0" condition="A34M456 CMSIS">
+      <description>Common HAL Driver</description>
+      <files>
+        <file category="header" name="A34M456/driver/a34m456/include/a34m456_driver_common.h" attr="config" version="1.0.0" />
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="Drivers" Csub="Debug_frameWork" Cversion="1.0.0" condition="A34M456 CMSIS">
+      <description>Debug Framework</description>
+      <files>
+        <file category="header" name="A34M456/library/debug/include/debug_cmd.h" attr="config" version="1.0.0" />
+        <file category="header" name="A34M456/library/debug/include/debug_log.h" attr="config" version="1.0.0" />
+        <file category="header" name="A34M456/library/debug/include/debug_serial.h" attr="config" version="1.0.0" />
+        <file category="source" name="A34M456/library/debug/source/debug_cmd.c" attr="config" version="1.0.0" />
+		<file category="source" name="A34M456/library/debug/source/debug_hardfault.c" attr="config" version="1.0.0" />
+        <file category="source" name="A34M456/library/debug/source/debug_log.c" attr="config" version="1.0.0" />
+        <file category="source" name="A34M456/library/debug/source/debug_retarget.c" attr="config" version="1.0.0" />
+        <file category="source" name="A34M456/library/debug/source/debug_serial.c" attr="config" version="1.0.0" />
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="Drivers" Csub="dma" Cversion="1.0.0" condition="A34M456 CMSIS">
+      <description>HAL driver for Direct Memory Access controller (DMA)</description>
+      <files>
+        <file category="header" name="A34M456/driver/a34m456/include/a34m456_dma.h" />
+        <file category="source" name="A34M456/driver/a34m456/source/a34m456_dma.c" />
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="Drivers" Csub="gpio" Cversion="1.0.0" condition="A34M456 CMSIS">
+      <description>HAL driver for Port Control Unit (PCU) and GPIO</description>
+      <files>
+        <file category="header" name="A34M456/driver/a34m456/include/a34m456_gpio.h" />
+        <file category="source" name="A34M456/driver/a34m456/source/a34m456_gpio.c" />
+      </files>
+    </component>
+	<component Cclass="Device" Cgroup="Drivers" Csub="scu" Cversion="1.0.0" condition="A34M456 CMSIS">
+      <description>HAL driver for System Control Unit (SCU)</description>
+      <files>
+        <file category="header" name="A34M456/driver/a34m456/include/a34m456_scu.h" />
+        <file category="source" name="A34M456/driver/a34m456/source/a34m456_scu.c" />
+      </files>
+    </component>
+	<component Cclass="Device" Cgroup="Drivers" Csub="uart" Cversion="1.0.0" condition="A34M456 CMSIS">
+      <description>HAL driver for Universal Asynchronous Receiver / Transmitter (UART)</description>
+      <files>
+        <file category="header" name="A34M456/driver/a34m456/include/a34m456_uart.h" />
+        <file category="source" name="A34M456/driver/a34m456/source/a34m456_uart.c" />
+      </files>
+    </component>
+  </components> 
+  
+  <!-- optional taxonomy section for defining new component Class and Group names -->
+  <!--
+  <taxonomy>
+  </taxonomy>
+  -->
+  
+</package>

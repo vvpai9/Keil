@@ -1,0 +1,13 @@
+The BLINKY project is a simple example program for the
+AT91M55800A using Phytec phyCORE Single Board Computer.
+
+It does nothing more than blink the LED D3 on the Phytec
+HD200 Development Board.
+
+
+The Blinky program is available in different targets:
+  Simulator AT91M55800A: runs in software Simulator
+  phyXRAM AT91M55800A:   runs from External SRAM located on board
+                         (used for target debugging) 
+  phyFlash AT91M55800A:  runs from External Flash located on board
+                         (used for final aplication version)

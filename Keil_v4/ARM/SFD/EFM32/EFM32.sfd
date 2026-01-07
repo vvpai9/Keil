@@ -1,0 +1,214 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\EFM32.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         EFM32                                        -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+#ifdef __SFRCC__
+  #pragma MODARM incdir("C:\Keil\ARM\sfd\EFM32")
+#endif
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                     Include List                                     -----
+// ------------------------------------------------------------------------------------------------
+
+
+#include "CM3.sfd" 
+#include "MSC.sfd" 
+#include "EMU.sfd" 
+#include "RMU.sfd" 
+#include "CMU.sfd" 
+#include "AES.sfd" 
+#include "EBI.sfd" 
+#include "GPIO.sfd" 
+#include "PRS.sfd" 
+#include "DMA.sfd" 
+#include "TIMER0.sfd" 
+#include "TIMER1.sfd" 
+#include "TIMER2.sfd" 
+#include "USART0.sfd" 
+#include "USART1.sfd" 
+#include "USART2.sfd" 
+#include "UART0.sfd" 
+#include "LEUART0.sfd" 
+#include "LEUART1.sfd" 
+#include "LETIMER0.sfd" 
+#include "PCNT0.sfd" 
+#include "PCNT1.sfd" 
+#include "PCNT2.sfd" 
+#include "I2C0.sfd" 
+#include "ADC0.sfd" 
+#include "DAC0.sfd" 
+#include "ACMP0.sfd" 
+#include "ACMP1.sfd" 
+#include "VCMP.sfd" 
+#include "LCD.sfd" 
+#include "RTC.sfd" 
+#include "WDOG.sfd" 
+#include "Numbers.sfd" 
+#include "Register Trees.sfd" 
+#include "Register Views.sfd" 
+
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                       Main Menu                                      -----
+// ------------------------------------------------------------------------------------------------
+
+//  <b> CM3
+//    <m> CM3 </m>
+//  </b>
+//  
+//  <b> MSC
+//    <m> MSC </m>
+//  </b>
+//  
+//  <b> EMU
+//    <m> EMU </m>
+//  </b>
+//  
+//  <b> RMU
+//    <m> RMU </m>
+//  </b>
+//  
+//  <b> CMU
+//    <m> CMU </m>
+//  </b>
+//  
+//  <b> AES
+//    <m> AES </m>
+//  </b>
+//  
+//  <b> EBI
+//    <m> EBI </m>
+//  </b>
+//  
+//  <b> GPIO
+//    <m> GPIO </m>
+//    <m> GPIO_0 </m>
+//    <m> GPIO_1 </m>
+//    <m> GPIO_2 </m>
+//    <m> GPIO_3 </m>
+//    <m> GPIO_4 </m>
+//    <m> GPIO_5 </m>
+//  </b>
+//  
+//  <b> PRS
+//    <m> PRS </m>
+//  </b>
+//  
+//  <b> DMA
+//    <m> DMA </m>
+//  </b>
+//  
+//  <b> TIMER0
+//    <m> TIMER0 </m>
+//  </b>
+//  
+//  <b> TIMER1
+//    <m> TIMER1 </m>
+//  </b>
+//  
+//  <b> TIMER2
+//    <m> TIMER2 </m>
+//  </b>
+//  
+//  <b> USART0
+//    <m> USART0 </m>
+//  </b>
+//  
+//  <b> USART1
+//    <m> USART1 </m>
+//  </b>
+//  
+//  <b> USART2
+//    <m> USART2 </m>
+//  </b>
+//  
+//  <b> UART0
+//    <m> UART0 </m>
+//  </b>
+//  
+//  <b> LEUART0
+//    <m> LEUART0 </m>
+//  </b>
+//  
+//  <b> LEUART1
+//    <m> LEUART1 </m>
+//  </b>
+//  
+//  <b> LETIMER0
+//    <m> LETIMER0 </m>
+//  </b>
+//  
+//  <b> PCNT0
+//    <m> PCNT0 </m>
+//  </b>
+//  
+//  <b> PCNT1
+//    <m> PCNT1 </m>
+//  </b>
+//  
+//  <b> PCNT2
+//    <m> PCNT2 </m>
+//  </b>
+//  
+//  <b> I2C0
+//    <m> I2C0 </m>
+//  </b>
+//  
+//  <b> ADC0
+//    <m> ADC0 </m>
+//  </b>
+//  
+//  <b> DAC0
+//    <m> DAC0 </m>
+//  </b>
+//  
+//  <b> ACMP0
+//    <m> ACMP0 </m>
+//  </b>
+//  
+//  <b> ACMP1
+//    <m> ACMP1 </m>
+//  </b>
+//  
+//  <b> VCMP
+//    <m> VCMP </m>
+//  </b>
+//  
+//  <b> LCD
+//    <m> LCD </m>
+//  </b>
+//  
+//  <b> RTC
+//    <m> RTC </m>
+//  </b>
+//  
+//  
+//  
+//  
+//  Statistical Information:
+//  ------------------------
+//  
+//  Registers found: 563
+//  Blocks found: 31
+//  Max. Registers per Block: 64
+//  Max. Fields per Register: 24
+//  
+//  Files Generated: 37
+//  
+//  Errors/Problems found in XML file: 0
+//  Errors/Problems fixed: 0
+//  Errors/Problems unable to fix: 0
+//  
+//  Memory usage: 8MB (8704313 byte)

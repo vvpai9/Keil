@@ -1,0 +1,9 @@
+;[SignumSystemsTraceInitFile]
+;Title=Generic LPC2xxx ETM Initialization
+
+; To run at over 40MHz, these ETM settings are needed
+trace clear
+trace enable
+trace etm halfrate = off
+
+;*****************************

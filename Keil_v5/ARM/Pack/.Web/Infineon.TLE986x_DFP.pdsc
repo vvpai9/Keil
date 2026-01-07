@@ -1,0 +1,1717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="1.4" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <license>license/IFX_SW_License_MOTIX_LITIX.txt</license>
+  <vendor>Infineon</vendor>
+  <url>https://itools.infineon.com/cmsis_packs/TLE986x/</url>
+  <name>TLE986x_DFP</name>
+  <description>Infineon TLE986x Series Device Support</description>
+  <supportContact>http://www.infineon.com/cms/en/corporate/company/contact/support/index.html</supportContact>
+  <releases>
+    <release version="1.5.2" date="2025-10-06">
+	  Corrected download path [EP-1607]
+	</release>
+    <release version="1.5.0" date="2025-09-01">
+      Added IAR support [EP-865]. Please make sure to use IAR Embedded Workbench for ARM version 9.70.1
+      Add MOTIX Branding [EP-935]
+      Align types.h with TLE987x pack (bool, *_h types) [EP-1396]
+      Align files with TLE987x LLD [EP-1580]
+      Config Wizard: Correct NMI Map Error [EP-395]
+      Config Wizard: Merge xml for 6x and 68 [EP-641]
+      Config Wizard: Update calculation of BDRV currents [EP-708]
+      Config Wizard: correct ADC temperature calculation [EP-791]
+      Config Wizard: Add link to MOTIX MCU forum [EP-1199]
+      Config Wizard: Correct CCU6 pin select [EP-864]
+      Config Wizard: Add 20 MHz option for the SSC [EP-894]
+      Config Wizard: Correct DMA Trigger Select for SSCx Transmit [EP-1013]
+      SCU: Add clearing of GPIO wake sts registers in stop mode entry (2 registers) [EP-824]
+      Startup: Fix NACNAD error when using ARMCC v6 LTO [EP-845]
+      Startup: Correct CMSIS_Irq_Dis when using ARMCC v6 [EP-1088]
+      Correct MISRA violations [EP-869]
+      Correct delay function [EP-767]
+      SDADC example: Change Pack version from fixed to latest [EP-1205]
+    </release>
+    <release version="1.4.6" date="2020-11-06">
+      Portfolio update: Added support for TLE9862QXA40 (Config Wizard 2 support only) [EP-503]
+      Added example to place Vector table in RAM [EP-504]
+      Updated User Manual to v1.5.3 [EP-500]
+      Updated BootROM User Manual to v1.5 [EP-501]
+      Added Retry feature to Flash Algorithm [EP-499]
+      Fixed 'bitfield not found in svd' error in TLE9868 XML [EP-479]
+      Fixed ARMCC v6 Compiler warnings [EP-506]
+      Added CMSIS_SEV() function [EP-412]
+      ADC2: Added ADC2-&gt;CTRL2.bit.SEL_TS_STS to header and svd [EP-393]
+      ADC2: corrected Temperature sensor selection [EP-459]
+      ADC2: Corrected channel assignment comments in svd file [EP-502]
+      BDRV: Corrected description in Config Wizard for Charge Pump Diagnosis [EP-407]
+      DMA: Corrected issue when using ARMCC v6 O3 LTO[EP-566]
+      BOOTROM: Corrected doxygen examples [EP-505]
+      PLL: Added warning if customer uses invalid clock settings (Manual clock Configuration) [EP-402]
+      PLL: Updated PLL init flow to description in User Manual [EP-529]
+      SCU: Updated StopMode and SleepMode Entry sequence [EP-417, EP-558]
+    </release>
+    <release version="1.4.4" date="2020-02-28">
+      Added device TLE9868QXB20
+      Added SDADC example for TLE9868QXB20
+      Added Timer3 example
+      Updated disclaimer of XML files
+      ADC1: Updated implementation of VDH attenuator output impedance
+      ADC2: Updated Vref value and attenuator value
+      BDRV: Added control bits LSx/HSx_OC_DIS in ConfigWizard to control local or global shutdown
+      BDRV: Updated interrupts for ConfigWizard v2
+      BOOTROM: Enabled interrupts in case of a NVM error during page programming
+      CCU6: Corrected deadtime calculation
+      PMU: CNF_CYC_SENSE available only for devices with UC_FEATURE_STOPMODE
+    </release>
+    <release version="1.4.2" date="2019-07-22">
+      Fixed DC motor example
+      Updated range check for UARTx_BaudRate_Set
+      Corrected all NVIC_NodeXY_Int_En/Dis functions
+      Corrected address of SHPR2 register
+      Changed default values of ADC2_CHx_LOTH/UPTH_VOLT (applies to new projects)
+      Corrected Slow down mode function
+    </release>
+    <release version="1.4.0" date="2019-03-04">
+      PMU and LIN added to minimum configuration
+      SDK MISRA 2012 compliant
+      flash algorithm for data flash added
+      Compability with both version of Config Wizard added
+      ARMCC v6 compatible
+    </release>
+    <release version="1.3.2" date="2017-08-03">
+      adc2, dma, pmu, bdrv updated
+      SDK DMA.c updated
+      project structure changed to local SDK
+    </release>
+    <release version="1.2.5" date="2016-11-21">
+      SVD updated
+      SDK updated
+      new IFXConfigWizard XML file
+    </release>
+    <release version="1.2.4" date="2016-01-14">
+      SDK update, ISR.C and SCU.C
+      DMA added
+      TLE9867QXW20 added
+    </release>
+    <release version="1.2.3" date="2015-09-22">
+      SDK update
+      NVM Data Flash Handling example added
+    </release>
+    <release version="1.2.2" date="2015-08-25">
+      SVD file update
+      updated pdsc file, updated example structure
+      TLE986x Device Family Pack.
+    </release>
+  </releases>
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Infineon</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Infineon</keyword>
+    <keyword>TLE986x</keyword>
+  </keywords>
+  <devices>
+    <family Dfamily="TLE98xx Series" Dvendor="Infineon:7">
+      <processor Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Little-endian"/>
+      <description>
+        The TLE986x series is designed for 2-phase motor drive applications with LIN/PWM interface
+        - Ultra low power consumption
+        - Nested Vectored Interrupt Controller (NVIC)
+        - Integrated LIN tranceiver (selected derivates)
+        - DMA (selected derivates)
+        - Current Sense Amplifier (selected derivates)
+      </description>
+      <environment name="uv">
+      </environment>
+      <feature type="WDT" n="1"/>
+      <feature type="ComOther" n="2" name="Universal Serial Interface"/>
+      <feature type="Temp" n="-40" m="150" name="all Devices"/>
+      <subFamily DsubFamily="TLE986x Series">
+        <device Dname="TLE9861QXA20">
+          <processor Dclock="24000000"/>
+          <compile header="Device/Include/tle986x.h" define="TLE9861QXA20"/>
+          <debug svd="Device/SDK/cfgwiz/script/v2/TLE986x.svd"/>
+          <memory id="IROM1" start="0x11000000" size="0x7FFC" startup="1" default="1"/>
+          <memory id="IROM2" start="0x11007FFC" size="0x1004" startup="0" default="1"/>
+          <memory id="IRAM1" start="0x18000018" size="0xBE8" init="0" default="1"/>
+          <memory id="IRAM2" start="0x18000000" size="0x10" init="0" default="1"/>
+          <algorithm name="Flash/TLE9861.FLM" start="0x11000000" size="0x9000" default="1"/>
+          <algorithm name="Flash/TLE9861_EEP.FLM" start="0x11008000" size="0x1000" default="1"/>
+          <book name="Documents/TLE986x-Users-Manual-v01_91-Infineon.pdf" title="TLE986x Series Reference Manual"/>
+          <book name="Documents/TLE986x-BootROM-User-Manual-v01_09-Infineon.pdf" title="TLE986x BootROM Manual"/>
+          <book name="Documents/TLE9861QXA20-Data-Sheet-v02_11-Infineon.pdf" title="TLE9861QXA20 Data Sheet"/>
+          <book name="Documents/html/index.html" title="SDK Help"/>
+          <feature type="ADC" n="1" m="10"/>
+          <feature type="ADC" n="1" m="8"/>
+          <feature type="IOs" n="11"/>
+        </device>
+        <device Dname="TLE9862QXA40">
+          <processor Dclock="40000000"/>
+          <compile header="Device/Include/tle986x.h" define="TLE9862QXA40"/>
+          <debug svd="Device/SDK/cfgwiz/script/v2/TLE986x.svd"/>
+          <memory id="IROM1" start="0x11000000" size="0x3EFFC" startup="1" default="1"/>
+          <memory id="IROM2" start="0x1103EFFC" size="0x1004" startup="0" default="1"/>
+          <memory id="IRAM1" start="0x18000018" size="0x1FE8" init="0" default="1"/>
+          <memory id="IRAM2" start="0x18000000" size="0x10" init="0" default="1"/>
+          <algorithm name="Flash/TLE9862.FLM" start="0x11000000" size="0x1F000" default="1"/>
+          <algorithm name="Flash/TLE9862_EEP.FLM" start="0x1101F000" size="0x1000" default="1"/>
+          <book name="Documents/TLE986x-Users-Manual-v01_91-Infineon.pdf" title="TLE986x Series Reference Manual"/>
+          <book name="Documents/TLE986x-BootROM-User-Manual-v01_09-Infineon.pdf" title="TLE986x BootROM Manual"/>
+          <book name="Documents/Infineon-TLE9862QXA40-DataSheet-v01_01-EN.pdf" title="TLE9862QXA40 Data Sheet"/>
+          <book name="Documents/html/index.html" title="SDK Help"/>
+          <feature type="ADC" n="1" m="10"/>
+          <feature type="ADC" n="1" m="8"/>
+          <feature type="IOs" n="11"/>
+        </device>
+        <device Dname="TLE9867QXA20">
+          <processor Dclock="24000000"/>
+          <compile header="Device/Include/tle986x.h" define="TLE9867QXA20"/>
+          <debug svd="Device/SDK/cfgwiz/script/v2/TLE986x.svd"/>
+          <memory id="IROM1" start="0x11000000" size="0xEFFC" startup="1" default="1"/>
+          <memory id="IROM2" start="0x1100EFFC" size="0x1004" startup="0" default="1"/>
+          <memory id="IRAM1" start="0x18000018" size="0x17E8" init="0" default="1"/>
+          <memory id="IRAM2" start="0x18000000" size="0x10" init="0" default="1"/>
+          <algorithm name="Flash/TLE9867.FLM" start="0x11000000" size="0xF000" default="1"/>
+          <algorithm name="Flash/TLE9867_EEP.FLM" start="0x1100F000" size="0x1000" default="1"/>
+          <book name="Documents/TLE986x-Users-Manual-v01_91-Infineon.pdf" title="TLE986x Series Reference Manual"/>
+          <book name="Documents/TLE986x-BootROM-User-Manual-v01_09-Infineon.pdf" title="TLE986x BootROM Manual"/>
+          <book name="Documents/TLE9867QXA20-Data-Sheet-v02_11-Infineon.pdf" title="TLE9867QXA20 Data Sheet"/>
+          <book name="Documents/html/index.html" title="SDK Help"/>
+          <feature type="ADC" n="1" m="10"/>
+          <feature type="ADC" n="1" m="8"/>
+          <feature type="IOs" n="11"/>
+        </device>
+        <device Dname="TLE9867QXA40">
+          <processor Dclock="40000000"/>
+          <compile header="Device/Include/tle986x.h" define="TLE9867QXA40"/>
+          <debug svd="Device/SDK/cfgwiz/script/v2/TLE986x.svd"/>
+          <memory id="IROM1" start="0x11000000" size="0xEFFC" startup="1" default="1"/>
+          <memory id="IROM2" start="0x1100EFFC" size="0x1004" startup="0" default="1"/>
+          <memory id="IRAM1" start="0x18000018" size="0x17E8" init="0" default="1"/>
+          <memory id="IRAM2" start="0x18000000" size="0x10" init="0" default="1"/>
+          <algorithm name="Flash/TLE9867.FLM" start="0x11000000" size="0xF000" default="1"/>
+          <algorithm name="Flash/TLE9867_EEP.FLM" start="0x1100F000" size="0x1000" default="1"/>
+          <book name="Documents/TLE986x-Users-Manual-v01_91-Infineon.pdf" title="TLE986x Series Reference Manual"/>
+          <book name="Documents/TLE986x-BootROM-User-Manual-v01_09-Infineon.pdf" title="TLE986x BootROM Manual"/>
+          <book name="Documents/TLE9867QXA40-Data-Sheet-v02_11-Infineon.pdf" title="TLE9867QXA40 Data Sheet"/>
+          <book name="Documents/html/index.html" title="SDK Help"/>
+          <feature type="ADC" n="1" m="10"/>
+          <feature type="ADC" n="1" m="8"/>
+          <feature type="IOs" n="11"/>
+        </device>
+        <device Dname="TLE9867QXW20">
+          <processor Dclock="24000000"/>
+          <compile header="Device/Include/tle986x.h" define="TLE9867QXW20"/>
+          <debug svd="Device/SDK/cfgwiz/script/v2/TLE986x.svd"/>
+          <memory id="IROM1" start="0x11000000" size="0xEFFC" startup="1" default="1"/>
+          <memory id="IROM2" start="0x1100EFFC" size="0x1004" startup="0" default="1"/>
+          <memory id="IRAM1" start="0x18000018" size="0x17E8" init="0" default="1"/>
+          <memory id="IRAM2" start="0x18000000" size="0x14" init="0" default="1"/>
+          <algorithm name="Flash/TLE9867.FLM" start="0x11000000" size="0xF000" default="1"/>
+          <algorithm name="Flash/TLE9867_EEP.FLM" start="0x1100F000" size="0x1000" default="1"/>
+          <book name="Documents/TLE986x-Users-Manual-v01_91-Infineon.pdf" title="TLE986x Series Reference Manual"/>
+          <book name="Documents/TLE986x-BootROM-User-Manual-v01_09-Infineon.pdf" title="TLE986x BootROM Manual"/>
+          <book name="Documents/TLE9867QXW20-Data-Sheet-v02_11-Infineon.pdf" title="TLE9867QXW20 Data Sheet"/>
+          <book name="Documents/html/index.html" title="SDK Help"/>
+          <feature type="ADC" n="1" m="10"/>
+          <feature type="ADC" n="1" m="8"/>
+          <feature type="IOs" n="11"/>
+        </device>
+        <device Dname="TLE9868QXB20">
+          <processor Dclock="24000000"/>
+          <compile header="Device/Include/tle986x.h" define="TLE9868QXB20"/>
+          <debug svd="Device/SDK/cfgwiz/script/v2/TLE9868.svd"/>
+          <memory id="IROM1" start="0x11000000" size="0x1EFFC" startup="1" default="1"/>
+          <memory id="IROM2" start="0x1101EFFC" size="0x1004" startup="0" default="1"/>
+          <memory id="IRAM1" start="0x18000018" size="0x0FE8" init="0" default="1"/>
+          <memory id="IRAM2" start="0x18000000" size="0x10" init="0" default="1"/>
+          <algorithm name="Flash/TLE9868.FLM" start="0x11000000" size="0x1F000" default="1"/>
+          <algorithm name="Flash/TLE9868_EEP.FLM" start="0x1101F000" size="0x1000" default="1"/>
+          <book name="Documents/TLE986x-Users-Manual-v01_91-Infineon.pdf" title="TLE986x Series Reference Manual"/>
+          <book name="Documents/TLE986x-BootROM-User-Manual-v01_09-Infineon.pdf" title="TLE986x BootROM Manual"/>
+          <book name="Documents/TLE9868QXB20-Data-Sheet-v02_01-Infineon.pdf" title="TLE9868QXB20 Data Sheet"/>
+          <book name="Documents/html/index.html" title="SDK Help"/>
+          <feature type="ADC" n="1" m="10"/>
+          <feature type="ADC" n="1" m="8"/>
+          <feature type="IOs" n="11"/>
+        </device>
+        <device Dname="TLE9869QXA20">
+          <processor Dclock="24000000"/>
+          <compile header="Device/Include/tle986x.h" define="TLE9869QXA20"/>
+          <debug svd="Device/SDK/cfgwiz/script/v2/TLE986x.svd"/>
+          <memory id="IROM1" start="0x11000000" size="0x1EFFC" startup="1" default="1"/>
+          <memory id="IROM2" start="0x1101EFFC" size="0x1004" startup="0" default="1"/>
+          <memory id="IRAM1" start="0x18000018" size="0x17E8" init="0" default="1"/>
+          <memory id="IRAM2" start="0x18000000" size="0x10" init="0" default="1"/>
+          <algorithm name="Flash/TLE9869.FLM" start="0x11000000" size="0x1F000" default="1"/>
+          <algorithm name="Flash/TLE9869_EEP.FLM" start="0x1101F000" size="0x1000" default="1"/>
+          <book name="Documents/TLE986x-Users-Manual-v01_91-Infineon.pdf" title="TLE986x Series Reference Manual"/>
+          <book name="Documents/TLE986x-BootROM-User-Manual-v01_09-Infineon.pdf" title="TLE986x BootROM Manual"/>
+          <book name="Documents/TLE9869QXA20-Data-Sheet-v02_11-Infineon.pdf" title="TLE9869QXA20 Data Sheet"/>
+          <book name="Documents/html/index.html" title="SDK Help"/>
+          <feature type="ADC" n="1" m="10"/>
+          <feature type="ADC" n="1" m="8"/>
+          <feature type="IOs" n="11"/>
+        </device>
+      </subFamily>
+    </family>
+  </devices>
+  <conditions>
+    <!-- conditions are dependency rules that can apply to a component or an individual file -->
+    <condition id="cond_any_TLE986x_device">
+      <description>Infineon TLE986x device series</description>
+      <accept Dvendor="Infineon:7" Dname="TLE9861QXA20"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9867QXA20"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9867QXA40"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9867QXW20"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9869QXA20"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9862QXA40"/>
+    </condition>
+    <condition id="cond_TLE986x_ConfigWizard_1">
+      <!-- Condition for ConfigWizard_v1.x -->
+      <description>If ConfigWizard_v1.x is selected, version 2.x must not be selected</description>
+      <deny Cclass="Device" Cgroup="ConfigWizard_v2" Csub=""/>
+      <require condition="cond_any_TLE986x_device"/>
+      <deny Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+      <deny Dvendor="Infineon:7" Dname="TLE9862QXA40"/>
+    </condition>
+    <condition id="cond_TLE986x_ConfigWizard_2">
+      <!-- Condition for ConfigWizard_v2.x -->
+      <description>If ConfigWizard_v2.x is selected, version 1.x must not be selected</description>
+      <deny Cclass="Device" Cgroup="ConfigWizard" Csub=""/>
+      <require condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_BF_Step">
+      <description>Infineon TLE987x device series, BF-Step</description>
+      <require Cclass="CMSIS" Cgroup="CORE" Csub=""/>
+      <accept Dvendor="Infineon:7" Dname="TLE9861QXA20"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9867QXA20"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9867QXA40"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9869QXA20"/>
+    </condition>
+    <!-- component conditions -->
+    <condition id="cond_TLE986x_ADC1">
+      <accept condition="cond_any_TLE986x_device"/>
+      <!-- ADC1 requires ADC2 -->
+      <require Cclass="Device" Cgroup="SDK" Csub="ADC2"/>
+    </condition>
+    <condition id="cond_TLE986x_ADC2">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_BDRV">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_BOOTROM">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_CCU6">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_CSA">
+      <accept condition="cond_any_TLE986x_device"/>
+      <!-- TLE9868QXB20 has no CSA -->
+      <deny Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+      <!-- CSA requires ADC1 -->
+      <require Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+    </condition>
+    <condition id="cond_TLE986x_DMA">
+      <accept condition="cond_any_TLE986x_device"/>
+      <!-- TLE9868QXB20 has no DMA -->
+      <deny Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+    </condition>
+    <condition id="cond_TLE986x_GPT12E">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_INT">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_ISR">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_LIN">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_MON">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_PMU">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_PORT">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_SCU">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_SDADC">
+      <accept Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+    </condition>
+    <condition id="cond_TLE986x_SSC">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_TIMER2x">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_TIMER3">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_WDT1">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_UART">
+      <accept condition="cond_any_TLE986x_device"/>
+    </condition>
+    <condition id="cond_TLE986x_startup">
+      <!-- Conditions for selecting devices -->
+      <description>Infineon TLE986x device series</description>
+      <require Cclass="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="INT"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+      <accept condition="cond_any_TLE986x_device"/>
+      <accept condition="cond_TLE986x_ConfigWizard_1"/>
+      <accept condition="cond_TLE986x_ConfigWizard_2"/>
+    </condition>
+    <!-- SDADC condition: yes/no -->
+    <condition id="cond_TLE986x_noSDADC">
+      <description>Infineon TLE986x device series, no SDADC</description>
+      <require condition="cond_any_TLE986x_device"/>
+      <accept Dvendor="Infineon:7" Dname="TLE986?Q*"/>
+      <deny Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+    </condition>
+    <condition id="cond_TLE986x_withSDADC">
+      <description>Infineon TLE986x device series, with SDADC</description>
+      <require condition="cond_any_TLE986x_device"/>
+      <accept Dvendor="Infineon:7" Dname="TLE986?-2*"/>
+      <accept Dvendor="Infineon:7" Dname="TLE986?_2*"/>
+      <accept Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+    </condition>
+    <!-- fSYS condition: 40/24MHz -->
+    <condition id="cond_TLE986x_40MHz">
+      <description>Infineon TLE986x device series, fSYS 40MHz</description>
+      <require condition="cond_any_TLE986x_device"/>
+      <accept Dvendor="Infineon:7" Dname="TLE986*40"/>
+    </condition>
+    <condition id="cond_TLE986x_24MHz">
+      <description>Infineon TLE986x device series, fSYS 24MHz</description>
+      <require condition="cond_any_TLE986x_device"/>
+      <accept Dvendor="Infineon:7" Dname="TLE986*20"/>
+    </condition>
+    <!-- Combination of SDADC condition and fSYS condition -->
+    <condition id="cond_TLE986x_noSDADC_40MHz">
+      <description>Infineon TLE986x device series, no SDADC, fSYS 40MHz</description>
+      <require condition="cond_TLE986x_noSDADC"/>
+      <require condition="cond_TLE986x_40MHz"/>
+    </condition>
+    <condition id="cond_TLE986x_noSDADC_24MHz">
+      <description>Infineon TLE986x device series, no SDADC, fSYS 24MHz</description>
+      <require condition="cond_TLE986x_noSDADC"/>
+      <require condition="cond_TLE986x_24MHz"/>
+    </condition>
+    <condition id="cond_TLE986x_withSDADC_40MHz">
+      <description>Infineon TLE986x device series, with SDADC, fSYS 40MHz</description>
+      <require condition="cond_TLE986x_withSDADC"/>
+      <require condition="cond_TLE986x_40MHz"/>
+    </condition>
+    <condition id="cond_TLE986x_withSDADC_24MHz">
+      <description>Infineon TLE986x device series, with SDADC, fSYS 24MHz</description>
+      <require condition="cond_TLE986x_withSDADC"/>
+      <require condition="cond_TLE986x_24MHz"/>
+    </condition>
+    <!-- Compiler -->
+    <condition id="cond_TLE986x_ARMCC">
+      <description>Infineon TLE986x device series with ARMCC</description>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="cond_TLE986x_IAR">
+      <description>Infineon TLE986x device series with IAR</description>
+      <require Tcompiler="IAR"/>
+    </condition>
+  </conditions>
+  <boards>
+    <board vendor="Infineon" name="TLE9869 EvalKit" revision="V1.0" salesContact="sales@infineon.com" orderForm="http://www.infineon.com/embeddedpower">
+      <description>Infineon TLE9869 Eval. Kit Support and Examples</description>
+      <image small="Images/TLE9869QX_EvalKit_v1.0_Top-view_small.png" large="Images/TLE9869QX_EvalKit_v1.0_Top-view.png"/>
+      <book category="overview" name="https://www.infineon.com/cms/en/product/evaluation-boards/tle9869-evalkit/" title="TLE9869 EvalKit Web Page"/>
+      <book category="setup" name="Documents/TLE9869-EvalKit-User-Manual-11-Infineon.pdf" title="EvalKit User Manual"/>
+      <book category="schematic" name="Documents/TLE9869_EvalKit_V1.0.zip" title="Schematics"/>
+      <mountedDevice deviceIndex="0" Dvendor="Infineon:7" Dname="TLE9869QXA20"/>
+      <compatibleDevice deviceIndex="0" Dvendor="Infineon:7" Dname="TLE9861QXA20"/>
+      <compatibleDevice deviceIndex="1" Dvendor="Infineon:7" Dname="TLE9867QXA20"/>
+      <compatibleDevice deviceIndex="2" Dvendor="Infineon:7" Dname="TLE9867QXA40"/>
+      <compatibleDevice deviceIndex="3" Dvendor="Infineon:7" Dname="TLE9867QXW20"/>
+      <compatibleDevice deviceIndex="4" Dvendor="Infineon:7" Dname="TLE9862QXA40"/>
+      <feature type="ODbg" n="1" name="On-board J-LINK Lite"/>
+      <feature type="PWR" n="5" name="USB Powered"/>
+      <feature type="PWR" n="12" m="5" name="POWER Connector for external supply"/>
+      <feature type="DIO" n="13" name="Pins at pin headers"/>
+      <feature type="AIO" n="3" name="Analog inputs at AD"/>
+      <feature type="LED" n="8" name="User LEDs"/>
+      <debugInterface adapter="J-Link Lite" connector="Mini-USB"/>
+    </board>
+    <board vendor="Infineon" name="TLE986x EvalBoard" revision="V1.2" salesContact="sales@infineon.com" orderForm="http://www.infineon.com/embeddedpower">
+      <description>Infineon TLE986x EvalBoard Board Support and Examples</description>
+      <book category="overview" name="https://www.infineon.com/cms/en/product/evaluation-boards/tle986x-evalb_jlink/" title="TLE986x EvalBoard Web Page"/>
+      <book category="setup" name="Documents/TLE9869-EvalBoard-User-Manual-10-Infineon.pdf" title="EvalBoard User Manual"/>
+      <book category="schematic" name="Documents/TLE986x_DUTplastic_rev1.2.zip" title="Schematics"/>
+      <mountedDevice deviceIndex="0" Dvendor="Infineon:7" Dname="TLE9869QXA20"/>
+      <compatibleDevice deviceIndex="0" Dvendor="Infineon:7" Dname="TLE9861QXA20"/>
+      <compatibleDevice deviceIndex="1" Dvendor="Infineon:7" Dname="TLE9867QXA20"/>
+      <compatibleDevice deviceIndex="2" Dvendor="Infineon:7" Dname="TLE9867QXA40"/>
+      <compatibleDevice deviceIndex="3" Dvendor="Infineon:7" Dname="TLE9867QXW20"/>
+      <compatibleDevice deviceIndex="4" Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+      <compatibleDevice deviceIndex="5" Dvendor="Infineon:7" Dname="TLE9862QXA40"/>
+      <feature type="ODbg" n="1" name="J-LINK Lite"/>
+      <feature type="PWR" n="12" m="5" name="POWER Connector for external supply"/>
+      <feature type="DIO" n="13" name="Pins at pin headers"/>
+      <feature type="AIO" n="3" name="Analog inputs at AD"/>
+      <feature type="LED" n="8" name="User LEDs"/>
+      <debugInterface adapter="J-Link Lite" connector="Mini-USB"/>
+    </board>
+    <board vendor="Infineon" name="TLE9868 EvalBoard" revision="V1.2" salesContact="sales@infineon.com" orderForm="http://www.infineon.com/embeddedpower">
+      <description>Infineon TLE986x EvalBoard Board with additional TLE9868QXB20 device</description>
+      <book category="overview" name="https://www.infineon.com/cms/en/product/evaluation-boards/tle986x-evalb_jlink/" title="TLE986x EvalBoard Web Page"/>
+      <book category="setup" name="Documents/TLE9869-EvalBoard-User-Manual-10-Infineon.pdf" title="EvalBoard User Manual"/>
+      <book category="schematic" name="Documents/TLE986x_DUTplastic_rev1.2.zip" title="Schematics"/>
+      <mountedDevice deviceIndex="0" Dvendor="Infineon:7" Dname="TLE9868QXB20"/>
+      <feature type="ODbg" n="1" name="J-LINK Lite"/>
+      <feature type="PWR" n="12" m="5" name="POWER Connector for external supply"/>
+      <feature type="DIO" n="13" name="Pins at pin headers"/>
+      <feature type="AIO" n="3" name="Analog inputs at AD"/>
+      <feature type="LED" n="8" name="User LEDs"/>
+      <debugInterface adapter="J-Link Lite" connector="Mini-USB"/>
+    </board>
+  </boards>
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.2.0" condition="cond_TLE986x_startup">
+      <!-- Cversion is necessary -->
+      <description>System Startup for Infineon TLE986x device series</description>
+      <files>
+        <!-- startup files -->
+        <file category="source" name="Device/Source/ARM/startup_tle986x.S" attr="config" version="1.2.0" condition="cond_TLE986x_ARMCC"/>
+        <file category="source" name="Device/Source/IAR/startup_tle986x.s" attr="config" version="1.0.0" condition="cond_TLE986x_IAR"/>
+        <!-- system file -->
+        <file category="source" name="Device/Source/system_tle986x.c" attr="config" version="0.5.1"/>
+        <file category="header" name="Device/Include/system_tle986x.h" attr="config" version="0.5.1"/>
+        <file category="source" name="Device/Source/tle_device.c" attr="config" version="1.1.4"/>
+        <file category="header" name="Device/Include/tle_device.h" attr="config" version="1.1.4"/>
+        <file category="header" name="Device/Include/tle_variants.h" attr="config" version="0.2.3"/>
+        <file category="source" name="Device/Include/sfr_access.h" attr="config" version="0.1.4"/>
+        <file category="header" name="Device/Include/types.h" attr="config" version="0.3.2"/>
+        <file category="header" name="Device/Include/eval_board.h" attr="config" version="0.1.3"/>
+        <file category="header" name="Device/Include/cmsis_misra.h" attr="config" version="0.1.7"/>
+        <file category="header" name="Device/Include/tle986x.h" attr="config" version="3.0.7"/>
+        <file category="sourceC" name="Device/SDK/app/main.c" attr="template" select="Simple Main" version="1.2.3"/>
+        <file category="doc" name="Documents/html/index.html"/>
+      </files>
+    </component>
+    <!-- START: Infineon Standard Peripherals Low Level Drivers -->
+    <component Cclass="Device" Cgroup="ConfigWizard" Cversion="1.8.6" condition="cond_TLE986x_ConfigWizard_1">
+      <!-- Cversion is necessary -->
+      <description>Infineon ConfigWizard Configuration File</description>
+      <RTE_Components_h>
+         #define CONFIGWIZARD 1
+      </RTE_Components_h>
+      <files>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE986x_20/v1/config.icwp" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9868/v1/config.icwp" attr="config" condition="cond_TLE986x_withSDADC_24MHz" version="1.8.6"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE986x_40/v1/config.icwp" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/v1/ICW_TLE986x.xml" attr="config" condition="cond_TLE986x_noSDADC" version="1.5.8"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/v1/TLE9868/ICW_TLE986x.xml" attr="config" condition="cond_TLE986x_withSDADC" version="1.5.1"/>
+        <!-- sdadc_defines.h only for SDADC device -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE9868/v1/sdadc_defines.h" attr="config" condition="cond_TLE986x_withSDADC" version="1.8.6"/>
+        <!-- _defines.h whose content is the same between both versions of the Config Wizard -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/ccu6_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/ccu6_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/isr_defines.h" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9868/v1/isr_defines.h" attr="config" condition="cond_TLE986x_withSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/isr_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/lin_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/lin_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/ssc_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/ssc_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/timer2x_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/timer2x_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/uart_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/uart_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/bsl_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/bsl_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/scu_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/scu_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/pmu_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/pmu_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/adc1_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/adc1_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/adc2_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/adc2_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/bdrv_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/bdrv_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <!-- TLE9868 has SDADC, no CSA. That means noSDADC devices have a CSA -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/csa_defines.h" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/csa_defines.h" attr="config" condition="cond_TLE986x_noSDADC_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/gpt12e_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/gpt12e_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/int_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/int_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/mon_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/mon_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/port_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/port_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/timer3_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/timer3_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <!-- TLE9868 has SDADC, but no DMA. That means noSDADC devices have a CSA -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v1/dma_defines.h" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v1/dma_defines.h" attr="config" condition="cond_TLE986x_noSDADC_40MHz" version="1.8.6"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="ConfigWizard_v2" Cversion="2.1.12" condition="cond_TLE986x_ConfigWizard_2">
+      <!-- Cversion is necessary -->
+      <description>Infineon ConfigWizard Configuration File</description>
+      <RTE_Components_h>
+          #define CONFIGWIZARD 2
+      </RTE_Components_h>
+      <files>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE986x_20/v2/config.icwp" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9868/v2/config.icwp" attr="config" condition="cond_TLE986x_withSDADC_24MHz" version="1.8.6"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE986x_40/v2/config.icwp" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/v2/ICW_TLE986x.xml" attr="config" version="2.4.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/v2/TLE986x.mig" attr="config" version="2.0.5"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/v2/TLE986x.svd" attr="config" condition="cond_TLE986x_noSDADC" version="3.7.0"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/v2/TLE9868.svd" attr="config" condition="cond_TLE986x_withSDADC" version="3.8.0"/>
+        <!-- sdadc_defines.h only for SDADC device -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE9868/v2/sdadc_defines.h" attr="config" condition="cond_TLE986x_withSDADC" version="1.8.6"/>
+        <!-- _defines.h whose content is the same between both versions of the Config Wizard -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/ccu6_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/ccu6_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/isr_defines.h" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/isr_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9868/v2/isr_defines.h" attr="config" condition="cond_TLE986x_withSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/lin_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/lin_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/ssc_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/ssc_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/timer2x_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/timer2x_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/uart_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/uart_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/bsl_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/bsl_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/scu_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/scu_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/pmu_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/pmu_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/adc1_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/adc1_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/adc2_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/adc2_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/bdrv_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/bdrv_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <!-- TLE9868 has SDADC, no CSA. That means noSDADC devices have a CSA -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/csa_defines.h" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/csa_defines.h" attr="config" condition="cond_TLE986x_noSDADC_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/gpt12e_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/gpt12e_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/int_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/int_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/mon_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/mon_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/port_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/port_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/timer3_defines.h" attr="config" condition="cond_TLE986x_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/timer3_defines.h" attr="config" condition="cond_TLE986x_40MHz" version="1.8.6"/>
+        <!-- TLE9868 has SDADC, but no DMA. That means noSDADC devices have a DMA -->
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_20/v2/dma_defines.h" attr="config" condition="cond_TLE986x_noSDADC_24MHz" version="1.8.6"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE986x_40/v2/dma_defines.h" attr="config" condition="cond_TLE986x_noSDADC_40MHz" version="1.8.6"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="BF-Stepping" Cversion="0.0.1" condition="cond_TLE986x_BF_Step">
+      <description>Select if target device is BF-Stepping</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_BF_STEP
+      </RTE_Components_h>
+      <files>
+        <file category="doc" name="Documents/bf_stepping.html"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cversion="0.3.1" condition="cond_TLE986x_ADC1">
+      <description>Analog Digital Converter 1 (ADC1) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_ADC1
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/adc1.h" version="0.3.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/adc1.c" version="0.3.1"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cversion="0.2.7" condition="cond_TLE986x_ADC2">
+      <description>Analog Digital Converter 2 (ADC2) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_ADC2
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/adc2.h" version="0.2.7"/>
+        <file category="source" attr="config" name="Device/SDK/src/adc2.c" version="0.2.7"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cversion="0.6.2" condition="cond_TLE986x_BDRV">
+      <description>Bridge Driver (BDRV) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_BDRV
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/bdrv.h" version="0.6.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/bdrv.c" version="0.6.2"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cversion="0.3.4" condition="cond_TLE986x_BOOTROM">
+      <description>BootROM driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_BROM
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/bootrom.h" version="0.3.4"/>
+        <file category="source" attr="config" name="Device/SDK/src/bootrom.c" version="0.3.4"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cversion="0.4.2" condition="cond_TLE986x_CCU6">
+      <description>Capture Compare Unit (CCU6) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_CCU6
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/ccu6.h" version="0.4.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/ccu6.c" version="0.4.2"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="CSA" Cversion="0.2.0" condition="cond_TLE986x_CSA">
+      <description>Current Sense Amplifier (CSA) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_CSA
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/csa.h" version="0.2.0"/>
+        <file category="source" attr="config" name="Device/SDK/src/csa.c" version="0.2.0"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="DMA" Cversion="0.2.1" condition="cond_TLE986x_DMA">
+      <description>DMA driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_DMA
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/dma.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/dma.c" version="0.2.1"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cversion="0.2.3" condition="cond_TLE986x_GPT12E">
+      <description>General Purpose Timer 12E (GPT12E) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_GPT12E
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/gpt12e.h" version="0.2.3"/>
+        <file category="source" attr="config" name="Device/SDK/src/gpt12e.c" version="0.2.3"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="INT" Cversion="0.2.4" condition="cond_TLE986x_INT">
+      <description>Interrupt (INT) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_INT
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/int.h" version="0.2.4"/>
+        <file category="source" attr="config" name="Device/SDK/src/int.c" version="0.2.4"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cversion="0.3.0" condition="cond_TLE986x_ISR">
+      <description>Interrupt Service Routines (ISR) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_ISR
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/isr.h" version="0.3.0"/>
+        <file category="source" attr="config" name="Device/SDK/src/isr.c" version="0.3.0"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="LIN" Cversion="0.2.1" condition="cond_TLE986x_LIN">
+      <description>LIN Tranceiver (LIN) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_LIN
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/lin.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/lin.c" version="0.2.1"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="MON" Cversion="0.1.8" condition="cond_TLE986x_MON">
+      <description>High Voltage Monitor Input (MON) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_MON
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/mon.h" version="0.1.8"/>
+        <file category="source" attr="config" name="Device/SDK/src/mon.c" version="0.1.8"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="PMU" Cversion="0.2.3" condition="cond_TLE986x_PMU">
+      <description>Power Management Unit (SCU) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_PMU
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/pmu.h" version="0.2.3"/>
+        <file category="source" attr="config" name="Device/SDK/src/pmu.c" version="0.2.3"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cversion="0.6.1" condition="cond_TLE986x_PORT">
+      <description>GPIO Ports (PORT) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_PORT
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/port.h" version="0.6.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/port.c" version="0.6.1"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cversion="0.5.9" condition="cond_TLE986x_SCU">
+      <description>System Control Unit (SCU) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_SCU
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/scu.h" version="0.5.9"/>
+        <file category="source" attr="config" name="Device/SDK/src/scu.c" version="0.5.9"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="SDADC" Cversion="0.1.7" condition="cond_TLE986x_SDADC">
+      <description>Sigma Delta ADC driver for TLE9868QXB20</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_ADC34
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device/SDK/inc/sdadc.h" attr="config" version="0.1.7"/>
+        <file category="source" name="Device/SDK/src/sdadc.c" attr="config" version="0.1.7"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cversion="0.1.9" condition="cond_TLE986x_SSC">
+      <description>High Speed Synchronous Serial Interface 1 and 2 (SSC) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_SSC
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/ssc.h" version="0.1.9"/>
+        <file category="source" attr="config" name="Device/SDK/src/ssc.c" version="0.1.9"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x" Cversion="0.2.4" condition="cond_TLE986x_TIMER2x">
+      <description>Timer2 and Timer21 (TIMER2x) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_TIMER2X
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/timer2x.h" version="0.2.4"/>
+        <file category="source" attr="config" name="Device/SDK/src/timer2x.c" version="0.2.4"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="TIMER3" Cversion="0.2.1" condition="cond_TLE986x_TIMER3">
+      <description>Timer3 (TIMER3) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_TIMER3
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/timer3.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/timer3.c" version="0.2.1"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="UART" Cversion="0.2.5" condition="cond_TLE986x_UART">
+      <description>UART1 and UART2 (UART) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_UART
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/uart.h" version="0.2.5"/>
+        <file category="source" attr="config" name="Device/SDK/src/uart.c" version="0.2.5"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cversion="0.3.4" condition="cond_TLE986x_WDT1">
+      <description>Watchdog 1 (WDT1) driver for TLE986x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_WDT1
+      </RTE_Components_h>
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/wdt1.h" version="0.3.4"/>
+        <file category="source" attr="config" name="Device/SDK/src/wdt1.c" version="0.3.4"/>
+      </files>
+    </component>
+  </components>
+  <examples>
+    <example name="TLE9869QXA20_ADC1_POTI_EIM" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/ADC1_POTI_EIM_EXAMPLE_TLE986X/">
+      <description>Reading the Poti using an Exceptional Interrupt Measurement in ADC1</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_ADC1_POTI_EIM.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_ADC1_POTI_EIM.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_ADC1_POTI_ESM" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/ADC1_POTI_ESM_EXAMPLE_TLE986X/">
+      <description>Reading the Poti using an Exceptional Sequencer Measurement in ADC1</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_ADC1_POTI_ESM.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_ADC1_POTI_ESM.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_ADC1_POTI_SEQ" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/ADC1_POTI_SEQ_EXAMPLE_TLE986X/">
+      <description>Reading the Poti using the sequencer mode in ADC1</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_ADC1_POTI_SEQ.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_ADC1_POTI_SEQ.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_ADC2_VS" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/ADC2_VS_EXAMPLE_TLE986X/">
+      <description>Measuring VS in ADC2</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_ADC2_VS.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_ADC2_VS.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BDRV"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_BDRV_EMO_DC" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/BDRV_EMO_DC_EXAMPLE_TLE986X/">
+      <description>Running a simple DC-motor</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_BDRV_EMO_DC.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_BDRV_EMO_DC.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BDRV"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_BDRV_EMO_DC_LIN" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/BDRV_EMO_DC_LIN_EXAMPLE_TLE986X/">
+      <description>Running a simple DC-motor controlled over LIN</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_BDRV_EMO_DC_LIN.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_BDRV_EMO_DC_LIN.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BDRV"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_BLINKY" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/BLINKY_EXAMPLE_TLE986X/">
+      <description>Blinking LED</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_BLINKY.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_BLINKY.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_BLINKY_RUNNING_LIGHTS" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/BLINKY_RUNNING_LIGHTS_EXAMPLE_TLE986X/">
+      <description>Running lights</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_BLINKY_RUNNING_LIGHTS.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_BLINKY_RUNNING_LIGHTS.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_CCU6_ADC1" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/CCU6_ADC1_EXAMPLE_TLE986X/">
+      <description>Synchronizing ADC1-EIM with CCU6 channel 0</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_CCU6_ADC1.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_CCU6_ADC1.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_CCU6_PWM" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/CCU6_PWM_EXAMPLE_TLE986X/">
+      <description>Generating PWM signals via CCU6</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_CCU6_PWM.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_CCU6_PWM.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_DMA_ADC1_SEQ" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/DMA_ADC1_SEQ_EXAMPLE_TLE986X/">
+      <description>Triggering DMA after completing an ADC1 sequence</description>
+      <board name="TLE9869 EvalKit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_DMA_ADC1_SEQ.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_DMA_ADC1_SEQ.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="DMA"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CSA"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_DMA_CH0_SCTGTH" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/DMA_CH0_SCTGTH_EXAMPLE_TLE986X/">
+      <description>Triggering multiple memory copy using DMA.Ch0 scatter-gather mode</description>
+      <board name="TLE9869 EvalKit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_DMA_CH0_SCTGTH.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_DMA_CH0_SCTGTH.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="DMA"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_DMA_SPI" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/DMA_SPI_EXAMPLE_TLE986X/">
+      <description>Sending data through SPI using DMA</description>
+      <board name="TLE9869 EvalKit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_DMA_SPI.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_DMA_SPI.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="DMA"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SSC"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_DMA_UART_TTY" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/DMA_UART_TTY_EXAMPLE_TLE986X/">
+      <description>Sending data triggered by DMA via UART2</description>
+      <board name="TLE9869 EvalKit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_DMA_UART_TTY.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_DMA_UART_TTY.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="DMA"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_GPT12E_CAPTURE_T2_T3" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/GPT12E_INPUT_CAPTURE_EXAMPLE_TLE986X/">
+      <description>Capturing input via auxiliary timer T2 of GPT12E</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_GPT12E_CAPTURE_T2_T3.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_GPT12E_CAPTURE_T2_T3.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_GPT12E_T3_CONCAT" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/GPT12E_T3_CONCAT_EXAMPLE_TLE986X/">
+      <description>Concatenating T2 and T3 (GPT12E) as 32-bit timer</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_GPT12E_T3_CONCAT.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_GPT12E_T3_CONCAT.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_GPT12E_T3_RELOAD" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/GPT12E_T3_RELOAD_EXAMPLE_TLE986X/">
+      <description>Reloading core timer T3 (GPT12E) with auxiliary timer T2 (GPT12E)</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_GPT12E_T3_RELOAD.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_GPT12E_T3_RELOAD.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_LIN_MASTER" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/LIN_MASTER_EXAMPLE_TLE986X/">
+      <description>Running the IHR LIN low-level driver in a LIN master configuration</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_LIN_MASTER.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_LIN_MASTER.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_LIN_SLAVE" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/LIN_SLAVE_EXAMPLE_TLE986X/">
+      <description>Running the IHR LIN low-level driver in a LIN slave configuration</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_LIN_SLAVE.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_LIN_SLAVE.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_LIN_SYNC_AUTOBAUD" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/LIN_SYNCH_AUTOBAUD_EXAMPLE_TLE986X/">
+      <description>Synchronizing LIN and detecting the baudrate automatically</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_LIN_SYNC_AUTOBAUD.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_LIN_SYNC_AUTOBAUD.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_NVM_DATA_FLASH_HANDLING" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/NVM_DATA_FLASH_HANDLING_EXAMPLE_TLE986X/">
+      <description>Handling data flash error during a page programming</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_NVM_DATA_FLASH_HANDLING.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_NVM_DATA_FLASH_HANDLING.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC2"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_NVM_PROG" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/NVM_PROG_EXAMPLE_TLE986X/">
+      <description>Programming a NVM page</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_NVM_PROG.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_NVM_PROG.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_NVM_PROTECTION" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/NVM_PROTECTION_EXAMPLE_TLE986X/">
+      <description>Flashing a page with write protection</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_NVM_PROTECTION.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_NVM_PROTECTION.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_NVM_RAM_BRANCH" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/NVM_RAM_BRANCH_EXAMPLE_TLE986X/">
+      <description>Programming a NVM page with RAM branch</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_NVM_RAM_BRANCH.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_NVM_RAM_BRANCH.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_NVM_RAM_INTERRUPTS" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/NVM_RAM_INTERRUPTS_EXAMPLE_TLE986X/">
+      <description>Programming a NVM page with interrupts in RAM</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_NVM_RAM_INTERRUPTS.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_NVM_RAM_INTERRUPTS.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_PMU_SLEEP_MODE_CYCLIC_WAKE" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/PMU_POWER_SAVING_SLEEP_MODE_CYCLIC_WAKE_EXAMPLE_TLE986X/">
+      <description>Power saving modes - Sleep mode with cyclic wake</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_PMU_SLEEP_MODE_CYCLIC_WAKE.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_PMU_SLEEP_MODE_CYCLIC_WAKE.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_PMU_SLEEP_MODE" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/PMU_POWER_SAVING_SLEEP_MODE_EXAMPLE_TLE986X/">
+      <description>Power saving modes - Sleep mode</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_PMU_SLEEP_MODE.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_PMU_SLEEP_MODE.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_PMU_STOP_MODE" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/PMU_POWER_SAVING_STOP_MODE_EXAMPLE_TLE986X/">
+      <description>Power saving modes - Stop mode</description>
+      <board name="TLE9869 EvalKit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_PMU_STOP_MODE.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_PMU_STOP_MODE.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_PMU_RESET_STATUS" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/PMU_RESET_STATUS_EXAMPLE_TLE986X/">
+      <description>Evaluating the Reset source</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_PMU_RESET_STATUS.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_PMU_RESET_STATUS.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_PMU_VDDEXT" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/PMU_VDDEXT_EXAMPLE_TLE986X/">
+      <description>Enabling VDDEXT and using diagnostic functions</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_PMU_VDDEXT.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_PMU_VDDEXT.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_SCU_PLL" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/SCU_PLL_EXAMPLE_TLE986X/">
+      <description>Adjusting the PLL settings</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_SCU_PLL.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_SCU_PLL.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_SCU_PLL_XTAL" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/SCU_PLL_XTAL_EXAMPLE_TLE986X/">
+      <description>Adjusting the PLL settings with an external XTAL</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_SCU_PLL_XTAL.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_SCU_PLL_XTAL.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9868QXB20_SDADC" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/SDADC_TMR_EXAMPLE_TLE9868/">
+      <description>Calculating an absolute angle using a TMR sensor (e.g. TLE5501) connected to the SDADC</description>
+      <board name="TLE9868 EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9868QXB20_SDADC.uvprojx"/>
+        <environment name="iar" load="TLE9868QXB20_SDADC.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SDADC"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_SSC1_SEND" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/SSC1_SEND_EXAMPLE_TLE986X/">
+      <description>Sending data with SSC1 as SPI Master</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_SSC1_SEND.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_SSC1_SEND.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SSC"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_SSC1_2_SSC2" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/SSC1_TO_SSC2_EXAMPLE_TLE986X/">
+      <description>Sending data between SSC1 and SSC2</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_SSC1_2_SSC2.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_SSC1_2_SSC2.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SSC"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_TIMER2_BLINK" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/TIMER2_BLINK_EXAMPLE_TLE986X/">
+      <description>Blinking LED via TIMER2</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_TIMER2_BLINK.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_TIMER2_BLINK.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_TIMER2_PWM_CAPTURE" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/TIMER2_PWM_CAPTURE_EXAMPLE_TLE986X/">
+      <description>Measuring the PWM duty cycle and period via TIMER2</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_TIMER2_PWM_CAPTURE.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_TIMER2_PWM_CAPTURE.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_TIMER3_MODE1B" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/TIMER3_MODE1B_EXAMPLE_TLE986X/">
+      <description>Triggering an ADC1 measurement via TIMER3</description>
+      <board name="TLE9869 EvalKit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_TIMER3_MODE1B.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_TIMER3_MODE1B.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER3"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_UART1_SEND" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/UART1_SEND_EXAMPLE_TLE986X/">
+      <description>Sending data via UART1 over LIN transceiver</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_UART1_SEND.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_UART1_SEND.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    <example name="TLE9869QXA20_UART2_TTY" doc="Abstract.txt" folder="Boards/Infineon/TLE9869_EvalKit/UART2_TTY_EXAMPLE_TLE986X/">
+      <description>Sending printf messages via UART2</description>
+      <board name="TLE986x EvalBoard" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TLE9869QXA20_UART2_TTY.uvprojx"/>
+        <environment name="iar" load="TLE9869QXA20_UART2_TTY.ewp"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+  </examples>
+</package>

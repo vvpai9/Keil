@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>NUCLEO-WL55JC_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32WL Series NUCLEO-WL55JC Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/ST_NUCLEO-WL55JC_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.0" date="2025-09-17" tag="v1.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added DWARF-5 debug information
+      - Added generated output files
+      Package Description (pdsc):
+      - Removed 'compatibleDevice' element
+    </release>
+    <release version="1.0.0" date="2024-12-19" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for NUCLEO-WL55JC1 and NUCLEO-WL55JC2
+      Blinky example (CMSIS Solution)
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32WL</keyword>
+    <keyword>NUCLEO-WL55JC</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32WLxx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="NUCLEO-WL55JC">
+      <description>STMicroelectronics NUCLEO-WL55JC Board</description>
+      <accept Bvendor="STMicroelectronics" Bname="NUCLEO-WL55JC1"/>
+      <accept Bvendor="STMicroelectronics" Bname="NUCLEO-WL55JC2"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="NUCLEO-WL55JC GPIO">
+      <description>STMicroelectronics NUCLEO-WL55JC Board with CMSIS Driver GPIO</description>
+      <require condition="NUCLEO-WL55JC"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for NUCLEO-WL55JC -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="NUCLEO-WL55JC GPIO">
+      <description>I/O implementation for NUCLEO-WL55JC</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_NUCLEO_WL55JC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_NUCLEO-WL55JC.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- NUCLEO-WL55JC1 -->
+    <board vendor="STMicroelectronics" name="NUCLEO-WL55JC1" revision="Rev.D"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Nucleo-64 development board, RF optimized 865 to 928 MHz(High-frequency) band with STM32WL55JCIx MCU</description>
+      <image small="Images/nucleo-wl55jc_small.png"
+             large="Images/nucleo-wl55jc_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/nucleo-wl55jc.html" title="NUCLEO-WL55JC Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/nucleo-wl55jc.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2592-stm32wl-nucleo64-board-mb1389-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1389-wl55jc-lowband-d04_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32WL55JCIx"/>
+      <feature type="ODbg"      n="1"              name="On-board STLINK-V3E"/>
+      <feature type="PWR"       n="5"              name="USB VBUS, ext. VIN, ext. 5V, ext +3.3V, STD_ALONE_5V"/>
+      <feature type="CustomFF"  n="2"              name="STMicroelectronics Morpho connector"/>
+      <feature type="ArduinoFF" n="4"              name="STMicroelectronics Arduino connector"/>
+      <feature type="CustomFF"  n="1"              name="SMA RF connector"/>
+      <feature type="USB"       n="1"              name="USB re-enumeration capability"/>
+      <feature type="Button"    n="4"              name="Push-buttons: User and Reset"/>
+      <feature type="LED"       n="6"              name="LEDs: COM, Power, User LEDs"/>
+      <debugInterface adapter="JTAG/SW" connector="10-pin SWD MIPI10 interface (0.05 inch connector)"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+
+    <!-- NUCLEO-WL55JC2 -->
+    <board vendor="STMicroelectronics" name="NUCLEO-WL55JC2" revision="Rev.D"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Nucleo-64 development board, RF optimized 433 to 510 MHz(Low-frequency) band with STM32WL55JCIx MCU</description>
+      <image small="Images/nucleo-wl55jc_small.png"
+             large="Images/nucleo-wl55jc_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/nucleo-wl55jc.html" title="NUCLEO-WL55JC Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/nucleo-wl55jc.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2592-stm32wl-nucleo64-board-mb1389-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1389-wl55jc-lowband-d04_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32WL55JCIx"/>
+      <feature type="ODbg"      n="1"              name="On-board STLINK-V3E"/>
+      <feature type="PWR"       n="5"              name="USB VBUS, ext. VIN, ext. 5V, ext +3.3V, STD_ALONE_5V"/>
+      <feature type="CustomFF"  n="2"              name="STMicroelectronics Morpho connector"/>
+      <feature type="ArduinoFF" n="4"              name="STMicroelectronics Arduino connector"/>
+      <feature type="CustomFF"  n="1"              name="SMA RF connector"/>
+      <feature type="USB"       n="1"              name="USB re-enumeration capability"/>
+      <feature type="Button"    n="4"              name="Push-buttons: User and Reset"/>
+      <feature type="LED"       n="6"              name="LEDs: COM, Power, User LEDs"/>
+      <debugInterface adapter="JTAG/SW" connector="10-pin SWD MIPI10 interface (0.05 inch connector)"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="NUCLEO-WL55JC1" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="NUCLEO-WL55JC2" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

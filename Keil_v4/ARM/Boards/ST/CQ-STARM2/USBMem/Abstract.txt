@@ -1,0 +1,15 @@
+The Memory project is a demo program for the STM32F103VBT6 
+using CQ-STARM2 Board.
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+LEDs are used to display the following:
+  - LED1 (PC6): LED_CFG  is on when USB Device is configured
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  CQ-STARM: configured for on-chip Flash ROM
+           (used for production or target debugging)
+

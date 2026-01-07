@@ -1,0 +1,15 @@
+The HID project is a demo program for ST STR9_DONGLE Board
+using a STMicroelectronics STR91x Microcontroller.
+
+It demonstrates an USB HID (Human Interface Device):
+  - 4 LEDs		   (LD81..LD84)
+  - 4 Push Buttons (B85..B88)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  STR9 Dongle: configured for on-chip Flash ROM
+               (used for production or target debugging)

@@ -1,0 +1,23 @@
+The 2-nd level Bootloader for NXP LPC3000 
+device series (configured for External SDRAM 
+and loaded to External NAND Flash on the 
+Phytec Board)
+
+This is a 2-nd level bootloader for NXP LPC3000 
+device series (LPC318x, LPC32x0) with External 
+NAND Flash and External SDRAM. 
+It downloads to PAGE 1 .. PAGE 31 of BANK 0 
+of the NAND Flash.
+The 1-st level bootloader that is in ROM of 
+LPC3000 first downloads this 2-nd level 
+bootloader to internal RAM and starts it.
+
+The 2-nd level bootloader's main function is to 
+copy user program from the External NAND Flash 
+to the External SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to the NAND Flash.
+
+
+Note: Bad block skipping is supported

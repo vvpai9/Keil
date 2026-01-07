@@ -1,0 +1,11 @@
+This is a simple RTX Kernel based Blinky example for
+the Cortex-M1 using ARM Emulation Baseboard HBI-0140
+and LT-XC2V6000 Logic Tile which emulates ARM Cortex-M1.
+
+Example simulates the Traffic light which is timed and
+lets cars pass during a specific time period and lets
+pedestrians cross during other time period.
+
+The Blinky program is available in different targets:
+  Simulator:  runs in µVision Simulator
+  Emulator:   runs in Emulator

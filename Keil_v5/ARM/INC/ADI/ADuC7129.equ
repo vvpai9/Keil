@@ -1,0 +1,1075 @@
+@ ===============================================                    											
+@   ADuC7129 HEADER FILE REV 1.2                            														
+@   REV 1.1- Updated DAC Registers														
+@   REV 0.7- Removed ID register        											
+@               -  Renamed REF0CON to REFCON											
+@               -  Renamed ADCCHNP to ADCCP											
+@               -  Renamed ADCCHNN to ADCCN											
+@               -  Renamed UART0 and UART1 registers
+@               -  Added I2C0ADR2 and I2C1ADR2 
+@               -  Removed I2C0DIVL I2C0DIVH I2C1DIVL I2C1DIVH
+@               -  Removed FEE0PAR FEE1PAR
+@               -  Corrected QENCLR and QENSET addresses
+@   REV 0.6- Comment removals        
+@   REV 0.5- Fixed  COM0DIVL COM0DIVH COM1DIVL COM1DIVH I2C0DIVL I2C0DIVH I2C1DIVL & I2C1DIVH        
+@   REV 0.4 - Added FEExPAR and corrected FEExSIGN registers         
+@   REV 0.3 - General update based on Rev 1.2                        
+@             Corrected REF0CON name                                 
+@             Removed GP2PAR                                         
+@             Added GP4CLR GP4PAR I2C0CCNT I2C0FSTA I2C1CCNT I2C1FSTA
+@             Corrected ADCCHNP ADCCHNN names            
+@             Add interrupt definitions - IAR
+@   REV 0.2 - Fixed typos                                            
+@   REV 0.1 - Initial                                                
+@ ===============================================                    											
+.equ          Z_BASE                        ,       0xFFFF0000
+.equ          F_BASE                        ,       0xFFFFF000
+.equ          MMR_BASE                      ,       0xFFFF0000
+.equ          MMR_BASE_LOW                  ,       0xFFFF0000
+.equ          MMR_BASE_HIGH                 ,       0xFFFFF000
+
+@ INTERRUPT CONTROLLER
+
+.equ          IRQBASE                       ,       0xFFFF0000
+.equ          IRQSTA                        ,       0xFFFF0000
+.equ          IRQSIG                        ,       0xFFFF0004
+.equ          IRQEN                         ,       0xFFFF0008
+.equ          IRQCLR                        ,       0xFFFF000C
+.equ          SWICFG                        ,       0xFFFF0010
+.equ          FIQSTA                        ,       0xFFFF0100
+.equ          FIQSIG                        ,       0xFFFF0104
+.equ          FIQEN                         ,       0xFFFF0108
+.equ          FIQCLR                        ,       0xFFFF010C
+.equ          Z_IRQSTA                      ,       IRQSTA    -Z_BASE
+.equ          Z_IRQSIG                      ,       IRQSIG    -Z_BASE
+.equ          Z_IRQEN                       ,       IRQEN     -Z_BASE
+.equ          Z_IRQCLR                      ,       IRQCLR    -Z_BASE
+.equ          Z_SWICFG                      ,       SWICFG    -Z_BASE
+.equ          Z_FIQSTA                      ,       FIQSTA    -Z_BASE
+.equ          Z_FIQSIG                      ,       FIQSIG    -Z_BASE
+.equ          Z_FIQEN                       ,       FIQEN     -Z_BASE
+.equ          Z_FIQCLR                      ,       FIQCLR    -Z_BASE
+
+.equ          T_IRQSTA                      ,       IRQSTA    -IRQBASE   
+.equ          T_IRQSIG                      ,       IRQSIG    -IRQBASE   
+.equ          T_IRQEN                       ,       IRQEN     -IRQBASE   
+.equ          T_IRQCLR                      ,       IRQCLR    -IRQBASE   
+.equ          T_SWICFG                      ,       SWICFG    -IRQBASE   
+.equ          T_FIQSTA                      ,       FIQSTA    -IRQBASE   
+.equ          T_FIQSIG                      ,       FIQSIG    -IRQBASE   
+.equ          T_FIQEN                       ,       FIQEN     -IRQBASE   
+.equ          T_FIQCLR                      ,       FIQCLR    -IRQBASE   
+
+.equ          IRQSTA_OFFSET                 ,       0x0000
+.equ          IRQSIG_OFFSET                 ,       0x0004
+.equ          IRQEN_OFFSET                  ,       0x0008
+.equ          IRQCLR_OFFSET                 ,       0x000C
+.equ          SWICFG_OFFSET                 ,       0x0010
+.equ          FIQSTA_OFFSET                 ,       0x0100
+.equ          FIQSIG_OFFSET                 ,       0x0104
+.equ          FIQEN_OFFSET                  ,       0x0108
+.equ          FIQCLR_OFFSET                 ,       0x010C
+
+@ REMAP AND SYSTEM CONTROL
+
+.equ          REMAPBASE                     ,       0xFFFF0200
+.equ          REMAP                         ,       0xFFFF0220
+.equ          RSTSET                        ,       0xFFFF0230
+.equ          RSTSTA                        ,       0xFFFF0230
+.equ          RSTCLR                        ,       0xFFFF0234
+.equ          Z_REMAP                       ,       REMAP     -Z_BASE
+.equ          Z_RSTSET                      ,       RSTSET    -Z_BASE
+.equ          Z_RSTSTA                      ,       RSTSTA    -Z_BASE
+.equ          Z_RSTCLR                      ,       RSTCLR    -Z_BASE
+
+.equ          T_REMAP                       ,       REMAP     -REMAPBASE 
+.equ          T_RSTSET                      ,       RSTSET    -REMAPBASE 
+.equ          T_RSTSTA                      ,       RSTSTA    -REMAPBASE 
+.equ          T_RSTCLR                      ,       RSTCLR    -REMAPBASE 
+
+.equ          REMAP_OFFSET                  ,       0x0220
+.equ          RSTSET_OFFSET                 ,       0x0230
+.equ          RSTSTA_OFFSET                 ,       0x0230
+.equ          RSTCLR_OFFSET                 ,       0x0234
+
+@ TIMER 0
+
+.equ          T0BASE                        ,       0xFFFF0300
+.equ          T0LD                          ,       0xFFFF0300
+.equ          T0VAL0                        ,       0xFFFF0304
+.equ          T0VAL1                        ,       0xFFFF0308
+.equ          T0CON                         ,       0xFFFF030C
+.equ          T0ICLR                        ,       0xFFFF0310
+.equ          T0CAP                         ,       0xFFFF0314
+.equ          Z_T0LD                        ,       T0LD      -Z_BASE
+.equ          Z_T0VAL0                      ,       T0VAL0    -Z_BASE
+.equ          Z_T0VAL1                      ,       T0VAL1    -Z_BASE
+.equ          Z_T0CON                       ,       T0CON     -Z_BASE
+.equ          Z_T0ICLR                      ,       T0ICLR    -Z_BASE
+.equ          Z_T0CAP                       ,       T0CAP     -Z_BASE
+
+.equ          T_T0LD                        ,       T0LD      -T0BASE    
+.equ          T_T0VAL0                      ,       T0VAL0    -T0BASE    
+.equ          T_T0VAL1                      ,       T0VAL1    -T0BASE    
+.equ          T_T0CON                       ,       T0CON     -T0BASE    
+.equ          T_T0ICLR                      ,       T0ICLR    -T0BASE    
+.equ          T_T0CAP                       ,       T0CAP     -T0BASE    
+
+.equ          T0LD_OFFSET                   ,       0x0300
+.equ          T0VAL0_OFFSET                 ,       0x0304
+.equ          T0VAL1_OFFSET                 ,       0x0308
+.equ          T0CON_OFFSET                  ,       0x030C
+.equ          T0ICLR_OFFSET                 ,       0x0310
+.equ          T0CAP_OFFSET                  ,       0x0314
+
+@ GENERAL PURPOSE TIMER
+
+.equ          T1BASE                        ,       0xFFFF0320
+.equ          T1LD                          ,       0xFFFF0320
+.equ          T1VAL                         ,       0xFFFF0324
+.equ          T1CON                         ,       0xFFFF0328
+.equ          T1ICLR                        ,       0xFFFF032C
+.equ          T1CAP                         ,       0xFFFF0330
+.equ          Z_T1LD                        ,       T1LD      -Z_BASE
+.equ          Z_T1VAL                       ,       T1VAL     -Z_BASE
+.equ          Z_T1CON                       ,       T1CON     -Z_BASE
+.equ          Z_T1ICLR                      ,       T1ICLR    -Z_BASE
+.equ          Z_T1CAP                       ,       T1CAP     -Z_BASE
+
+.equ          T_T1LD                        ,       T1LD      -T1BASE    
+.equ          T_T1VAL                       ,       T1VAL     -T1BASE    
+.equ          T_T1CON                       ,       T1CON     -T1BASE    
+.equ          T_T1ICLR                      ,       T1ICLR    -T1BASE    
+.equ          T_T1CAP                       ,       T1CAP     -T1BASE    
+
+.equ          T1LD_OFFSET                   ,       0x0320
+.equ          T1VAL_OFFSET                  ,       0x0324
+.equ          T1CON_OFFSET                  ,       0x0328
+.equ          T1ICLR_OFFSET                 ,       0x032C
+.equ          T1CAP_OFFSET                  ,       0x0330
+
+@ WAKE UP TIMER
+
+.equ          T2BASE                        ,       0xFFFF0340
+.equ          T2LD                          ,       0xFFFF0340
+.equ          T2VAL                         ,       0xFFFF0344
+.equ          T2CON                         ,       0xFFFF0348
+.equ          T2ICLR                        ,       0xFFFF034C
+.equ          Z_T2LD                        ,       T2LD      -Z_BASE
+.equ          Z_T2VAL                       ,       T2VAL     -Z_BASE
+.equ          Z_T2CON                       ,       T2CON     -Z_BASE
+.equ          Z_T2ICLR                      ,       T2ICLR    -Z_BASE
+
+.equ          T_T2LD                        ,       T2LD      -T2BASE    
+.equ          T_T2VAL                       ,       T2VAL     -T2BASE    
+.equ          T_T2CON                       ,       T2CON     -T2BASE    
+.equ          T_T2ICLR                      ,       T2ICLR    -T2BASE    
+
+.equ          T2LD_OFFSET                   ,       0x0340
+.equ          T2VAL_OFFSET                  ,       0x0344
+.equ          T2CON_OFFSET                  ,       0x0348
+.equ          T2ICLR_OFFSET                 ,       0x034C
+
+@ WATCHDOG TIMER
+
+.equ          T3BASE                        ,       0xFFFF0360
+.equ          T3LD                          ,       0xFFFF0360
+.equ          T3VAL                         ,       0xFFFF0364
+.equ          T3CON                         ,       0xFFFF0368
+.equ          T3ICLR                        ,       0xFFFF036C
+.equ          Z_T3LD                        ,       T3LD      -Z_BASE
+.equ          Z_T3VAL                       ,       T3VAL     -Z_BASE
+.equ          Z_T3CON                       ,       T3CON     -Z_BASE
+.equ          Z_T3ICLR                      ,       T3ICLR    -Z_BASE
+
+.equ          T_T3LD                        ,       T3LD      -T3BASE    
+.equ          T_T3VAL                       ,       T3VAL     -T3BASE    
+.equ          T_T3CON                       ,       T3CON     -T3BASE    
+.equ          T_T3ICLR                      ,       T3ICLR    -T3BASE    
+
+.equ          T3LD_OFFSET                   ,       0x0360
+.equ          T3VAL_OFFSET                  ,       0x0364
+.equ          T3CON_OFFSET                  ,       0x0368
+.equ          T3ICLR_OFFSET                 ,       0x036C
+
+@ GENERAL PURPOSE TIMER 4
+
+.equ          T4BASE                        ,       0xFFFF0380
+.equ          T4LD                          ,       0xFFFF0380
+.equ          T4VAL                         ,       0xFFFF0384
+.equ          T4CON                         ,       0xFFFF0388
+.equ          T4ICLR                        ,       0xFFFF038C
+.equ          T4CAP                         ,       0xFFFF0390
+.equ          Z_T4LD                        ,       T4LD      -Z_BASE
+.equ          Z_T4VAL                       ,       T4VAL     -Z_BASE
+.equ          Z_T4CON                       ,       T4CON     -Z_BASE
+.equ          Z_T4ICLR                      ,       T4ICLR    -Z_BASE
+.equ          Z_T4CAP                       ,       T4CAP     -Z_BASE
+
+.equ          T_T4LD                        ,       T4LD      -T4BASE    
+.equ          T_T4VAL                       ,       T4VAL     -T4BASE    
+.equ          T_T4CON                       ,       T4CON     -T4BASE    
+.equ          T_T4ICLR                      ,       T4ICLR    -T4BASE    
+.equ          T_T4CAP                       ,       T4CAP     -T4BASE    
+
+.equ          T4LD_OFFSET                   ,       0x0380
+.equ          T4VAL_OFFSET                  ,       0x0384
+.equ          T4CON_OFFSET                  ,       0x0388
+.equ          T4ICLR_OFFSET                 ,       0x038C
+.equ          T4CAP_OFFSET                  ,       0x0390
+
+@ PLL AND OSCILLATOR CONTROL
+
+.equ          PLLBASE                       ,       0xFFFF0400
+.equ          POWKEY1                       ,       0xFFFF0404
+.equ          POWCON                        ,       0xFFFF0408
+.equ          POWKEY2                       ,       0xFFFF040C
+.equ          PLLKEY1                       ,       0xFFFF0410
+.equ          PLLCON                        ,       0xFFFF0414
+.equ          PLLKEY2                       ,       0xFFFF0418
+.equ          Z_POWKEY1                     ,       POWKEY1   -Z_BASE
+.equ          Z_POWCON                      ,       POWCON    -Z_BASE
+.equ          Z_POWKEY2                     ,       POWKEY2   -Z_BASE
+.equ          Z_PLLKEY1                     ,       PLLKEY1   -Z_BASE
+.equ          Z_PLLCON                      ,       PLLCON    -Z_BASE
+.equ          Z_PLLKEY2                     ,       PLLKEY2   -Z_BASE
+
+.equ          T_POWKEY1                     ,       POWKEY1   -PLLBASE   
+.equ          T_POWCON                      ,       POWCON    -PLLBASE   
+.equ          T_POWKEY2                     ,       POWKEY2   -PLLBASE   
+.equ          T_PLLKEY1                     ,       PLLKEY1   -PLLBASE   
+.equ          T_PLLCON                      ,       PLLCON    -PLLBASE   
+.equ          T_PLLKEY2                     ,       PLLKEY2   -PLLBASE   
+
+.equ          POWKEY1_OFFSET                ,       0x0404
+.equ          POWCON_OFFSET                 ,       0x0408
+.equ          POWKEY2_OFFSET                ,       0x040C
+.equ          PLLKEY1_OFFSET                ,       0x0410
+.equ          PLLCON_OFFSET                 ,       0x0414
+.equ          PLLKEY2_OFFSET                ,       0x0418
+
+@ POWER SUPPLY MONITOR
+
+.equ          PSMBASE                       ,       0xFFFF0440
+.equ          PSMCON                        ,       0xFFFF0440
+.equ          CMPCON                        ,       0xFFFF0444
+.equ          Z_PSMCON                      ,       PSMCON    -Z_BASE
+.equ          Z_CMPCON                      ,       CMPCON    -Z_BASE
+
+.equ          T_PSMCON                      ,       PSMCON    -PSMBASE   
+.equ          T_CMPCON                      ,       CMPCON    -PSMBASE   
+
+.equ          PSMCON_OFFSET                 ,       0x0440
+.equ          CMPCON_OFFSET                 ,       0x0444
+
+@ Band Gap Reference
+
+.equ          REFBASE                       ,       0xFFFF0480
+.equ          REFCON                        ,       0xFFFF048C
+.equ          Z_REFCON                      ,       REFCON    -Z_BASE
+
+.equ          T_REFCON                      ,       REFCON    -REFBASE   
+
+.equ          REFCON_OFFSET                 ,       0x048C
+
+@ ADC INTERFACE REGISTERS
+
+.equ          ADCBASE                       ,       0xFFFF0500
+.equ          ADCCON                        ,       0xFFFF0500
+.equ          ADCCP                         ,       0xFFFF0504
+.equ          ADCCN                         ,       0xFFFF0508
+.equ          ADCSTA                        ,       0xFFFF050C
+.equ          ADCDAT                        ,       0xFFFF0510
+.equ          ADCRST                        ,       0xFFFF0514
+.equ          ADCGN                         ,       0xFFFF0530
+.equ          ADCOF                         ,       0xFFFF0534
+.equ          Z_ADCCON                      ,       ADCCON    -Z_BASE
+.equ          Z_ADCCP                       ,       ADCCP     -Z_BASE
+.equ          Z_ADCCN                       ,       ADCCN     -Z_BASE
+.equ          Z_ADCSTA                      ,       ADCSTA    -Z_BASE
+.equ          Z_ADCDAT                      ,       ADCDAT    -Z_BASE
+.equ          Z_ADCRST                      ,       ADCRST    -Z_BASE
+.equ          Z_ADCGN                       ,       ADCGN     -Z_BASE
+.equ          Z_ADCOF                       ,       ADCOF     -Z_BASE
+
+.equ          T_ADCCON                      ,       ADCCON    -ADCBASE   
+.equ          T_ADCCP                       ,       ADCCP     -ADCBASE   
+.equ          T_ADCCN                       ,       ADCCN     -ADCBASE   
+.equ          T_ADCSTA                      ,       ADCSTA    -ADCBASE   
+.equ          T_ADCDAT                      ,       ADCDAT    -ADCBASE   
+.equ          T_ADCRST                      ,       ADCRST    -ADCBASE   
+.equ          T_ADCGN                       ,       ADCGN     -ADCBASE   
+.equ          T_ADCOF                       ,       ADCOF     -ADCBASE   
+
+.equ          ADCCON_OFFSET                 ,       0x0500
+.equ          ADCCP_OFFSET                  ,       0x0504
+.equ          ADCCN_OFFSET                  ,       0x0508
+.equ          ADCSTA_OFFSET                 ,       0x050C
+.equ          ADCDAT_OFFSET                 ,       0x0510
+.equ          ADCRST_OFFSET                 ,       0x0514
+.equ          ADCGN_OFFSET                  ,       0x0530
+.equ          ADCOF_OFFSET                  ,       0x0534
+
+@ DAC INTERFACE REGISTERS
+
+.equ          DACBASE                       ,       0xFFFF0670
+.equ          DACCON                        ,       0xFFFF0670
+.equ          DACDAT                        ,       0xFFFF06B4
+.equ          Z_DACCON                      ,       DACCON    -Z_BASE
+.equ          Z_DACDAT                      ,       DACDAT    -Z_BASE
+
+.equ          T_DACCON                      ,       DACCON    -DACBASE   
+.equ          T_DACDAT                      ,       DACDAT    -DACBASE   
+
+.equ          DACCON_OFFSET                 ,       0x0670
+.equ          DACDAT_OFFSET                 ,       0x06B4
+
+@ DDS INTERFACE REGISTERS
+
+.equ          DDSBASE                       ,       0xFFFF0690
+.equ          DDSCON                        ,       0xFFFF0690
+.equ          DDSFRQ                        ,       0xFFFF0694
+.equ          DDSPHS                        ,       0xFFFF0698
+.equ          DACKEY0                       ,       0xFFFF06A4
+.equ          DACEN                         ,       0xFFFF06B8
+.equ          DACKEY1                       ,       0xFFFF06BC
+.equ          Z_DDSCON                      ,       DDSCON    -Z_BASE
+.equ          Z_DDSFRQ                      ,       DDSFRQ    -Z_BASE
+.equ          Z_DDSPHS                      ,       DDSPHS    -Z_BASE
+.equ          Z_DACKEY0                     ,       DACKEY0   -Z_BASE
+.equ          Z_DACEN                       ,       DACEN     -Z_BASE
+.equ          Z_DACKEY1                     ,       DACKEY1   -Z_BASE
+
+.equ          T_DDSCON                      ,       DDSCON    -DDSBASE   
+.equ          T_DDSFRQ                      ,       DDSFRQ    -DDSBASE   
+.equ          T_DDSPHS                      ,       DDSPHS    -DDSBASE   
+.equ          T_DACKEY0                     ,       DACKEY0   -DDSBASE   
+.equ          T_DACEN                       ,       DACEN     -DDSBASE   
+.equ          T_DACKEY1                     ,       DACKEY1   -DDSBASE   
+
+.equ          DDSCON_OFFSET                 ,       0x0690
+.equ          DDSFRQ_OFFSET                 ,       0x0694
+.equ          DDSPHS_OFFSET                 ,       0x0698
+.equ          DACKEY0_OFFSET                ,       0x06A4
+.equ          DACEN_OFFSET                  ,       0x06B8
+.equ          DACKEY1_OFFSET                ,       0x06BC
+
+@ 450 COMPATIABLE UART 0 CORE REGISTERS
+
+.equ          UART0BASE                     ,       0xFFFF0700
+.equ          COM0TX                        ,       0xFFFF0700
+.equ          COM0RX                        ,       0xFFFF0700
+.equ          COM0DIV0                      ,       0xFFFF0700
+.equ          COM0IEN0                      ,       0xFFFF0704
+.equ          COM0DIV1                      ,       0xFFFF0704
+.equ          COM0IID0                      ,       0xFFFF0708
+.equ          COM0CON0                      ,       0xFFFF070C
+.equ          COM0CON1                      ,       0xFFFF0710
+.equ          COM0STA0                      ,       0xFFFF0714
+.equ          COM0STA1                      ,       0xFFFF0718
+.equ          COM0SCR                       ,       0xFFFF071C
+.equ          COM0IEN1                      ,       0xFFFF0720
+.equ          COM0IID1                      ,       0xFFFF0724
+.equ          COM0ADR                       ,       0xFFFF0728
+.equ          COM0DIV2                      ,       0xFFFF072C
+.equ          Z_COM0TX                      ,       COM0TX    -Z_BASE
+.equ          Z_COM0RX                      ,       COM0RX    -Z_BASE
+.equ          Z_COM0DIV0                    ,       COM0DIV0  -Z_BASE
+.equ          Z_COM0IEN0                    ,       COM0IEN0  -Z_BASE
+.equ          Z_COM0DIV1                    ,       COM0DIV1  -Z_BASE
+.equ          Z_COM0IID0                    ,       COM0IID0  -Z_BASE
+.equ          Z_COM0CON0                    ,       COM0CON0  -Z_BASE
+.equ          Z_COM0CON1                    ,       COM0CON1  -Z_BASE
+.equ          Z_COM0STA0                    ,       COM0STA0  -Z_BASE
+.equ          Z_COM0STA1                    ,       COM0STA1  -Z_BASE
+.equ          Z_COM0SCR                     ,       COM0SCR   -Z_BASE
+.equ          Z_COM0IEN1                    ,       COM0IEN1  -Z_BASE
+.equ          Z_COM0IID1                    ,       COM0IID1  -Z_BASE
+.equ          Z_COM0ADR                     ,       COM0ADR   -Z_BASE
+.equ          Z_COM0DIV2                    ,       COM0DIV2  -Z_BASE
+
+.equ          T_COM0TX                      ,       COM0TX    -UART0BASE 
+.equ          T_COM0RX                      ,       COM0RX    -UART0BASE 
+.equ          T_COM0DIV0                    ,       COM0DIV0  -UART0BASE 
+.equ          T_COM0IEN0                    ,       COM0IEN0  -UART0BASE 
+.equ          T_COM0DIV1                    ,       COM0DIV1  -UART0BASE 
+.equ          T_COM0IID0                    ,       COM0IID0  -UART0BASE 
+.equ          T_COM0CON0                    ,       COM0CON0  -UART0BASE 
+.equ          T_COM0CON1                    ,       COM0CON1  -UART0BASE 
+.equ          T_COM0STA0                    ,       COM0STA0  -UART0BASE 
+.equ          T_COM0STA1                    ,       COM0STA1  -UART0BASE 
+.equ          T_COM0SCR                     ,       COM0SCR   -UART0BASE 
+.equ          T_COM0IEN1                    ,       COM0IEN1  -UART0BASE 
+.equ          T_COM0IID1                    ,       COM0IID1  -UART0BASE 
+.equ          T_COM0ADR                     ,       COM0ADR   -UART0BASE 
+.equ          T_COM0DIV2                    ,       COM0DIV2  -UART0BASE 
+
+.equ          COM0TX_OFFSET                 ,       0x0700
+.equ          COM0RX_OFFSET                 ,       0x0700
+.equ          COM0DIV0_OFFSET               ,       0x0700
+.equ          COM0IEN0_OFFSET               ,       0x0704
+.equ          COM0DIV1_OFFSET               ,       0x0704
+.equ          COM0IID0_OFFSET               ,       0x0708
+.equ          COM0CON0_OFFSET               ,       0x070C
+.equ          COM0CON1_OFFSET               ,       0x0710
+.equ          COM0STA0_OFFSET               ,       0x0714
+.equ          COM0STA1_OFFSET               ,       0x0718
+.equ          COM0SCR_OFFSET                ,       0x071C
+.equ          COM0IEN1_OFFSET               ,       0x0720
+.equ          COM0IID1_OFFSET               ,       0x0724
+.equ          COM0ADR_OFFSET                ,       0x0728
+.equ          COM0DIV2_OFFSET               ,       0x072C
+
+@ 450 COMPATIABLE UART 1 CORE REGISTERS
+
+.equ          UART1BASE                     ,       0xFFFF0740
+.equ          COM1TX                        ,       0xFFFF0740
+.equ          COM1RX                        ,       0xFFFF0740
+.equ          COM1DIV0                      ,       0xFFFF0740
+.equ          COM1IEN0                      ,       0xFFFF0744
+.equ          COM1DIV1                      ,       0xFFFF0744
+.equ          COM1IID0                      ,       0xFFFF0748
+.equ          COM1CON0                      ,       0xFFFF074C
+.equ          COM1CON1                      ,       0xFFFF0750
+.equ          COM1STA0                      ,       0xFFFF0754
+.equ          COM1STA1                      ,       0xFFFF0758
+.equ          COM1SCR                       ,       0xFFFF075C
+.equ          COM1IEN1                      ,       0xFFFF0760
+.equ          COM1IID1                      ,       0xFFFF0764
+.equ          COM1ADR                       ,       0xFFFF0768
+.equ          COM1DIV2                      ,       0xFFFF076C
+.equ          Z_COM1TX                      ,       COM1TX    -Z_BASE
+.equ          Z_COM1RX                      ,       COM1RX    -Z_BASE
+.equ          Z_COM1DIV0                    ,       COM1DIV0  -Z_BASE
+.equ          Z_COM1IEN0                    ,       COM1IEN0  -Z_BASE
+.equ          Z_COM1DIV1                    ,       COM1DIV1  -Z_BASE
+.equ          Z_COM1IID0                    ,       COM1IID0  -Z_BASE
+.equ          Z_COM1CON0                    ,       COM1CON0  -Z_BASE
+.equ          Z_COM1CON1                    ,       COM1CON1  -Z_BASE
+.equ          Z_COM1STA0                    ,       COM1STA0  -Z_BASE
+.equ          Z_COM1STA1                    ,       COM1STA1  -Z_BASE
+.equ          Z_COM1SCR                     ,       COM1SCR   -Z_BASE
+.equ          Z_COM1IEN1                    ,       COM1IEN1  -Z_BASE
+.equ          Z_COM1IID1                    ,       COM1IID1  -Z_BASE
+.equ          Z_COM1ADR                     ,       COM1ADR   -Z_BASE
+.equ          Z_COM1DIV2                    ,       COM1DIV2  -Z_BASE
+
+.equ          T_COM1TX                      ,       COM1TX    -UART1BASE 
+.equ          T_COM1RX                      ,       COM1RX    -UART1BASE 
+.equ          T_COM1DIV0                    ,       COM1DIV0  -UART1BASE 
+.equ          T_COM1IEN0                    ,       COM1IEN0  -UART1BASE 
+.equ          T_COM1DIV1                    ,       COM1DIV1  -UART1BASE 
+.equ          T_COM1IID0                    ,       COM1IID0  -UART1BASE 
+.equ          T_COM1CON0                    ,       COM1CON0  -UART1BASE 
+.equ          T_COM1CON1                    ,       COM1CON1  -UART1BASE 
+.equ          T_COM1STA0                    ,       COM1STA0  -UART1BASE 
+.equ          T_COM1STA1                    ,       COM1STA1  -UART1BASE 
+.equ          T_COM1SCR                     ,       COM1SCR   -UART1BASE 
+.equ          T_COM1IEN1                    ,       COM1IEN1  -UART1BASE 
+.equ          T_COM1IID1                    ,       COM1IID1  -UART1BASE 
+.equ          T_COM1ADR                     ,       COM1ADR   -UART1BASE 
+.equ          T_COM1DIV2                    ,       COM1DIV2  -UART1BASE 
+
+.equ          COM1TX_OFFSET                 ,       0x0740
+.equ          COM1RX_OFFSET                 ,       0x0740
+.equ          COM1DIV0_OFFSET               ,       0x0740
+.equ          COM1IEN0_OFFSET               ,       0x0744
+.equ          COM1DIV1_OFFSET               ,       0x0744
+.equ          COM1IID0_OFFSET               ,       0x0748
+.equ          COM1CON0_OFFSET               ,       0x074C
+.equ          COM1CON1_OFFSET               ,       0x0750
+.equ          COM1STA0_OFFSET               ,       0x0754
+.equ          COM1STA1_OFFSET               ,       0x0758
+.equ          COM1SCR_OFFSET                ,       0x075C
+.equ          COM1IEN1_OFFSET               ,       0x0760
+.equ          COM1IID1_OFFSET               ,       0x0764
+.equ          COM1ADR_OFFSET                ,       0x0768
+.equ          COM1DIV2_OFFSET               ,       0x076C
+
+@ I2C BUS PERIPHERAL DEVICE 0
+
+.equ          I2C0BASE                      ,       0xFFFF0800
+.equ          I2C0MSTA                      ,       0xFFFF0800
+.equ          I2C0SSTA                      ,       0xFFFF0804
+.equ          I2C0SRX                       ,       0xFFFF0808
+.equ          I2C0STX                       ,       0xFFFF080C
+.equ          I2C0MRX                       ,       0xFFFF0810
+.equ          I2C0MTX                       ,       0xFFFF0814
+.equ          I2C0CNT                       ,       0xFFFF0818
+.equ          I2C0ADR                       ,       0xFFFF081C
+.equ          I2C0BYT                       ,       0xFFFF0824
+.equ          I2C0ALT                       ,       0xFFFF0828
+.equ          I2C0CFG                       ,       0xFFFF082C
+.equ          I2C0DIV                       ,       0xFFFF0830
+.equ          I2C0ID0                       ,       0xFFFF0838
+.equ          I2C0ID1                       ,       0xFFFF083C
+.equ          I2C0ID2                       ,       0xFFFF0840
+.equ          I2C0ID3                       ,       0xFFFF0844
+.equ          I2C0SSC                       ,       0xFFFF0848
+.equ          I2C0FIF                       ,       0xFFFF084C
+.equ          Z_I2C0MSTA                    ,       I2C0MSTA  -Z_BASE
+.equ          Z_I2C0SSTA                    ,       I2C0SSTA  -Z_BASE
+.equ          Z_I2C0SRX                     ,       I2C0SRX   -Z_BASE
+.equ          Z_I2C0STX                     ,       I2C0STX   -Z_BASE
+.equ          Z_I2C0MRX                     ,       I2C0MRX   -Z_BASE
+.equ          Z_I2C0MTX                     ,       I2C0MTX   -Z_BASE
+.equ          Z_I2C0CNT                     ,       I2C0CNT   -Z_BASE
+.equ          Z_I2C0ADR                     ,       I2C0ADR   -Z_BASE
+.equ          Z_I2C0BYT                     ,       I2C0BYT   -Z_BASE
+.equ          Z_I2C0ALT                     ,       I2C0ALT   -Z_BASE
+.equ          Z_I2C0CFG                     ,       I2C0CFG   -Z_BASE
+.equ          Z_I2C0DIV                     ,       I2C0DIV   -Z_BASE
+.equ          Z_I2C0ID0                     ,       I2C0ID0   -Z_BASE
+.equ          Z_I2C0ID1                     ,       I2C0ID1   -Z_BASE
+.equ          Z_I2C0ID2                     ,       I2C0ID2   -Z_BASE
+.equ          Z_I2C0ID3                     ,       I2C0ID3   -Z_BASE
+.equ          Z_I2C0SSC                     ,       I2C0SSC   -Z_BASE
+.equ          Z_I2C0FIF                     ,       I2C0FIF   -Z_BASE
+
+.equ          T_I2C0MSTA                    ,       I2C0MSTA  -I2C0BASE  
+.equ          T_I2C0SSTA                    ,       I2C0SSTA  -I2C0BASE  
+.equ          T_I2C0SRX                     ,       I2C0SRX   -I2C0BASE  
+.equ          T_I2C0STX                     ,       I2C0STX   -I2C0BASE  
+.equ          T_I2C0MRX                     ,       I2C0MRX   -I2C0BASE  
+.equ          T_I2C0MTX                     ,       I2C0MTX   -I2C0BASE  
+.equ          T_I2C0CNT                     ,       I2C0CNT   -I2C0BASE  
+.equ          T_I2C0ADR                     ,       I2C0ADR   -I2C0BASE  
+.equ          T_I2C0BYT                     ,       I2C0BYT   -I2C0BASE  
+.equ          T_I2C0ALT                     ,       I2C0ALT   -I2C0BASE  
+.equ          T_I2C0CFG                     ,       I2C0CFG   -I2C0BASE  
+.equ          T_I2C0DIV                     ,       I2C0DIV   -I2C0BASE  
+.equ          T_I2C0ID0                     ,       I2C0ID0   -I2C0BASE  
+.equ          T_I2C0ID1                     ,       I2C0ID1   -I2C0BASE  
+.equ          T_I2C0ID2                     ,       I2C0ID2   -I2C0BASE  
+.equ          T_I2C0ID3                     ,       I2C0ID3   -I2C0BASE  
+.equ          T_I2C0SSC                     ,       I2C0SSC   -I2C0BASE  
+.equ          T_I2C0FIF                     ,       I2C0FIF   -I2C0BASE  
+
+.equ          I2C0MSTA_OFFSET               ,       0x0800
+.equ          I2C0SSTA_OFFSET               ,       0x0804
+.equ          I2C0SRX_OFFSET                ,       0x0808
+.equ          I2C0STX_OFFSET                ,       0x080C
+.equ          I2C0MRX_OFFSET                ,       0x0810
+.equ          I2C0MTX_OFFSET                ,       0x0814
+.equ          I2C0CNT_OFFSET                ,       0x0818
+.equ          I2C0ADR_OFFSET                ,       0x081C
+.equ          I2C0BYT_OFFSET                ,       0x0824
+.equ          I2C0ALT_OFFSET                ,       0x0828
+.equ          I2C0CFG_OFFSET                ,       0x082C
+.equ          I2C0DIV_OFFSET                ,       0x0830
+.equ          I2C0ID0_OFFSET                ,       0x0838
+.equ          I2C0ID1_OFFSET                ,       0x083C
+.equ          I2C0ID2_OFFSET                ,       0x0840
+.equ          I2C0ID3_OFFSET                ,       0x0844
+.equ          I2C0SSC_OFFSET                ,       0x0848
+.equ          I2C0FIF_OFFSET                ,       0x084C
+
+@ I2C BUS PERIPHERAL DEVICE 1
+
+.equ          I2C1BASE                      ,       0xFFFF0900
+.equ          I2C1MSTA                      ,       0xFFFF0900
+.equ          I2C1SSTA                      ,       0xFFFF0904
+.equ          I2C1SRX                       ,       0xFFFF0908
+.equ          I2C1STX                       ,       0xFFFF090C
+.equ          I2C1MRX                       ,       0xFFFF0910
+.equ          I2C1MTX                       ,       0xFFFF0914
+.equ          I2C1CNT                       ,       0xFFFF0918
+.equ          I2C1ADR                       ,       0xFFFF091C
+.equ          I2C1BYT                       ,       0xFFFF0924
+.equ          I2C1ALT                       ,       0xFFFF0928
+.equ          I2C1CFG                       ,       0xFFFF092C
+.equ          I2C1DIV                       ,       0xFFFF0930
+.equ          I2C1ID0                       ,       0xFFFF0938
+.equ          I2C1ID1                       ,       0xFFFF093C
+.equ          I2C1ID2                       ,       0xFFFF0940
+.equ          I2C1ID3                       ,       0xFFFF0944
+.equ          I2C1SSC                       ,       0xFFFF0948
+.equ          I2C1FIF                       ,       0xFFFF094C
+.equ          Z_I2C1MSTA                    ,       I2C1MSTA  -Z_BASE
+.equ          Z_I2C1SSTA                    ,       I2C1SSTA  -Z_BASE
+.equ          Z_I2C1SRX                     ,       I2C1SRX   -Z_BASE
+.equ          Z_I2C1STX                     ,       I2C1STX   -Z_BASE
+.equ          Z_I2C1MRX                     ,       I2C1MRX   -Z_BASE
+.equ          Z_I2C1MTX                     ,       I2C1MTX   -Z_BASE
+.equ          Z_I2C1CNT                     ,       I2C1CNT   -Z_BASE
+.equ          Z_I2C1ADR                     ,       I2C1ADR   -Z_BASE
+.equ          Z_I2C1BYT                     ,       I2C1BYT   -Z_BASE
+.equ          Z_I2C1ALT                     ,       I2C1ALT   -Z_BASE
+.equ          Z_I2C1CFG                     ,       I2C1CFG   -Z_BASE
+.equ          Z_I2C1DIV                     ,       I2C1DIV   -Z_BASE
+.equ          Z_I2C1ID0                     ,       I2C1ID0   -Z_BASE
+.equ          Z_I2C1ID1                     ,       I2C1ID1   -Z_BASE
+.equ          Z_I2C1ID2                     ,       I2C1ID2   -Z_BASE
+.equ          Z_I2C1ID3                     ,       I2C1ID3   -Z_BASE
+.equ          Z_I2C1SSC                     ,       I2C1SSC   -Z_BASE
+.equ          Z_I2C1FIF                     ,       I2C1FIF   -Z_BASE
+
+.equ          T_I2C1MSTA                    ,       I2C1MSTA  -I2C1BASE  
+.equ          T_I2C1SSTA                    ,       I2C1SSTA  -I2C1BASE  
+.equ          T_I2C1SRX                     ,       I2C1SRX   -I2C1BASE  
+.equ          T_I2C1STX                     ,       I2C1STX   -I2C1BASE  
+.equ          T_I2C1MRX                     ,       I2C1MRX   -I2C1BASE  
+.equ          T_I2C1MTX                     ,       I2C1MTX   -I2C1BASE  
+.equ          T_I2C1CNT                     ,       I2C1CNT   -I2C1BASE  
+.equ          T_I2C1ADR                     ,       I2C1ADR   -I2C1BASE  
+.equ          T_I2C1BYT                     ,       I2C1BYT   -I2C1BASE  
+.equ          T_I2C1ALT                     ,       I2C1ALT   -I2C1BASE  
+.equ          T_I2C1CFG                     ,       I2C1CFG   -I2C1BASE  
+.equ          T_I2C1DIV                     ,       I2C1DIV   -I2C1BASE  
+.equ          T_I2C1ID0                     ,       I2C1ID0   -I2C1BASE  
+.equ          T_I2C1ID1                     ,       I2C1ID1   -I2C1BASE  
+.equ          T_I2C1ID2                     ,       I2C1ID2   -I2C1BASE  
+.equ          T_I2C1ID3                     ,       I2C1ID3   -I2C1BASE  
+.equ          T_I2C1SSC                     ,       I2C1SSC   -I2C1BASE  
+.equ          T_I2C1FIF                     ,       I2C1FIF   -I2C1BASE  
+
+.equ          I2C1MSTA_OFFSET               ,       0x0900
+.equ          I2C1SSTA_OFFSET               ,       0x0904
+.equ          I2C1SRX_OFFSET                ,       0x0908
+.equ          I2C1STX_OFFSET                ,       0x090C
+.equ          I2C1MRX_OFFSET                ,       0x0910
+.equ          I2C1MTX_OFFSET                ,       0x0914
+.equ          I2C1CNT_OFFSET                ,       0x0918
+.equ          I2C1ADR_OFFSET                ,       0x091C
+.equ          I2C1BYT_OFFSET                ,       0x0924
+.equ          I2C1ALT_OFFSET                ,       0x0928
+.equ          I2C1CFG_OFFSET                ,       0x092C
+.equ          I2C1DIV_OFFSET                ,       0x0930
+.equ          I2C1ID0_OFFSET                ,       0x0938
+.equ          I2C1ID1_OFFSET                ,       0x093C
+.equ          I2C1ID2_OFFSET                ,       0x0940
+.equ          I2C1ID3_OFFSET                ,       0x0944
+.equ          I2C1SSC_OFFSET                ,       0x0948
+.equ          I2C1FIF_OFFSET                ,       0x094C
+
+@ SERIAL PERIPHERAL INTERFACE
+
+.equ          SPIBASE                       ,       0xFFFF0A00
+.equ          SPISTA                        ,       0xFFFF0A00
+.equ          SPIRX                         ,       0xFFFF0A04
+.equ          SPITX                         ,       0xFFFF0A08
+.equ          SPIDIV                        ,       0xFFFF0A0C
+.equ          SPICON                        ,       0xFFFF0A10
+.equ          Z_SPISTA                      ,       SPISTA    -Z_BASE
+.equ          Z_SPIRX                       ,       SPIRX     -Z_BASE
+.equ          Z_SPITX                       ,       SPITX     -Z_BASE
+.equ          Z_SPIDIV                      ,       SPIDIV    -Z_BASE
+.equ          Z_SPICON                      ,       SPICON    -Z_BASE
+
+.equ          T_SPISTA                      ,       SPISTA    -SPIBASE   
+.equ          T_SPIRX                       ,       SPIRX     -SPIBASE   
+.equ          T_SPITX                       ,       SPITX     -SPIBASE   
+.equ          T_SPIDIV                      ,       SPIDIV    -SPIBASE   
+.equ          T_SPICON                      ,       SPICON    -SPIBASE   
+
+.equ          SPISTA_OFFSET                 ,       0x0A00
+.equ          SPIRX_OFFSET                  ,       0x0A04
+.equ          SPITX_OFFSET                  ,       0x0A08
+.equ          SPIDIV_OFFSET                 ,       0x0A0C
+.equ          SPICON_OFFSET                 ,       0x0A10
+
+@ PROGRAMABLE LOGIC ARRAY
+
+.equ          PLABASE                       ,       0xFFFF0B00
+.equ          PLAELM0                       ,       0xFFFF0B00
+.equ          PLAELM1                       ,       0xFFFF0B04
+.equ          PLAELM2                       ,       0xFFFF0B08
+.equ          PLAELM3                       ,       0xFFFF0B0C
+.equ          PLAELM4                       ,       0xFFFF0B10
+.equ          PLAELM5                       ,       0xFFFF0B14
+.equ          PLAELM6                       ,       0xFFFF0B18
+.equ          PLAELM7                       ,       0xFFFF0B1C
+.equ          PLAELM8                       ,       0xFFFF0B20
+.equ          PLAELM9                       ,       0xFFFF0B24
+.equ          PLAELM10                      ,       0xFFFF0B28
+.equ          PLAELM11                      ,       0xFFFF0B2C
+.equ          PLAELM12                      ,       0xFFFF0B30
+.equ          PLAELM13                      ,       0xFFFF0B34
+.equ          PLAELM14                      ,       0xFFFF0B38
+.equ          PLAELM15                      ,       0xFFFF0B3C
+.equ          PLACLK                        ,       0xFFFF0B40
+.equ          PLAIRQ                        ,       0xFFFF0B44
+.equ          PLAADC                        ,       0xFFFF0B48
+.equ          PLADIN                        ,       0xFFFF0B4C
+.equ          PLAOUT                        ,       0xFFFF0B50
+.equ          Z_PLAELM0                     ,       PLAELM0   -Z_BASE
+.equ          Z_PLAELM1                     ,       PLAELM1   -Z_BASE
+.equ          Z_PLAELM2                     ,       PLAELM2   -Z_BASE
+.equ          Z_PLAELM3                     ,       PLAELM3   -Z_BASE
+.equ          Z_PLAELM4                     ,       PLAELM4   -Z_BASE
+.equ          Z_PLAELM5                     ,       PLAELM5   -Z_BASE
+.equ          Z_PLAELM6                     ,       PLAELM6   -Z_BASE
+.equ          Z_PLAELM7                     ,       PLAELM7   -Z_BASE
+.equ          Z_PLAELM8                     ,       PLAELM8   -Z_BASE
+.equ          Z_PLAELM9                     ,       PLAELM9   -Z_BASE
+.equ          Z_PLAELM10                    ,       PLAELM10  -Z_BASE
+.equ          Z_PLAELM11                    ,       PLAELM11  -Z_BASE
+.equ          Z_PLAELM12                    ,       PLAELM12  -Z_BASE
+.equ          Z_PLAELM13                    ,       PLAELM13  -Z_BASE
+.equ          Z_PLAELM14                    ,       PLAELM14  -Z_BASE
+.equ          Z_PLAELM15                    ,       PLAELM15  -Z_BASE
+.equ          Z_PLACLK                      ,       PLACLK    -Z_BASE
+.equ          Z_PLAIRQ                      ,       PLAIRQ    -Z_BASE
+.equ          Z_PLAADC                      ,       PLAADC    -Z_BASE
+.equ          Z_PLADIN                      ,       PLADIN    -Z_BASE
+.equ          Z_PLAOUT                      ,       PLAOUT    -Z_BASE
+
+.equ          T_PLAELM0                     ,       PLAELM0   -PLABASE   
+.equ          T_PLAELM1                     ,       PLAELM1   -PLABASE   
+.equ          T_PLAELM2                     ,       PLAELM2   -PLABASE   
+.equ          T_PLAELM3                     ,       PLAELM3   -PLABASE   
+.equ          T_PLAELM4                     ,       PLAELM4   -PLABASE   
+.equ          T_PLAELM5                     ,       PLAELM5   -PLABASE   
+.equ          T_PLAELM6                     ,       PLAELM6   -PLABASE   
+.equ          T_PLAELM7                     ,       PLAELM7   -PLABASE   
+.equ          T_PLAELM8                     ,       PLAELM8   -PLABASE   
+.equ          T_PLAELM9                     ,       PLAELM9   -PLABASE   
+.equ          T_PLAELM10                    ,       PLAELM10  -PLABASE   
+.equ          T_PLAELM11                    ,       PLAELM11  -PLABASE   
+.equ          T_PLAELM12                    ,       PLAELM12  -PLABASE   
+.equ          T_PLAELM13                    ,       PLAELM13  -PLABASE   
+.equ          T_PLAELM14                    ,       PLAELM14  -PLABASE   
+.equ          T_PLAELM15                    ,       PLAELM15  -PLABASE   
+.equ          T_PLACLK                      ,       PLACLK    -PLABASE   
+.equ          T_PLAIRQ                      ,       PLAIRQ    -PLABASE   
+.equ          T_PLAADC                      ,       PLAADC    -PLABASE   
+.equ          T_PLADIN                      ,       PLADIN    -PLABASE   
+.equ          T_PLAOUT                      ,       PLAOUT    -PLABASE   
+
+.equ          PLAELM0_OFFSET                ,       0x0B00
+.equ          PLAELM1_OFFSET                ,       0x0B04
+.equ          PLAELM2_OFFSET                ,       0x0B08
+.equ          PLAELM3_OFFSET                ,       0x0B0C
+.equ          PLAELM4_OFFSET                ,       0x0B10
+.equ          PLAELM5_OFFSET                ,       0x0B14
+.equ          PLAELM6_OFFSET                ,       0x0B18
+.equ          PLAELM7_OFFSET                ,       0x0B1C
+.equ          PLAELM8_OFFSET                ,       0x0B20
+.equ          PLAELM9_OFFSET                ,       0x0B24
+.equ          PLAELM10_OFFSET               ,       0x0B28
+.equ          PLAELM11_OFFSET               ,       0x0B2C
+.equ          PLAELM12_OFFSET               ,       0x0B30
+.equ          PLAELM13_OFFSET               ,       0x0B34
+.equ          PLAELM14_OFFSET               ,       0x0B38
+.equ          PLAELM15_OFFSET               ,       0x0B3C
+.equ          PLACLK_OFFSET                 ,       0x0B40
+.equ          PLAIRQ_OFFSET                 ,       0x0B44
+.equ          PLAADC_OFFSET                 ,       0x0B48
+.equ          PLADIN_OFFSET                 ,       0x0B4C
+.equ          PLAOUT_OFFSET                 ,       0x0B50
+
+@ External Port
+
+.equ          EPBASE                        ,       0xFFFF0C00
+.equ          XMCFG                         ,       0xFFFF0C00
+.equ          XM0CON                        ,       0xFFFF0C10
+.equ          XM1CON                        ,       0xFFFF0C14
+.equ          XM2CON                        ,       0xFFFF0C18
+.equ          XM3CON                        ,       0xFFFF0C1C
+.equ          XM0PAR                        ,       0xFFFF0C20
+.equ          XM1PAR                        ,       0xFFFF0C24
+.equ          XM2PAR                        ,       0xFFFF0C28
+.equ          XM3PAR                        ,       0xFFFF0C2C
+.equ          Z_XMCFG                       ,       XMCFG     -Z_BASE
+.equ          Z_XM0CON                      ,       XM0CON    -Z_BASE
+.equ          Z_XM1CON                      ,       XM1CON    -Z_BASE
+.equ          Z_XM2CON                      ,       XM2CON    -Z_BASE
+.equ          Z_XM3CON                      ,       XM3CON    -Z_BASE
+.equ          Z_XM0PAR                      ,       XM0PAR    -Z_BASE
+.equ          Z_XM1PAR                      ,       XM1PAR    -Z_BASE
+.equ          Z_XM2PAR                      ,       XM2PAR    -Z_BASE
+.equ          Z_XM3PAR                      ,       XM3PAR    -Z_BASE
+
+.equ          T_XMCFG                       ,       XMCFG     -EPBASE    
+.equ          T_XM0CON                      ,       XM0CON    -EPBASE    
+.equ          T_XM1CON                      ,       XM1CON    -EPBASE    
+.equ          T_XM2CON                      ,       XM2CON    -EPBASE    
+.equ          T_XM3CON                      ,       XM3CON    -EPBASE    
+.equ          T_XM0PAR                      ,       XM0PAR    -EPBASE    
+.equ          T_XM1PAR                      ,       XM1PAR    -EPBASE    
+.equ          T_XM2PAR                      ,       XM2PAR    -EPBASE    
+.equ          T_XM3PAR                      ,       XM3PAR    -EPBASE    
+
+.equ          XMCFG_OFFSET                  ,       0x0C00
+.equ          XM0CON_OFFSET                 ,       0x0C10
+.equ          XM1CON_OFFSET                 ,       0x0C14
+.equ          XM2CON_OFFSET                 ,       0x0C18
+.equ          XM3CON_OFFSET                 ,       0x0C1C
+.equ          XM0PAR_OFFSET                 ,       0x0C20
+.equ          XM1PAR_OFFSET                 ,       0x0C24
+.equ          XM2PAR_OFFSET                 ,       0x0C28
+.equ          XM3PAR_OFFSET                 ,       0x0C2C
+
+@ GPIO AND SERIAL PORT MUX
+
+.equ          GPIOBASE                      ,       0xFFFF0D00
+.equ          GP0CON                        ,       0xFFFF0D00
+.equ          GP1CON                        ,       0xFFFF0D04
+.equ          GP2CON                        ,       0xFFFF0D08
+.equ          GP3CON                        ,       0xFFFF0D0C
+.equ          GP4CON                        ,       0xFFFF0D10
+.equ          GP0DAT                        ,       0xFFFF0D20
+.equ          GP0SET                        ,       0xFFFF0D24
+.equ          GP0CLR                        ,       0xFFFF0D28
+.equ          GP0PAR                        ,       0xFFFF0D2C
+.equ          GP1DAT                        ,       0xFFFF0D30
+.equ          GP1SET                        ,       0xFFFF0D34
+.equ          GP1CLR                        ,       0xFFFF0D38
+.equ          GP1PAR                        ,       0xFFFF0D3C
+.equ          GP2DAT                        ,       0xFFFF0D40
+.equ          GP2SET                        ,       0xFFFF0D44
+.equ          GP2CLR                        ,       0xFFFF0D48
+.equ          GP3DAT                        ,       0xFFFF0D50
+.equ          GP3SET                        ,       0xFFFF0D54
+.equ          GP3CLR                        ,       0xFFFF0D58
+.equ          GP3PAR                        ,       0xFFFF0D5C
+.equ          GP4DAT                        ,       0xFFFF0D60
+.equ          GP4SET                        ,       0xFFFF0D64
+.equ          GP4CLR                        ,       0xFFFF0D68
+.equ          GP4PAR                        ,       0xFFFF0D6C
+.equ          Z_GP0CON                      ,       GP0CON    -Z_BASE
+.equ          Z_GP1CON                      ,       GP1CON    -Z_BASE
+.equ          Z_GP2CON                      ,       GP2CON    -Z_BASE
+.equ          Z_GP3CON                      ,       GP3CON    -Z_BASE
+.equ          Z_GP4CON                      ,       GP4CON    -Z_BASE
+.equ          Z_GP0DAT                      ,       GP0DAT    -Z_BASE
+.equ          Z_GP0SET                      ,       GP0SET    -Z_BASE
+.equ          Z_GP0CLR                      ,       GP0CLR    -Z_BASE
+.equ          Z_GP0PAR                      ,       GP0PAR    -Z_BASE
+.equ          Z_GP1DAT                      ,       GP1DAT    -Z_BASE
+.equ          Z_GP1SET                      ,       GP1SET    -Z_BASE
+.equ          Z_GP1CLR                      ,       GP1CLR    -Z_BASE
+.equ          Z_GP1PAR                      ,       GP1PAR    -Z_BASE
+.equ          Z_GP2DAT                      ,       GP2DAT    -Z_BASE
+.equ          Z_GP2SET                      ,       GP2SET    -Z_BASE
+.equ          Z_GP2CLR                      ,       GP2CLR    -Z_BASE
+.equ          Z_GP3DAT                      ,       GP3DAT    -Z_BASE
+.equ          Z_GP3SET                      ,       GP3SET    -Z_BASE
+.equ          Z_GP3CLR                      ,       GP3CLR    -Z_BASE
+.equ          Z_GP3PAR                      ,       GP3PAR    -Z_BASE
+.equ          Z_GP4DAT                      ,       GP4DAT    -Z_BASE
+.equ          Z_GP4SET                      ,       GP4SET    -Z_BASE
+.equ          Z_GP4CLR                      ,       GP4CLR    -Z_BASE
+.equ          Z_GP4PAR                      ,       GP4PAR    -Z_BASE
+
+.equ          T_GP0CON                      ,       GP0CON    -GPIOBASE  
+.equ          T_GP1CON                      ,       GP1CON    -GPIOBASE  
+.equ          T_GP2CON                      ,       GP2CON    -GPIOBASE  
+.equ          T_GP3CON                      ,       GP3CON    -GPIOBASE  
+.equ          T_GP4CON                      ,       GP4CON    -GPIOBASE  
+.equ          T_GP0DAT                      ,       GP0DAT    -GPIOBASE  
+.equ          T_GP0SET                      ,       GP0SET    -GPIOBASE  
+.equ          T_GP0CLR                      ,       GP0CLR    -GPIOBASE  
+.equ          T_GP0PAR                      ,       GP0PAR    -GPIOBASE  
+.equ          T_GP1DAT                      ,       GP1DAT    -GPIOBASE  
+.equ          T_GP1SET                      ,       GP1SET    -GPIOBASE  
+.equ          T_GP1CLR                      ,       GP1CLR    -GPIOBASE  
+.equ          T_GP1PAR                      ,       GP1PAR    -GPIOBASE  
+.equ          T_GP2DAT                      ,       GP2DAT    -GPIOBASE  
+.equ          T_GP2SET                      ,       GP2SET    -GPIOBASE  
+.equ          T_GP2CLR                      ,       GP2CLR    -GPIOBASE  
+.equ          T_GP3DAT                      ,       GP3DAT    -GPIOBASE  
+.equ          T_GP3SET                      ,       GP3SET    -GPIOBASE  
+.equ          T_GP3CLR                      ,       GP3CLR    -GPIOBASE  
+.equ          T_GP3PAR                      ,       GP3PAR    -GPIOBASE  
+.equ          T_GP4DAT                      ,       GP4DAT    -GPIOBASE  
+.equ          T_GP4SET                      ,       GP4SET    -GPIOBASE  
+.equ          T_GP4CLR                      ,       GP4CLR    -GPIOBASE  
+.equ          T_GP4PAR                      ,       GP4PAR    -GPIOBASE  
+
+.equ          GP0CON_OFFSET                 ,       0x0D00
+.equ          GP1CON_OFFSET                 ,       0x0D04
+.equ          GP2CON_OFFSET                 ,       0x0D08
+.equ          GP3CON_OFFSET                 ,       0x0D0C
+.equ          GP4CON_OFFSET                 ,       0x0D10
+.equ          GP0DAT_OFFSET                 ,       0x0D20
+.equ          GP0SET_OFFSET                 ,       0x0D24
+.equ          GP0CLR_OFFSET                 ,       0x0D28
+.equ          GP0PAR_OFFSET                 ,       0x0D2C
+.equ          GP1DAT_OFFSET                 ,       0x0D30
+.equ          GP1SET_OFFSET                 ,       0x0D34
+.equ          GP1CLR_OFFSET                 ,       0x0D38
+.equ          GP1PAR_OFFSET                 ,       0x0D3C
+.equ          GP2DAT_OFFSET                 ,       0x0D40
+.equ          GP2SET_OFFSET                 ,       0x0D44
+.equ          GP2CLR_OFFSET                 ,       0x0D48
+.equ          GP3DAT_OFFSET                 ,       0x0D50
+.equ          GP3SET_OFFSET                 ,       0x0D54
+.equ          GP3CLR_OFFSET                 ,       0x0D58
+.equ          GP3PAR_OFFSET                 ,       0x0D5C
+.equ          GP4DAT_OFFSET                 ,       0x0D60
+.equ          GP4SET_OFFSET                 ,       0x0D64
+.equ          GP4CLR_OFFSET                 ,       0x0D68
+.equ          GP4PAR_OFFSET                 ,       0x0D6C
+
+@ FLASH CONTROL INTERFACE 0
+
+.equ          FLASH0BASE                    ,       0xFFFF0E00
+.equ          FEE0STA                       ,       0xFFFF0E00
+.equ          FEE0MOD                       ,       0xFFFF0E04
+.equ          FEE0CON                       ,       0xFFFF0E08
+.equ          FEE0DAT                       ,       0xFFFF0E0C
+.equ          FEE0ADR                       ,       0xFFFF0E10
+.equ          FEE0SGN                       ,       0xFFFF0E18
+.equ          FEE0PRO                       ,       0xFFFF0E1C
+.equ          FEE0HID                       ,       0xFFFF0E20
+.equ          Z_FEE0STA                     ,       FEE0STA   -Z_BASE
+.equ          Z_FEE0MOD                     ,       FEE0MOD   -Z_BASE
+.equ          Z_FEE0CON                     ,       FEE0CON   -Z_BASE
+.equ          Z_FEE0DAT                     ,       FEE0DAT   -Z_BASE
+.equ          Z_FEE0ADR                     ,       FEE0ADR   -Z_BASE
+.equ          Z_FEE0SGN                     ,       FEE0SGN   -Z_BASE
+.equ          Z_FEE0PRO                     ,       FEE0PRO   -Z_BASE
+.equ          Z_FEE0HID                     ,       FEE0HID   -Z_BASE
+
+.equ          T_FEE0STA                     ,       FEE0STA   -FLASH0BASE
+.equ          T_FEE0MOD                     ,       FEE0MOD   -FLASH0BASE
+.equ          T_FEE0CON                     ,       FEE0CON   -FLASH0BASE
+.equ          T_FEE0DAT                     ,       FEE0DAT   -FLASH0BASE
+.equ          T_FEE0ADR                     ,       FEE0ADR   -FLASH0BASE
+.equ          T_FEE0SGN                     ,       FEE0SGN   -FLASH0BASE
+.equ          T_FEE0PRO                     ,       FEE0PRO   -FLASH0BASE
+.equ          T_FEE0HID                     ,       FEE0HID   -FLASH0BASE
+
+.equ          FEE0STA_OFFSET                ,       0x0E00
+.equ          FEE0MOD_OFFSET                ,       0x0E04
+.equ          FEE0CON_OFFSET                ,       0x0E08
+.equ          FEE0DAT_OFFSET                ,       0x0E0C
+.equ          FEE0ADR_OFFSET                ,       0x0E10
+.equ          FEE0SGN_OFFSET                ,       0x0E18
+.equ          FEE0PRO_OFFSET                ,       0x0E1C
+.equ          FEE0HID_OFFSET                ,       0x0E20
+
+@ FLASH CONTROL INTERFACE 1
+
+.equ          FLASH1BASE                    ,       0xFFFF0E80
+.equ          FEE1STA                       ,       0xFFFF0E80
+.equ          FEE1MOD                       ,       0xFFFF0E84
+.equ          FEE1CON                       ,       0xFFFF0E88
+.equ          FEE1DAT                       ,       0xFFFF0E8C
+.equ          FEE1ADR                       ,       0xFFFF0E90
+.equ          FEE1SGN                       ,       0xFFFF0E98
+.equ          FEE1PRO                       ,       0xFFFF0E9C
+.equ          FEE1HID                       ,       0xFFFF0EA0
+.equ          Z_FEE1STA                     ,       FEE1STA   -Z_BASE
+.equ          Z_FEE1MOD                     ,       FEE1MOD   -Z_BASE
+.equ          Z_FEE1CON                     ,       FEE1CON   -Z_BASE
+.equ          Z_FEE1DAT                     ,       FEE1DAT   -Z_BASE
+.equ          Z_FEE1ADR                     ,       FEE1ADR   -Z_BASE
+.equ          Z_FEE1SGN                     ,       FEE1SGN   -Z_BASE
+.equ          Z_FEE1PRO                     ,       FEE1PRO   -Z_BASE
+.equ          Z_FEE1HID                     ,       FEE1HID   -Z_BASE
+
+.equ          T_FEE1STA                     ,       FEE1STA   -FLASH1BASE
+.equ          T_FEE1MOD                     ,       FEE1MOD   -FLASH1BASE
+.equ          T_FEE1CON                     ,       FEE1CON   -FLASH1BASE
+.equ          T_FEE1DAT                     ,       FEE1DAT   -FLASH1BASE
+.equ          T_FEE1ADR                     ,       FEE1ADR   -FLASH1BASE
+.equ          T_FEE1SGN                     ,       FEE1SGN   -FLASH1BASE
+.equ          T_FEE1PRO                     ,       FEE1PRO   -FLASH1BASE
+.equ          T_FEE1HID                     ,       FEE1HID   -FLASH1BASE
+
+.equ          FEE1STA_OFFSET                ,       0x0E80
+.equ          FEE1MOD_OFFSET                ,       0x0E84
+.equ          FEE1CON_OFFSET                ,       0x0E88
+.equ          FEE1DAT_OFFSET                ,       0x0E8C
+.equ          FEE1ADR_OFFSET                ,       0x0E90
+.equ          FEE1SGN_OFFSET                ,       0x0E98
+.equ          FEE1PRO_OFFSET                ,       0x0E9C
+.equ          FEE1HID_OFFSET                ,       0x0EA0
+
+@ Quadrature Encoder
+
+.equ          QENBASE                       ,       0xFFFF0F00
+.equ          QENCON                        ,       0xFFFF0F00
+.equ          QENSTA                        ,       0xFFFF0F04
+.equ          QENDAT                        ,       0xFFFF0F08
+.equ          QENVAL                        ,       0xFFFF0F0C
+.equ          QENCLR                        ,       0xFFFF0F14
+.equ          QENSET                        ,       0xFFFF0F18
+.equ          Z_QENCON                      ,       QENCON    -Z_BASE
+.equ          Z_QENSTA                      ,       QENSTA    -Z_BASE
+.equ          Z_QENDAT                      ,       QENDAT    -Z_BASE
+.equ          Z_QENVAL                      ,       QENVAL    -Z_BASE
+.equ          Z_QENCLR                      ,       QENCLR    -Z_BASE
+.equ          Z_QENSET                      ,       QENSET    -Z_BASE
+
+.equ          T_QENCON                      ,       QENCON    -QENBASE   
+.equ          T_QENSTA                      ,       QENSTA    -QENBASE   
+.equ          T_QENDAT                      ,       QENDAT    -QENBASE   
+.equ          T_QENVAL                      ,       QENVAL    -QENBASE   
+.equ          T_QENCLR                      ,       QENCLR    -QENBASE   
+.equ          T_QENSET                      ,       QENSET    -QENBASE   
+
+.equ          QENCON_OFFSET                 ,       0x0F00
+.equ          QENSTA_OFFSET                 ,       0x0F04
+.equ          QENDAT_OFFSET                 ,       0x0F08
+.equ          QENVAL_OFFSET                 ,       0x0F0C
+.equ          QENCLR_OFFSET                 ,       0x0F14
+.equ          QENSET_OFFSET                 ,       0x0F18
+
+@ Pulse Width Modulator
+
+.equ          PWMBASE                       ,       0xFFFF0F80
+.equ          PWMCON1                       ,       0xFFFF0F80
+.equ          PWM1COM1                      ,       0xFFFF0F84
+.equ          PWM1COM2                      ,       0xFFFF0F88
+.equ          PWM1COM3                      ,       0xFFFF0F8C
+.equ          PWM1LEN                       ,       0xFFFF0F90
+.equ          PWM2COM1                      ,       0xFFFF0F94
+.equ          PWM2COM2                      ,       0xFFFF0F98
+.equ          PWM2COM3                      ,       0xFFFF0F9C
+.equ          PWM2LEN                       ,       0xFFFF0FA0
+.equ          PWM3COM1                      ,       0xFFFF0FA4
+.equ          PWM3COM2                      ,       0xFFFF0FA8
+.equ          PWM3COM3                      ,       0xFFFF0FAC
+.equ          PWM3LEN                       ,       0xFFFF0FB0
+.equ          PWMCON2                       ,       0xFFFF0FB4
+.equ          PWMICLR                       ,       0xFFFF0FB8
+.equ          Z_PWMCON1                     ,       PWMCON1   -Z_BASE
+.equ          Z_PWM1COM1                    ,       PWM1COM1  -Z_BASE
+.equ          Z_PWM1COM2                    ,       PWM1COM2  -Z_BASE
+.equ          Z_PWM1COM3                    ,       PWM1COM3  -Z_BASE
+.equ          Z_PWM1LEN                     ,       PWM1LEN   -Z_BASE
+.equ          Z_PWM2COM1                    ,       PWM2COM1  -Z_BASE
+.equ          Z_PWM2COM2                    ,       PWM2COM2  -Z_BASE
+.equ          Z_PWM2COM3                    ,       PWM2COM3  -Z_BASE
+.equ          Z_PWM2LEN                     ,       PWM2LEN   -Z_BASE
+.equ          Z_PWM3COM1                    ,       PWM3COM1  -Z_BASE
+.equ          Z_PWM3COM2                    ,       PWM3COM2  -Z_BASE
+.equ          Z_PWM3COM3                    ,       PWM3COM3  -Z_BASE
+.equ          Z_PWM3LEN                     ,       PWM3LEN   -Z_BASE
+.equ          Z_PWMCON2                     ,       PWMCON2   -Z_BASE
+.equ          Z_PWMICLR                     ,       PWMICLR   -Z_BASE
+
+.equ          T_PWMCON1                     ,       PWMCON1   -PWMBASE   
+.equ          T_PWM1COM1                    ,       PWM1COM1  -PWMBASE   
+.equ          T_PWM1COM2                    ,       PWM1COM2  -PWMBASE   
+.equ          T_PWM1COM3                    ,       PWM1COM3  -PWMBASE   
+.equ          T_PWM1LEN                     ,       PWM1LEN   -PWMBASE   
+.equ          T_PWM2COM1                    ,       PWM2COM1  -PWMBASE   
+.equ          T_PWM2COM2                    ,       PWM2COM2  -PWMBASE   
+.equ          T_PWM2COM3                    ,       PWM2COM3  -PWMBASE   
+.equ          T_PWM2LEN                     ,       PWM2LEN   -PWMBASE   
+.equ          T_PWM3COM1                    ,       PWM3COM1  -PWMBASE   
+.equ          T_PWM3COM2                    ,       PWM3COM2  -PWMBASE   
+.equ          T_PWM3COM3                    ,       PWM3COM3  -PWMBASE   
+.equ          T_PWM3LEN                     ,       PWM3LEN   -PWMBASE   
+.equ          T_PWMCON2                     ,       PWMCON2   -PWMBASE   
+.equ          T_PWMICLR                     ,       PWMICLR   -PWMBASE   
+
+.equ          PWMCON1_OFFSET                ,       0x0F80
+.equ          PWM1COM1_OFFSET               ,       0x0F84
+.equ          PWM1COM2_OFFSET               ,       0x0F88
+.equ          PWM1COM3_OFFSET               ,       0x0F8C
+.equ          PWM1LEN_OFFSET                ,       0x0F90
+.equ          PWM2COM1_OFFSET               ,       0x0F94
+.equ          PWM2COM2_OFFSET               ,       0x0F98
+.equ          PWM2COM3_OFFSET               ,       0x0F9C
+.equ          PWM2LEN_OFFSET                ,       0x0FA0
+.equ          PWM3COM1_OFFSET               ,       0x0FA4
+.equ          PWM3COM2_OFFSET               ,       0x0FA8
+.equ          PWM3COM3_OFFSET               ,       0x0FAC
+.equ          PWM3LEN_OFFSET                ,       0x0FB0
+.equ          PWMCON2_OFFSET                ,       0x0FB4
+.equ          PWMICLR_OFFSET                ,       0x0FB8

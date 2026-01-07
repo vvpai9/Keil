@@ -1,0 +1,27 @@
+The Blinky project is a simple program for the ST750FV2T7
+using Keil 'MCB-STR750' Evaluation Board and demonstrating 
+interrupt functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL             =   4 MHz
+   - CK_SYS = CK_PLL1 =  60 MHz
+   - HCLK   = CK_SYS  =  60 MHz
+   - CK_TIM = HCLK/8  = 7.5 MHz
+   - PCLK   = CK_TIM  = 7.5 MHz
+ - TIM2 timer is activating LED and works in interrupt mode
+ - AD conversion is done in interrupt mode
+ - text is displayed to textual LCD
+ - bargraph is displayed to textual LCD, according to 
+   potentiometer position
+ - 8 LEDs state represent the potentiometer position
+ 
+The Blinky program is available in different targets:
+  Simulator:       configured for software Simulator
+  STR750 Flash:    runs from Internal Flash located on chip
+                   (used for production or target debugging)
+  STR750 RAM:      runs from Internal RAM located on chip
+                   (may be used for target debugging) 
+				 
+Note: To run from flash at boot, place jumpers BOOT0 and BOOT1 
+      to position GND

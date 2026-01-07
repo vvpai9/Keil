@@ -1,0 +1,196 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (Star9 IntFlash), 0x0004 // Tools: 'ARM-ADS'
+Target (Star9 ExtFlash), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (Retarget)
+Group (Source Code)
+Group (Documentation)
+
+File 1,2,<.\STR91x.s><STR91x.s> 0x464AA9CA 
+File 2,1,<.\Retarget.c><Retarget.c> 0x46481D94 
+File 3,1,<.\ExtMem.c><ExtMem.c> 0x46481D94 
+File 3,1,<.\memtest.c><memtest.c> 0x46481D94 
+File 4,5,<.\Abstract.txt><Abstract.txt> 0x46481D94 
+
+
+Options 1,0,0  // Target 'Star9 IntFlash'
+ Device (STR912FW44)
+ Vendor (STMicroelectronics)
+ Cpu (IRAM(0x04000000-0x04017FFF) IROM(0x0-0x7FFFF) IROM2(0x400000-0x407FFF) CLOCK(25000000) CPUTYPE(ARM9E))
+ FlashUt ()
+ StupF ("STARTUP\ST\STR91x.s" ("STR91x Startup Code"))
+ FlashDR (UL2ARM(-UU0639C7E -O15 -S0 -C1 -N00("ST uPSD Flash") -D00(04570041) -L00(8) -N01("ARM966E-S Core") -D01(25966041) -L01(4) -N02("ST Boundary Scan") -D02(0457F041) -L02(5) -FO15 -FD4000000 -FC800 -FN2 -FF0STR91xFxx4 -FS00 -FL080000 -FF1STR91xB1 -FS1400000 -FL18000))
+ DevID (4067)
+ Rgf (91x_lib.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿST\91x\)
+ OrgReg (ÿST\91x\)
+ TgStat=16
+ OutDir (.\IntFlash\)
+ OutName (ExtMem)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\IntFlash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM9E)
+ ADSTFLGA { 0,12,32,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,4,0,128,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,8,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,8,0,1,0,0,64,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,128,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x00000000)
+ ADSLDDA (0x04000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cSTR91x)(DARMST9.DLL)(-pSTR912)(SARM.DLL)(-cSTR91x)(TARMST9.DLL)(-pSTR912)
+  OPTDBG 48126,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 9,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'Star9 ExtFlash'
+ Device (STR912FW44)
+ Vendor (STMicroelectronics)
+ Cpu (IRAM(0x04000000-0x04017FFF) IROM(0x0-0x7FFFF) IROM2(0x400000-0x407FFF) CLOCK(25000000) CPUTYPE(ARM9E))
+ FlashUt ()
+ StupF ("STARTUP\ST\STR91x.s" ("STR91x Startup Code"))
+ FlashDR (UL2ARM(-UU0639C7E -O15 -S0 -C1 -N00("ST uPSD Flash") -D00(04570041) -L00(8) -N01("ARM966E-S Core") -D01(25966041) -L01(4) -N02("ST Boundary Scan") -D02(0457F041) -L02(5) -FO15 -FD4000000 -FC800 -FN2 -FF0STR91xFxx4 -FS00 -FL080000 -FF1STR91xB1 -FS1400000 -FL18000))
+ DevID (4067)
+ Rgf (91x_lib.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿST\91x\)
+ OrgReg (ÿST\91x\)
+ TgStat=16
+ OutDir (.\ExtFlash\)
+ OutName (ExtMem)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\ExtFlash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM9E)
+ ADSTFLGA { 0,12,96,16,96,0,64,64,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,4,0,128,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,8,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,60,0,0,128,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,8,0,1,0,0,64,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,128,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x00000000)
+ ADSLDDA (0x04000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cSTR91x)(DARMST9.DLL)(-pSTR912)(SARM.DLL)(-cSTR91x)(TARMST9.DLL)(-pSTR912)
+  OPTDBG 47614,0,()()()()()()()()()(.\ExtDbg.ini) (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 9,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 (.\ExtFlash.ini)
+EndOpt
+

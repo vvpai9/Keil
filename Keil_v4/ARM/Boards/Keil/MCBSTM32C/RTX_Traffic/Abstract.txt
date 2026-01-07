@@ -1,0 +1,37 @@
+The 'RTX_Traffic' project is a demonstration program for the 
+'STM32F107VCT6' microcontroller using Keil 'MCBSTM32C' Evaluation Board.
+
+Clock Settings:
+ - XTAL    =               25.00 MHz
+ - PLL3    = (XTAL/5)*10 = 50.00 MHz
+ - PLL2    = (XTAL/5)* 8 = 40.00 MHz
+ - PLL1    = (PLL2/5)* 9 = 72.00 MHz
+ - SYSCLK  = PLL1        = 72.00 MHz
+ - HCLK    = SYSCLK      = 72.00 MHz
+ - PCLK1   = HCLK/2      = 36.00 MHz
+ - PCLK2   = HCLK        = 72.00 MHz
+ - ADCLK   = PCLK2/6     = 12.00 MHz
+ - SYSTICK = HCLK/2      = 36.00 MHz
+
+USART2 settings:
+ - 115200 baud, 8 data bits, no parity, 1 stop bit
+
+Memories:
+ - Internal Flash        - 256 kB (adr: 0x08000000)
+ - Internal RAM          -  64 kB (adr: 0x20000000)
+
+Example functionality:                                                   
+Traffic is a RTX Kernel based program that controls a traffic light.
+
+The traffic light is timed and lets cars pass during a specific time 
+period.  There is a pedestrial crossing button (User) that lets 
+pedestrians cross.  The lights are connected to Port E. You can see 
+this in action using uVision Debugger. 
+
+There are several things of interest here:
+ - This program uses RTX Kernel. Program initialization and operation code
+   are in Traffic. Look for the init task to see where everything starts.
+
+The Traffic program is available in different targets:
+  MCBSTM32C:       runs from Internal Flash located on chip
+                   (used for production or target debugging)

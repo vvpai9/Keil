@@ -1,0 +1,44 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (i.MX27 NAND Bootloader), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Bootloader Code),1,0,0
+GRPOPT 2,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\iMX27.s><iMX27.s> 
+OPTFFF 1,2,1,0,0,0,0,0,<.\Bootloader.c><Bootloader.c> 
+OPTFFF 1,3,1,0,0,0,0,0,<.\FlashHW.c><FlashHW.c> 
+OPTFFF 2,4,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,0,0,0,0,1,0,0,0,228,1,0,0,189,1,0,0 }
+
+
+TARGOPT 1, (i.MX27 NAND Bootloader)
+ ADSCLK=26000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTBL 0,(Reference Manual)<DATASHTS\FREESCALE\MCIMX27RM.PDF>
+  OPTBL 1,(Datasheet)<DATASHTS\FREESCALE\MCIMX27EC.PDF>
+  OPTDL (SARM.DLL)(-cLPC3000)(DARMP3.DLL)(-pLPC3250)(SARM.DLL)()(TARMP3.DLL)(-pLPC3250)
+  OPTDBG 43518,0,()()()()()()()()()(.\Dbg.ini) (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)(Xð)
+  OPTKEY 0,(ARMDBGFLAGS)(-T5F)
+  OPTKEY 0,(UL2ARM)(-UV2077N9E -O47 -S10 -C1 -N00("Unknown JTAG device") -D00(1B900F0F) -L00(4) -N01("ARM926EJ-S Core") -D01(07926121) -L01(4) -FO7 -FDFFFF4C00 -FC1800 -FN1 -FF0iMX27_NAND_SP -FS0D8000000 -FL0800)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

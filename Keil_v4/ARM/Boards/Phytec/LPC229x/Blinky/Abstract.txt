@@ -1,0 +1,13 @@
+The BLINKY project is a simple example program for the
+LPC229x using Phytec phyCORE Single Board Computer.
+
+It does nothing more than blink the LED D3 on the Phytec
+HD200 Development Board.
+
+
+The Blinky program is available in different targets:
+  phyCore LPC229x Simulator: runs in software Simulator
+  phyCore LPC229x IntFlash : runs from internal Flash from LPC229x
+  phyCore LPC229x EntFlash : runs from externall Flash on phyCore Board
+  phyCore LPC229x IntRAM   : runs from internal RAM from LPC229x
+  phyCore LPC229x ExtRAM   : runs in external RAM on phyCore Board

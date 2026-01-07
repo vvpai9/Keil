@@ -1,0 +1,11 @@
+The Memory project is a demo program for the Nohau LPC2800
+Board using the Philips LPC288x Microcontroller.
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  LPC2800 Board: configured for on-chip Flash ROM
+                 (used for production or target debugging)

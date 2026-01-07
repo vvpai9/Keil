@@ -1,0 +1,9 @@
+[SignumSystemsTargetConfiguration]
+Version=JTAGDevs,1
+Date=14-Jul-2005
+
+[DB_Devices]
+File_1=Xilinx.def
+File_2=Altera.def
+File_3=Atmel.def
+File_4=Actel.def

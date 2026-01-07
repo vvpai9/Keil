@@ -1,0 +1,533 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\DAC0.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         DAC0                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  DAC0_CTRL  -------------------------------------------
+
+unsigned int DAC0_CTRL __AT (0x40004000);
+
+//  <item> Reg_DAC0_CTRL
+//    <i> DAC0_CTRL [31..0] (@ 0x40004000) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_CTRL>>0) & 0xFFFFFFFF), ( (DAC0_CTRL &= ~(0xFFFFFFFF<<0)), (DAC0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CTRL_DIFF
+//    <i> DIFF [0] (@ 0x40004000) </i>
+//    <check> 
+//      <loc> DAC0_CTRL </loc>
+//      <o.0..0> DIFF
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CTRL_SINEMODE
+//    <i> SINEMODE [1] (@ 0x40004000) </i>
+//    <check> 
+//      <loc> DAC0_CTRL </loc>
+//      <o.1..1> SINEMODE
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CTRL_CONVMODE
+//    <i> CONVMODE [3..2] (@ 0x40004000) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CTRL>>2) & 0x2), ( (DAC0_CTRL &= ~(0x2<<2)), (DAC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<2)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CTRL_OUTMODE
+//    <i> OUTMODE [5..4] (@ 0x40004000) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CTRL>>4) & 0x2), ( (DAC0_CTRL &= ~(0x2<<4)), (DAC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CTRL_OUTENPRS
+//    <i> OUTENPRS [6] (@ 0x40004000) </i>
+//    <check> 
+//      <loc> DAC0_CTRL </loc>
+//      <o.6..6> OUTENPRS
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CTRL_CH0PRESCRST
+//    <i> CH0PRESCRST [7] (@ 0x40004000) </i>
+//    <check> 
+//      <loc> DAC0_CTRL </loc>
+//      <o.7..7> CH0PRESCRST
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CTRL_REFSEL
+//    <i> REFSEL [9..8] (@ 0x40004000) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CTRL>>8) & 0x2), ( (DAC0_CTRL &= ~(0x2<<8)), (DAC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CTRL_LPFEN
+//    <i> LPFEN [12] (@ 0x40004000) </i>
+//    <check> 
+//      <loc> DAC0_CTRL </loc>
+//      <o.12..12> LPFEN
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CTRL_LPFFREQ
+//    <i> LPFFREQ [15..14] (@ 0x40004000) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CTRL>>14) & 0x2), ( (DAC0_CTRL &= ~(0x2<<14)), (DAC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<14)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CTRL_PRESC
+//    <i> PRESC [18..16] (@ 0x40004000) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CTRL>>16) & 0x6), ( (DAC0_CTRL &= ~(0x6<<16)), (DAC0_CTRL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CTRL_REFRSEL
+//    <i> REFRSEL [21..20] (@ 0x40004000) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CTRL>>20) & 0x2), ( (DAC0_CTRL &= ~(0x2<<20)), (DAC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DAC0_STATUS  ------------------------------------------
+
+unsigned int DAC0_STATUS __AT (0x40004004);
+
+//  <item> Reg_DAC0_STATUS
+//    <i> DAC0_STATUS [31..0] (@ 0x40004004) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_STATUS>>0) & 0xFFFFFFFF), ( (DAC0_STATUS &= ~(0xFFFFFFFF<<0)), (DAC0_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_STATUS_CH0DV
+//    <i> CH0DV [0] (@ 0x40004004) </i>
+//    <check> 
+//      <loc> DAC0_STATUS </loc>
+//      <o.0..0> CH0DV
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_STATUS_CH1DV
+//    <i> CH1DV [1] (@ 0x40004004) </i>
+//    <check> 
+//      <loc> DAC0_STATUS </loc>
+//      <o.1..1> CH1DV
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  DAC0_CH0CTRL  ------------------------------------------
+
+unsigned int DAC0_CH0CTRL __AT (0x40004008);
+
+//  <item> Reg_DAC0_CH0CTRL
+//    <i> DAC0_CH0CTRL [31..0] (@ 0x40004008) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_CH0CTRL>>0) & 0xFFFFFFFF), ( (DAC0_CH0CTRL &= ~(0xFFFFFFFF<<0)), (DAC0_CH0CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CH0CTRL_CH0EN
+//    <i> CH0EN [0] (@ 0x40004008) </i>
+//    <check> 
+//      <loc> DAC0_CH0CTRL </loc>
+//      <o.0..0> CH0EN
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CH0CTRL_CH0REFREN
+//    <i> CH0REFREN [1] (@ 0x40004008) </i>
+//    <check> 
+//      <loc> DAC0_CH0CTRL </loc>
+//      <o.1..1> CH0REFREN
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CH0CTRL_CH0PRSEN
+//    <i> CH0PRSEN [2] (@ 0x40004008) </i>
+//    <check> 
+//      <loc> DAC0_CH0CTRL </loc>
+//      <o.2..2> CH0PRSEN
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CH0CTRL_CH0PRSSEL
+//    <i> CH0PRSSEL [6..4] (@ 0x40004008) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CH0CTRL>>4) & 0x6), ( (DAC0_CH0CTRL &= ~(0x6<<4)), (DAC0_CH0CTRL |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DAC0_CH1CTRL  ------------------------------------------
+
+unsigned int DAC0_CH1CTRL __AT (0x4000400C);
+
+//  <item> Reg_DAC0_CH1CTRL
+//    <i> DAC0_CH1CTRL [31..0] (@ 0x4000400C) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_CH1CTRL>>0) & 0xFFFFFFFF), ( (DAC0_CH1CTRL &= ~(0xFFFFFFFF<<0)), (DAC0_CH1CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CH1CTRL_CH1EN
+//    <i> CH1EN [0] (@ 0x4000400C) </i>
+//    <check> 
+//      <loc> DAC0_CH1CTRL </loc>
+//      <o.0..0> CH1EN
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CH1CTRL_CH1REFREN
+//    <i> CH1REFREN [1] (@ 0x4000400C) </i>
+//    <check> 
+//      <loc> DAC0_CH1CTRL </loc>
+//      <o.1..1> CH1REFREN
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CH1CTRL_CH1PRSEN
+//    <i> CH1PRSEN [2] (@ 0x4000400C) </i>
+//    <check> 
+//      <loc> DAC0_CH1CTRL </loc>
+//      <o.2..2> CH1PRSEN
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_CH1CTRL_CH1PRSSEL
+//    <i> CH1PRSSEL [6..4] (@ 0x4000400C) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CH1CTRL>>4) & 0x6), ( (DAC0_CH1CTRL &= ~(0x6<<4)), (DAC0_CH1CTRL |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  DAC0_IEN  --------------------------------------------
+
+unsigned int DAC0_IEN __AT (0x40004010);
+
+//  <item> Reg_DAC0_IEN
+//    <i> DAC0_IEN [31..0] (@ 0x40004010) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_IEN>>0) & 0xFFFFFFFF), ( (DAC0_IEN &= ~(0xFFFFFFFF<<0)), (DAC0_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_IEN_CH0
+//    <i> CH0 [0] (@ 0x40004010) </i>
+//    <check> 
+//      <loc> DAC0_IEN </loc>
+//      <o.0..0> CH0
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IEN_CH1
+//    <i> CH1 [1] (@ 0x40004010) </i>
+//    <check> 
+//      <loc> DAC0_IEN </loc>
+//      <o.1..1> CH1
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IEN_CH0UF
+//    <i> CH0UF [4] (@ 0x40004010) </i>
+//    <check> 
+//      <loc> DAC0_IEN </loc>
+//      <o.4..4> CH0UF
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IEN_CH1UF
+//    <i> CH1UF [5] (@ 0x40004010) </i>
+//    <check> 
+//      <loc> DAC0_IEN </loc>
+//      <o.5..5> CH1UF
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  DAC0_IF  --------------------------------------------
+
+unsigned int DAC0_IF __AT (0x40004014);
+
+//  <item> Reg_DAC0_IF
+//    <i> DAC0_IF [31..0] (@ 0x40004014) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_IF>>0) & 0xFFFFFFFF), ( (DAC0_IF &= ~(0xFFFFFFFF<<0)), (DAC0_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_IF_CH0
+//    <i> CH0 [0] (@ 0x40004014) </i>
+//    <check> 
+//      <loc> DAC0_IF </loc>
+//      <o.0..0> CH0
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IF_CH1
+//    <i> CH1 [1] (@ 0x40004014) </i>
+//    <check> 
+//      <loc> DAC0_IF </loc>
+//      <o.1..1> CH1
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IF_CH0UF
+//    <i> CH0UF [4] (@ 0x40004014) </i>
+//    <check> 
+//      <loc> DAC0_IF </loc>
+//      <o.4..4> CH0UF
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IF_CH1UF
+//    <i> CH1UF [5] (@ 0x40004014) </i>
+//    <check> 
+//      <loc> DAC0_IF </loc>
+//      <o.5..5> CH1UF
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  DAC0_IFS  --------------------------------------------
+
+unsigned int DAC0_IFS __AT (0x40004018);
+
+//  <item> Reg_DAC0_IFS
+//    <i> DAC0_IFS [31..0] (@ 0x40004018) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_IFS>>0) & 0xFFFFFFFF), ( (DAC0_IFS &= ~(0xFFFFFFFF<<0)), (DAC0_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_IFS_CH0
+//    <i> CH0 [0] (@ 0x40004018) </i>
+//    <check> 
+//      <loc> DAC0_IFS </loc>
+//      <o.0..0> CH0
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IFS_CH1
+//    <i> CH1 [1] (@ 0x40004018) </i>
+//    <check> 
+//      <loc> DAC0_IFS </loc>
+//      <o.1..1> CH1
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IFS_CH0UF
+//    <i> CH0UF [4] (@ 0x40004018) </i>
+//    <check> 
+//      <loc> DAC0_IFS </loc>
+//      <o.4..4> CH0UF
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IFS_CH1UF
+//    <i> CH1UF [5] (@ 0x40004018) </i>
+//    <check> 
+//      <loc> DAC0_IFS </loc>
+//      <o.5..5> CH1UF
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  DAC0_IFC  --------------------------------------------
+
+unsigned int DAC0_IFC __AT (0x4000401C);
+
+//  <item> Reg_DAC0_IFC
+//    <i> DAC0_IFC [31..0] (@ 0x4000401C) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_IFC>>0) & 0xFFFFFFFF), ( (DAC0_IFC &= ~(0xFFFFFFFF<<0)), (DAC0_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_IFC_CH0
+//    <i> CH0 [0] (@ 0x4000401C) </i>
+//    <check> 
+//      <loc> DAC0_IFC </loc>
+//      <o.0..0> CH0
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IFC_CH1
+//    <i> CH1 [1] (@ 0x4000401C) </i>
+//    <check> 
+//      <loc> DAC0_IFC </loc>
+//      <o.1..1> CH1
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IFC_CH0UF
+//    <i> CH0UF [4] (@ 0x4000401C) </i>
+//    <check> 
+//      <loc> DAC0_IFC </loc>
+//      <o.4..4> CH0UF
+//    </check>
+//  </item>
+//  
+//  <item> DAC0_IFC_CH1UF
+//    <i> CH1UF [5] (@ 0x4000401C) </i>
+//    <check> 
+//      <loc> DAC0_IFC </loc>
+//      <o.5..5> CH1UF
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  DAC0_CH0DATA  ------------------------------------------
+
+unsigned int DAC0_CH0DATA __AT (0x40004020);
+
+//  <item> Reg_DAC0_CH0DATA
+//    <i> DAC0_CH0DATA [31..0] (@ 0x40004020) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_CH0DATA>>0) & 0xFFFFFFFF), ( (DAC0_CH0DATA &= ~(0xFFFFFFFF<<0)), (DAC0_CH0DATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CH0DATA_CH0DATA
+//    <i> CH0DATA [11..0] (@ 0x40004020) </i>
+//    <edit> 
+//      <loc> ( (short int)((DAC0_CH0DATA>>0) & 0xFFE), ( (DAC0_CH0DATA &= ~(0xFFE<<0)), (DAC0_CH0DATA |= ((Gui_u16:GuiVal & 0xFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DAC0_CH1DATA  ------------------------------------------
+
+unsigned int DAC0_CH1DATA __AT (0x40004024);
+
+//  <item> Reg_DAC0_CH1DATA
+//    <i> DAC0_CH1DATA [31..0] (@ 0x40004024) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_CH1DATA>>0) & 0xFFFFFFFF), ( (DAC0_CH1DATA &= ~(0xFFFFFFFF<<0)), (DAC0_CH1DATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CH1DATA_CH1DATA
+//    <i> CH1DATA [11..0] (@ 0x40004024) </i>
+//    <edit> 
+//      <loc> ( (short int)((DAC0_CH1DATA>>0) & 0xFFE), ( (DAC0_CH1DATA &= ~(0xFFE<<0)), (DAC0_CH1DATA |= ((Gui_u16:GuiVal & 0xFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DAC0_COMBDATA  -----------------------------------------
+
+unsigned int DAC0_COMBDATA __AT (0x40004028);
+
+//  <item> Reg_DAC0_COMBDATA
+//    <i> DAC0_COMBDATA [31..0] (@ 0x40004028) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_COMBDATA>>0) & 0xFFFFFFFF), ( (DAC0_COMBDATA &= ~(0xFFFFFFFF<<0)), (DAC0_COMBDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_COMBDATA_CH0CDATA
+//    <i> CH0CDATA [11..0] (@ 0x40004028) </i>
+//    <edit> 
+//      <loc> ( (short int)((DAC0_COMBDATA>>0) & 0xFFE), ( (DAC0_COMBDATA &= ~(0xFFE<<0)), (DAC0_COMBDATA |= ((Gui_u16:GuiVal & 0xFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_COMBDATA_CH1CDATA
+//    <i> CH1CDATA [27..16] (@ 0x40004028) </i>
+//    <edit> 
+//      <loc> ( (short int)((DAC0_COMBDATA>>16) & 0xFFE), ( (DAC0_COMBDATA &= ~(0xFFE<<16)), (DAC0_COMBDATA |= ((Gui_u16:GuiVal & 0xFFE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  DAC0_CAL  --------------------------------------------
+
+unsigned int DAC0_CAL __AT (0x4000402C);
+
+//  <item> Reg_DAC0_CAL
+//    <i> DAC0_CAL [31..0] (@ 0x4000402C) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_CAL>>0) & 0xFFFFFFFF), ( (DAC0_CAL &= ~(0xFFFFFFFF<<0)), (DAC0_CAL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CAL_CH0OFFSET
+//    <i> CH0OFFSET [6..0] (@ 0x4000402C) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CAL>>0) & 0x7E), ( (DAC0_CAL &= ~(0x7E<<0)), (DAC0_CAL |= ((Gui_u8:GuiVal & 0x7E)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CAL_CH1OFFSET
+//    <i> CH1OFFSET [14..8] (@ 0x4000402C) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CAL>>8) & 0x7E), ( (DAC0_CAL &= ~(0x7E<<8)), (DAC0_CAL |= ((Gui_u8:GuiVal & 0x7E)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_CAL_GAIN
+//    <i> GAIN [22..16] (@ 0x4000402C) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_CAL>>16) & 0x7E), ( (DAC0_CAL &= ~(0x7E<<16)), (DAC0_CAL |= ((Gui_u8:GuiVal & 0x7E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DAC0_BIASPROG  -----------------------------------------
+
+unsigned int DAC0_BIASPROG __AT (0x40004030);
+
+//  <item> Reg_DAC0_BIASPROG
+//    <i> DAC0_BIASPROG [31..0] (@ 0x40004030) </i>
+//    <edit> 
+//      <loc> ( (int)((DAC0_BIASPROG>>0) & 0xFFFFFFFF), ( (DAC0_BIASPROG &= ~(0xFFFFFFFF<<0)), (DAC0_BIASPROG |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_BIASPROG_BIASPROG
+//    <i> BIASPROG [3..0] (@ 0x40004030) </i>
+//    <edit> 
+//      <loc> ( (char)((DAC0_BIASPROG>>0) & 0xE), ( (DAC0_BIASPROG &= ~(0xE<<0)), (DAC0_BIASPROG |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DAC0_BIASPROG_HALFBIAS
+//    <i> HALFBIAS [6] (@ 0x40004030) </i>
+//    <check> 
+//      <loc> DAC0_BIASPROG </loc>
+//      <o.6..6> HALFBIAS
+//    </check>
+//  </item>
+//  

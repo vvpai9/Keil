@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<title>MDK-ARM - Release Notes</title>
+<meta http-equiv=content-language content=en-us>
+<meta name=GENERATOR content="Microsoft FrontPage 12.0">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<style>
+
+
+    p{font-family:verdana;font-size:10pt}
+    .LI2{margin-top:6px;margin-bottom:6px}
+    Release{background-color:#ccc;font-weight:bold;padding:6px}
+    .ToolT{font-size:8pt;color:#808080}
+    .TinyT{font-size:8pt;text-align:center}
+    h1{font-family:verdana;font-size:18pt;color:#000080;font-weight:bold;text-align:center;margin-right:3px}
+    h2{font-family:verdana;font-size:14pt;color:#000080;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+    h3{font-family:verdana;font-size:11pt;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+    h4{font-family:verdana;font-size:10pt;font-weight:bold;color:#FFFFFF;margin-top:24px;margin-bottom:3px;background-color:#0000FF;padding:6px}
+    h5{font-family:verdana;font-size:10pt;font-weight:bold;color:#800000;margin-top:3px;margin-bottom:1px;}
+    pre{font-family:courier new;font-size:10pt;background-color:#cfc;margin-left:24px;margin-right:24px}
+    ul{font-family:verdana;font-size:10pt;list-style-type:square}
+    ol{font-family:verdana;font-size:10pt}li{margin-left:12pt;padding-left:0;margin-top:12px;margin-bottom:6px}
+    ul 
+    li 
+    pre{margin-top:6pt;font-family:courier new;font-size:9pt;background-color:#cfc;margin-left:0px;margin-right:0px}
+    note{margin-top !important:20pt; margin-bottom !important:12pt; font-family:verdana;font-size:10pt;background-color:#cfc; margin-left !important:12px; margin-right !important:12px}	
+    ul 
+    li 
+    ul{margin-top:6pt;margin-bottom:6pt;margin-left:0pt;padding-left:0}ul li ul li{margin-top:3pt;margin-bottom:3pt}
+    ul
+    li 
+    ol{margin-top:6pt;margin-bottom:6pt;margin-left:12pt;padding-left:0}ul li ol li{margin-top:3pt;margin-bottom:3pt}
+.style1 {font-weight: normal;}
+.style2 {color: #FF0000;}
+.prelim {color: Red; }
+</style>
+</head>
+<body><h1>Release Notes for<br>
+Microcontroller Development Kit</h1>
+<p align=center>This file contains release notes and last minute changes.</p>
+<p class=TinyT>Information in this file, the accompany manuals, and software is<br>
+Copyright © 2014 ARM Ltd and ARM Germany GmbH.<br>All rights reserved.</p>
+<hr><h2>Contents</h2>
+  <ol>
+    <li class=LI2><a href="#WhatsNew">What's New in the Microcontroller Development Kit</a></li>
+    <li class=LI2><a href="#TechnicalSupport">Technical Support</a></li>
+    <li class=LI2><a href="#ContactDetails">Contact Details</a></li>
+  </ol>
+<p>
+  The <a target="_blank" href="http://www.keil.com/arm/mdk.asp"><b>Microcontroller Development Kit (MDK-ARM)</b></a> supports software development for and debugging of <b>ARM7</b>, <b>ARM9</b> and
+  <b>ARM Cortex-M</b> processor-based devices. A detailed description of <b>MDK-ARM</b> can be found in the section <b>Complete User's Guide Selection</b>
+  of the µVision window <b>Books</b>.
+</p>
+
+<h2><a name="WhatsNew"></a>What's New in the Microcontroller Development Kit</h2>
+
+<p>The next sections list the changes for each release of the MDK-ARM toolset.</p>
+
+<h3> Microcontroller Development Kit - Version 5.10</h3>
+
+<p>The new <a target="_blank" href="http://www2.keil.com/docs/default-source/default-document-library/mdk5-getting-started.pdf?sfvrsn=0"><b>Getting Started Guide for MDK-ARM v5<b></a> is available for download now.</p>
+  <ul>
+    <li><a target="_blank" href="http://www.keil.com/uvision/"><h5><b>[µVision]</b></h5></a>
+      <ul>
+        <li>This MDK contains <b>µVision V5.10.0.2</b>.</li>
+      </ul>
+    </li>
+
+    <li><a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_packinstaller.htm"><b>[Pack Installer]</b></a>
+      <ul>
+        <li>This MDK contains <b>PackInstaller V1.1</b>. It features a new searchable right hand column, listing all supported Boards and Devices. Based on the selection
+            available Software Packs and Examples are listed in the left hand column. Click above link for further documentation.
+        </li>
+      </ul>
+
+    <li><h5><b>[ARM Compiler]</b></h5>
+      <ul>
+        <li>This MDK release contains <b>ARM Compiler 5.04u1</b>.</li>	 
+        <li>All compiler related files are located in <b>..\ARM\ARMCC\</b> directory.</li>
+        <li>Details can be found in the 
+            <a target="_blank" href="http://infocenter.arm.com/help/topic/com.arm.doc.arn0005n/index.html">
+               <b>Compiler specific Release Notes</b></a>.
+        </li>
+      </ul>
+    </li>
+
+    <li><h5><b>[Target debugging]</b></h5>
+      <ul>
+        <li>Updated: <b>Segger J-Link</b> driver for <b>ARM</b> devices to version <b>4.80g</b>.</li>
+        <li>Updated: <b>STMicroelectronics ST-Link</b> driver for <b>STMicroelectronics</b> devices to version <b>2.0.4.0</b>. USB Drivers in ARM\STLink\USBDriver</li>
+        <li>Updated: <b>P&E Micro</b> driver for <b>Freescale Kinetis</b> devices to version <b>2.0.4.0</b>. </li>
+       </ul></li>
+
+</ul>
+
+
+
+<h3> Microcontroller Development Kit - Version 5.01</h3>
+
+<ul>
+    <li><a target="_blank" href="http://www.keil.com/uvision/"><h5><b>[µVision]</b></h5></a>
+     <ul>
+	 <li>This release includes an updated Software Pack schema definition. Software Packs that require this new schema version will not be compatible with older releases of MDK.</li>
+     <li>This MDK release is delivered with <b>µVision V5.01.0.0</b>.</li>
+     </ul></li>
+</ul>
+
+
+<h3> Microcontroller Development Kit - Version 5.00</h3>
+
+<ul>
+
+    <li><a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_swcomponents.htm"><h5>[Software Packs]</h5></a>
+     <ul>
+     <li><b>MDK-ARM V5.0</b> (MDK V5) introduces <a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_swcomponents.htm"><b>Software Packs</b></a> which 
+     make device support and middleware updates independent from the toolchain installation. The MDK V5 installer contains the µVision IDE and Debugger,
+     the ARM Compiler and the new <a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_packinstaller.htm"><b>Pack Installer</b></a> which is used to manage Software Packs.
+     Device support, CMSIS and MDK-Professional Middleware are delivered as Software Packs.</li>
+     <li><b>Software Packs</b> can contain device database descriptions, <b>CMSIS Core Device</b> and <b>CMSIS SVD</b> files, as well as <b>Flash Programming Algorithms</b> and other
+     <b>Software Components</b>. For more details refer to <a target="_blank" href="http://www.keil.com/pack/doc/cmsis/Pack/html/index.html"><b>http://www.keil.com/pack/doc/cmsis/Pack/html/index.html</b></a>.
+     </li>
+     </ul></li>
+
+
+    <li><h5>[Software Installation and Updates]</h5>
+			<ul>
+				<li>
+					The new <a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_packinstaller.htm"><b>Pack Installer</b></a> is a utility for installing, updating, and removing <a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_swcomponents.htm"><b>Software Packs</b></a>. 
+					In addition, it enables the user to copy example projects which are part of a <b>Software Pack</b> to a local folder.<br>
+				</li>
+				<li>
+					A current set of <b>Software Packs</b> can be found on the <b>MDK V5 Software Packs</b> website at <a target="_blank" href="http://www.keil.com/dd2/Pack/"><b>www.keil.com/dd2/Pack</b></a>.
+				</li>
+				<li>
+					The <b>MDK V5 Device List page</b> at <a target="_blank" href="http://www.keil.com/dd2/"><b>www.keil.com/dd2</b></a> shows all microcontrollers that are currently supported by <b>Software Packs</b>.	   
+				</li>
+				<li>
+				For devices that currently aren't supported by <b>Software Packs</b>, <a target="_blank" href="http://www.keil.com/mdk5/legacy"><b>Legacy Support</b></a> packages are available.
+				</li>
+			</ul>
+		</li>
+
+    <li><a target="_blank" href="http://www.keil.com/uvision/"><h5><b>[µVision]</b></h5></a>
+     <ul>
+
+     <li><a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_swcomponents.htm"><h5>[Run-Time Environment]</h5></a>
+		 The <b>Run-Time Environment (RTE)</b> defines the software components that are used in a project.
+     The new <a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_rtemanager.htm"><b>Run-Time Environment Dialog</b></a> shows all installed <b>Software Components</b> that are available for the selected microcontroller. 
+     </li>
+		<li><a target="_blank" href="http://www.keil.com/support/man/docs/uv4/uv4_ca_sourcefiles.htm"><h5>[User Code Templates]</h5></a>
+			User Code templates contain <b>example code</b> for frequently used functionality in software components that are delivered as a part of Software Packs.
+		 </li>
+
+     <li><h5>[Project Files]</h5>
+     <b>µVision 5</b> introduces new project file extensions <b>*.uvprojx, *.uvoptx, and *.uvguix</b> 
+     to indicate projects that use <b>RTE</b>. The option <b>Project - Manage - Use Run-Time Environment</b>
+     enables or disables <b>RTE</b>.  When <b>RTE</b> is disabled, <b>µVision 4</b> compatible project files are created.
+     </li>
+     <li>This MDK V5 release is delivered with <b>µVision V5.0.5.15</b>.</li>
+
+     </ul></li>
+
+     <li><h5><b>[ARM Compiler]</b></h5>
+     <ul>
+     <li>This MDK V5 release is delivered with <b>ARM Compiler 5.03u2</b>.</li>	 
+     <li>All compiler related files are located in <b>..\ARM\ARMCC\</b> directory.</li>
+     <li>Details can be found in the 
+       <a target="_blank" href="http://infocenter.arm.com/help/topic/com.arm.doc.arn0005l/index.html"><b>Compiler specific Release Notes</b></a>.
+     </li>
+     </ul></li>
+
+   
+
+    <li><h5><b>[CMSIS]</b></h5>
+    <ul>
+     <li>This version of MDK V5 ships with the CMSIS 3.20 Software Pack.</li>
+     <li>The CMSIS Pack includes <a target="_blank" href="http://www.keil.com/pack/doc/cmsis_rtx/index.html"><b>CMSIS-RTOS RTX</b></a>,
+         a <a target="_blank" href="http://www.keil.com/pack/doc/cmsis/RTOS/html/index.html"><b>CMSIS-RTOS</b></a> compatible real-time OS.</li>
+     <li>CMSIS-RTOS RTX <b>replaces</b> MDK V4.x RTX. For project maintenance, <b>MDK V4.x RTX</b> is still available as part of the <a target="_blank" href="http://www.keil.com/mdk5/legacy"><b>Legacy Support</b></a>.</li>
+    </ul></li>
+
+
+     <li><h5><b>[Middleware]</b></h5>
+     <ul>
+        <li>The <b>MDK V5</b> middleware requires a <a target="_blank" href="http://www.keil.com/pack/doc/cmsis/RTOS/html/index.html"><b>CMSIS-RTOS</b></a> compatible <b>RTOS</b> like CMSIS-RTOS RTX.</li>
+        <li>The <b>MDK V5</b> middleware uses the new <a target="_blank" href="http://www.keil.com/pack/doc/cmsis/Driver/html/index.html"><b>CMSIS-DRIVER API</b></a> for hardware access.</li>
+        <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/FileSystem/html/index.html"><h5><b>[File System Component]</b></h5></a>
+          <ul>
+            <li>The <b>MDK V5 File System Component</b> is incompatible with the <b>MDK V4.x RL-FlashFS</b> middleware.</li>
+            <li>The differences to the <b>RL-FlashFS</b> can be found on the <a target="_blank" href="http://www.keil.com/pack/doc/mw/FileSystem/html/fs_diffs.html"><b>Differences to RL-FlashFS</b></a> website.</li>
+            <li>A detailed description can be found on the <a target="_blank" href="http://www.keil.com/pack/doc/mw/FileSystem/html/index.html"><b>File System Component Documentation</b></a> website.</li>			
+          </ul>
+        </li>
+
+        <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/Network/html/index.html"><h5><b>[Network Component]</b></h5></a>
+          <ul>
+            <li>The <b>MDK V5 Network Component</b> is incompatible with the <b>MDK V4.x RL-TCPnet</b> middleware.</li>
+            <li>The differences to the <b> RL-TCPnet</b> can be found on the <a target="_blank" href="http://www.keil.com/pack/doc/mw/Network/html/network_diffs.html"><b>Differences to RL-TCPnet</b></a> website.</li>
+            <li>A detailed description can be found on the <a target="_blank" href="http://www.keil.com/pack/doc/mw/Network/html/index.html"><b>Network Component Documentation</b></a> website.</li>       
+          </ul>
+        </li>        
+
+        <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/USB/html/index.html"><h5><b>[USB Component]</b></h5></a>
+          <ul>
+            <li>The <b>MDK V5 USB Component</b> is incompatible with <b>MDK V4.x RL-USB</b> middleware.</li>
+            <li>The differences to the <b> RL-USB</b> can be found on the <a target="_blank" href="http://www.keil.com/pack/doc/mw/USB/html/usb_diffs.html"><b>Differences to RL-USB</b></a> website.</li>
+            <li>A detailed description can be found on the <a target="_blank" href="http://www.keil.com/pack/doc/mw/USB/html/index.html"><b>USB Component Documentation</b></a> website.</li>
+          </ul>
+        </li>
+
+        <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/Graphic/html/index.html"><h5><b>[Graphics Component]</b></h5></a>
+          <ul>
+           <li>The <b>MDK V5 Graphic Component</b> is based on <b>Segger emWin 5.22</b>.</li>
+           <li>A detailed description can be found on the <a target="_blank" href="http://www.keil.com/pack/doc/mw/Graphic/html/index.html"><b>Graphic Component Documentation</b></a> website.</li>
+          </ul>
+        </li>
+
+      </ul></li>
+
+      <li><h5><b>[Target debugging]</b></h5>
+       <ul>
+        <li>Updated: The <a target="_blank" href="http://www.keil.com/support/man/docs/dapdebug/dapdebug_introduction.htm"><b>CMSIS-DAP</b></a> driver now supports the <b>Micro Trace Buffer (MTB)</b> of <b>Cortex-M0+</b> devices.</li>
+        <li>Updated: <b>ULINK2</b> device firmware to version <b>2.02</b>. This version removes the Windows warning "This device can perform faster if connected to USB 2.0".</li>
+        <li>Updated: <b>Segger J-Link</b> driver for <b>ARM</b> devices to version <b>4.76d</b>.</li>
+       </ul></li>
+
+</ul>
+
+
+
+
+<h2><a name=TechnicalSupport></a>Technical Support</h2>
+   <p>
+    At Keil Software, we are dedicated to providing you with the best development tools and technical support. 
+    That's why we offer numerous ways you can get the technical support you need to complete your embedded projects.
+   </p>
+<ul>
+  <li class=LI2><a href="http://www.keil.com/support" target="_blank"><b>Technical Support Knowledgebase</b></a><br>
+   More than 2500 technical support questions and answers are available in the Support Solutions Knowledgebase. 
+   When a new question arises, it is added to the knowledgebase which is continuously published to the Web. 
+   This enables you to get technical support at times when our support staff is unavailable.</li>
+  <li class=LI2><a href="http://www.keil.com/appnotes" target="_blank"><b>Application Notes</b></a><br>
+   Numerous Application Notes help you decipher complex features and implement robust applications.</li>
+  <li class=LI2><a href="http://www.keil.com/download/file/" target="_blank"><b>Example Programs and Files</b></a><br>
+   Utility programs, example code, and sample projects are regularly added to the Download File section of the web site.</li>
+  <li class=LI2><a href="http://www.keil.com/forum" target="_blank"><b>Discussion Forum</b></a><br>
+   Post questions, comments, and suggestions to the Keil Software Discussion Forum and interact with other Keil users around the world.</li>
+</ul>
+
+<p>Many of the features of our Technical Support Knowledgebase and Web Site are the results of your suggestions. 
+   If you have any ideas that will improve them, please <a href="http://www.keil.com/support/feedback.asp" target="_blank">give us your feedback</a>!</p>
+
+<h2><a name=ContactDetails></a>Contact Details</h2>
+<p>
+  If you experience any problems or have any questions about this product, 
+  contact one of our <a href="http://www.keil.com/distis" target="_blank">distributors</a> or offices for assistance.
+</p>
+
+<div align=center><center><table border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td valign=top nowrap bgcolor="#ffffcc" style="border:1 solid #800000">
+  <p>
+   <b>In the USA...</b></br><br>
+   <b>ARM, Inc.</b><br>
+      4965 Preston Park Blvd, Suite 650<br>
+      Plano, TX&nbsp; 75093<br>
+      USA<br><br>
+      800-348-8051 - Sales<br>
+      972-312-1107 - Support<br>
+      972-312-1159 - Fax<br><br>
+      <a href="mailto:sales.us@keil.com" target="_blank">sales.us@keil.com</a> - Sales E-Mail <br> 
+      <a href="mailto:E-Mailsupport.us@keil.com" target="_blank">support.us@keil.com</a> - Support E-mail &nbsp;&nbsp;&nbsp;<br>
+  </p>
+</td>
+<td valign=top width=30 nowrap></td>
+<td valign=top nowrap style="border:1 solid #800000" bgcolor="#ffffcc">
+  <p>
+   <b>In Europe...</b><br><br>
+   <b>ARM Germany GmbH</b><br>
+      Bretonischer Ring 16<br>
+      D-85630 Grasbrunn<br>
+      Germany<br><br>
+      +49 89 456040-0 - Sales<br>
+      +49 89 456040-24 - Support<br>
+      +49 89 468162 - Fax<br>
+      <a href="mailto:sales.intl@keil.com" target="_blank"><br>
+      sales.intl@keil.com</a> - Sales E-Mail<a href="mailto:e-mailsupport.intl@keil.com" target="_blank"><br>
+      support.intl@keil.com</a> - Support E-Mail &nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;
+   </p>
+</td>
+</tr></table></center></div>
+   <hr><p class=TinyT>Copyright © 2013 ARM Ltd and ARM Germany GmbH.<br>
+       All rights reserved.<br>
+       Visit our web site at <a href="http://www.keil.com" target="_blank">www.keil.com</a>.
+      </p>
+
+</body>
+</html>

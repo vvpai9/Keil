@@ -1,0 +1,5 @@
+The SWI example shows how to implement software interrupt functions.
+
+It includes the SWI.s file which implements the SWI handler.
+The SWI function declarations and implementations are demonstrated
+in the Test.c file.

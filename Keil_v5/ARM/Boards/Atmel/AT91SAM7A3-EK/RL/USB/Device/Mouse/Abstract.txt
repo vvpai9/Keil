@@ -1,0 +1,13 @@
+The Mouse project is a demo program for the Atmel AT91SAM7A3-EK Board 
+using a Atmel AT91SAM7A3 Microcontroller.
+
+It demonstrates an USB Mouse based on USB HID.
+
+The on board Joystick is used to control the Mouse.
+
+The USB Mouse is automatically recognized by the host PC
+running Windows which will load a generic Mouse driver.
+
+The Mouse program is available for the following target:
+  SAM7A3-EK:     configured for on-chip Flash ROM
+                (used for production or target debugging)

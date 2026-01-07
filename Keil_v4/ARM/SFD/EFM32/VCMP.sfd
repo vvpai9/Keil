@@ -1,0 +1,260 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\VCMP.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         VCMP                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  VCMP_CTRL  -------------------------------------------
+
+unsigned int VCMP_CTRL __AT (0x40000000);
+
+//  <item> Reg_VCMP_CTRL
+//    <i> VCMP_CTRL [31..0] (@ 0x40000000) </i>
+//    <edit> 
+//      <loc> ( (int)((VCMP_CTRL>>0) & 0xFFFFFFFF), ( (VCMP_CTRL &= ~(0xFFFFFFFF<<0)), (VCMP_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_CTRL_EN
+//    <i> EN [0] (@ 0x40000000) </i>
+//    <check> 
+//      <loc> VCMP_CTRL </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_CTRL_INACTVAL
+//    <i> INACTVAL [2] (@ 0x40000000) </i>
+//    <check> 
+//      <loc> VCMP_CTRL </loc>
+//      <o.2..2> INACTVAL
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_CTRL_HYSTEN
+//    <i> HYSTEN [4] (@ 0x40000000) </i>
+//    <check> 
+//      <loc> VCMP_CTRL </loc>
+//      <o.4..4> HYSTEN
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_CTRL_WARMTIME
+//    <i> WARMTIME [10..8] (@ 0x40000000) </i>
+//    <edit> 
+//      <loc> ( (char)((VCMP_CTRL>>8) & 0x6), ( (VCMP_CTRL &= ~(0x6<<8)), (VCMP_CTRL |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_CTRL_IRISE
+//    <i> IRISE [16] (@ 0x40000000) </i>
+//    <check> 
+//      <loc> VCMP_CTRL </loc>
+//      <o.16..16> IRISE
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_CTRL_IFALL
+//    <i> IFALL [17] (@ 0x40000000) </i>
+//    <check> 
+//      <loc> VCMP_CTRL </loc>
+//      <o.17..17> IFALL
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_CTRL_BIASPROG
+//    <i> BIASPROG [27..24] (@ 0x40000000) </i>
+//    <edit> 
+//      <loc> ( (char)((VCMP_CTRL>>24) & 0xE), ( (VCMP_CTRL &= ~(0xE<<24)), (VCMP_CTRL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_CTRL_HALFBIAS
+//    <i> HALFBIAS [30] (@ 0x40000000) </i>
+//    <check> 
+//      <loc> VCMP_CTRL </loc>
+//      <o.30..30> HALFBIAS
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  VCMP_INPUTSEL  -----------------------------------------
+
+unsigned int VCMP_INPUTSEL __AT (0x40000004);
+
+//  <item> Reg_VCMP_INPUTSEL
+//    <i> VCMP_INPUTSEL [31..0] (@ 0x40000004) </i>
+//    <edit> 
+//      <loc> ( (int)((VCMP_INPUTSEL>>0) & 0xFFFFFFFF), ( (VCMP_INPUTSEL &= ~(0xFFFFFFFF<<0)), (VCMP_INPUTSEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_INPUTSEL_TRIGLEVEL
+//    <i> TRIGLEVEL [5..0] (@ 0x40000004) </i>
+//    <edit> 
+//      <loc> ( (char)((VCMP_INPUTSEL>>0) & 0x3E), ( (VCMP_INPUTSEL &= ~(0x3E<<0)), (VCMP_INPUTSEL |= ((Gui_u8:GuiVal & 0x3E)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_INPUTSEL_LPREF
+//    <i> LPREF [8] (@ 0x40000004) </i>
+//    <check> 
+//      <loc> VCMP_INPUTSEL </loc>
+//      <o.8..8> LPREF
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  VCMP_STATUS  ------------------------------------------
+
+unsigned int VCMP_STATUS __AT (0x40000008);
+
+//  <item> Reg_VCMP_STATUS
+//    <i> VCMP_STATUS [31..0] (@ 0x40000008) </i>
+//    <edit> 
+//      <loc> ( (int)((VCMP_STATUS>>0) & 0xFFFFFFFF), ( (VCMP_STATUS &= ~(0xFFFFFFFF<<0)), (VCMP_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_STATUS_VCMPACT
+//    <i> VCMPACT [0] (@ 0x40000008) </i>
+//    <check> 
+//      <loc> VCMP_STATUS </loc>
+//      <o.0..0> VCMPACT
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_STATUS_VCMPOUT
+//    <i> VCMPOUT [1] (@ 0x40000008) </i>
+//    <check> 
+//      <loc> VCMP_STATUS </loc>
+//      <o.1..1> VCMPOUT
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  VCMP_IEN  --------------------------------------------
+
+unsigned int VCMP_IEN __AT (0x4000000C);
+
+//  <item> Reg_VCMP_IEN
+//    <i> VCMP_IEN [31..0] (@ 0x4000000C) </i>
+//    <edit> 
+//      <loc> ( (int)((VCMP_IEN>>0) & 0xFFFFFFFF), ( (VCMP_IEN &= ~(0xFFFFFFFF<<0)), (VCMP_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_IEN_EDGE
+//    <i> EDGE [0] (@ 0x4000000C) </i>
+//    <check> 
+//      <loc> VCMP_IEN </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_IEN_WARMUP
+//    <i> WARMUP [1] (@ 0x4000000C) </i>
+//    <check> 
+//      <loc> VCMP_IEN </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  VCMP_IF  --------------------------------------------
+
+unsigned int VCMP_IF __AT (0x40000010);
+
+//  <item> Reg_VCMP_IF
+//    <i> VCMP_IF [31..0] (@ 0x40000010) </i>
+//    <edit> 
+//      <loc> ( (int)((VCMP_IF>>0) & 0xFFFFFFFF), ( (VCMP_IF &= ~(0xFFFFFFFF<<0)), (VCMP_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_IF_EDGE
+//    <i> EDGE [0] (@ 0x40000010) </i>
+//    <check> 
+//      <loc> VCMP_IF </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_IF_WARMUP
+//    <i> WARMUP [1] (@ 0x40000010) </i>
+//    <check> 
+//      <loc> VCMP_IF </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  VCMP_IFS  --------------------------------------------
+
+unsigned int VCMP_IFS __AT (0x40000014);
+
+//  <item> Reg_VCMP_IFS
+//    <i> VCMP_IFS [31..0] (@ 0x40000014) </i>
+//    <edit> 
+//      <loc> ( (int)((VCMP_IFS>>0) & 0xFFFFFFFF), ( (VCMP_IFS &= ~(0xFFFFFFFF<<0)), (VCMP_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_IFS_EDGE
+//    <i> EDGE [0] (@ 0x40000014) </i>
+//    <check> 
+//      <loc> VCMP_IFS </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_IFS_WARMUP
+//    <i> WARMUP [1] (@ 0x40000014) </i>
+//    <check> 
+//      <loc> VCMP_IFS </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  VCMP_IFC  --------------------------------------------
+
+unsigned int VCMP_IFC __AT (0x40000018);
+
+//  <item> Reg_VCMP_IFC
+//    <i> VCMP_IFC [31..0] (@ 0x40000018) </i>
+//    <edit> 
+//      <loc> ( (int)((VCMP_IFC>>0) & 0xFFFFFFFF), ( (VCMP_IFC &= ~(0xFFFFFFFF<<0)), (VCMP_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> VCMP_IFC_EDGE
+//    <i> EDGE [0] (@ 0x40000018) </i>
+//    <check> 
+//      <loc> VCMP_IFC </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> VCMP_IFC_WARMUP
+//    <i> WARMUP [1] (@ 0x40000018) </i>
+//    <check> 
+//      <loc> VCMP_IFC </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  

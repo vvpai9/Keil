@@ -1,0 +1,18 @@
+The IAP project shows how to use IAP function calls for In-Application
+Programming of the on-chip Flash ROM.
+
+At start of the program there is a delay loop for debugger synchronization.
+For details refer to:
+   http://www.keil.com/support/docs/2767.htm
+
+This demo first programs some values into the Flash ROM and Erases then
+the content of this Flash ROM.
+
+The IAP program is available in different targets:
+  MCB2100_V162:   runs on the MCB2100 Board with disabled PLL to bypass
+                  the IAP.1 problem described in the Philips errata sheet
+                  (runs on boot loader before V1.63)
+
+  MCB2100_V163:   runs on the MCB2100 Board with enabled PLL
+
+This program may be even tested in the uVision Simulator.

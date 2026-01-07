@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package schemaVersion="1.7.37" 
+   xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.37/schema/PACK.xsd">
+   <vendor>NSING</vendor>
+    <url>https://www.nsing.com.sg/public/uploads/armpacks/</url>
+    <name>N32G05x_DFP</name>
+
+    <description>NSING N32G05x Series Device Support, Drivers and Examples</description>
+
+    <releases>
+		<release  date="2025-07-09" version="1.0.2">
+            Version update
+        </release>
+	    <release  date="2025-04-30" version="1.0.1">
+            Remove N32G055RB
+        </release>
+        <release  date="2025-04-10" version="1.0.0">
+            Alpha version of N32G05x Device Family Pack.
+        </release>
+    </releases>
+
+    <keywords>
+        <keyword>NSING</keyword>
+        <keyword>Device Support</keyword>
+        <keyword>N32G05x</keyword>
+        <keyword>N32</keyword>
+    </keywords>
+
+    <devices>
+        <family Dfamily="N32G05x Series" Dvendor="NSING:185">
+            <processor Dcore="Cortex-M0" DcoreVersion="r0p1" Dfpu="0" Dmpu="0" Dendian="Little-endian"/>
+            <description>
+The N32G05x series utilizes a 32-bit ARM Cortex-M0 core with operating frequency up to 64MHz. 
+
+- Up to 128KB embedded encrypted Flash memory.
+- 16KB SRAM.
+- 1x 12bit 1Msps ADC and 4x high-speed comparators
+- 5x UART, 6x Timer, RTC, 2x I2C, 3x SPI, 1x CAN, 1x DAC
+- Voltage: 2.0V~5.5V -40~+105°C
+- Hardware Cryptographics Engine.			
+            </description>
+
+			<subFamily DsubFamily="N32G05x">
+            <processor Dclock="64000000"/>
+            <compile header="firmware/CMSIS/device/n32g05x.h" define="N32G05x USE_STDPERIPH_DRIVER"/>  
+	  <!-- *************************  Device 'N32G056RB'  ***************************** -->	
+        <device Dname="N32G056RB">
+            <feature type="XTAL"     n="8000000"    m="16000000" name="External crystal"/>	
+            <feature type="Memory"   n="128"    	name="128KB Flash"/>	
+            <feature type="Memory"   n="8" 		    name="8KB SRAM"/>	
+            <feature type="IOs"      n="16"         name="Input and Output Ports"/>
+            <feature type="Timer"    n="6"/>
+            <feature type="RTC"      n="1"/>   
+            <feature type="ADC"      n="13"     	m="12"  name="13-ch 1x12bit ADC"/>	
+            <feature type="UART"     n="5"/>
+            <feature type="SPI"      n="3"/>	
+            <feature type="I2C"      n="2"/>	
+            <feature type="CAN"      n="1"/>
+            <feature type="DAC"      n="1"/>
+            <feature type="GLCD"	 n="1" name="8*32/4*36/3*37 COM*SEG" />
+			<feature type="IOs"     n="1" name="LED control pins" />
+            <memory id="IRAM1"   start="0x20000000" size="0x4000" default="1" init="0" />
+            <memory id="IROM1"   start="0x08000000" size="0x20000" default="1" startup="1" />
+            <memory id="IROM2"   start="0x1FFF1000" size="0x2000" default="0" startup="0" />
+            <algorithm name="Flash/N32G05x_128.FLM" start="0x08000000" size="0x20000" default="1" />
+            <algorithm name="Flash/N32G05x_DATA_8KB.FLM" start="0x1FFF1000" size="0x2000" default="1" />	
+            <debug svd="svd/N32G05x.svd"/>
+        </device>
+	  <!-- *************************  Device 'N32G052RB'  ***************************** -->	
+        <device Dname="N32G052RB">
+            <feature type="XTAL"     n="8000000"    m="16000000" name="External crystal"/>	
+            <feature type="Memory"   n="128"    	name="128KB Flash"/>	
+            <feature type="Memory"   n="8" 		    name="8KB SRAM"/>	
+            <feature type="IOs"      n="58"         name="Input and Output Ports"/>
+            <feature type="Timer"    n="6"/>
+            <feature type="RTC"      n="1"/>   
+            <feature type="ADC"      n="13"     	    m="12"  name="13-ch 1x12bit ADC"/>	
+            <feature type="UART"     n="5"/>
+            <feature type="SPI"      n="3"/>	
+            <feature type="I2C"      n="2"/>	
+            <feature type="CAN"      n="1"/>
+            <feature type="DAC"      n="1"/>
+            <feature type="GLCD"     n="1" name="8*32/4*36/3*37 COM*SEG" />
+			<feature type="IOs"     n="1" name="LED control pins" />
+            <memory id="IRAM1"   start="0x20000000" size="0x4000" default="1" init="0" />
+            <memory id="IROM1"   start="0x08000000" size="0x20000" default="1" startup="1" />
+            <memory id="IROM2"   start="0x1FFF1000" size="0x2000" default="0" startup="1" />
+            <algorithm name="Flash/N32G05x_128.FLM" start="0x08000000" size="0x20000" default="1" />
+            <algorithm name="Flash/N32G05x_DATA_8KB.FLM" start="0x1FFF1000" size="0x2000" default="1" />
+            <debug svd="svd/N32G05x.svd"/>
+        </device>
+	  <!-- *************************  Device 'N32G052CB'  ***************************** -->	
+        <device Dname="N32G052CB">
+            <feature type="XTAL"     n="8000000"    m="16000000" name="External crystal"/>	
+            <feature type="Memory"   n="128"    	name="128KB Flash"/>	
+            <feature type="Memory"   n="8" 		    name="8KB SRAM"/>	
+            <feature type="IOs"      n="45"         name="Input and Output Ports"/>
+            <feature type="Timer"    n="6"/>
+            <feature type="RTC"      n="1"/>   
+            <feature type="ADC"      n="12"     	    m="12"  name="13-ch 1x12bit ADC"/>	
+            <feature type="UART"     n="5"/>
+            <feature type="SPI"      n="3"/>	
+            <feature type="I2C"      n="2"/>	
+            <feature type="CAN"      n="1"/>
+            <feature type="DAC"      n="1"/>
+            <feature type="GLCD" n="1" name="8*32/4*36/3*37 COM*SEG" />
+			<feature type="IOs"     n="1" name="LED control pins" />
+            <memory id="IRAM1"   start="0x20000000" size="0x4000" default="1" init="0" />
+            <memory id="IROM1"   start="0x08000000" size="0x20000" default="1" startup="1" />
+            <memory id="IROM2"   start="0x1FFF1000" size="0x2000" default="0" startup="1" />
+            <algorithm name="Flash/N32G05x_128.FLM" start="0x08000000" size="0x20000" default="1" />
+            <algorithm name="Flash/N32G05x_DATA_8KB.FLM" start="0x1FFF1000" size="0x2000" default="1" />
+            <debug svd="svd/N32G05x.svd"/>
+        </device>
+	  <!-- *************************  Device 'N32G052KB'  ***************************** -->	
+        <device Dname="N32G052KB">
+            <feature type="XTAL"     n="8000000"    m="16000000" name="External crystal"/>	
+            <feature type="Memory"   n="128"    	name="128KB Flash"/>	
+            <feature type="Memory"   n="8" 		    name="8KB SRAM"/>	
+            <feature type="IOs"      n="29"         name="Input and Output Ports"/>
+            <feature type="Timer"    n="6"/>
+            <feature type="RTC"      n="1"/>   
+            <feature type="ADC"      n="8"     	    m="12"  name="13-ch 1x12bit ADC"/>	
+            <feature type="UART"     n="5"/>
+            <feature type="SPI"      n="3"/>	
+            <feature type="I2C"      n="2"/>	
+            <feature type="CAN"      n="1"/>
+            <feature type="DAC"      n="1"/>
+            <feature type="GLCD" n="1" name="8*32/4*36/3*37 COM*SEG" />
+			<feature type="IOs"     n="1" name="LED control pins" />
+            <memory id="IRAM1"   start="0x20000000" size="0x4000" default="1" init="0" />
+            <memory id="IROM1"   start="0x08000000" size="0x20000" default="1" startup="1" />
+            <memory id="IROM2"   start="0x1FFF1000" size="0x2000" default="0" startup="1" />
+            <algorithm name="Flash/N32G05x_128.FLM" start="0x08000000" size="0x20000" default="1" />
+            <algorithm name="Flash/N32G05x_DATA_8KB.FLM" start="0x1FFF1000" size="0x2000" default="1" />
+            <debug svd="svd/N32G05x.svd"/>
+        </device>
+		
+        </subFamily>	
+        </family>
+    </devices>
+        
+    <conditions>
+        <condition id="Compiler ARM">            <!-- conditions selecting ARM Compiler -->
+            <require Tcompiler="ARMCC"/>
+        </condition>
+
+        <condition id="N32G05x CMSIS Device">            <!-- conditions selecting Devices -->
+            <description>NSING N32G05x Series devices</description>
+            <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+            <require Dvendor="NSING:185" Dname="N32*"/>
+        </condition>
+
+        <condition id="N32G05x STDPERIPH">
+            <description>NSING N32G05x Standard Peripherals Drivers</description>
+            <require condition="N32G05x CMSIS Device"/>
+            <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="Framework"/>
+        </condition>
+
+        <condition id="N32G05x STDPERIPH RCC">
+            <description>NSING N32G05x Standard Peripherals Drivers with RCC</description>
+            <require condition="N32G05x STDPERIPH"/>
+            <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RCC"/>
+        </condition>
+
+    </conditions>
+
+    <components>
+        <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="N32G05x CMSIS Device">
+            <description>Startup File for NSING N32G05x Series</description>
+            <files>
+                <!--  include folder -->
+                <file category="include" name="firmware/CMSIS/device/"/>
+                <file category="source" name="firmware/CMSIS/device/startup/startup_n32g05x.s" attr="config" condition="Compiler ARM" version="1.0.0"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="System_N32G05x" Cversion="1.0.0" condition="N32G05x CMSIS Device">
+            <description>System Clock Config File for NSING N32G05x</description>
+            <files>
+                <!--  include folder -->
+                <file category="include" name="firmware/CMSIS/device/"/>
+                <file category="source" name="firmware/CMSIS/device/system_n32g05x.c" attr="config" version="1.0.0"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="Framework" Cversion="1.0.0" condition="N32G05x STDPERIPH">
+            <description>Standard Peripherals Drivers Framework</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_FRAMEWORK
+            </RTE_Components_h>
+            <files>
+                <file category="include" name="firmware/n32g05x_std_periph_driver/inc/"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/misc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ADC" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Analog-to-digital converter (ADC) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_ADC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_adc.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_adc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="BEEPER" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Beeper unit (BEEPER) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_BEEPER
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_beeper.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_beeper.c"/>
+            </files>
+        </component>
+
+		<component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="CAN" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Controller area network (CAN) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_CAN
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_can.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_can.c"/>
+            </files>
+        </component>
+		
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="COMP" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Comparator (COMP) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_COMP
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_comp.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_comp.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="CRC" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>CRC calculation unit (CRC) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_CRC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_crc.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_crc.c"/>
+            </files>
+        </component>
+		
+		<component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DAC" Cversion="1.0.0" condition="N32G05x STDPERIPH">
+            <description>MCU debug component (DAC) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DAC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_dac.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_dac.c"/>
+            </files>
+        </component>
+
+        <!-- component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DBG" Cversion="1.0.0" condition="N32G05x STDPERIPH">
+            <description>MCU debug component (DBG) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DBG
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_dbg.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_dbg.c"/>
+            </files>
+        </component -->
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DMA" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>DMA controller (DMA) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DMA
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_dma.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_dma.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="EXTI" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>External interrupt/event controller (EXTI) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_EXTI
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_exti.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_exti.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="FLASH" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Embedded Flash memory (FLASH) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_FLASH
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_flash.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_flash.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="GPIO" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>General-purpose I/O (GPIO) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_GPIO
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_gpio.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_gpio.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="I2C" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Inter-integrated circuit (I2C) interface driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_I2C
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_i2c.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_i2c.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="IWDG" Cversion="1.0.0" condition="N32G05x STDPERIPH">
+            <description>Independent watchdog (IWDG) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_IWDG
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_iwdg.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_iwdg.c"/>
+            </files>
+        </component>
+		
+		<component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="LCD" Cversion="1.0.0" condition="N32G05x STDPERIPH">
+            <description>Independent watchdog (LCD) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_LCD
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_lcd.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_lcd.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="PWR" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Power controller (PWR) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_PWR
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_pwr.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_pwr.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RCC" Cversion="1.0.0" condition="N32G05x STDPERIPH">
+            <description>Reset and clock control (RCC) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_RCC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_rcc.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_rcc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RTC" Cversion="1.0.0" condition="N32G05x STDPERIPH">
+            <description>Real-time clock (RTC) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_RTC
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_rtc.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_rtc.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="SPI" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Serial peripheral interface (SPI) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_SPI
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_spi.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_spi.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="TIMER" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Timers (TIMER) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_TIM
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_tim.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_tim.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="UART" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Universal asynchronous receiver transmitter (UART) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_UART
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_uart.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_uart.c"/>
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="WWDG" Cversion="1.0.0" condition="N32G05x STDPERIPH RCC">
+            <description>Window watchdog (WWDG) driver for N32G05x</description>
+            <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_WWDG
+            </RTE_Components_h>
+            <files>
+                <file category="header" name="firmware/n32g05x_std_periph_driver/inc/n32g05x_wwdg.h"/>
+                <file category="source" name="firmware/n32g05x_std_periph_driver/src/n32g05x_wwdg.c"/>
+            </files>
+        </component>
+    </components>
+</package>

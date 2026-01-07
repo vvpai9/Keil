@@ -1,0 +1,22 @@
+This simple BLINKY project shows several techniques
+that are useful on the Philips LPC2100 series.
+
+It changes constantly the status on the output port
+GPIO P1.16..23.
+
+The example shows:
+
+  - how to setup the Vector Interrupt controller.
+  - how to setup timer0 for timer interrupts.
+  - how to change the port.
+
+
+The Blinky program is available in different targets:
+
+  Simulator:     configured for software Simulator
+
+  MCB2100 Flash: configured for on-chip Flash ROM
+                 (used for production or target debugging)
+
+  MCB2100 RAM:   configured to run from on-chip RAM
+                 (may be used for target debugging) 

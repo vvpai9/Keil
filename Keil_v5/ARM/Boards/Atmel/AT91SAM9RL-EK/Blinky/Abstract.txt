@@ -1,0 +1,46 @@
+The Blinky project is an example program for the 'AT91SAM9RL64'
+using Atmel 'AT91SAM9RL-EK' Evaluation Board and demonstrating
+interrupt usage.
+
+Example functionality:                                                   
+ - 2 LEDs blink from DS1 to DS2 and back
+ - time of LED switching is determined by Programmable Interrupt 
+   Timer (PIT) working in interrupt mode
+
+Clocks: Oscillator      =  12.0000000 MHz
+        PLL             = 200.0000000 MHz
+        Processor Clock = 200.0000000 MHz
+        Master Clock    = 100.0000000 MHz
+Memories:  32kB   ROM   (adr: 0x00000000)
+(on-chip)  64kB   SRAM  (adr: 0x00300000)
+Memories:  64MB   SDRAM (adr: 0x20000000)
+(on-board) 256MB  NAND Flash
+           8.25MB Serial DataFlash
+
+The Blinky program is available for different targets:
+  SAM9RL Int RAM:   configured for on-chip RAM (64kB)
+                    (used for target debugging)
+  SAM9RL Ext SDRAM: configured for external SDRAM (64MB)
+                    downloaded to external DataFlash (8.25MB)
+                    (used for target debugging and production)
+  SAM9RL Ext SDRAM - SAMICE: configured for external SDRAM (64MB)
+                    downloaded to external DataFlash (8.25MB),
+                    prepared to be downloaded and debugged with SAMICE
+                    (used for target debugging and production)
+
+Notes: 
+  - For "SAM9RL Ext SDRAM" target if Debug is selected 
+    the code is loaded to External SDRAM and debugging happens there, 
+    if Download to Flash Memory is selected the code downloads to 
+    External Serial DataFlash
+  - Bootloader has to be downloaded to flash for "SAM9RL Ext SDRAM" 
+    version to work as standalone. This is done by opening 
+    Bootloader project and clicking on "Download to Flash Memory" 
+    button.
+
+How to start:
+  1. Open Bootloader project and click on "Download to Flash Memory"
+     button
+  2. Select "SAM9RL Ext SDRAM" target in this project and 
+     click on "Download to Flash Memory" button
+  3. Reset the board

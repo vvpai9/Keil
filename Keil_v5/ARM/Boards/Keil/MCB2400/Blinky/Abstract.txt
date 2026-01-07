@@ -1,0 +1,36 @@
+The Blinky project is a simple program for the LPC2468
+using Embedded Artists boards:
+  Daughter Board - 'LPC2468 OEM Board v1.1'
+  Mother   Board - 'OEM Base Board Basic v1.1'
+and demonstrating interrupt functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - PLL                    = 288 MHz
+   - processor clock = CCLK =  72 MHz
+   - USB clock              =  48 MHz
+   - CCLK / 4 clock         =  18 MHz
+ - UART1 settings
+   (baudrate = 9600, 8 data bits, 1 stop bits, no parity)
+ - Timer0 timer is activating clock_1s every 1 second, 
+   starting AD conversion on channel 0 
+   (every 1 ms), it works in interrupt mode
+ - AD conversion is done in interrupt mode
+ - AD value of channel 0 is sent every 1 second on UART1
+ - 4 LEDs blink with speed depending on AD value of channel 0
+   (LEDs are connected through I2C LED Dimmer (PCA9532))
+ - SDRAM and NOR flash interfaces are initialized
+ 
+The Blinky program is available in different targets:
+  Simulator:             configured for software Simulator
+  LPC2468 Flash:         runs from Internal Flash located on chip
+                         (used for production or target debugging)
+  LPC2468 Ext SDRAM:     configured for External SDRAM 
+                         (used for target debugging)
+  LPC2468 Ext NOR Flash: configured for download to 
+                         External NOR Flash (SST39VF320)
+                         (used for target debugging)
+
+Note: Application for External NOR Flash can not run as 
+      standalone as LPC2468 can not boot from External NOR Flash

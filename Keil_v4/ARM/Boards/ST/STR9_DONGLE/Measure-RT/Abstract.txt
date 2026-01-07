@@ -1,0 +1,8 @@
+The MEASURE program uses digital inputs to simulate a datalogger.
+
+You may watch the state of Buttons (B85..B88) on STR9_DONGLE board.
+
+The program is available for target:
+  STR9 Dongle: runs from Internal Flash located on chip
+               Buttons B85..B88 (GPIO7) are sampled 
+

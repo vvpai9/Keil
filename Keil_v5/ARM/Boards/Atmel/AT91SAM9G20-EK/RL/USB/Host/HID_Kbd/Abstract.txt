@@ -1,0 +1,33 @@
+This is an RL-USB-Host Human Interface Device (HID) usage example.
+
+Example functionality:
+ - Clock Settings:
+   - XTAL                       =  18.432 MHz
+   - PLLA clock = XTAL * 43     = 792.576 MHz
+   - CPU  clock = PLLA / 2      = 396.288 MHz
+   - MCK  clock = PLLA / 8      =  99.072 MHz
+   - PLLB clock   XTAL * 26 / 5 =  95.846 MHz
+   - USB  clock = PLLB / 2      =  47.923 MHz
+
+ - Communication Interface Settings:
+   - SERIAL DEBUG PORT: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+The Measure example is described in detail in the Getting Started
+User's Guide.
+
+The HID_KBD program is a standalone application loaded into
+on-chip flash and available for one target:
+
+AT91SAM9G20: Standalone application for Atmel AT91SAM9G20-EK evaluation.
+             Configured for external SDRAM (64MB), downloaded to external
+             DataFlash (8.25MB).
+
+Notes: 
+  - For "AT91SAM9G20" target if Debug is selected the code is loaded to 
+    External SDRAM and debugging happens there, if Download to Flash Memory 
+    is selected the code downloads to External DataFlash
+  - Bootloader has to be downloaded to flash for "AT91SAM9G20" version 
+    to work as standalone. This is done by opening Bootloader project 
+    and clicking on "Download to Flash Memory" button.
+  - If you experience failure of downloading to flash please remove the 
+    SD Card from the SD Card slot during programming

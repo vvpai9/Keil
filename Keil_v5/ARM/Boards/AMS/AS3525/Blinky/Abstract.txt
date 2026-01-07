@@ -1,0 +1,25 @@
+The Blinky project is a simple program for the AustriaMicroSystems 
+(AMS) 'AS3525' using AustriaMicroSystems 'AS3525/AS3527 Application 
+Board V3.0' evaluation board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - PLLA = (XTAL*2)/(48*1) = 384.00 MHz
+   - FCLK = PLLA/6          =  64.00 MHz
+   - MPMCCLK = FCLK/3       =  21.33 MHz
+   - PCLK = MPMCCLK/1       =  21.33 MHz
+ - 2 LEDs (D1 and D2) blink from left to right and back
+ 
+The Blinky program is available for target:
+  AS3525 Int RAM:          configured for on-chip RAM
+                           (may be used for target debugging)
+  AS3525 Ext M25P40 Flash: downloads to External SPI ST M25P40 
+                           Flash and runs from Internal RAM
+                           (used for production or target debugging)
+  AS3525 Ext SDRAM:        configured for external SDRAM 
+                           (may be used for target debugging)
+
+Note: To use target 'AS3525 Ext M25P40 Flash', Boot - Selector 
+      (DIP switch U21) has to be set to position: 1-ON, 2-OFF, 
+      3-OFF, 4-OFF to enable booting from External SPI ST M25P40 
+      Flash

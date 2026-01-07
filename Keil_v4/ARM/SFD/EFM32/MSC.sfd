@@ -1,0 +1,372 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\MSC.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          MSC                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  MSC_CTRL  --------------------------------------------
+
+unsigned int MSC_CTRL __AT (0x400C0000);
+
+//  <item> Reg_MSC_CTRL
+//    <i> MSC_CTRL [31..0] (@ 0x400C0000) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_CTRL>>0) & 0xFFFFFFFF), ( (MSC_CTRL &= ~(0xFFFFFFFF<<0)), (MSC_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_CTRL_BUSFAULT
+//    <i> BUSFAULT [0] (@ 0x400C0000) </i>
+//    <check> 
+//      <loc> MSC_CTRL </loc>
+//      <o.0..0> BUSFAULT
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  MSC_READCTRL  ------------------------------------------
+
+unsigned int MSC_READCTRL __AT (0x400C0004);
+
+//  <item> Reg_MSC_READCTRL
+//    <i> MSC_READCTRL [31..0] (@ 0x400C0004) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_READCTRL>>0) & 0xFFFFFFFF), ( (MSC_READCTRL &= ~(0xFFFFFFFF<<0)), (MSC_READCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_READCTRL_MODE
+//    <i> MODE [2..0] (@ 0x400C0004) </i>
+//    <edit> 
+//      <loc> ( (char)((MSC_READCTRL>>0) & 0x6), ( (MSC_READCTRL &= ~(0x6<<0)), (MSC_READCTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  MSC_WRITECTRL  -----------------------------------------
+
+unsigned int MSC_WRITECTRL __AT (0x400C0008);
+
+//  <item> Reg_MSC_WRITECTRL
+//    <i> MSC_WRITECTRL [31..0] (@ 0x400C0008) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_WRITECTRL>>0) & 0xFFFFFFFF), ( (MSC_WRITECTRL &= ~(0xFFFFFFFF<<0)), (MSC_WRITECTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_WRITECTRL_WREN
+//    <i> WREN [0] (@ 0x400C0008) </i>
+//    <check> 
+//      <loc> MSC_WRITECTRL </loc>
+//      <o.0..0> WREN
+//    </check>
+//  </item>
+//  
+//  <item> MSC_WRITECTRL_IRQERASEABORT
+//    <i> IRQERASEABORT [1] (@ 0x400C0008) </i>
+//    <check> 
+//      <loc> MSC_WRITECTRL </loc>
+//      <o.1..1> IRQERASEABORT
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  MSC_WRITECMD  ------------------------------------------
+
+unsigned int MSC_WRITECMD __AT (0x400C000C);
+
+//  <item> Reg_MSC_WRITECMD
+//    <i> MSC_WRITECMD [31..0] (@ 0x400C000C) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_WRITECMD>>0) & 0xFFFFFFFF), ( (MSC_WRITECMD &= ~(0xFFFFFFFF<<0)), (MSC_WRITECMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_WRITECMD_LADDRIM
+//    <i> LADDRIM [0] (@ 0x400C000C) </i>
+//    <check> 
+//      <loc> MSC_WRITECMD </loc>
+//      <o.0..0> LADDRIM
+//    </check>
+//  </item>
+//  
+//  <item> MSC_WRITECMD_ERASEPAGE
+//    <i> ERASEPAGE [1] (@ 0x400C000C) </i>
+//    <check> 
+//      <loc> MSC_WRITECMD </loc>
+//      <o.1..1> ERASEPAGE
+//    </check>
+//  </item>
+//  
+//  <item> MSC_WRITECMD_WRITEEND
+//    <i> WRITEEND [2] (@ 0x400C000C) </i>
+//    <check> 
+//      <loc> MSC_WRITECMD </loc>
+//      <o.2..2> WRITEEND
+//    </check>
+//  </item>
+//  
+//  <item> MSC_WRITECMD_WRITEONCE
+//    <i> WRITEONCE [3] (@ 0x400C000C) </i>
+//    <check> 
+//      <loc> MSC_WRITECMD </loc>
+//      <o.3..3> WRITEONCE
+//    </check>
+//  </item>
+//  
+//  <item> MSC_WRITECMD_WRITETRIG
+//    <i> WRITETRIG [4] (@ 0x400C000C) </i>
+//    <check> 
+//      <loc> MSC_WRITECMD </loc>
+//      <o.4..4> WRITETRIG
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  MSC_ADDRB  -------------------------------------------
+
+unsigned int MSC_ADDRB __AT (0x400C0010);
+
+//  <item> Reg_MSC_ADDRB
+//    <i> MSC_ADDRB [31..0] (@ 0x400C0010) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_ADDRB>>0) & 0xFFFFFFFF), ( (MSC_ADDRB &= ~(0xFFFFFFFF<<0)), (MSC_ADDRB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_ADDRB_ADDRB
+//    <i> ADDRB [31..0] (@ 0x400C0010) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_ADDRB>>0) & 0xFFFFFFFE), ( (MSC_ADDRB &= ~(0xFFFFFFFE<<0)), (MSC_ADDRB |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  MSC_WDATA  -------------------------------------------
+
+unsigned int MSC_WDATA __AT (0x400C0018);
+
+//  <item> Reg_MSC_WDATA
+//    <i> MSC_WDATA [31..0] (@ 0x400C0018) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_WDATA>>0) & 0xFFFFFFFF), ( (MSC_WDATA &= ~(0xFFFFFFFF<<0)), (MSC_WDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_WDATA_WDATA
+//    <i> WDATA [31..0] (@ 0x400C0018) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_WDATA>>0) & 0xFFFFFFFE), ( (MSC_WDATA &= ~(0xFFFFFFFE<<0)), (MSC_WDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  MSC_STATUS  -------------------------------------------
+
+unsigned int MSC_STATUS __AT (0x400C001C);
+
+//  <item> Reg_MSC_STATUS
+//    <i> MSC_STATUS [31..0] (@ 0x400C001C) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_STATUS>>0) & 0xFFFFFFFF), ( (MSC_STATUS &= ~(0xFFFFFFFF<<0)), (MSC_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_STATUS_BUSY
+//    <i> BUSY [0] (@ 0x400C001C) </i>
+//    <check> 
+//      <loc> MSC_STATUS </loc>
+//      <o.0..0> BUSY
+//    </check>
+//  </item>
+//  
+//  <item> MSC_STATUS_LOCKED
+//    <i> LOCKED [1] (@ 0x400C001C) </i>
+//    <check> 
+//      <loc> MSC_STATUS </loc>
+//      <o.1..1> LOCKED
+//    </check>
+//  </item>
+//  
+//  <item> MSC_STATUS_INVADDR
+//    <i> INVADDR [2] (@ 0x400C001C) </i>
+//    <check> 
+//      <loc> MSC_STATUS </loc>
+//      <o.2..2> INVADDR
+//    </check>
+//  </item>
+//  
+//  <item> MSC_STATUS_WDATAREADY
+//    <i> WDATAREADY [3] (@ 0x400C001C) </i>
+//    <check> 
+//      <loc> MSC_STATUS </loc>
+//      <o.3..3> WDATAREADY
+//    </check>
+//  </item>
+//  
+//  <item> MSC_STATUS_WORDTIMEOUT
+//    <i> WORDTIMEOUT [4] (@ 0x400C001C) </i>
+//    <check> 
+//      <loc> MSC_STATUS </loc>
+//      <o.4..4> WORDTIMEOUT
+//    </check>
+//  </item>
+//  
+//  <item> MSC_STATUS_ERASEABORTED
+//    <i> ERASEABORTED [5] (@ 0x400C001C) </i>
+//    <check> 
+//      <loc> MSC_STATUS </loc>
+//      <o.5..5> ERASEABORTED
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  MSC_IF  ---------------------------------------------
+
+unsigned int MSC_IF __AT (0x400C002C);
+
+//  <item> Reg_MSC_IF
+//    <i> MSC_IF [31..0] (@ 0x400C002C) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_IF>>0) & 0xFFFFFFFF), ( (MSC_IF &= ~(0xFFFFFFFF<<0)), (MSC_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_IF_ERASE
+//    <i> ERASE [0] (@ 0x400C002C) </i>
+//    <check> 
+//      <loc> MSC_IF </loc>
+//      <o.0..0> ERASE
+//    </check>
+//  </item>
+//  
+//  <item> MSC_IF_WRITE
+//    <i> WRITE [1] (@ 0x400C002C) </i>
+//    <check> 
+//      <loc> MSC_IF </loc>
+//      <o.1..1> WRITE
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  MSC_IFS  --------------------------------------------
+
+unsigned int MSC_IFS __AT (0x400C0030);
+
+//  <item> Reg_MSC_IFS
+//    <i> MSC_IFS [31..0] (@ 0x400C0030) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_IFS>>0) & 0xFFFFFFFF), ( (MSC_IFS &= ~(0xFFFFFFFF<<0)), (MSC_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_IFS_ERASE
+//    <i> ERASE [0] (@ 0x400C0030) </i>
+//    <check> 
+//      <loc> MSC_IFS </loc>
+//      <o.0..0> ERASE
+//    </check>
+//  </item>
+//  
+//  <item> MSC_IFS_WRITE
+//    <i> WRITE [1] (@ 0x400C0030) </i>
+//    <check> 
+//      <loc> MSC_IFS </loc>
+//      <o.1..1> WRITE
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  MSC_IFC  --------------------------------------------
+
+unsigned int MSC_IFC __AT (0x400C0034);
+
+//  <item> Reg_MSC_IFC
+//    <i> MSC_IFC [31..0] (@ 0x400C0034) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_IFC>>0) & 0xFFFFFFFF), ( (MSC_IFC &= ~(0xFFFFFFFF<<0)), (MSC_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_IFC_ERASE
+//    <i> ERASE [0] (@ 0x400C0034) </i>
+//    <check> 
+//      <loc> MSC_IFC </loc>
+//      <o.0..0> ERASE
+//    </check>
+//  </item>
+//  
+//  <item> MSC_IFC_WRITE
+//    <i> WRITE [1] (@ 0x400C0034) </i>
+//    <check> 
+//      <loc> MSC_IFC </loc>
+//      <o.1..1> WRITE
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  MSC_IEN  --------------------------------------------
+
+unsigned int MSC_IEN __AT (0x400C0038);
+
+//  <item> Reg_MSC_IEN
+//    <i> MSC_IEN [31..0] (@ 0x400C0038) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_IEN>>0) & 0xFFFFFFFF), ( (MSC_IEN &= ~(0xFFFFFFFF<<0)), (MSC_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_IEN_ERASE
+//    <i> ERASE [0] (@ 0x400C0038) </i>
+//    <check> 
+//      <loc> MSC_IEN </loc>
+//      <o.0..0> ERASE
+//    </check>
+//  </item>
+//  
+//  <item> MSC_IEN_WRITE
+//    <i> WRITE [1] (@ 0x400C0038) </i>
+//    <check> 
+//      <loc> MSC_IEN </loc>
+//      <o.1..1> WRITE
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  MSC_LOCK  --------------------------------------------
+
+unsigned int MSC_LOCK __AT (0x400C003C);
+
+//  <item> Reg_MSC_LOCK
+//    <i> MSC_LOCK [31..0] (@ 0x400C003C) </i>
+//    <edit> 
+//      <loc> ( (int)((MSC_LOCK>>0) & 0xFFFFFFFF), ( (MSC_LOCK &= ~(0xFFFFFFFF<<0)), (MSC_LOCK |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> MSC_LOCK_LOCKKEY
+//    <i> LOCKKEY [15..0] (@ 0x400C003C) </i>
+//    <edit> 
+//      <loc> ( (short int)((MSC_LOCK>>0) & 0xFFFE), ( (MSC_LOCK &= ~(0xFFFE<<0)), (MSC_LOCK |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>AWS_IoT_SigV4</name>
+
+  <description>Library to generate authentication headers and signatures per AWS Signature Version 4 signing specifications.</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://freertos-cmsis-packs.s3.us-west-2.amazonaws.com/</url>
+
+  <releases>
+    <release date="2025-06-09" version="1.1.0">Based on the https://github.com/aws/SigV4-for-AWS-IoT-embedded-sdk/tree/v1.3.0 repository.</release>
+    <release date="2023-02-23" version="1.0.0">Based on the https://github.com/aws/SigV4-for-AWS-IoT-embedded-sdk/tree/v1.2.0 repository.</release>
+  </releases>
+
+  <components>
+    <component Cclass="AWS IoT" Cgroup="AWS IoT SigV4" Cversion="1.3.0">
+      <description>Library to generate authentication headers and signatures per AWS Signature Version 4 signing specifications.</description>
+      <files>
+        <file category="source" name="SigV4-for-AWS-IoT-embedded-sdk/source/sigv4.c"/>
+        <file category="source" name="SigV4-for-AWS-IoT-embedded-sdk/source/sigv4_quicksort.c"/>
+        <file category="include" name="SigV4-for-AWS-IoT-embedded-sdk/source/include/"/>
+      </files>
+    </component>
+  </components>
+</package>
+

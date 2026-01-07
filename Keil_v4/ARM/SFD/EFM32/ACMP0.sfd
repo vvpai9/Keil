@@ -1,0 +1,340 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\ACMP0.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         ACMP0                                        -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ---------------------------------------  ACMP0_CTRL  -------------------------------------------
+
+unsigned int ACMP0_CTRL __AT (0x40001000);
+
+//  <item> Reg_ACMP0_CTRL
+//    <i> ACMP0_CTRL [31..0] (@ 0x40001000) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_CTRL>>0) & 0xFFFFFFFF), ( (ACMP0_CTRL &= ~(0xFFFFFFFF<<0)), (ACMP0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_EN
+//    <i> EN [0] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_MUXEN
+//    <i> MUXEN [1] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.1..1> MUXEN
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_INACTVAL
+//    <i> INACTVAL [2] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.2..2> INACTVAL
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_GPIOINV
+//    <i> GPIOINV [3] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.3..3> GPIOINV
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_HYSTSEL
+//    <i> HYSTSEL [6..4] (@ 0x40001000) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_CTRL>>4) & 0x6), ( (ACMP0_CTRL &= ~(0x6<<4)), (ACMP0_CTRL |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_WARMTIME
+//    <i> WARMTIME [10..8] (@ 0x40001000) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_CTRL>>8) & 0x6), ( (ACMP0_CTRL &= ~(0x6<<8)), (ACMP0_CTRL |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_IRISE
+//    <i> IRISE [16] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.16..16> IRISE
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_IFALL
+//    <i> IFALL [17] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.17..17> IFALL
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_BIASPROG
+//    <i> BIASPROG [27..24] (@ 0x40001000) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_CTRL>>24) & 0xE), ( (ACMP0_CTRL &= ~(0xE<<24)), (ACMP0_CTRL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_HALFBIAS
+//    <i> HALFBIAS [30] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.30..30> HALFBIAS
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_CTRL_FULLBIAS
+//    <i> FULLBIAS [31] (@ 0x40001000) </i>
+//    <check> 
+//      <loc> ACMP0_CTRL </loc>
+//      <o.31..31> FULLBIAS
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  ACMP0_INPUTSEL  -----------------------------------------
+
+unsigned int ACMP0_INPUTSEL __AT (0x40001004);
+
+//  <item> Reg_ACMP0_INPUTSEL
+//    <i> ACMP0_INPUTSEL [31..0] (@ 0x40001004) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_INPUTSEL>>0) & 0xFFFFFFFF), ( (ACMP0_INPUTSEL &= ~(0xFFFFFFFF<<0)), (ACMP0_INPUTSEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_INPUTSEL_POSSEL
+//    <i> POSSEL [2..0] (@ 0x40001004) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_INPUTSEL>>0) & 0x6), ( (ACMP0_INPUTSEL &= ~(0x6<<0)), (ACMP0_INPUTSEL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_INPUTSEL_NEGSEL
+//    <i> NEGSEL [7..4] (@ 0x40001004) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_INPUTSEL>>4) & 0xE), ( (ACMP0_INPUTSEL &= ~(0xE<<4)), (ACMP0_INPUTSEL |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_INPUTSEL_VDDLEVEL
+//    <i> VDDLEVEL [13..8] (@ 0x40001004) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_INPUTSEL>>8) & 0x3E), ( (ACMP0_INPUTSEL &= ~(0x3E<<8)), (ACMP0_INPUTSEL |= ((Gui_u8:GuiVal & 0x3E)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_INPUTSEL_LPREF
+//    <i> LPREF [16] (@ 0x40001004) </i>
+//    <check> 
+//      <loc> ACMP0_INPUTSEL </loc>
+//      <o.16..16> LPREF
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_INPUTSEL_CSRESEN
+//    <i> CSRESEN [24] (@ 0x40001004) </i>
+//    <check> 
+//      <loc> ACMP0_INPUTSEL </loc>
+//      <o.24..24> CSRESEN
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_INPUTSEL_CSRESSEL
+//    <i> CSRESSEL [29..28] (@ 0x40001004) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_INPUTSEL>>28) & 0x2), ( (ACMP0_INPUTSEL &= ~(0x2<<28)), (ACMP0_INPUTSEL |= ((Gui_u8:GuiVal & 0x2)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  ACMP0_STATUS  ------------------------------------------
+
+unsigned int ACMP0_STATUS __AT (0x40001008);
+
+//  <item> Reg_ACMP0_STATUS
+//    <i> ACMP0_STATUS [31..0] (@ 0x40001008) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_STATUS>>0) & 0xFFFFFFFF), ( (ACMP0_STATUS &= ~(0xFFFFFFFF<<0)), (ACMP0_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_STATUS_ACMPACT
+//    <i> ACMPACT [0] (@ 0x40001008) </i>
+//    <check> 
+//      <loc> ACMP0_STATUS </loc>
+//      <o.0..0> ACMPACT
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_STATUS_ACMPOUT
+//    <i> ACMPOUT [1] (@ 0x40001008) </i>
+//    <check> 
+//      <loc> ACMP0_STATUS </loc>
+//      <o.1..1> ACMPOUT
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  ACMP0_IEN  -------------------------------------------
+
+unsigned int ACMP0_IEN __AT (0x4000100C);
+
+//  <item> Reg_ACMP0_IEN
+//    <i> ACMP0_IEN [31..0] (@ 0x4000100C) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_IEN>>0) & 0xFFFFFFFF), ( (ACMP0_IEN &= ~(0xFFFFFFFF<<0)), (ACMP0_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_IEN_EDGE
+//    <i> EDGE [0] (@ 0x4000100C) </i>
+//    <check> 
+//      <loc> ACMP0_IEN </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_IEN_WARMUP
+//    <i> WARMUP [1] (@ 0x4000100C) </i>
+//    <check> 
+//      <loc> ACMP0_IEN </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  ACMP0_IF  --------------------------------------------
+
+unsigned int ACMP0_IF __AT (0x40001010);
+
+//  <item> Reg_ACMP0_IF
+//    <i> ACMP0_IF [31..0] (@ 0x40001010) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_IF>>0) & 0xFFFFFFFF), ( (ACMP0_IF &= ~(0xFFFFFFFF<<0)), (ACMP0_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_IF_EDGE
+//    <i> EDGE [0] (@ 0x40001010) </i>
+//    <check> 
+//      <loc> ACMP0_IF </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_IF_WARMUP
+//    <i> WARMUP [1] (@ 0x40001010) </i>
+//    <check> 
+//      <loc> ACMP0_IF </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  ACMP0_IFS  -------------------------------------------
+
+unsigned int ACMP0_IFS __AT (0x40001014);
+
+//  <item> Reg_ACMP0_IFS
+//    <i> ACMP0_IFS [31..0] (@ 0x40001014) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_IFS>>0) & 0xFFFFFFFF), ( (ACMP0_IFS &= ~(0xFFFFFFFF<<0)), (ACMP0_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_IFS_EDGE
+//    <i> EDGE [0] (@ 0x40001014) </i>
+//    <check> 
+//      <loc> ACMP0_IFS </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_IFS_WARMUP
+//    <i> WARMUP [1] (@ 0x40001014) </i>
+//    <check> 
+//      <loc> ACMP0_IFS </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  ACMP0_IFC  -------------------------------------------
+
+unsigned int ACMP0_IFC __AT (0x40001018);
+
+//  <item> Reg_ACMP0_IFC
+//    <i> ACMP0_IFC [31..0] (@ 0x40001018) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_IFC>>0) & 0xFFFFFFFF), ( (ACMP0_IFC &= ~(0xFFFFFFFF<<0)), (ACMP0_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_IFC_EDGE
+//    <i> EDGE [0] (@ 0x40001018) </i>
+//    <check> 
+//      <loc> ACMP0_IFC </loc>
+//      <o.0..0> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_IFC_WARMUP
+//    <i> WARMUP [1] (@ 0x40001018) </i>
+//    <check> 
+//      <loc> ACMP0_IFC </loc>
+//      <o.1..1> WARMUP
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  ACMP0_ROUTE  ------------------------------------------
+
+unsigned int ACMP0_ROUTE __AT (0x4000101C);
+
+//  <item> Reg_ACMP0_ROUTE
+//    <i> ACMP0_ROUTE [31..0] (@ 0x4000101C) </i>
+//    <edit> 
+//      <loc> ( (int)((ACMP0_ROUTE>>0) & 0xFFFFFFFF), ( (ACMP0_ROUTE &= ~(0xFFFFFFFF<<0)), (ACMP0_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ACMP0_ROUTE_ACMPPEN
+//    <i> ACMPPEN [0] (@ 0x4000101C) </i>
+//    <check> 
+//      <loc> ACMP0_ROUTE </loc>
+//      <o.0..0> ACMPPEN
+//    </check>
+//  </item>
+//  
+//  <item> ACMP0_ROUTE_LOCATION
+//    <i> LOCATION [9..8] (@ 0x4000101C) </i>
+//    <edit> 
+//      <loc> ( (char)((ACMP0_ROUTE>>8) & 0x2), ( (ACMP0_ROUTE &= ~(0x2<<8)), (ACMP0_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

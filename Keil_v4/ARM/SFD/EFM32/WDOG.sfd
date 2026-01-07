@@ -1,0 +1,145 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\WDOG.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         WDOG                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  WDOG_CTRL  -------------------------------------------
+
+unsigned int WDOG_CTRL __AT (0x40088000);
+
+//  <item> Reg_WDOG_CTRL
+//    <i> WDOG_CTRL [31..0] (@ 0x40088000) </i>
+//    <edit> 
+//      <loc> ( (int)((WDOG_CTRL>>0) & 0xFFFFFFFF), ( (WDOG_CTRL &= ~(0xFFFFFFFF<<0)), (WDOG_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> WDOG_CTRL_EN
+//    <i> EN [0] (@ 0x40088000) </i>
+//    <check> 
+//      <loc> WDOG_CTRL </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_CTRL_DEBUGRUN
+//    <i> DEBUGRUN [1] (@ 0x40088000) </i>
+//    <check> 
+//      <loc> WDOG_CTRL </loc>
+//      <o.1..1> DEBUGRUN
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_CTRL_EM2RUN
+//    <i> EM2RUN [2] (@ 0x40088000) </i>
+//    <check> 
+//      <loc> WDOG_CTRL </loc>
+//      <o.2..2> EM2RUN
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_CTRL_EM3RUN
+//    <i> EM3RUN [3] (@ 0x40088000) </i>
+//    <check> 
+//      <loc> WDOG_CTRL </loc>
+//      <o.3..3> EM3RUN
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_CTRL_LOCK
+//    <i> LOCK [4] (@ 0x40088000) </i>
+//    <check> 
+//      <loc> WDOG_CTRL </loc>
+//      <o.4..4> LOCK
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_CTRL_EM4BLOCK
+//    <i> EM4BLOCK [5] (@ 0x40088000) </i>
+//    <check> 
+//      <loc> WDOG_CTRL </loc>
+//      <o.5..5> EM4BLOCK
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_CTRL_SWOSCBLOCK
+//    <i> SWOSCBLOCK [6] (@ 0x40088000) </i>
+//    <check> 
+//      <loc> WDOG_CTRL </loc>
+//      <o.6..6> SWOSCBLOCK
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_CTRL_PERSEL
+//    <i> PERSEL [11..8] (@ 0x40088000) </i>
+//    <edit> 
+//      <loc> ( (char)((WDOG_CTRL>>8) & 0xE), ( (WDOG_CTRL &= ~(0xE<<8)), (WDOG_CTRL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> WDOG_CTRL_CLKSEL
+//    <i> CLKSEL [13..12] (@ 0x40088000) </i>
+//    <edit> 
+//      <loc> ( (char)((WDOG_CTRL>>12) & 0x2), ( (WDOG_CTRL &= ~(0x2<<12)), (WDOG_CTRL |= ((Gui_u8:GuiVal & 0x2)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  WDOG_CMD  --------------------------------------------
+
+unsigned int WDOG_CMD __AT (0x40088004);
+
+//  <item> Reg_WDOG_CMD
+//    <i> WDOG_CMD [31..0] (@ 0x40088004) </i>
+//    <edit> 
+//      <loc> ( (int)((WDOG_CMD>>0) & 0xFFFFFFFF), ( (WDOG_CMD &= ~(0xFFFFFFFF<<0)), (WDOG_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> WDOG_CMD_CLEAR
+//    <i> CLEAR [0] (@ 0x40088004) </i>
+//    <check> 
+//      <loc> WDOG_CMD </loc>
+//      <o.0..0> CLEAR
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  WDOG_SYNCBUSY  -----------------------------------------
+
+unsigned int WDOG_SYNCBUSY __AT (0x40088008);
+
+//  <item> Reg_WDOG_SYNCBUSY
+//    <i> WDOG_SYNCBUSY [31..0] (@ 0x40088008) </i>
+//    <edit> 
+//      <loc> ( (int)((WDOG_SYNCBUSY>>0) & 0xFFFFFFFF), ( (WDOG_SYNCBUSY &= ~(0xFFFFFFFF<<0)), (WDOG_SYNCBUSY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> WDOG_SYNCBUSY_CTRL
+//    <i> CTRL [0] (@ 0x40088008) </i>
+//    <check> 
+//      <loc> WDOG_SYNCBUSY </loc>
+//      <o.0..0> CTRL
+//    </check>
+//  </item>
+//  
+//  <item> WDOG_SYNCBUSY_CMD
+//    <i> CMD [1] (@ 0x40088008) </i>
+//    <check> 
+//      <loc> WDOG_SYNCBUSY </loc>
+//      <o.1..1> CMD
+//    </check>
+//  </item>
+//  

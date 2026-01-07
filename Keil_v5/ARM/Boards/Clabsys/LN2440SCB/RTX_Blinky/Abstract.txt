@@ -1,0 +1,20 @@
+This is a simple RTX Kernel based example which simulates
+the step-motor driver. Four LEDs are blinking simulating
+the activation of the four output driver stages:
+
+- phase A
+- phase B
+
+This example simulates Half step driver mode and
+CW rotation direction.
+
+This example needs a 2-level Bootloader from Keil to be 
+loaded in NAND Flash.
+
+The BLINKY example program is available for several targets:
+
+Simulator: uVision Simulator for evaluation
+
+S3C2440:   Samsung S3C2440 with ULINK debugger
+           - Application is loaded to external NAND Flash 
+             and executes from external SDRAM

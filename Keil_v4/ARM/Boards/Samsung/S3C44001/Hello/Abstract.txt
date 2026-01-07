@@ -1,0 +1,14 @@
+The Hello project is a very simple program that prints
+"Hello World" to the serial port and toggles LED
+on the Samsung S3C44B0X using the S3C44001 Board.
+
+The example shows:
+ - how to setup the Memory Controller
+ - how to setup the Interrupt Controller
+ - how to setup Timer for periodic interrupts
+ - how to use the UART
+ - how to change the port
+
+The Hello program is available in different targets:
+  S3C44001 Board: configured for off-chip Flash & SDRAM
+    (used for production or target debugging)

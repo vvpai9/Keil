@@ -1,0 +1,15 @@
+The HID project is a demo program for the STM32F103VBT6 
+using STMicroelectronics 'EK-STM32F' Evaluation Board.
+
+It demonstrates an USB HID (Human Interface Device):
+  - 4 LEDs
+  - 3 Push Buttons (Key2,Key3), Joystick (Key4)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  EK-STM32F: configured for on-chip Flash ROM
+            (used for production or target debugging)

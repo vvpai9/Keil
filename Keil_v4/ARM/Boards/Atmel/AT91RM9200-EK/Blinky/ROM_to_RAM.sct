@@ -1,0 +1,19 @@
+; Linker Control File (scatter-loading)
+
+FLASH_LOAD 0x10000000 0x800000     ; Load Region (External Flash)
+{
+  Flash    0x10000000              ; Exec Region: (External Flash) - startup + library init
+  {
+    RM9200.o (Reset, +First)       ; Startup Code placed first
+    * (InRoot$$Sections)
+  }
+  Code     0x20000000 0x01000000   ; Exec Region: (External RAM) - program
+  {
+    * (+RO)                        ; all other RO sections
+  }
+  DataRAM  0x21000000 0x01000000   ; Exec Region: (External RAM) - RW variables
+  {
+    * (+RW,+ZI)                    ; RW & ZI sections
+  }
+} 
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>AWS_IoT_Fleet_Provisioning</name>
+
+  <description>Enables you to provision IoT devices without device certificates using the Fleet Provisioning feature of AWS IoT Core.</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://freertos-cmsis-packs.s3.us-west-2.amazonaws.com/</url>
+
+  <releases>
+    <release date="2025-06-09" version="1.1.0">Based on the https://github.com/aws/Fleet-Provisioning-for-AWS-IoT-embedded-sdk/tree/v1.2.1 repository.</release>
+    <release date="2023-02-23" version="1.0.0">Based on the https://github.com/aws/Fleet-Provisioning-for-AWS-IoT-embedded-sdk/tree/v1.1.0 repository.</release>
+  </releases>
+
+  <components>
+    <component Cclass="AWS IoT" Cgroup="AWS IoT Fleet Provisioning" Cversion="1.2.1">
+      <description>Enables you to provision IoT devices without device certificates using the Fleet Provisioning feature of AWS IoT Core.</description>
+      <files>
+        <file category="source" name="Fleet-Provisioning-for-AWS-IoT-embedded-sdk/source/fleet_provisioning.c"/>
+        <file category="include" name="Fleet-Provisioning-for-AWS-IoT-embedded-sdk/source/include/"/>
+      </files>
+    </component>
+  </components>
+</package>
+

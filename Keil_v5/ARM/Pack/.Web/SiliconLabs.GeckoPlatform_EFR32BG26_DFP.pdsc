@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>SiliconLabs</vendor>
+  <url>https://www.silabs.com/documents/public/cmsis-packs/</url>
+  <name>GeckoPlatform_EFR32BG26_DFP</name>
+  <description>Silicon Labs EFR32BG26 Blue Gecko Series Device Support.</description>
+  <license>License/license.md</license>
+
+  <releases>
+    <release version="2025.6.2" date="2025-10-06">
+      New device families for SIBG301, SIMG301 and New OPNs for Socs EFR32FG23, EFR32MG26, .
+    </release>
+    <release version="2025.6.0" date="2025-07-25">
+      New device families for EFR32BG29, EFR32MG29 and new modules for BGM26, MGM27. New OPNs for Socs EFR32BG22, EFR32BG24, EFR32FG25.
+    </release>
+    <release version="2024.12.0" date="2024-12-26">
+      New OPNs for Caracal SoC EFR32BG26, EFR32MG26, EFM32PG26 and Caracal module MGM26. New OPN for Soc EFR32BG27.
+    </release>
+    <release version="2024.6.0" date="2024-06-19">
+      New device family for Caracal EFM32PG26, EFR32BG26, EFR32MG26
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Silicon Labs</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Silicon Labs</keyword>
+    <keyword>EFR32BG26</keyword>
+    <keyword>EFR32</keyword>
+    <keyword>Blue Gecko</keyword>
+    <keyword>Gecko</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="EFR32BG26 Series" Dvendor="Silicon Labs:21">
+      <processor Dcore="Cortex-M33" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dtz="NO_TZ" Ddsp="NO_DSP" Dendian="Little-endian" Dclock="0"/>
+      <book name="Documents/cortex_m33_dgug.pdf"      title="Cortex-M33 Generic User Guide"/>
+      <description>
+- 32-bit ARM Cortex-M33 core with 78 MHz maximum operating frequency&#xD;&#xA;- Scalable Memory and Radio configuration options available in QFN packaging;- Integrated PA with up to 19.5 dBm transmit power;- Energy-efficient radio core with low active and sleep currents;- Secure Vault;- AI/ML Hardware Accelerator;- Up to 2048 kB of flash and 256 kB of RAM&#xD;&#xA;
+      </description>
+
+      <subFamily DsubFamily="EFR32BG26B311">
+        <!-- *************************  Device 'EFR32BG26B311F1024IL136'  ***************************** -->
+        <device Dname="EFR32BG26B311F1024IL136">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B311F1024IL136"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B311F1024IL136.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B311F1024IM68'  ***************************** -->
+        <device Dname="EFR32BG26B311F1024IM68">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B311F1024IM68"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B311F1024IM68.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B311F2048IL136'  ***************************** -->
+        <device Dname="EFR32BG26B311F2048IL136">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B311F2048IL136"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B311F2048IL136.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B311F2048IM48'  ***************************** -->
+        <device Dname="EFR32BG26B311F2048IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B311F2048IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B311F2048IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B311F2048IM68'  ***************************** -->
+        <device Dname="EFR32BG26B311F2048IM68">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B311F2048IM68"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B311F2048IM68.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="EFR32BG26B321">
+        <!-- *************************  Device 'EFR32BG26B321F1024IM68'  ***************************** -->
+        <device Dname="EFR32BG26B321F1024IM68">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B321F1024IM68"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B321F1024IM68.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B321F2048IM48'  ***************************** -->
+        <device Dname="EFR32BG26B321F2048IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B321F2048IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B321F2048IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B321F2048IM68'  ***************************** -->
+        <device Dname="EFR32BG26B321F2048IM68">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B321F2048IM68"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B321F2048IM68.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="EFR32BG26B410">
+        <!-- *************************  Device 'EFR32BG26B410F3200IM48'  ***************************** -->
+        <device Dname="EFR32BG26B410F3200IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B410F3200IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B410F3200IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="EFR32BG26B411">
+        <!-- *************************  Device 'EFR32BG26B411F3200IM48'  ***************************** -->
+        <device Dname="EFR32BG26B411F3200IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B411F3200IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B411F3200IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="EFR32BG26B420">
+        <!-- *************************  Device 'EFR32BG26B420F3200IM48'  ***************************** -->
+        <device Dname="EFR32BG26B420F3200IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B420F3200IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B420F3200IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="EFR32BG26B421">
+        <!-- *************************  Device 'EFR32BG26B421F3200IM48'  ***************************** -->
+        <device Dname="EFR32BG26B421F3200IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B421F3200IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B421F3200IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="EFR32BG26B510">
+        <!-- *************************  Device 'EFR32BG26B510F3200IL136'  ***************************** -->
+        <device Dname="EFR32BG26B510F3200IL136">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B510F3200IL136"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B510F3200IL136.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B510F3200IM48'  ***************************** -->
+        <device Dname="EFR32BG26B510F3200IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B510F3200IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B510F3200IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B510F3200IM68'  ***************************** -->
+        <device Dname="EFR32BG26B510F3200IM68">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B510F3200IM68"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B510F3200IM68.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="EFR32BG26B511">
+        <!-- *************************  Device 'EFR32BG26B511F3200IL136'  ***************************** -->
+        <device Dname="EFR32BG26B511F3200IL136">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B511F3200IL136"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B511F3200IL136.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B511F3200IM48'  ***************************** -->
+        <device Dname="EFR32BG26B511F3200IM48">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B511F3200IM48"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B511F3200IM48.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'EFR32BG26B511F3200IM68'  ***************************** -->
+        <device Dname="EFR32BG26B511F3200IM68">
+          <compile header="Device/SiliconLabs/EFR32BG26/Include/em_device.h"  define="EFR32BG26B511F3200IM68"/>
+          <debug      svd="SVD/EFR32BG26/EFR32BG26B511F3200IM68.svd"/>
+          <memory     id="IROM1"                start="0x00000000"  size="0x00000000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x00000000"  size="0x00000000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x00000000"  size="0x00000000"  RAMstart="0x20000000" RAMsize="0x40000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x00000000"  size="0x00000000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+    </family>
+  </devices>
+
+  <conditions>
+    <!-- Compiler Conditions -->
+    <condition id="Compiler GCC">
+      <require Tcompiler="GCC"/>
+    </condition>
+    <condition id="Compiler IAR">
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="EFR32BG26">
+      <description>Silicon Labs EFR32BG26 device series</description>
+      <require Dvendor="Silicon Labs:21" Dname="EFR32BG26*"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="2025.6.2" condition="EFR32BG26">
+      <description>System Startup for Silicon Labs EFR32BG26 device series</description>
+      <files>
+        <!-- include folder -->
+        <file category="include" name="Device/SiliconLabs/EFR32BG26/Include/"/>
+        <file category="header"  name="Device/SiliconLabs/EFR32BG26/Include/em_device.h"/>
+        <!-- system file -->
+        <file category="source"  name="Device/SiliconLabs/EFR32BG26/Source/system_efr32bg26.c" attr="config" version="2025.6.2"/>
+      </files>
+    </component>
+  </components>
+</package>

@@ -1,0 +1,27 @@
+The Mouse project is a demo program for the AT91SAM7S64
+using Atmel AT91SAM7S-EK Microcontroller Board.
+
+It demonstrates an USB Mouse based on USB HID.
+
+Since there are only 4 Push Buttons (SW1..4) availbale
+the following is used for Mouse movements and clicks:
+  - SW1 selects between X (Left/Right) or Y (Up/Down) movement
+    and also beetween Left or Right click
+  - SW2 is used for negative movement
+    Left (SW1 not pressed) or Up (SW1 pressed)
+  - SW3 is used for positive movement
+    Right (SW1 not pressed) or Down (SW1 pressed)
+  - SW4 is used for clicks
+    Left (SW1 not presed) or Right (SW1 pressed)
+
+LEDs are used to display the following:
+  - LED1 shows the SW1 state
+  - LED3 is on when USB Device is configured
+  - LED4 is on when USB Device is suspended
+
+The USB Mouse is automatically recognized by the host PC
+running Windows which will load a generic Mouse driver.
+
+The Mouse program is available for the following targets:
+  AT91SAM7S-EK: configured for on-chip Flash ROM
+                (used for production or target debugging)

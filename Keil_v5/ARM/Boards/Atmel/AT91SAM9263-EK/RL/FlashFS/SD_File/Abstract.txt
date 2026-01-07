@@ -1,0 +1,23 @@
+This is an RL Flash File System file manipulation example.
+You can create, read, copy, delete files from the SD/MMC 
+Flash Memory Card and format the card.
+
+The SD_FILE program is a standalone application loaded into
+external DataFlash debugged in external SDRAM and available 
+for one target:
+
+AT91SAM9263: Standalone application for Atmel AT91SAM9263-EK evaluation.
+             Configured for external SDRAM (64MB), downloaded to external
+             DataFlash (8.25MB).
+
+             DEBUG PORT is used as console. Connect a serial null-modem 
+             cable to DEBUG PORT. Used port settings are:
+             115200 baud, 8-bits, no parity, 1 stop bit
+
+Notes: 
+  - For "AT91SAM9263" target if Debug is selected the code is loaded to 
+    External SDRAM and debugging happens there, if Download to Flash Memory 
+    is selected the code downloads to External DataFlash
+  - Bootloader has to be downloaded to flash for "AT91SAM9263" version 
+    to work as standalone. This is done by opening Bootloader project 
+    and clicking on "Download to Flash Memory" button.

@@ -1,0 +1,14 @@
+The RTX_Blinky project is a simple RTX Kernel based example
+for the TI 'TMS570' microcontroller using Keil 'MCBTMS570' 
+evaluation board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL  =  16 MHz
+   - CCLK  = 160 MHz
+
+ - 5 LEDs blink simulating Half step-motor driver.
+
+The Blinky program is available for one target:
+  MCBTMS570: runs from Internal Flash located on chip
+                (used for production or target debugging)

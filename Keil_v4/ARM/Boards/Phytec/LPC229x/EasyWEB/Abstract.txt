@@ -1,0 +1,49 @@
+This tiny web server was taken from the 'Design & Elektronik'
+extra issue 'Embedded Internet'.  It can be downloaded from the 
+following web site: www.elektroniknet.de/extraheft.
+
+This software was adapted to work with a Phytec phyCore LPC229x board 
+and the Keil RV ARM C-Compiler with as less modifications as possible. 
+
+Note that modifications are not optimal, because ARM is a 32-bit 
+machine while the original software was written for 16-bit cpu.
+
+The web page shows the values of two analog inputs (AN0 and AN1).
+This tiny webserver needs very less resources and therefore has
+some restrictions:
+- only one active TCP session at the time
+- no support for fragmented IP datagrams
+- no buffer for TCP datagrams received in wrong order
+- only one web page. No GIF/JPG graphics possible.
+
+The IP address can be modified in the module tcpip.h to
+fit into your existing LAN (see MYIP_x). 
+Please order the extra issue 'Embedded Internet' of the 
+'Design & Elektronik' magazine for a technical description.
+It is only available in German language. 
+
+The easyWEB project is set up for two targets:
+  phyCore LPC229x - Flash:  Settings for Phytec LPC229x Board. 
+                            Program code is loaded into off-chip flash
+
+  phyCore LPC229x - XRAM:   Settings for Phytec LPC229x Board.
+                            Program code is loaded into off-chip ram, 
+                            for unlimited number of breakpoints.
+
+
+*** NOTE ***
+
+Due to a hardware restriction on the Phytec board, this example only 
+works with 10MBit LAN connection. You may need to reduce the communication 
+speed for the LAN adapter on your PC or remove the auto-negotiation from 
+the LAN91C111.C source file.
+
+On Windows XP 10MBit LAN connection may be configured under:
+
+Local Area Connection - Properties - General -
+Connect Using (select the net adapter) - Configure -
+Advanced - Property - Speed & Duplex - 10Mbit Full.
+
+*** END NOTE ***
+
+

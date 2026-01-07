@@ -1,0 +1,706 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\ADC0.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         ADC0                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  ADC0_CTRL  -------------------------------------------
+
+unsigned int ADC0_CTRL __AT (0x40002000);
+
+//  <item> Reg_ADC0_CTRL
+//    <i> ADC0_CTRL [31..0] (@ 0x40002000) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_CTRL>>0) & 0xFFFFFFFF), ( (ADC0_CTRL &= ~(0xFFFFFFFF<<0)), (ADC0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CTRL_ENERGYMODE
+//    <i> ENERGYMODE [1..0] (@ 0x40002000) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CTRL>>0) & 0x2), ( (ADC0_CTRL &= ~(0x2<<0)), (ADC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CTRL_TAILGATE
+//    <i> TAILGATE [3] (@ 0x40002000) </i>
+//    <check> 
+//      <loc> ADC0_CTRL </loc>
+//      <o.3..3> TAILGATE
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_CTRL_LPFMODE
+//    <i> LPFMODE [5..4] (@ 0x40002000) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CTRL>>4) & 0x2), ( (ADC0_CTRL &= ~(0x2<<4)), (ADC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CTRL_PRESC
+//    <i> PRESC [14..8] (@ 0x40002000) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CTRL>>8) & 0x7E), ( (ADC0_CTRL &= ~(0x7E<<8)), (ADC0_CTRL |= ((Gui_u8:GuiVal & 0x7E)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CTRL_TIMEBASE
+//    <i> TIMEBASE [20..16] (@ 0x40002000) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CTRL>>16) & 0x1E), ( (ADC0_CTRL &= ~(0x1E<<16)), (ADC0_CTRL |= ((Gui_u8:GuiVal & 0x1E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CTRL_OSRSEL
+//    <i> OSRSEL [27..24] (@ 0x40002000) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CTRL>>24) & 0xE), ( (ADC0_CTRL &= ~(0xE<<24)), (ADC0_CTRL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  ADC0_CMD  --------------------------------------------
+
+unsigned int ADC0_CMD __AT (0x40002004);
+
+//  <item> Reg_ADC0_CMD
+//    <i> ADC0_CMD [31..0] (@ 0x40002004) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_CMD>>0) & 0xFFFFFFFF), ( (ADC0_CMD &= ~(0xFFFFFFFF<<0)), (ADC0_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CMD_SINGLESTART
+//    <i> SINGLESTART [0] (@ 0x40002004) </i>
+//    <check> 
+//      <loc> ADC0_CMD </loc>
+//      <o.0..0> SINGLESTART
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_CMD_SINGLESTOP
+//    <i> SINGLESTOP [1] (@ 0x40002004) </i>
+//    <check> 
+//      <loc> ADC0_CMD </loc>
+//      <o.1..1> SINGLESTOP
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_CMD_SCANSTART
+//    <i> SCANSTART [2] (@ 0x40002004) </i>
+//    <check> 
+//      <loc> ADC0_CMD </loc>
+//      <o.2..2> SCANSTART
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_CMD_SCANSTOP
+//    <i> SCANSTOP [3] (@ 0x40002004) </i>
+//    <check> 
+//      <loc> ADC0_CMD </loc>
+//      <o.3..3> SCANSTOP
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  ADC0_STATUS  ------------------------------------------
+
+unsigned int ADC0_STATUS __AT (0x40002008);
+
+//  <item> Reg_ADC0_STATUS
+//    <i> ADC0_STATUS [31..0] (@ 0x40002008) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_STATUS>>0) & 0xFFFFFFFF), ( (ADC0_STATUS &= ~(0xFFFFFFFF<<0)), (ADC0_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_STATUS_SINGLEACT
+//    <i> SINGLEACT [0] (@ 0x40002008) </i>
+//    <check> 
+//      <loc> ADC0_STATUS </loc>
+//      <o.0..0> SINGLEACT
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_STATUS_SCANACT
+//    <i> SCANACT [1] (@ 0x40002008) </i>
+//    <check> 
+//      <loc> ADC0_STATUS </loc>
+//      <o.1..1> SCANACT
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_STATUS_SINGLEREFWARM
+//    <i> SINGLEREFWARM [8] (@ 0x40002008) </i>
+//    <check> 
+//      <loc> ADC0_STATUS </loc>
+//      <o.8..8> SINGLEREFWARM
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_STATUS_SCANREFWARM
+//    <i> SCANREFWARM [9] (@ 0x40002008) </i>
+//    <check> 
+//      <loc> ADC0_STATUS </loc>
+//      <o.9..9> SCANREFWARM
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_STATUS_WARM
+//    <i> WARM [12] (@ 0x40002008) </i>
+//    <check> 
+//      <loc> ADC0_STATUS </loc>
+//      <o.12..12> WARM
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_STATUS_SINGLEDV
+//    <i> SINGLEDV [16] (@ 0x40002008) </i>
+//    <check> 
+//      <loc> ADC0_STATUS </loc>
+//      <o.16..16> SINGLEDV
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_STATUS_SCANDV
+//    <i> SCANDV [17] (@ 0x40002008) </i>
+//    <check> 
+//      <loc> ADC0_STATUS </loc>
+//      <o.17..17> SCANDV
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_STATUS_SCANDATASRC
+//    <i> SCANDATASRC [26..24] (@ 0x40002008) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_STATUS>>24) & 0x6), ( (ADC0_STATUS &= ~(0x6<<24)), (ADC0_STATUS |= ((Gui_u8:GuiVal & 0x6)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  ADC0_SINGLECTRL  ----------------------------------------
+
+unsigned int ADC0_SINGLECTRL __AT (0x4000200C);
+
+//  <item> Reg_ADC0_SINGLECTRL
+//    <i> ADC0_SINGLECTRL [31..0] (@ 0x4000200C) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SINGLECTRL>>0) & 0xFFFFFFFF), ( (ADC0_SINGLECTRL &= ~(0xFFFFFFFF<<0)), (ADC0_SINGLECTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLEREP
+//    <i> SINGLEREP [0] (@ 0x4000200C) </i>
+//    <check> 
+//      <loc> ADC0_SINGLECTRL </loc>
+//      <o.0..0> SINGLEREP
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLEDIFF
+//    <i> SINGLEDIFF [1] (@ 0x4000200C) </i>
+//    <check> 
+//      <loc> ADC0_SINGLECTRL </loc>
+//      <o.1..1> SINGLEDIFF
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLEADJ
+//    <i> SINGLEADJ [2] (@ 0x4000200C) </i>
+//    <check> 
+//      <loc> ADC0_SINGLECTRL </loc>
+//      <o.2..2> SINGLEADJ
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLERES
+//    <i> SINGLERES [5..4] (@ 0x4000200C) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SINGLECTRL>>4) & 0x2), ( (ADC0_SINGLECTRL &= ~(0x2<<4)), (ADC0_SINGLECTRL |= ((Gui_u8:GuiVal & 0x2)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLESEL
+//    <i> SINGLESEL [11..8] (@ 0x4000200C) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SINGLECTRL>>8) & 0xE), ( (ADC0_SINGLECTRL &= ~(0xE<<8)), (ADC0_SINGLECTRL |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLEREF
+//    <i> SINGLEREF [18..16] (@ 0x4000200C) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SINGLECTRL>>16) & 0x6), ( (ADC0_SINGLECTRL &= ~(0x6<<16)), (ADC0_SINGLECTRL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLEAT
+//    <i> SINGLEAT [23..20] (@ 0x4000200C) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SINGLECTRL>>20) & 0xE), ( (ADC0_SINGLECTRL &= ~(0xE<<20)), (ADC0_SINGLECTRL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLEPRSEN
+//    <i> SINGLEPRSEN [24] (@ 0x4000200C) </i>
+//    <check> 
+//      <loc> ADC0_SINGLECTRL </loc>
+//      <o.24..24> SINGLEPRSEN
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SINGLECTRL_SINGLEPRSSEL
+//    <i> SINGLEPRSSEL [30..28] (@ 0x4000200C) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SINGLECTRL>>28) & 0x6), ( (ADC0_SINGLECTRL &= ~(0x6<<28)), (ADC0_SINGLECTRL |= ((Gui_u8:GuiVal & 0x6)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  ADC0_SCANCTRL  -----------------------------------------
+
+unsigned int ADC0_SCANCTRL __AT (0x40002010);
+
+//  <item> Reg_ADC0_SCANCTRL
+//    <i> ADC0_SCANCTRL [31..0] (@ 0x40002010) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SCANCTRL>>0) & 0xFFFFFFFF), ( (ADC0_SCANCTRL &= ~(0xFFFFFFFF<<0)), (ADC0_SCANCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANREP
+//    <i> SCANREP [0] (@ 0x40002010) </i>
+//    <check> 
+//      <loc> ADC0_SCANCTRL </loc>
+//      <o.0..0> SCANREP
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANDIFF
+//    <i> SCANDIFF [1] (@ 0x40002010) </i>
+//    <check> 
+//      <loc> ADC0_SCANCTRL </loc>
+//      <o.1..1> SCANDIFF
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANADJ
+//    <i> SCANADJ [2] (@ 0x40002010) </i>
+//    <check> 
+//      <loc> ADC0_SCANCTRL </loc>
+//      <o.2..2> SCANADJ
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANRES
+//    <i> SCANRES [5..4] (@ 0x40002010) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SCANCTRL>>4) & 0x2), ( (ADC0_SCANCTRL &= ~(0x2<<4)), (ADC0_SCANCTRL |= ((Gui_u8:GuiVal & 0x2)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANMASK
+//    <i> SCANMASK [15..8] (@ 0x40002010) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SCANCTRL>>8) & 0xFE), ( (ADC0_SCANCTRL &= ~(0xFE<<8)), (ADC0_SCANCTRL |= ((Gui_u8:GuiVal & 0xFE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANREF
+//    <i> SCANREF [18..16] (@ 0x40002010) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SCANCTRL>>16) & 0x6), ( (ADC0_SCANCTRL &= ~(0x6<<16)), (ADC0_SCANCTRL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANAT
+//    <i> SCANAT [23..20] (@ 0x40002010) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SCANCTRL>>20) & 0xE), ( (ADC0_SCANCTRL &= ~(0xE<<20)), (ADC0_SCANCTRL |= ((Gui_u8:GuiVal & 0xE)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANPRSEN
+//    <i> SCANPRSEN [24] (@ 0x40002010) </i>
+//    <check> 
+//      <loc> ADC0_SCANCTRL </loc>
+//      <o.24..24> SCANPRSEN
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_SCANCTRL_SCANPRSSEL
+//    <i> SCANPRSSEL [30..28] (@ 0x40002010) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_SCANCTRL>>28) & 0x6), ( (ADC0_SCANCTRL &= ~(0x6<<28)), (ADC0_SCANCTRL |= ((Gui_u8:GuiVal & 0x6)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  ADC0_IEN  --------------------------------------------
+
+unsigned int ADC0_IEN __AT (0x40002014);
+
+//  <item> Reg_ADC0_IEN
+//    <i> ADC0_IEN [31..0] (@ 0x40002014) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_IEN>>0) & 0xFFFFFFFF), ( (ADC0_IEN &= ~(0xFFFFFFFF<<0)), (ADC0_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_IEN_SINGLE
+//    <i> SINGLE [0] (@ 0x40002014) </i>
+//    <check> 
+//      <loc> ADC0_IEN </loc>
+//      <o.0..0> SINGLE
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IEN_SCAN
+//    <i> SCAN [1] (@ 0x40002014) </i>
+//    <check> 
+//      <loc> ADC0_IEN </loc>
+//      <o.1..1> SCAN
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IEN_SINGLEOF
+//    <i> SINGLEOF [8] (@ 0x40002014) </i>
+//    <check> 
+//      <loc> ADC0_IEN </loc>
+//      <o.8..8> SINGLEOF
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IEN_SCANOF
+//    <i> SCANOF [9] (@ 0x40002014) </i>
+//    <check> 
+//      <loc> ADC0_IEN </loc>
+//      <o.9..9> SCANOF
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  ADC0_IF  --------------------------------------------
+
+unsigned int ADC0_IF __AT (0x40002018);
+
+//  <item> Reg_ADC0_IF
+//    <i> ADC0_IF [31..0] (@ 0x40002018) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_IF>>0) & 0xFFFFFFFF), ( (ADC0_IF &= ~(0xFFFFFFFF<<0)), (ADC0_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_IF_SINGLE
+//    <i> SINGLE [0] (@ 0x40002018) </i>
+//    <check> 
+//      <loc> ADC0_IF </loc>
+//      <o.0..0> SINGLE
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IF_SCAN
+//    <i> SCAN [1] (@ 0x40002018) </i>
+//    <check> 
+//      <loc> ADC0_IF </loc>
+//      <o.1..1> SCAN
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IF_SINGLEOF
+//    <i> SINGLEOF [8] (@ 0x40002018) </i>
+//    <check> 
+//      <loc> ADC0_IF </loc>
+//      <o.8..8> SINGLEOF
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IF_SCANOF
+//    <i> SCANOF [9] (@ 0x40002018) </i>
+//    <check> 
+//      <loc> ADC0_IF </loc>
+//      <o.9..9> SCANOF
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  ADC0_IFS  --------------------------------------------
+
+unsigned int ADC0_IFS __AT (0x4000201C);
+
+//  <item> Reg_ADC0_IFS
+//    <i> ADC0_IFS [31..0] (@ 0x4000201C) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_IFS>>0) & 0xFFFFFFFF), ( (ADC0_IFS &= ~(0xFFFFFFFF<<0)), (ADC0_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_IFS_SINGLE
+//    <i> SINGLE [0] (@ 0x4000201C) </i>
+//    <check> 
+//      <loc> ADC0_IFS </loc>
+//      <o.0..0> SINGLE
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IFS_SCAN
+//    <i> SCAN [1] (@ 0x4000201C) </i>
+//    <check> 
+//      <loc> ADC0_IFS </loc>
+//      <o.1..1> SCAN
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IFS_SINGLEOF
+//    <i> SINGLEOF [8] (@ 0x4000201C) </i>
+//    <check> 
+//      <loc> ADC0_IFS </loc>
+//      <o.8..8> SINGLEOF
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IFS_SCANOF
+//    <i> SCANOF [9] (@ 0x4000201C) </i>
+//    <check> 
+//      <loc> ADC0_IFS </loc>
+//      <o.9..9> SCANOF
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  ADC0_IFC  --------------------------------------------
+
+unsigned int ADC0_IFC __AT (0x40002020);
+
+//  <item> Reg_ADC0_IFC
+//    <i> ADC0_IFC [31..0] (@ 0x40002020) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_IFC>>0) & 0xFFFFFFFF), ( (ADC0_IFC &= ~(0xFFFFFFFF<<0)), (ADC0_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_IFC_SINGLE
+//    <i> SINGLE [0] (@ 0x40002020) </i>
+//    <check> 
+//      <loc> ADC0_IFC </loc>
+//      <o.0..0> SINGLE
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IFC_SCAN
+//    <i> SCAN [1] (@ 0x40002020) </i>
+//    <check> 
+//      <loc> ADC0_IFC </loc>
+//      <o.1..1> SCAN
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IFC_SINGLEOF
+//    <i> SINGLEOF [8] (@ 0x40002020) </i>
+//    <check> 
+//      <loc> ADC0_IFC </loc>
+//      <o.8..8> SINGLEOF
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_IFC_SCANOF
+//    <i> SCANOF [9] (@ 0x40002020) </i>
+//    <check> 
+//      <loc> ADC0_IFC </loc>
+//      <o.9..9> SCANOF
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  ADC0_SINGLEDATA  ----------------------------------------
+
+unsigned int ADC0_SINGLEDATA __AT (0x40002024);
+
+//  <item> Reg_ADC0_SINGLEDATA
+//    <i> ADC0_SINGLEDATA [31..0] (@ 0x40002024) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SINGLEDATA>>0) & 0xFFFFFFFF), ( (ADC0_SINGLEDATA &= ~(0xFFFFFFFF<<0)), (ADC0_SINGLEDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SINGLEDATA_SINGLEDATA
+//    <i> SINGLEDATA [31..0] (@ 0x40002024) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SINGLEDATA>>0) & 0xFFFFFFFE), ( (ADC0_SINGLEDATA &= ~(0xFFFFFFFE<<0)), (ADC0_SINGLEDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  ADC0_SCANDATA  -----------------------------------------
+
+unsigned int ADC0_SCANDATA __AT (0x40002028);
+
+//  <item> Reg_ADC0_SCANDATA
+//    <i> ADC0_SCANDATA [31..0] (@ 0x40002028) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SCANDATA>>0) & 0xFFFFFFFF), ( (ADC0_SCANDATA &= ~(0xFFFFFFFF<<0)), (ADC0_SCANDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SCANDATA_SCANDATA
+//    <i> SCANDATA [31..0] (@ 0x40002028) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SCANDATA>>0) & 0xFFFFFFFE), ( (ADC0_SCANDATA &= ~(0xFFFFFFFE<<0)), (ADC0_SCANDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  ADC0_SINGLEDATAP  ----------------------------------------
+
+unsigned int ADC0_SINGLEDATAP __AT (0x4000202C);
+
+//  <item> Reg_ADC0_SINGLEDATAP
+//    <i> ADC0_SINGLEDATAP [31..0] (@ 0x4000202C) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SINGLEDATAP>>0) & 0xFFFFFFFF), ( (ADC0_SINGLEDATAP &= ~(0xFFFFFFFF<<0)), (ADC0_SINGLEDATAP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SINGLEDATAP_SINGLEDATA
+//    <i> SINGLEDATA [31..0] (@ 0x4000202C) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SINGLEDATAP>>0) & 0xFFFFFFFE), ( (ADC0_SINGLEDATAP &= ~(0xFFFFFFFE<<0)), (ADC0_SINGLEDATAP |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  ADC0_SCANDATAP  -----------------------------------------
+
+unsigned int ADC0_SCANDATAP __AT (0x40002030);
+
+//  <item> Reg_ADC0_SCANDATAP
+//    <i> ADC0_SCANDATAP [31..0] (@ 0x40002030) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SCANDATAP>>0) & 0xFFFFFFFF), ( (ADC0_SCANDATAP &= ~(0xFFFFFFFF<<0)), (ADC0_SCANDATAP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_SCANDATAP_SCANDATAP
+//    <i> SCANDATAP [31..0] (@ 0x40002030) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_SCANDATAP>>0) & 0xFFFFFFFE), ( (ADC0_SCANDATAP &= ~(0xFFFFFFFE<<0)), (ADC0_SCANDATAP |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  ADC0_CAL  --------------------------------------------
+
+unsigned int ADC0_CAL __AT (0x40002034);
+
+//  <item> Reg_ADC0_CAL
+//    <i> ADC0_CAL [31..0] (@ 0x40002034) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_CAL>>0) & 0xFFFFFFFF), ( (ADC0_CAL &= ~(0xFFFFFFFF<<0)), (ADC0_CAL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CAL_SINGLEOFFSET
+//    <i> SINGLEOFFSET [6..0] (@ 0x40002034) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CAL>>0) & 0x7E), ( (ADC0_CAL &= ~(0x7E<<0)), (ADC0_CAL |= ((Gui_u8:GuiVal & 0x7E)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CAL_SINGLEGAIN
+//    <i> SINGLEGAIN [14..8] (@ 0x40002034) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CAL>>8) & 0x7E), ( (ADC0_CAL &= ~(0x7E<<8)), (ADC0_CAL |= ((Gui_u8:GuiVal & 0x7E)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CAL_SCANOFFSET
+//    <i> SCANOFFSET [22..16] (@ 0x40002034) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CAL>>16) & 0x7E), ( (ADC0_CAL &= ~(0x7E<<16)), (ADC0_CAL |= ((Gui_u8:GuiVal & 0x7E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_CAL_SCANGAIN
+//    <i> SCANGAIN [30..24] (@ 0x40002034) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_CAL>>24) & 0x7E), ( (ADC0_CAL &= ~(0x7E<<24)), (ADC0_CAL |= ((Gui_u8:GuiVal & 0x7E)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  ADC0_ROUTE  -------------------------------------------
+
+unsigned int ADC0_ROUTE __AT (0x40002038);
+
+//  <item> Reg_ADC0_ROUTE
+//    <i> ADC0_ROUTE [31..0] (@ 0x40002038) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_ROUTE>>0) & 0xFFFFFFFF), ( (ADC0_ROUTE &= ~(0xFFFFFFFF<<0)), (ADC0_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_ROUTE_VCMPEN
+//    <i> VCMPEN [0] (@ 0x40002038) </i>
+//    <check> 
+//      <loc> ADC0_ROUTE </loc>
+//      <o.0..0> VCMPEN
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  ADC0_BIASPROG  -----------------------------------------
+
+unsigned int ADC0_BIASPROG __AT (0x4000203C);
+
+//  <item> Reg_ADC0_BIASPROG
+//    <i> ADC0_BIASPROG [31..0] (@ 0x4000203C) </i>
+//    <edit> 
+//      <loc> ( (int)((ADC0_BIASPROG>>0) & 0xFFFFFFFF), ( (ADC0_BIASPROG &= ~(0xFFFFFFFF<<0)), (ADC0_BIASPROG |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_BIASPROG_BIASPROG
+//    <i> BIASPROG [3..0] (@ 0x4000203C) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_BIASPROG>>0) & 0xE), ( (ADC0_BIASPROG &= ~(0xE<<0)), (ADC0_BIASPROG |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> ADC0_BIASPROG_HALFBIAS
+//    <i> HALFBIAS [6] (@ 0x4000203C) </i>
+//    <check> 
+//      <loc> ADC0_BIASPROG </loc>
+//      <o.6..6> HALFBIAS
+//    </check>
+//  </item>
+//  
+//  <item> ADC0_BIASPROG_COMPBIAS
+//    <i> COMPBIAS [11..8] (@ 0x4000203C) </i>
+//    <edit> 
+//      <loc> ( (char)((ADC0_BIASPROG>>8) & 0xE), ( (ADC0_BIASPROG &= ~(0xE<<8)), (ADC0_BIASPROG |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

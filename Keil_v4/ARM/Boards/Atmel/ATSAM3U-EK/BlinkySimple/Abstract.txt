@@ -1,0 +1,12 @@
+The BlinkySimple project is a simple demo program for the Atmel 'AT91SAM3U4E' 
+microcontroller using Atmel 'AT91SAM3U-EK' Evaluation Board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                  =  12 MHz
+   - Main Clock            =   4 MHz
+
+The BlinkySimple program is available in different targets:
+  Simulator:   configured for software Simulator
+  ATSAM3U-EK:  configured for on-chip Flash
+               (used for production or target debugging)

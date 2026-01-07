@@ -1,0 +1,20 @@
+; Linker Control File (scatter-loading)
+
+FLASH_LOAD 0x01000000 0x200000     ; Load Region: 2MB FLASH at 0x01000000
+{
+  Flash 0x01000000                 ; Exec Region: 2MB Flash
+  {
+    Startup.o (Reset, +First)      ; Startup Code placed first
+    __main.o (+RO)
+    __scatter*.o (+RO)
+    anon$$obj.o (+RO)
+  }
+  CodeRAM 0x00000000 0x30000       ; Exec Region: 192kB RAM at 0x00000000
+  {
+    * (+RO)                        ; all other RO sections
+  }
+  DataRAM 0x00030000 0x10000       ; Exec Region: 64kB RAM at 0x00030000
+  {
+    * (+RW,+ZI)                    ; RW & ZI sections
+  }
+}

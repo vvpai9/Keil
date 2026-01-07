@@ -1,0 +1,23 @@
+
+The Confidence Test project tests some of the interfaces and 
+components of the Keil 'MCBTMS570' Evaluation Board
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL  =  16 MHz
+   - CCLK  = 160 MHz
+
+ - 6 LEDs blink with fixed speed
+ - push buttons gerenate a beep 
+ - AD value for Temperature and Light are displayed on the GLCD 
+ - AD value for differential sensor inputs are displayed on the GLCD 
+ - SD-Card can be detected and size is displayed
+ - Memory test:
+   - external 512KB RAM
+   - EEPROM (via SPI)
+   - FRAM (via SPI)
+ - Air pump and valve output can be controlled
+ - Solenoid outputs and Relay can be controlled
+
+This Confidence Test application is configured for the on-chip flash
+and must be downloaded to use it.

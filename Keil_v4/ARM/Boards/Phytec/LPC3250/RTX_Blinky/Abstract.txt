@@ -1,0 +1,19 @@
+This is a simple RTX Kernel based example which blinks
+two LEDs on the Phytec LPC3250 evaluation board 
+using PHYTEC 'PCM-967' and 'PCM-1304.0' Boards.
+
+Clocks: Oscillator                   =  13.00 MHz
+        HCLK_PLL   = Oscillator * 16 = 208.00 MHz
+        Processor  = HCLK_PLL        = 208.00 MHz
+        HCLK       = HCLK_PLL / 2    = 104.00 MHz
+        PERIPH_CLK = HCLK_PLL / 16   =  13.00 MHz
+
+The RTX_BLINKY project is set up for one target:
+  LPC3250:  configured to run in external SDRAM and loaded to
+            external NOR flash
+
+Notes: 
+  - for standalone application you have to:
+    1. Download the 2-nd level NOR bootloader
+       ('bootloader_NOR' from Keil) to external NOR flash 
+    2. Download the application to external NOR Flash

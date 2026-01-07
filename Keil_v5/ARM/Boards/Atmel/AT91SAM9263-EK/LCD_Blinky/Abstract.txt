@@ -1,0 +1,46 @@
+The Blinky project is an example program for the 'AT91SAM9263'
+using Atmel 'AT91SAM9263-EK' Evaluation Board and demonstrating 
+interrupt functionality and display to graphic LCD.
+
+Example functionality:                                                   
+ - Displays rotating ARM 3D logo, each picture is displayed every 200 ms
+ - 2 LEDs blink (DS1 and DS2) with speed of 1 second, determined 
+   by Periodic Interval Timer (PIT) working in interrupt mode
+
+Clocks: Oscillator      =  16.367660 MHz
+        PLLA            = 200.049178 MHz
+        Processor Clock = 100.024589 MHz
+        Master Clock    = 100.024589 MHz
+
+The Blinky program is available for target:
+  SAM9263 Ext SDRAM: configured for external SDRAM (64MB)
+                     downloaded to external DataFlash (8.25MB)
+                     (used for target debugging and production)
+
+Important: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   In EVAL version of uVision do not rebuild the target as !
+!   this example's size exceeds EVAL version limitation     !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Notes: 
+  - For "SAM9263 Ext SDRAM" target if Debug is selected 
+    the code is loaded to External SDRAM and debugging happens there, 
+    if Download to Flash Memory is selected the code downloads to 
+    External DataFlash Card
+  - Bootloader has to be downloaded to flash for "SAM9263 Ext SDRAM" 
+    version to work as standalone. This is done by opening 
+    Bootloader project and clicking on "Download to Flash Memory" 
+    button.
+
+How to start:
+  1. Open Bootloader project and click on "Download to Flash Memory"
+     button
+  2. In this project and click on "Download to Flash Memory" button
+  3. Reset the board
+
+Picture conversion procedure:
+  1. Convert picture to 32 BPP (X-8bits, B-8bits, G-8bits, R-8bits)
+  2. Remove header from bmp by hex editor, remaining file size should 
+     be equal to (width * height * 4) bytes
+  3. Convert prepared file without header to C array and include it 
+     into project source files

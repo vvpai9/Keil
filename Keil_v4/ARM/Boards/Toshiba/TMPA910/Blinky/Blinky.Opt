@@ -1,0 +1,65 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (TMPA910 Int RAM), 0x0004 // Tools: 'ARM-ADS'
+Target (TMPA910 Ext NOR), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Startup Code),1,0,0
+GRPOPT 2,(Source Code),1,0,0
+GRPOPT 3,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\TMPA910.s><TMPA910.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\Blinky.c><Blinky.c> 
+OPTFFF 3,3,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,2,0,0,0,1,0,0,0,29,2,0,0,32,2,0,0 }
+
+
+TARGOPT 1, (TMPA910 Int RAM)
+ ADSCLK=24000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Int_RAM\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 12
+  OPTBL 0,(User Manual)<DATASHTS\Toshiba\TMPA910CRAXBG_UM.pdf>
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9260)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9260)
+  OPTDBG 43518,0,()()()()()()()()()(.\Dbg_Int_RAM.ini) (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)(Xð)
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV2077N9E -O15 -S135 -C0 -N00("ARM926EJ-S Core") -D00(07926031) -L00(4) -FO7 -FDF8002000 -FC800 -FN0)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (TMPA910 Ext NOR)
+ ADSCLK=24000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Ext_NOR\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 12
+  OPTBL 0,(User Manual)<DATASHTS\Toshiba\TMPA910CRAXBG_UM.pdf>
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9260)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9260)
+  OPTDBG 45054,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)(Xð)
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV2077N9E -O15 -S135 -C0 -N00("ARM926EJ-S Core") -D00(07926031) -L00(4) -FO7 -FDF8002000 -FC800 -FN1 -FF0S29GL256P -FS00 -FL02000000)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

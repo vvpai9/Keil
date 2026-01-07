@@ -1,0 +1,275 @@
+Device {
+    IRLength = 10;
+    ID =  0x0150203F;
+    IDMask =  0xFFFFEFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "f1502as_j44  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0151203F;
+    IDMask =  0xFFFFEFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "f1502asv_j44  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0150403F;
+    IDMask =  0xFFFFEFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "f1504as_a44  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0151403F;
+    IDMask =  0xFFFFEFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "f1504asv_j44  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0151803F;
+    IDMask =  0xFFFFEFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "f1508asv_j84  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0150803F;
+    IDMask =  0xFFFFEFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "f1508as_j84  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0950103F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "atmega323 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0950503F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega325 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0950303F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega329 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0960503F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega645 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0960303F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega649 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0980103F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "atmega2560 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0980203F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega2561  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0950603F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega3250  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0950403F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega3290  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0960603F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega6450  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0960403F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega6490  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength =     4       ;
+    ID =  0x0978103F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "     at90can128  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x8940303F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega16  ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0950203F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "atmega32 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0960203F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = "atmega64 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x8970203F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega128 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x3940403F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega162 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x0940703F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega165 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 
+Device {
+    IRLength = 4 ;
+    ID =  0x4940503F;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Atmel";
+    Family  = "";
+    Model  = " atmega169 ";
+    Part  = "";
+    Manufacturer  = "Atmel";
+}
+ 

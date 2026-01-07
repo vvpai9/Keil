@@ -1,0 +1,9 @@
+The Blinky project is a simple program for the Cortex-M1 (Altera)
+using an Altera Starter Board and example system design from an
+ARM Cortex FPGA Development Kit.
+
+The program blinks the user LEDs on the Starter Board.
+
+The Blinky program is available in different targets:
+  Simulator:  runs in µVision Simulator
+  Emulator:   runs in Emulator

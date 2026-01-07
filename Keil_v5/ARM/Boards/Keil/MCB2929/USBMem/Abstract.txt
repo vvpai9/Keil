@@ -1,0 +1,27 @@
+The Memory project is a demo program for the LPC2929
+using Keil MCB2929 board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - PLL                    = 196 MHz
+   - processor clock = CCLK =  48 MHz
+   - USB clock              =  48 MHz
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+LEDs are used to display the following:
+  - P2.16: LED_RD   is on when USB Device is performing Read access
+  - P2.17: LED_WR   is on when USB Device is performing Write access
+  - P2.20: LED_CFG  is on when USB Device is configured
+  - P2.21: LED_SUSP is on when USB Device is suspended
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  MCB2929         : configured for on-chip Flash ROM
+                  (used for production or target debugging)
+
+Note: set jumper J7 to 1[2 3] (jumper towards JTAG connector)
+      for USB soft connect

@@ -1,0 +1,17 @@
+The Blinky project is a simple program for the AT91SAM7X256
+using Atmel AT91SAM7X-EK Evaluation Board.
+
+Example functionality:                                                   
+ - 4 LEDs blink from left to right and back
+ - speed of blinking can be increased by pushing the joystick UP, 
+   and decreased by pushing the joystick DOWN
+ - if joystick is pressed the 4 LEDs freeze
+
+The Blinky program is available in different targets:
+  Simulator:            configured for software Simulator
+  SAM7X Flash - ULINK:  configured for on-chip Flash ROM, using ULINK
+                        (used for production or target debugging)
+  SAM7X RAM - ULINK:    configured to run from on-chip RAM, using ULINK
+                        (may be used for target debugging) 
+  SAM7X Flash - SAMICE: configured for on-chip Flash ROM, using SAM-ICE
+                        (used for production or target debugging)

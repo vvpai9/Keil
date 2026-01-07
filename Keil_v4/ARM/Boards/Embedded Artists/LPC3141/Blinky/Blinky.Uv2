@@ -1,0 +1,105 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (LPC3141 Ext SDRAM), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (Source Code)
+Group (Documentation)
+
+File 1,2,<.\LPC31xx.s><LPC31xx.s>
+File 2,1,<.\Blinky.c><Blinky.c>
+File 2,1,<.\IRQ.c><IRQ.c>
+File 3,5,<.\Abstract.txt><Abstract.txt>
+
+
+Options 1,0,0  // Target 'LPC3141 Ext SDRAM'
+ Device (LPC3141)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x11028000-0x1103FFFF) IRAM2(0x11040000-0x11057FFF) IROM(0x12000000-0x1201FFFF) CLOCK(12000000) CPUTYPE(ARM926EJ-S))
+ FlashUt ()
+ StupF ("STARTUP\NXP\LPC31xx\LPC31xx.s" ("NXP LPC31xx Startup Code"))
+ FlashDR ()
+ DevID (4948)
+ Rgf (LPC313x.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (NXP\LPC313x\)
+ OrgReg (NXP\LPC313x\)
+ TgStat=16
+ OutDir (.\Ext_SDRAM\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Ext_SDRAM\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 243,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,12,80,16,96,0,64,8,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,128,2,17,0,128,1,0 }
+ OCMADSIROM { 1,0,0,0,18,0,0,2,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,48,0,0,0,2,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,18,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,128,2,17,0,128,1,0,0,0,0,4,17,0,128,1,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN (SIZE_EXT_INFO NO_CLOCK_INIT NO_MPMC_INIT)
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x30000000)
+ ADSLDDA (0x32000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cLPC314x)(DARMP3.DLL)(-pLPC3141)(SARM.DLL)()(TARMP3.DLL)(-pLPC3141)
+  OPTDBG 47614,0,()()()()()()()()()(.\Ext_SDRAM.ini) (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 (.\Prog_NAND.ini)
+EndOpt
+

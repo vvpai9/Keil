@@ -1,0 +1,17 @@
+The Memory project is a demo program for the Keil MCBSTR7 Board
+using a ST STR71x Microcontroller.
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+LEDs are used to display the following:
+  - P2.8 : LED_RD   is on when USB Device is performing Read access
+  - P2.9 : LED_WR   is on when USB Device is performing Write access
+  - P2.10: LED_CFG  is on when USB Device is configured
+  - P2.11: LED_SUSP is on when USB Device is suspended
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  MCBSTR7: configured for on-chip Flash ROM
+           (used for production or target debugging)

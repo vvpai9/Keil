@@ -1,0 +1,22 @@
+The 'SVC' project is a simple program for the TMPM330 
+using Keil 'MCBTMPM330' Evaluation Board and shows how to 
+implement software interrupt functions 
+It includes the file SVC.c which implements the SVC handler.
+The SVC function declarations and implementations are demonstrated
+in the file Test.c.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL    =           10.00 MHz
+   - SYSCLK  =           40.00 MHz
+
+
+
+It includes the SVC.c file which implements the SVC handler.
+The SVC function declarations and implementations are demonstrated
+in the Test.c file.
+ 
+The SVC program is available in different targets:
+  Simulator:   - configured for software Simulator
+  MCBTMPM330:  - runs from Internal Flash located on chip
+                 (used for production or target debugging)

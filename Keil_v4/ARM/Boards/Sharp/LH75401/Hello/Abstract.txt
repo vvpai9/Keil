@@ -1,0 +1,16 @@
+The Hello project is a very simple program that prints
+"Hello World" to the serial port and toggles some LEDs
+on the Sharp LH75401 using the Logic Zoom LH75401 Board.
+
+The example shows:
+ - how to setup the Static Memory Controller
+ - how to setup the Vector Interrupt Controller
+ - how to setup Timer for periodic interrupts
+ - how to use the UART
+ - how to change the port
+
+The Hello program is available in different targets:
+  Zoom LH75401 Flash: configured for off-chip Flash
+    (used for production or target debugging)
+  Zoom LH75401 RAM:   configured for on-chip Local SRAM
+    (may be used for target debugging)

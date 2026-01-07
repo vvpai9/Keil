@@ -1,0 +1,40 @@
+The Blinky project is a simple program for the Toshiba 'TMPM330'
+microcontroller using Keil 'MCBTMPM330' Evaluation Board, compliant 
+to Cortex Microcontroller Software Interface Standard (CMSIS v1.20).
+
+It demonstrates the use of ULINKpro Debugger.
+
+Clock Settings:
+ - XTAL  =  10 MHz
+ - CCLK  =  40 MHz
+
+Example functionality:                                                   
+ - SysTick Timer is used in interrupt mode
+ - 3 LEDs blink with speed depending on potentiometer position
+ - AD conversion is done in interrupt mode
+ - AD settings: 10 bit resolution
+ - AD value is output onto ITM debug port #0  
+
+The Blinky program is available in different targets:
+  Simulator:                 configured for uVision Simulator
+
+  SWO Trace:                 runs from Internal Flash
+                             shows use of LogicAnalyzer, ITM output, Exception Trace
+                             use connector "JTAG"
+
+  TracePort Trace:           runs from Internal Flash
+                             shows use of LogicAnalyzer, ITM output, Exception Trace
+                             use connector "TRACE"
+
+  TracePort IntructionTrace: runs from Internal Flash
+                             shows use of Instruction Trace
+                             use connector "TRACE"
+
+
+ULINKpro notes
+--------------
+TMPM330_TP.ini enables TPIU interface
+
+Instruction trace is very time and resource consuming
+therefore if you want to use instruction trace use
+nothing else (no LA, no exceptions, no ITM, no ...).

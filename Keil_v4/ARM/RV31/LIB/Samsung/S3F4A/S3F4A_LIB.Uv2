@@ -1,0 +1,120 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (S3F4A Library), 0x0004 // Tools: 'ARM-ADS'
+
+Group (C Source Files)
+
+File 1,1,<.\csp.c><csp.c>
+File 1,1,<.\csp_spurious.c><csp_spurious.c>
+File 1,1,<.\csp_adc10.c><csp_adc10.c>
+File 1,1,<.\csp_can.c><csp_can.c>
+File 1,1,<.\csp_capt.c><csp_capt.c>
+File 1,1,<.\csp_cinit.c><csp_cinit.c>
+File 1,1,<.\csp_dfc.c><csp_dfc.c>
+File 1,1,<.\csp_epc.c><csp_epc.c>
+File 1,1,<.\csp_gic.c><csp_gic.c>
+File 1,1,<.\csp_gpt.c><csp_gpt.c>
+File 1,1,<.\csp_i2c.c><csp_i2c.c>
+File 1,1,<.\csp_ifc.c><csp_ifc.c>
+File 1,1,<.\csp_ldma.c><csp_ldma.c>
+File 1,1,<.\csp_pio.c><csp_pio.c>
+File 1,1,<.\csp_pwm.c><csp_pwm.c>
+File 1,1,<.\csp_smc.c><csp_smc.c>
+File 1,1,<.\csp_spi.c><csp_spi.c>
+File 1,1,<.\csp_st16.c><csp_st16.c>
+File 1,1,<.\csp_stt.c><csp_stt.c>
+File 1,1,<.\csp_usart.c><csp_usart.c>
+File 1,1,<.\csp_wd.c><csp_wd.c>
+
+
+Options 1,0,0  // Target 'S3F4A Library'
+ Device (S3F4A0KR)
+ Vendor (Samsung)
+ Cpu (IRAM(0x300000-0x307FFF) IROM(0-0xFFFFF) IROM1(0x80000000-0x80007FFF) CLOCK(4000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("STARTUP\Samsung\S3F4A.s" ("Samsung S3F4A Startup Code"))
+ FlashDR ()
+ DevID (4379)
+ Rgf (S3F4A.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿSamsung\S3F4A\)
+ OrgReg (ÿSamsung\S3F4A\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (S3F4A)
+ GenApp=0
+ GenLib=1
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy .\Output\S3F4A.LIB ..\S3F4A.LIB>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ()
+ RVDEV ()
+ ADSTFLGA { 0,12,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,48,0,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 815,550)
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC (--diag_suppress A1608)
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)()(DARMP.DLL)(-pS3F4A0KR)(SARM.DLL)()(TARMP.DLL)(-pS3F4A0KR)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

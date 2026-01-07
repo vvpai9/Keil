@@ -1,0 +1,286 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (SAM9G20 Int RAM), 0x0004 // Tools: 'ARM-ADS'
+Target (SAM9G20 Ext SDRAM), 0x0004 // Tools: 'ARM-ADS'
+Target (SAM9G20 Ext SDRAM - SAMICE), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (Source Code)
+Group (Documentation)
+
+File 1,2,<.\SAM9G20.s><SAM9G20.s>
+File 2,1,<.\Blinky.c><Blinky.c>
+File 3,5,<.\Abstract.txt><Abstract.txt>
+
+
+Options 1,0,0  // Target 'SAM9G20 Int RAM'
+ Device (AT91SAM9G20)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x203FFF) IRAM2(0x300000-0x303FFF) IROM(0x100000-0x10FFFF) CLOCK(18432000) CPUTYPE(ARM926EJ-S))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\SAM9G20.s" ("Atmel AT91SAM9G20 Startup Code"))
+ FlashDR (UL2ARM(-UV2077N9E -O47 -S0 -C0 -N00("ARM926EJ-S Core") -D00(0792603F) -L00(4) -FO7 -FD300000 -FC1000 -FN1 -FF0AT91SAM9_DF_P1056_CS1 -FS020000000 -FL083BE00))
+ DevID (4685)
+ Rgf (AT91SAM9G20.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM9G20\)
+ OrgReg (ÿAtmel\SAM9G20\)
+ TgStat=16
+ OutDir (.\Int_RAM\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Int_RAM\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,12,16,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,32,0,0,64,0,0 }
+ OCMADSIROM { 1,0,0,16,0,0,0,1,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,64,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,64,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN (SIZE_INT_INFO NO_SDRAM_INIT)
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x00000000)
+ ADSLDDA (0x00300000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9G20)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9G20)
+  OPTDBG 43518,0,()()()()()()()()()(.\Int_RAM.ini) (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'SAM9G20 Ext SDRAM'
+ Device (AT91SAM9G20)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x203FFF) IRAM2(0x300000-0x303FFF) IROM(0x100000-0x10FFFF) CLOCK(18432000) CPUTYPE(ARM926EJ-S))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\SAM9G20.s" ("Atmel AT91SAM9G20 Startup Code"))
+ FlashDR (UL2ARM(-UV2077N9E -O47 -S0 -C0 -N00("ARM926EJ-S Core") -D00(0792603F) -L00(4) -FO7 -FD300000 -FC1000 -FN1 -FF0AT91SAM9_DF_P1056_CS1 -FS020000000 -FL083BE00))
+ DevID (4685)
+ Rgf (AT91SAM9G20.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM9G20\)
+ OrgReg (ÿAtmel\SAM9G20\)
+ TgStat=16
+ OutDir (.\Ext_SDRAM\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Ext_SDRAM\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,12,80,16,96,0,64,8,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,32,0,0,64,0,0 }
+ OCMADSIROM { 1,0,0,16,0,0,0,1,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,32,0,190,131,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,16,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,64,0,0,0,0,0,48,0,0,64,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN (SIZE_EXT_INFO NO_PMC_INIT NO_EBI_INIT NO_SDRAM_INIT VEC_TO_RAM)
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x20000000)
+ ADSLDDA (0x22000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9G20)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9G20)
+  OPTDBG 43518,0,()()()()()()()()()(.\Ext_SDRAM.ini) (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'SAM9G20 Ext SDRAM - SAMICE'
+ Device (AT91SAM9G20)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x203FFF) IRAM2(0x300000-0x303FFF) IROM(0x100000-0x10FFFF) CLOCK(18432000) CPUTYPE(ARM926EJ-S))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\SAM9G20.s" ("Atmel AT91SAM9G20 Startup Code"))
+ FlashDR (UL2ARM(-UV2077N9E -O47 -S0 -C0 -N00("ARM926EJ-S Core") -D00(0792603F) -L00(4) -FO7 -FD300000 -FC1000 -FN1 -FF0AT91SAM9_DF_P1056_CS1 -FS020000000 -FL083BE00))
+ DevID (4685)
+ Rgf (AT91SAM9G20.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM9G20\)
+ OrgReg (ÿAtmel\SAM9G20\)
+ TgStat=16
+ OutDir (.\Ext_SDRAM\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Ext_SDRAM\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,12,80,16,96,0,64,8,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,32,0,0,64,0,0 }
+ OCMADSIROM { 1,0,0,16,0,0,0,1,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,32,0,190,131,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,16,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,64,0,0,0,0,0,48,0,0,64,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN (SIZE_EXT_INFO NO_PMC_INIT NO_EBI_INIT NO_SDRAM_INIT VEC_TO_RAM)
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x20000000)
+ ADSLDDA (0x22000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM9)(DARMATS9.DLL)(-p91SAM9G20)(SARM.DLL)()(TARMATS9.DLL)(-p91SAM9G20)
+  OPTDBG 43518,6,()()()()()()()()()(.\Ext_SDRAM.ini) (Segger\JLTAgdi.dll)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 (.\Prog_DF.ini)
+EndOpt
+

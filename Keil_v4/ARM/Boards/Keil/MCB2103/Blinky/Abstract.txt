@@ -1,0 +1,12 @@
+The Blinky project is a simple program for the LPC2103
+using Keil MCB2103 Microcontroller Board.
+
+It blinks the LEDs at speed according to the Potenciometer 
+seting and prints the current seting to the Serial Port 1.
+
+The Blinky program is available in different targets:
+  Simulator:      runs in software Simulator
+  MCB2103 RAM:    runs from Internal RAM located on chip
+                       (used for target debugging) 
+  MCB2103 Flash:  runs from Internal Flash located on chip
+                       (used for final aplication version)

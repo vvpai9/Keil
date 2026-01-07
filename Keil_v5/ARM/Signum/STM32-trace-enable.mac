@@ -1,0 +1,9 @@
+;[SignumSystemsTraceInitFile]
+;Title=STM32 ETM Initialization
+
+sd 0xE000EDFC = 0x01000000  ; Set DEMCR_reg
+sd 0xE0042004 = 0xE0        ; Set DBGMCU_CR
+
+trace clear
+trace enable
+trace etm portsize=4

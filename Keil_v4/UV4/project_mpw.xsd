@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProjectWorkspace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SchemaVersion" type="xs:string" />
+        <xs:element name="Header" type="xs:string" />
+        <xs:element name="WorkspaceName" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="project">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="PathAndName" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NodeIsActive" type="switcher" default="1"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="NodeIsExpanded" type="switcher" default="1"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="NodeIsCheckedInBatchBuild" type="switcher" default="1"/>
+          </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Sle7">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Apps">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="bAna" type="switcher" />
+                    <xs:element name="nLevel" type="xs:byte" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="App" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+              </xs:element>
+              <xs:element name="ExecApp" type="xs:string" />
+              <xs:element name="CfgApp" type="xs:string" />
+              <xs:element name="bHex" type="switcher"/>
+              <xs:element name="bList" type="switcher"/>
+              <xs:element name="buGlb" type="switcher"/>
+              <xs:element name="bCase" type="switcher"/>
+              <xs:element name="szMisc" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  
+  <xs:simpleType name="switcher">
+    <!--one bit value: 0|1 -->
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

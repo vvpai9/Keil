@@ -1,0 +1,31 @@
+This example program shows how to use the RTX CAN Driver on 
+'Keil MCB2929 Evaluation Board' with 
+'NXP LPC2929' microcontroller.
+
+Example functionality:
+ - send converted AD value in first byte in CAN message on 
+   CAN 2 controller every 1 second
+  - "ADC0 (IN0)" / "ADC2 (IN0)" is used for getting AD value from 
+   potentiometer POT1, it works in interrupt mode.
+   (ADC0 is selected as default.)
+ - receive CAN message on CAN 1 controller
+ - display transmitted and received values on LCD display
+ - show number of sent messages as a binary value on LEDs 
+   P2.16 .. P2.19, and show number of received messages 
+   as a binary value on LEDs P2.20 .. P2.23
+   CAN 1 controller speed: 500 kbits
+   CAN 2 controller speed: 500 kbits
+
+This example shows how to use RTX CAN Driver in uVision.
+
+You may change the value of analog input with potentiometer 
+and watch the values on LCD display change accordingly.
+
+The CAN_Ex1 example program is available for several targets:
+
+MCB2929:   NXP LPC2929 internal Flash
+
+Notes:      
+  - To see the example functionality on hardware, loopback has 
+    to be connected between CAN1 and CAN2 (pins 7 on both DB-9 
+    headers shorted, and pins 2 on both DB-9 headers shorted)

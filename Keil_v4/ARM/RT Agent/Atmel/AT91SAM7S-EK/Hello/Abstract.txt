@@ -1,0 +1,27 @@
+The Hello project is a demo program for the AT91SAM7S64
+using Atmel AT91SAM7S Microcontroller Board. This version
+is an example of how to integrate the Real-Time Agent onto
+this processor.
+
+It prints text to the serial port, and to the Real-Time
+Agent terminal window, and blinks LEDs according to the 
+push buttons on the board:
+ - pressing SW1 prints the debug messages and blinks LED1
+ - holding down SW2 holds the main program 
+   (except LED4 blinking) and lights LED2
+ - pressing SW3 turns on LED3
+ - pressing SW4 turns off LED3
+ - LED4 blinks at 1Hz rate
+
+The example shows:
+ - how to integrate the Real-Time Agent
+ - how to setup the Advanced Interrupt Controller (AIC)
+ - how to setup Interrupt Priority and Interrupt nesting
+ - how to setup Periodic Interval Timer (PIT)
+ - how to use the UART Interface
+ - how to use the Parallel I/O (PIO) Controller
+
+The Hello program is available in different targets:
+  Simulator:       configured for software Simulator
+  AT91SAM7S Flash: configured for on-chip Flash ROM
+                   (used for production or target debugging)

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package schemaVersion="1.7.27"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.27/schema/PACK.xsd">
+  <vendor>Puya</vendor>
+  <url>https://www.puyasemi.com/uploadfiles/</url>
+  <name>PY32E4xx_DFP</name>
+  <description>Puya PY32E4 Series Device Support</description>
+  <releases>
+    <release version="1.0.0" date="2025-05-28">
+        First Release version of PY32E4 Device Family Pack.
+    </release>
+  </releases>
+
+  <keywords>
+    <keyword>Puya</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>PY32E4</keyword>
+    <keyword>PY32E4xx</keyword>
+  </keywords>
+  <devices>
+    <family Dfamily="PY32E4 Series" Dvendor="Puya:176">
+      <processor Dcore="Cortex-M4" DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+      <description>
+PUYA' PY32E4 series of mainstream MCUs covers the needs of a large variety of applications in the industrial, medical and consumer markets. High performance with first-class peripherals and low-power, low-voltage operation is paired with a high level of integration at accessible prices with a simple architecture and easy-to-use tools.
+Typical applications include motor drives and application control, medical and handheld equipment, industrial applications, PLCs, inverters, printers, and scanners, alarm systems, video intercom, HVAC and home audio equipment.
+
+    - 5 V-tolerant I/Os
+    - Timer with quadrature (incremental) encoder input
+    - 96-bit unique ID
+      </description>
+
+      <sequences>
+        <sequence name="DebugCoreStart">
+          <block>
+                        // Replication of Standard Functionality
+                         Write32(0xE000EDF0, 0xA05F0001);                                        // Enable Core Debug via DHCSR
+
+                        // Device Specific Debug Setup
+                        Write32(0xE0042004, DbgMCU_CR);                                         // DBGMCU_CR: Configure MCU Debug
+          </block>
+        </sequence>
+      </sequences>
+
+      <!-- ************************  Subfamily 'PY32E407'  **************************** -->
+      <subFamily DsubFamily="PY32E407">
+        <processor Dclock="144000000" />
+        <debug svd="CMSIS/SVD/PY32E407xx.svd" />
+
+        <debugvars configfile="CMSIS/Debug/PY32E407xx.dbgconf">
+          __var DbgMCU_CR      = 0x00000007;   // DBGMCU_CR: DBG_SLEEP, DBG_STOP, DBG_STANDBY
+        </debugvars>
+
+        <memory name="OPT" access="r" start="0x1FFF7400" size="0x00000020" />
+        <memory name="OTP" access="r" start="0x1FFF7000" size="0x00000400" />
+        <algorithm name="CMSIS/Flash/PY102xx_OB.FLM" start="0x1FFF7400" size="0x00000020" default="0"/>
+        <algorithm name="CMSIS/Flash/PY102xx_OTP.FLM" start="0x1FFF7000" size="0x00000400" default="0"/>
+
+        <!-- *************************  Device 'PY32E407xC'  ***************************** -->
+        <device Dname="PY32E407xC">
+          <compile header="Drivers/CMSIS/Device/PUYA/PY32E4xx/Include/py32e4xx.h" />
+          <memory id="IROM1" name="Flash" access="rx" start="0x08000000" size="0x00040000" startup="1" default="1" />
+          <memory id="IRAM1" name="SRAM1" access="rwx" start="0x20000000" size="0x00010000" init="0" default="1" />
+          <memory id="IRAM1" name="SRAM2" access="rwx" start="0x20010000" size="0x00004000" init="0" default="1" />
+          <memory id="IRAM1" name="CCM_SRAM" access="rwx" start="0x20014000" size="0x00008000" init="0" default="1" />
+          <algorithm name="CMSIS/Flash/PY102xx_256.FLM" start="0x08000000" size="0x00040000" default="1" />
+        </device>
+
+        <!-- *************************  Device 'PY32E407xD'  ***************************** -->
+        <device Dname="PY32E407xD">
+          <compile header="Drivers/CMSIS/Device/PUYA/PY32E4xx/Include/py32e4xx.h" />
+          <memory id="IROM1" name="Flash" access="rx" start="0x08000000" size="0x00060000" startup="1" default="1" />
+          <memory id="IRAM1" name="SRAM1" access="rwx" start="0x20000000" size="0x00018000" init="0" default="1" />
+          <memory id="IRAM1" name="SRAM2" access="rwx" start="0x20018000" size="0x00004000" init="0" default="1" />
+          <memory id="IRAM1" name="CCM_SRAM" access="rwx" start="0x2001C000" size="0x00008000" init="0" default="1" />
+          <algorithm name="CMSIS/Flash/PY102xx_384.FLM" start="0x08000000" size="0x00060000" default="1" />
+        </device>
+
+        <!-- *************************  Device 'PY32E407xE'  ***************************** -->
+        <device Dname="PY32E407xE">
+          <compile header="Drivers/CMSIS/Device/PUYA/PY32E4xx/Include/py32e4xx.h" />
+          <memory id="IROM1" name="Flash" access="rx" start="0x08000000" size="0x00080000" startup="1" default="1" />
+          <memory id="IRAM1" name="SRAM1" access="rwx" start="0x20000000" size="0x00018000" init="0" default="1" />
+          <memory id="IRAM1" name="SRAM2" access="rwx" start="0x20018000" size="0x00004000" init="0" default="1" />
+          <memory id="IRAM1" name="CCM_SRAM" access="rwx" start="0x2001C000" size="0x00008000" init="0" default="1" />
+          <algorithm name="CMSIS/Flash/PY102xx_512.FLM" start="0x08000000" size="0x00080000" default="1" />
+        </device>
+
+      </subFamily>
+    </family>
+  </devices>
+
+  <conditions>
+    <condition id="PY32E4">
+      <description>Puya PY32E4 Series devices</description>
+      <require Dvendor="Puya:176" Dname="PY32E4*" />
+    </condition>
+
+    <condition id="PY32E407xB">
+      <description>Puya PY32E407xB Series devices</description>
+      <require Dvendor="Puya:176" Dname="PY32E407?B*" />
+    </condition>
+
+    <condition id="PY32E407xC">
+      <description>Puya PY32E407xC Series devices</description>
+      <require Dvendor="Puya:176" Dname="PY32E407?C*" />
+    </condition>
+
+    <condition id="PY32E407xD">
+      <description>Puya PY32E407xD Series devices</description>
+      <require Dvendor="Puya:176" Dname="PY32E407?D*" />
+    </condition>
+
+    <condition id="PY32E407xE">
+      <description>Puya PY32E407xE Series devices</description>
+      <require Dvendor="Puya:176" Dname="PY32E407?E*" />
+    </condition>
+
+    <condition id="PY32E407 ARMCC ">
+      <description>Puya PY32E407 Series devices</description>
+      <accept condition="PY32E407xB" />
+      <accept condition="PY32E407xC" />
+      <accept condition="PY32E407xD" />
+      <accept condition="PY32E407xE" />
+      <require Tcompiler="ARMCC" />
+    </condition>
+
+    <condition id="PY32E4 CMSIS">
+      <description>Puya PY32E4 Device and CMSIS-CORE</description>
+      <require condition="PY32E4" />
+      <require Cclass="CMSIS" Cgroup="CORE" />
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="0.0.6" condition="PY32E4 CMSIS">
+      <description>System Startup for Puya PY32E4 Series</description>
+      <RTE_Components_h>
+        <!-- the following content goes into file 'RTE_Components.h' -->
+            #define RTE_DEVICE_STARTUP_PY32E4XX    /* Device Startup for PY32E4 */
+      </RTE_Components_h>
+      <files>
+        <!--  include folder -->
+        <file category="include" name="Drivers/CMSIS/Device/PUYA/PY32E4xx/Include/"/>
+        <!-- common device header file -->
+        <file category="header" name="Drivers/CMSIS/Device/PUYA/PY32E4xx/Include/py32e4xx.h"/>
+
+        <file category="source" condition="PY32E407 ARMCC" name="Drivers/CMSIS/Device/PUYA/PY32E4xx/Source/ARM/startup_py32e407xx.s" attr="config" version="0.0.6"/>
+
+        <file category="source" condition="PY32E407 ARMCC" name="Drivers/CMSIS/Device/PUYA/PY32E4xx/Source/system_py32e4xx.c" attr="config" version="0.0.6"/>
+      </files>
+    </component>
+  </components>
+</package>

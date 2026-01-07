@@ -1,0 +1,159 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\EMU.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          EMU                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  EMU_CTRL  --------------------------------------------
+
+unsigned int EMU_CTRL __AT (0x400C6000);
+
+//  <item> Reg_EMU_CTRL
+//    <i> EMU_CTRL [31..0] (@ 0x400C6000) </i>
+//    <edit> 
+//      <loc> ( (int)((EMU_CTRL>>0) & 0xFFFFFFFF), ( (EMU_CTRL &= ~(0xFFFFFFFF<<0)), (EMU_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EMU_CTRL_EMVREG
+//    <i> EMVREG [0] (@ 0x400C6000) </i>
+//    <check> 
+//      <loc> EMU_CTRL </loc>
+//      <o.0..0> EMVREG
+//    </check>
+//  </item>
+//  
+//  <item> EMU_CTRL_EM2BLOCK
+//    <i> EM2BLOCK [1] (@ 0x400C6000) </i>
+//    <check> 
+//      <loc> EMU_CTRL </loc>
+//      <o.1..1> EM2BLOCK
+//    </check>
+//  </item>
+//  
+//  <item> EMU_CTRL_EM4CTRL
+//    <i> EM4CTRL [3..2] (@ 0x400C6000) </i>
+//    <edit> 
+//      <loc> ( (char)((EMU_CTRL>>2) & 0x2), ( (EMU_CTRL &= ~(0x2<<2)), (EMU_CTRL |= ((Gui_u8:GuiVal & 0x2)<<2)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  EMU_MEMCTRL  ------------------------------------------
+
+unsigned int EMU_MEMCTRL __AT (0x400C6004);
+
+//  <item> Reg_EMU_MEMCTRL
+//    <i> EMU_MEMCTRL [31..0] (@ 0x400C6004) </i>
+//    <edit> 
+//      <loc> ( (int)((EMU_MEMCTRL>>0) & 0xFFFFFFFF), ( (EMU_MEMCTRL &= ~(0xFFFFFFFF<<0)), (EMU_MEMCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EMU_MEMCTRL_POWERDOWN
+//    <i> POWERDOWN [2..0] (@ 0x400C6004) </i>
+//    <edit> 
+//      <loc> ( (char)((EMU_MEMCTRL>>0) & 0x6), ( (EMU_MEMCTRL &= ~(0x6<<0)), (EMU_MEMCTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  EMU_LOCK  --------------------------------------------
+
+unsigned int EMU_LOCK __AT (0x400C6008);
+
+//  <item> Reg_EMU_LOCK
+//    <i> EMU_LOCK [31..0] (@ 0x400C6008) </i>
+//    <edit> 
+//      <loc> ( (int)((EMU_LOCK>>0) & 0xFFFFFFFF), ( (EMU_LOCK &= ~(0xFFFFFFFF<<0)), (EMU_LOCK |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EMU_LOCK_LOCKKEY
+//    <i> LOCKKEY [15..0] (@ 0x400C6008) </i>
+//    <edit> 
+//      <loc> ( (short int)((EMU_LOCK>>0) & 0xFFFE), ( (EMU_LOCK &= ~(0xFFFE<<0)), (EMU_LOCK |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  EMU_ATESTCTRL  -----------------------------------------
+
+unsigned int EMU_ATESTCTRL __AT (0x400C6018);
+
+//  <item> Reg_EMU_ATESTCTRL
+//    <i> EMU_ATESTCTRL [31..0] (@ 0x400C6018) </i>
+//    <edit> 
+//      <loc> ( (int)((EMU_ATESTCTRL>>0) & 0xFFFFFFFF), ( (EMU_ATESTCTRL &= ~(0xFFFFFFFF<<0)), (EMU_ATESTCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EMU_ATESTCTRL_ATESTSEL
+//    <i> ATESTSEL [3..0] (@ 0x400C6018) </i>
+//    <edit> 
+//      <loc> ( (char)((EMU_ATESTCTRL>>0) & 0xE), ( (EMU_ATESTCTRL &= ~(0xE<<0)), (EMU_ATESTCTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EMU_ATESTCTRL_ATESTBUS
+//    <i> ATESTBUS [23..8] (@ 0x400C6018) </i>
+//    <edit> 
+//      <loc> ( (short int)((EMU_ATESTCTRL>>8) & 0xFFFE), ( (EMU_ATESTCTRL &= ~(0xFFFE<<8)), (EMU_ATESTCTRL |= ((Gui_u16:GuiVal & 0xFFFE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EMU_ATESTCTRL_DACATESTINEN
+//    <i> DACATESTINEN [24] (@ 0x400C6018) </i>
+//    <check> 
+//      <loc> EMU_ATESTCTRL </loc>
+//      <o.24..24> DACATESTINEN
+//    </check>
+//  </item>
+//  
+//  <item> EMU_ATESTCTRL_DAC_ATESTOUTEN
+//    <i> DAC_ATESTOUTEN [25] (@ 0x400C6018) </i>
+//    <check> 
+//      <loc> EMU_ATESTCTRL </loc>
+//      <o.25..25> DAC_ATESTOUTEN
+//    </check>
+//  </item>
+//  
+//  <item> EMU_ATESTCTRL_ANATESTINEN
+//    <i> ANATESTINEN [26] (@ 0x400C6018) </i>
+//    <check> 
+//      <loc> EMU_ATESTCTRL </loc>
+//      <o.26..26> ANATESTINEN
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  EMU_AUXCTRL  ------------------------------------------
+
+unsigned int EMU_AUXCTRL __AT (0x400C6024);
+
+//  <item> Reg_EMU_AUXCTRL
+//    <i> EMU_AUXCTRL [31..0] (@ 0x400C6024) </i>
+//    <edit> 
+//      <loc> ( (int)((EMU_AUXCTRL>>0) & 0xFFFFFFFF), ( (EMU_AUXCTRL &= ~(0xFFFFFFFF<<0)), (EMU_AUXCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EMU_AUXCTRL_AUX
+//    <i> AUX [7..0] (@ 0x400C6024) </i>
+//    <edit> 
+//      <loc> ( (char)((EMU_AUXCTRL>>0) & 0xFE), ( (EMU_AUXCTRL &= ~(0xFE<<0)), (EMU_AUXCTRL |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

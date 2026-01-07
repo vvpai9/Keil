@@ -1,0 +1,10 @@
+The Blinky project is a simple program for the STR912FW44
+using Star9 Evaluation Board.
+
+Example functionality:                                                   
+ - 2 LEDs blink from left to right
+
+The Blinky program is available in target:
+  Simulator:     runs in software Simulator
+  STR91x Flash:  runs from Internal Flash located on chip
+

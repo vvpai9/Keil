@@ -1,0 +1,2741 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package xmlns:xs='http://www.w3.org/2001/XMLSchema-instance' xs:noNamespaceSchemaLocation='PACK.xsd' schemaVersion='1.4'>
+  <name>MCXW716C_DFP</name>
+  <vendor>NXP</vendor>
+  <description>Device Family Pack for MCXW716C</description>
+  <url>https://mcuxpresso.nxp.com/cmsis_pack/repo/</url>
+  <license>Licenses.txt</license>
+  <releases>
+    <release version='25.03.00' date='2025-03-28'>NXP CMSIS Packs based on MCUXpresso SDK 25.03.00</release>
+  </releases>
+  <keywords>
+    <keyword>Device Family Pack</keyword>
+  </keywords>
+  <requirements>
+    <packages>
+      <package name='CMSIS' vendor='ARM' version='6.1.0'/>
+    </packages>
+    <languages>
+      <language name='C' version='99'/>
+    </languages>
+  </requirements>
+  <devices>
+    <family Dfamily='MCXW716C' Dvendor='NXP:11'>
+      <description>Ultra-low power, Highly Secure, Bluetooth LE 5.3 Wireless MCU with CAN-FD.</description>
+      <device Dname='MCXW716CxxxA'>
+        <processor Dcore='Cortex-M33' Dfpu='SP_FPU' Dmpu='MPU' Dtz='TZ' Ddsp='DSP' Dendian='Little-endian' Dclock='96000000'/>
+        <environment name='iar'>
+          <file category='linkerfile' name='devices/MCXW716C/iar/mcxw716_flash.icf'/>
+        </environment>
+        <memory name='PROGRAM_FLASH' start='0x00000000' size='0x100000' access='rx' default='1' startup='1'/>
+        <memory name='TCM_CODE' start='0x04000000' size='0x4000' access='rw' default='1'/>
+        <memory name='TCM_SYS' start='0x20000000' size='0x01c000' access='rw' default='1'/>
+        <debug partnumber='MCXW716CxxxA'/>
+        <variant Dvariant='MCXW716CMFTA'>
+          <compile header='devices/MCXW716C/fsl_device_registers.h' define='CPU_MCXW716CMFTA'/>
+        </variant>
+        <variant Dvariant='MCXW716CMFPA'>
+          <compile header='devices/MCXW716C/fsl_device_registers.h' define='CPU_MCXW716CMFPA'/>
+        </variant>
+      </device>
+    </family>
+  </devices>
+  <conditions>
+    <condition id='device.MCXW716C.internal_condition'>
+      <accept Dname='MCXW716CMFPA' Dvendor='NXP:11'/>
+      <accept Dname='MCXW716CMFTA' Dvendor='NXP:11'/>
+    </condition>
+    <condition id='cmake_toolchain.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.device=MCXW716C.internal_condition'>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.at_least_one_i2c_mux_device_enabled.condition_id'>
+      <require condition='allOf.component.i2c_mux_pca954x, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.i2c_mux_pca954x, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux_pca954x'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.button.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.allOf=component.gpio_adapter, driver.gpio.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='timer_manager'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.gpio_adapter, driver.gpio.internal_condition'>
+      <accept condition='allOf.component.gpio_adapter, driver.gpio.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.gpio_adapter, driver.gpio.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio'/>
+    </condition>
+    <condition id='component.cmsis_drivers.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.crc_adapter.condition_id'>
+      <require condition='allOf.driver.crc, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.crc, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='crc'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.debug_coredump.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.debug_coredump_backend.flash_partition.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.debug_coredump_backend.mflash.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.debug_thread_info.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='device_id.MCXW716CxxxA.internal_condition'>
+      <accept Dname='MCXW716CMFPA' Dvendor='NXP:11'/>
+      <accept Dname='MCXW716CMFTA' Dvendor='NXP:11'/>
+    </condition>
+    <condition id='component.eeprom_emulation.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='component.enable_pca9544.condition_id'>
+      <require condition='allOf.component.i2c_mux_pca954x, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.enable_pca9548.condition_id'>
+      <require condition='allOf.component.i2c_mux_pca954x, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.flash_adapter.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.k4_flash_adapter, driver.flash_k4, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.k4_flash_adapter, driver.flash_k4, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.allOf=component.k4_flash_adapter, driver.flash_k4.internal_condition'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.k4_flash_adapter, driver.flash_k4.internal_condition'>
+      <accept condition='allOf.component.k4_flash_adapter, driver.flash_k4.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.k4_flash_adapter, driver.flash_k4.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='k4_flash_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flash_k4'/>
+    </condition>
+    <condition id='component.flash_nor_lpspi.condition_id'>
+      <require condition='allOf.driver.lpspi, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpspi, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gen_hal.condition_id'>
+      <require condition='allOf.component.zephyr_headers, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gen_hal.clock_control.condition_id'>
+      <require condition='allOf.component.gen_hal, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.gen_hal, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gen_hal'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gen_hal.clock_control.mcux_syscon.condition_id'>
+      <require condition='allOf.component.gen_hal, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gen_hal.flash.condition_id'>
+      <require condition='allOf.component.gen_hal, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gen_hal.memc.condition_id'>
+      <require condition='allOf.component.gen_hal, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gen_hal.osa.condition_id'>
+      <require condition='allOf.component.zephyr_headers.kernel, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers.kernel, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_kernel'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gen_hal.pinctrl.condition_id'>
+      <require condition='allOf.component.gen_hal, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.gpio_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.port, driver.gpio, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.port, driver.gpio, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.port.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.port.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='port'/>
+    </condition>
+    <condition id='component.i2c_adapter_interface.condition_id'>
+      <require condition='allOf.anyOf=allOf=anyOf=driver.lpi2c, component.lpi2c_adapter, allOf=component.i3c_adapter, driver.i3c, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=anyOf=driver.lpi2c, component.lpi2c_adapter, allOf=component.i3c_adapter, driver.i3c, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.allOf=anyOf=driver.lpi2c, component.lpi2c_adapter, allOf=component.i3c_adapter, driver.i3c.internal_condition'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=anyOf=driver.lpi2c, component.lpi2c_adapter, allOf=component.i3c_adapter, driver.i3c.internal_condition'>
+      <accept condition='allOf.anyOf=driver.lpi2c, component.lpi2c_adapter.internal_condition'/>
+      <accept condition='allOf.component.i3c_adapter, driver.i3c.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpi2c, component.lpi2c_adapter.internal_condition'>
+      <require condition='anyOf.driver.lpi2c.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpi2c_adapter'/>
+    </condition>
+    <condition id='anyOf.driver.lpi2c.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='i2c'/>
+    </condition>
+    <condition id='allOf.component.i3c_adapter, driver.i3c.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i3c_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i3c'/>
+    </condition>
+    <condition id='component.i2c_mux.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.i2c_mux_pca954x.condition_id'>
+      <require condition='allOf.component.i2c_mux, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.i2c_mux, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.i3c_adapter.condition_id'>
+      <require condition='allOf.component.i2c_adapter_interface, driver.i3c, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.i2c_adapter_interface, driver.i3c, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_adapter_interface'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i3c'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.k4_flash_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.flash_k4, driver.flash_k4, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.flash_k4, driver.flash_k4, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.flash_k4.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flash_k4'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.flash_k4.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='flash_k4'/>
+    </condition>
+    <condition id='component.led.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, driver.common, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.allOf=component.gpio_adapter, driver.gpio.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='timer_manager'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lists.condition_id'>
+      <require condition='allOf.driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.log.condition_id'>
+      <require condition='allOf.driver.common, utility.str, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, utility.str, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='str'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.log.backend.debug_console.condition_id'>
+      <require condition='allOf.component.log, driver.common, utility.debug_console, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.log, driver.common, utility.debug_console, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='log'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.log.backend.debug_console_lite.condition_id'>
+      <require condition='allOf.component.log, driver.common, utility.debug_console_lite, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.log, driver.common, utility.debug_console_lite, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='log'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.log.backend.ringbuffer.condition_id'>
+      <require condition='allOf.component.log, driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.log, driver.common, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='log'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lpadc_sensor_adapter.condition_id'>
+      <require condition='allOf.driver.lpadc, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpadc, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpadc'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lpi2c_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, component.i2c_adapter_interface, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpi2c, component.i2c_adapter_interface, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.lpi2c.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_adapter_interface'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lpit_adapter.condition_id'>
+      <require condition='allOf.driver.lpit, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpit, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpit'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lpit_time_stamp_adapter.condition_id'>
+      <require condition='allOf.driver.lpit, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lpspi_adapter.condition_id'>
+      <require condition='allOf.driver.common, driver.lpspi, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, driver.lpspi, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lptmr_adapter.condition_id'>
+      <require condition='allOf.driver.lptmr, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lptmr, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lptmr_time_stamp_adapter.condition_id'>
+      <require condition='allOf.driver.lptmr, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.lpuart_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.lpuart, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpuart, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.lpuart.internal_condition'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.lpuart.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+    </condition>
+    <condition id='component.mcux-edgelock.s200.condition_id'>
+      <require condition='allOf.board=mcxw71evk, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.board=mcxw71evk, device=MCXW716C.internal_condition'>
+      <require condition='board.mcxw71evk.internal_condition'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='board.mcxw71evk.internal_condition'>
+      <accept condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.mem_manager.condition_id'>
+      <require condition='allOf.anyOf=component.mem_manager_legacy, component.mem_manager_light, component.lists, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=component.mem_manager_legacy, component.mem_manager_light, component.lists, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.component.mem_manager_legacy, component.mem_manager_light.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.component.mem_manager_legacy, component.mem_manager_light.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_legacy'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_light'/>
+    </condition>
+    <condition id='component.mem_manager_legacy.condition_id'>
+      <require condition='allOf.component.mem_manager, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.mem_manager, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.mem_manager_light.condition_id'>
+      <require condition='allOf.component.mem_manager, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.messaging.condition_id'>
+      <require condition='allOf.component.lists, component.mem_manager, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lists, component.mem_manager, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.mflash_onchip.condition_id'>
+      <require condition='allOf.anyOf=driver.flash_k4, driver.mcm, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.flash_k4, driver.mcm, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.flash_k4, driver.mcm.internal_condition'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.flash_k4, driver.mcm.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='flash_k4'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='mcm'/>
+    </condition>
+    <condition id='component.mflash_onchip_fmu.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.panic.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.power_manager_framework.condition_id'>
+      <require condition='allOf.anyOf=driver.cmc, driver.common, driver.crc, driver.spc, driver.vbat, driver.wuu, component.lists, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.cmc, driver.common, driver.crc, driver.spc, driver.vbat, driver.wuu, component.lists, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.cmc, driver.common, driver.crc, driver.spc, driver.vbat, driver.wuu.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.cmc, driver.common, driver.crc, driver.spc, driver.vbat, driver.wuu.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='cmc'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='crc'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='spc'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='vbat'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='wuu'/>
+    </condition>
+    <condition id='component.pwm_tpm_adapter.condition_id'>
+      <require condition='allOf.driver.tpm, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.tpm, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tpm'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.reset_adapter.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='device.MCXW716A.internal_condition'>
+      <accept Dname='MCXW716AMFPA' Dvendor='NXP:11'/>
+      <accept Dname='MCXW716AMFTA' Dvendor='NXP:11'/>
+    </condition>
+    <condition id='component.rpmsg_adapter.condition_id'>
+      <require condition='allOf.board=frdmmcxw7x, frdmmcxw71, mcxw71evk, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.board=frdmmcxw7x, frdmmcxw71, mcxw71evk, device=MCXW716C.internal_condition'>
+      <require condition='board.frdmmcxw7x, frdmmcxw71, mcxw71evk.internal_condition'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='board.frdmmcxw7x, frdmmcxw71, mcxw71evk.internal_condition'>
+      <accept condition='device.MCXW716A.internal_condition'/>
+      <accept condition='device.MCXW716C.internal_condition'/>
+      <accept condition='device.MCXW716A.internal_condition'/>
+      <accept condition='device.MCXW716C.internal_condition'/>
+      <accept condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.rtc_adapter.condition_id'>
+      <require condition='allOf.driver.rtc, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.rtc, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='rtc'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.serial_manager.condition_id'>
+      <require condition='allOf.anyOf=component.serial_manager_rpmsg, component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual, component.lists, driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=component.serial_manager_rpmsg, component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual, component.lists, driver.common, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.component.serial_manager_rpmsg, component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.component.serial_manager_rpmsg, component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_rpmsg'/>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_spi'/>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_swo'/>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_uart'/>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_virtual'/>
+    </condition>
+    <condition id='component.serial_manager_rpmsg.condition_id'>
+      <require condition='allOf.component.rpmsg_adapter, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.rpmsg_adapter, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='rpmsg_adapter'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.serial_manager_spi.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.lpspi_adapter, driver.lpspi, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.lpspi_adapter, driver.lpspi, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.allOf=component.lpspi_adapter, driver.lpspi.internal_condition'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.lpspi_adapter, driver.lpspi.internal_condition'>
+      <accept condition='allOf.component.lpspi_adapter, driver.lpspi.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lpspi_adapter, driver.lpspi.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+    </condition>
+    <condition id='component.serial_manager_swo.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.serial_manager_uart.condition_id'>
+      <require condition='allOf.component.lpuart_adapter, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lpuart_adapter, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.serial_manager_virtual.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.silicon_id_imx8.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.silicon_id_imx93.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.silicon_id_imxrt10xx.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.silicon_id_imxrt1170.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.silicon_id_imxrt1180.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.silicon_id_rw610.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.silicon_id_scfw.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.software_crc_adapter.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.software_rng_adapter.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.timer_manager.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm, component.lists, driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm, component.lists, driver.common, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm.internal_condition'>
+      <accept condition='allOf.component.lpit_adapter, driver.lpit.internal_condition'/>
+      <accept condition='allOf.component.lptmr_adapter, driver.lptmr.internal_condition'/>
+      <accept condition='allOf.component.tpm_adapter, driver.tpm.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lpit_adapter, driver.lpit.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpit_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpit'/>
+    </condition>
+    <condition id='allOf.component.lptmr_adapter, driver.lptmr.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr'/>
+    </condition>
+    <condition id='allOf.component.tpm_adapter, driver.tpm.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tpm_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tpm'/>
+    </condition>
+    <condition id='component.tpm_adapter.condition_id'>
+      <require condition='allOf.driver.tpm, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.arch.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.sys_until, component.zephyr_headers.toolchain, component.zephyr_headers.types, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.sys_until, component.zephyr_headers.toolchain, component.zephyr_headers.types, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_sys_until'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_toolchain'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_types'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.assert.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.toolchain, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.toolchain, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_toolchain'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.atomic.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.sys_until, component.zephyr_headers.toolchain, component.zephyr_headers.types, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.debug_coredump.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.arch, component.zephyr_headers.sys_byteorder, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.arch, component.zephyr_headers.sys_byteorder, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_arch'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_sys_byteorder'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.device.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.linkers, component.zephyr_headers.logging, component.zephyr_headers.sys_until, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.linkers, component.zephyr_headers.logging, component.zephyr_headers.sys_until, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_linkers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_logging'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_sys_until'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.kernel.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.arch, component.zephyr_headers.assert, component.zephyr_headers.atomic, component.zephyr_headers.linkers, component.zephyr_headers.sys_until, component.zephyr_headers.toolchain, component.zephyr_headers.types, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.arch, component.zephyr_headers.assert, component.zephyr_headers.atomic, component.zephyr_headers.linkers, component.zephyr_headers.sys_until, component.zephyr_headers.toolchain, component.zephyr_headers.types, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_arch'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_assert'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_atomic'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_linkers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_sys_until'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_toolchain'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_types'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.linkers.condition_id'>
+      <require condition='allOf.component.zephyr_headers, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.logging.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.assert, component.zephyr_headers.atomic, component.zephyr_headers.sys_until, component.zephyr_headers.toolchain, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.assert, component.zephyr_headers.atomic, component.zephyr_headers.sys_until, component.zephyr_headers.toolchain, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_assert'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_atomic'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_sys_until'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_toolchain'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.storage_flash_map.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.device, component.zephyr_headers.types, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.device, component.zephyr_headers.types, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_device'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_types'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.storage_stream_flash.condition_id'>
+      <require condition='allOf.component.zephyr_headers, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.sys_byteorder.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.assert, component.zephyr_headers.types, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.zephyr_headers, component.zephyr_headers.assert, component.zephyr_headers.types, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_assert'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_types'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.sys_until.condition_id'>
+      <require condition='allOf.component.zephyr_headers, component.zephyr_headers.assert, component.zephyr_headers.types, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.toolchain.condition_id'>
+      <require condition='allOf.component.zephyr_headers, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='component.zephyr_headers.types.condition_id'>
+      <require condition='allOf.component.zephyr_headers, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='device.CMSIS.condition_id'>
+      <require condition='allOf.CMSIS_Include_core_cm, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Include_core_cm, device=MCXW716C.internal_condition'>
+      <require Cclass='CMSIS' Cgroup='CORE'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='device.RTE.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='device.linker.condition_id'>
+      <require condition='allOf.device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.device_id=MCXW716CxxxA.internal_condition'>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='device_ids.MCXW716CxxxA.internal_condition'>
+      <accept Dname='MCXW716CMFPA' Dvendor='NXP:11'/>
+      <accept Dname='MCXW716CMFTA' Dvendor='NXP:11'/>
+    </condition>
+    <condition id='allOf.toolchains=mdk, device_ids=MCXW716CxxxA.condition_id'>
+      <require condition='toolchains.mdk.internal_condition'/>
+      <require condition='device_ids.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='toolchains.mdk.internal_condition'>
+      <accept Tcompiler='ARMCC'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, device_ids=MCXW716CxxxA.condition_id'>
+      <require condition='toolchains.armgcc.internal_condition'/>
+      <require condition='device_ids.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='toolchains.armgcc.internal_condition'>
+      <accept Tcompiler='GCC'/>
+    </condition>
+    <condition id='allOf.toolchains=iar, device_ids=MCXW716CxxxA.condition_id'>
+      <require condition='toolchains.iar.internal_condition'/>
+      <require condition='device_ids.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='toolchains.iar.internal_condition'>
+      <accept Tcompiler='IAR'/>
+    </condition>
+    <condition id='device.project_template.condition_id'>
+      <require condition='allOf.driver.lpuart, component.lpuart_adapter, driver.clock, device_id=MCXW716CxxxA, device.startup, driver.common, driver.ccm32k, driver.port, driver.gpio, driver.spc, anyOf=allOf=component.serial_manager, component.serial_manager_uart, utility.debug_console, utility.debug_console_template_config, utility.assert, allOf=utility.debug_console_lite, utility.assert_lite.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpuart, component.lpuart_adapter, driver.clock, device_id=MCXW716CxxxA, device.startup, driver.common, driver.ccm32k, driver.port, driver.gpio, driver.spc, anyOf=allOf=component.serial_manager, component.serial_manager_uart, utility.debug_console, utility.debug_console_template_config, utility.assert, allOf=utility.debug_console_lite, utility.assert_lite.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='clock'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+      <require Cclass='Device' Cgroup='Startup' Csub=''/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='ccm32k'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='port'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='spc'/>
+      <require condition='anyOf.allOf=component.serial_manager, component.serial_manager_uart, utility.debug_console, utility.debug_console_template_config, utility.assert, allOf=utility.debug_console_lite, utility.assert_lite.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.serial_manager, component.serial_manager_uart, utility.debug_console, utility.debug_console_template_config, utility.assert, allOf=utility.debug_console_lite, utility.assert_lite.internal_condition'>
+      <accept condition='allOf.component.serial_manager, component.serial_manager_uart, utility.debug_console, utility.debug_console_template_config, utility.assert.internal_condition'/>
+      <accept condition='allOf.utility.debug_console_lite, utility.assert_lite.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.serial_manager, component.serial_manager_uart, utility.debug_console, utility.debug_console_template_config, utility.assert.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_uart'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug console template config'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='assert'/>
+    </condition>
+    <condition id='allOf.utility.debug_console_lite, utility.assert_lite.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='assert_lite'/>
+    </condition>
+    <condition id='device.startup.condition_id'>
+      <require condition='allOf.device.system, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.device.system, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='CMSIS' Csub='MCXW716C_system'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=iar.condition_id'>
+      <require condition='toolchains.iar.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc.condition_id'>
+      <require condition='toolchains.armgcc.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=mdk.condition_id'>
+      <require condition='toolchains.mdk.internal_condition'/>
+    </condition>
+    <condition id='device.system.condition_id'>
+      <require condition='allOf.device.CMSIS, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.device.CMSIS, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='CMSIS' Csub='MCXW716C_header'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='device.utility.condition_id'>
+      <require condition='allOf.driver.lpadc, driver.vref_1, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpadc, driver.vref_1, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpadc'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='vref'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.cache_lpcac.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.ccm32k.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.clock.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.cmc.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.cmsis_gpio.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.GPIO, device.RTE, driver.gpio, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.GPIO, device.RTE, driver.gpio, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='GPIO' Capiversion='2.3.0'/>
+      <require Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.cmsis_lpi2c.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.I2C, anyOf=allOf=driver.lpi2c, device_id=MCXW716CxxxA, device.RTE, device_id=MCXW716CxxxA, driver.lpi2c_edma.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.I2C, anyOf=allOf=driver.lpi2c, device_id=MCXW716CxxxA, device.RTE, device_id=MCXW716CxxxA, driver.lpi2c_edma.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='I2C' Capiversion='2.4.0'/>
+      <require condition='anyOf.allOf=driver.lpi2c, device_id=MCXW716CxxxA.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_edma'/>
+    </condition>
+    <condition id='anyOf.allOf=driver.lpi2c, device_id=MCXW716CxxxA.internal_condition'>
+      <accept condition='allOf.driver.lpi2c, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpi2c, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.cmsis_lpspi.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.SPI, anyOf=allOf=driver.lpspi, device_id=MCXW716CxxxA, device.RTE, device_id=MCXW716CxxxA, driver.lpspi_edma.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.SPI, anyOf=allOf=driver.lpspi, device_id=MCXW716CxxxA, device.RTE, device_id=MCXW716CxxxA, driver.lpspi_edma.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='SPI' Capiversion='2.3.0'/>
+      <require condition='anyOf.allOf=driver.lpspi, device_id=MCXW716CxxxA.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_edma'/>
+    </condition>
+    <condition id='anyOf.allOf=driver.lpspi, device_id=MCXW716CxxxA.internal_condition'>
+      <accept condition='allOf.driver.lpspi, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpspi, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.cmsis_lpuart.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.USART, anyOf=allOf=driver.lpuart, device_id=MCXW716CxxxA, device.RTE, device_id=MCXW716CxxxA, driver.lpuart_edma.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.USART, anyOf=allOf=driver.lpuart, device_id=MCXW716CxxxA, device.RTE, device_id=MCXW716CxxxA, driver.lpuart_edma.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='USART' Capiversion='2.4.0'/>
+      <require condition='anyOf.allOf=driver.lpuart, device_id=MCXW716CxxxA.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_edma'/>
+    </condition>
+    <condition id='anyOf.allOf=driver.lpuart, device_id=MCXW716CxxxA.internal_condition'>
+      <accept condition='allOf.driver.lpuart, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpuart, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.common.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.cores=cm33.condition_id'>
+      <require condition='cores.cm33.internal_condition'/>
+    </condition>
+    <condition id='cores.cm33.internal_condition'>
+      <accept Dcore='Cortex-M33'/>
+    </condition>
+    <condition id='driver.crc.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.dma3.condition_id'>
+      <require condition='allOf.device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.elemu.condition_id'>
+      <require condition='allOf.device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.ewm.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.flash_k4.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.flexcan.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.flexcan_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.dma3, driver.flexcan, driver.dma3, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.dma3, driver.flexcan, driver.dma3, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.dma3.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flexcan'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dma'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.dma3.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='dma'/>
+    </condition>
+    <condition id='driver.flexio.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_i2c_master.condition_id'>
+      <require condition='allOf.driver.flexio, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.flexio, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flexio'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_spi.condition_id'>
+      <require condition='allOf.driver.flexio, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_spi_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.dma3, driver.flexio_spi, driver.dma3, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.dma3, driver.flexio_spi, driver.dma3, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.dma3.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_spi'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dma'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_uart.condition_id'>
+      <require condition='allOf.driver.flexio, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_uart_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.dma3, driver.flexio_uart, driver.dma3, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.dma3, driver.flexio_uart, driver.dma3, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.dma3.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_uart'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dma'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.gpio.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.i3c.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.imu.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpadc.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpcmp.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpi2c.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpi2c_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.dma3, driver.lpi2c, driver.dma3, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.dma3, driver.lpi2c, driver.dma3, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.dma3.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dma'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.lpit.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpspi.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpspi_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.dma3, driver.lpspi, driver.dma3, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.dma3, driver.lpspi, driver.dma3, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.dma3.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dma'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.lptmr.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpuart.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.lpuart_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.dma3, driver.lpuart, driver.dma3, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.dma3, driver.lpuart, driver.dma3, device=MCXW716C.internal_condition'>
+      <require condition='anyOf.driver.dma3.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dma'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.ltc.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.ltc_dpa.condition_id'>
+      <require condition='allOf.driver.ltc, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.ltc, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='ltc'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.mcm.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.mscm.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.port.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.romapi_soc.condition_id'>
+      <require condition='allOf.driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.rtc.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.rtt.condition_id'>
+      <require condition='allOf.driver.rtt.template, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.rtt.template, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='rtt template'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.rtt.template.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.sema42.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.sfa.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.smartcard_phy_gpio.condition_id'>
+      <require condition='allOf.driver.common, driver.smartcard_uart, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, driver.smartcard_uart, device_id=MCXW716CxxxA.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_uart'/>
+      <require condition='device_id.MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.smartcard_phy_tda8035.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.smartcard_uart.condition_id'>
+      <require condition='allOf.driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='driver.smscm.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.spc.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.syspm.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.tpm.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.trdc.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.trgmux.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.tstmr.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.vbat.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.vref_1.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.wdog32.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='driver.wuu.condition_id'>
+      <require condition='allOf.driver.common, device_id=MCXW716CxxxA.internal_condition'/>
+    </condition>
+    <condition id='utilities.misc_utilities.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, mdk, cores=cm33.condition_id'>
+      <require condition='toolchains.armgcc, mdk.internal_condition'/>
+      <require condition='cores.cm33.internal_condition'/>
+    </condition>
+    <condition id='toolchains.armgcc, mdk.internal_condition'>
+      <accept Tcompiler='GCC'/>
+      <accept Tcompiler='ARMCC'/>
+    </condition>
+    <condition id='utilities.unity.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.assert.condition_id'>
+      <require condition='allOf.driver.common, utility.debug_console, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, utility.debug_console, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.assert_lite.condition_id'>
+      <require condition='allOf.driver.common, not=utility.assert, utility.debug_console_lite, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, not=utility.assert, utility.debug_console_lite, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='not.utility.assert.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='not.utility.assert.internal_condition'>
+      <deny Cclass='Device' Cgroup='SDK Utilities' Csub='assert'/>
+    </condition>
+    <condition id='utility.debug_console.condition_id'>
+      <require condition='allOf.component.serial_manager, driver.common, utility.str, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.serial_manager, driver.common, utility.str, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='str'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.debug_console_lite.condition_id'>
+      <require condition='allOf.component.lpuart_adapter, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.debug_console_template_config.condition_id'>
+      <require condition='allOf.utility.debug_console, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.utility.debug_console, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.format.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.incbin.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, mdk.condition_id'>
+      <require condition='toolchains.armgcc, mdk.internal_condition'/>
+    </condition>
+    <condition id='utility.notifier.condition_id'>
+      <require condition='allOf.device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.shell.condition_id'>
+      <require condition='allOf.component.lists, driver.common, utility.str, device=MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lists, driver.common, utility.str, device=MCXW716C.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='str'/>
+      <require condition='device.MCXW716C.internal_condition'/>
+    </condition>
+    <condition id='utility.str.condition_id'>
+      <require condition='allOf.driver.common, device=MCXW716C.internal_condition'/>
+    </condition>
+  </conditions>
+  <components>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='cmake_toolchain' Cversion='1.0.0' condition='cmake_toolchain.condition_id'>
+      <description>Cmake_toolchain</description>
+      <files>
+        <file category='other' name='tools/cmake_toolchain_files/armgcc.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/xcc.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/xclang.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/armgcc_force_cpp.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/mcux_config.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/riscvllvm.cmake' projectpath='cmake_toolchain_files'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='one_i2c_mux_device_enabled' Cversion='1.0.0' condition='component.at_least_one_i2c_mux_device_enabled.condition_id'>
+      <description>Component at_least_one_i2c_mux_device_enabled</description>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.at_least_one_i2c_mux_device_enabled_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='button' Cversion='1.0.0' condition='component.button.condition_id'>
+      <description>Component button</description>
+      <files>
+        <file category='header' name='components/button/fsl_component_button.h' projectpath='component/button'/>
+        <file category='sourceC' name='components/button/fsl_component_button.c' projectpath='component/button'/>
+        <file category='include' name='components/button/'/>
+      </files>
+    </component>
+    <component Cclass='Board Support' Cgroup='SDK Project Template' Csub='cmsis_drivers' Cversion='2.0.0' condition='component.cmsis_drivers.condition_id'>
+      <description>CMSIS driver</description>
+      <files>
+        <file category='doc' name='components/cmsis_drivers/component.cmsis_drivers_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='crc_adapter' Cversion='1.0.0' condition='component.crc_adapter.condition_id'>
+      <description>Component crc_adapter</description>
+      <files>
+        <file category='header' name='components/crc/fsl_adapter_crc.h' projectpath='component/crc'/>
+        <file category='sourceC' name='components/crc/fsl_adapter_crc.c' projectpath='component/crc'/>
+        <file category='include' name='components/crc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debug_coredump' Cversion='1.0.0' condition='component.debug_coredump.condition_id'>
+      <description>Component debug coredump</description>
+      <files>
+        <file category='doc' name='components/debug/coredump/component.debug_coredump_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debug_coredump_flash_backend' Cversion='1.0.0' condition='component.debug_coredump_backend.flash_partition.condition_id'>
+      <description>Component debug coredump flash backend</description>
+      <files>
+        <file category='sourceC' name='components/debug/coredump/coredump_core.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/coredump_memory_regions.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/coredump_backend_flash_partition.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/coredump.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/error_stack_frame.c' projectpath='component/debug/coredump'/>
+        <file category='header' name='components/debug/coredump/coredump_internal.h' projectpath='component/debug/coredump'/>
+        <file category='include' name='components/debug/coredump/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debug_coredump_mflash_backend' Cversion='1.0.0' condition='component.debug_coredump_backend.mflash.condition_id'>
+      <description>Component debug coredump mflash backend</description>
+      <files>
+        <file category='sourceC' name='components/debug/coredump/coredump_core.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/coredump_memory_regions.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/coredump_backend_mflash.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/coredump.c' projectpath='component/debug/coredump'/>
+        <file category='sourceC' name='components/debug/coredump/error_stack_frame.c' projectpath='component/debug/coredump'/>
+        <file category='header' name='components/debug/coredump/coredump_internal.h' projectpath='component/debug/coredump'/>
+        <file category='include' name='components/debug/coredump/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debug_thread_info' Cversion='1.0.0' condition='component.debug_thread_info.condition_id'>
+      <description>Component debug coredump thread info</description>
+      <files>
+        <file category='sourceC' name='components/debug/coredump/thread_info.c' projectpath='component/debug/coredump'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='eeprom_emulation' Cversion='2.0.0' condition='component.eeprom_emulation.condition_id'>
+      <description>EEPROM Emulation Driver</description>
+      <files>
+        <file category='header' name='components/eeprom_emulation/fsl_eeprom_emulation.h' projectpath='component/eeprom_emulation'/>
+        <file category='sourceC' name='components/eeprom_emulation/fsl_eeprom_emulation.c' projectpath='component/eeprom_emulation'/>
+        <file category='include' name='components/eeprom_emulation/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='enable_pca9544' Cversion='1.0.0' condition='component.enable_pca9544.condition_id'>
+      <description>Component enable_pca9544</description>
+      <RTE_Components_h>
+#ifndef MCUX_ENABLE_PCA9544
+#define MCUX_ENABLE_PCA9544 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.enable_pca9544_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='enable_pca9548' Cversion='1.0.0' condition='component.enable_pca9548.condition_id'>
+      <description>Component enable_pca9548</description>
+      <RTE_Components_h>
+#ifndef MCUX_ENABLE_PCA9548
+#define MCUX_ENABLE_PCA9548 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.enable_pca9548_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flash_adapter' Cversion='1.0.0' condition='component.flash_adapter.condition_id'>
+      <description>Component flash_adapter</description>
+      <files>
+        <file category='doc' name='components/internal_flash/component.flash_adapter_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flash_nor_lpspi' Cversion='1.0.0' condition='component.flash_nor_lpspi.condition_id'>
+      <description>Component flash_nor_lpspi</description>
+      <files>
+        <file category='header' name='components/flash/nor/fsl_nor_flash.h' projectpath='nor_flash/nor'/>
+        <file category='sourceC' name='components/flash/nor/lpspi/fsl_lpspi_nor_flash.c' projectpath='nor_flash/nor/lpspi'/>
+        <file category='header' name='components/flash/nor/lpspi/fsl_lpspi_nor_flash.h' projectpath='nor_flash/nor/lpspi'/>
+        <file category='sourceC' name='components/flash/nor/lpspi/fsl_lpspi_mem_adapter.c' projectpath='nor_flash/nor/lpspi'/>
+        <file category='header' name='components/flash/nor/lpspi/fsl_lpspi_mem_adapter.h' projectpath='nor_flash/nor/lpspi'/>
+        <file category='include' name='components/flash/nor/'/>
+        <file category='include' name='components/flash/nor/lpspi/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='gen_hal' Cversion='1.0.0' condition='component.gen_hal.condition_id'>
+      <description>Generic Hardware abstraction Layer</description>
+      <files>
+        <file category='sourceC' name='components/gen_hal/init.c' projectpath='component/gen_hal'/>
+        <file category='sourceC' name='components/gen_hal/zephyr/kernel/device.c' projectpath='component/gen_hal/zephyr/kernel'/>
+        <file category='sourceC' name='components/gen_hal/sdk_integ/zephyr_mcux_helper.c' projectpath='component/gen_hal/sdk_integ'/>
+        <file category='sourceC' name='components/gen_hal/zephyr/misc/empty_file.c' projectpath='component/gen_hal/zephyr/misc'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/generated/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/'/>
+        <file category='include' name='components/gen_hal/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='hal_clock_control' Cversion='1.0.0' condition='component.gen_hal.clock_control.condition_id'>
+      <description>Hal of clock control</description>
+      <files>
+        <file category='doc' name='components/gen_hal/zephyr/drivers/clock_control/component.gen_hal.clock_control_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='hal_clock_control_mcux_syscon' Cversion='1.0.0' condition='component.gen_hal.clock_control.mcux_syscon.condition_id'>
+      <description>Hal of clock control</description>
+      <files>
+        <file category='sourceC' name='components/gen_hal/zephyr/drivers/clock_control/clock_control_mcux_syscon.c' projectpath='component/gen_hal/zephyr/drivers/clock_control'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/dt-bindings/clock/mcux_lpc_syscon_clock.h' projectpath='component/gen_hal/zephyr/include/zephyr/dt-bindings/clock'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='hal_flash' Cversion='1.0.0' condition='component.gen_hal.flash.condition_id'>
+      <description>Hal of flash</description>
+      <files>
+        <file category='doc' name='components/gen_hal/zephyr/drivers/flash/component.gen_hal.flash_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='hal_memc' Cversion='1.0.0' condition='component.gen_hal.memc.condition_id'>
+      <description>Hal of memc</description>
+      <files>
+        <file category='doc' name='components/gen_hal/zephyr/drivers/memc/component.gen_hal.memc_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='gen_hal_osa' Cversion='1.0.0' condition='component.gen_hal.osa.condition_id'>
+      <description>OSA to support Zephyr Kernel related features</description>
+      <files>
+        <file category='sourceC' name='components/gen_hal/osa/thread/fsl_osa_thread.c' projectpath='component/gen_hal/osa/thread'/>
+        <file category='header' name='components/gen_hal/osa/thread/fsl_osa_thread.h' projectpath='component/gen_hal/osa/thread'/>
+        <file category='include' name='components/gen_hal/osa/thread/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='hal_pinctrl' Cversion='1.0.0' condition='component.gen_hal.pinctrl.condition_id'>
+      <description>Hal of pinctrl</description>
+      <files>
+        <file category='doc' name='components/gen_hal/zephyr/drivers/pinctrl/component.gen_hal.pinctrl_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='gpio_adapter' Cversion='1.0.1' condition='component.gpio_adapter.condition_id'>
+      <description>Component gpio_adapter</description>
+      <files>
+        <file category='header' name='components/gpio/fsl_adapter_gpio.h' projectpath='component/gpio'/>
+        <file category='sourceC' name='components/gpio/fsl_adapter_gpio.c' projectpath='component/gpio'/>
+        <file category='include' name='components/gpio/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_adapter_interface' Cversion='1.0.0' condition='component.i2c_adapter_interface.condition_id'>
+      <description>Component i2c_adapter_interface</description>
+      <files>
+        <file category='header' name='components/i2c/fsl_adapter_i2c.h' projectpath='component/i2c'/>
+        <file category='include' name='components/i2c/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux' Cversion='1.0.0' condition='component.i2c_mux.condition_id'>
+      <description>Component i2c_mux</description>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.i2c_mux_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux_pca954x' Cversion='1.0.0' condition='component.i2c_mux_pca954x.condition_id'>
+      <description>Component i2c_mux_pca954x</description>
+      <files>
+        <file category='header' name='components/i2c/muxes/fsl_pca954x.h' projectpath='component/i2c/muxes'/>
+        <file category='sourceC' name='components/i2c/muxes/fsl_pca954x.c' projectpath='component/i2c/muxes'/>
+        <file category='include' name='components/i2c/muxes/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i3c_adapter' Cversion='1.0.0' condition='component.i3c_adapter.condition_id'>
+      <description>Component i3c_adapter</description>
+      <RTE_Components_h>
+        #ifndef SDK_I3C_BASED_COMPONENT_USED
+        #define SDK_I3C_BASED_COMPONENT_USED 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='sourceC' name='components/i2c/fsl_adapter_i3c.c' projectpath='component/i2c'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='k4_flash_adapter' Cversion='1.0.0' condition='component.k4_flash_adapter.condition_id'>
+      <description>Component k4_flash_adapter</description>
+      <files>
+        <file category='header' name='components/internal_flash/fsl_adapter_flash.h' projectpath='component/internal_flash'/>
+        <file category='sourceC' name='components/internal_flash/fsl_adapter_k4_flash.c' projectpath='component/internal_flash'/>
+        <file category='include' name='components/internal_flash/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='led' Cversion='1.0.0' condition='component.led.condition_id'>
+      <description>Component led</description>
+      <files>
+        <file category='header' name='components/led/fsl_component_led.h' projectpath='component/led'/>
+        <file category='sourceC' name='components/led/fsl_component_led.c' projectpath='component/led'/>
+        <file category='include' name='components/led/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lists' Cversion='1.0.0' condition='component.lists.condition_id'>
+      <description>Component lists</description>
+      <files>
+        <file category='header' name='components/lists/fsl_component_generic_list.h' projectpath='component/lists'/>
+        <file category='sourceC' name='components/lists/fsl_component_generic_list.c' projectpath='component/lists'/>
+        <file category='include' name='components/lists/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='log' Cversion='1.0.0' condition='component.log.condition_id'>
+      <description>Component log</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log.c' projectpath='component/log'/>
+        <file category='header' name='components/log/fsl_component_log_config.h' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debugconsole' Cversion='1.0.0' condition='component.log.backend.debug_console.condition_id'>
+      <description>Component log backend debug console</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log_backend_debugconsole.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log_backend_debugconsole.c' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debugconsole_lite' Cversion='1.0.0' condition='component.log.backend.debug_console_lite.condition_id'>
+      <description>Component log backend debug console lite</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log_backend_debugconsole.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log_backend_debugconsole.c' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ringbuffer' Cversion='1.0.0' condition='component.log.backend.ringbuffer.condition_id'>
+      <description>Component log backend ring buffer</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log_backend_ringbuffer.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log_backend_ringbuffer.c' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpadc_sensor_adapter' Cversion='1.0.0' condition='component.lpadc_sensor_adapter.condition_id'>
+      <description>Component lpadc_sensor_adapter</description>
+      <files>
+        <file category='header' name='components/adc_sensor/fsl_adapter_adc_sensor.h' projectpath='component/adc_sensor'/>
+        <file category='sourceC' name='components/adc_sensor/fsl_adapter_lpadc_sensor.c' projectpath='component/adc_sensor'/>
+        <file category='include' name='components/adc_sensor/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpi2c_adapter' Cversion='1.0.0' condition='component.lpi2c_adapter.condition_id'>
+      <description>Component lpi2c_adapter</description>
+      <files>
+        <file category='sourceC' name='components/i2c/fsl_adapter_lpi2c.c' projectpath='component/i2c'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpit_adapter' Cversion='1.0.0' condition='component.lpit_adapter.condition_id'>
+      <description>Component lpit_adapter</description>
+      <RTE_Components_h>
+#ifndef TIMER_PORT_TYPE_LPIT
+#define TIMER_PORT_TYPE_LPIT 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/timer/fsl_adapter_timer.h' projectpath='component/timer'/>
+        <file category='sourceC' name='components/timer/fsl_adapter_lpit.c' projectpath='component/timer'/>
+        <file category='include' name='components/timer/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpit_time_stamp_adapter' Cversion='1.0.0' condition='component.lpit_time_stamp_adapter.condition_id'>
+      <description>Component lpit time stamp adapter</description>
+      <files>
+        <file category='header' name='components/time_stamp/fsl_adapter_time_stamp.h' projectpath='component/time_stamp'/>
+        <file category='sourceC' name='components/time_stamp/fsl_adapter_lpit_time_stamp.c' projectpath='component/time_stamp'/>
+        <file category='include' name='components/time_stamp/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_adapter' Cversion='1.0.0' condition='component.lpspi_adapter.condition_id'>
+      <description>Component lpspi_adapter</description>
+      <files>
+        <file category='header' name='components/spi/fsl_adapter_spi.h' projectpath='component/spi'/>
+        <file category='sourceC' name='components/spi/fsl_adapter_lpspi.c' projectpath='component/spi'/>
+        <file category='include' name='components/spi/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr_adapter' Cversion='1.0.0' condition='component.lptmr_adapter.condition_id'>
+      <description>Component lptmr_adapter</description>
+      <RTE_Components_h>
+#ifndef TIMER_PORT_TYPE_LPTMR
+#define TIMER_PORT_TYPE_LPTMR 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/timer/fsl_adapter_timer.h' projectpath='component/timer'/>
+        <file category='sourceC' name='components/timer/fsl_adapter_lptmr.c' projectpath='component/timer'/>
+        <file category='include' name='components/timer/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr_time_stamp_adapter' Cversion='1.0.0' condition='component.lptmr_time_stamp_adapter.condition_id'>
+      <description>Component lptmr time stamp adapter</description>
+      <files>
+        <file category='header' name='components/time_stamp/fsl_adapter_time_stamp.h' projectpath='component/time_stamp'/>
+        <file category='sourceC' name='components/time_stamp/fsl_adapter_lptmr_time_stamp.c' projectpath='component/time_stamp'/>
+        <file category='include' name='components/time_stamp/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter' Cversion='1.0.0' condition='component.lpuart_adapter.condition_id'>
+      <description>Component lpuart_adapter</description>
+      <files>
+        <file category='header' name='components/uart/fsl_adapter_uart.h' projectpath='component/uart'/>
+        <file category='sourceC' name='components/uart/fsl_adapter_lpuart.c' projectpath='component/uart'/>
+        <file category='include' name='components/uart/'/>
+      </files>
+    </component>
+    <component Cclass='Board Support' Cgroup='SDK Project Template' Csub='s200' Cversion='1.2.0' condition='component.mcux-edgelock.s200.condition_id'>
+      <description>ELE S200 Firmware</description>
+      <files>
+        <file category='other' name='firmware/edgelock/S200/KW45_K32W1xx_MCXW71_SDKFW2.0_RC1.1.sb3' projectpath='firmware/edgelock/S200'/>
+        <file category='other' name='firmware/edgelock/S200/KW45_K32W1xx_MCXW71_SDKFW2.0_RC1.1.sb3.sha256' projectpath='firmware/edgelock/S200'/>
+        <file category='doc' name='firmware/edgelock/S200/README.md' projectpath='firmware/edgelock/S200'/>
+        <file category='include' name='firmware/edgelock/S200/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager' Cversion='1.0.0' condition='component.mem_manager.condition_id'>
+      <description>Component mem_manager</description>
+      <files>
+        <file category='header' name='components/mem_manager/fsl_component_mem_manager.h' projectpath='component/mem_manager'/>
+        <file category='include' name='components/mem_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_legacy' Cversion='1.0.0' condition='component.mem_manager_legacy.condition_id'>
+      <description>Component mem_manager_legacy</description>
+      <files>
+        <file category='sourceC' name='components/mem_manager/fsl_component_mem_manager.c' projectpath='component/mem_manager'/>
+        <file category='include' name='components/mem_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_light' Cversion='1.0.0' condition='component.mem_manager_light.condition_id'>
+      <description>Component mem_manager_light</description>
+      <files>
+        <file category='sourceC' name='components/mem_manager/fsl_component_mem_manager_light.c' projectpath='component/mem_manager'/>
+        <file category='include' name='components/mem_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='messaging' Cversion='1.0.0' condition='component.messaging.condition_id'>
+      <description>Component messaging</description>
+      <files>
+        <file category='header' name='components/messaging/fsl_component_messaging.h' projectpath='component/messaging'/>
+        <file category='sourceC' name='components/messaging/fsl_component_messaging.c' projectpath='component/messaging'/>
+        <file category='include' name='components/messaging/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mflash_onchip' Cversion='1.0.0' condition='component.mflash_onchip.condition_id'>
+      <description>mflash onchip</description>
+      <RTE_Components_h>
+#ifndef MFLASH_FILE_BASEADDR
+#define MFLASH_FILE_BASEADDR 0x00700000
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/flash/mflash/mflash_common.h' projectpath='flash/mflash'/>
+        <file category='sourceC' name='components/flash/mflash/mflash_file.c' projectpath='flash/mflash'/>
+        <file category='header' name='components/flash/mflash/mflash_file.h' projectpath='flash/mflash'/>
+        <file category='sourceC' name='components/flash/mflash/k32w1/mflash_drv.c' projectpath='flash/mflash/k32w1'/>
+        <file category='header' name='components/flash/mflash/k32w1/mflash_drv.h' projectpath='flash/mflash/k32w1'/>
+        <file category='include' name='components/flash/mflash/'/>
+        <file category='include' name='components/flash/mflash/k32w1/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mflash_onchip_fmu' Cversion='1.0.0' condition='component.mflash_onchip_fmu.condition_id'>
+      <description>mflash onchip_fmu</description>
+      <files>
+        <file category='doc' name='components/flash/mflash/component.mflash_onchip_fmu_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='panic' Cversion='1.0.0' condition='component.panic.condition_id'>
+      <description>Component panic</description>
+      <files>
+        <file category='header' name='components/panic/fsl_component_panic.h' projectpath='component/panic'/>
+        <file category='sourceC' name='components/panic/fsl_component_panic.c' projectpath='component/panic'/>
+        <file category='include' name='components/panic/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='power_manager_core' Cversion='2.0.0' condition='component.power_manager_framework.condition_id'>
+      <description>Component power manager core level</description>
+      <RTE_Components_h>
+#ifndef GENERIC_LIST_LIGHT
+#define GENERIC_LIST_LIGHT 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/power_manager/core/fsl_pm_core.h' projectpath='component/power_manager'/>
+        <file category='sourceC' name='components/power_manager/core/fsl_pm_core.c' projectpath='component/power_manager'/>
+        <file category='header' name='components/power_manager/core/fsl_pm_config.h' projectpath='component/power_manager'/>
+        <file category='sourceC' name='components/power_manager/devices/KW45B41Z83/fsl_pm_device.c' projectpath='component/devices/KW45B41Z83'/>
+        <file category='header' name='components/power_manager/devices/KW45B41Z83/fsl_pm_device.h' projectpath='component/devices/KW45B41Z83'/>
+        <file category='header' name='components/power_manager/devices/KW45B41Z83/fsl_pm_device_config.h' projectpath='component/devices/KW45B41Z83'/>
+        <file category='include' name='components/power_manager/core/'/>
+        <file category='include' name='components/power_manager/devices/KW45B41Z83/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pwm_tpm_adapter' Cversion='1.0.0' condition='component.pwm_tpm_adapter.condition_id'>
+      <description>Component pwm_tpm_adapter</description>
+      <files>
+        <file category='header' name='components/pwm/fsl_adapter_pwm.h' projectpath='component/pwm'/>
+        <file category='sourceC' name='components/pwm/fsl_adapter_pwm_tpm.c' projectpath='component/pwm'/>
+        <file category='include' name='components/pwm/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='reset_adapter' Cversion='1.0.0' condition='component.reset_adapter.condition_id'>
+      <description>Component reset_adapter</description>
+      <files>
+        <file category='header' name='components/reset/fsl_adapter_reset.h' projectpath='component/reset'/>
+        <file category='sourceC' name='components/reset/fsl_adapter_reset.c' projectpath='component/reset'/>
+        <file category='include' name='components/reset/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='rpmsg_adapter' Cversion='1.0.0' condition='component.rpmsg_adapter.condition_id'>
+      <description>Component rpmsg_adapter</description>
+      <files>
+        <file category='header' name='components/rpmsg/fsl_adapter_rpmsg.h' projectpath='component/rpmsg'/>
+        <file category='sourceC' name='components/rpmsg/fsl_adapter_rpmsg.c' projectpath='component/rpmsg'/>
+        <file category='include' name='components/rpmsg/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='component_rtc' Cversion='1.0.0' condition='component.rtc_adapter.condition_id'>
+      <description>Component rtc</description>
+      <RTE_Components_h>
+        #ifndef RTC_LEGACY_FUNCTION_PROTOTYPE
+        #define RTC_LEGACY_FUNCTION_PROTOTYPE 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/rtc/fsl_adapter_rtc.h' projectpath='component/rtc'/>
+        <file category='sourceC' name='components/rtc/fsl_adapter_rtc.c' projectpath='component/rtc'/>
+        <file category='include' name='components/rtc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager' Cversion='1.0.1' condition='component.serial_manager.condition_id'>
+      <description>Component serial_manager</description>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_manager.h' projectpath='component/serial_manager'/>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_internal.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_manager.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_rpmsg' Cversion='1.0.0' condition='component.serial_manager_rpmsg.condition_id'>
+      <description>Component serial_manager_rpmsg</description>
+      <RTE_Components_h>
+#ifndef SERIAL_PORT_TYPE_RPMSG
+#define SERIAL_PORT_TYPE_RPMSG 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_rpmsg.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_rpmsg.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_spi' Cversion='1.0.0' condition='component.serial_manager_spi.condition_id'>
+      <description>Component serial_manager_spi</description>
+      <RTE_Components_h>
+        #ifndef SERIAL_PORT_TYPE_SPI
+        #define SERIAL_PORT_TYPE_SPI 1
+        #endif
+        #ifndef SERIAL_PORT_TYPE_SPI_MASTER
+        #define SERIAL_PORT_TYPE_SPI_MASTER 1
+        #endif
+        #ifndef SERIAL_PORT_TYPE_SPI_SLAVE
+        #define SERIAL_PORT_TYPE_SPI_SLAVE 1
+        #endif
+        #ifndef SERIAL_MANAGER_NON_BLOCKING_MODE
+        #define SERIAL_MANAGER_NON_BLOCKING_MODE 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_spi.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_spi.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_swo' Cversion='1.0.0' condition='component.serial_manager_swo.condition_id'>
+      <description>Component serial_manager_swo</description>
+      <RTE_Components_h>
+#ifndef SERIAL_PORT_TYPE_SWO
+#define SERIAL_PORT_TYPE_SWO 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_swo.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_swo.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_uart' Cversion='1.0.0' condition='component.serial_manager_uart.condition_id'>
+      <description>Component serial_manager_uart</description>
+      <RTE_Components_h>
+#ifndef SERIAL_PORT_TYPE_UART
+#define SERIAL_PORT_TYPE_UART 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_uart.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_uart.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_virtual' Cversion='1.0.0' condition='component.serial_manager_virtual.condition_id'>
+      <description>Component serial_manager_virtual</description>
+      <RTE_Components_h>
+        #ifndef SSERIAL_PORT_TYPE_VIRTUAL
+        #define SSERIAL_PORT_TYPE_VIRTUAL 1
+        #endif
+        #ifndef DEBUG_CONSOLE_TRANSFER_NON_BLOCKING
+        #define DEBUG_CONSOLE_TRANSFER_NON_BLOCKING 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_virtual.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_virtual.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='silicon_id_imx8' Cversion='2.0.0' condition='component.silicon_id_imx8.condition_id'>
+      <description>Driver silicon_id imx8</description>
+      <files>
+        <file category='sourceC' name='components/silicon_id/socs/imx8/fsl_silicon_id_soc.c' projectpath='component/silicon_id'/>
+        <file category='header' name='components/silicon_id/socs/fsl_silicon_id_soc.h' projectpath='component'/>
+        <file category='include' name='components/silicon_id/socs/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='silicon_id_imx93' Cversion='2.0.0' condition='component.silicon_id_imx93.condition_id'>
+      <description>Driver silicon_id imx93</description>
+      <files>
+        <file category='sourceC' name='components/silicon_id/socs/imx93/fsl_silicon_id_soc.c' projectpath='component/silicon_id'/>
+        <file category='header' name='components/silicon_id/socs/fsl_silicon_id_soc.h' projectpath='component'/>
+        <file category='include' name='components/silicon_id/socs/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='silicon_id_rt10xx' Cversion='2.0.0' condition='component.silicon_id_imxrt10xx.condition_id'>
+      <description>Driver silicon_id rt10xx</description>
+      <files>
+        <file category='sourceC' name='components/silicon_id/socs/rt10xx/fsl_silicon_id_soc.c' projectpath='component/silicon_id'/>
+        <file category='header' name='components/silicon_id/socs/fsl_silicon_id_soc.h' projectpath='component'/>
+        <file category='include' name='components/silicon_id/socs/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='silicon_id_rt1170' Cversion='2.0.0' condition='component.silicon_id_imxrt1170.condition_id'>
+      <description>Driver silicon_id imxrt1170</description>
+      <files>
+        <file category='sourceC' name='components/silicon_id/socs/imxrt1170/fsl_silicon_id_soc.c' projectpath='component/silicon_id'/>
+        <file category='header' name='components/silicon_id/socs/fsl_silicon_id_soc.h' projectpath='component'/>
+        <file category='include' name='components/silicon_id/socs/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='silicon_id_rt1180' Cversion='2.0.0' condition='component.silicon_id_imxrt1180.condition_id'>
+      <description>Driver silicon_id imxrt1180</description>
+      <files>
+        <file category='sourceC' name='components/silicon_id/socs/imxrt1180/fsl_silicon_id_soc.c' projectpath='component/silicon_id'/>
+        <file category='header' name='components/silicon_id/socs/fsl_silicon_id_soc.h' projectpath='component'/>
+        <file category='include' name='components/silicon_id/socs/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='silicon_id_rw610' Cversion='2.0.0' condition='component.silicon_id_rw610.condition_id'>
+      <description>Driver silicon_id rw610</description>
+      <files>
+        <file category='sourceC' name='components/silicon_id/socs/rw610/fsl_silicon_id_soc.c' projectpath='component/silicon_id'/>
+        <file category='header' name='components/silicon_id/socs/fsl_silicon_id_soc.h' projectpath='component'/>
+        <file category='include' name='components/silicon_id/socs/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='silicon_id_scfw' Cversion='2.0.0' condition='component.silicon_id_scfw.condition_id'>
+      <description>Driver silicon_id scfw</description>
+      <files>
+        <file category='sourceC' name='components/silicon_id/socs/scfw/fsl_silicon_id_soc.c' projectpath='component/silicon_id'/>
+        <file category='header' name='components/silicon_id/socs/fsl_silicon_id_soc.h' projectpath='component'/>
+        <file category='include' name='components/silicon_id/socs/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='software_crc_adapter' Cversion='1.0.0' condition='component.software_crc_adapter.condition_id'>
+      <description>Component software_crc_adapter</description>
+      <files>
+        <file category='header' name='components/crc/fsl_adapter_crc.h' projectpath='component/crc'/>
+        <file category='sourceC' name='components/crc/fsl_adapter_software_crc.c' projectpath='component/crc'/>
+        <file category='include' name='components/crc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='software_rng_adapter' Cversion='1.0.0' condition='component.software_rng_adapter.condition_id'>
+      <description>Component software_rng_adapter</description>
+      <files>
+        <file category='header' name='components/rng/fsl_adapter_rng.h' projectpath='component/rng'/>
+        <file category='sourceC' name='components/rng/fsl_adapter_software_rng.c' projectpath='component/rng'/>
+        <file category='include' name='components/rng/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='timer_manager' Cversion='1.0.0' condition='component.timer_manager.condition_id'>
+      <description>Component timer_manager</description>
+      <files>
+        <file category='header' name='components/timer_manager/fsl_component_timer_manager.h' projectpath='component/timer_manager'/>
+        <file category='sourceC' name='components/timer_manager/fsl_component_timer_manager.c' projectpath='component/timer_manager'/>
+        <file category='include' name='components/timer_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tpm_adapter' Cversion='1.0.0' condition='component.tpm_adapter.condition_id'>
+      <description>Component tpm_adapter</description>
+      <RTE_Components_h>
+#ifndef TIMER_PORT_TYPE_TPM
+#define TIMER_PORT_TYPE_TPM 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/timer/fsl_adapter_timer.h' projectpath='component/timer'/>
+        <file category='sourceC' name='components/timer/fsl_adapter_tpm.c' projectpath='component/timer'/>
+        <file category='include' name='components/timer/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers' Cversion='1.0.0' condition='component.zephyr_headers.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='doc' name='components/gen_hal/component.zephyr_headers_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_arch' Cversion='1.0.0' condition='component.zephyr_headers.arch.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/cpu.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arch_interface.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/irq_offload.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/syscall.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/syscall.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/timing/types.h' projectpath='component/gen_hal/zephyr/include/zephyr/timing' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arch_inlines.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/arch_inlines.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/thread.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/exception.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m/exception.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m/nvic.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/irq.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sw_isr_table.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/error.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/misc.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/arch.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/common/sys_io.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/common' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/common/addr_types.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/common' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/common/ffs.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/common' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/nmi.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/asm_inline.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/asm_inline_gcc.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/common/sys_bitops.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/common' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/gdbstub.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m/cpu.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m/memory_map.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/cortex_m' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/fatal_types.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/mpu/arm_mpu.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/mpu' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/mpu/arm_mpu_v7m.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/mpu' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/mpu/arm_mpu_v8.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/mpu' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/mpu/nxp_mpu.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/mpu' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/mmu/arm_mmu.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm/mmu' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/rb.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/alloca.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/arch/arm/asm_inline_other.h' projectpath='component/gen_hal/zephyr/misc/arch/arm' path='components/gen_hal/zephyr/misc'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/cmsis_core.h' projectpath='component/gen_hal/zephyr/misc'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/generated/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/'/>
+        <file category='include' name='components/gen_hal/zephyr/include/zephyr/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_assert' Cversion='1.0.0' condition='component.zephyr_headers.assert.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/__assert.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_atomic' Cversion='1.0.0' condition='component.zephyr_headers.atomic.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/atomic.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/atomic_types.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/atomic_builtin.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_debug_coredump' Cversion='1.0.0' condition='component.zephyr_headers.debug_coredump.condition_id'>
+      <description>Zephyr coredump headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/debug/coredump.h' projectpath='component/gen_hal/zephyr/include/zephyr/debug' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_device' Cversion='1.0.0' condition='component.zephyr_headers.device.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/device.h' projectpath='component/gen_hal/zephyr/include/zephyr' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/devicetree.h' projectpath='component/gen_hal/zephyr/include/zephyr' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/pm/state.h' projectpath='component/gen_hal/zephyr/include/zephyr/pm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/pm/device.h' projectpath='component/gen_hal/zephyr/include/zephyr/pm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/generated/zephyr/syscalls/device.h' projectpath='component/gen_hal/zephyr/misc/generated/zephyr/syscalls' path='components/gen_hal/zephyr/misc/generated'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/init.h' projectpath='component/gen_hal/zephyr/include/zephyr' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/device_mmio.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/devicetree/clocks.h' projectpath='component/gen_hal/zephyr/include/zephyr/devicetree' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/devicetree/ordinals.h' projectpath='component/gen_hal/zephyr/include/zephyr/devicetree' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/devicetree/fixed-partitions.h' projectpath='component/gen_hal/zephyr/include/zephyr/devicetree' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/internal/syscall_handler.h' projectpath='component/gen_hal/zephyr/include/zephyr/internal' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/math_extras.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/math_extras_impl.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/generated/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/'/>
+        <file category='include' name='components/gen_hal/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_kernel' Cversion='1.0.0' condition='component.zephyr_headers.kernel.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel_includes.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/dlist.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/slist.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/list_gen.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/sflist.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/obj_core.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel_structs.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/sys_heap.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/structs.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/stats.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel_version.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/syscall.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/printk.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys_clock.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/spinlock.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/fatal.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/fatal_types.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/exception.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/irq.h' projectpath='component/gen_hal/zephyr/include/zephyr'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/thread_stack.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/app_memory/mem_domain.h' projectpath='component/gen_hal/zephyr/include/zephyr/app_memory' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/kobject.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/iterable_sections.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/internal/kobject_internal.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys/internal' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/thread.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/mm/demand_paging.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel/mm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/mm.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/internal/mm.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel/internal' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/mem_manage.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/kernel/internal/smp.h' projectpath='component/gen_hal/zephyr/include/zephyr/kernel/internal' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/tracing/tracing_macros.h' projectpath='component/gen_hal/zephyr/include/zephyr/tracing' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/mem_stats.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/tracing/tracing.h' projectpath='component/gen_hal/zephyr/include/zephyr/tracing' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/tracing/tracking.h' projectpath='component/gen_hal/zephyr/include/zephyr/tracing' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/arch/arm/structs.h' projectpath='component/gen_hal/zephyr/include/zephyr/arch/arm' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/generated/zephyr/syscall_list.h' projectpath='component/gen_hal/zephyr/misc/generated/zephyr' path='components/gen_hal/zephyr/misc/generated'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/generated/zephyr/kobj-types-enum.h' projectpath='component/gen_hal/zephyr/misc/generated/zephyr' path='components/gen_hal/zephyr/misc/generated'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/generated/zephyr/syscalls/kobject.h' projectpath='component/gen_hal/zephyr/misc/generated/zephyr/syscalls' path='components/gen_hal/zephyr/misc/generated'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/generated/zephyr/syscalls/kernel.h' projectpath='component/gen_hal/zephyr/misc/generated/zephyr/syscalls' path='components/gen_hal/zephyr/misc/generated'/>
+        <file category='header' name='components/gen_hal/zephyr/misc/generated/zephyr/syscalls/demand_paging.h' projectpath='component/gen_hal/zephyr/misc/generated/zephyr/syscalls' path='components/gen_hal/zephyr/misc/generated'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/generated/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/'/>
+        <file category='include' name='components/gen_hal/zephyr/include/zephyr/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_linkers' Cversion='1.0.0' condition='component.zephyr_headers.linkers.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/linker/sections.h' projectpath='component/gen_hal/zephyr/include/zephyr/linker' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/linker/section_tags.h' projectpath='component/gen_hal/zephyr/include/zephyr/linker' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_logging' Cversion='1.0.0' condition='component.zephyr_headers.logging.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/logging/log.h' projectpath='component/gen_hal/zephyr/include/zephyr/logging' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/iterable_sections.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/generated/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_storage_flash_map' Cversion='1.0.0' condition='component.zephyr_headers.storage_flash_map.condition_id'>
+      <description>Zephyr flash_map headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/storage/flash_map.h' projectpath='component/gen_hal/zephyr/include/zephyr/storage' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_stream_flash' Cversion='1.0.0' condition='component.zephyr_headers.storage_stream_flash.condition_id'>
+      <description>Zephyr stream_flash headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/storage/stream_flash.h' projectpath='component/gen_hal/zephyr/include/zephyr/storage' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_sys_byteorder' Cversion='1.0.0' condition='component.zephyr_headers.sys_byteorder.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/byteorder.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_sys_until' Cversion='1.0.0' condition='component.zephyr_headers.sys_until.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_internal.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_internal_is_eq.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_internal_util_dec.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_internal_util_inc.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_internal_util_x2.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_listify.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_loops.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/util_macro.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/time_units.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/sys/sys_io.h' projectpath='component/gen_hal/zephyr/include/zephyr/sys' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_toolchain' Cversion='1.0.0' condition='component.zephyr_headers.toolchain.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/types.h' projectpath='component/gen_hal/zephyr/include/zephyr' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/armclang.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/common.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/gcc.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/iar.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/llvm.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/mwdt.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/xcc.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/xcc_missing_defs.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain/zephyr_stdint.h' projectpath='component/gen_hal/zephyr/include/zephyr/toolchain' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/toolchain.h' projectpath='component/gen_hal/zephyr/include/zephyr' path='components/gen_hal/zephyr/include'/>
+        <file category='header' name='components/gen_hal/sdk_integ/errno.h' projectpath='component/gen_hal/sdk_integ' path='components/gen_hal'/>
+        <file category='header' name='components/gen_hal/sdk_integ/zephyr_mcux_toolchain.h' projectpath='component/gen_hal/sdk_integ' path='components/gen_hal'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/generated/'/>
+        <file category='include' name='components/gen_hal/zephyr/misc/'/>
+        <file category='include' name='components/gen_hal/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='zephyr_headers_types' Cversion='1.0.0' condition='component.zephyr_headers.types.condition_id'>
+      <description>Zephyr headers adapted to the SDK environment</description>
+      <files>
+        <file category='header' name='components/gen_hal/zephyr/include/zephyr/types.h' projectpath='component/gen_hal/zephyr/include/zephyr' path='components/gen_hal/zephyr/include'/>
+        <file category='include' name='components/gen_hal/zephyr/include/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='CMSIS' Csub='MCXW716C_header' Cversion='1.0.0' condition='device.CMSIS.condition_id'>
+      <description>Device MCXW716C_cmsis</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/fsl_device_registers.h' projectpath='device'/>
+        <file category='header' name='devices/MCXW716C/MCXW716C.h' projectpath='device'/>
+        <file category='header' name='devices/MCXW716C/MCXW716C_features.h' projectpath='device'/>
+        <file category='header' name='devices/MCXW716C/MCXW716C_COMMON.h' projectpath='device'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_ADC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_ATX.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_AXBS.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_BLE2_REG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_BRIC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_BTRTU1.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_BTU2_REG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_CAN.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_CCM32K.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_CIU2.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_CMC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_CRC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_DMA.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_DSB.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_ELEMU.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_EWM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_FLEXIO.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_FMU.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_FRO192M.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_GEN4PHY.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_GENFSK.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_GPIO.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_I3C.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_LPCMP.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_LPI2C.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_LPIT.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_LPSPI.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_LPTMR.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_LPUART.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_LTC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_MCM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_MRCC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_MSCM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_NPX.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_PORT.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_RADIO_CTRL.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_RBME.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_REGFILE.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_RFMC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_RF_CMC1.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_RF_FMCCFG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_RTC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_RX_PACKET_RAM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_SCG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_SEMA42.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_SFA.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_SMSCM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_SPC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_SYSPM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_TPM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_TRDC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_TRGMUX.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_TSTMR.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_TX_PACKET_RAM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_UART.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_UART_PFU.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_VBAT.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_VREF.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_WDOG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_WOR.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_WUU.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_XCVR_ANALOG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_XCVR_MISC.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_XCVR_PLL_DIG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_XCVR_RX_DIG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_XCVR_TSM.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_XCVR_TX_DIG.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_XCVR_ZBDEMOD.h' projectpath='device/periph2'/>
+        <file category='header' name='devices/MCXW716C/periph2/PERI_ZLL.h' projectpath='device/periph2'/>
+        <file category='include' name='devices/MCXW716C/'/>
+        <file category='include' name='devices/MCXW716C/periph2/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device' Cversion='1.0.0' condition='device.RTE.condition_id'>
+      <description>Rte_device</description>
+      <files>
+        <file category='header' attr='config' name='devices/MCXW716C/template/RTE_Device.h' version='1.0.0' projectpath='board'/>
+        <file category='include' name='devices/MCXW716C/template/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='MCXW716C_linker' Cversion='1.0.0' condition='device.linker.condition_id'>
+      <description>Device MCXW716C_linker</description>
+      <files>
+        <file condition='allOf.toolchains=mdk, device_ids=MCXW716CxxxA.condition_id' category='linkerScript' attr='config' name='devices/MCXW716C/arm/mcxw716_flash.scf' version='1.0.0' projectpath='MCXW716C/arm'/>
+        <file condition='allOf.toolchains=mdk, device_ids=MCXW716CxxxA.condition_id' category='linkerScript' attr='config' name='devices/MCXW716C/arm/mcxw716_ram.scf' version='1.0.0' projectpath='MCXW716C/arm'/>
+        <file condition='allOf.toolchains=armgcc, device_ids=MCXW716CxxxA.condition_id' category='linkerScript' attr='config' name='devices/MCXW716C/gcc/mcxw716_flash.ld' version='1.0.0' projectpath='MCXW716C/gcc'/>
+        <file condition='allOf.toolchains=armgcc, device_ids=MCXW716CxxxA.condition_id' category='linkerScript' attr='config' name='devices/MCXW716C/gcc/mcxw716_ram.ld' version='1.0.0' projectpath='MCXW716C/gcc'/>
+        <file condition='allOf.toolchains=iar, device_ids=MCXW716CxxxA.condition_id' category='linkerScript' attr='config' name='devices/MCXW716C/iar/mcxw716_flash.icf' version='1.0.0' projectpath='MCXW716C/iar'/>
+        <file condition='allOf.toolchains=iar, device_ids=MCXW716CxxxA.condition_id' category='linkerScript' attr='config' name='devices/MCXW716C/iar/mcxw716_ram.icf' version='1.0.0' projectpath='MCXW716C/iar'/>
+      </files>
+    </component>
+    <component Cclass='Board Support' Cgroup='SDK Project Template' Csub='project_template' Cvariant='MCXW716C' Cversion='1.0.0' condition='device.project_template.condition_id' isDefaultVariant='1'>
+      <description>Devices_project_template MCXW716C</description>
+      <files>
+        <file category='header' attr='config' name='devices/MCXW716C/project_template/board.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/MCXW716C/project_template/board.c' version='1.0.0' projectpath='board'/>
+        <file category='header' attr='config' name='devices/MCXW716C/project_template/clock_config.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/MCXW716C/project_template/clock_config.c' version='1.0.0' projectpath='board'/>
+        <file category='header' attr='config' name='devices/MCXW716C/project_template/pin_mux.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/MCXW716C/project_template/pin_mux.c' version='1.0.0' projectpath='board'/>
+        <file category='header' attr='config' name='devices/MCXW716C/project_template/peripherals.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/MCXW716C/project_template/peripherals.c' version='1.0.0' projectpath='board'/>
+        <file category='include' name='devices/MCXW716C/project_template/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='Startup' Csub='' Cversion='1.0.0' condition='device.startup.condition_id'>
+      <description>Device MCXW716C_startup</description>
+      <files>
+        <file condition='allOf.toolchains=iar.condition_id' category='sourceAsm' attr='config' name='devices/MCXW716C/iar/startup_MCXW716C.s' version='1.0.0' projectpath='startup/iar'/>
+        <file condition='allOf.toolchains=armgcc.condition_id' category='sourceAsm' attr='config' name='devices/MCXW716C/gcc/startup_MCXW716C.S' version='1.0.0' projectpath='startup/gcc'/>
+        <file condition='allOf.toolchains=mdk.condition_id' category='sourceAsm' attr='config' name='devices/MCXW716C/arm/startup_MCXW716C.S' version='1.0.0' projectpath='startup/arm'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='CMSIS' Csub='MCXW716C_system' Cversion='1.0.0' condition='device.system.condition_id'>
+      <description>Device MCXW716C_system</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/system_MCXW716C.c' projectpath='device'/>
+        <file category='header' name='devices/MCXW716C/system_MCXW716C.h' projectpath='device'/>
+        <file category='include' name='devices/MCXW716C/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='utility' Cversion='1.0.0' condition='device.utility.condition_id'>
+      <description>utilitiy for MCXW716C</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/utility/board_utility.c' projectpath='board'/>
+        <file category='header' name='devices/MCXW716C/utility/board_utility.h' projectpath='board'/>
+        <file category='include' name='devices/MCXW716C/utility/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cache_lpcac' Cversion='2.1.1' condition='driver.cache_lpcac.condition_id'>
+      <description>CACHE Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_cache.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_cache.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ccm32k' Cversion='2.2.0' condition='driver.ccm32k.condition_id'>
+      <description>CCM32K Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_ccm32k.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_ccm32k.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='clock' Cversion='2.2.1' condition='driver.clock.condition_id'>
+      <description>Clock Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_clock.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_clock.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cmc' Cversion='2.4.1' condition='driver.cmc.condition_id'>
+      <description>CMC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_cmc.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_cmc.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='CMSIS Driver' Cgroup='GPIO' Csub='gpio_cmsis' Cversion='1.0.0' Capiversion='2.0.0' condition='driver.cmsis_gpio.condition_id'>
+      <description>GPIO CMSIS Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/cmsis_drivers/fsl_gpio_cmsis.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/cmsis_drivers/fsl_gpio_cmsis.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/cmsis_drivers/'/>
+      </files>
+    </component>
+    <component Cclass='CMSIS Driver' Cgroup='I2C' Csub='lpi2c_cmsis' Cversion='1.0.0' Capiversion='2.3.0' condition='driver.cmsis_lpi2c.condition_id'>
+      <description>LPI2C CMSIS Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/cmsis_drivers/fsl_lpi2c_cmsis.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/cmsis_drivers/fsl_lpi2c_cmsis.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/cmsis_drivers/'/>
+      </files>
+    </component>
+    <component Cclass='CMSIS Driver' Cgroup='SPI' Csub='lpspi_cmsis' Cversion='1.0.0' Capiversion='2.2.0' condition='driver.cmsis_lpspi.condition_id'>
+      <description>LPSPI CMSIS Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/cmsis_drivers/fsl_lpspi_cmsis.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/cmsis_drivers/fsl_lpspi_cmsis.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/cmsis_drivers/'/>
+      </files>
+    </component>
+    <component Cclass='CMSIS Driver' Cgroup='USART' Csub='lpuart_cmsis' Cversion='1.0.0' Capiversion='2.3.0' condition='driver.cmsis_lpuart.condition_id'>
+      <description>LPUART CMSIS Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/cmsis_drivers/fsl_lpuart_cmsis.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/cmsis_drivers/fsl_lpuart_cmsis.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/cmsis_drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='common' Cversion='2.5.0' condition='driver.common.condition_id'>
+      <description>common Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_common.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_common.c' projectpath='drivers'/>
+        <file condition='allOf.cores=cm33.condition_id' category='sourceC' name='devices/MCXW716C/drivers/fsl_common_arm.c' projectpath='drivers'/>
+        <file condition='allOf.cores=cm33.condition_id' category='header' name='devices/MCXW716C/drivers/fsl_common_arm.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='crc' Cversion='2.0.4' condition='driver.crc.condition_id'>
+      <description>CRC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_crc.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_crc.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='dma' Cversion='2.3.2' condition='driver.dma3.condition_id'>
+      <description>EDMA Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='elemu' Cversion='2.1.1' condition='driver.elemu.condition_id'>
+      <description>ELE MU Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_elemu.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_elemu.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ewm' Cversion='2.0.3' condition='driver.ewm.condition_id'>
+      <description>EWM Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_ewm.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_ewm.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flash_k4' Cversion='2.1.2' condition='driver.flash_k4.condition_id'>
+      <description>flash_k4 Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flash.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_k4_flash.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_k4_flash.h' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flash_utilities.h' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flash_adapter.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_k4_controller.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_k4_controller.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexcan' Cversion='2.13.1' condition='driver.flexcan.condition_id'>
+      <description>FLEXCAN Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexcan.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexcan.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexcan_edma' Cversion='2.11.7' condition='driver.flexcan_edma.condition_id'>
+      <description>FLEXCAN Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexcan_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexcan_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio' Cversion='2.3.0' condition='driver.flexio.condition_id'>
+      <description>FLEXIO Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexio.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexio.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_i2c_master' Cversion='2.5.1' condition='driver.flexio_i2c_master.condition_id'>
+      <description>FLEXIO I2C Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexio_i2c_master.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexio_i2c_master.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_spi' Cversion='2.3.5' condition='driver.flexio_spi.condition_id'>
+      <description>FLEXIO SPI Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexio_spi.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexio_spi.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_spi_edma' Cversion='2.3.0' condition='driver.flexio_spi_edma.condition_id'>
+      <description>FLEXIO SPI EDMA Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexio_spi_edma.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexio_spi_edma.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_uart' Cversion='2.5.1' condition='driver.flexio_uart.condition_id'>
+      <description>FLEXIO UART Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexio_uart.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexio_uart.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_uart_edma' Cversion='2.4.1' condition='driver.flexio_uart_edma.condition_id'>
+      <description>FLEXIO UART EDMA Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_flexio_uart_edma.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flexio_uart_edma.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='gpio' Cversion='2.8.1' condition='driver.gpio.condition_id'>
+      <description>GPIO Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_gpio.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_gpio.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i3c' Cversion='2.13.1' condition='driver.i3c.condition_id'>
+      <description>I3C Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_i3c.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_i3c.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='imu' Cversion='2.1.1' condition='driver.imu.condition_id'>
+      <description>IMU Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_imu.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_imu.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpadc' Cversion='2.9.1' condition='driver.lpadc.condition_id'>
+      <description>LPADC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpadc.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpadc.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpcmp' Cversion='2.3.1' condition='driver.lpcmp.condition_id'>
+      <description>LPCMP Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpcmp.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpcmp.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c' Cversion='2.5.7' condition='driver.lpi2c.condition_id'>
+      <description>LPI2C Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpi2c.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpi2c.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_edma' Cversion='2.4.2' condition='driver.lpi2c_edma.condition_id'>
+      <description>LPI2C Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpi2c_edma.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpi2c_edma.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpit' Cversion='2.1.1' condition='driver.lpit.condition_id'>
+      <description>LPIT Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpit.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpit.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi' Cversion='2.6.10' condition='driver.lpspi.condition_id'>
+      <description>LPSPI Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpspi.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpspi.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_edma' Cversion='2.4.6' condition='driver.lpspi_edma.condition_id'>
+      <description>LPSPI Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpspi_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpspi_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr' Cversion='2.2.0' condition='driver.lptmr.condition_id'>
+      <description>LPTMR Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lptmr.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lptmr.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart' Cversion='2.9.0' condition='driver.lpuart.condition_id'>
+      <description>LPUART Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpuart.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpuart.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_edma' Cversion='2.6.0' condition='driver.lpuart_edma.condition_id'>
+      <description>LPUART Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpuart_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_lpuart_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ltc' Cversion='2.0.17' condition='driver.ltc.condition_id'>
+      <description>LTC Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_ltc.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_ltc.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ltc_dpa' Cversion='2.0.8' condition='driver.ltc_dpa.condition_id'>
+      <description>LTC Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_ltc_dpa.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mcm' Cversion='2.2.0' condition='driver.mcm.condition_id'>
+      <description>MCM Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_mcm.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mscm' Cversion='2.0.0' condition='driver.mscm.condition_id'>
+      <description>MSCM Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_mscm.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='port' Cversion='2.5.1' condition='driver.port.condition_id'>
+      <description>PORT Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_port.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='romapi' Cversion='1.2.0' condition='driver.romapi_soc.condition_id'>
+      <description>ROMAPI Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_flash_api.h' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_kb_api.h' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_lpspi_flash.h' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_nboot.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_romapi.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='rtc' Cversion='2.3.0' condition='driver.rtc.condition_id'>
+      <description>RTC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_rtc.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_rtc.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='rtt' Cversion='7.22.0' condition='driver.rtt.condition_id'>
+      <description>SEGGER Real Time Transfer(RTT)</description>
+      <files>
+        <file category='doc' name='components/rtt/License.txt' projectpath='rtt'/>
+        <file category='doc' name='components/rtt/README.txt' projectpath='rtt'/>
+        <file category='sourceC' name='components/rtt/RTT/SEGGER_RTT.c' projectpath='rtt/RTT'/>
+        <file category='header' name='components/rtt/RTT/SEGGER_RTT.h' projectpath='rtt/RTT'/>
+        <file category='sourceAsm' name='components/rtt/RTT/SEGGER_RTT_ASM_ARMv7M.S' projectpath='rtt/RTT'/>
+        <file category='sourceC' name='components/rtt/RTT/SEGGER_RTT_printf.c' projectpath='rtt/RTT'/>
+        <file category='sourceC' name='components/rtt/Syscalls/SEGGER_RTT_Syscalls_GCC.c' projectpath='rtt/Syscalls'/>
+        <file category='sourceC' name='components/rtt/Syscalls/SEGGER_RTT_Syscalls_IAR.c' projectpath='rtt/Syscalls'/>
+        <file category='sourceC' name='components/rtt/Syscalls/SEGGER_RTT_Syscalls_KEIL.c' projectpath='rtt/Syscalls'/>
+        <file category='sourceC' name='components/rtt/Syscalls/SEGGER_RTT_Syscalls_SES.c' projectpath='rtt/Syscalls'/>
+        <file category='doc' name='components/rtt/License.txt' projectpath='rtt'/>
+        <file category='doc' name='components/rtt/README.txt' projectpath='rtt'/>
+        <file category='include' name='components/rtt/RTT/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='rtt template' Cversion='7.22.0' condition='driver.rtt.template.condition_id'>
+      <description>RTT template configuration</description>
+      <files>
+        <file category='header' attr='config' name='components/rtt/template/SEGGER_RTT_Conf.h' version='7.22.0' projectpath='rtt/template'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sema42' Cversion='2.0.4' condition='driver.sema42.condition_id'>
+      <description>SEMA42 Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_sema42.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_sema42.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sfa' Cversion='2.1.2' condition='driver.sfa.condition_id'>
+      <description>SFA Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_sfa.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_sfa.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_phy_gpio' Cversion='2.3.0' condition='driver.smartcard_phy_gpio.condition_id'>
+      <description>SMARTCARD PHY GPIO, use only one SMARTCARD PHY in the project</description>
+      <RTE_Components_h>
+#ifndef USING_PHY_GPIO
+#define USING_PHY_GPIO 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_smartcard_phy.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_smartcard_phy_gpio.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_phy_tda8035' Cversion='2.3.0' condition='driver.smartcard_phy_tda8035.condition_id'>
+      <description>SMARTCARD PHY TDA8035, use only one SMARTCARD PHY in the project</description>
+      <RTE_Components_h>
+#ifndef USING_PHY_TDA8035
+#define USING_PHY_TDA8035 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_smartcard_phy.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_smartcard_phy_tda8035.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_uart' Cversion='2.3.0' condition='driver.smartcard_uart.condition_id'>
+      <description>SMARTCARD UART Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_smartcard.h' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_smartcard_uart.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_smartcard_uart.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='smscm' Cversion='2.0.0' condition='driver.smscm.condition_id'>
+      <description>SMSCM Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_smscm.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_smscm.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='spc' Cversion='2.5.0' condition='driver.spc.condition_id'>
+      <description>SPC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_spc.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_spc.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='syspm' Cversion='2.3.0' condition='driver.syspm.condition_id'>
+      <description>SYSPM Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_syspm.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_syspm.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tpm' Cversion='2.3.3' condition='driver.tpm.condition_id'>
+      <description>TPM Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_tpm.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_tpm.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='trdc' Cversion='2.3.0' condition='driver.trdc.condition_id'>
+      <description>TRDC Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_trdc.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_trdc.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='trgmux' Cversion='2.0.1' condition='driver.trgmux.condition_id'>
+      <description>TRGMUX Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_trgmux.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_trgmux.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tstmr' Cversion='2.0.2' condition='driver.tstmr.condition_id'>
+      <description>TSTMR Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_tstmr.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='vbat' Cversion='2.1.0' condition='driver.vbat.condition_id'>
+      <description>VBAT Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_vbat.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_vbat.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='vref' Cversion='2.4.0' condition='driver.vref_1.condition_id'>
+      <description>VREF Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_vref.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_vref.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wdog' Cversion='2.1.0' condition='driver.wdog32.condition_id'>
+      <description>WDOG32 Driver</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_wdog32.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_wdog32.c' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wuu' Cversion='2.4.0' condition='driver.wuu.condition_id'>
+      <description>WUU Driver</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/drivers/fsl_wuu.c' projectpath='drivers'/>
+        <file category='header' name='devices/MCXW716C/drivers/fsl_wuu.h' projectpath='drivers'/>
+        <file category='include' name='devices/MCXW716C/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='misc_utilities' Cversion='1.1.1' condition='utilities.misc_utilities.condition_id'>
+      <description>
+        Utilities which is needed for particular toolchain like the SBRK function required to address limitation between HEAP and STACK in GCC toolchain library.
+      </description>
+      <files>
+        <file condition='allOf.toolchains=armgcc.condition_id' category='sourceC' name='devices/MCXW716C/utilities/fsl_syscall_stub.c' projectpath='utilities'/>
+        <file condition='allOf.toolchains=armgcc.condition_id' category='sourceC' name='devices/MCXW716C/utilities/fsl_sbrk.c' projectpath='utilities'/>
+        <file condition='allOf.toolchains=armgcc, mdk, cores=cm33.condition_id' category='sourceAsm' name='devices/MCXW716C/utilities/fsl_memcpy.S' projectpath='utilities'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='unity' Cversion='2.1.0' condition='utilities.unity.condition_id'>
+      <description>Simple Unit Testing for C</description>
+      <RTE_Components_h>
+#ifndef UNITY_CUSTOM_OUTPUT_CHAR
+#define UNITY_CUSTOM_OUTPUT_CHAR 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/utilities/unity/unity.c' projectpath='utilities/unity'/>
+        <file category='header' name='devices/MCXW716C/utilities/unity/unity.h' projectpath='utilities/unity'/>
+        <file category='header' name='devices/MCXW716C/utilities/unity/unity_internals.h' projectpath='utilities/unity'/>
+        <file category='include' name='devices/MCXW716C/utilities/unity/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='assert' Cversion='1.0.0' condition='utility.assert.condition_id'>
+      <description>Utility assert</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/utilities/fsl_assert.h' projectpath='utilities'/>
+        <file category='sourceC' name='devices/MCXW716C/utilities/fsl_assert.c' projectpath='utilities'/>
+        <file category='include' name='devices/MCXW716C/utilities/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='assert_lite' Cversion='1.0.0' condition='utility.assert_lite.condition_id'>
+      <description>Utility assert_lite</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/utilities/debug_console_lite/fsl_assert.h' projectpath='utilities'/>
+        <file category='sourceC' name='devices/MCXW716C/utilities/debug_console_lite/fsl_assert.c' projectpath='utilities'/>
+        <file category='include' name='devices/MCXW716C/utilities/debug_console_lite/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console' Cversion='1.0.1' condition='utility.debug_console.condition_id'>
+      <description>Utility debug_console</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/utilities/debug_console/fsl_debug_console.h' projectpath='utilities/debug_console'/>
+        <file category='sourceC' name='devices/MCXW716C/utilities/debug_console/fsl_debug_console.c' projectpath='utilities/debug_console'/>
+        <file category='include' name='devices/MCXW716C/utilities/debug_console/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite' Cversion='1.0.0' condition='utility.debug_console_lite.condition_id'>
+      <description>Utility debug_console_lite</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/utilities/debug_console_lite/fsl_debug_console.h' projectpath='utilities/debug_console_lite'/>
+        <file category='sourceC' name='devices/MCXW716C/utilities/debug_console_lite/fsl_debug_console.c' projectpath='utilities/debug_console_lite'/>
+        <file category='include' name='devices/MCXW716C/utilities/debug_console_lite/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='debug console template config' Cversion='1.0.0' condition='utility.debug_console_template_config.condition_id'>
+      <description>Utility debug_console Template Config</description>
+      <files>
+        <file category='header' attr='config' name='devices/MCXW716C/utilities/debug_console/config/fsl_debug_console_conf.h' version='1.0.0' projectpath='utilities/debug_console/config'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='format' Cversion='1.0.0' condition='utility.format.condition_id'>
+      <description>Used to format convertion</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/utilities/format/fsl_format.c' projectpath='utilities'/>
+        <file category='header' name='devices/MCXW716C/utilities/format/fsl_format.h' projectpath='utilities'/>
+        <file category='include' name='devices/MCXW716C/utilities/format/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='incbin' Cversion='1.0.0' condition='utility.incbin.condition_id'>
+      <description>Used to include slave core binary into master core binary.</description>
+      <files>
+        <file condition='allOf.toolchains=armgcc, mdk.condition_id' category='sourceAsm' name='devices/MCXW716C/utilities/incbin/fsl_incbin.S' projectpath='utilities'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='notifier' Cversion='1.0.0' condition='utility.notifier.condition_id'>
+      <description>Utility notifier</description>
+      <files>
+        <file category='sourceC' name='devices/MCXW716C/utilities/fsl_notifier.c' projectpath='utilities/utilities'/>
+        <file category='header' name='devices/MCXW716C/utilities/fsl_notifier.h' projectpath='utilities/utilities'/>
+        <file category='include' name='devices/MCXW716C/utilities/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='shell' Cversion='1.0.0' condition='utility.shell.condition_id'>
+      <description>Utility shell</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/utilities/shell/fsl_shell.h' projectpath='utilities'/>
+        <file category='sourceC' name='devices/MCXW716C/utilities/shell/fsl_shell.c' projectpath='utilities'/>
+        <file category='include' name='devices/MCXW716C/utilities/shell/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='str' Cversion='1.0.0' condition='utility.str.condition_id'>
+      <description>Utility str</description>
+      <files>
+        <file category='header' name='devices/MCXW716C/utilities/str/fsl_str.h' projectpath='utilities/str'/>
+        <file category='sourceC' name='devices/MCXW716C/utilities/str/fsl_str.c' projectpath='utilities/str'/>
+        <file category='include' name='devices/MCXW716C/utilities/str/'/>
+      </files>
+    </component>
+  </components>
+</package>

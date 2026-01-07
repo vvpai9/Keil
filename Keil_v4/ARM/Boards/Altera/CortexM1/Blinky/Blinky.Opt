@@ -1,0 +1,65 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Simulator), 0x0004 // Tools: 'ARM-ADS'
+Target (Emulator), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Startup Code),1,0,0
+GRPOPT 2,(Source Code),1,0,0
+GRPOPT 3,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\Startup.s><Startup.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\Blinky.c><Blinky.c> 
+OPTFFF 3,3,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,93,2,0,0,225,0,0,0 }
+
+
+TARGOPT 1, (Simulator)
+ ADSCLK=50000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\lst\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 7
+  OPTDL (SARMCM3.DLL)()(DARMCM1.DLL)()(SARMCM3.DLL)()(TARMCM1.DLL)()
+  OPTDBG 49149,5,()()()()(.\Simulator.ini)()()()()() (BIN\ABLSTCM.dll)()()()
+  OPTKEY 0,(DLGDARM)((1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0))
+  OPTKEY 0,(DLGTARM)((1010=346,255,712,805,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)(-T0)
+  OPTKEY 0,(UL2CM3)(-UV0438N8E -O14 -S0 -C0 -N00("ARM CoreSight JTAG-DP") -D00(3BA00477) -L00(4) -FO7 -FD20000000 -FC800 -FN0)
+  OPTDF 0x40000082
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (Emulator)
+ ADSCLK=50000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\lst\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 0
+  OPTDL (SARMCM3.DLL)()(DARMCM1.DLL)()(SARMCM3.DLL)()(TARMCM1.DLL)()
+  OPTDBG 49150,5,()()()()()()()()()() (BIN\ABLSTCM.dll)()()()
+  OPTKEY 0,(ABLSTCM)(-O14 -AH0 -AD0 -AN1)
+  OPTKEY 0,(DLGTARM)((1010=346,255,712,805,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2CM3)(-UV0438N8E -O14 -S0 -C0 -N00("ARM CoreSight JTAG-DP") -D00(3BA00477) -L00(4) -FO7 -FD20000000 -FC800 -FN0)
+  OPTDF 0x40000082
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

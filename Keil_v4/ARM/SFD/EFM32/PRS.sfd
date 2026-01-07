@@ -1,0 +1,324 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\PRS.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          PRS                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ---------------------------------------  PRS_SWPULSE  ------------------------------------------
+
+unsigned int PRS_SWPULSE __AT (0x400CC000);
+
+//  <item> Reg_PRS_SWPULSE
+//    <i> PRS_SWPULSE [31..0] (@ 0x400CC000) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_SWPULSE>>0) & 0xFFFFFFFF), ( (PRS_SWPULSE &= ~(0xFFFFFFFF<<0)), (PRS_SWPULSE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_SWPULSE_SWPULSE
+//    <i> SWPULSE [7..0] (@ 0x400CC000) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_SWPULSE>>0) & 0xFE), ( (PRS_SWPULSE &= ~(0xFE<<0)), (PRS_SWPULSE |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  PRS_SWLEVEL  ------------------------------------------
+
+unsigned int PRS_SWLEVEL __AT (0x400CC004);
+
+//  <item> Reg_PRS_SWLEVEL
+//    <i> PRS_SWLEVEL [31..0] (@ 0x400CC004) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_SWLEVEL>>0) & 0xFFFFFFFF), ( (PRS_SWLEVEL &= ~(0xFFFFFFFF<<0)), (PRS_SWLEVEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_SWLEVEL_SWLEVEL
+//    <i> SWLEVEL [7..0] (@ 0x400CC004) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_SWLEVEL>>0) & 0xFE), ( (PRS_SWLEVEL &= ~(0xFE<<0)), (PRS_SWLEVEL |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH0_CTRL  ------------------------------------------
+
+unsigned int PRS_CH0_CTRL __AT (0x400CC010);
+
+//  <item> Reg_PRS_CH0_CTRL
+//    <i> PRS_CH0_CTRL [31..0] (@ 0x400CC010) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH0_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH0_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH0_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC010) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH0_CTRL>>0) & 0x6), ( (PRS_CH0_CTRL &= ~(0x6<<0)), (PRS_CH0_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH0_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC010) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH0_CTRL>>16) & 0x3E), ( (PRS_CH0_CTRL &= ~(0x3E<<16)), (PRS_CH0_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH0_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC010) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH0_CTRL>>24) & 0x2), ( (PRS_CH0_CTRL &= ~(0x2<<24)), (PRS_CH0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH1_CTRL  ------------------------------------------
+
+unsigned int PRS_CH1_CTRL __AT (0x400CC014);
+
+//  <item> Reg_PRS_CH1_CTRL
+//    <i> PRS_CH1_CTRL [31..0] (@ 0x400CC014) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH1_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH1_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH1_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH1_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC014) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH1_CTRL>>0) & 0x6), ( (PRS_CH1_CTRL &= ~(0x6<<0)), (PRS_CH1_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH1_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC014) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH1_CTRL>>16) & 0x3E), ( (PRS_CH1_CTRL &= ~(0x3E<<16)), (PRS_CH1_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH1_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC014) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH1_CTRL>>24) & 0x2), ( (PRS_CH1_CTRL &= ~(0x2<<24)), (PRS_CH1_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH2_CTRL  ------------------------------------------
+
+unsigned int PRS_CH2_CTRL __AT (0x400CC018);
+
+//  <item> Reg_PRS_CH2_CTRL
+//    <i> PRS_CH2_CTRL [31..0] (@ 0x400CC018) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH2_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH2_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH2_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH2_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC018) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH2_CTRL>>0) & 0x6), ( (PRS_CH2_CTRL &= ~(0x6<<0)), (PRS_CH2_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH2_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC018) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH2_CTRL>>16) & 0x3E), ( (PRS_CH2_CTRL &= ~(0x3E<<16)), (PRS_CH2_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH2_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC018) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH2_CTRL>>24) & 0x2), ( (PRS_CH2_CTRL &= ~(0x2<<24)), (PRS_CH2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH3_CTRL  ------------------------------------------
+
+unsigned int PRS_CH3_CTRL __AT (0x400CC01C);
+
+//  <item> Reg_PRS_CH3_CTRL
+//    <i> PRS_CH3_CTRL [31..0] (@ 0x400CC01C) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH3_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH3_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH3_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH3_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC01C) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH3_CTRL>>0) & 0x6), ( (PRS_CH3_CTRL &= ~(0x6<<0)), (PRS_CH3_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH3_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC01C) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH3_CTRL>>16) & 0x3E), ( (PRS_CH3_CTRL &= ~(0x3E<<16)), (PRS_CH3_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH3_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC01C) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH3_CTRL>>24) & 0x2), ( (PRS_CH3_CTRL &= ~(0x2<<24)), (PRS_CH3_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH4_CTRL  ------------------------------------------
+
+unsigned int PRS_CH4_CTRL __AT (0x400CC020);
+
+//  <item> Reg_PRS_CH4_CTRL
+//    <i> PRS_CH4_CTRL [31..0] (@ 0x400CC020) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH4_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH4_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH4_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH4_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC020) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH4_CTRL>>0) & 0x6), ( (PRS_CH4_CTRL &= ~(0x6<<0)), (PRS_CH4_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH4_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC020) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH4_CTRL>>16) & 0x3E), ( (PRS_CH4_CTRL &= ~(0x3E<<16)), (PRS_CH4_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH4_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC020) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH4_CTRL>>24) & 0x2), ( (PRS_CH4_CTRL &= ~(0x2<<24)), (PRS_CH4_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH5_CTRL  ------------------------------------------
+
+unsigned int PRS_CH5_CTRL __AT (0x400CC024);
+
+//  <item> Reg_PRS_CH5_CTRL
+//    <i> PRS_CH5_CTRL [31..0] (@ 0x400CC024) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH5_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH5_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH5_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH5_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC024) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH5_CTRL>>0) & 0x6), ( (PRS_CH5_CTRL &= ~(0x6<<0)), (PRS_CH5_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH5_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC024) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH5_CTRL>>16) & 0x3E), ( (PRS_CH5_CTRL &= ~(0x3E<<16)), (PRS_CH5_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH5_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC024) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH5_CTRL>>24) & 0x2), ( (PRS_CH5_CTRL &= ~(0x2<<24)), (PRS_CH5_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH6_CTRL  ------------------------------------------
+
+unsigned int PRS_CH6_CTRL __AT (0x400CC028);
+
+//  <item> Reg_PRS_CH6_CTRL
+//    <i> PRS_CH6_CTRL [31..0] (@ 0x400CC028) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH6_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH6_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH6_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH6_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC028) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH6_CTRL>>0) & 0x6), ( (PRS_CH6_CTRL &= ~(0x6<<0)), (PRS_CH6_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH6_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC028) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH6_CTRL>>16) & 0x3E), ( (PRS_CH6_CTRL &= ~(0x3E<<16)), (PRS_CH6_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH6_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC028) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH6_CTRL>>24) & 0x2), ( (PRS_CH6_CTRL &= ~(0x2<<24)), (PRS_CH6_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PRS_CH7_CTRL  ------------------------------------------
+
+unsigned int PRS_CH7_CTRL __AT (0x400CC02C);
+
+//  <item> Reg_PRS_CH7_CTRL
+//    <i> PRS_CH7_CTRL [31..0] (@ 0x400CC02C) </i>
+//    <edit> 
+//      <loc> ( (int)((PRS_CH7_CTRL>>0) & 0xFFFFFFFF), ( (PRS_CH7_CTRL &= ~(0xFFFFFFFF<<0)), (PRS_CH7_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH7_CTRL_SIGSEL
+//    <i> SIGSEL [2..0] (@ 0x400CC02C) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH7_CTRL>>0) & 0x6), ( (PRS_CH7_CTRL &= ~(0x6<<0)), (PRS_CH7_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH7_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400CC02C) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH7_CTRL>>16) & 0x3E), ( (PRS_CH7_CTRL &= ~(0x3E<<16)), (PRS_CH7_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PRS_CH7_CTRL_EDSEL
+//    <i> EDSEL [25..24] (@ 0x400CC02C) </i>
+//    <edit> 
+//      <loc> ( (char)((PRS_CH7_CTRL>>24) & 0x2), ( (PRS_CH7_CTRL &= ~(0x2<<24)), (PRS_CH7_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

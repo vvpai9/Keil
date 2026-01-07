@@ -1,0 +1,40 @@
+This is a HTTP Server example. It shows you how to use the
+Web Server CGI interface as well. 
+
+This example will configure the LAN network parameters for
+the evaluation board automatically if a DHCP Server is available
+in your LAN. The LEDs show the DHCP phase.
+  red LED blinking                : DHCP running
+  red LED off, green led blinking : DHCP successful
+  red LED off, yellow led blinking: DHCP failed 
+                                    (configured IP addressed is used)
+
+If you do not have a DHCP server, you need to configure
+the IP address, net mask and default gateway and Primary DNS
+and Secondary DNS Server manually in the Net_Config.c configuration
+file. You have to disable also 'Dynamic Host Configuration' under 
+the 'Ethernet Network Interface' section.
+
+The WEB pages are included into the project under HTTP Files 
+group. You can simply add or remove a page or image. Web files
+which are compiled into the project are added to the 'Web.inp'
+Web Converter input file.
+
+To test this example, run your internet browser and type in
+the name of this board 'STR9' in the address line.
+
+Default user    : admin
+Default password: <none>
+
+You can change the password at runtime on page 'system'
+
+The HTTP_demo example is available for several targets:
+
+STR9 Dongle:      Standalone application for Keil MCB-STR9 Board.
+                  Program code is loaded into on-chip flash.
+
+STR9 Dongle RTX:  The same example configured for RTX Kernel.
+
+This pre-compiled version is configured "Stand alone" and may be downloaded
+using a evalution version of the RealView MDK-ARM package 
+(available at www.keil.com/demo).

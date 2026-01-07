@@ -1,0 +1,35 @@
+This is a FTP Server example. It allows you to manage files
+on SD Card from PC using FTP client.
+
+This example is configured for a serial PPP connection. You need
+to create a dial-up connection on your PC. Select a modem type 
+'Communication cable between two computers'. Serial connection speed 
+is 115200 baud, 8-bits, no parity, 1 stop bit and no flow control.
+Connect a serial cable to RS232 COM1 port of evaluation board 
+and start a dial-up connection with:
+
+Username: Keil
+Password: test
+
+To test this example, open your ftp client and enter the 
+address ftp://192.168.125.1 or ftp://<boards IP address>
+
+Default user    : admin
+Default password: <none>
+
+The FTP_demo example is available for several targets:
+
+MCB2140:       Standalone application for Keil MCB2140 Board.
+               Program code is loaded into on-chip flash.
+
+MCB2140 Debug: Standalone Debug application. Debug level configured
+               in Net_Debug.c debug configuration file.
+               Connect a serial cable to RS232 COM0 port to view
+               output messages using HyperTerminal at 115200 baud,
+               8-bits, no parity, 1 stop bit, XON/XOFF.
+
+NOTE: Serial interface uses only TXD, RXD and GND signals from the 
+      RS232 line. However in most cases some additional connections
+      are required by the PC COM interface. For a 9-PIN standard
+      connector you should therefore connect the pin 7 (RTS) to
+      pin 8 (CTS) and pin 1 (CD) to pin 4 (DTR) and to pin 6 (DSR).

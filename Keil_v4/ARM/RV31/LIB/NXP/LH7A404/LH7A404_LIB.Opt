@@ -1,0 +1,60 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (LH7A404 Library), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(ASM Source Files),1,0,0
+GRPOPT 2,(C Source Files),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\lh7a404_vectors.s><lh7a404_vectors.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\lh7a404_ac97_driver.c><lh7a404_ac97_driver.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<.\lh7a404_adc_driver.c><lh7a404_adc_driver.c> 
+OPTFFF 2,4,1,0,0,0,0,0,<.\lh7a404_clcdc_driver.c><lh7a404_clcdc_driver.c> 
+OPTFFF 2,5,1,0,0,0,0,0,<.\lh7a404_csc_driver.c><lh7a404_csc_driver.c> 
+OPTFFF 2,6,1,0,0,0,0,0,<.\lh7a404_dcdc_driver.c><lh7a404_dcdc_driver.c> 
+OPTFFF 2,7,1,0,0,0,0,0,<.\lh7a404_dma_driver.c><lh7a404_dma_driver.c> 
+OPTFFF 2,8,1,0,0,0,0,0,<.\lh7a404_gpio_driver.c><lh7a404_gpio_driver.c> 
+OPTFFF 2,9,1,0,0,0,0,0,<.\lh7a404_kmi_driver.c><lh7a404_kmi_driver.c> 
+OPTFFF 2,10,1,0,0,0,0,0,<.\lh7a404_pwm_driver.c><lh7a404_pwm_driver.c> 
+OPTFFF 2,11,1,0,0,0,0,0,<.\lh7a404_rtc_driver.c><lh7a404_rtc_driver.c> 
+OPTFFF 2,12,1,0,0,0,0,0,<.\lh7a404_sdmmc_driver.c><lh7a404_sdmmc_driver.c> 
+OPTFFF 2,13,1,0,0,0,0,0,<.\lh7a404_ssp_driver.c><lh7a404_ssp_driver.c> 
+OPTFFF 2,14,1,0,0,0,0,0,<.\lh7a404_timer_driver.c><lh7a404_timer_driver.c> 
+OPTFFF 2,15,1,0,0,0,0,0,<.\lh7a404_uart_driver.c><lh7a404_uart_driver.c> 
+OPTFFF 2,16,1,0,0,0,0,0,<.\lh7a404_vic_driver.c><lh7a404_vic_driver.c> 
+OPTFFF 2,17,1,0,0,0,0,0,<.\lh7a404_wdt_driver.c><lh7a404_wdt_driver.c> 
+OPTFFF 2,18,1,0,0,0,0,0,<.\sdk7a404_cf_driver.c><sdk7a404_cf_driver.c> 
+OPTFFF 2,19,1,0,0,0,0,0,<.\sdk7a404_cf_fat.c><sdk7a404_cf_fat.c> 
+OPTFFF 2,20,1,0,0,0,0,0,<.\sdk7a404_cpld_driver.c><sdk7a404_cpld_driver.c> 
+OPTFFF 2,21,1,0,0,0,0,0,<.\sdk7a404_strataflash.c><sdk7a404_strataflash.c> 
+OPTFFF 2,22,1,0,0,0,0,0,<.\lpc_arm922t_cp15_driver.c><lpc_arm922t_cp15_driver.c> 
+
+
+TARGOPT 1, (LH7A404 Library)
+ ADSCLK=14745600
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 8
+  OPTBL 0,(Data Sheet)<DATASHTS\PHILIPS\LH7A404_DS.PDF>
+  OPTBL 1,(User Manual)<DATASHTS\PHILIPS\LH7A404_UM.PDF>
+  OPTDL (SARM.DLL)(-cLH7A400)(DARMSS9.DLL)(-pLH7A404)(SARM.DLL)()(TARMSS9.DLL)(-pLH7A404)
+  OPTDBG 43517,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(UL2ARM)(-U268772636 -O15 -S0 -C0 -FO7 -FD20000000 -FC800 -FN0)
+  OPTDF 0x2
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

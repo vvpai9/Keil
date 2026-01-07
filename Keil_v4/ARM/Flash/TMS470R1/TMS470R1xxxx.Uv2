@@ -1,0 +1,995 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (TMS470R1A64 Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1A128 Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1A256 Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1A288 Flash B0), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1A288 Flash B1), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1A384 Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1B512 Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1B768 Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (TMS470R1B1M Flash), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Program Functions)
+Group (Device Description)
+Group (Flash API Functions)
+Group (Flash API Aux Functions)
+
+File 1,1,<.\FlashPrg.c><FlashPrg.c>
+File 2,1,<.\FlashDev.c><FlashDev.c>
+File 3,1,<.\FlashAPI\Blank.c><Blank.c>
+File 3,1,<.\FlashAPI\Compact.c><Compact.c>
+File 3,1,<.\FlashAPI\Erase.c><Erase.c>
+File 3,1,<.\FlashAPI\Prog.c><Prog.c>
+File 3,1,<.\FlashAPI\Verify.c><Verify.c>
+File 4,1,<.\FlashAPI\feed_dog.c><feed_dog.c>
+File 4,1,<.\FlashAPI\feed_dog_awd_dwd.c><feed_dog_awd_dwd.c>
+File 4,1,<.\FlashAPI\init_state.c><init_state.c>
+File 4,1,<.\FlashAPI\sector_select.c><sector_select.c>
+File 4,1,<.\FlashAPI\track_pulses.c><track_pulses.c>
+
+
+Options 1,0,0  // Target 'TMS470R1A64 Flash'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1A64)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1A64.axf ..\TMS470R1A64.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (A64)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'TMS470R1A128 Flash'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1A128)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1A128.axf ..\TMS470R1A128.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (A128)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'TMS470R1A256 Flash'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1A256)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1A256.axf ..\TMS470R1A256.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (A256)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 4,0,0  // Target 'TMS470R1A288 Flash B0'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1A288_B0)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1A288_B0.axf ..\TMS470R1A288_B0.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (A288_BANK0)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 5,0,0  // Target 'TMS470R1A288 Flash B1'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1A288_B1)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1A288_B1.axf ..\TMS470R1A288_B1.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (A288_BANK1)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 6,0,0  // Target 'TMS470R1A384 Flash'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1A384)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1A384.axf ..\TMS470R1A384.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (A384)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 7,0,0  // Target 'TMS470R1B512 Flash'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1B512)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1B512.axf ..\TMS470R1B512.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (B512)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 8,0,0  // Target 'TMS470R1B768 Flash'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1B768)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1B768.axf ..\TMS470R1B768.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (B768)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 9,0,0  // Target 'TMS470R1B1M Flash'
+ Device (TMS470R1B1M)
+ Vendor (TI)
+ Cpu (IRAM(0x20000000-0x2000FFFF) IROM(0-0xFFFFF) CLOCK(24000000) CPUTYPE(ARM7TDMI) EBIG)
+ FlashUt ()
+ StupF ("STARTUP\TI\Startup.s" ("TI TMS470 Startup Code"))
+ FlashDR ()
+ DevID (4075)
+ Rgf (TMS470R1.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿTI\)
+ OrgReg (ÿTI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (TMS470R1B1M)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Output\TMS470R1B1M.axf ..\TMS470R1B1M.FLX>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=3838
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,0,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,16,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 3017)
+ ADSCDEFN (B1M)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC (--diag_suppress 1608)
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry 0)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cTMS470)(DARMTMS.DLL)(-p470R1B1M)(SARM.DLL)()(TARMTMS.DLL)(-p470R1B1M)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 1,4,9  // File 'feed_dog_awd_dwd.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 2,4,9  // File 'feed_dog_awd_dwd.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 3,4,9  // File 'feed_dog_awd_dwd.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 4,4,8  // File 'feed_dog.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 5,4,8  // File 'feed_dog.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 6,4,9  // File 'feed_dog_awd_dwd.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 7,4,9  // File 'feed_dog_awd_dwd.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 8,4,9  // File 'feed_dog_awd_dwd.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+
+Options 9,4,8  // File 'feed_dog.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSCCFLG { 2,84,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+EndOpt
+

@@ -1,0 +1,11 @@
+The Blinky project is a simple demo program for the 
+ARM 'Microcontroller Prototyping System' Cortex-M3, done according to 
+Cortex Microcontroller Software Interface Standard (CMSIS v1.0).
+
+It blinks CPU and DUT LEDs at a constant rate with using SysTick Timer.
+
+The Blinky program is available in different targets:
+  MPS CM3 Ext RAM:   runs from External RAM located on the board
+                     (used for target debugging)
+  MPS CM3 Ext Flash: runs from External NOR Flash located on the board
+                     (used for production or target debugging)

@@ -1,0 +1,13 @@
+The Hello project is a simple program for the ST710FZ2T6
+using Hitex ST Microelectronics STR7 Evaluation Board
+(uses ST Library IRQ Handlers).
+
+It prints "Hello World" to the serial port and also 
+shows the Potenciometer position via the 8 LEDs.
+
+The Hello program is available in different targets:
+  Simulator:              configured for software Simulator
+  STR7 Eval Board Flash:  runs from Internal Flash located on chip
+                          (used for production or target debugging)
+  STR7 Eval Board RAM:    runs from Internal RAM located on chip
+                          (may be used for target debugging) 

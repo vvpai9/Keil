@@ -1,0 +1,27 @@
+This program shows you how to resolve an IP address of a Host
+from the Host name. It sends a DNS request to a remote DNS server. 
+
+This example will configure the LAN network parameters for 
+the evaluation board automatically if a DHCP Server is available
+in your LAN.
+
+If you do not have a DHCP server, you need to configure
+the IP address, net mask and default gateway and Primary DNS
+and Secondary DNS Server manually in the Net_Config.c configuration
+file. You have to disable also 'Dynamic Host Configuration' under 
+the 'Ethernet Network Interface' section.
+
+The DNS_demo example is available for several targets:
+
+AT91SAM9263: Standalone (no RTX Kernel) application, configured
+             for external SDRAM (64MB), downloaded to external
+             DataFlash (8.25MB).
+
+AT91SAM9263 Debug:
+             Standalone (no RTX Kernel) with debug output, configured
+             for external SDRAM, downloaded to external DataFlash.
+             Debug level configured in Net_Debug.c configuration file.
+             Connect a serial cable to SERIAL DEBUG port to view
+             output messages using HyperTerminal at 115200 baud,
+             8-bits, no parity, 1 stop bit, XON/XOFF.
+

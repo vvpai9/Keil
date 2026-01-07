@@ -1,0 +1,16 @@
+The Blinky project is a simple demo program for the TI 'TMS570' 
+microcontroller using Keil 'MCBTMS570' Evaluation Board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL  =  16 MHz
+   - CCLK  = 160 MHz
+
+ - 6 LEDs blink with AD Ligth conversion speed
+ - AD conversion is done in polling mode
+ - AD settings: 12 bit resolution
+ - AD value for Temperature and Light are displayed on the GLCD 
+
+The Blinky program is available in different targets:
+  TMS570 Flash: runs from Internal Flash located on chip
+                (used for production or target debugging)

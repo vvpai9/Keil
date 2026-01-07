@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>SiliconLabs</vendor>
+  <url>https://www.silabs.com/documents/public/cmsis-packs/</url>
+  <name>Wiseconnect_SIWG917_DFP</name>
+  <description>Silicon Labs SIWG917 Wi-Fi 6 + BLE Series Device Support.</description>
+  <license>License/license.md</license>
+
+  <releases>
+    <release version="2025.6.0" date="2025-07-25">
+      New device families for EFR32BG29, EFR32MG29, SiWG917 and new modules for BGM26, MGM27. New OPNs for Socs EFR32BG22, EFR32BG24, EFR32FG25.
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Silicon Labs</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Silicon Labs</keyword>
+    <keyword>SIWG917</keyword>
+    <keyword>SIWG9</keyword>
+    <keyword>Wi-Fi 6 + BLE</keyword>
+    <keyword>Gecko</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="SIWG917 Series" Dvendor="Silicon Labs:21">
+      <processor Dcore="Cortex-M4" DcoreVersion="r0p1" Dfpu="FPU" Dmpu="MPU" Dtz="NO_TZ" Ddsp="NO_DSP" Dendian="Little-endian" Dclock="180000000"/>
+      <book name="Documents/cortex_m4_dgug.pdf"      title="Cortex-M4 Generic User Guide"/>
+      <description>
+32-bit ARM Cortex-M4 core with 180 MHz maximum operating frequency.
+Integrated Wi-Fi 6, BLE 5.1, and 802.15.4 connectivity.
+Advanced security features and low power consumption.
+      </description>
+
+      <subFamily DsubFamily="SIWG917">
+        <!-- *************************  Device 'SIWG917M111MGTBA'  ***************************** -->
+        <device Dname="SIWG917M111MGTBA">
+          <debug      svd="SVD/SIWG917/SIWG917M111MGTBA.svd"/>
+          <memory     id="IROM1"                start="0x08000000"  size="0x00400000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+        </device>
+
+        <!-- *************************  Device 'SIWG917Y111MGABA'  ***************************** -->
+        <device Dname="SIWG917Y111MGABA">
+          <debug      svd="SVD/SIWG917/SIWG917Y111MGABA.svd"/>
+          <memory     id="IROM1"                start="0x08000000"  size="0x00400000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+        </device>
+
+        <!-- *************************  Device 'SIWG917Y111MGNBA'  ***************************** -->
+        <device Dname="SIWG917Y111MGNBA">
+          <debug      svd="SVD/SIWG917/SIWG917Y111MGNBA.svd"/>
+          <memory     id="IROM1"                start="0x08000000"  size="0x00400000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+        </device>
+
+      </subFamily>
+
+    </family>
+  </devices>
+
+  <conditions>
+    <!-- Compiler Conditions -->
+    <condition id="Compiler GCC">
+      <require Tcompiler="GCC"/>
+    </condition>
+    <condition id="Compiler IAR">
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="SIWG917">
+      <description>Silicon Labs SIWG917 device series</description>
+      <require Dvendor="Silicon Labs:21" Dname="SIWG917*"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="2025.6.0" condition="SIWG917">
+      <description>System Startup for Silicon Labs SIWG917 device series</description>
+      <files>
+        <!-- include folder -->
+        <file category="include" name="Device/SiliconLabs/SIWG917/Include/"/>
+        <file category="header"  name="Device/SiliconLabs/SIWG917/Include/em_device.h"/>
+        <!-- system file -->
+        <file category="source"  name="Device/SiliconLabs/SIWG917/Source/system_siwg917.c" attr="config" version="2025.6.0"/>
+      </files>
+    </component>
+  </components>
+</package>

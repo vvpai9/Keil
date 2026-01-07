@@ -1,0 +1,321 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (ML67Q4051 Int. Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (ML67Q4051 Ext. Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (ML67Q4051 Ext. SRAM), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (System Calls)
+Group (Source Code)
+Group (Documentation)
+
+File 1,2,<.\ML674050.s><ML674050.s> 0x464AC8D9 
+File 2,2,<.\IRQSYS.s><IRQSYS.s> 0x46481CB4 
+File 2,1,<.\IRQ.c><IRQ.c> 0x46481CB4 
+File 2,1,<.\Retarget.c><Retarget.c> 0x46481CB4 
+File 3,1,<.\Blinky.c><Blinky.c> 0x46481CB4 
+File 4,5,<.\Abstract.txt><Abstract.txt> 0x46481CB4 
+
+
+Options 1,0,0  // Target 'ML67Q4051 Int. Flash'
+ Device (ML67Q4051)
+ Vendor (OKI)
+ Cpu (IRAM(0x10000000-0x10007FFF) IROM(0x08000000-0x0801FFFF) CLOCK(33000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("STARTUP\OKI\ML674050.s" ("OKI ML67Q405x/406x Startup Code"))
+ FlashDR ()
+ DevID (3982)
+ Rgf (ML674061.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg ()
+ OrgReg (ÿOKI\)
+ TgStat=16
+ OutDir (.\IntFlash\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\IntFlash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ ADSTFLGA { 0,12,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,8,0,0,2,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,200,0,0,64,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,8,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,208,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x08000000)
+ ADSLDDA (0x10000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cML67)(DARMO.DLL)(-pML674050)(SARM.DLL)()(TARMO.DLL)(-pML674050)
+  OPTDBG 49150,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'ML67Q4051 Ext. Flash'
+ Device (ML67Q4051)
+ Vendor (OKI)
+ Cpu (IRAM(0x10000000-0x10007FFF) IROM(0x08000000-0x0801FFFF) CLOCK(33000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("STARTUP\OKI\ML674050.s" ("OKI ML67Q405x/406x Startup Code"))
+ FlashDR ()
+ DevID (3982)
+ Rgf (ML674061.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg ()
+ OrgReg (ÿOKI\)
+ TgStat=16
+ OutDir (.\ExtFlash\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\ExtFlash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ ADSTFLGA { 0,12,64,16,96,0,64,64,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,8,0,0,2,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,200,0,0,64,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,8,32,78,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,208,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0xC8000000)
+ ADSLDDA (0x10000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cML67)(DARMO.DLL)(-pML674050)(SARM.DLL)()(TARMO.DLL)(-pML674050)
+  OPTDBG 49150,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'ML67Q4051 Ext. SRAM'
+ Device (ML67Q4051)
+ Vendor (OKI)
+ Cpu (IRAM(0x10000000-0x10007FFF) IROM(0x08000000-0x0801FFFF) CLOCK(33000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("STARTUP\OKI\ML674050.s" ("OKI ML67Q405x/406x Startup Code"))
+ FlashDR ()
+ DevID (3982)
+ Rgf (ML674061.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg ()
+ OrgReg (ÿOKI\)
+ TgStat=16
+ OutDir (.\ExtSRAM\)
+ OutName (Blinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\ExtSRAM\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ ADSTFLGA { 0,12,64,16,96,0,64,64,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,8,0,0,2,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,200,0,0,8,0,1,0,0,16,200,0,0,64,0,1,0,0,0,0,0,0,0,0,1,0,0,0,8,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,208,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0xC8000000)
+ ADSLDDA (0x10000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cML67)(DARMO.DLL)(-pML674050)(SARM.DLL)()(TARMO.DLL)(-pML674050)
+  OPTDBG 49150,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,1,1  // File 'ML674050.s'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSASFLG { 170,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN (EROM_MODE)
+ ADSAUDEF ()
+ ADSAINCD ()
+EndOpt
+
+Options 3,1,1  // File 'ML674050.s'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ ADSASFLG { 170,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN (EROM_MODE,RAM_DEBUG)
+ ADSAUDEF ()
+ ADSAINCD ()
+EndOpt
+

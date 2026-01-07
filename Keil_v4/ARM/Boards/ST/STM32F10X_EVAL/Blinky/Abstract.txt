@@ -1,0 +1,10 @@
+This is a simple demonstration example for the ST STM32F10x
+Evaluation Board. It blinks the four LEDs and drives the 
+Color LCD and displays the Keyboard states.
+
+The BLINKY example program is available for several targets:
+
+Simulator: uVision Simulator for evaluation
+
+STM32F10x: Evaluation board with ULINK debugger
+           Application is loaded to internal Flash.

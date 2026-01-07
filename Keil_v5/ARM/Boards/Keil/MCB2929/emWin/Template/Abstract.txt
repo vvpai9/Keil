@@ -1,0 +1,2 @@
+This is a simple project template which shows how to setup emWin Graphic Library
+for the Keil MCB2929 Evaluation Board.

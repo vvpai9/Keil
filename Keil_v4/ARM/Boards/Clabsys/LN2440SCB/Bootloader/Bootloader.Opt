@@ -1,0 +1,42 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (S3C2440 NAND Bootloader), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Bootloader Code),1,0,0
+GRPOPT 2,(Documentation),1,0,0
+
+OPTFFF 1,1,2,268435456,0,0,0,0,<.\S3C2440.s><S3C2440.s> 
+OPTFFF 1,2,1,0,0,0,0,0,<.\Bootloader.c><Bootloader.c> 
+OPTFFF 1,3,1,0,0,0,0,0,<.\FlashHW.c><FlashHW.c> 
+OPTFFF 2,4,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,0,0,0,0,1,0,0,0,240,1,0,0,243,2,0,0 }
+
+
+TARGOPT 1, (S3C2440 NAND Bootloader)
+ ADSCLK=12000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 0
+  OPTDL (SARM.DLL)()(DARMSS9.DLL)(-pS3C2440A)(SARM.DLL)()(TARMSS9.DLL)(-pS3C2440A)
+  OPTDBG 47614,0,()()()()()()()()()(.\Int_RAM.ini) (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)((113=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)(103=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(109=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)(-T5F)
+  OPTKEY 0,(UL2ARM)(-UV2077N9E -O40 -S0 -C0 -N00("ARM920T Core") -D00(0032409D) -L00(4) -FO7 -FD40000000 -FC1000 -FN1 -FF0S3C2440_NAND_SP -FS00 -FL04000)
+  OPTDF 0x40000084
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

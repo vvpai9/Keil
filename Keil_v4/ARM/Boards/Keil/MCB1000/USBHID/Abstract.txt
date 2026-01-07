@@ -1,0 +1,21 @@
+The HID project is a demo program for the LPC1343
+using Keil MCB1000 board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL   =  12 MHz
+   - SYSPLL =  72 MHz
+   - USBPLL =  48 MHz
+
+It demonstrates an USB HID (Human Interface Device):
+  - 8 LEDs (PIO2.0..7)
+  - 1 Push Button (BOOT)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  MCB1000: configured for on-chip Flash ROM
+           (used for production or target debugging)

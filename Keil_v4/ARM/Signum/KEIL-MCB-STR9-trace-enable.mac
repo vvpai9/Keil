@@ -1,0 +1,14 @@
+;[SignumSystemsTraceInitFile]
+;Title=Keil MCB-STR9 STR91x ETM Initialization (Port 2 and 6)
+
+trace clear
+trace enable
+trace etm portsize=4
+trace etm halfrate=off
+trace update
+
+    SD 0x5C002018 = 0x011DC000	; port clock enable 
+    SD 0x5C002020 = 0x011DC000	; port reset clear 
+    SD 0x5C00204C = 0x0000FFFF	; OUT2.[7..0] are all alt 3 (etm trace sync, pipe status 0,1,2)
+    SD 0x5C00205C = 0x00003000	; OUT6.6 alt 3 function (trace clk out)
+    SD 0x5C00207C = 0x00004000	; IN6.7  alt 1 function (trigger in)

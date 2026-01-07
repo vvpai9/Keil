@@ -1,0 +1,16 @@
+The Blinky project is a simple demo program for the Atmel 'ATSAM3U4E' 
+microcontroller using Atmel 'SAM3U-EK' Evaluation Board, compliant 
+to Cortex Microcontroller Software Interface Standard (CMSIS v1.10).
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                  =  12 MHz
+   - PLLA                  = 168 MHz
+   - Main Clock = PLLA / 2 =  84 MHz
+ - 2 LEDs blink with speed of 1 second, determined by SysTick Timer
+   working in interrupt mode
+
+The Blinky program is available for target:
+  Simulator:    configured for software Simulator
+  SAM3U Flash:  configured for on-chip Flash
+                (used for production or target debugging)

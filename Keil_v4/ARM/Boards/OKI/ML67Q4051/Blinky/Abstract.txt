@@ -1,0 +1,48 @@
+The Blinky project is a demo program for the ML67Q4051
+using OKI ML67Q4051 Microcontroller Board.
+
+It blinks 3 LEDs and displays numbers on the 7-segment LED Display
+(0, 1, ..., A, b, C, d, E, F).
+
+The demo continues to count on the 7-segment LED Display
+in an infinite loop. Pressing the EXINT1 button on the
+board will reverse the counting direction.
+
+Boards switches and jumper setting:
+
+   RTCK        -> "ON" position
+   SYSCLK SEL  -> "SYSTEM" position
+   RS232C SEL1 -> "SIO" position
+   RS232C SEL2 -> "SIO" position
+
+   No.| SW1 DIP Switches | Setting
+   ===============================
+    1 |   JTAGE          | ON
+    2 |   EFIQ_N         | ON
+    3 |   EXTINT         | ON
+    4 |   BOOTCLK        | OFF
+    5 |   BOOT0          | OFF(*1) ON(*2) OFF(*3)
+    6 |   BOOT1          | OFF(*1) ON(*2) ON (*3)
+    7 |   EXIROME        | OFF
+    8 |   EXBUSE         | ON 
+
+   No.| SW2 DIP Switches | Setting
+   ===============================
+    1 |   EBSEL          | ON (*1,*2) OFF(*3)
+    2 |   EMDIS          | OFF
+    3 |   FWENA          | ON
+    4 |   UOFC           | OFF
+
+   Notes:
+    *1: Standalone Mode:  on-chip Flash (use Int. Flash target)
+    *2: Standalone Mode: off-chip Flash (use Ext. Flash target)
+    *3: Debug Mode: SRAM instead Flash  (use Ext. SRAM target)
+
+The Blinky program is available in different targets:
+  ML67Q4051 Int. Flash: configured for on-chip Flash ROM
+                        (used for production or target debugging)
+  ML67Q4051 Ext. Flash: configured to run from off-chip Flash
+                        (used for production or target debugging)
+  ML67Q4051 Ext. SRAM:  configured to run from off-chip SRAM which
+                        is mapped instead of the off-chip Flash ROM
+                        (may be used for target debugging) 

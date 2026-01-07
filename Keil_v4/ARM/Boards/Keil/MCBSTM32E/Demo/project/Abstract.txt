@@ -1,0 +1,27 @@
+The 'MCBSTM32E Demo' project is an extensive demonstration program 
+for the Keil 'MCBSTM32E' board.
+
+This project is ported from ST STM3210E-EVAL board to Keil 
+MCBSTM32E board.
+ 
+For 'MCBSTM32E Demo' program there are available targets:
+  MCBSTM32E:             ported example for Keil MCBSTM32E board
+  MCBSTM32E Download MM: target used for downloading multimedia 
+                         contents to SPI flash (!!! do not rebuild !!!)
+
+
+SPI Flash Multimedia organization:
+
+0x007DF0EC _ ____________________________ _
+            |                            |
+            :           Icons            :   ~  213 kB
+0x007A9D6A _|____________________________|_
+            |                            |
+            :      Product slides        :   ~ 2401 kB
+0x0055194A _|____________________________|_
+            |                            |
+            :     STM32E Animation       :   ~  750 kB
+0x00496000 _|____________________________|_
+            |                            |
+            :      Product speech        :   ~ 4696 kB
+0x00000000 _|____________________________|_

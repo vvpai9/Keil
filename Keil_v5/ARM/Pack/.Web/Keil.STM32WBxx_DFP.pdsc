@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <vendor>Keil</vendor>
+  <name>STM32WBxx_DFP</name>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32WB Series Device Support</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32WBxx_DFP.git</repository>
+  <license>LICENSE</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons" name="LICENSE" spdx="Apache-2.0"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="2.0.1" date="2025-09-17" tag="v2.0.1">
+      Updated documentation references
+      Updated Templates:
+      - Added DWARF-5 debug information
+      - Added generated output files
+      Package Description (pdsc):
+      - Shortened device family description
+      - Added Ddsp processor attribute
+    </release>
+    <release version="2.0.0" date="2025-02-28" tag="v2.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Removed CMSIS Drivers
+      Removed STM32Cube_FW_WB
+      Removed board drivers (Buttons, LED)
+      Removed all examples
+      Removed previous generator (gpdsc)
+      Added new global generator
+      Package Description (pdsc):
+      - Removed Device:Startup component
+      - Removed Device:STM32Cube HAL components
+      - Removed Device:STM32Cube LL components
+      - Removed Board descriptions
+      - Removed compile device header from device description
+      - Removed unused conditions
+      - Replaced documentation files with permalinks
+    </release>
+   <release version="1.4.0" date="2023-10-30">
+      Updated Pack to STM32Cube_FW_WB Firmware Package version V1.17.3
+      Device Support:
+      - Added support for STM32WB1MMCHx device
+      - Updated SVD files
+      - Updated documentation
+    </release>
+    <release version="1.3.0" date="2023-03-10">
+      Updated Pack to STM32Cube_FW_WB Firmware Package version V1.13.1
+      Updated Documentation files
+      Board Example:
+      - Migrated CubeMX project to V6.4.0
+      - Override default HAL_InitTick function
+      Flash Programming:
+      - Added Option Byte Flash Algorithms
+    </release>
+    <release version="1.2.0" date="2021-04-20">
+      Updated STM32Cube_FW_WB Firmware Package to version V1.11.1 (HAL Drivers V1.8.0)
+      Device Support:
+      - Added support for STM32WB15x/WB10x/WB5MMG devices
+      - Fixed lastword programming, emptycheck, masserase when ESE=1 + clean flashloader project
+      - Updated SVD files
+      - Updated documentation
+      CMSIS-Driver:
+      - Added global define USE_HAL_DRIVER to the component ::Device:STM32Cube HAL:Common
+      - Added global define USE_FULL_LL_DRIVER to the component ::Device:STM32Cube LL:Common
+      Boards:
+      - Updated NUCLEO-WB55 board description
+      Examples:
+      - Updated FrameworkCubeMX.gpdsc (Removed non-existent include path)
+    </release>
+    <release version="1.1.0" date="2020-02-21">
+      - Adding support for STM32WB35CExx/WB35CCxx and STM32WB50xxxx, STM32WB30xxxx devices
+      - Updating STM32WB55xG devices and SVD file
+      -- fixing the Flash size for the STM32WB55xG devices
+    </release>
+    <release version="1.0.0" date="2019-03-01">
+      Initial version of STM32WB Device Family Pack
+      This Device Family Pack requires the installation of:
+      - STM32CubeMX V5.1.0
+      - STM32Cube WB Firmware Package V1.0.0
+    </release>
+  </releases>
+
+  <!-- keywords for indexing -->
+  <keywords>
+    <keyword>ST</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package STMicroelectronics</keyword>
+    <keyword>STM32WB</keyword>
+    <keyword>STM32WBxx</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="STM32WB Series" Dvendor="STMicroelectronics:13">
+      <processor Dcore="Cortex-M4" DcoreVersion="r0p1" Dfpu="SP_FPU" Dmpu="MPU" Ddsp="DSP" Dendian="Configurable" Dclock="64000000"/>
+      <book name="https://www.st.com.cn/resource/en/user_manual/um2442-description-of-stm32wb-hal-and-lowlayer-drivers-stmicroelectronics.pdf" title="STM32WBxx HAL Drivers"/>
+      <book name="https://developer.arm.com/documentation/dui0553/latest" title="Cortex-M4 Generic User Guide"/>
+      <description>
+STM32WB MCUs with high-performance Arm Cortex-M4 core and ultra-low-power Arm Cortex-M0+ core, MPU, DSP, FPU, 80 DMIPS at 64MHz.
+      </description>
+
+      <!-- ************************  Subfamily 'STM32WB55'  ************************ -->
+      <subFamily DsubFamily="STM32WB55">
+        <compile define="STM32WB55xx"/>
+        <debug svd="CMSIS/SVD/STM32WB55_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0434-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf" title="STM32WB55xx/35xx Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb55cc.pdf" title="STM32WB55xx/35xx Data Sheet"/>
+
+        <algorithm name="CMSIS/Flash/STM32WB55x_35x_M4_OPT.FLM" start="0x1FFF8000" size="0x00000020" RAMstart="0x20000000" RAMsize="0x8000" default="0"/>
+
+        <!-- ################################### 1 MB ################################### -->
+        <!-- *************************  Device 'STM32WB55CGUx'  ************************* -->
+        <device Dname="STM32WB55CGUx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_1024.FLM" start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55RGVx'  ************************* -->
+        <device Dname="STM32WB55RGVx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_1024.FLM" start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="68"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55VGYx'  ************************* -->
+        <device Dname="STM32WB55VGYx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_1024.FLM" start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="100"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55VGQx'  ************************* -->
+        <device Dname="STM32WB55VGQx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_1024.FLM" start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="129"/>
+        </device>
+
+        <!-- ################################## 640 KB ################################## -->
+        <!-- *************************  Device 'STM32WB55VYYx'  ************************* -->
+        <device Dname="STM32WB55VYYx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x000A0000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_640.FLM"  start="0x08000000" size="0x000A0000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="100"/>
+        </device>
+
+        <!-- ################################## 512 KB ################################## -->
+        <!-- *************************  Device 'STM32WB55CEUx'  ************************* -->
+        <device Dname="STM32WB55CEUx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_512.FLM"  start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55REVx'  ************************* -->
+        <device Dname="STM32WB55REVx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_512.FLM"  start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="68"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55VEYx'  ************************* -->
+        <device Dname="STM32WB55VEYx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_512.FLM"  start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="100"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55VEQx'  ************************* -->
+        <device Dname="STM32WB55VEQx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00030000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_512.FLM"  start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="129"/>
+        </device>
+
+        <!-- ################################## 256 KB ################################## -->
+        <!-- *************************  Device 'STM32WB55CCUx'  ************************* -->
+        <device Dname="STM32WB55CCUx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_256.FLM"  start="0x08000000" size="0x00040000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55RCVx'  ************************* -->
+        <device Dname="STM32WB55RCVx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_256.FLM"  start="0x08000000" size="0x00040000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="68"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55VCYx'  ************************* -->
+        <device Dname="STM32WB55VCYx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_256.FLM"  start="0x08000000" size="0x00040000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="100"/>
+        </device>
+        <!-- *************************  Device 'STM32WB55VCQx'  ************************* -->
+        <device Dname="STM32WB55VCQx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_256.FLM"  start="0x08000000" size="0x00040000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="BGA" n="129"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WB50'  ************************ -->
+      <subFamily DsubFamily="STM32WB50">
+        <compile define="STM32WB50xx"/>
+        <debug svd="CMSIS/SVD/STM32WB50_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0471-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-or-802154-radio-solution-stmicroelectronics.pdf" title="STM32WB50CG/30CE Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb50cg.pdf" title="STM32WB50CG/30CE Data Sheet"/>
+
+        <!-- ################################### 1 MB ################################### -->
+        <!-- *************************  Device 'STM32WB50CGUx'  ************************* -->
+        <device Dname="STM32WB50CGUx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00010000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_1024.FLM" start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WB5M'  ************************ -->
+      <subFamily DsubFamily="STM32WB5M">
+        <compile define="STM32WB5Mxx"/>
+        <debug svd="CMSIS/SVD/STM32WB55_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb5mmg.pdf" title="STM32WB5MMG Data Sheet"/>
+
+        <!-- ################################### 1 MB ################################### -->
+        <!-- *************************  Device 'STM32WB5MMGHx'  ************************* -->
+        <device Dname="STM32WB5MMGHx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00100000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00040000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB5x_M4_1024.FLM" start="0x08000000" size="0x00100000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="PackageOther" n="86" name="LGA"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WB35'  ************************ -->
+      <subFamily DsubFamily="STM32WB35">
+        <compile define="STM32WB35xx"/>
+        <debug svd="CMSIS/SVD/STM32WB35_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0434-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-lowenergy-and-802154-radio-solution-stmicroelectronics.pdf" title="STM32WB55xx/35xx Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb55cc.pdf" title="STM32WB55xx/35xx Data Sheet"/>
+
+        <!-- ################################## 512 KB ################################## -->
+        <!-- *************************  Device 'STM32WB35CEUxA'  ************************ -->
+        <device Dname="STM32WB35CEUxA">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB3x_512_M4.FLM"  start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+
+        <!-- ################################## 256 KB ################################## -->
+        <!-- *************************  Device 'STM32WB35CCUxA'  ************************ -->
+        <device Dname="STM32WB35CCUxA">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00040000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB3x_256_M4.FLM"  start="0x08000000" size="0x00040000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WB30'  ************************ -->
+      <subFamily DsubFamily="STM32WB30">
+        <compile define="STM32WB30xx"/>
+        <debug svd="CMSIS/SVD/STM32WB30_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0471-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-or-802154-radio-solution-stmicroelectronics.pdf" title="STM32WB50CG/30CE Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb50cg.pdf" title="STM32WB50CG/30CE Data Sheet"/>
+
+        <!-- ################################## 512 KB ################################## -->
+        <!-- *************************  Device 'STM32WB30CEUxA'  ************************ -->
+        <device Dname="STM32WB30CEUxA">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00080000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00008000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB3x_512_M4.FLM"  start="0x08000000" size="0x00080000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WB15'  ************************ -->
+      <subFamily DsubFamily="STM32WB15">
+        <compile define="STM32WB15xx"/>
+        <debug svd="CMSIS/SVD/STM32WB15_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0473-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-radio-solution-stmicroelectronics.pdf" title="STM32WB15CC Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb15cc.pdf" title="STM32WB15CC Data Sheet"/>
+
+        <!-- ################################## 320 KB ################################## -->
+        <!-- *************************  Device 'STM32WB15CCUx'  ************************* -->
+        <device Dname="STM32WB15CCUx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00050000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00003000" default="1"/>
+          <memory name="SRAM2"      access="rwx"              start="0x20030000" size="0x00009000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB1x_320_M4.FLM"  start="0x08000000" size="0x00050000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WB15CCUxE'  ************************ -->
+        <device Dname="STM32WB15CCUxE">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00050000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00003000" default="1"/>
+          <memory name="SRAM2"      access="rwx"              start="0x20030000" size="0x00009000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB1x_320_M4.FLM"  start="0x08000000" size="0x00050000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+        <!-- *************************  Device 'STM32WB15CCYx'  ************************* -->
+        <device Dname="STM32WB15CCYx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00050000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00003000" default="1"/>
+          <memory name="SRAM2"      access="rwx"              start="0x20030000" size="0x00009000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB1x_320_M4.FLM"  start="0x08000000" size="0x00050000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="CSP" n="49"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WB10'  ************************ -->
+      <subFamily DsubFamily="STM32WB10">
+        <compile define="STM32WB10xx"/>
+        <debug svd="CMSIS/SVD/STM32WB10_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0478-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-54-radio-solution-stmicroelectronics.pdf" title="STM32WB10CC Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb10cc.pdf" title="STM32WB10CC Data Sheet"/>
+
+        <!-- ################################## 320 KB ################################## -->
+        <!-- *************************  Device 'STM32WB10CCUx'  ************************* -->
+        <device Dname="STM32WB10CCUx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00050000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00003000" default="1"/>
+          <memory name="SRAM2"      access="rwx"              start="0x20030000" size="0x00009000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB1x_320_M4.FLM"  start="0x08000000" size="0x00050000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="QFP" n="48"/>
+        </device>
+      </subFamily>
+
+      <!-- ************************  Subfamily 'STM32WB1M'  ************************ -->
+      <subFamily DsubFamily="STM32WB1M">
+        <compile define="STM32WB1Mxx"/>
+        <debug svd="CMSIS/SVD/STM32WB15_CM4.svd"/>
+
+        <book name="https://www.st.com/resource/en/reference_manual/rm0473-multiprotocol-wireless-32bit-mcu-armbased-cortexm4-with-fpu-bluetooth-low-energy-radio-solution-stmicroelectronics.pdf" title="STM32WB15CC Reference Manual"/>
+        <book name="https://www.st.com/resource/en/datasheet/stm32wb1mmc.pdf" title="STM32WB1MMC Data Sheet"/>
+
+        <!-- ################################## 320 KB ################################## -->
+        <!-- *************************  Device 'STM32WB1MMCHx'  ************************* -->
+        <device Dname="STM32WB1MMCHx">
+          <memory name="Main_Flash" access="rx"               start="0x08000000" size="0x00050000" default="1" startup="1"/>
+          <memory name="SRAM1"      access="rwx"              start="0x20000000" size="0x00003000" default="1"/>
+          <memory name="SRAM2"      access="rwx"              start="0x20030000" size="0x00009000" default="1"/>
+          <algorithm name="CMSIS/Flash/STM32WB1x_320_M4.FLM"  start="0x08000000" size="0x00050000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <feature type="PackageOther" n="77" name="LGA"/>
+        </device>
+      </subFamily>
+
+    </family>
+
+  </devices>
+
+  <conditions>
+    <!-- Device Conditions -->
+    <condition id="STM32WB">
+      <description>STMicroelectronics STM32WB Series devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32WB*"/>
+      <deny    Dvendor="STMicroelectronics:13" Dname="STM32WB[0A]*"/>
+    </condition>
+
+    <!-- Device + CMSIS Conditions -->
+    <condition id="STM32WB CMSIS">
+      <description>STMicroelectronics STM32WB Device and CMSIS-CORE</description>
+      <require condition="STM32WB"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+  </conditions>
+
+  <components>
+    <!-- CubeMX Generator -->
+    <component generator="CubeMX" Cclass="Device" Cgroup="CubeMX" Cversion="1.0.0" condition="STM32WB CMSIS">
+      <description>Configuration via STM32CubeMX</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_CUBE_MX
+        #define CMSIS_device_header "stm32wbxx.h"
+      </RTE_Components_h>
+      <files>
+        <file category="doc" name="https://open-cmsis-pack.github.io/cmsis-toolbox/CubeMX"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <!-- CubeMX Basic CMSIS Solution template -->
+    <template name="CubeMX Basic solution" path="Templates/CubeMX" file="CubeMX.csolution.yml" condition="STM32WB">
+      <description>Create a CubeMX basic solution with project</description>
+    </template>
+
+  </csolution>
+</package>

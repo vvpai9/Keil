@@ -1,0 +1,36 @@
+The Blinky project is a demo program for the ML67Q5003
+using OKI ML67Q5003 Microcontroller Board.
+
+It displays numbers on the 7-segment LED Display
+(0, 1, ..., A, b, C, d, E, F).
+
+The demo continues to count on the 7-segment LED Display
+in an infinite loop. Pressing the EXINT0 button on the
+board will reverse the counting direction.
+
+Boards switches and jumper setting:
+
+   OSC SEL     -> "SYSTEM" position
+   RS232C SEL1 -> "UART" position
+   RS232C SEL2 -> "ENA"  position
+
+   No.| SW1 DIP Switches | Setting    No.| SW2 DIP Switches | Setting
+   ===============================    ===============================
+    1 |   FWR            | OFF         1 |   CKMD0          | OFF
+    2 |   BSEL0          | OFF         2 |   CKMD1          | OFF
+    3 |   BSEL1          | OFF         3 |   RTCKEN         | OFF
+    4 |   NEFIQ          | ON          4 |   DRAMEN         | OFF
+    5 |   EXINT0         | ON          5 |   CKOE           | OFF
+    6 |   ICEDIS         | OFF         6 |   TEST0          | OFF
+    7 |   ROMSEL         | OFF         7 |   TEST1          | OFF
+    8 |   MEMDIS         | OFF         8 |   TEST2          | OFF
+
+The Blinky program is available in different targets:
+  ML67Q5003 Flash: configured for on-chip Flash ROM
+                   (used for production or target debugging)
+  ML67Q5003 IRAM:  configured to run from on-chip RAM
+                   (may be used for target debugging) 
+  ML67Q5003 SRAM:  configured to run from off-chip SRAM
+                   (may be used for target debugging) 
+  ML67Q5003 DRAM:  configured to run from off-chip DRAM
+                   (may be used for target debugging) 

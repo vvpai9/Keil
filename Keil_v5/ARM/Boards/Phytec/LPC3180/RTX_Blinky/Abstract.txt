@@ -1,0 +1,27 @@
+This is a simple RTX Kernel based example for the 
+NXP LPC3180 using PHYTEC 'PCM-976' with 'PCM-03' Board
+which simulates the step-motor driver. 
+Four LEDs are blinking simulating the activation of 
+the four output driver stages:
+
+- phase A
+- phase B
+- phase C
+- phase D
+
+Clocks: Oscillator                   =  13.00 MHz
+        HCLK_PLL   = Oscillator * 16 = 208.00 MHz
+        Processor  = HCLK_PLL        = 208.00 MHz
+        HCLK       = HCLK_PLL / 2    = 104.00 MHz
+        PERIPH_CLK = HCLK_PLL / 16   =  13.00 MHz
+
+The BLINKY example program is available for target:
+
+LPC3180 Ext SDRAM: Phytec LPC3180 evaluation board 
+                   with ULINK debugger
+
+Notes: 
+  - for standalone application you have to:
+    1. Download the 2-nd level bootloader 
+       (from Keil) to NAND Flash 
+    2. Download application to NAND Flash

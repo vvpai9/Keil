@@ -1,0 +1,2 @@
+The Thumb_ARM project demonstrates ARM/Thumb interworking.
+It shows a Thumb main() calling an ARM subroutine.

@@ -1,0 +1,284 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (TMPM330_512), 0x0004 // Tools: 'ARM-ADS'
+Target (TMPM330_256), 0x0004 // Tools: 'ARM-ADS'
+Target (TMPM330_128), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Program Functions)
+Group (Device Description)
+
+File 1,1,<.\FlashPrg.c><FlashPrg.c>
+File 2,1,<.\FlashDev.c><FlashDev.c>
+
+
+Options 1,0,0  // Target 'TMPM330_512'
+ Device (TMPM330FDFG)
+ Vendor (Toshiba)
+ Cpu (IRAM(0x20000000-0x20007FFF) IROM(0-0x7FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Toshiba\TMPM330.s" ("Toshiba TMPM330 Startup Code"))
+ FlashDR (UL2CM3(-O207 -S0 -C0 -FO7 -FD20000000 -FC800 -FN1 -FF0TMPM330_512 -FS00 -FL080000))
+ DevID (4622)
+ Rgf (TMPM330.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿToshiba\)
+ OrgReg (ÿToshiba\)
+ TgStat=16
+ OutDir (.\)
+ OutName (TMPM330_512)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy TMPM330_512.axf ..\TMPM330_512.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,64,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,8,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,8,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (TMPM330_512)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)()(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'TMPM330_256'
+ Device (TMPM330FDFG)
+ Vendor (Toshiba)
+ Cpu (IRAM(0x20000000-0x20007FFF) IROM(0-0x7FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Toshiba\TMPM330.s" ("Toshiba TMPM330 Startup Code"))
+ FlashDR (UL2CM3(-O207 -S0 -C0 -FO7 -FD20000000 -FC800 -FN1 -FF0TMPM330_512 -FS00 -FL080000))
+ DevID (4622)
+ Rgf (TMPM330.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿToshiba\)
+ OrgReg (ÿToshiba\)
+ TgStat=16
+ OutDir (.\)
+ OutName (TMPM330_256)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy TMPM330_256.axf ..\TMPM330_256.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,64,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,8,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,8,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (TMPM330_256)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)()(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'TMPM330_128'
+ Device (TMPM330FDFG)
+ Vendor (Toshiba)
+ Cpu (IRAM(0x20000000-0x20007FFF) IROM(0-0x7FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Toshiba\TMPM330.s" ("Toshiba TMPM330 Startup Code"))
+ FlashDR (UL2CM3(-O207 -S0 -C0 -FO7 -FD20000000 -FC800 -FN1 -FF0TMPM330_512 -FS00 -FL080000))
+ DevID (4622)
+ Rgf (TMPM330.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿToshiba\)
+ OrgReg (ÿToshiba\)
+ TgStat=16
+ OutDir (.\)
+ OutName (TMPM330_128)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy TMPM330_128.axf ..\TMPM330_128.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,64,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,128,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,8,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,8,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,128,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (TMPM330_128)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pCortexM3)(SARMCM3.DLL)()(TARMSTM.DLL)(-pCortexM3)
+  OPTDBG 44021,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

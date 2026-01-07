@@ -1,0 +1,711 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\DMA.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          DMA                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ---------------------------------------  DMA_STATUS  -------------------------------------------
+
+unsigned int DMA_STATUS __AT (0x400C2000);
+
+//  <item> Reg_DMA_STATUS
+//    <i> DMA_STATUS [31..0] (@ 0x400C2000) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_STATUS>>0) & 0xFFFFFFFF), ( (DMA_STATUS &= ~(0xFFFFFFFF<<0)), (DMA_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_STATUS_EN
+//    <i> EN [0] (@ 0x400C2000) </i>
+//    <check> 
+//      <loc> DMA_STATUS </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> DMA_STATUS_STATE
+//    <i> STATE [7..4] (@ 0x400C2000) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_STATUS>>4) & 0xE), ( (DMA_STATUS &= ~(0xE<<4)), (DMA_STATUS |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_STATUS_CHNUM
+//    <i> CHNUM [20..16] (@ 0x400C2000) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_STATUS>>16) & 0x1E), ( (DMA_STATUS &= ~(0x1E<<16)), (DMA_STATUS |= ((Gui_u8:GuiVal & 0x1E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_STATUS_TEST
+//    <i> TEST [31..28] (@ 0x400C2000) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_STATUS>>28) & 0xE), ( (DMA_STATUS &= ~(0xE<<28)), (DMA_STATUS |= ((Gui_u8:GuiVal & 0xE)<<28)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DMA_CONFIG  -------------------------------------------
+
+unsigned int DMA_CONFIG __AT (0x400C2004);
+
+//  <item> Reg_DMA_CONFIG
+//    <i> DMA_CONFIG [31..0] (@ 0x400C2004) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CONFIG>>0) & 0xFFFFFFFF), ( (DMA_CONFIG &= ~(0xFFFFFFFF<<0)), (DMA_CONFIG |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CONFIG_EN
+//    <i> EN [0] (@ 0x400C2004) </i>
+//    <check> 
+//      <loc> DMA_CONFIG </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> DMA_CONFIG_CHPROT
+//    <i> CHPROT [7..5] (@ 0x400C2004) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CONFIG>>5) & 0x6), ( (DMA_CONFIG &= ~(0x6<<5)), (DMA_CONFIG |= ((Gui_u8:GuiVal & 0x6)<<5)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CTRLBASE  ------------------------------------------
+
+unsigned int DMA_CTRLBASE __AT (0x400C2008);
+
+//  <item> Reg_DMA_CTRLBASE
+//    <i> DMA_CTRLBASE [31..0] (@ 0x400C2008) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CTRLBASE>>0) & 0xFFFFFFFF), ( (DMA_CTRLBASE &= ~(0xFFFFFFFF<<0)), (DMA_CTRLBASE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CTRLBASE_CTRLBASE
+//    <i> CTRLBASE [31..0] (@ 0x400C2008) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CTRLBASE>>0) & 0xFFFFFFFE), ( (DMA_CTRLBASE &= ~(0xFFFFFFFE<<0)), (DMA_CTRLBASE |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  DMA_ALTCTRLBASE  ----------------------------------------
+
+unsigned int DMA_ALTCTRLBASE __AT (0x400C200C);
+
+//  <item> Reg_DMA_ALTCTRLBASE
+//    <i> DMA_ALTCTRLBASE [31..0] (@ 0x400C200C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_ALTCTRLBASE>>0) & 0xFFFFFFFF), ( (DMA_ALTCTRLBASE &= ~(0xFFFFFFFF<<0)), (DMA_ALTCTRLBASE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_ALTCTRLBASE_ALTCTRLBASE
+//    <i> ALTCTRLBASE [31..0] (@ 0x400C200C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_ALTCTRLBASE>>0) & 0xFFFFFFFE), ( (DMA_ALTCTRLBASE &= ~(0xFFFFFFFE<<0)), (DMA_ALTCTRLBASE |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  DMA_WAITSTATUS  -----------------------------------------
+
+unsigned int DMA_WAITSTATUS __AT (0x400C2010);
+
+//  <item> Reg_DMA_WAITSTATUS
+//    <i> DMA_WAITSTATUS [31..0] (@ 0x400C2010) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_WAITSTATUS>>0) & 0xFFFFFFFF), ( (DMA_WAITSTATUS &= ~(0xFFFFFFFF<<0)), (DMA_WAITSTATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_WAITSTATUS_WAITSTATUS
+//    <i> WAITSTATUS [31..0] (@ 0x400C2010) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_WAITSTATUS>>0) & 0xFFFFFFFE), ( (DMA_WAITSTATUS &= ~(0xFFFFFFFE<<0)), (DMA_WAITSTATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DMA_CHSWREQ  ------------------------------------------
+
+unsigned int DMA_CHSWREQ __AT (0x400C2014);
+
+//  <item> Reg_DMA_CHSWREQ
+//    <i> DMA_CHSWREQ [31..0] (@ 0x400C2014) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHSWREQ>>0) & 0xFFFFFFFF), ( (DMA_CHSWREQ &= ~(0xFFFFFFFF<<0)), (DMA_CHSWREQ |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHSWREQ_CHSWREQ
+//    <i> CHSWREQ [7..0] (@ 0x400C2014) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHSWREQ>>0) & 0xFE), ( (DMA_CHSWREQ &= ~(0xFE<<0)), (DMA_CHSWREQ |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  DMA_CHUSEBURSTS  ----------------------------------------
+
+unsigned int DMA_CHUSEBURSTS __AT (0x400C2018);
+
+//  <item> Reg_DMA_CHUSEBURSTS
+//    <i> DMA_CHUSEBURSTS [31..0] (@ 0x400C2018) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHUSEBURSTS>>0) & 0xFFFFFFFF), ( (DMA_CHUSEBURSTS &= ~(0xFFFFFFFF<<0)), (DMA_CHUSEBURSTS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHUSEBURSTS_CHUSEBURSTS
+//    <i> CHUSEBURSTS [7..0] (@ 0x400C2018) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHUSEBURSTS>>0) & 0xFE), ( (DMA_CHUSEBURSTS &= ~(0xFE<<0)), (DMA_CHUSEBURSTS |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  DMA_CHUSEBURSTC  ----------------------------------------
+
+unsigned int DMA_CHUSEBURSTC __AT (0x400C201C);
+
+//  <item> Reg_DMA_CHUSEBURSTC
+//    <i> DMA_CHUSEBURSTC [31..0] (@ 0x400C201C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHUSEBURSTC>>0) & 0xFFFFFFFF), ( (DMA_CHUSEBURSTC &= ~(0xFFFFFFFF<<0)), (DMA_CHUSEBURSTC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHUSEBURSTC_CHUSEBURSTC
+//    <i> CHUSEBURSTC [7..0] (@ 0x400C201C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHUSEBURSTC>>0) & 0xFE), ( (DMA_CHUSEBURSTC &= ~(0xFE<<0)), (DMA_CHUSEBURSTC |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  DMA_CHREQMASKS  -----------------------------------------
+
+unsigned int DMA_CHREQMASKS __AT (0x400C2020);
+
+//  <item> Reg_DMA_CHREQMASKS
+//    <i> DMA_CHREQMASKS [31..0] (@ 0x400C2020) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHREQMASKS>>0) & 0xFFFFFFFF), ( (DMA_CHREQMASKS &= ~(0xFFFFFFFF<<0)), (DMA_CHREQMASKS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHREQMASKS_CHREQMASKS
+//    <i> CHREQMASKS [7..0] (@ 0x400C2020) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHREQMASKS>>0) & 0xFE), ( (DMA_CHREQMASKS &= ~(0xFE<<0)), (DMA_CHREQMASKS |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  DMA_CHREQMASKC  -----------------------------------------
+
+unsigned int DMA_CHREQMASKC __AT (0x400C2024);
+
+//  <item> Reg_DMA_CHREQMASKC
+//    <i> DMA_CHREQMASKC [31..0] (@ 0x400C2024) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHREQMASKC>>0) & 0xFFFFFFFF), ( (DMA_CHREQMASKC &= ~(0xFFFFFFFF<<0)), (DMA_CHREQMASKC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHREQMASKC_CHREQMASKC
+//    <i> CHREQMASKC [7..0] (@ 0x400C2024) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHREQMASKC>>0) & 0xFE), ( (DMA_CHREQMASKC &= ~(0xFE<<0)), (DMA_CHREQMASKC |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  DMA_CHENS  -------------------------------------------
+
+unsigned int DMA_CHENS __AT (0x400C2028);
+
+//  <item> Reg_DMA_CHENS
+//    <i> DMA_CHENS [31..0] (@ 0x400C2028) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHENS>>0) & 0xFFFFFFFF), ( (DMA_CHENS &= ~(0xFFFFFFFF<<0)), (DMA_CHENS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHENS_CHENS
+//    <i> CHENS [7..0] (@ 0x400C2028) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHENS>>0) & 0xFE), ( (DMA_CHENS &= ~(0xFE<<0)), (DMA_CHENS |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  DMA_CHENC  -------------------------------------------
+
+unsigned int DMA_CHENC __AT (0x400C202C);
+
+//  <item> Reg_DMA_CHENC
+//    <i> DMA_CHENC [31..0] (@ 0x400C202C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHENC>>0) & 0xFFFFFFFF), ( (DMA_CHENC &= ~(0xFFFFFFFF<<0)), (DMA_CHENC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHENC_CHENC
+//    <i> CHENC [7..0] (@ 0x400C202C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHENC>>0) & 0xFE), ( (DMA_CHENC &= ~(0xFE<<0)), (DMA_CHENC |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DMA_CHALTS  -------------------------------------------
+
+unsigned int DMA_CHALTS __AT (0x400C2030);
+
+//  <item> Reg_DMA_CHALTS
+//    <i> DMA_CHALTS [31..0] (@ 0x400C2030) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHALTS>>0) & 0xFFFFFFFF), ( (DMA_CHALTS &= ~(0xFFFFFFFF<<0)), (DMA_CHALTS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHALTS_CHALTS
+//    <i> CHALTS [7..0] (@ 0x400C2030) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHALTS>>0) & 0xFE), ( (DMA_CHALTS &= ~(0xFE<<0)), (DMA_CHALTS |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DMA_CHALTC  -------------------------------------------
+
+unsigned int DMA_CHALTC __AT (0x400C2034);
+
+//  <item> Reg_DMA_CHALTC
+//    <i> DMA_CHALTC [31..0] (@ 0x400C2034) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHALTC>>0) & 0xFFFFFFFF), ( (DMA_CHALTC &= ~(0xFFFFFFFF<<0)), (DMA_CHALTC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHALTC_CHALTC
+//    <i> CHALTC [7..0] (@ 0x400C2034) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHALTC>>0) & 0xFE), ( (DMA_CHALTC &= ~(0xFE<<0)), (DMA_CHALTC |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DMA_CHPRIS  -------------------------------------------
+
+unsigned int DMA_CHPRIS __AT (0x400C2038);
+
+//  <item> Reg_DMA_CHPRIS
+//    <i> DMA_CHPRIS [31..0] (@ 0x400C2038) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHPRIS>>0) & 0xFFFFFFFF), ( (DMA_CHPRIS &= ~(0xFFFFFFFF<<0)), (DMA_CHPRIS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHPRIS_CHPRIS
+//    <i> CHPRIS [7..0] (@ 0x400C2038) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHPRIS>>0) & 0xFE), ( (DMA_CHPRIS &= ~(0xFE<<0)), (DMA_CHPRIS |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DMA_CHPRIC  -------------------------------------------
+
+unsigned int DMA_CHPRIC __AT (0x400C203C);
+
+//  <item> Reg_DMA_CHPRIC
+//    <i> DMA_CHPRIC [31..0] (@ 0x400C203C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CHPRIC>>0) & 0xFFFFFFFF), ( (DMA_CHPRIC &= ~(0xFFFFFFFF<<0)), (DMA_CHPRIC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CHPRIC_CHPRIC
+//    <i> CHPRIC [7..0] (@ 0x400C203C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CHPRIC>>0) & 0xFE), ( (DMA_CHPRIC &= ~(0xFE<<0)), (DMA_CHPRIC |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  DMA_ERRORC  -------------------------------------------
+
+unsigned int DMA_ERRORC __AT (0x400C204C);
+
+//  <item> Reg_DMA_ERRORC
+//    <i> DMA_ERRORC [31..0] (@ 0x400C204C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_ERRORC>>0) & 0xFFFFFFFF), ( (DMA_ERRORC &= ~(0xFFFFFFFF<<0)), (DMA_ERRORC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_ERRORC_ERRORC
+//    <i> ERRORC [0] (@ 0x400C204C) </i>
+//    <check> 
+//      <loc> DMA_ERRORC </loc>
+//      <o.0..0> ERRORC
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  DMA_IF  ---------------------------------------------
+
+unsigned int DMA_IF __AT (0x400C3000);
+
+//  <item> Reg_DMA_IF
+//    <i> DMA_IF [31..0] (@ 0x400C3000) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_IF>>0) & 0xFFFFFFFF), ( (DMA_IF &= ~(0xFFFFFFFF<<0)), (DMA_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IF_DONE
+//    <i> DONE [7..0] (@ 0x400C3000) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_IF>>0) & 0xFE), ( (DMA_IF &= ~(0xFE<<0)), (DMA_IF |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IF_ERR
+//    <i> ERR [31] (@ 0x400C3000) </i>
+//    <check> 
+//      <loc> DMA_IF </loc>
+//      <o.31..31> ERR
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  DMA_IFS  --------------------------------------------
+
+unsigned int DMA_IFS __AT (0x400C3004);
+
+//  <item> Reg_DMA_IFS
+//    <i> DMA_IFS [31..0] (@ 0x400C3004) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_IFS>>0) & 0xFFFFFFFF), ( (DMA_IFS &= ~(0xFFFFFFFF<<0)), (DMA_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IFS_DONE
+//    <i> DONE [7..0] (@ 0x400C3004) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_IFS>>0) & 0xFE), ( (DMA_IFS &= ~(0xFE<<0)), (DMA_IFS |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IFS_ERR
+//    <i> ERR [31] (@ 0x400C3004) </i>
+//    <check> 
+//      <loc> DMA_IFS </loc>
+//      <o.31..31> ERR
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  DMA_IFC  --------------------------------------------
+
+unsigned int DMA_IFC __AT (0x400C3008);
+
+//  <item> Reg_DMA_IFC
+//    <i> DMA_IFC [31..0] (@ 0x400C3008) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_IFC>>0) & 0xFFFFFFFF), ( (DMA_IFC &= ~(0xFFFFFFFF<<0)), (DMA_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IFC_DONE
+//    <i> DONE [7..0] (@ 0x400C3008) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_IFC>>0) & 0xFE), ( (DMA_IFC &= ~(0xFE<<0)), (DMA_IFC |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IFC_ERR
+//    <i> ERR [31] (@ 0x400C3008) </i>
+//    <check> 
+//      <loc> DMA_IFC </loc>
+//      <o.31..31> ERR
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  DMA_IEN  --------------------------------------------
+
+unsigned int DMA_IEN __AT (0x400C300C);
+
+//  <item> Reg_DMA_IEN
+//    <i> DMA_IEN [31..0] (@ 0x400C300C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_IEN>>0) & 0xFFFFFFFF), ( (DMA_IEN &= ~(0xFFFFFFFF<<0)), (DMA_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IEN_DONE
+//    <i> DONE [7..0] (@ 0x400C300C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_IEN>>0) & 0xFE), ( (DMA_IEN &= ~(0xFE<<0)), (DMA_IEN |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_IEN_ERR
+//    <i> ERR [31] (@ 0x400C300C) </i>
+//    <check> 
+//      <loc> DMA_IEN </loc>
+//      <o.31..31> ERR
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH0_CTRL  ------------------------------------------
+
+unsigned int DMA_CH0_CTRL __AT (0x400C3100);
+
+//  <item> Reg_DMA_CH0_CTRL
+//    <i> DMA_CH0_CTRL [31..0] (@ 0x400C3100) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH0_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH0_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH0_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C3100) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH0_CTRL>>0) & 0xE), ( (DMA_CH0_CTRL &= ~(0xE<<0)), (DMA_CH0_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH0_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C3100) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH0_CTRL>>16) & 0x3E), ( (DMA_CH0_CTRL &= ~(0x3E<<16)), (DMA_CH0_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH1_CTRL  ------------------------------------------
+
+unsigned int DMA_CH1_CTRL __AT (0x400C3104);
+
+//  <item> Reg_DMA_CH1_CTRL
+//    <i> DMA_CH1_CTRL [31..0] (@ 0x400C3104) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH1_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH1_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH1_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH1_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C3104) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH1_CTRL>>0) & 0xE), ( (DMA_CH1_CTRL &= ~(0xE<<0)), (DMA_CH1_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH1_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C3104) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH1_CTRL>>16) & 0x3E), ( (DMA_CH1_CTRL &= ~(0x3E<<16)), (DMA_CH1_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH2_CTRL  ------------------------------------------
+
+unsigned int DMA_CH2_CTRL __AT (0x400C3108);
+
+//  <item> Reg_DMA_CH2_CTRL
+//    <i> DMA_CH2_CTRL [31..0] (@ 0x400C3108) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH2_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH2_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH2_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH2_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C3108) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH2_CTRL>>0) & 0xE), ( (DMA_CH2_CTRL &= ~(0xE<<0)), (DMA_CH2_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH2_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C3108) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH2_CTRL>>16) & 0x3E), ( (DMA_CH2_CTRL &= ~(0x3E<<16)), (DMA_CH2_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH3_CTRL  ------------------------------------------
+
+unsigned int DMA_CH3_CTRL __AT (0x400C310C);
+
+//  <item> Reg_DMA_CH3_CTRL
+//    <i> DMA_CH3_CTRL [31..0] (@ 0x400C310C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH3_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH3_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH3_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH3_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C310C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH3_CTRL>>0) & 0xE), ( (DMA_CH3_CTRL &= ~(0xE<<0)), (DMA_CH3_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH3_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C310C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH3_CTRL>>16) & 0x3E), ( (DMA_CH3_CTRL &= ~(0x3E<<16)), (DMA_CH3_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH4_CTRL  ------------------------------------------
+
+unsigned int DMA_CH4_CTRL __AT (0x400C3110);
+
+//  <item> Reg_DMA_CH4_CTRL
+//    <i> DMA_CH4_CTRL [31..0] (@ 0x400C3110) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH4_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH4_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH4_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH4_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C3110) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH4_CTRL>>0) & 0xE), ( (DMA_CH4_CTRL &= ~(0xE<<0)), (DMA_CH4_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH4_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C3110) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH4_CTRL>>16) & 0x3E), ( (DMA_CH4_CTRL &= ~(0x3E<<16)), (DMA_CH4_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH5_CTRL  ------------------------------------------
+
+unsigned int DMA_CH5_CTRL __AT (0x400C3114);
+
+//  <item> Reg_DMA_CH5_CTRL
+//    <i> DMA_CH5_CTRL [31..0] (@ 0x400C3114) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH5_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH5_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH5_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH5_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C3114) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH5_CTRL>>0) & 0xE), ( (DMA_CH5_CTRL &= ~(0xE<<0)), (DMA_CH5_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH5_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C3114) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH5_CTRL>>16) & 0x3E), ( (DMA_CH5_CTRL &= ~(0x3E<<16)), (DMA_CH5_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH6_CTRL  ------------------------------------------
+
+unsigned int DMA_CH6_CTRL __AT (0x400C3118);
+
+//  <item> Reg_DMA_CH6_CTRL
+//    <i> DMA_CH6_CTRL [31..0] (@ 0x400C3118) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH6_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH6_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH6_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH6_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C3118) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH6_CTRL>>0) & 0xE), ( (DMA_CH6_CTRL &= ~(0xE<<0)), (DMA_CH6_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH6_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C3118) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH6_CTRL>>16) & 0x3E), ( (DMA_CH6_CTRL &= ~(0x3E<<16)), (DMA_CH6_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  DMA_CH7_CTRL  ------------------------------------------
+
+unsigned int DMA_CH7_CTRL __AT (0x400C311C);
+
+//  <item> Reg_DMA_CH7_CTRL
+//    <i> DMA_CH7_CTRL [31..0] (@ 0x400C311C) </i>
+//    <edit> 
+//      <loc> ( (int)((DMA_CH7_CTRL>>0) & 0xFFFFFFFF), ( (DMA_CH7_CTRL &= ~(0xFFFFFFFF<<0)), (DMA_CH7_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH7_CTRL_SIGSEL
+//    <i> SIGSEL [3..0] (@ 0x400C311C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH7_CTRL>>0) & 0xE), ( (DMA_CH7_CTRL &= ~(0xE<<0)), (DMA_CH7_CTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> DMA_CH7_CTRL_SOURCESEL
+//    <i> SOURCESEL [21..16] (@ 0x400C311C) </i>
+//    <edit> 
+//      <loc> ( (char)((DMA_CH7_CTRL>>16) & 0x3E), ( (DMA_CH7_CTRL &= ~(0x3E<<16)), (DMA_CH7_CTRL |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

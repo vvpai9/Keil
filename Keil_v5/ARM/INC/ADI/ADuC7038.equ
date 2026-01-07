@@ -1,0 +1,514 @@
+@ ===============================================															
+@ ADuC7038 HEADER FILE REV 1.4															
+@ ===============================================															
+.equ          Z_BASE                        ,       0xFFFF0000
+.equ          F_BASE                        ,       0xFFFFF000
+.equ          MMR_BASE                      ,       0xFFFF0000
+.equ          MMR_BASE_LOW                  ,       0xFFFF0000
+.equ          MMR_BASE_HIGH                 ,       0xFFFFF000
+
+@ INTERRUPT CONTROLLER
+
+.equ          INTBASE                       ,       0xFFFF0000
+.equ          IRQSTA                        ,       0xFFFF0000
+.equ          IRQSIG                        ,       0xFFFF0004
+.equ          IRQEN                         ,       0xFFFF0008
+.equ          IRQCLR                        ,       0xFFFF000C
+.equ          SWICFG                        ,       0xFFFF0010
+.equ          FIQSTA                        ,       0xFFFF0100
+.equ          FIQSIG                        ,       0xFFFF0104
+.equ          FIQEN                         ,       0xFFFF0108
+.equ          FIQCLR                        ,       0xFFFF010C
+.equ          Z_IRQSTA                      ,       IRQSTA    -Z_BASE
+.equ          Z_IRQSIG                      ,       IRQSIG    -Z_BASE
+.equ          Z_IRQEN                       ,       IRQEN     -Z_BASE
+.equ          Z_IRQCLR                      ,       IRQCLR    -Z_BASE
+.equ          Z_SWICFG                      ,       SWICFG    -Z_BASE
+.equ          Z_FIQSTA                      ,       FIQSTA    -Z_BASE
+.equ          Z_FIQSIG                      ,       FIQSIG    -Z_BASE
+.equ          Z_FIQEN                       ,       FIQEN     -Z_BASE
+.equ          Z_FIQCLR                      ,       FIQCLR    -Z_BASE
+
+.equ          T_IRQSTA                      ,       IRQSTA    -INTBASE   
+.equ          T_IRQSIG                      ,       IRQSIG    -INTBASE   
+.equ          T_IRQEN                       ,       IRQEN     -INTBASE   
+.equ          T_IRQCLR                      ,       IRQCLR    -INTBASE   
+.equ          T_SWICFG                      ,       SWICFG    -INTBASE   
+.equ          T_FIQSTA                      ,       FIQSTA    -INTBASE   
+.equ          T_FIQSIG                      ,       FIQSIG    -INTBASE   
+.equ          T_FIQEN                       ,       FIQEN     -INTBASE   
+.equ          T_FIQCLR                      ,       FIQCLR    -INTBASE   
+
+.equ          IRQSTA_OFFSET                 ,       0x0000
+.equ          IRQSIG_OFFSET                 ,       0x0004
+.equ          IRQEN_OFFSET                  ,       0x0008
+.equ          IRQCLR_OFFSET                 ,       0x000C
+.equ          SWICFG_OFFSET                 ,       0x0010
+.equ          FIQSTA_OFFSET                 ,       0x0100
+.equ          FIQSIG_OFFSET                 ,       0x0104
+.equ          FIQEN_OFFSET                  ,       0x0108
+.equ          FIQCLR_OFFSET                 ,       0x010C
+
+@ Remap and System Control
+
+.equ          REMAPBASE                     ,       0xFFFF0200
+.equ          SYSMAP0                       ,       0xFFFF0220
+#if           ALLOW_DEPRECATED_NAMES        
+@ "SYSMAP" has been deprecated. Use "SYSMAP0" instead.
+.equ          SYSMAP                        ,       0xFFFF0220
+#endif
+.equ          RSTSTA                        ,       0xFFFF0230
+.equ          RSTCLR                        ,       0xFFFF0234
+.equ          SYSCHK                        ,       0xFFFF0244
+.equ          Z_SYSMAP0                     ,       SYSMAP0   -Z_BASE
+#if           ALLOW_DEPRECATED_NAMES        
+@ "Z_SYSMAP" has been deprecated. Use "Z_SYSMAP0" instead.
+.equ          Z_SYSMAP                      ,       SYSMAP0   -Z_BASE
+#endif
+.equ          Z_RSTSTA                      ,       RSTSTA    -Z_BASE
+.equ          Z_RSTCLR                      ,       RSTCLR    -Z_BASE
+.equ          Z_SYSCHK                      ,       SYSCHK    -Z_BASE
+
+.equ          T_SYSMAP0                     ,       SYSMAP0   -REMAPBASE 
+#if           ALLOW_DEPRECATED_NAMES        
+@ "T_SYSMAP" has been deprecated. Use "T_SYSMAP0" instead.
+.equ          T_SYSMAP                      ,       SYSMAP0   -REMAPBASE 
+#endif
+.equ          T_RSTSTA                      ,       RSTSTA    -REMAPBASE 
+.equ          T_RSTCLR                      ,       RSTCLR    -REMAPBASE 
+.equ          T_SYSCHK                      ,       SYSCHK    -REMAPBASE 
+
+.equ          SYSMAP0_OFFSET                ,       0x0220
+#if           ALLOW_DEPRECATED_NAMES        
+@ "SYSMAP_OFFSET" has been deprecated. Use "SYSMAP0_OFFSET" instead.
+.equ          SYSMAP_OFFSET                 ,       0xFFFF0220
+#endif
+.equ          RSTSTA_OFFSET                 ,       0x0230
+.equ          RSTCLR_OFFSET                 ,       0x0234
+.equ          SYSCHK_OFFSET                 ,       0x0244
+
+@ 16 bit General Purpose Timer 0
+
+.equ          TIMER0BASE                    ,       0xFFFF0300
+.equ          T0LD                          ,       0xFFFF0300
+.equ          T0VAL                         ,       0xFFFF0304
+.equ          T0CON                         ,       0xFFFF0308
+.equ          T0CLRI                        ,       0xFFFF030C
+.equ          Z_T0LD                        ,       T0LD      -Z_BASE
+.equ          Z_T0VAL                       ,       T0VAL     -Z_BASE
+.equ          Z_T0CON                       ,       T0CON     -Z_BASE
+.equ          Z_T0CLRI                      ,       T0CLRI    -Z_BASE
+
+.equ          T_T0LD                        ,       T0LD      -TIMER0BASE
+.equ          T_T0VAL                       ,       T0VAL     -TIMER0BASE
+.equ          T_T0CON                       ,       T0CON     -TIMER0BASE
+.equ          T_T0CLRI                      ,       T0CLRI    -TIMER0BASE
+
+.equ          T0LD_OFFSET                   ,       0x0300
+.equ          T0VAL_OFFSET                  ,       0x0304
+.equ          T0CON_OFFSET                  ,       0x0308
+.equ          T0CLRI_OFFSET                 ,       0x030C
+
+@ Wake Up Timer
+
+.equ          TIMER1BASE                    ,       0xFFFF0320
+.equ          T1LD                          ,       0xFFFF0320
+.equ          T1VAL                         ,       0xFFFF0324
+.equ          T1CON                         ,       0xFFFF0328
+.equ          T1CLRI                        ,       0xFFFF032C
+.equ          T1CAP                         ,       0xFFFF0330
+.equ          Z_T1LD                        ,       T1LD      -Z_BASE
+.equ          Z_T1VAL                       ,       T1VAL     -Z_BASE
+.equ          Z_T1CON                       ,       T1CON     -Z_BASE
+.equ          Z_T1CLRI                      ,       T1CLRI    -Z_BASE
+.equ          Z_T1CAP                       ,       T1CAP     -Z_BASE
+
+.equ          T_T1LD                        ,       T1LD      -TIMER1BASE
+.equ          T_T1VAL                       ,       T1VAL     -TIMER1BASE
+.equ          T_T1CON                       ,       T1CON     -TIMER1BASE
+.equ          T_T1CLRI                      ,       T1CLRI    -TIMER1BASE
+.equ          T_T1CAP                       ,       T1CAP     -TIMER1BASE
+
+.equ          T1LD_OFFSET                   ,       0x0320
+.equ          T1VAL_OFFSET                  ,       0x0324
+.equ          T1CON_OFFSET                  ,       0x0328
+.equ          T1CLRI_OFFSET                 ,       0x032C
+.equ          T1CAP_OFFSET                  ,       0x0330
+
+@ Watchdog
+
+.equ          TIMER2BASE                    ,       0xFFFF0340
+.equ          T2LD                          ,       0xFFFF0340
+.equ          T2VAL                         ,       0xFFFF0344
+.equ          T2CON                         ,       0xFFFF0348
+.equ          T2CLRI                        ,       0xFFFF034C
+.equ          Z_T2LD                        ,       T2LD      -Z_BASE
+.equ          Z_T2VAL                       ,       T2VAL     -Z_BASE
+.equ          Z_T2CON                       ,       T2CON     -Z_BASE
+.equ          Z_T2CLRI                      ,       T2CLRI    -Z_BASE
+
+.equ          T_T2LD                        ,       T2LD      -TIMER2BASE
+.equ          T_T2VAL                       ,       T2VAL     -TIMER2BASE
+.equ          T_T2CON                       ,       T2CON     -TIMER2BASE
+.equ          T_T2CLRI                      ,       T2CLRI    -TIMER2BASE
+
+.equ          T2LD_OFFSET                   ,       0x0340
+.equ          T2VAL_OFFSET                  ,       0x0344
+.equ          T2CON_OFFSET                  ,       0x0348
+.equ          T2CLRI_OFFSET                 ,       0x034C
+
+@ PLL and Oscillator Control
+
+.equ          PLLBASE                       ,       0xFFFF0400
+.equ          PLLSTA                        ,       0xFFFF0400
+.equ          POWKEY0                       ,       0xFFFF0404
+.equ          POWCON                        ,       0xFFFF0408
+.equ          POWKEY1                       ,       0xFFFF040C
+.equ          PLLKEY0                       ,       0xFFFF0410
+.equ          PLLCON                        ,       0xFFFF0414
+.equ          PLLKEY1                       ,       0xFFFF0418
+.equ          OSC0CON                       ,       0xFFFF0440
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCCON" has been deprecated. Use "OSC0CON" instead.
+.equ          OSCCON                        ,       0xFFFF0440
+#endif
+.equ          OSC0STA                       ,       0xFFFF0444
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCSTA" has been deprecated. Use "OSC0STA" instead.
+.equ          OSCSTA                        ,       0xFFFF0444
+#endif
+.equ          OSC0VAL0                      ,       0xFFFF0448
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCVAL0" has been deprecated. Use "OSC0VAL0" instead.
+.equ          OSCVAL0                       ,       0xFFFF0448
+#endif
+.equ          OSC0VAL1                      ,       0xFFFF044C
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCVAL1" has been deprecated. Use "OSC0VAL1" instead.
+.equ          OSCVAL1                       ,       0xFFFF044C
+#endif
+.equ          LOCCON                        ,       0xFFFF0480
+.equ          LOCUSR0                       ,       0xFFFF0484
+.equ          LOCUSR1                       ,       0xFFFF0488
+.equ          LOCMAX                        ,       0xFFFF048C
+.equ          LOCMIN                        ,       0xFFFF0490
+.equ          LOCSTA                        ,       0xFFFF0494
+.equ          LOCVAL0                       ,       0xFFFF0498
+.equ          LOCVAL1                       ,       0xFFFF049C
+.equ          LOCKEY                        ,       0xFFFF04A0
+.equ          Z_PLLSTA                      ,       PLLSTA    -Z_BASE
+.equ          Z_POWKEY0                     ,       POWKEY0   -Z_BASE
+.equ          Z_POWCON                      ,       POWCON    -Z_BASE
+.equ          Z_POWKEY1                     ,       POWKEY1   -Z_BASE
+.equ          Z_PLLKEY0                     ,       PLLKEY0   -Z_BASE
+.equ          Z_PLLCON                      ,       PLLCON    -Z_BASE
+.equ          Z_PLLKEY1                     ,       PLLKEY1   -Z_BASE
+.equ          Z_OSC0CON                     ,       OSC0CON   -Z_BASE
+#if           ALLOW_DEPRECATED_NAMES        
+@ "Z_OSCCON" has been deprecated. Use "Z_OSC0CON" instead.
+.equ          Z_OSCCON                      ,       OSC0CON   -Z_BASE
+#endif
+.equ          Z_OSC0STA                     ,       OSC0STA   -Z_BASE
+#if           ALLOW_DEPRECATED_NAMES        
+@ "Z_OSCSTA" has been deprecated. Use "Z_OSC0STA" instead.
+.equ          Z_OSCSTA                      ,       OSC0STA   -Z_BASE
+#endif
+.equ          Z_OSC0VAL0                    ,       OSC0VAL0  -Z_BASE
+#if           ALLOW_DEPRECATED_NAMES        
+@ "Z_OSCVAL0" has been deprecated. Use "Z_OSC0VAL0" instead.
+.equ          Z_OSCVAL0                     ,       OSC0VAL0  -Z_BASE
+#endif
+.equ          Z_OSC0VAL1                    ,       OSC0VAL1  -Z_BASE
+#if           ALLOW_DEPRECATED_NAMES        
+@ "Z_OSCVAL1" has been deprecated. Use "Z_OSC0VAL1" instead.
+.equ          Z_OSCVAL1                     ,       OSC0VAL1  -Z_BASE
+#endif
+.equ          Z_LOCCON                      ,       LOCCON    -Z_BASE
+.equ          Z_LOCUSR0                     ,       LOCUSR0   -Z_BASE
+.equ          Z_LOCUSR1                     ,       LOCUSR1   -Z_BASE
+.equ          Z_LOCMAX                      ,       LOCMAX    -Z_BASE
+.equ          Z_LOCMIN                      ,       LOCMIN    -Z_BASE
+.equ          Z_LOCSTA                      ,       LOCSTA    -Z_BASE
+.equ          Z_LOCVAL0                     ,       LOCVAL0   -Z_BASE
+.equ          Z_LOCVAL1                     ,       LOCVAL1   -Z_BASE
+.equ          Z_LOCKEY                      ,       LOCKEY    -Z_BASE
+
+.equ          T_PLLSTA                      ,       PLLSTA    -PLLBASE   
+.equ          T_POWKEY0                     ,       POWKEY0   -PLLBASE   
+.equ          T_POWCON                      ,       POWCON    -PLLBASE   
+.equ          T_POWKEY1                     ,       POWKEY1   -PLLBASE   
+.equ          T_PLLKEY0                     ,       PLLKEY0   -PLLBASE   
+.equ          T_PLLCON                      ,       PLLCON    -PLLBASE   
+.equ          T_PLLKEY1                     ,       PLLKEY1   -PLLBASE   
+.equ          T_OSC0CON                     ,       OSC0CON   -PLLBASE   
+#if           ALLOW_DEPRECATED_NAMES        
+@ "T_OSCCON" has been deprecated. Use "T_OSC0CON" instead.
+.equ          T_OSCCON                      ,       OSC0CON   -PLLBASE   
+#endif
+.equ          T_OSC0STA                     ,       OSC0STA   -PLLBASE   
+#if           ALLOW_DEPRECATED_NAMES        
+@ "T_OSCSTA" has been deprecated. Use "T_OSC0STA" instead.
+.equ          T_OSCSTA                      ,       OSC0STA   -PLLBASE   
+#endif
+.equ          T_OSC0VAL0                    ,       OSC0VAL0  -PLLBASE   
+#if           ALLOW_DEPRECATED_NAMES        
+@ "T_OSCVAL0" has been deprecated. Use "T_OSC0VAL0" instead.
+.equ          T_OSCVAL0                     ,       OSC0VAL0  -PLLBASE   
+#endif
+.equ          T_OSC0VAL1                    ,       OSC0VAL1  -PLLBASE   
+#if           ALLOW_DEPRECATED_NAMES        
+@ "T_OSCVAL1" has been deprecated. Use "T_OSC0VAL1" instead.
+.equ          T_OSCVAL1                     ,       OSC0VAL1  -PLLBASE   
+#endif
+.equ          T_LOCCON                      ,       LOCCON    -PLLBASE   
+.equ          T_LOCUSR0                     ,       LOCUSR0   -PLLBASE   
+.equ          T_LOCUSR1                     ,       LOCUSR1   -PLLBASE   
+.equ          T_LOCMAX                      ,       LOCMAX    -PLLBASE   
+.equ          T_LOCMIN                      ,       LOCMIN    -PLLBASE   
+.equ          T_LOCSTA                      ,       LOCSTA    -PLLBASE   
+.equ          T_LOCVAL0                     ,       LOCVAL0   -PLLBASE   
+.equ          T_LOCVAL1                     ,       LOCVAL1   -PLLBASE   
+.equ          T_LOCKEY                      ,       LOCKEY    -PLLBASE   
+
+.equ          PLLSTA_OFFSET                 ,       0x0400
+.equ          POWKEY0_OFFSET                ,       0x0404
+.equ          POWCON_OFFSET                 ,       0x0408
+.equ          POWKEY1_OFFSET                ,       0x040C
+.equ          PLLKEY0_OFFSET                ,       0x0410
+.equ          PLLCON_OFFSET                 ,       0x0414
+.equ          PLLKEY1_OFFSET                ,       0x0418
+.equ          OSC0CON_OFFSET                ,       0x0440
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCCON_OFFSET" has been deprecated. Use "OSC0CON_OFFSET" instead.
+.equ          OSCCON_OFFSET                 ,       0xFFFF0440
+#endif
+.equ          OSC0STA_OFFSET                ,       0x0444
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCSTA_OFFSET" has been deprecated. Use "OSC0STA_OFFSET" instead.
+.equ          OSCSTA_OFFSET                 ,       0xFFFF0444
+#endif
+.equ          OSC0VAL0_OFFSET               ,       0x0448
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCVAL0_OFFSET" has been deprecated. Use "OSC0VAL0_OFFSET" instead.
+.equ          OSCVAL0_OFFSET                ,       0xFFFF0448
+#endif
+.equ          OSC0VAL1_OFFSET               ,       0x044C
+#if           ALLOW_DEPRECATED_NAMES        
+@ "OSCVAL1_OFFSET" has been deprecated. Use "OSC0VAL1_OFFSET" instead.
+.equ          OSCVAL1_OFFSET                ,       0xFFFF044C
+#endif
+.equ          LOCCON_OFFSET                 ,       0x0480
+.equ          LOCUSR0_OFFSET                ,       0x0484
+.equ          LOCUSR1_OFFSET                ,       0x0488
+.equ          LOCMAX_OFFSET                 ,       0x048C
+.equ          LOCMIN_OFFSET                 ,       0x0490
+.equ          LOCSTA_OFFSET                 ,       0x0494
+.equ          LOCVAL0_OFFSET                ,       0x0498
+.equ          LOCVAL1_OFFSET                ,       0x049C
+.equ          LOCKEY_OFFSET                 ,       0x04A0
+
+
+
+@ ADC interface registers
+
+.equ          ADCBASE                       ,       0xFFFF0500
+.equ          ADCSTA                        ,       0xFFFF0500
+.equ          ADCMSKI                       ,       0xFFFF0504
+.equ          ADCMDE                        ,       0xFFFF0508
+.equ          ADC0CON                       ,       0xFFFF050C
+.equ          ADC1CON                       ,       0xFFFF0510
+.equ          ADCFLT                        ,       0xFFFF0518
+.equ          ADCCFG                        ,       0xFFFF051C
+.equ          ADC0DAT                       ,       0xFFFF0520
+.equ          ADC1DAT                       ,       0xFFFF0524
+.equ          ADC0OF                        ,       0xFFFF0530
+.equ          ADC1OF                        ,       0xFFFF0534
+.equ          ADC2OF                        ,       0xFFFF0538
+.equ          ADC0GN                        ,       0xFFFF053C
+.equ          ADC1GN                        ,       0xFFFF0540
+.equ          ADC2GN                        ,       0xFFFF0544
+.equ          Z_ADCSTA                      ,       ADCSTA    -Z_BASE
+.equ          Z_ADCMSKI                     ,       ADCMSKI   -Z_BASE
+.equ          Z_ADCMDE                      ,       ADCMDE    -Z_BASE
+.equ          Z_ADC0CON                     ,       ADC0CON   -Z_BASE
+.equ          Z_ADC1CON                     ,       ADC1CON   -Z_BASE
+.equ          Z_ADCFLT                      ,       ADCFLT    -Z_BASE
+.equ          Z_ADCCFG                      ,       ADCCFG    -Z_BASE
+.equ          Z_ADC0DAT                     ,       ADC0DAT   -Z_BASE
+.equ          Z_ADC1DAT                     ,       ADC1DAT   -Z_BASE
+.equ          Z_ADC0OF                      ,       ADC0OF    -Z_BASE
+.equ          Z_ADC1OF                      ,       ADC1OF    -Z_BASE
+.equ          Z_ADC2OF                      ,       ADC2OF    -Z_BASE
+.equ          Z_ADC0GN                      ,       ADC0GN    -Z_BASE
+.equ          Z_ADC1GN                      ,       ADC1GN    -Z_BASE
+.equ          Z_ADC2GN                      ,       ADC2GN    -Z_BASE
+
+.equ          T_ADCSTA                      ,       ADCSTA    -ADCBASE   
+.equ          T_ADCMSKI                     ,       ADCMSKI   -ADCBASE   
+.equ          T_ADCMDE                      ,       ADCMDE    -ADCBASE   
+.equ          T_ADC0CON                     ,       ADC0CON   -ADCBASE   
+.equ          T_ADC1CON                     ,       ADC1CON   -ADCBASE   
+.equ          T_ADCFLT                      ,       ADCFLT    -ADCBASE   
+.equ          T_ADCCFG                      ,       ADCCFG    -ADCBASE   
+.equ          T_ADC0DAT                     ,       ADC0DAT   -ADCBASE   
+.equ          T_ADC1DAT                     ,       ADC1DAT   -ADCBASE   
+.equ          T_ADC0OF                      ,       ADC0OF    -ADCBASE   
+.equ          T_ADC1OF                      ,       ADC1OF    -ADCBASE   
+.equ          T_ADC2OF                      ,       ADC2OF    -ADCBASE   
+.equ          T_ADC0GN                      ,       ADC0GN    -ADCBASE   
+.equ          T_ADC1GN                      ,       ADC1GN    -ADCBASE   
+.equ          T_ADC2GN                      ,       ADC2GN    -ADCBASE   
+
+.equ          ADCSTA_OFFSET                 ,       0x0500
+.equ          ADCMSKI_OFFSET                ,       0x0504
+.equ          ADCMDE_OFFSET                 ,       0x0508
+.equ          ADC0CON_OFFSET                ,       0x050C
+.equ          ADC1CON_OFFSET                ,       0x0510
+.equ          ADCFLT_OFFSET                 ,       0x0518
+.equ          ADCCFG_OFFSET                 ,       0x051C
+.equ          ADC0DAT_OFFSET                ,       0x0520
+.equ          ADC1DAT_OFFSET                ,       0x0524
+.equ          ADC0OF_OFFSET                 ,       0x0530
+.equ          ADC1OF_OFFSET                 ,       0x0534
+.equ          ADC2OF_OFFSET                 ,       0x0538
+.equ          ADC0GN_OFFSET                 ,       0x053C
+.equ          ADC1GN_OFFSET                 ,       0x0540
+.equ          ADC2GN_OFFSET                 ,       0x0544
+
+@ LIN Hardware SYNC Registers.
+
+.equ          LINBASE                       ,       0xFFFF0700
+.equ          LINCON                        ,       0xFFFF0700
+.equ          LINCS                         ,       0xFFFF0704
+.equ          LINBR                         ,       0xFFFF0708
+.equ          LINBK                         ,       0xFFFF070C
+.equ          LINSTA                        ,       0xFFFF0710
+.equ          LINDAT                        ,       0xFFFF0714
+.equ          LINLOW                        ,       0xFFFF0718
+.equ          LINWU                         ,       0xFFFF071C
+.equ          Z_LINCON                      ,       LINCON    -Z_BASE
+.equ          Z_LINCS                       ,       LINCS     -Z_BASE
+.equ          Z_LINBR                       ,       LINBR     -Z_BASE
+.equ          Z_LINBK                       ,       LINBK     -Z_BASE
+.equ          Z_LINSTA                      ,       LINSTA    -Z_BASE
+.equ          Z_LINDAT                      ,       LINDAT    -Z_BASE
+.equ          Z_LINLOW                      ,       LINLOW    -Z_BASE
+.equ          Z_LINWU                       ,       LINWU     -Z_BASE
+
+.equ          T_LINCON                      ,       LINCON    -LINBASE   
+.equ          T_LINCS                       ,       LINCS     -LINBASE   
+.equ          T_LINBR                       ,       LINBR     -LINBASE   
+.equ          T_LINBK                       ,       LINBK     -LINBASE   
+.equ          T_LINSTA                      ,       LINSTA    -LINBASE   
+.equ          T_LINDAT                      ,       LINDAT    -LINBASE   
+.equ          T_LINLOW                      ,       LINLOW    -LINBASE   
+.equ          T_LINWU                       ,       LINWU     -LINBASE   
+
+.equ          LINCON_OFFSET                 ,       0x0700
+.equ          LINCS_OFFSET                  ,       0x0704
+.equ          LINBR_OFFSET                  ,       0x0708
+.equ          LINBK_OFFSET                  ,       0x070C
+.equ          LINSTA_OFFSET                 ,       0x0710
+.equ          LINDAT_OFFSET                 ,       0x0714
+.equ          LINLOW_OFFSET                 ,       0x0718
+.equ          LINWU_OFFSET                  ,       0x071C
+
+@ High Voltage Interface.
+
+.equ          HVBASE                        ,       0xFFFF0800
+.equ          HVCON                         ,       0xFFFF0804
+.equ          HVDAT                         ,       0xFFFF080C
+.equ          Z_HVCON                       ,       HVCON     -Z_BASE
+.equ          Z_HVDAT                       ,       HVDAT     -Z_BASE
+
+.equ          T_HVCON                       ,       HVCON     -HVBASE    
+.equ          T_HVDAT                       ,       HVDAT     -HVBASE    
+
+.equ          HVCON_OFFSET                  ,       0x0804
+.equ          HVDAT_OFFSET                  ,       0x080C
+
+@ Serial Port Interface Peripheral
+
+.equ          SPIBASE                       ,       0xFFFF0A00
+.equ          SPISTA                        ,       0xFFFF0A00
+.equ          SPIRX                         ,       0xFFFF0A04
+.equ          SPITX                         ,       0xFFFF0A08
+.equ          SPIDIV                        ,       0xFFFF0A0C
+.equ          SPICON                        ,       0xFFFF0A10
+.equ          Z_SPISTA                      ,       SPISTA    -Z_BASE
+.equ          Z_SPIRX                       ,       SPIRX     -Z_BASE
+.equ          Z_SPITX                       ,       SPITX     -Z_BASE
+.equ          Z_SPIDIV                      ,       SPIDIV    -Z_BASE
+.equ          Z_SPICON                      ,       SPICON    -Z_BASE
+
+.equ          T_SPISTA                      ,       SPISTA    -SPIBASE   
+.equ          T_SPIRX                       ,       SPIRX     -SPIBASE   
+.equ          T_SPITX                       ,       SPITX     -SPIBASE   
+.equ          T_SPIDIV                      ,       SPIDIV    -SPIBASE   
+.equ          T_SPICON                      ,       SPICON    -SPIBASE   
+
+.equ          SPISTA_OFFSET                 ,       0x0A00
+.equ          SPIRX_OFFSET                  ,       0x0A04
+.equ          SPITX_OFFSET                  ,       0x0A08
+.equ          SPIDIV_OFFSET                 ,       0x0A0C
+.equ          SPICON_OFFSET                 ,       0x0A10
+
+@ GPIO + Serial Port Mux (AHB bus)
+
+.equ          GPIOBASE                      ,       0xFFFF0D00
+.equ          GPCON                         ,       0xFFFF0D00
+.equ          GPDAT                         ,       0xFFFF0D10
+.equ          GPSET                         ,       0xFFFF0D14
+.equ          GPCLR                         ,       0xFFFF0D18
+.equ          Z_GPCON                       ,       GPCON     -Z_BASE
+.equ          Z_GPDAT                       ,       GPDAT     -Z_BASE
+.equ          Z_GPSET                       ,       GPSET     -Z_BASE
+.equ          Z_GPCLR                       ,       GPCLR     -Z_BASE
+
+.equ          T_GPCON                       ,       GPCON     -GPIOBASE  
+.equ          T_GPDAT                       ,       GPDAT     -GPIOBASE  
+.equ          T_GPSET                       ,       GPSET     -GPIOBASE  
+.equ          T_GPCLR                       ,       GPCLR     -GPIOBASE  
+
+.equ          GPCON_OFFSET                  ,       0x0D00
+.equ          GPDAT_OFFSET                  ,       0x0D10
+.equ          GPSET_OFFSET                  ,       0x0D14
+.equ          GPCLR_OFFSET                  ,       0x0D18
+
+@ Flash Control Interface 64Kbytes (AHB bus)
+
+.equ          FLASHBASE                     ,       0xFFFF0E00
+.equ          FEESTA                        ,       0xFFFF0E00
+.equ          FEEMOD                        ,       0xFFFF0E04
+.equ          FEECON                        ,       0xFFFF0E08
+.equ          FEEDAT                        ,       0xFFFF0E0C
+.equ          FEEADR                        ,       0xFFFF0E10
+.equ          FEESIG                        ,       0xFFFF0E18
+.equ          FEEPRO                        ,       0xFFFF0E1C
+.equ          FEEHID                        ,       0xFFFF0E20
+.equ          Z_FEESTA                      ,       FEESTA    -Z_BASE
+.equ          Z_FEEMOD                      ,       FEEMOD    -Z_BASE
+.equ          Z_FEECON                      ,       FEECON    -Z_BASE
+.equ          Z_FEEDAT                      ,       FEEDAT    -Z_BASE
+.equ          Z_FEEADR                      ,       FEEADR    -Z_BASE
+.equ          Z_FEESIG                      ,       FEESIG    -Z_BASE
+.equ          Z_FEEPRO                      ,       FEEPRO    -Z_BASE
+.equ          Z_FEEHID                      ,       FEEHID    -Z_BASE
+
+.equ          T_FEESTA                      ,       FEESTA    -FLASHBASE 
+.equ          T_FEEMOD                      ,       FEEMOD    -FLASHBASE 
+.equ          T_FEECON                      ,       FEECON    -FLASHBASE 
+.equ          T_FEEDAT                      ,       FEEDAT    -FLASHBASE 
+.equ          T_FEEADR                      ,       FEEADR    -FLASHBASE 
+.equ          T_FEESIG                      ,       FEESIG    -FLASHBASE 
+.equ          T_FEEPRO                      ,       FEEPRO    -FLASHBASE 
+.equ          T_FEEHID                      ,       FEEHID    -FLASHBASE 
+
+.equ          FEESTA_OFFSET                 ,       0x0E00
+.equ          FEEMOD_OFFSET                 ,       0x0E04
+.equ          FEECON_OFFSET                 ,       0x0E08
+.equ          FEEDAT_OFFSET                 ,       0x0E0C
+.equ          FEEADR_OFFSET                 ,       0x0E10
+.equ          FEESIG_OFFSET                 ,       0x0E18
+.equ          FEEPRO_OFFSET                 ,       0x0E1C
+.equ          FEEHID_OFFSET                 ,       0x0E20

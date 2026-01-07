@@ -1,0 +1,22 @@
+This is a simple RTX Kernel based example which simulates
+the step-motor driver. Two LEDs are blinking simulating
+the activation of the two output driver stages:
+
+- phase A
+- phase B
+
+This example simulates step driver mode.
+
+The BLINKY example program is available for target:
+
+AT91SAM9260: configured for external SDRAM (64MB)
+             downloaded to external DataFlash (8.25MB)
+             (used for target debugging and production)
+
+Notes: 
+  - If Debug is selected the code is loaded to External SDRAM 
+    and debugging happens there, if Download to Flash Memory 
+    is selected the code downloads to External DataFlash
+  - Bootloader has to be downloaded to flash for this version 
+    to work as standalone. This is done by opening Bootloader 
+    project and clicking on "Download to Flash Memory" button.

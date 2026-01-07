@@ -1,0 +1,14 @@
+The RTX_Blinky project is a simple RTX Kernel based example
+for the Cortex-M3 on 'Actel A2F200' FPGA using 'Actel FUSION2 
+DEVELOPMENT BOARD' and is compliant to the Cortex 
+Microcontroller Software Interface Standard (CMSIS v1.0).
+
+Clock Settings:
+ - XTAL   =  50 MHz
+ - SYSCLK = 100 MHz
+
+The simple RTX Kernel based example drives one LED D4.
+
+The Blinky program is available in target:
+  A2FM3F:      - runs from Internal Flash located on chip
+                 (used for production or target debugging)

@@ -1,0 +1,28 @@
+The HID project is a demo program for the LPC2468
+using Embedded Artists boards:
+  Daughter Board - 'LPC2468 OEM Board v2.0'
+  Mother   Board - 'OEM Base Board Basic v1.3'
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - PLL                    = 288 MHz
+   - processor clock = CCLK =  48 MHz
+   - USB clock              =  48 MHz
+   - CCLK / 4 clock         =  12 MHz
+
+It demonstrates an USB HID (Human Interface Device):
+  - 4 LEDs (LED1..4)
+  - 4 Push Buttons (Button1..4)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  MCB2400: configured for on-chip Flash ROM
+           (used for production or target debugging)
+
+Note: set jumper J42, J43, J45, J46 to [1 2]3 
+          (select USB Device)

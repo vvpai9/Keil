@@ -1,0 +1,29 @@
+The Blinky project is a simple program for the 'LPC2929' 
+microcontroller using Keil 'MCB2900' evaluation board 
+and demonstrating interrupt functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL             =  12 MHz
+   - PLL              = 192 MHz
+   - SYS   = PLL / 2  =  96 MHz
+   - TMR   = PLL / 2  =  96 MHz
+   - FDIV0 = PLL / 48 =   4 MHz
+   - ADC   = FDIV0    =   4 MHz
+ - 8 LEDs blink from left to right and back
+   (LEDs are connected to P2.16 .. P2.23)
+ - speed of LED blinking can be changed by pressing 
+   S1 (increased) or S2 (decreased) buttons
+   (S1 - P2.26; S2 - P2.27)
+ - Timer 0 is used for generating time for LED
+   blinking, it works in interrupt mode
+ - "ADC0 (IN0)" / "ADC2 (IN0)" is used for getting AD value from 
+   potentiometer POT1, it works in interrupt mode.
+   (ADC0 is selected as default.)
+ - Outputs AD value on UART0 every 1 second
+   UART settings: 9600 baud, 8 data bits, 1 stop bit, 
+                  no parity
+ 
+The Blinky program is available in different targets:
+  MCB2929      : runs from Internal Flash located on chip
+                 (used for production or target debugging)

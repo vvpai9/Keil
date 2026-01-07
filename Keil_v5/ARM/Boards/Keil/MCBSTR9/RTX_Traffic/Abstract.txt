@@ -1,0 +1,31 @@
+Traffic is a program that controls a traffic light.
+
+The traffic light is timed and lets cars pass during a
+specific time period.  There is a pedestrial crossing
+button (S3) that lets pedestrians cross.  The lights are
+connected to Port 7. You can see this in action using
+uVision Debugger. 
+
+There are several things of interest here:
+
+*  This program uses RTX Kernel. Program initialization
+   and operation code are in TRAFFIC.C. Look for the
+   init task to see where everything starts.
+
+*  Serial I/O is interrupt and event driven.  Look at
+   SERIAL.C for the complete, encapsulated module (you
+   may want to use this in your programs).
+
+
+The TRAFFIC example program is available for one target:
+
+Simulator: uVision Simulator for evaluation
+           - watch the variables in Watch #1 window
+
+MCBSTR9:   Keil MCBSTR9 evaluation board with ULINK debugger
+           - Application is loaded to internal Flash.
+
+           Connect a serial cable to RS232 COM1 port using 
+           HyperTerminal at 115200 baud, 8-bits, no parity, 
+           1 stop bit, XON/XOFF.
+

@@ -1,0 +1,35 @@
+This is an RL-USB-Host Human Interface Device (HID) usage example.
+
+Example functionality:
+ - Clock Settings:
+   - XTAL                      =  13.00 MHz
+   - SYSCLK                    =  13.00 MHz
+   - HCLKPLL                   = 208.00 MHz
+   - USBPLL                    =  48.00 MHz
+   - ARM_CLK    = HCLKPLL      = 208.00 MHz
+   - HCLK       = HCLKPLL / 2  = 104.00 MHz
+   - USBCLK     = USBPLL       =  48.00 MHz
+   - PERIPH_CLK = HCLKPLL / 16 =  13.00 MHz
+
+ - Communication Interface Settings:
+   - UART5: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+This example shows how to use USB Keyboard as terminal input to 
+the device and it uses UART as terminal output.
+
+The Measure example is described in detail in the Getting Started
+User's Guide.
+
+The HID_KBD program is a standalone application loaded into
+on-chip flash and available for one target:
+
+Phytec LPC3250: Standalone application for Phytec LPC3250 board,
+           configured to run in external SDRAM and loaded to
+           external NOR flash. This example uses COM 
+           (bottom conn.) as a communication interface.
+
+Notes: for standalone application (NOR, NAND) you have to:
+        1. Download the 2-nd level bootloader 
+           (from Keil) to appropriate external flash 
+        2. Download application built for 'Ext SDRAM' 
+           target to appropriate Flash

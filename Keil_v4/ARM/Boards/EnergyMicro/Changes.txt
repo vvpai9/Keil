@@ -1,0 +1,19 @@
+
+================ Revision history ============================================
+
+1.0.2:
+ - Corrected revision numbers in file headers
+ - Removed example code that was moved into BSP/DVK installer package
+
+1.0.1:
+ - Updated to use official CMSIS1V30 release
+ - Corrected IRQ vector table in assembly startup files, IMEM to MSC, UDMA to DMA
+ - DMA peripheral/signal names corrected
+ - Example Blinky application updated to work on all EFM32 MCU-Modules on DVK
+ - Added "simple" board support package to example
+ - Added "UL" (unsigned long) tag to several fields
+
+1.0.0: 
+ - Initial release
+ - Includes CMSIS1V30 2nd PreRelease
+ - Now requires two include paths, CMSIS/CM3/DeviceSupport/EnergyMicro/EFM32 and CMSIS/CM3/CoreSupport

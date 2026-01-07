@@ -1,0 +1,1317 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\TIMER2.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        TIMER2                                        -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ---------------------------------------  TIMER2_CTRL  ------------------------------------------
+
+unsigned int TIMER2_CTRL __AT (0x40010800);
+
+//  <item> Reg_TIMER2_CTRL
+//    <i> TIMER2_CTRL [31..0] (@ 0x40010800) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CTRL>>0) & 0xFFFFFFFF), ( (TIMER2_CTRL &= ~(0xFFFFFFFF<<0)), (TIMER2_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_MODE
+//    <i> MODE [1..0] (@ 0x40010800) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CTRL>>0) & 0x2), ( (TIMER2_CTRL &= ~(0x2<<0)), (TIMER2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_SYNC
+//    <i> SYNC [3] (@ 0x40010800) </i>
+//    <check> 
+//      <loc> TIMER2_CTRL </loc>
+//      <o.3..3> SYNC
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_OSMEN
+//    <i> OSMEN [4] (@ 0x40010800) </i>
+//    <check> 
+//      <loc> TIMER2_CTRL </loc>
+//      <o.4..4> OSMEN
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_QEM
+//    <i> QEM [5] (@ 0x40010800) </i>
+//    <check> 
+//      <loc> TIMER2_CTRL </loc>
+//      <o.5..5> QEM
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_DEBUGRUN
+//    <i> DEBUGRUN [6] (@ 0x40010800) </i>
+//    <check> 
+//      <loc> TIMER2_CTRL </loc>
+//      <o.6..6> DEBUGRUN
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_DMACLRACT
+//    <i> DMACLRACT [7] (@ 0x40010800) </i>
+//    <check> 
+//      <loc> TIMER2_CTRL </loc>
+//      <o.7..7> DMACLRACT
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_RISEA
+//    <i> RISEA [9..8] (@ 0x40010800) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CTRL>>8) & 0x2), ( (TIMER2_CTRL &= ~(0x2<<8)), (TIMER2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_FALLA
+//    <i> FALLA [11..10] (@ 0x40010800) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CTRL>>10) & 0x2), ( (TIMER2_CTRL &= ~(0x2<<10)), (TIMER2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<10)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_CLKSEL
+//    <i> CLKSEL [17..16] (@ 0x40010800) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CTRL>>16) & 0x2), ( (TIMER2_CTRL &= ~(0x2<<16)), (TIMER2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CTRL_PRESC
+//    <i> PRESC [27..24] (@ 0x40010800) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CTRL>>24) & 0xE), ( (TIMER2_CTRL &= ~(0xE<<24)), (TIMER2_CTRL |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_CMD  -------------------------------------------
+
+unsigned int TIMER2_CMD __AT (0x40010804);
+
+//  <item> Reg_TIMER2_CMD
+//    <i> TIMER2_CMD [31..0] (@ 0x40010804) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CMD>>0) & 0xFFFFFFFF), ( (TIMER2_CMD &= ~(0xFFFFFFFF<<0)), (TIMER2_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CMD_START
+//    <i> START [0] (@ 0x40010804) </i>
+//    <check> 
+//      <loc> TIMER2_CMD </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CMD_STOP
+//    <i> STOP [1] (@ 0x40010804) </i>
+//    <check> 
+//      <loc> TIMER2_CMD </loc>
+//      <o.1..1> STOP
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  TIMER2_STATUS  -----------------------------------------
+
+unsigned int TIMER2_STATUS __AT (0x40010808);
+
+//  <item> Reg_TIMER2_STATUS
+//    <i> TIMER2_STATUS [31..0] (@ 0x40010808) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_STATUS>>0) & 0xFFFFFFFF), ( (TIMER2_STATUS &= ~(0xFFFFFFFF<<0)), (TIMER2_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_RUNNING
+//    <i> RUNNING [0] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.0..0> RUNNING
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_DIR
+//    <i> DIR [1] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.1..1> DIR
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_TOPBV
+//    <i> TOPBV [2] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.2..2> TOPBV
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_CCVBV0
+//    <i> CCVBV0 [8] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.8..8> CCVBV0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_CCVBV1
+//    <i> CCVBV1 [9] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.9..9> CCVBV1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_CCVBV2
+//    <i> CCVBV2 [10] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.10..10> CCVBV2
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_ICV0
+//    <i> ICV0 [16] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.16..16> ICV0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_ICV1
+//    <i> ICV1 [17] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.17..17> ICV1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_ICV2
+//    <i> ICV2 [18] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.18..18> ICV2
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_CCPOL0
+//    <i> CCPOL0 [24] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.24..24> CCPOL0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_CCPOL1
+//    <i> CCPOL1 [25] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.25..25> CCPOL1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_STATUS_CCPOL2
+//    <i> CCPOL2 [26] (@ 0x40010808) </i>
+//    <check> 
+//      <loc> TIMER2_STATUS </loc>
+//      <o.26..26> CCPOL2
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_IEN  -------------------------------------------
+
+unsigned int TIMER2_IEN __AT (0x4001080C);
+
+//  <item> Reg_TIMER2_IEN
+//    <i> TIMER2_IEN [31..0] (@ 0x4001080C) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_IEN>>0) & 0xFFFFFFFF), ( (TIMER2_IEN &= ~(0xFFFFFFFF<<0)), (TIMER2_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_IEN_OF
+//    <i> OF [0] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IEN_UF
+//    <i> UF [1] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.1..1> UF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IEN_CC0
+//    <i> CC0 [4] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.4..4> CC0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IEN_CC1
+//    <i> CC1 [5] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.5..5> CC1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IEN_CC2
+//    <i> CC2 [6] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.6..6> CC2
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IEN_ICBOF0
+//    <i> ICBOF0 [8] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.8..8> ICBOF0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IEN_ICBOF1
+//    <i> ICBOF1 [9] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.9..9> ICBOF1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IEN_ICBOF2
+//    <i> ICBOF2 [10] (@ 0x4001080C) </i>
+//    <check> 
+//      <loc> TIMER2_IEN </loc>
+//      <o.10..10> ICBOF2
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  TIMER2_IF  -------------------------------------------
+
+unsigned int TIMER2_IF __AT (0x40010810);
+
+//  <item> Reg_TIMER2_IF
+//    <i> TIMER2_IF [31..0] (@ 0x40010810) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_IF>>0) & 0xFFFFFFFF), ( (TIMER2_IF &= ~(0xFFFFFFFF<<0)), (TIMER2_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_IF_OF
+//    <i> OF [0] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IF_UF
+//    <i> UF [1] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.1..1> UF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IF_CC0
+//    <i> CC0 [4] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.4..4> CC0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IF_CC1
+//    <i> CC1 [5] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.5..5> CC1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IF_CC2
+//    <i> CC2 [6] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.6..6> CC2
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IF_ICBOF0
+//    <i> ICBOF0 [8] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.8..8> ICBOF0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IF_ICBOF1
+//    <i> ICBOF1 [9] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.9..9> ICBOF1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IF_ICBOF2
+//    <i> ICBOF2 [10] (@ 0x40010810) </i>
+//    <check> 
+//      <loc> TIMER2_IF </loc>
+//      <o.10..10> ICBOF2
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_IFS  -------------------------------------------
+
+unsigned int TIMER2_IFS __AT (0x40010814);
+
+//  <item> Reg_TIMER2_IFS
+//    <i> TIMER2_IFS [31..0] (@ 0x40010814) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_IFS>>0) & 0xFFFFFFFF), ( (TIMER2_IFS &= ~(0xFFFFFFFF<<0)), (TIMER2_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_IFS_OF
+//    <i> OF [0] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFS_UF
+//    <i> UF [1] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.1..1> UF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFS_CC0
+//    <i> CC0 [4] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.4..4> CC0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFS_CC1
+//    <i> CC1 [5] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.5..5> CC1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFS_CC2
+//    <i> CC2 [6] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.6..6> CC2
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFS_ICBOF0
+//    <i> ICBOF0 [8] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.8..8> ICBOF0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFS_ICBOF1
+//    <i> ICBOF1 [9] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.9..9> ICBOF1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFS_ICBOF2
+//    <i> ICBOF2 [10] (@ 0x40010814) </i>
+//    <check> 
+//      <loc> TIMER2_IFS </loc>
+//      <o.10..10> ICBOF2
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_IFC  -------------------------------------------
+
+unsigned int TIMER2_IFC __AT (0x40010818);
+
+//  <item> Reg_TIMER2_IFC
+//    <i> TIMER2_IFC [31..0] (@ 0x40010818) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_IFC>>0) & 0xFFFFFFFF), ( (TIMER2_IFC &= ~(0xFFFFFFFF<<0)), (TIMER2_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_IFC_OF
+//    <i> OF [0] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFC_UF
+//    <i> UF [1] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.1..1> UF
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFC_CC0
+//    <i> CC0 [4] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.4..4> CC0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFC_CC1
+//    <i> CC1 [5] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.5..5> CC1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFC_CC2
+//    <i> CC2 [6] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.6..6> CC2
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFC_ICBOF0
+//    <i> ICBOF0 [8] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.8..8> ICBOF0
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFC_ICBOF1
+//    <i> ICBOF1 [9] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.9..9> ICBOF1
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_IFC_ICBOF2
+//    <i> ICBOF2 [10] (@ 0x40010818) </i>
+//    <check> 
+//      <loc> TIMER2_IFC </loc>
+//      <o.10..10> ICBOF2
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_TOP  -------------------------------------------
+
+unsigned int TIMER2_TOP __AT (0x4001081C);
+
+//  <item> Reg_TIMER2_TOP
+//    <i> TIMER2_TOP [31..0] (@ 0x4001081C) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_TOP>>0) & 0xFFFFFFFF), ( (TIMER2_TOP &= ~(0xFFFFFFFF<<0)), (TIMER2_TOP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_TOP_TOP
+//    <i> TOP [15..0] (@ 0x4001081C) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_TOP>>0) & 0xFFFE), ( (TIMER2_TOP &= ~(0xFFFE<<0)), (TIMER2_TOP |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_TOPB  ------------------------------------------
+
+unsigned int TIMER2_TOPB __AT (0x40010820);
+
+//  <item> Reg_TIMER2_TOPB
+//    <i> TIMER2_TOPB [31..0] (@ 0x40010820) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_TOPB>>0) & 0xFFFFFFFF), ( (TIMER2_TOPB &= ~(0xFFFFFFFF<<0)), (TIMER2_TOPB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_TOPB_TOPB
+//    <i> TOPB [15..0] (@ 0x40010820) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_TOPB>>0) & 0xFFFE), ( (TIMER2_TOPB &= ~(0xFFFE<<0)), (TIMER2_TOPB |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_CNT  -------------------------------------------
+
+unsigned int TIMER2_CNT __AT (0x40010824);
+
+//  <item> Reg_TIMER2_CNT
+//    <i> TIMER2_CNT [31..0] (@ 0x40010824) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CNT>>0) & 0xFFFFFFFF), ( (TIMER2_CNT &= ~(0xFFFFFFFF<<0)), (TIMER2_CNT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CNT_CNT
+//    <i> CNT [15..0] (@ 0x40010824) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CNT>>0) & 0xFFFE), ( (TIMER2_CNT &= ~(0xFFFE<<0)), (TIMER2_CNT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  TIMER2_ROUTE  ------------------------------------------
+
+unsigned int TIMER2_ROUTE __AT (0x40010828);
+
+//  <item> Reg_TIMER2_ROUTE
+//    <i> TIMER2_ROUTE [31..0] (@ 0x40010828) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_ROUTE>>0) & 0xFFFFFFFF), ( (TIMER2_ROUTE &= ~(0xFFFFFFFF<<0)), (TIMER2_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_ROUTE_CCPEN
+//    <i> CCPEN [2..0] (@ 0x40010828) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_ROUTE>>0) & 0x6), ( (TIMER2_ROUTE &= ~(0x6<<0)), (TIMER2_ROUTE |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_ROUTE_CDTIPEN
+//    <i> CDTIPEN [10..8] (@ 0x40010828) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_ROUTE>>8) & 0x6), ( (TIMER2_ROUTE &= ~(0x6<<8)), (TIMER2_ROUTE |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_ROUTE_LOCATION
+//    <i> LOCATION [17..16] (@ 0x40010828) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_ROUTE>>16) & 0x2), ( (TIMER2_ROUTE &= ~(0x2<<16)), (TIMER2_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC0_CTRL  ----------------------------------------
+
+unsigned int TIMER2_CC0_CTRL __AT (0x40010830);
+
+//  <item> Reg_TIMER2_CC0_CTRL
+//    <i> TIMER2_CC0_CTRL [31..0] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC0_CTRL>>0) & 0xFFFFFFFF), ( (TIMER2_CC0_CTRL &= ~(0xFFFFFFFF<<0)), (TIMER2_CC0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_MODE
+//    <i> MODE [1..0] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC0_CTRL>>0) & 0x2), ( (TIMER2_CC0_CTRL &= ~(0x2<<0)), (TIMER2_CC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_OUTINV
+//    <i> OUTINV [2] (@ 0x40010830) </i>
+//    <check> 
+//      <loc> TIMER2_CC0_CTRL </loc>
+//      <o.2..2> OUTINV
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_COIST
+//    <i> COIST [4] (@ 0x40010830) </i>
+//    <check> 
+//      <loc> TIMER2_CC0_CTRL </loc>
+//      <o.4..4> COIST
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_CMOA
+//    <i> CMOA [9..8] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC0_CTRL>>8) & 0x2), ( (TIMER2_CC0_CTRL &= ~(0x2<<8)), (TIMER2_CC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_COFOA
+//    <i> COFOA [11..10] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC0_CTRL>>10) & 0x2), ( (TIMER2_CC0_CTRL &= ~(0x2<<10)), (TIMER2_CC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<10)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_CUFOA
+//    <i> CUFOA [13..12] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC0_CTRL>>12) & 0x2), ( (TIMER2_CC0_CTRL &= ~(0x2<<12)), (TIMER2_CC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_PRSSEL
+//    <i> PRSSEL [18..16] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC0_CTRL>>16) & 0x6), ( (TIMER2_CC0_CTRL &= ~(0x6<<16)), (TIMER2_CC0_CTRL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_INSEL
+//    <i> INSEL [20] (@ 0x40010830) </i>
+//    <check> 
+//      <loc> TIMER2_CC0_CTRL </loc>
+//      <o.20..20> INSEL
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_FILT
+//    <i> FILT [21] (@ 0x40010830) </i>
+//    <check> 
+//      <loc> TIMER2_CC0_CTRL </loc>
+//      <o.21..21> FILT
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_ICEDGE
+//    <i> ICEDGE [25..24] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC0_CTRL>>24) & 0x2), ( (TIMER2_CC0_CTRL &= ~(0x2<<24)), (TIMER2_CC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CTRL_ICEVCTRL
+//    <i> ICEVCTRL [27..26] (@ 0x40010830) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC0_CTRL>>26) & 0x2), ( (TIMER2_CC0_CTRL &= ~(0x2<<26)), (TIMER2_CC0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<26)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC0_CCV  -----------------------------------------
+
+unsigned int TIMER2_CC0_CCV __AT (0x40010834);
+
+//  <item> Reg_TIMER2_CC0_CCV
+//    <i> TIMER2_CC0_CCV [31..0] (@ 0x40010834) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC0_CCV>>0) & 0xFFFFFFFF), ( (TIMER2_CC0_CCV &= ~(0xFFFFFFFF<<0)), (TIMER2_CC0_CCV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CCV_CCV
+//    <i> CCV [15..0] (@ 0x40010834) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC0_CCV>>0) & 0xFFFE), ( (TIMER2_CC0_CCV &= ~(0xFFFE<<0)), (TIMER2_CC0_CCV |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC0_CCVP  ----------------------------------------
+
+unsigned int TIMER2_CC0_CCVP __AT (0x40010838);
+
+//  <item> Reg_TIMER2_CC0_CCVP
+//    <i> TIMER2_CC0_CCVP [31..0] (@ 0x40010838) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC0_CCVP>>0) & 0xFFFFFFFF), ( (TIMER2_CC0_CCVP &= ~(0xFFFFFFFF<<0)), (TIMER2_CC0_CCVP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CCVP_CCVP
+//    <i> CCVP [15..0] (@ 0x40010838) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC0_CCVP>>0) & 0xFFFE), ( (TIMER2_CC0_CCVP &= ~(0xFFFE<<0)), (TIMER2_CC0_CCVP |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC0_CCVB  ----------------------------------------
+
+unsigned int TIMER2_CC0_CCVB __AT (0x4001083C);
+
+//  <item> Reg_TIMER2_CC0_CCVB
+//    <i> TIMER2_CC0_CCVB [31..0] (@ 0x4001083C) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC0_CCVB>>0) & 0xFFFFFFFF), ( (TIMER2_CC0_CCVB &= ~(0xFFFFFFFF<<0)), (TIMER2_CC0_CCVB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC0_CCVB_CCVB
+//    <i> CCVB [15..0] (@ 0x4001083C) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC0_CCVB>>0) & 0xFFFE), ( (TIMER2_CC0_CCVB &= ~(0xFFFE<<0)), (TIMER2_CC0_CCVB |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC1_CTRL  ----------------------------------------
+
+unsigned int TIMER2_CC1_CTRL __AT (0x40010840);
+
+//  <item> Reg_TIMER2_CC1_CTRL
+//    <i> TIMER2_CC1_CTRL [31..0] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC1_CTRL>>0) & 0xFFFFFFFF), ( (TIMER2_CC1_CTRL &= ~(0xFFFFFFFF<<0)), (TIMER2_CC1_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_MODE
+//    <i> MODE [1..0] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC1_CTRL>>0) & 0x2), ( (TIMER2_CC1_CTRL &= ~(0x2<<0)), (TIMER2_CC1_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_OUTINV
+//    <i> OUTINV [2] (@ 0x40010840) </i>
+//    <check> 
+//      <loc> TIMER2_CC1_CTRL </loc>
+//      <o.2..2> OUTINV
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_COIST
+//    <i> COIST [4] (@ 0x40010840) </i>
+//    <check> 
+//      <loc> TIMER2_CC1_CTRL </loc>
+//      <o.4..4> COIST
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_CMOA
+//    <i> CMOA [9..8] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC1_CTRL>>8) & 0x2), ( (TIMER2_CC1_CTRL &= ~(0x2<<8)), (TIMER2_CC1_CTRL |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_COFOA
+//    <i> COFOA [11..10] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC1_CTRL>>10) & 0x2), ( (TIMER2_CC1_CTRL &= ~(0x2<<10)), (TIMER2_CC1_CTRL |= ((Gui_u8:GuiVal & 0x2)<<10)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_CUFOA
+//    <i> CUFOA [13..12] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC1_CTRL>>12) & 0x2), ( (TIMER2_CC1_CTRL &= ~(0x2<<12)), (TIMER2_CC1_CTRL |= ((Gui_u8:GuiVal & 0x2)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_PRSSEL
+//    <i> PRSSEL [18..16] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC1_CTRL>>16) & 0x6), ( (TIMER2_CC1_CTRL &= ~(0x6<<16)), (TIMER2_CC1_CTRL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_INSEL
+//    <i> INSEL [20] (@ 0x40010840) </i>
+//    <check> 
+//      <loc> TIMER2_CC1_CTRL </loc>
+//      <o.20..20> INSEL
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_FILT
+//    <i> FILT [21] (@ 0x40010840) </i>
+//    <check> 
+//      <loc> TIMER2_CC1_CTRL </loc>
+//      <o.21..21> FILT
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_ICEDGE
+//    <i> ICEDGE [25..24] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC1_CTRL>>24) & 0x2), ( (TIMER2_CC1_CTRL &= ~(0x2<<24)), (TIMER2_CC1_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CTRL_ICEVCTRL
+//    <i> ICEVCTRL [27..26] (@ 0x40010840) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC1_CTRL>>26) & 0x2), ( (TIMER2_CC1_CTRL &= ~(0x2<<26)), (TIMER2_CC1_CTRL |= ((Gui_u8:GuiVal & 0x2)<<26)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC1_CCV  -----------------------------------------
+
+unsigned int TIMER2_CC1_CCV __AT (0x40010844);
+
+//  <item> Reg_TIMER2_CC1_CCV
+//    <i> TIMER2_CC1_CCV [31..0] (@ 0x40010844) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC1_CCV>>0) & 0xFFFFFFFF), ( (TIMER2_CC1_CCV &= ~(0xFFFFFFFF<<0)), (TIMER2_CC1_CCV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CCV_CCV
+//    <i> CCV [15..0] (@ 0x40010844) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC1_CCV>>0) & 0xFFFE), ( (TIMER2_CC1_CCV &= ~(0xFFFE<<0)), (TIMER2_CC1_CCV |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC1_CCVP  ----------------------------------------
+
+unsigned int TIMER2_CC1_CCVP __AT (0x40010848);
+
+//  <item> Reg_TIMER2_CC1_CCVP
+//    <i> TIMER2_CC1_CCVP [31..0] (@ 0x40010848) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC1_CCVP>>0) & 0xFFFFFFFF), ( (TIMER2_CC1_CCVP &= ~(0xFFFFFFFF<<0)), (TIMER2_CC1_CCVP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CCVP_CCVP
+//    <i> CCVP [15..0] (@ 0x40010848) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC1_CCVP>>0) & 0xFFFE), ( (TIMER2_CC1_CCVP &= ~(0xFFFE<<0)), (TIMER2_CC1_CCVP |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC1_CCVB  ----------------------------------------
+
+unsigned int TIMER2_CC1_CCVB __AT (0x4001084C);
+
+//  <item> Reg_TIMER2_CC1_CCVB
+//    <i> TIMER2_CC1_CCVB [31..0] (@ 0x4001084C) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC1_CCVB>>0) & 0xFFFFFFFF), ( (TIMER2_CC1_CCVB &= ~(0xFFFFFFFF<<0)), (TIMER2_CC1_CCVB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC1_CCVB_CCVB
+//    <i> CCVB [15..0] (@ 0x4001084C) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC1_CCVB>>0) & 0xFFFE), ( (TIMER2_CC1_CCVB &= ~(0xFFFE<<0)), (TIMER2_CC1_CCVB |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC2_CTRL  ----------------------------------------
+
+unsigned int TIMER2_CC2_CTRL __AT (0x40010850);
+
+//  <item> Reg_TIMER2_CC2_CTRL
+//    <i> TIMER2_CC2_CTRL [31..0] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC2_CTRL>>0) & 0xFFFFFFFF), ( (TIMER2_CC2_CTRL &= ~(0xFFFFFFFF<<0)), (TIMER2_CC2_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_MODE
+//    <i> MODE [1..0] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC2_CTRL>>0) & 0x2), ( (TIMER2_CC2_CTRL &= ~(0x2<<0)), (TIMER2_CC2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_OUTINV
+//    <i> OUTINV [2] (@ 0x40010850) </i>
+//    <check> 
+//      <loc> TIMER2_CC2_CTRL </loc>
+//      <o.2..2> OUTINV
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_COIST
+//    <i> COIST [4] (@ 0x40010850) </i>
+//    <check> 
+//      <loc> TIMER2_CC2_CTRL </loc>
+//      <o.4..4> COIST
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_CMOA
+//    <i> CMOA [9..8] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC2_CTRL>>8) & 0x2), ( (TIMER2_CC2_CTRL &= ~(0x2<<8)), (TIMER2_CC2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_COFOA
+//    <i> COFOA [11..10] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC2_CTRL>>10) & 0x2), ( (TIMER2_CC2_CTRL &= ~(0x2<<10)), (TIMER2_CC2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<10)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_CUFOA
+//    <i> CUFOA [13..12] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC2_CTRL>>12) & 0x2), ( (TIMER2_CC2_CTRL &= ~(0x2<<12)), (TIMER2_CC2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_PRSSEL
+//    <i> PRSSEL [18..16] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC2_CTRL>>16) & 0x6), ( (TIMER2_CC2_CTRL &= ~(0x6<<16)), (TIMER2_CC2_CTRL |= ((Gui_u8:GuiVal & 0x6)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_INSEL
+//    <i> INSEL [20] (@ 0x40010850) </i>
+//    <check> 
+//      <loc> TIMER2_CC2_CTRL </loc>
+//      <o.20..20> INSEL
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_FILT
+//    <i> FILT [21] (@ 0x40010850) </i>
+//    <check> 
+//      <loc> TIMER2_CC2_CTRL </loc>
+//      <o.21..21> FILT
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_ICEDGE
+//    <i> ICEDGE [25..24] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC2_CTRL>>24) & 0x2), ( (TIMER2_CC2_CTRL &= ~(0x2<<24)), (TIMER2_CC2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CTRL_ICEVCTRL
+//    <i> ICEVCTRL [27..26] (@ 0x40010850) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_CC2_CTRL>>26) & 0x2), ( (TIMER2_CC2_CTRL &= ~(0x2<<26)), (TIMER2_CC2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<26)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC2_CCV  -----------------------------------------
+
+unsigned int TIMER2_CC2_CCV __AT (0x40010854);
+
+//  <item> Reg_TIMER2_CC2_CCV
+//    <i> TIMER2_CC2_CCV [31..0] (@ 0x40010854) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC2_CCV>>0) & 0xFFFFFFFF), ( (TIMER2_CC2_CCV &= ~(0xFFFFFFFF<<0)), (TIMER2_CC2_CCV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CCV_CCV
+//    <i> CCV [15..0] (@ 0x40010854) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC2_CCV>>0) & 0xFFFE), ( (TIMER2_CC2_CCV &= ~(0xFFFE<<0)), (TIMER2_CC2_CCV |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC2_CCVP  ----------------------------------------
+
+unsigned int TIMER2_CC2_CCVP __AT (0x40010858);
+
+//  <item> Reg_TIMER2_CC2_CCVP
+//    <i> TIMER2_CC2_CCVP [31..0] (@ 0x40010858) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC2_CCVP>>0) & 0xFFFFFFFF), ( (TIMER2_CC2_CCVP &= ~(0xFFFFFFFF<<0)), (TIMER2_CC2_CCVP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CCVP_CCVP
+//    <i> CCVP [15..0] (@ 0x40010858) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC2_CCVP>>0) & 0xFFFE), ( (TIMER2_CC2_CCVP &= ~(0xFFFE<<0)), (TIMER2_CC2_CCVP |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_CC2_CCVB  ----------------------------------------
+
+unsigned int TIMER2_CC2_CCVB __AT (0x4001085C);
+
+//  <item> Reg_TIMER2_CC2_CCVB
+//    <i> TIMER2_CC2_CCVB [31..0] (@ 0x4001085C) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_CC2_CCVB>>0) & 0xFFFFFFFF), ( (TIMER2_CC2_CCVB &= ~(0xFFFFFFFF<<0)), (TIMER2_CC2_CCVB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_CC2_CCVB_CCVB
+//    <i> CCVB [15..0] (@ 0x4001085C) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_CC2_CCVB>>0) & 0xFFFE), ( (TIMER2_CC2_CCVB &= ~(0xFFFE<<0)), (TIMER2_CC2_CCVB |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  TIMER2_DTCTRL  -----------------------------------------
+
+unsigned int TIMER2_DTCTRL __AT (0x40010870);
+
+//  <item> Reg_TIMER2_DTCTRL
+//    <i> TIMER2_DTCTRL [31..0] (@ 0x40010870) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_DTCTRL>>0) & 0xFFFFFFFF), ( (TIMER2_DTCTRL &= ~(0xFFFFFFFF<<0)), (TIMER2_DTCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTCTRL_DTEN
+//    <i> DTEN [0] (@ 0x40010870) </i>
+//    <check> 
+//      <loc> TIMER2_DTCTRL </loc>
+//      <o.0..0> DTEN
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_DTCTRL_DTDAS
+//    <i> DTDAS [1] (@ 0x40010870) </i>
+//    <check> 
+//      <loc> TIMER2_DTCTRL </loc>
+//      <o.1..1> DTDAS
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_DTCTRL_DTIPOL
+//    <i> DTIPOL [2] (@ 0x40010870) </i>
+//    <check> 
+//      <loc> TIMER2_DTCTRL </loc>
+//      <o.2..2> DTIPOL
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_DTCTRL_DTCINV
+//    <i> DTCINV [3] (@ 0x40010870) </i>
+//    <check> 
+//      <loc> TIMER2_DTCTRL </loc>
+//      <o.3..3> DTCINV
+//    </check>
+//  </item>
+//  
+//  <item> TIMER2_DTCTRL_DTPRSSEL
+//    <i> DTPRSSEL [6..4] (@ 0x40010870) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTCTRL>>4) & 0x6), ( (TIMER2_DTCTRL &= ~(0x6<<4)), (TIMER2_DTCTRL |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTCTRL_DTPRSEN
+//    <i> DTPRSEN [24] (@ 0x40010870) </i>
+//    <check> 
+//      <loc> TIMER2_DTCTRL </loc>
+//      <o.24..24> DTPRSEN
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  TIMER2_DTTIME  -----------------------------------------
+
+unsigned int TIMER2_DTTIME __AT (0x40010874);
+
+//  <item> Reg_TIMER2_DTTIME
+//    <i> TIMER2_DTTIME [31..0] (@ 0x40010874) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_DTTIME>>0) & 0xFFFFFFFF), ( (TIMER2_DTTIME &= ~(0xFFFFFFFF<<0)), (TIMER2_DTTIME |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTTIME_DTPRESC
+//    <i> DTPRESC [3..0] (@ 0x40010874) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTTIME>>0) & 0xE), ( (TIMER2_DTTIME &= ~(0xE<<0)), (TIMER2_DTTIME |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTTIME_DTRISET
+//    <i> DTRISET [13..8] (@ 0x40010874) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTTIME>>8) & 0x3E), ( (TIMER2_DTTIME &= ~(0x3E<<8)), (TIMER2_DTTIME |= ((Gui_u8:GuiVal & 0x3E)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTTIME_DTFALLT
+//    <i> DTFALLT [21..16] (@ 0x40010874) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTTIME>>16) & 0x3E), ( (TIMER2_DTTIME &= ~(0x3E<<16)), (TIMER2_DTTIME |= ((Gui_u8:GuiVal & 0x3E)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  TIMER2_DTFC  ------------------------------------------
+
+unsigned int TIMER2_DTFC __AT (0x40010878);
+
+//  <item> Reg_TIMER2_DTFC
+//    <i> TIMER2_DTFC [31..0] (@ 0x40010878) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_DTFC>>0) & 0xFFFFFFFF), ( (TIMER2_DTFC &= ~(0xFFFFFFFF<<0)), (TIMER2_DTFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTFC_DTPRSFSEL0
+//    <i> DTPRSFSEL0 [2..0] (@ 0x40010878) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTFC>>0) & 0x6), ( (TIMER2_DTFC &= ~(0x6<<0)), (TIMER2_DTFC |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTFC_DTPRSFSEL1
+//    <i> DTPRSFSEL1 [10..8] (@ 0x40010878) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTFC>>8) & 0x6), ( (TIMER2_DTFC &= ~(0x6<<8)), (TIMER2_DTFC |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTFC_DTFA
+//    <i> DTFA [17..16] (@ 0x40010878) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTFC>>16) & 0x2), ( (TIMER2_DTFC &= ~(0x2<<16)), (TIMER2_DTFC |= ((Gui_u8:GuiVal & 0x2)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTFC_DTFSEN
+//    <i> DTFSEN [27..24] (@ 0x40010878) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTFC>>24) & 0xE), ( (TIMER2_DTFC &= ~(0xE<<24)), (TIMER2_DTFC |= ((Gui_u8:GuiVal & 0xE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  TIMER2_DTOGEN  -----------------------------------------
+
+unsigned int TIMER2_DTOGEN __AT (0x4001087C);
+
+//  <item> Reg_TIMER2_DTOGEN
+//    <i> TIMER2_DTOGEN [31..0] (@ 0x4001087C) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_DTOGEN>>0) & 0xFFFFFFFF), ( (TIMER2_DTOGEN &= ~(0xFFFFFFFF<<0)), (TIMER2_DTOGEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTOGEN_DTOGEN
+//    <i> DTOGEN [5..0] (@ 0x4001087C) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTOGEN>>0) & 0x3E), ( (TIMER2_DTOGEN &= ~(0x3E<<0)), (TIMER2_DTOGEN |= ((Gui_u8:GuiVal & 0x3E)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_DTFAULT  -----------------------------------------
+
+unsigned int TIMER2_DTFAULT __AT (0x40010880);
+
+//  <item> Reg_TIMER2_DTFAULT
+//    <i> TIMER2_DTFAULT [31..0] (@ 0x40010880) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_DTFAULT>>0) & 0xFFFFFFFF), ( (TIMER2_DTFAULT &= ~(0xFFFFFFFF<<0)), (TIMER2_DTFAULT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTFAULT_DTFS
+//    <i> DTFS [3..0] (@ 0x40010880) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTFAULT>>0) & 0xE), ( (TIMER2_DTFAULT &= ~(0xE<<0)), (TIMER2_DTFAULT |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  TIMER2_DTFAULTC  ----------------------------------------
+
+unsigned int TIMER2_DTFAULTC __AT (0x40010884);
+
+//  <item> Reg_TIMER2_DTFAULTC
+//    <i> TIMER2_DTFAULTC [31..0] (@ 0x40010884) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_DTFAULTC>>0) & 0xFFFFFFFF), ( (TIMER2_DTFAULTC &= ~(0xFFFFFFFF<<0)), (TIMER2_DTFAULTC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTFAULTC_DTFSC
+//    <i> DTFSC [3..0] (@ 0x40010884) </i>
+//    <edit> 
+//      <loc> ( (char)((TIMER2_DTFAULTC>>0) & 0xE), ( (TIMER2_DTFAULTC &= ~(0xE<<0)), (TIMER2_DTFAULTC |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  TIMER2_DTLOCK  -----------------------------------------
+
+unsigned int TIMER2_DTLOCK __AT (0x40010888);
+
+//  <item> Reg_TIMER2_DTLOCK
+//    <i> TIMER2_DTLOCK [31..0] (@ 0x40010888) </i>
+//    <edit> 
+//      <loc> ( (int)((TIMER2_DTLOCK>>0) & 0xFFFFFFFF), ( (TIMER2_DTLOCK &= ~(0xFFFFFFFF<<0)), (TIMER2_DTLOCK |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> TIMER2_DTLOCK_LOCKKEY
+//    <i> LOCKKEY [15..0] (@ 0x40010888) </i>
+//    <edit> 
+//      <loc> ( (short int)((TIMER2_DTLOCK>>0) & 0xFFFE), ( (TIMER2_DTLOCK &= ~(0xFFFE<<0)), (TIMER2_DTLOCK |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

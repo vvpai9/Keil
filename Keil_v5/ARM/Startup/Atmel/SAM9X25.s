@@ -1,0 +1,2125 @@
+;/*****************************************************************************/
+;/* SAM9X25.S: Startup file for Atmel AT91SAM9X25 device series               */
+;/*****************************************************************************/
+;/* <<< Use Configuration Wizard in Context Menu >>>                          */ 
+;/*****************************************************************************/
+;/* This file is part of the uVision/ARM development tools.                   */
+;/* Copyright (c) 2005-2011 Keil Software. All rights reserved.               */
+;/* This software may only be used under the terms of a valid, current,       */
+;/* end user licence from KEIL for a compatible version of KEIL software      */
+;/* development tools. Nothing else gives you the right to use this software. */
+;/*****************************************************************************/
+
+
+; The Startup code is executed after CPU Reset. This file may be 
+; translated with the following SET symbols. In uVision these SET 
+; symbols are entered under Options - ASM - Define.
+; 
+;  SIZE_INT_INFO: size of program image is coded instead of Reserved vector
+;                 at address 0x14, if code is located in Internal RAM.
+;
+;  SIZE_EXT_INFO: size of program image is coded instead of Reserved vector
+;                 at address 0x14, if code is located in External SDRAM.
+;
+;  REMAP:         when set the startup code remaps exception vectors from
+;                 on-chip RAM to address 0.
+;
+;  VEC_TO_RAM:    when set the startup code copies exception vectors 
+;                 from Image Load Address to on-chip RAM.
+;
+;  NO_EBI_INIT:   when set the EBI is not initialized in startup
+;                 and it is used when EBI is initialized from debugger 
+;                 enviroment (using the debug script).
+;
+;  NO_SDRAM_INIT: when set the SDRAM controller is not initialized in startup
+;                 and it is used when SDRAM controller is initialized from 
+;                 debugger enviroment (using the debug script).
+;
+;  NO_PMC_INIT:   when set the Power Management Controller and system clock 
+;                 are not initialized in startup and it is used when PLL is 
+;                 initialized from debugger enviroment (using the debug script).
+
+
+; Standard definitions of Mode bits and Interrupt (I & F) flags in PSRs
+
+Mode_USR        EQU     0x10
+Mode_FIQ        EQU     0x11
+Mode_IRQ        EQU     0x12
+Mode_SVC        EQU     0x13
+Mode_ABT        EQU     0x17
+Mode_UND        EQU     0x1B
+Mode_SYS        EQU     0x1F
+
+I_Bit           EQU     0x80            ; when I bit is set, IRQ is disabled
+F_Bit           EQU     0x40            ; when F bit is set, FIQ is disabled
+
+
+; Internal Memory Base Addresses
+IROM_BASE       EQU     0x00100000
+IRAM_BASE       EQU     0x00300000
+
+;// <h> Stack Configuration (Stack Sizes in Bytes)
+;//   <o0> Undefined Mode      <0x0-0xFFFFFFFF:8>
+;//   <o1> Supervisor Mode     <0x0-0xFFFFFFFF:8>
+;//   <o2> Abort Mode          <0x0-0xFFFFFFFF:8>
+;//   <o3> Fast Interrupt Mode <0x0-0xFFFFFFFF:8>
+;//   <o4> Interrupt Mode      <0x0-0xFFFFFFFF:8>
+;//   <o5> User/System Mode    <0x0-0xFFFFFFFF:8>
+;// </h>
+
+UND_Stack_Size  EQU     0x00000000
+SVC_Stack_Size  EQU     0x00000008
+ABT_Stack_Size  EQU     0x00000000
+FIQ_Stack_Size  EQU     0x00000000
+IRQ_Stack_Size  EQU     0x00000080
+USR_Stack_Size  EQU     0x00000040
+
+ISR_Stack_Size  EQU     (UND_Stack_Size + SVC_Stack_Size + ABT_Stack_Size + \
+                         FIQ_Stack_Size + IRQ_Stack_Size)
+
+                AREA    STACK, NOINIT, READWRITE, ALIGN=3
+
+Stack_Mem       SPACE   USR_Stack_Size
+__initial_sp    SPACE   ISR_Stack_Size
+Stack_Top
+
+
+;// <h> Heap Configuration
+;//   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF>
+;// </h>
+
+Heap_Size       EQU     0x00000000
+
+                AREA    HEAP, NOINIT, READWRITE, ALIGN=3
+__heap_base
+Heap_Mem        SPACE   Heap_Size
+__heap_limit
+
+;----------------------- AIC Definitions --------------------------------------
+AIC_BASE        EQU     0xFFFFF000
+AIC_IDCR_OFS    EQU     0x124
+
+;----------------------- PIOs Definitions --------------------------------------
+
+; Parallel Input/Output Controller (PIO) User Interface
+PIOA_BASE       EQU     0xFFFFF400      ; PIO A                   Base Address
+PIOB_BASE       EQU     0xFFFFF600      ; PIO B                   Base Address
+PIOC_BASE       EQU     0xFFFFF800      ; PIO C                   Base Address
+PIOD_BASE       EQU     0xFFFFFA00      ; PIO C                   Base Address
+PIO_PER_OFS     EQU     0x00            ; PIO Enable Register     Address Offset
+PIO_PDR_OFS     EQU     0x04            ; PIO Disable Register    Address Offset
+PIO_OER_OFS     EQU     0x10            ; PIO Output Enable Reg   Address Offset
+PIO_ODR_OFS     EQU     0x14            ; PIO Output Disable Reg  Address Offset
+PIO_MDER_OFS    EQU     0x50            ; PIO Multi-Driver En Reg Address Offset
+PIO_MDDR_OFS    EQU     0x54            ; PIO Multi-Driver Ds Reg Address Offset
+PIO_PUDR_OFS    EQU     0x60            ; PIO Pull-up Disable Reg Address Offset
+PIO_PUER_OFS    EQU     0x64            ; PIO Pull-up Enable Reg  Address Offset
+PIO_ASR_OFS     EQU     0x70            ; PIO Periph A Select Reg Address Offset
+PIO_BSR_OFS     EQU     0x74            ; PIO Periph B Select Reg Address Offset
+
+
+;----------------------- Power Management Controller (PMC) Definitions ---------
+
+; Power Management Controller (PMC) definitions
+PMC_BASE        EQU     0xFFFFFC00      ; PMC                     Base Address
+PMC_SCER_OFS    EQU     0x00            ; Sys Clk Enable Reg      Address Offset
+PMC_SCDR_OFS    EQU     0x04            ; Sys Clk Disable Reg     Address Offset
+PMC_SCSR_OFS    EQU     0x08            ; Sys Clk Status Reg      Address Offset
+PMC_PCER_OFS    EQU     0x10            ; Periph Clk Enable Reg   Address Offset
+PMC_PCDR_OFS    EQU     0x14            ; Periph Clk Disable Reg  Address Offset
+PMC_PCSR_OFS    EQU     0x18            ; Periph Clk Status Reg   Address Offset
+CKGR_MOR_OFS    EQU     0x20            ; Main Oscillator Reg     Address Offset
+CKGR_MCFR_OFS   EQU     0x24            ; Main Clock Freq Reg     Address Offset
+CKGR_PLLAR_OFS  EQU     0x28            ; PLLA Reg                Address Offset
+PMC_MCKR_OFS    EQU     0x30            ; Master Clock Reg        Address Offset
+PMC_PCK0_OFS    EQU     0x40            ; Programmable Clk 0 Reg  Address Offset
+PMC_PCK1_OFS    EQU     0x44            ; Programmable Clk 1 Reg  Address Offset
+PMC_PCK2_OFS    EQU     0x48            ; Programmable Clk 2 Reg  Address Offset
+PMC_PCK3_OFS    EQU     0x4C            ; Programmable Clk 3 Reg  Address Offset
+PMC_IER_OFS     EQU     0x60            ; Interrupt Enable  Reg   Address Offset
+PMC_IDR_OFS     EQU     0x64            ; Interrupt Disable Reg   Address Offset
+PMC_SR_OFS      EQU     0x68            ; Status Register         Address Offset
+PMC_IMR_OFS     EQU     0x6C            ; Interrupt Mask Reg      Address Offset
+PMC_PLLICPR_OFS EQU     0x80            ; Charge Pump Current Reg Address Offset
+
+; Bit constants
+PMC_MOSCEN      EQU     (1<<0)          ; Main Oscillator Enable
+PMC_MOSCRCEN    EQU     (1<<3)          ; Main On-Chip RC Oscillator Enable
+PMC_MOSXCEN     EQU     (0x09)          ; Main Oscillator/ Main On-Chip RC Oscillator Enable
+PMC_MOSCSEL     EQU     (1<<24)          ; Main Oscillator Enable
+PMC_MUL         EQU     (0xFF<<16)      ; PLL Multiplier
+PMC_MOSCS       EQU     (1<<0)          ; Main Oscillator Stable
+PMC_LOCKA       EQU     (1<<1)          ; PLL A Lock Status
+PMC_LOCKB       EQU     (1<<2)          ; PLL A Lock Status
+PMC_MCKRDY      EQU     (1<<3)          ; Master Clock Status
+PMC_MOSCRCS     EQU     (1<<17)         ; MOSCRCS: Main On-Chip RC Oscillator Status
+PMC_MOSCSELS    EQU     (1<<16)         ; Main Oscillator Selection Status
+PMC_KEY         EQU     (0x00370000)    ; KEY: Password
+
+;// <e> Power Management Controller (PMC)
+;//   <h> System Clock Enable Register (PMC_SCER)
+;//     <o1.4>      SMDCK: SMD Clock Enable
+;//     <o1.6>      UHP: USB Host Port Clock Enable
+;//     <o1.7>      PCK7: Programmable Clock 7 Output Enable
+;//     <o1.8>      PCK0: Programmable Clock 0 Output Enable
+;//     <o1.9>      PCK1: Programmable Clock 1 Output Enable
+;//   </h>
+;//
+;//   <h> Peripheral Clock Enable Register (PMC_PCER)
+;//     <o2.2>      PID2: Parallel IO Controller A and B Enable
+;//     <o2.3>      PID3: Parallel IO Controller C and D Enable
+;//     <o2.4>      PID4: SMD Soft Modem
+;//     <o2.7>      PID5: USART 0 Enable
+;//     <o2.8>      PID6: USART 1 Enable
+;//     <o2.9>      PID7: USART 2 Enable
+;//     <o2.9>      PID9: Two-Wire Interface 0 Enable
+;//     <o2.10>     PID10: Two-Wire Interface 1 Enable
+;//     <o2.11>     PID11: Two-Wire Interface 2 Enable
+;//     <o2.12>     PID12: High Speed Multimedia Card Interface 0 Enable
+;//     <o2.13>     PID13: Serial Peripheral Interface 0 Enable
+;//     <o2.14>     PID14: Serial Peripheral Interface 1 Enable
+;//     <o2.15>     PID15: UART 0 Enable
+;//     <o2.16>     PID16: UART 1 Enable
+;//     <o2.17>     PID17: Timer Counter 0,1,2,3,4,5 Enable
+;//     <o2.18>     PID18: Pulse Width Modulation Controller Enable
+;//     <o2.19>     PID19: Touch Screen ADC Controller Enable
+;//     <o2.20>     PID20: DMA Controller 0 Enable
+;//     <o2.21>     PID21: DMA Controller 1 Enable
+;//     <o2.22>     PID22: USB Host High Speed Enable 
+;//     <o2.23>     PID23: USB Device High Speed Enable
+;//     <o2.24>     PID24: Ethernet MAC Enable
+;//     <o2.25>     PID25: LCD Controller Enable
+;//     <o2.26>     PID26: High Speed Multimedia Card Interface 1 Enable
+;//     <o2.28>     PID28: Synchronous Serial Controller Enable
+;//     <o2.31>     PID31: Advanced Interrupt Controller (IRQ) Enable
+;//   </h>
+;//
+;//   <h> Main Oscillator Register (CKGR_MOR)
+;//     <o3.0>      MOSCXTEN: Main Crystal Oscillator Enable
+;//     <o3.1>      MOSCXTBY: Main Crystal Oscillator Bypass
+;//     <o3.3>      MOSCRCEN: Main On-Chip RC Oscillator Enable
+;//     <o3.8..15>  MOSCXTST: Main Oscillator Startup Time <0-255>
+;//     <o3.24>      MOSCSEL: Main Oscillator Selection
+;//     <o3.25>        CFDEN: Clock Failure Detector Enable
+;//   </h>
+;//
+;//   <h> Clock Generator Phase Locked Loop A Register (CKGR_PLLAR)
+;//                   <i> PLL A Freq = (Main CLOCK Freq / DIVA) * (MULA + 1)
+;//                   <i> Example: XTAL = 12 MHz, DIVA = 14, MULA = 72  =>  PLLA = 62.5714 MHz
+;//     <o4.0..7>   DIVA: PLL Divider A <0-255>
+;//                   <i> 0        - Divider output is 0
+;//                   <i> 1        - Divider is bypassed
+;//                   <i> 2 .. 255 - Divider output is the Main Clock divided by DIVA
+;//     <o4.8..13>  PLLACOUNT: PLL A Counter <0-63>
+;//                   <i> Number of Slow Clocks before the LOCKA bit is set in 
+;//                   <i> PMC_SR after CKGR_PLLAR is written
+;//     <o4.14..15> OUTA: PLL A Clock Frequency Range
+;//                   <0=> 745 .. 800 MHz (ICPLLA = 0) | 545 .. 600 MHz (ICPLLA = 1)
+;//                   <1=> 695 .. 750 MHz (ICPLLA = 0) | 495 .. 550 MHz (ICPLLA = 1)
+;//                   <2=> 645 .. 700 MHz (ICPLLA = 0) | 445 .. 500 MHz (ICPLLA = 1)
+;//                   <3=> 595 .. 650 MHz (ICPLLA = 0) | 400 .. 450 MHz (ICPLLA = 1)
+;//     <o4.16..23> MULA: PLL A Multiplier <0-254>
+;//                   <i> 0        - The PLL A is deactivated
+;//                   <i> 1 .. 254 - The PLL A Clock frequency is the PLL a input 
+;//                   <i>            frequency multiplied by MULA + 1
+;//   </h>                        
+;//
+;//   <h> Master Clock Register (CKGR_MCKR)
+;//     <o5.0..1>   CSS: Master Clock Selection
+;//                   <0=> Slow Clock
+;//                   <1=> Main Clock
+;//                   <2=> PLL A Clock
+;//                   <3=> UPLL  Clock
+;//     <o5.4..6>   PRES: Master Clock Prescaler
+;//                   <0=> Clock        <1=> Clock / 2
+;//                   <2=> Clock / 4    <3=> Clock / 8
+;//                   <4=> Clock / 16   <5=> Clock / 32
+;//                   <6=> Clock / 64   <7=> Reserved
+;//     <o5.8..9>   MDIV: Master Clock Division
+;//                   <0=> Master Clock = Prescaler Output Clock
+;//                   <1=> Master Clock = Prescaler Output Clock / 2
+;//                   <2=> Master Clock = Prescaler Output Clock / 4
+;//                   <3=> Master Clock = Prescaler Output Clock / 3
+;//     <o5.12>     PLLADIV2: PLLA divisor by 2
+;//                   <0=> PLLA clock frequency is divided by 1
+;//                   <1=> PLLA clock frequency is divided by 2
+;//   </h>
+;//
+;//   <h> Programmable Clock Register 0 (PMC_PCK0)
+;//     <o6.0..1>   CSS: Master Clock Selection
+;//                   <0=> Slow Clock or Master Clock (Depending on SLCKMCK field)
+;//                   <1=> Main Clock
+;//                   <2=> PLLACK/PLLADIV2 Clock
+;//                   <3=> UPLLCK
+;//     <o6.2..4>   PRES: Programmable Clock Prescaler
+;//                   <0=> Clock        <1=> Clock / 2
+;//                   <2=> Clock / 4    <3=> Clock / 8
+;//                   <4=> Clock / 16   <5=> Clock / 32
+;//                   <6=> Clock / 64   <7=> Reserved
+;//     <o6.8>      SLCKMCK: Slow Clock or Master Clock Selection
+;//                   <0=>   Slow Clock is selected
+;//                   <1=> Master Clock is selected
+;//   </h>
+;//
+;//   <h> Programmable Clock Register 1 (PMC_PCK1)
+;//     <o7.0..2>   CSS: Master Clock Selection
+;//                   <0=> Slow Clock or Master Clock (Depending on SLCKMCK field)
+;//                   <1=> Main Clock
+;//                   <2=> PLLACK/PLLADIV2 Clock
+;//                   <3=> UPLLCK
+;//                   <4=> MCK_CLK
+;//     <o7.4..6>   PRES: Programmable Clock Prescaler
+;//                   <0=> Clock        <1=> Clock / 2
+;//                   <2=> Clock / 4    <3=> Clock / 8
+;//                   <4=> Clock / 16   <5=> Clock / 32
+;//                   <6=> Clock / 64   <7=> Reserved
+;//   </h>
+;//
+;//   <h> PLL Charge Pump Current Register (PMC_PLLICPR)
+;//     <o8.0>      ICPLLA: Charge Pump Current
+;//   </h>
+;// </e>
+PMC_SETUP       EQU     1
+PMC_SCER_Val    EQU     0x00000000
+PMC_PCER_Val    EQU     0x0000002C
+CKGR_MOR_Val    EQU     0x01000709
+CKGR_PLLAR_Val  EQU     0x202A4601
+PMC_MCKR_Val    EQU     0x00000212
+PMC_PCK0_Val    EQU     0x00000000
+PMC_PCK1_Val    EQU     0x00000000
+PMC_PLLICPR_Val EQU     0x00000001
+
+
+;----------------------- MATRIX Definitions ------------------------------------
+
+; Bus Matrix (MATRIX) User Interface
+; |- Chip Configuration (CCFG) User Interface
+MATRIX_BASE      EQU    0xFFFFDE00      ; Bus Matrix              Base Address
+MATRIX_MCFG0_OFS EQU    0x00            ; Master Config Reg 0     Address Offset
+MATRIX_MCFG1_OFS EQU    0x04            ; Master Config Reg 1     Address Offset
+MATRIX_MCFG2_OFS EQU    0x08            ; Master Config Reg 2     Address Offset
+MATRIX_MCFG3_OFS EQU    0x0C            ; Master Config Reg 3     Address Offset
+MATRIX_MCFG4_OFS EQU    0x10            ; Master Config Reg 4     Address Offset
+MATRIX_MCFG5_OFS EQU    0x14            ; Master Config Reg 5     Address Offset
+MATRIX_MCFG6_OFS EQU    0x18            ; Master Config Reg 6     Address Offset
+MATRIX_MCFG7_OFS EQU    0x1C            ; Master Config Reg 7     Address Offset
+MATRIX_MCFG8_OFS EQU    0x20            ; Master Config Reg 8     Address Offset
+MATRIX_MCFG9_OFS EQU    0x24            ; Master Config Reg 9     Address Offset
+MATRIX_MCFG10_OFS EQU   0x28            ; Master Config Reg 10    Address Offset
+MATRIX_MCFG11_OFS EQU   0x2C            ; Master Config Reg 11    Address Offset
+MATRIX_SCFG0_OFS EQU    0x40            ; Slave Config Reg 0      Address Offset
+MATRIX_SCFG1_OFS EQU    0x44            ; Slave Config Reg 1      Address Offset
+MATRIX_SCFG2_OFS EQU    0x48            ; Slave Config Reg 2      Address Offset
+MATRIX_SCFG3_OFS EQU    0x4C            ; Slave Config Reg 3      Address Offset
+MATRIX_SCFG4_OFS EQU    0x50            ; Slave Config Reg 4      Address Offset
+MATRIX_SCFG5_OFS EQU    0x54            ; Slave Config Reg 5      Address Offset
+MATRIX_SCFG6_OFS EQU    0x58            ; Slave Config Reg 6      Address Offset
+MATRIX_SCFG7_OFS EQU    0x5C            ; Slave Config Reg 7      Address Offset
+MATRIX_SCFG8_OFS EQU    0x60            ; Slave Config Reg 8      Address Offset
+MATRIX_SCFG9_OFS EQU    0x64            ; Slave Config Reg 9      Address Offset
+MATRIX_PRAS0_OFS EQU    0x80            ; Priority A for Slave 0  Address Offset
+MATRIX_PRAS1_OFS EQU    0x88            ; Priority A for Slave 1  Address Offset
+MATRIX_PRAS2_OFS EQU    0x90            ; Priority A for Slave 2  Address Offset
+MATRIX_PRAS3_OFS EQU    0x98            ; Priority A for Slave 3  Address Offset
+MATRIX_PRAS4_OFS EQU    0xA0            ; Priority A for Slave 4  Address Offset
+MATRIX_PRAS5_OFS EQU    0xA8            ; Priority A for Slave 5  Address Offset
+MATRIX_PRAS6_OFS EQU    0xB0            ; Priority A for Slave 6  Address Offset
+MATRIX_PRAS7_OFS EQU    0xB8            ; Priority A for Slave 7  Address Offset
+MATRIX_PRAS8_OFS EQU    0xC0            ; Priority A for Slave 8  Address Offset
+MATRIX_PRAS9_OFS EQU    0xC8            ; Priority A for Slave 9  Address Offset
+MATRIX_PRBS0_OFS EQU    0x84            ; Priority A for Slave 0  Address Offset
+MATRIX_PRBS1_OFS EQU    0x8C            ; Priority A for Slave 1  Address Offset
+MATRIX_PRBS2_OFS EQU    0x94            ; Priority A for Slave 2  Address Offset
+MATRIX_PRBS3_OFS EQU    0x9C            ; Priority A for Slave 3  Address Offset
+MATRIX_PRBS4_OFS EQU    0xA4            ; Priority A for Slave 4  Address Offset
+MATRIX_PRBS5_OFS EQU    0xAC            ; Priority A for Slave 5  Address Offset
+MATRIX_PRBS6_OFS EQU    0xB4            ; Priority A for Slave 6  Address Offset
+MATRIX_PRBS7_OFS EQU    0xBC            ; Priority A for Slave 7  Address Offset
+MATRIX_PRBS8_OFS EQU    0xC4            ; Priority A for Slave 8  Address Offset
+MATRIX_PRBS9_OFS EQU    0xCC            ; Priority A for Slave 9  Address Offset
+MATRIX_MRCR_OFS  EQU    0x100           ; Master Remap Control R  Address Offset
+EBI_CSA_OFS      EQU    0x120           ; EBI Chip Select Assign  Address Offset
+
+; Constants
+EBI_CS0_ADDRESS EQU     0x10000000      ; Start of memory addressed by CS0
+EBI_CS1_ADDRESS EQU     0x20000000      ; Start of memory addressed by CS1
+EBI_CS2_ADDRESS EQU     0x30000000      ; Start of memory addressed by CS2
+EBI_CS3_ADDRESS EQU     0x40000000      ; Start of memory addressed by CS3
+EBI_CS4_ADDRESS EQU     0x50000000      ; Start of memory addressed by CS4
+EBI_CS5_ADDRESS EQU     0x60000000      ; Start of memory addressed by CS5
+EBI_CS6_ADDRESS EQU     0x70000000      ; Start of memory addressed by CS6
+EBI_CS7_ADDRESS EQU     0x80000000      ; Start of memory addressed by CS7
+
+;// <e> Bus Matrix (MATRIX)
+MATRIX_SETUP    EQU     0
+
+;//   <h> Bus Matrix Master Configuration Registers
+;//     <h>  Bus Matrix Master Configuration Registers 0 (MATRIX_MCFG0)
+;//       <o0.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 1 (MATRIX_MCFG1)
+;//       <o1.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 2 (MATRIX_MCFG2)
+;//       <o2.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 3 (MATRIX_MCFG3)
+;//       <o3.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 4 (MATRIX_MCFG4)
+;//       <o4.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 5 (MATRIX_MCFG5)
+;//       <o5.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 6 (MATRIX_MCFG6)
+;//       <o5.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 7 (MATRIX_MCFG7)
+;//       <o5.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 8 (MATRIX_MCFG8)
+;//       <o5.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 9 (MATRIX_MCFG9)
+;//       <o5.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 10 (MATRIX_MCFG10)
+;//       <o5.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//     <h>  Bus Matrix Master Configuration Registers 11 (MATRIX_MCFG11)
+;//       <o5.0..2> ULBT: Undefined Length Burst Type 
+;//                   <0=> Infinite Length Burst
+;//                   <1=>  Single Access
+;//                   <2=>   4-Beat Burst
+;//                   <3=>   8-Beat Burst
+;//                   <4=>  16-Beat Burst
+;//                   <5=>  32-Beat Burst
+;//                   <6=>  64-Beat Burst
+;//                   <7=> 128-Beat Burst
+;//     </h>
+;//   </h>
+MATRIX_MCFG0_Val  EQU    0x00000000
+MATRIX_MCFG1_Val  EQU    0x00000002
+MATRIX_MCFG2_Val  EQU    0x00000002
+MATRIX_MCFG3_Val  EQU    0x00000002
+MATRIX_MCFG4_Val  EQU    0x00000002
+MATRIX_MCFG5_Val  EQU    0x00000002
+MATRIX_MCFG6_Val  EQU    0x00000002
+MATRIX_MCFG7_Val  EQU    0x00000002
+MATRIX_MCFG8_Val  EQU    0x00000002
+MATRIX_MCFG9_Val  EQU    0x00000002
+MATRIX_MCFG10_Val EQU    0x00000002
+MATRIX_MCFG11_Val EQU    0x00000002
+;//   <h> Bus Matrix Slave Configuration Registers
+;//     <h> Bus Master Slave Configuration Register 0 (MATRIX_SCFG0)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o0.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o0.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 1 (MATRIX_SCFG1)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o1.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o1.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 2 (MATRIX_SCFG2)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o2.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o2.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 3 (MATRIX_SCFG3)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o3.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o3.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 4 (MATRIX_SCFG4)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o4.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o4.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 5 (MATRIX_SCFG5)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o4.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o4.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 6 (MATRIX_SCFG6)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o4.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o4.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 7 (MATRIX_SCFG7)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o4.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o4.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 8 (MATRIX_SCFG8)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o4.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o4.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//     <h> Bus Master Slave Configuration Register 9 (MATRIX_SCFG9)
+;//       <o0.0..8>   SLOT_CYCLE: Maximum number of Allowed Cycles for a Burst
+;//                   <i> When the SLOT_CYCLE limit is reached for a burst, it may be
+;//                   <i> broken by another master trying to access this slave
+;//       <o4.16..17> DEFMASTR_TYPE: Default Master Type
+;//                   <0=> No Default Master
+;//                   <1=> Last Default Master
+;//                   <2=> Fixed Default Master
+;//       <o4.18..21> FIXED_DEFMSTR: Fixed Index of Default Master <0-15>
+;//                   <i> This is the index of the Fixed Default Master for this slave
+;//     </h>
+;//   </h>
+MATRIX_SCFG0_Val EQU    0x00000010
+MATRIX_SCFG1_Val EQU    0x00000010
+MATRIX_SCFG2_Val EQU    0x00000010
+MATRIX_SCFG3_Val EQU    0x00000010
+MATRIX_SCFG4_Val EQU    0x00000010
+MATRIX_SCFG5_Val EQU    0x00000010
+MATRIX_SCFG6_Val EQU    0x00000010
+MATRIX_SCFG7_Val EQU    0x00000010
+MATRIX_SCFG8_Val EQU    0x00000010
+MATRIX_SCFG9_Val EQU    0x00000010
+;//   <h> Bus Matrix Priority Registers A For Slaves
+;//     <h> Bus Matrix Priority Register For Slaves 0 (MATRIX_PRAS0)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M0PR: Master 0 Priority
+;//       <o0.4..5>   M1PR: Master 1 Priority
+;//       <o0.8..9>   M2PR: Master 2 Priority
+;//       <o0.12..13> M3PR: Master 3 Priority
+;//       <o0.16..17> M4PR: Master 4 Priority
+;//       <o0.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 1 (MATRIX_PRAS1)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o1.0..1>   M0PR: Master 0 Priority
+;//       <o1.4..5>   M1PR: Master 1 Priority
+;//       <o1.8..9>   M2PR: Master 2 Priority
+;//       <o1.12..13> M3PR: Master 3 Priority
+;//       <o1.16..17> M4PR: Master 4 Priority
+;//       <o1.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 2 (MATRIX_PRAS2)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o2.0..1>   M0PR: Master 0 Priority
+;//       <o2.4..5>   M1PR: Master 1 Priority
+;//       <o2.8..9>   M2PR: Master 2 Priority
+;//       <o2.12..13> M3PR: Master 3 Priority
+;//       <o2.16..17> M4PR: Master 4 Priority
+;//       <o2.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//      </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 3 (MATRIX_PRAS3)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o3.0..1>   M0PR: Master 0 Priority
+;//       <o3.4..5>   M1PR: Master 1 Priority
+;//       <o3.8..9>   M2PR: Master 2 Priority
+;//       <o3.12..13> M3PR: Master 3 Priority
+;//       <o3.16..17> M4PR: Master 4 Priority
+;//       <o3.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 4 (MATRIX_PRAS4)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o4.0..1>   M0PR: Master 0 Priority
+;//       <o4.4..5>   M1PR: Master 1 Priority
+;//       <o4.8..9>   M2PR: Master 2 Priority
+;//       <o4.12..13> M3PR: Master 3 Priority
+;//       <o4.16..17> M4PR: Master 4 Priority
+;//       <o4.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 5 (MATRIX_PRAS5)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o4.0..1>   M0PR: Master 0 Priority
+;//       <o4.4..5>   M1PR: Master 1 Priority
+;//       <o4.8..9>   M2PR: Master 2 Priority
+;//       <o4.12..13> M3PR: Master 3 Priority
+;//       <o4.16..17> M4PR: Master 4 Priority
+;//       <o4.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 6 (MATRIX_PRAS6)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o4.0..1>   M0PR: Master 0 Priority
+;//       <o4.4..5>   M1PR: Master 1 Priority
+;//       <o4.8..9>   M2PR: Master 2 Priority
+;//       <o4.12..13> M3PR: Master 3 Priority
+;//       <o4.16..17> M4PR: Master 4 Priority
+;//       <o4.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 7 (MATRIX_PRAS7)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o4.0..1>   M0PR: Master 0 Priority
+;//       <o4.4..5>   M1PR: Master 1 Priority
+;//       <o4.8..9>   M2PR: Master 2 Priority
+;//       <o4.12..13> M3PR: Master 3 Priority
+;//       <o4.16..17> M4PR: Master 4 Priority
+;//       <o4.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 8 (MATRIX_PRAS8)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o4.0..1>   M0PR: Master 0 Priority
+;//       <o4.4..5>   M1PR: Master 1 Priority
+;//       <o4.8..9>   M2PR: Master 2 Priority
+;//       <o4.12..13> M3PR: Master 3 Priority
+;//       <o4.16..17> M4PR: Master 4 Priority
+;//       <o4.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register A For Slaves 9 (MATRIX_PRAS9)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o4.0..1>   M0PR: Master 0 Priority
+;//       <o4.4..5>   M1PR: Master 1 Priority
+;//       <o4.8..9>   M2PR: Master 2 Priority
+;//       <o4.12..13> M3PR: Master 3 Priority
+;//       <o4.16..17> M4PR: Master 4 Priority
+;//       <o4.20..21> M5PR: Master 5 Priority
+;//       <o0.24..25> M6PR: Master 4 Priority
+;//       <o0.28..29> M7PR: Master 5 Priority
+;//     </h>
+;//   </h>
+MATRIX_PRAS0_Val EQU    0x00000000
+MATRIX_PRAS1_Val EQU    0x00000000
+MATRIX_PRAS2_Val EQU    0x00000000
+MATRIX_PRAS3_Val EQU    0x00000000
+MATRIX_PRAS4_Val EQU    0x00000000
+MATRIX_PRAS5_Val EQU    0x00000000
+MATRIX_PRAS6_Val EQU    0x00000000
+MATRIX_PRAS7_Val EQU    0x00000000
+MATRIX_PRAS8_Val EQU    0x00000000
+MATRIX_PRAS9_Val EQU    0x00000000
+
+;//   <h> Bus Matrix Priority Registers B For Slaves
+;//     <h> Bus Matrix Priority Register B For Slaves 0 (MATRIX_PRBS0)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 1 (MATRIX_PRBS1)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 2 (MATRIX_PRBS2)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 3 (MATRIX_PRBS3)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 4 (MATRIX_PRBS4)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 5 (MATRIX_PRBS5)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 6 (MATRIX_PRBS6)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 7 (MATRIX_PRBS7)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 8 (MATRIX_PRBS8)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//     <h> Bus Matrix Priority Register B For Slaves 9 (MATRIX_PRBS9)
+;//       <i> Fixed priority of Master x for access to the selected slave.
+;//       <i> The higher the number, the higher the priority.
+;//       <o0.0..1>   M8PR: Master  8 Priority
+;//       <o0.4..5>   M9PR: Master  9 Priority
+;//       <o0.8..9>  M10PR: Master 10 Priority
+;//     </h>
+;//   </h>
+MATRIX_PRBS0_Val EQU    0x00000000
+MATRIX_PRBS1_Val EQU    0x00000000
+MATRIX_PRBS2_Val EQU    0x00000000
+MATRIX_PRBS3_Val EQU    0x00000000
+MATRIX_PRBS4_Val EQU    0x00000000
+MATRIX_PRBS5_Val EQU    0x00000000
+MATRIX_PRBS6_Val EQU    0x00000000
+MATRIX_PRBS7_Val EQU    0x00000000
+MATRIX_PRBS8_Val EQU    0x00000000
+MATRIX_PRBS9_Val EQU    0x00000000
+
+;// </e> Bus Matrix (MATRIX)
+
+
+;// <e> External Bus Interface (EBI)
+EBI_SETUP       EQU     1
+
+;//   <h> EBI Chip Select Assignment Register
+;//     <o0.1>      EBI_CS1A: EBI Chip Select 1 Assignment
+;//                   <0=> Assigned to Static Memory Controller
+;//                   <1=> Assigned to DDR2SDR Controller
+;//     <o0.3>      EBI_CS3A: EBI Chip Select 3 Assignment
+;//                   <0=> Assigned to Static Memory Controller
+;//                   <1=> Assigned to Static Memory Controller and the SmartMedia Logic
+;//     <o0.8>      EBI_DBPUC: EBI Data Bus Pull-Up Configuration
+;//                   <0=> EBI D0..D15 Data Bus bits are internally pulled-up
+;//                   <1=> EBI D0..D15 Data Bus bits are not internally pulled-up
+;//     <o0.9>      EBI_DBPDC: EBI Data Bus Pull-Down Configuration
+;//                   <0=> EBI D0..D15 Data Bus bits are internally pulled-down to the groundp
+;//                   <1=> EBI D0..D15 Data Bus bits are not internally pulled-down
+;//     <o0.17>     EBI_DRIVE: EBI I/O Drive Configuration
+;//                   <0=> Low drive
+;//                   <1=> High drive
+;//     <o0.24>     NFD0_ON_D16: NAND Flash Databus Selection
+;//                   <0=> NAND Flash I/O are connected to D0-D15 in case VDDIOM equals VDDNF
+;//                   <1=> NAND Flash I/O are connected to D16-D31 in case VDDIOM doe not equal VDDNF
+;//     <o0.25>     DDR_MP_EN: DDR Multi-port Enable
+;//                   <0=> DDR Multi-port is disabled
+;//                   <1=> DDR Multi-port is enabled, performance is increased
+;//   </h>
+EBI_CSA_Val     EQU     0x00000002
+
+;// </e> External Bus Interface (EBI)
+
+
+;----------------------- Static Memory Controller (SMC) Definitions ------------
+
+; Static Memory Controller (SMC) User Interface
+SMC_BASE        EQU     0xFFFFEA00      ; SMC                     Base Address
+
+                ^       0               ; SMC Registers           Offsets
+SMC_SETUP0_OFS  #       0x04            ; CS0 Setup Register      Address Offset
+SMC_PULSE0_OFS  #       0x04            ; CS0 Pulse Register      Address Offset
+SMC_CYCLE0_OFS  #       0x04            ; CS0 Cycle Register      Address Offset
+SMC_MODE0_OFS   #       0x04            ; CS0 Mode  Register      Address Offset
+
+SMC_SETUP1_OFS  #       0x04            ; CS1 Setup Register      Address Offset
+SMC_PULSE1_OFS  #       0x04            ; CS1 Pulse Register      Address Offset
+SMC_CYCLE1_OFS  #       0x04            ; CS1 Cycle Register      Address Offset
+SMC_MODE1_OFS   #       0x04            ; CS1 Mode  Register      Address Offset
+
+SMC_SETUP2_OFS  #       0x04            ; CS2 Setup Register      Address Offset
+SMC_PULSE2_OFS  #       0x04            ; CS2 Pulse Register      Address Offset
+SMC_CYCLE2_OFS  #       0x04            ; CS2 Cycle Register      Address Offset
+SMC_MODE2_OFS   #       0x04            ; CS2 Mode  Register      Address Offset
+
+SMC_SETUP3_OFS  #       0x04            ; CS3 Setup Register      Address Offset
+SMC_PULSE3_OFS  #       0x04            ; CS3 Pulse Register      Address Offset
+SMC_CYCLE3_OFS  #       0x04            ; CS3 Cycle Register      Address Offset
+SMC_MODE3_OFS   #       0x04            ; CS3 Mode  Register      Address Offset
+
+SMC_SETUP4_OFS  #       0x04            ; CS4 Setup Register      Address Offset
+SMC_PULSE4_OFS  #       0x04            ; CS4 Pulse Register      Address Offset
+SMC_CYCLE4_OFS  #       0x04            ; CS4 Cycle Register      Address Offset
+SMC_MODE4_OFS   #       0x04            ; CS4 Mode  Register      Address Offset
+
+SMC_SETUP5_OFS  #       0x04            ; CS5 Setup Register      Address Offset
+SMC_PULSE5_OFS  #       0x04            ; CS5 Pulse Register      Address Offset
+SMC_CYCLE5_OFS  #       0x04            ; CS5 Cycle Register      Address Offset
+SMC_MODE5_OFS   #       0x04            ; CS5 Mode  Register      Address Offset
+
+;// <e> Static Memory Controller (SMC)
+SMC_SETUP       EQU     0
+
+;//   <e> SMC Chip Select 0 Configuration
+;//     <h> Chip Select 0 Setup Register (SMC_SETUP0)
+;//       <o1.0..5>   NWE_SETUP: NWE Setup Length <0-63>
+;//                     <i> NWE setup length = (128*NWE_SETUP[5]+NWE_SETUP[4..0]) clock cycles
+;//       <o1.8..13>  NCS_WR_SETUP: NCS Setup Length in WRITE Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_WR_SETUP[5]+NCS_WR_SETUP[4..0]) clock cycles
+;//       <o1.16..21> NRD_SETUP: NRD Setup Length <0-63>
+;//                     <i> NRD setup length = (128*NRD_SETUP[5]+NRD_SETUP[4..0]) clock cycles
+;//       <o1.24..29> NCS_RD_SETUP: NCS Setup Length in READ Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_RD_SETUP[5]+NCS_RD_SETUP[4..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 0 Pulse Register (SMC_PULSE0)
+;//       <o2.0..6>   NWE_PULSE: NWE Pulse Length <0-127>
+;//                     <i> NWE pulse length = (256*NWE_PULSE[6]+NWE_PULSE[5..0]) clock cycles
+;//       <o2.8..14>  NCS_WR_PULSE: NCS Pulse Length in WRITE Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_WR_PULSE[6]+NCS_WR_PULSE[5..0]) clock cycles
+;//       <o2.16..22> NRD_PULSE: NRD Pulse Length <0-127>
+;//                     <i> NRD pulse length = (256*NRD_PULSE[6]+NRD_PULSE[5..0]) clock cycles
+;//       <o2.24..30> NCS_RD_PULSE: NCS Pulse Length in READ Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_RD_PULSE[6]+NCS_RD_PULSE[5..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 0 Cycle Register (SMC_CYCLE0)
+;//       <o3.0..8>   NWE_CYCLE: Total Write Cycle Length <0-511>
+;//                     <i> Write cycle length = (NWE_CYCLE[8..7]*256+NWE_CYCLE[6..0]) clock cycle
+;//       <o3.16..24> NRD_CYCLE: Total Read Cycle Length <0-511>
+;//                     <i> Read cycle length = (NRD_CYCLE[8..7]*256+NRD_CYCLE[6..0]) clock cycle
+;//     </h>
+;//
+;//     <h> Chip Select 0 Mode Register (SMC_MODE0)
+;//       <o4.0>      READ_MODE:
+;//                     <0=> The read operation is controlled by the NCS signal
+;//                     <1=> The read operation is controlled by the NRD signal
+;//       <o4.1>      WRITE_MODE:
+;//                     <0=> The write operation is controlled by the NCS signal
+;//                     <1=> The write operation is controlled by the NWE signal
+;//       <o4.4..5>   EXNW_MODE: NWAIT Mode
+;//                     <0=> Disabled
+;//                     <2=> Frozen Mode
+;//                     <3=> Ready Mode
+;//       <o4.8>      BAT: Byte Access Type
+;//                     <0=> 0
+;//                     <1=> 1
+;//                     <i>  0: - Write operation is controlled using: NCS, NWE, NBS0, NBS1, NBS2, NBS3
+;//                     <i>     - Read  operation is controlled using: NCS, NRD, NBS0, NBS1, NBS2, NBS3
+;//                     <i>  1: - Write operation is controlled using: NCS, NWR0, NWR1, NWR2, NWR3        
+;//                     <i>     - Read  operation is controlled using: NCS, NRD
+;//       <o4.12..13> DBW: Data Bus Width
+;//                     <0=> 8-bit bus
+;//                     <1=> 16-bit bus
+;//                     <2=> 32-bit bus
+;//       <o4.16..19> TDF_CYCLES: Data Float Time <0-15>
+;//       <o4.20>     TDF_MODE: TDF Optimization Enabled
+;//       <o4.24>     PMEN: Page Mode Enabled
+;//       <o4.28..29> PS: Page Size
+;//                     <0=> 4-byte page
+;//                     <1=> 8-byte page
+;//                     <2=> 16-byte page
+;//                     <3=> 32-byte page
+;//     </h>
+;//   </e>
+SMC_CS0_SETUP   EQU     0x00000001
+SMC_SETUP0_Val  EQU     0x00000000
+SMC_PULSE0_Val  EQU     0x01010101
+SMC_CYCLE0_Val  EQU     0x00010001
+SMC_MODE0_Val   EQU     0x10001000
+
+;//   <e> SMC Chip Select 1 Configuration
+;//     <h> Chip Select 1 Setup Register (SMC_SETUP1)
+;//       <o1.0..5>   NWE_SETUP: NWE Setup Length <0-63>
+;//                     <i> NWE setup length = (128*NWE_SETUP[5]+NWE_SETUP[4..0]) clock cycles
+;//       <o1.8..13>  NCS_WR_SETUP: NCS Setup Length in WRITE Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_WR_SETUP[5]+NCS_WR_SETUP[4..0]) clock cycles
+;//       <o1.16..21> NRD_SETUP: NRD Setup Length <0-63>
+;//                     <i> NRD setup length = (128*NRD_SETUP[5]+NRD_SETUP[4..0]) clock cycles
+;//       <o1.24..29> NCS_RD_SETUP: NCS Setup Length in READ Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_RD_SETUP[5]+NCS_RD_SETUP[4..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 1 Pulse Register (SMC_PULSE1)
+;//       <o2.0..6>   NWE_PULSE: NWE Pulse Length <0-127>
+;//                     <i> NWE pulse length = (256*NWE_PULSE[6]+NWE_PULSE[5..0]) clock cycles
+;//       <o2.8..14>  NCS_WR_PULSE: NCS Pulse Length in WRITE Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_WR_PULSE[6]+NCS_WR_PULSE[5..0]) clock cycles
+;//       <o2.16..22> NRD_PULSE: NRD Pulse Length <0-127>
+;//                     <i> NRD pulse length = (256*NRD_PULSE[6]+NRD_PULSE[5..0]) clock cycles
+;//       <o2.24..30> NCS_RD_PULSE: NCS Pulse Length in READ Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_RD_PULSE[6]+NCS_RD_PULSE[5..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 1 Cycle Register (SMC_CYCLE1)
+;//       <o3.0..8>   NWE_CYCLE: Total Write Cycle Length <0-511>
+;//                     <i> Write cycle length = (NWE_CYCLE[8..7]*256+NWE_CYCLE[6..0]) clock cycle
+;//       <o3.16..24> NRD_CYCLE: Total Read Cycle Length <0-511>
+;//                     <i> Read cycle length = (NRD_CYCLE[8..7]*256+NRD_CYCLE[6..0]) clock cycle
+;//     </h>
+;//
+;//     <h> Chip Select 1 Mode Register (SMC_MODE1)
+;//       <o4.0>      READ_MODE:
+;//                     <0=> The read operation is controlled by the NCS signal
+;//                     <1=> The read operation is controlled by the NRD signal
+;//       <o4.1>      WRITE_MODE:
+;//                     <0=> The write operation is controlled by the NCS signal
+;//                     <1=> The write operation is controlled by the NWE signal
+;//       <o4.4..5>   EXNW_MODE: NWAIT Mode
+;//                     <0=> Disabled
+;//                     <2=> Frozen Mode
+;//                     <3=> Ready Mode
+;//       <o4.8>      BAT: Byte Access Type
+;//                     <0=> 0
+;//                     <1=> 1
+;//                     <i>  0: - Write operation is controlled using: NCS, NWE, NBS0, NBS1, NBS2, NBS3
+;//                     <i>     - Read  operation is controlled using: NCS, NRD, NBS0, NBS1, NBS2, NBS3
+;//                     <i>  1: - Write operation is controlled using: NCS, NWR0, NWR1, NWR2, NWR3        
+;//                     <i>     - Read  operation is controlled using: NCS, NRD
+;//       <o4.12..13> DBW: Data Bus Width
+;//                     <0=> 8-bit bus
+;//                     <1=> 16-bit bus
+;//                     <2=> 32-bit bus
+;//       <o4.16..19> TDF_CYCLES: Data Float Time <0-15>
+;//       <o4.20>     TDF_MODE: TDF Optimization Enabled
+;//       <o4.24>     PMEN: Page Mode Enabled
+;//       <o4.28..29> PS: Page Size
+;//                     <0=> 4-byte page
+;//                     <1=> 8-byte page
+;//                     <2=> 16-byte page
+;//                     <3=> 32-byte page
+;//     </h>
+;//   </e>
+SMC_CS1_SETUP   EQU     0x00000000
+SMC_SETUP1_Val  EQU     0x00000000
+SMC_PULSE1_Val  EQU     0x01010101
+SMC_CYCLE1_Val  EQU     0x00010001
+SMC_MODE1_Val   EQU     0x10001000
+
+;//   <e> SMC Chip Select 2 Configuration
+;//     <h> Chip Select 2 Setup Register (SMC_SETUP2)
+;//       <o1.0..5>   NWE_SETUP: NWE Setup Length <0-63>
+;//                     <i> NWE setup length = (128*NWE_SETUP[5]+NWE_SETUP[4..0]) clock cycles
+;//       <o1.8..13>  NCS_WR_SETUP: NCS Setup Length in WRITE Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_WR_SETUP[5]+NCS_WR_SETUP[4..0]) clock cycles
+;//       <o1.16..21> NRD_SETUP: NRD Setup Length <0-63>
+;//                     <i> NRD setup length = (128*NRD_SETUP[5]+NRD_SETUP[4..0]) clock cycles
+;//       <o1.24..29> NCS_RD_SETUP: NCS Setup Length in READ Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_RD_SETUP[5]+NCS_RD_SETUP[4..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 2 Pulse Register (SMC_PULSE2)
+;//       <o2.0..6>   NWE_PULSE: NWE Pulse Length <0-127>
+;//                     <i> NWE pulse length = (256*NWE_PULSE[6]+NWE_PULSE[5..0]) clock cycles
+;//       <o2.8..14>  NCS_WR_PULSE: NCS Pulse Length in WRITE Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_WR_PULSE[6]+NCS_WR_PULSE[5..0]) clock cycles
+;//       <o2.16..22> NRD_PULSE: NRD Pulse Length <0-127>
+;//                     <i> NRD pulse length = (256*NRD_PULSE[6]+NRD_PULSE[5..0]) clock cycles
+;//       <o2.24..30> NCS_RD_PULSE: NCS Pulse Length in READ Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_RD_PULSE[6]+NCS_RD_PULSE[5..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 2 Cycle Register (SMC_CYCLE2)
+;//       <o3.0..8>   NWE_CYCLE: Total Write Cycle Length <0-511>
+;//                     <i> Write cycle length = (NWE_CYCLE[8..7]*256+NWE_CYCLE[6..0]) clock cycle
+;//       <o3.16..24> NRD_CYCLE: Total Read Cycle Length <0-511>
+;//                     <i> Read cycle length = (NRD_CYCLE[8..7]*256+NRD_CYCLE[6..0]) clock cycle
+;//     </h>
+;//
+;//     <h> Chip Select 2 Mode Register (SMC_MODE2)
+;//       <o4.0>      READ_MODE:
+;//                     <0=> The read operation is controlled by the NCS signal
+;//                     <1=> The read operation is controlled by the NRD signal
+;//       <o4.1>      WRITE_MODE:
+;//                     <0=> The write operation is controlled by the NCS signal
+;//                     <1=> The write operation is controlled by the NWE signal
+;//       <o4.4..5>   EXNW_MODE: NWAIT Mode
+;//                     <0=> Disabled
+;//                     <2=> Frozen Mode
+;//                     <3=> Ready Mode
+;//       <o4.8>      BAT: Byte Access Type
+;//                     <0=> 0
+;//                     <1=> 1
+;//                     <i>  0: - Write operation is controlled using: NCS, NWE, NBS0, NBS1, NBS2, NBS3
+;//                     <i>     - Read  operation is controlled using: NCS, NRD, NBS0, NBS1, NBS2, NBS3
+;//                     <i>  1: - Write operation is controlled using: NCS, NWR0, NWR1, NWR2, NWR3        
+;//                     <i>     - Read  operation is controlled using: NCS, NRD
+;//       <o4.12..13> DBW: Data Bus Width
+;//                     <0=> 8-bit bus
+;//                     <1=> 16-bit bus
+;//                     <2=> 32-bit bus
+;//       <o4.16..19> TDF_CYCLES: Data Float Time <0-15>
+;//       <o4.20>     TDF_MODE: TDF Optimization Enabled
+;//       <o4.24>     PMEN: Page Mode Enabled
+;//       <o4.28..29> PS: Page Size
+;//                     <0=> 4-byte page
+;//                     <1=> 8-byte page
+;//                     <2=> 16-byte page
+;//                     <3=> 32-byte page
+;//     </h>
+;//   </e>
+SMC_CS2_SETUP   EQU     0x00000000
+SMC_SETUP2_Val  EQU     0x00000000
+SMC_PULSE2_Val  EQU     0x01010101
+SMC_CYCLE2_Val  EQU     0x00010001
+SMC_MODE2_Val   EQU     0x10001000
+
+;//   <e> SMC Chip Select 3 Configuration
+;//     <h> Chip Select 3 Setup Register (SMC_SETUP3)
+;//       <o1.0..5>   NWE_SETUP: NWE Setup Length <0-63>
+;//                     <i> NWE setup length = (128*NWE_SETUP[5]+NWE_SETUP[4..0]) clock cycles
+;//       <o1.8..13>  NCS_WR_SETUP: NCS Setup Length in WRITE Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_WR_SETUP[5]+NCS_WR_SETUP[4..0]) clock cycles
+;//       <o1.16..21> NRD_SETUP: NRD Setup Length <0-63>
+;//                     <i> NRD setup length = (128*NRD_SETUP[5]+NRD_SETUP[4..0]) clock cycles
+;//       <o1.24..29> NCS_RD_SETUP: NCS Setup Length in READ Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_RD_SETUP[5]+NCS_RD_SETUP[4..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 3 Pulse Register (SMC_PULSE3)
+;//       <o2.0..6>   NWE_PULSE: NWE Pulse Length <0-127>
+;//                     <i> NWE pulse length = (256*NWE_PULSE[6]+NWE_PULSE[5..0]) clock cycles
+;//       <o2.8..14>  NCS_WR_PULSE: NCS Pulse Length in WRITE Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_WR_PULSE[6]+NCS_WR_PULSE[5..0]) clock cycles
+;//       <o2.16..22> NRD_PULSE: NRD Pulse Length <0-127>
+;//                     <i> NRD pulse length = (256*NRD_PULSE[6]+NRD_PULSE[5..0]) clock cycles
+;//       <o2.24..30> NCS_RD_PULSE: NCS Pulse Length in READ Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_RD_PULSE[6]+NCS_RD_PULSE[5..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 3 Cycle Register (SMC_CYCLE3)
+;//       <o3.0..8>   NWE_CYCLE: Total Write Cycle Length <0-511>
+;//                     <i> Write cycle length = (NWE_CYCLE[8..7]*256+NWE_CYCLE[6..0]) clock cycle
+;//       <o3.16..24> NRD_CYCLE: Total Read Cycle Length <0-511>
+;//                     <i> Read cycle length = (NRD_CYCLE[8..7]*256+NRD_CYCLE[6..0]) clock cycle
+;//     </h>
+;//
+;//     <h> Chip Select 3 Mode Register (SMC_MODE3)
+;//       <o4.0>      READ_MODE:
+;//                     <0=> The read operation is controlled by the NCS signal
+;//                     <1=> The read operation is controlled by the NRD signal
+;//       <o4.1>      WRITE_MODE:
+;//                     <0=> The write operation is controlled by the NCS signal
+;//                     <1=> The write operation is controlled by the NWE signal
+;//       <o4.4..5>   EXNW_MODE: NWAIT Mode
+;//                     <0=> Disabled
+;//                     <2=> Frozen Mode
+;//                     <3=> Ready Mode
+;//       <o4.8>      BAT: Byte Access Type
+;//                     <0=> 0
+;//                     <1=> 1
+;//                     <i>  0: - Write operation is controlled using: NCS, NWE, NBS0, NBS1, NBS2, NBS3
+;//                     <i>     - Read  operation is controlled using: NCS, NRD, NBS0, NBS1, NBS2, NBS3
+;//                     <i>  1: - Write operation is controlled using: NCS, NWR0, NWR1, NWR2, NWR3        
+;//                     <i>     - Read  operation is controlled using: NCS, NRD
+;//       <o4.12..13> DBW: Data Bus Width
+;//                     <0=> 8-bit bus
+;//                     <1=> 16-bit bus
+;//                     <2=> 32-bit bus
+;//       <o4.16..19> TDF_CYCLES: Data Float Time <0-15>
+;//       <o4.20>     TDF_MODE: TDF Optimization Enabled
+;//       <o4.24>     PMEN: Page Mode Enabled
+;//       <o4.28..29> PS: Page Size
+;//                     <0=> 4-byte page
+;//                     <1=> 8-byte page
+;//                     <2=> 16-byte page
+;//                     <3=> 32-byte page
+;//     </h>
+;//   </e>
+SMC_CS3_SETUP   EQU     0x00000000
+SMC_SETUP3_Val  EQU     0x00000000
+SMC_PULSE3_Val  EQU     0x01010101
+SMC_CYCLE3_Val  EQU     0x00010001
+SMC_MODE3_Val   EQU     0x10001000
+
+;//   <e> SMC Chip Select 4 Configuration
+;//     <h> Chip Select 4 Setup Register (SMC_SETUP4)
+;//       <o1.0..5>   NWE_SETUP: NWE Setup Length <0-63>
+;//                     <i> NWE setup length = (128*NWE_SETUP[5]+NWE_SETUP[4..0]) clock cycles
+;//       <o1.8..13>  NCS_WR_SETUP: NCS Setup Length in WRITE Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_WR_SETUP[5]+NCS_WR_SETUP[4..0]) clock cycles
+;//       <o1.16..21> NRD_SETUP: NRD Setup Length <0-63>
+;//                     <i> NRD setup length = (128*NRD_SETUP[5]+NRD_SETUP[4..0]) clock cycles
+;//       <o1.24..29> NCS_RD_SETUP: NCS Setup Length in READ Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_RD_SETUP[5]+NCS_RD_SETUP[4..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 4 Pulse Register (SMC_PULSE4)
+;//       <o2.0..6>   NWE_PULSE: NWE Pulse Length <0-127>
+;//                     <i> NWE pulse length = (256*NWE_PULSE[6]+NWE_PULSE[5..0]) clock cycles
+;//       <o2.8..14>  NCS_WR_PULSE: NCS Pulse Length in WRITE Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_WR_PULSE[6]+NCS_WR_PULSE[5..0]) clock cycles
+;//       <o2.16..22> NRD_PULSE: NRD Pulse Length <0-127>
+;//                     <i> NRD pulse length = (256*NRD_PULSE[6]+NRD_PULSE[5..0]) clock cycles
+;//       <o2.24..30> NCS_RD_PULSE: NCS Pulse Length in READ Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_RD_PULSE[6]+NCS_RD_PULSE[5..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 4 Cycle Register (SMC_CYCLE4)
+;//       <o3.0..8>   NWE_CYCLE: Total Write Cycle Length <0-511>
+;//                     <i> Write cycle length = (NWE_CYCLE[8..7]*256+NWE_CYCLE[6..0]) clock cycle
+;//       <o3.16..24> NRD_CYCLE: Total Read Cycle Length <0-511>
+;//                     <i> Read cycle length = (NRD_CYCLE[8..7]*256+NRD_CYCLE[6..0]) clock cycle
+;//     </h>
+;//
+;//     <h> Chip Select 4 Mode Register (SMC_MODE4)
+;//       <o4.0>      READ_MODE:
+;//                     <0=> The read operation is controlled by the NCS signal
+;//                     <1=> The read operation is controlled by the NRD signal
+;//       <o4.1>      WRITE_MODE:
+;//                     <0=> The write operation is controlled by the NCS signal
+;//                     <1=> The write operation is controlled by the NWE signal
+;//       <o4.4..5>   EXNW_MODE: NWAIT Mode
+;//                     <0=> Disabled
+;//                     <2=> Frozen Mode
+;//                     <3=> Ready Mode
+;//       <o4.8>      BAT: Byte Access Type
+;//                     <0=> 0
+;//                     <1=> 1
+;//                     <i>  0: - Write operation is controlled using: NCS, NWE, NBS0, NBS1, NBS2, NBS3
+;//                     <i>     - Read  operation is controlled using: NCS, NRD, NBS0, NBS1, NBS2, NBS3
+;//                     <i>  1: - Write operation is controlled using: NCS, NWR0, NWR1, NWR2, NWR3        
+;//                     <i>     - Read  operation is controlled using: NCS, NRD
+;//       <o4.12..13> DBW: Data Bus Width
+;//                     <0=> 8-bit bus
+;//                     <1=> 16-bit bus
+;//                     <2=> 32-bit bus
+;//       <o4.16..19> TDF_CYCLES: Data Float Time <0-15>
+;//       <o4.20>     TDF_MODE: TDF Optimization Enabled
+;//       <o4.24>     PMEN: Page Mode Enabled
+;//       <o4.28..29> PS: Page Size
+;//                     <0=> 4-byte page
+;//                     <1=> 8-byte page
+;//                     <2=> 16-byte page
+;//                     <3=> 32-byte page
+;//     </h>
+;//   </e>
+SMC_CS4_SETUP   EQU     0x00000000
+SMC_SETUP4_Val  EQU     0x00000000
+SMC_PULSE4_Val  EQU     0x01010101
+SMC_CYCLE4_Val  EQU     0x00010001
+SMC_MODE4_Val   EQU     0x10001000
+
+;//   <e> SMC Chip Select 5 Configuration
+;//     <h> Chip Select 5 Setup Register (SMC_SETUP5)
+;//       <o1.0..5>   NWE_SETUP: NWE Setup Length <0-63>
+;//                     <i> NWE setup length = (128*NWE_SETUP[5]+NWE_SETUP[4..0]) clock cycles
+;//       <o1.8..13>  NCS_WR_SETUP: NCS Setup Length in WRITE Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_WR_SETUP[5]+NCS_WR_SETUP[4..0]) clock cycles
+;//       <o1.16..21> NRD_SETUP: NRD Setup Length <0-63>
+;//                     <i> NRD setup length = (128*NRD_SETUP[5]+NRD_SETUP[4..0]) clock cycles
+;//       <o1.24..29> NCS_RD_SETUP: NCS Setup Length in READ Access <0-63>
+;//                     <i> NCS setup length = (128*NCS_RD_SETUP[5]+NCS_RD_SETUP[4..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 5 Pulse Register (SMC_PULSE5)
+;//       <o2.0..6>   NWE_PULSE: NWE Pulse Length <0-127>
+;//                     <i> NWE pulse length = (256*NWE_PULSE[6]+NWE_PULSE[5..0]) clock cycles
+;//       <o2.8..14>  NCS_WR_PULSE: NCS Pulse Length in WRITE Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_WR_PULSE[6]+NCS_WR_PULSE[5..0]) clock cycles
+;//       <o2.16..22> NRD_PULSE: NRD Pulse Length <0-127>
+;//                     <i> NRD pulse length = (256*NRD_PULSE[6]+NRD_PULSE[5..0]) clock cycles
+;//       <o2.24..30> NCS_RD_PULSE: NCS Pulse Length in READ Access <0-127>
+;//                     <i> NCS pulse length = (256*NCS_RD_PULSE[6]+NCS_RD_PULSE[5..0]) clock cycles
+;//     </h>
+;//
+;//     <h> Chip Select 5 Cycle Register (SMC_CYCLE5)
+;//       <o3.0..8>   NWE_CYCLE: Total Write Cycle Length <0-511>
+;//                     <i> Write cycle length = (NWE_CYCLE[8..7]*256+NWE_CYCLE[6..0]) clock cycle
+;//       <o3.16..24> NRD_CYCLE: Total Read Cycle Length <0-511>
+;//                     <i> Read cycle length = (NRD_CYCLE[8..7]*256+NRD_CYCLE[6..0]) clock cycle
+;//     </h>
+;//
+;//     <h> Chip Select 5 Mode Register (SMC_MODE5)
+;//       <o4.0>      READ_MODE:
+;//                     <0=> The read operation is controlled by the NCS signal
+;//                     <1=> The read operation is controlled by the NRD signal
+;//       <o4.1>      WRITE_MODE:
+;//                     <0=> The write operation is controlled by the NCS signal
+;//                     <1=> The write operation is controlled by the NWE signal
+;//       <o4.4..5>   EXNW_MODE: NWAIT Mode
+;//                     <0=> Disabled
+;//                     <2=> Frozen Mode
+;//                     <3=> Ready Mode
+;//       <o4.8>      BAT: Byte Access Type
+;//                     <0=> 0
+;//                     <1=> 1
+;//                     <i>  0: - Write operation is controlled using: NCS, NWE, NBS0, NBS1, NBS2, NBS3
+;//                     <i>     - Read  operation is controlled using: NCS, NRD, NBS0, NBS1, NBS2, NBS3
+;//                     <i>  1: - Write operation is controlled using: NCS, NWR0, NWR1, NWR2, NWR3        
+;//                     <i>     - Read  operation is controlled using: NCS, NRD
+;//       <o4.12..13> DBW: Data Bus Width
+;//                     <0=> 8-bit bus
+;//                     <1=> 16-bit bus
+;//                     <2=> 32-bit bus
+;//       <o4.16..19> TDF_CYCLES: Data Float Time <0-15>
+;//       <o4.20>     TDF_MODE: TDF Optimization Enabled
+;//       <o4.24>     PMEN: Page Mode Enabled
+;//       <o4.28..29> PS: Page Size
+;//                     <0=> 4-byte page
+;//                     <1=> 8-byte page
+;//                     <2=> 16-byte page
+;//                     <3=> 32-byte page
+;//     </h>
+;//   </e>
+SMC_CS5_SETUP   EQU     0x00000000
+SMC_SETUP5_Val  EQU     0x00000000
+SMC_PULSE5_Val  EQU     0x01010101
+SMC_CYCLE5_Val  EQU     0x00010001
+SMC_MODE5_Val   EQU     0x10001000
+
+;// </e> Static Memory Controller (SMC)
+
+
+;----------------------- DDR/SDR SDRAM Controller (DDRSDRC) Definitions -----------------
+
+; DDR/SDR SDRAM Controller (DDRSDRC) User Interface
+DDRSDRC_BASE      EQU     0xFFFFE800      ; DDRSDRC                             Base Address
+DDRSDRC_MR_OFS    EQU     0x00            ; DDRSDRC Refresh Timer Register      Address Offset
+DDRSDRC_RTR_OFS   EQU     0x04            ; Configuration Register              Address Offset
+DDRSDRC_CR_OFS    EQU     0x08            ; Configuration Register              Address Offset
+DDRSDRC_T0PR_OFS  EQU     0x0C            ; DDRSDRC Timing 0 Parameter Register Address Offset
+DDRSDRC_T1PR_OFS  EQU     0x10            ; DDRSDRC Timing 1 Parameter Register Address Offset
+DDRSDRC_T2PR_OFS  EQU     0x14            ; DDRSDRC Timing 2 Parameter Register Address Offset
+DDRSDRC_MD_OFS	  EQU     0x20            ; DDRSDRC Memory Device Register      Address Offset     
+DDRSDRC_HS_OFS	  EQU     0x2C            ; DDRSDRC High Speed Register         Address Offset     
+
+SDRAM_BASE        EQU     0x20000000      ; SDRAM                               Base Address
+; Constants
+CMD_NORMAL      EQU     0x00              ; SDRAM Normal Mode
+CMD_NOP         EQU     0x01              ; SDRAM NOP Command
+CMD_PRCGALL     EQU     0x02              ; SDRAM All Banks Precharge Command
+CMD_LMR         EQU     0x03              ; SDRAM Load Mode Register Command
+CMD_RFSH        EQU     0x04              ; SDRAM Refresh Command
+CMD_ELMR        EQU     0x05              ; SDRAM Extended Load Mode Register Command
+CMD_DPWR        EQU     0x07              ; SDRAM Deep Power Mode Command
+
+;// <e> DDR/SDR SDRAM Controller (DDRSDRC)
+DDRSDRC_SETUP    EQU     1
+;//   <h> DDRSDRC Configuration Register (DDRSDRC_CR)
+;//     <o0.0..12>  COUNT: DDRSDRC Refresh Timer Count <0-0xFFF>
+;//                 <i> This 12-bit field is loaded into a timer which generates the refresh pulse
+;//   </h>
+DDRSDRC_RTR_Val   EQU     0x00000411
+;//   <h> DDRSDRC Configuration Register (DDRSDRC_CR)
+;//     <o0.0..1>   NC: Number of Column Bits
+;//                 <0=> DDR: 9, SDR: 8  <1=> DDR: 10, SDR: 9  <2=> DDR: 11, SDR: 10 <3=> DDR: 12, SDR: 11
+;//     <o0.2..3>   NR: Number of Row Bits
+;//                 <0=> 11 <1=> 12 <2=> 13 <3=> 14
+;//     <o0.4..6>   CAS: CAS Latency (cycles)
+;//                 <2=> 2  <3=> 3
+;//     <o0.7>      DLL: Reset DLL
+;//                 <0=> Disable DLL Reset
+;//                 <1=> Enable DLL Reset
+;//     <o0.8>      DIC/DS: Output Driver Impedende Control
+;//                 <i> This field defines the output drive strength.
+;//                 <0=> Normal driver strength
+;//                 <1=> Weak driver strength
+;//     <o0.9>      DIS_DLL: Disable DLL
+;//                 <0=> Enable DLL
+;//                 <1=> Disable DLL
+;//     <o0.12..14> OCD: Off-chip Driver      
+;//                 <i> OCD is NOT supported by the controller, but these 
+;//                 <i> values MUST be programmed during the initialization sequence
+;//                 <0=> OCD calibration mode exit, maintain setting
+;//                 <7=> OCD calibration default
+;//     <o0.16>     DQMS: Mask Data is Shared
+;//                 <0=> DQM is not shared with another controller
+;//                 <1=> DQM is shared with another controller
+;//     <o0.18>     ACTBST: ACTIVE Bank X to Burst Stop Read Access Bank Y
+;//                 <i> This field is unique to SDR-SDRAM, Low-power 
+;//                 <i> SDR-SDRAM and Low-power DDR-SDRAM devices
+;//                 <0=> After an ACTIVE command in Bank X, BURST STOP command can be issued to another bank to stop current read access
+;//                 <1=> After an ACTIVE command in Bank X, BURST STOP command cannot be issued to another bank to stop current read access
+;//   </h>
+DDRSDRC_CR_Val   EQU     0x00000039
+;//   <h> DDRSDRC Timing 0 Parameter Register (DDRSDRC_T0PR)
+;//     <o0.0..3>   TRAS: Active to Precharge Delay  <0-15>
+;//                 <i> This field defines the delay between an Activate Command and a Precharge Command in number of cycles 
+;//     <o0.4..7>   TRCD: Row to Column Delay        <0-15>
+;//                 <i> This field defines the delay between an Activate Command and a Read/Write Command in number of cycles 
+;//     <o0.8..11>  TWR: Write Recovery Delay        <1-15>
+;//                 <i> This field defines the Write Recovery Time in number of cycles 
+;//     <o0.12..15> TRC: Row Cycle Delay             <0-15>
+;//                 <i> This field defines the delay between an Activate command and Refresh command in number of cycles 
+;//     <o0.16..19> TRP: Row Precharge Delay         <0-15>
+;//                 <i> This field defines the delay between a Precharge Command and another command in number of cycles
+;//     <o0.20..23> TRRD Active bankA to Active bankB<1-15>
+;//                 <i> This field defines the delay between an Active command in BankA and an active command in bankB in number of cycles
+;//     <o0.24..26> TWTR: Internal Write to Read Delay (Twtr value)
+;//                 <i> This field defines the internal write to read command Time in number of cycles
+;//                 <0=> 1
+;//                 <1=> 2
+;//     <o0.27>     REDUCE_WRRD: Reduce Write to Read Delay
+;//                 <i> This field reduces the delay between write to read access for low-power DDR-SDRAM devices with a latency equal to 2
+;//                 <i> To use this feature, TWTR field must be equal to 0. Important to note is that some devices do not support this feature.
+;//                 <0=> 0
+;//                 <1=> 1
+;//     <o0.28..31> TMRD: Load Mode Register Command to Active or Refresh Command<0-15>
+;//                 <i> This field defines the delay between a Load mode register command and an active or refresh command in number of cycles
+;//   </h>
+DDRSDRC_T0PR_Val  EQU     0x21228226
+;//   <h> DDRSDRC Timing 1 Parameter Register (DDRSDRC_T0PR)
+;//     <o0.0..4>   TRFC: Row Cycle Delay    <0-31>
+;//                 <i> This field defines the delay between a Refresh and an Activate command or Refresh command in number of cycles 
+;//     <o0.8..15>  TXSNR: Exit Self Refresh Delay to Non-read Command       <0-15>
+;//                 <i> This field defines the delay between an Activate Command and a Read/Write Command in number of cycles 
+;//                 <i> This field is used for SDR-SDRAM and DDR-SDRAM devices
+;//     <o0.16..23> TXSRD: ExiT Self Refresh Delay to Read Command           <0-255>
+;//                 <i> This field defines the delay between cke set high and a Read Command in number of cycles 
+;//                 <i> This field is unique to DDR-SDRAM devices
+;//     <o0.24..27> TXP: Exit Power-down Delay to First Command              <0-15>
+;//                 <i> This field defines the delay between cke set high and a Valid Command in number of cycles 
+;//   </h>
+DDRSDRC_T1PR_Val  EQU     0x02c8100E
+;//   <h> DDRSDRC Timing 2 Parameter Register (DDRSDRC_T0PR)
+;//     <o0.0..3>   TXARD: Exit Active Power Down Delay to Read Command in Mode “Fast Exit”  <0-15>
+;//                 <i> This field defines the delay between cke set high and a Read Command in number of cycles 
+;//     <o0.4..7>   TXARDS: Exit Active Power Down Delay to Read Command in Mode “Slow Exit” <0-15>
+;//                 <i> This field defines the delay between cke set high and a Read Command in number of cycles 
+;//                 <i> Note: This field is found only in DDR2-SDRAM devices
+;//     <o0.8..11> TRPA: Row Precharge All Delay <0-15>
+;//                 <i> This field defines the delay between cke set high and a Read Command in number of cycles 
+;//                 <i> This field is unique to DDR-SDRAM devices
+;//     <o0.12..14> TRTP: Read to Precharge      <0-7>
+;//                 <i> This field defines the delay between Read Command and a Precharge command in number of cycle 
+;//   </h>
+DDRSDRC_T2PR_Val  EQU     0x00002072
+;//   <h> DDRSDRC Memory Device Register (DDRSDRC_MD)
+;//     <o0.0..2>   MD: Memory Device
+;//                 <i> Indicates the type of memory used 
+;//                 <0=> SDR-SDRAM
+;//                 <1=> Low-power SDR-SDRAM
+;//                 <3=> Low-power DDR1-SDRAM
+;//                 <6=> DDR2-SDRAM
+;//     <o0.4>      DBW: Data Bus Width
+;//                 <0=> Data bus width is 32 bits (reserved for SDR-SDRAM device).
+;//                 <1=> Data bus width is 16 bits
+;//   </h>
+DDRSDRC_MD_Val  EQU     0x00000016
+;//   <h>DDRSDRC High Speed Register (DDRSDRC_HS)
+;//     <o0.2>      DIS_ANTICIP_READ
+;//                 <0=> anticip read access is enabled  
+;//                 <1=> anticip read access is disabled
+;//   </h>
+DDRSDRC_HS_Val  EQU     0x00000000
+
+;// </e> SDRAM Controller (SDRAMC)
+
+
+;----------------------- Watchdog (WDT) Definitions ----------------------------
+
+; Watchdog
+WDT_BASE        EQU     0xFFFFFE40      ; WDT                     Base Address
+WDT_MR_OFS      EQU     0x04            ; Watchdog Timer Mode Reg Address Offset
+
+;// <e0.15> Watchdog Disable
+;// </e>
+WDT_Val         EQU     0x00008000
+
+
+;----------------------- Cache Definitions -------------------------------------
+
+; Cache
+
+; Constants
+ICACHE_ENABLE   EQU     (1<<12)         ; Instruction Cache Enable Bit
+
+;// <e> Instruction Cache Enable
+;// </e>
+ICACHE_SETUP    EQU     0
+
+
+;----------------------- CODE --------------------------------------------------
+
+                PRESERVE8
+                
+
+; Area Definition and Entry Point
+;  Startup Code must be linked first at Address at which it expects to run.
+
+                AREA    RESET, CODE, READONLY
+                ARM
+
+                IF      :LNOT::DEF:__EVAL 
+                IF      :DEF:SIZE_INT_INFO
+                IMPORT  ||Image$$ER_IROM1$$RO$$Length||
+                IMPORT  ||Image$$RW_IRAM1$$RW$$Length||
+                ELIF    :DEF:SIZE_EXT_INFO
+                IMPORT  ||Image$$ER_ROM1$$RO$$Length||
+                IMPORT  ||Image$$RW_RAM1$$RW$$Length||
+                ENDIF
+                ENDIF
+
+                IF      :DEF:__RTX
+                IMPORT  SWI_Handler
+                ENDIF
+
+; Exception Vectors
+;  Mapped to Address 0.
+;  Absolute addressing mode must be used.
+;  Dummy Handlers are implemented as infinite loops which can be modified.
+
+Vectors         LDR     PC,Reset_Addr
+                LDR     PC,Undef_Addr
+                LDR     PC,SWI_Addr
+                LDR     PC,PAbt_Addr
+                LDR     PC,DAbt_Addr
+                ; Reserved vector is used for image size information
+                IF      :DEF:__EVAL
+                  DCD   0x8000
+                ELSE 
+                  IF    :DEF:SIZE_INT_INFO
+                    DCD ||Image$$ER_IROM1$$RO$$Length||+\
+                        ||Image$$RW_IRAM1$$RW$$Length||
+                  ELIF  :DEF:SIZE_EXT_INFO
+                    DCD ||Image$$ER_ROM1$$RO$$Length||+\
+                        ||Image$$RW_RAM1$$RW$$Length||
+                  ELSE
+                    NOP
+                  ENDIF
+                ENDIF
+                LDR     PC,[PC,#-0xF20] ; Vector From AIC_IVR
+                LDR     PC,[PC,#-0xF20] ; Vector From AIC_FVR
+
+Reset_Addr      DCD     Reset_Handler
+Undef_Addr      DCD     Undef_Handler
+SWI_Addr        DCD     SWI_Handler
+PAbt_Addr       DCD     PAbt_Handler
+DAbt_Addr       DCD     DAbt_Handler
+                DCD     0               ; Reserved Address
+IRQ_Addr        DCD     IRQ_Handler
+FIQ_Addr        DCD     FIQ_Handler
+
+Undef_Handler   B       Undef_Handler
+                IF      :LNOT::DEF:__RTX
+SWI_Handler     B       SWI_Handler
+                ENDIF
+PAbt_Handler    B       PAbt_Handler
+DAbt_Handler    B       DAbt_Handler
+IRQ_Handler     B       IRQ_Handler
+FIQ_Handler     B       FIQ_Handler
+
+
+; Reset Handler
+
+                EXPORT  Reset_Handler
+Reset_Handler   
+
+; Disable all Interrupt sources
+                LDR     R0, =AIC_BASE
+                LDR     R1, =0xFFFFFFFF
+                STR     R1, [R0, #AIC_IDCR_OFS]
+
+; Setup Power Management Controller (PMC) --------------------------------------
+
+                IF      (:LNOT::DEF:NO_PMC_INIT):LAND:(PMC_SETUP != 0)
+
+                LDR     R0, =PMC_BASE
+
+
+                ; Setup PLL Charge Pump
+                LDR     R1, =PMC_PLLICPR_Val
+                STR     R1, [R0, #PMC_PLLICPR_OFS]
+
+                ; Setup Main Oscillator
+                IF      (CKGR_MOR_Val:AND:PMC_MOSXCEN) != 0
+                LDR     R2, [R0, #CKGR_MOR_OFS]
+                ANDS    R2,  R2, #PMC_MOSCSEL
+                LDR     R3, =CKGR_MOR_Val:OR:PMC_KEY
+                BIC     R3,  R3, #PMC_MOSCSEL
+                ORR     R1,  R2, R3
+                STR     R1, [R0, #CKGR_MOR_OFS]
+
+
+                ; Wait until Main On-Chip RC Oscillator is stabilized
+MOSCRS_Loop     LDR     R2, [R0, #PMC_SR_OFS]
+                ANDS    R2, R2, #PMC_MOSCRCS
+                BEQ     MOSCRS_Loop
+
+                ; Wait until Main Oscillator Selection is done
+MOSCSELS_Loop   LDR     R2, [R0, #PMC_SR_OFS]
+                ANDS    R2, R2, #PMC_MOSCS
+                BEQ     MOSCSELS_Loop
+
+                ; Write the desired value
+                LDR     R3, =CKGR_MOR_Val:OR:PMC_KEY
+                STR     R1, [R0, #CKGR_MOR_OFS]
+
+                ; Wait until Main Oscillator is stabilized
+MOSCS_Loop      LDR     R2, [R0, #PMC_SR_OFS]
+                ANDS    R2, R2, #PMC_MOSCSELS
+                BEQ     MOSCS_Loop
+                ENDIF
+
+
+                ; Setup the PLL A
+                IF      (CKGR_PLLAR_Val:AND:PMC_MUL) != 0  
+                LDR     R1, =CKGR_PLLAR_Val
+                STR     R1, [R0, #CKGR_PLLAR_OFS]
+
+
+                ; Wait until PLL A is stabilized
+PLLA_Loop       LDR     R2, [R0, #PMC_SR_OFS]
+                ANDS    R2, R2, #PMC_LOCKA
+                BEQ     PLLA_Loop
+                ENDIF
+
+                ; Program PRES field only
+                LDR     R1, =PMC_MCKR_Val
+                LDR     R3, [R0, #PMC_MCKR_OFS]
+                BIC     R3,  R3, #0x00000070
+                LDR     R2, =(PMC_MCKR_Val:AND:0x00000070)
+                ORR     R2, R2, R3
+                STR     R2, [R0, #PMC_MCKR_OFS]
+
+                ; Wait until Main Master Clock is ready
+MCKR_Loop1      LDR     R2, [R0, #PMC_SR_OFS]
+                ANDS    R2, R2, #PMC_MCKRDY
+                BEQ     MCKR_Loop1
+
+                ; Program all fields
+                STR     R1, [R0, #PMC_MCKR_OFS]
+
+                ; Wait until Main Master Clock is ready
+MCKR_Loop2      LDR     R2, [R0, #PMC_SR_OFS]
+                ANDS    R2, R2, #PMC_MCKRDY
+                BEQ     MCKR_Loop2
+
+                ; System Clock Enable
+                LDR     R1, =PMC_SCER_Val
+                STR     R1, [R0, #PMC_SCER_OFS]
+
+                ; Peripheral Clock Enable
+                LDR     R1, =PMC_PCER_Val
+                STR     R1, [R0, #PMC_PCER_OFS]
+
+                ; Setup Programmable Clock Register 0
+                LDR     R1, =PMC_PCK0_Val
+                STR     R1, [R0, #PMC_PCK0_OFS]
+
+                ; Setup Programmable Clock Register 1
+                LDR     R1, =PMC_PCK1_Val
+                STR     R1, [R0, #PMC_PCK1_OFS]
+                ENDIF   ; of IF      (:LNOT::DEF:NO_PMC_INIT):LAND:(PMC_SETUP != 0)
+
+
+; Setup Static Memory Controller (SMC) -----------------------------------------
+
+                ; Setup Static Memory Controller if enabled
+                IF      SMC_SETUP != 0
+                LDR     R0, =SMC_BASE
+
+                ; Macro for setting the Static Memory Controller
+                MACRO
+$label          SMC_Cod $cs
+
+$label          LDR     R1, =SMC_SETUP$cs._Val
+                STR     R1, [R0, #SMC_SETUP$cs._OFS]
+                LDR     R1, =SMC_PULSE$cs._Val
+                STR     R1, [R0, #SMC_PULSE$cs._OFS]
+                LDR     R1, =SMC_CYCLE$cs._Val
+                STR     R1, [R0, #SMC_CYCLE$cs._OFS]
+                LDR     R1, =SMC_MODE$cs._Val
+                STR     R1, [R0, #SMC_MODE$cs._OFS]
+                MEND
+
+                IF      SMC_CS0_SETUP != 0  ; Setup SMC for CS0 if required
+SMC_0           SMC_Cod 0
+                ENDIF
+                IF      SMC_CS1_SETUP != 0  ; Setup SMC for CS1 if required
+SMC_1           SMC_Cod 1
+                ENDIF
+                IF      SMC_CS2_SETUP != 0  ; Setup SMC for CS2 if required
+SMC_2           SMC_Cod 2
+                ENDIF
+                IF      SMC_CS3_SETUP != 0  ; Setup SMC for CS3 if required
+SMC_3           SMC_Cod 3
+                ENDIF
+                IF      SMC_CS4_SETUP != 0  ; Setup SMC for CS4 if required
+SMC_4           SMC_Cod 4
+                ENDIF
+                IF      SMC_CS5_SETUP != 0  ; Setup SMC for CS5 if required
+SMC_5           SMC_Cod 5
+                ENDIF
+
+                ENDIF   ; of IF      SMC_SETUP != 0
+
+
+; Setup Bus Matrix (MATRIX) ----------------------------------------------------
+
+                IF      MATRIX_SETUP != 0
+                LDR     R0, =MATRIX_BASE
+
+                LDR     R1, =MATRIX_SCFG0_Val
+                STR     R1, [R0, #MATRIX_SCFG0_OFS]
+                LDR     R1, =MATRIX_SCFG1_Val
+                STR     R1, [R0, #MATRIX_SCFG1_OFS]
+                LDR     R1, =MATRIX_SCFG2_Val
+                STR     R1, [R0, #MATRIX_SCFG2_OFS]
+                LDR     R1, =MATRIX_SCFG3_Val
+                STR     R1, [R0, #MATRIX_SCFG3_OFS]
+                LDR     R1, =MATRIX_SCFG4_Val
+                STR     R1, [R0, #MATRIX_SCFG4_OFS]
+                LDR     R1, =MATRIX_SCFG5_Val
+                STR     R1, [R0, #MATRIX_SCFG5_OFS]
+                LDR     R1, =MATRIX_SCFG6_Val
+                STR     R1, [R0, #MATRIX_SCFG6_OFS]
+                LDR     R1, =MATRIX_SCFG7_Val
+                STR     R1, [R0, #MATRIX_SCFG7_OFS]
+                LDR     R1, =MATRIX_SCFG8_Val
+                STR     R1, [R0, #MATRIX_SCFG8_OFS]
+                LDR     R1, =MATRIX_SCFG9_Val
+                STR     R1, [R0, #MATRIX_SCFG9_OFS]
+
+                LDR     R1, =MATRIX_MCFG0_Val
+                STR     R1, [R0, #MATRIX_MCFG0_OFS]
+                LDR     R1, =MATRIX_MCFG1_Val
+                STR     R1, [R0, #MATRIX_MCFG1_OFS]
+                LDR     R1, =MATRIX_MCFG2_Val
+                STR     R1, [R0, #MATRIX_MCFG2_OFS]
+                LDR     R1, =MATRIX_MCFG3_Val
+                STR     R1, [R0, #MATRIX_MCFG3_OFS]
+                LDR     R1, =MATRIX_MCFG4_Val
+                STR     R1, [R0, #MATRIX_MCFG4_OFS]
+                LDR     R1, =MATRIX_MCFG5_Val
+                STR     R1, [R0, #MATRIX_MCFG5_OFS]
+                LDR     R1, =MATRIX_MCFG6_Val
+                STR     R1, [R0, #MATRIX_MCFG6_OFS]
+                LDR     R1, =MATRIX_MCFG7_Val
+                STR     R1, [R0, #MATRIX_MCFG7_OFS]
+                LDR     R1, =MATRIX_MCFG8_Val
+                STR     R1, [R0, #MATRIX_MCFG8_OFS]
+                LDR     R1, =MATRIX_MCFG9_Val
+                STR     R1, [R0, #MATRIX_MCFG9_OFS]
+                LDR     R1, =MATRIX_MCFG10_Val
+                STR     R1, [R0, #MATRIX_MCFG10_OFS]
+                LDR     R1, =MATRIX_MCFG11_Val
+                STR     R1, [R0, #MATRIX_MCFG11_OFS]
+
+                LDR     R1, =MATRIX_PRAS0_Val
+                STR     R1, [R0, #MATRIX_PRAS0_OFS]
+                LDR     R1, =MATRIX_PRAS1_Val
+                STR     R1, [R0, #MATRIX_PRAS1_OFS]
+                LDR     R1, =MATRIX_PRAS2_Val
+                STR     R1, [R0, #MATRIX_PRAS2_OFS]
+                LDR     R1, =MATRIX_PRAS3_Val
+                STR     R1, [R0, #MATRIX_PRAS3_OFS]
+                LDR     R1, =MATRIX_PRAS4_Val
+                STR     R1, [R0, #MATRIX_PRAS4_OFS]
+                LDR     R1, =MATRIX_PRAS5_Val
+                STR     R1, [R0, #MATRIX_PRAS5_OFS]
+                LDR     R1, =MATRIX_PRAS6_Val
+                STR     R1, [R0, #MATRIX_PRAS6_OFS]
+                LDR     R1, =MATRIX_PRAS7_Val
+                STR     R1, [R0, #MATRIX_PRAS7_OFS]
+                LDR     R1, =MATRIX_PRAS8_Val
+                STR     R1, [R0, #MATRIX_PRAS8_OFS]
+                LDR     R1, =MATRIX_PRAS9_Val
+                STR     R1, [R0, #MATRIX_PRAS9_OFS]
+
+                LDR     R1, =MATRIX_PRBS0_Val
+                STR     R1, [R0, #MATRIX_PRBS0_OFS]
+                LDR     R1, =MATRIX_PRBS1_Val
+                STR     R1, [R0, #MATRIX_PRBS1_OFS]
+                LDR     R1, =MATRIX_PRBS2_Val
+                STR     R1, [R0, #MATRIX_PRBS2_OFS]
+                LDR     R1, =MATRIX_PRBS3_Val
+                STR     R1, [R0, #MATRIX_PRBS3_OFS]
+                LDR     R1, =MATRIX_PRBS4_Val
+                STR     R1, [R0, #MATRIX_PRBS4_OFS]
+                LDR     R1, =MATRIX_PRBS5_Val
+                STR     R1, [R0, #MATRIX_PRBS5_OFS]
+                LDR     R1, =MATRIX_PRBS6_Val
+                STR     R1, [R0, #MATRIX_PRBS6_OFS]
+                LDR     R1, =MATRIX_PRBS7_Val
+                STR     R1, [R0, #MATRIX_PRBS7_OFS]
+                LDR     R1, =MATRIX_PRBS8_Val
+                STR     R1, [R0, #MATRIX_PRBS8_OFS]
+                LDR     R1, =MATRIX_PRBS9_Val
+                STR     R1, [R0, #MATRIX_PRBS9_OFS]
+
+                ENDIF   ; of IF      MATRIX_SETUP != 0
+
+
+; Setup External Bus Interface (EBI) -------------------------------------------
+
+                IF      (:LNOT::DEF:NO_EBI_INIT):LAND:(EBI_SETUP != 0)
+                LDR     R0, =MATRIX_BASE
+                LDR     R1, =EBI_CSA_Val
+                STR     R1, [R0, #EBI_CSA_OFS]
+                ENDIF   ; of IF      (:LNOT::DEF:NO_EBI_INIT):LAND:(EBI_SETUP != 0)
+
+; Watchdog Timer Setup ---------------------------------------------------------
+
+                IF      WDT_Val != 0 
+                LDR     R0, =WDT_BASE   ; Disable Watchdog
+                LDR     R1, =WDT_Val
+                STR     R1, [R0, #WDT_MR_OFS]
+                ENDIF
+
+; Setup DDR/SDR Controller (DDRSDRC) ----------------------------------------------
+
+                ; Setup DDR/SDR Controller if enabled
+                IF      (:LNOT::DEF:NO_SDRAM_INIT):LAND:(DDRSDRC_SETUP != 0)
+
+                ; DDRSDR Block Clock Enable
+                LDR     R0, =PMC_BASE
+                LDR     R1, =0x00000004
+                STR     R1, [R0, #PMC_SCER_OFS]
+
+                ; Enable pins for SDRAM interfacing
+                LDR     R0, =DDRSDRC_BASE
+                LDR     R1, =SDRAM_BASE
+                LDR     R3, =0x00000000
+
+                ; Configure the DDR controller: 16-bit DDR
+                LDR     R2, =DDRSDRC_MD_Val  
+                STR     R2, [R0, #DDRSDRC_MD_OFS]
+                ; Configure the DDR controller: 16-bit DDR
+                LDR     R2, =DDRSDRC_CR_Val  
+                STR     R2, [R0, #DDRSDRC_CR_OFS]
+                ; Program the features of DDR2-SDRAM device into HDDRSDRC2_T0PR
+                LDR     R2, =DDRSDRC_T0PR_Val  
+                STR     R2, [R0, #DDRSDRC_T0PR_OFS]
+                ; Program the features of DDR2-SDRAM device into HDDRSDRC2_T1PR
+                LDR     R2, =DDRSDRC_T1PR_Val  
+                STR     R2, [R0, #DDRSDRC_T1PR_OFS]
+                ; Program the features of DDR2-SDRAM device into HDDRSDRC2_T2PR
+                LDR     R2, =DDRSDRC_T2PR_Val  
+                STR     R2, [R0, #DDRSDRC_T2PR_OFS]
+
+
+                ; Write Nop Command to DDR2-SDRAM
+                MOV     R2, #CMD_NOP
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_1   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_1
+
+                ; Write Nop Command to DDR2-SDRAM
+                MOV     R2, #CMD_NOP
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_2   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_2
+
+                ; precharge command is issued to the DDR2-SDRAM.
+                MOV     R2, #CMD_PRCGALL
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_3   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_3
+
+                ; Extended Mode Register set (EMRS2) cycle is issued to the DDR2-SDRAM.
+                MOV     R2, #CMD_ELMR
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x24000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_4   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_4
+
+                ; Extended Mode Register set (EMRS2) cycle is issued to the DDR2-SDRAM.
+                MOV     R2, #CMD_ELMR
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x26000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_5   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_5
+
+                ; Extended Mode Register set (EMRS2) cycle is issued to the DDR2-SDRAM.
+                MOV     R2, #CMD_ELMR
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x22000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_6   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_6
+
+                ; Program DLL field into the configuration register
+                LDR     R2, [R0, #DDRSDRC_CR_OFS]
+                ORR     R2,  R2, #0x000000BD
+                STR     R2, [R0, #DDRSDRC_CR_OFS]
+
+                ; A Mode Register set (MRS) cycle is issued to reset DLL
+                MOV     R2, #CMD_LMR
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x20000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_7   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_7
+
+                ; precharge command is issued to the DDR2-SDRAM
+                MOV     R2, #CMD_PRCGALL
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x20000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_8   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_8
+
+                ; auto refresh command (CBR) is issued to the DDR2-SDRAM
+                MOV     R2, #CMD_RFSH
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x20000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_9   SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_9
+
+                ; Second auto refresh command (CBR) is issued to the DDR2-SDRAM
+                MOV     R2, #CMD_RFSH
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x20000000
+                STR     R3, [R1, #0]
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_10  SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_10
+
+                ; Program DLL field into the configuration register	to low(Disable DLL reset).
+                LDR     R2, [R0, #DDRSDRC_CR_OFS]
+                BIC     R2,  R2, #0x00000080
+                STR     R2, [R0, #DDRSDRC_CR_OFS]
+
+                ; A Mode Register set (MRS) cycle is issued to reset DLL
+                MOV     R2, #CMD_LMR
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x20000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_11  SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_11
+
+                ; Program DLL field into the configuration register
+                LDR     R2, [R0, #DDRSDRC_CR_OFS]
+                ORR     R2,  R2, #0x00007000
+                STR     R2, [R0, #DDRSDRC_CR_OFS]
+
+                ; A Mode Register set (MRS) cycle is issued to reset DLL
+                MOV     R2, #CMD_ELMR
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x22000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_12  SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_12
+
+                ; Program OCD field into the Configuration register to low OCD.
+                LDR     R2, [R0, #DDRSDRC_CR_OFS]
+                BIC     R2,  R2, #0x00007000
+                STR     R2, [R0, #DDRSDRC_CR_OFS]
+
+                ; A Mode Register set (MRS) cycle is issued to reset DLL
+                MOV     R2, #CMD_ELMR
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x26000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_13  SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_13
+
+                ; A Mode Register set (MRS) cycle is issued to reset DLL
+                MOV     R2, #CMD_NORMAL
+                STR     R2, [R0, #DDRSDRC_MR_OFS]
+                MOV     R1, #0x20000000
+                STR     R3, [R1, #0]
+
+                ; A minimum of 200 cycles
+                MOV     R4, #1000
+Wait_DDRSDC_14  SUBS    R4, R4, #1
+                BNE     Wait_DDRSDC_14
+
+                ; Write the refresh rate into the count field 
+                LDR     R2, =DDRSDRC_RTR_Val
+                STR     R2, [R0, #DDRSDRC_RTR_OFS]
+
+                ; Read optimization" shall be un-selected 
+                LDR     R2, =DDRSDRC_HS_Val
+                STR     R2, [R0, #DDRSDRC_HS_OFS]
+
+                ENDIF   ; of IF      (:LNOT::DEF:NO_SDRAM_INIT):LAND:(SDRAMC_SETUP != 0)
+
+
+; Copy Exception Vectors to Internal RAM ---------------------------------------
+
+                IF      :DEF:VEC_TO_RAM
+                ADR     R8, Vectors     ; Source
+                LDR     R9, =IRAM_BASE  ; Destination
+                LDMIA   R8!, {R0-R7}    ; Load Vectors 
+                STMIA   R9!, {R0-R7}    ; Store Vectors 
+                LDMIA   R8!, {R0-R7}    ; Load Handler Addresses 
+                STMIA   R9!, {R0-R7}    ; Store Handler Addresses
+                ENDIF
+
+
+; Remap on-chip RAM to address 0 -----------------------------------------------
+
+                IF      :DEF:REMAP
+                LDR     R0, =MATRIX_BASE
+                MOV     R1, #3          ; Remap for Instruction and Data Master
+                STR     R1, [R0, #MATRIX_MRCR_OFS]    ; Execute Remap
+                ENDIF
+
+
+; Cache Setup ------------------------------------------------------------------
+
+                IF      ICACHE_SETUP != 0
+                MRC     p15, 0, R0, c1, c0, 0   ; Enable Instruction Cache
+                ORR     R0, R0, #ICACHE_ENABLE
+                MCR     p15, 0, R0, c1, c0, 0
+                ENDIF
+
+
+; Setup Stack for each mode ----------------------------------------------------
+
+                LDR     R0, =Stack_Top
+
+;  Enter Undefined Instruction Mode and set its Stack Pointer
+                MSR     CPSR_c, #Mode_UND:OR:I_Bit:OR:F_Bit
+                MOV     SP, R0
+                SUB     R0, R0, #UND_Stack_Size
+
+;  Enter Abort Mode and set its Stack Pointer
+                MSR     CPSR_c, #Mode_ABT:OR:I_Bit:OR:F_Bit
+                MOV     SP, R0
+                SUB     R0, R0, #ABT_Stack_Size
+
+;  Enter FIQ Mode and set its Stack Pointer
+                MSR     CPSR_c, #Mode_FIQ:OR:I_Bit:OR:F_Bit
+                MOV     SP, R0
+                SUB     R0, R0, #FIQ_Stack_Size
+
+;  Enter IRQ Mode and set its Stack Pointer
+                MSR     CPSR_c, #Mode_IRQ:OR:I_Bit:OR:F_Bit
+                MOV     SP, R0
+                SUB     R0, R0, #IRQ_Stack_Size
+
+;  Enter Supervisor Mode and set its Stack Pointer
+                MSR     CPSR_c, #Mode_SVC:OR:I_Bit:OR:F_Bit
+                MOV     SP, R0
+                SUB     R0, R0, #SVC_Stack_Size
+
+;  Enter User Mode and set its Stack Pointer
+                MSR     CPSR_c, #Mode_USR
+                IF      :DEF:__MICROLIB
+
+                EXPORT __initial_sp
+
+                ELSE
+
+                MOV     SP, R0
+                SUB     SL, SP, #USR_Stack_Size
+
+                ENDIF
+
+; Enter the C code -------------------------------------------------------------
+
+                IMPORT  __main
+                LDR     R0, =__main
+                BX      R0
+
+
+
+                IF      :DEF:__MICROLIB
+
+                EXPORT  __heap_base
+                EXPORT  __heap_limit
+
+                ELSE
+; User Initial Stack & Heap
+                AREA    |.text|, CODE, READONLY
+
+                IMPORT  __use_two_region_memory
+                EXPORT  __user_initial_stackheap
+__user_initial_stackheap
+
+                LDR     R0, =  Heap_Mem
+                LDR     R1, =(Stack_Mem + USR_Stack_Size)
+                LDR     R2, = (Heap_Mem +      Heap_Size)
+                LDR     R3, = Stack_Mem
+                BX      LR
+                ENDIF
+
+
+                END

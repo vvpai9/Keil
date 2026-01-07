@@ -1,0 +1,345 @@
+<html>
+
+<head>
+<title>Application Note: Migrating FlashFS projects to RL-ARM 4.20</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<style>
+<!--
+/*-----------------------------------------------------------
+Keil Software CHM Style Sheet
+-----------------------------------------------------------*/
+body         { color: #000000; background-color: #FFFFFF; font-size: 75%; font-family: 
+               Verdana, Arial, 'Sans Serif' }
+a:link       { color: #0000FF; text-decoration: underline }
+a:visited    { color: #0000FF; text-decoration: underline }
+a:active     { color: #FF0000; text-decoration: underline }
+a:hover      { color: #FF0000; text-decoration: underline }
+h1           { font-family: Verdana; font-size: 18pt; color: #000080; font-weight: bold; 
+               text-align: Center; margin-right: 3 }
+h2           { font-family: Verdana; font-size: 14pt; color: #000080; font-weight: bold; 
+               background-color: #CCCCCC; margin-top: 24; margin-bottom: 3; 
+               padding: 6 }
+h3           { font-family: Verdana; font-size: 10pt; font-weight: bold; background-color: 
+               #CCCCCC; margin-top: 24; margin-bottom: 3; padding: 6 }
+pre          { font-family: Courier New; font-size: 10pt; background-color: #CCFFCC; 
+               margin-left: 24; margin-right: 24 }
+ul           { list-style-type: square; margin-top: 6pt; margin-bottom: 0 }
+ol           { margin-top: 6pt; margin-bottom: 0 }
+li           { clear: both; margin-bottom: 6pt }
+table        { font-size: 100%; border-width: 0; padding: 0 }
+th           { color: #FFFFFF; background-color: #000080; text-align: left; vertical-align: 
+               bottom; padding-right: 6pt }
+tr           { text-align: left; vertical-align: top }
+td           { text-align: left; vertical-align: top; padding-right: 6pt }
+.ToolT       { font-size: 8pt; color: #808080 }
+.TinyT       { font-size: 8pt; text-align: Center }
+code         { color: #000000; background-color: #E0E0E0; font-family: 'Courier New', Courier; 
+               line-height: 120%; font-style: normal }
+important   {font-size: 10pt; color: #000000; background-color: #F1EA15;}
+/*-----------------------------------------------------------
+Notes
+-----------------------------------------------------------*/
+p.note       { font-weight: bold; clear: both; margin-bottom: 3pt; padding-top: 6pt }
+/*-----------------------------------------------------------
+Expanding/Contracting Divisions
+-----------------------------------------------------------*/
+#expand      { text-decoration: none; margin-bottom: 3pt }
+img.expand   { border-style: none; border-width: medium }
+div.expand   { display: none; margin-left: 9pt; margin-top: 0 }
+/*-----------------------------------------------------------
+Where List Tags
+-----------------------------------------------------------*/
+p.wh         { font-weight: bold; clear: both; margin-top: 6pt; margin-bottom: 3pt }
+table.wh     { width: 100% }
+td.whItem    { white-space: nowrap; font-style: italic; padding-right: 6pt; padding-bottom: 
+               6pt }
+td.whDesc    { padding-bottom: 6pt }
+/*-----------------------------------------------------------
+Keil Table Tags
+-----------------------------------------------------------*/
+table.kt     { border: 1pt solid #000000 }
+th.kt        { white-space: nowrap; border-bottom: 1pt solid #000000; padding-left: 6pt; 
+               padding-right: 6pt; padding-top: 4pt; padding-bottom: 4pt }
+tr.kt        {  }
+td.kt        { color: #000000; background-color: #E0E0E0; border-top: 1pt solid #A0A0A0; 
+               padding-left: 6pt; padding-right: 6pt; padding-top: 2pt; 
+               padding-bottom: 2pt }
+/*-----------------------------------------------------------
+-----------------------------------------------------------*/
+-->
+
+</style>
+</head>
+
+<body>
+
+<h1>Migrating FlashFS projects to RL-ARM 4.20<br>
+Application Note</h1>
+
+<p align="center">Revision 1.0</p>
+
+<p align="center">This Application Note explains how to migrate Flash File System
+projects designed for RL-ARM 4.13 or lower, to new RL-ARM 4.20 Flash File System.</p>
+
+<p class="TinyT">Information in this file, the accompany manuals, and software is<br>
+Copyright © KEIL - An ARM Company.<br>All rights reserved.</p>
+
+<p class="TinyT">&nbsp;</p>
+
+<hr>
+
+<h2>Revision History</h2>
+<ul>
+  <li>Revision 1.0 - February 2011: Initial Revision</li>
+</ul>
+
+<hr>
+
+<h2>Contents</h2>
+
+<ol>
+  <li class="LI2"><a href="#Overview">Overview</a></li>
+  <li class="LI2"><a href="#Migration">Migration to RL-ARM 4.20</a></li>  
+  <li class="LI2"><a href="#TechnicalSupport">Technical Support</a></li>
+  <li class="LI2"><a href="#ContactDetails">Contact Details</a></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<h2><a name="Overview"></a>Overview</h2>
+
+<p>The new <b>Flash File System</b> of <b>RL-ARM 4.20</b> extends the FlashFS usage 
+and eliminates several limitations implied in old version of RL-ARM Flash File 
+System ver. 4.13 or older:
+</p>
+
+<ul>
+  <li>Allows <b>concurrent operation</b> of several FAT drives at the same time.
+  The limitation in RL-ARM 4.13 is only one FAT drive.
+  </li>
+  <li>The Flash File System <b>driver</b> is rewritten to allow multiple instances
+  of the same driver.</li>
+  <li>The <b>File_Config.c</b> configuration file for the user is updated for new
+  drives and cleaned. It now contains only the macro definitions and no code.</li>
+</ul>
+
+<p>&nbsp;</p>
+<h2><a name="Migration"></a>Migration to RL-ARM 4.20</h2>
+
+<p>If you created your project with an earlier version of <b>RL-ARM</b> than 
+  <b>4.20</b> (this is officially an initial version of MDK-PRO), you need to 
+  modify the project for the new Flash File System. You must:
+  <ol>
+    <li>replace the <b>File_Config.c</b>,</li>
+    <li>replace SD/MMC <b>drivers</b>,</li>
+    <li>replace <b>flash programming</b> algorithms,
+    <li>update the <b>initialization</b> code.</li> 
+  </ol>    
+</p>
+
+<h3>Replace the File_Config.c</h3>
+
+<ul>  
+  <li>Rename original <b>File_Config.c</b> to <b>File_Config_old.c</b> and copy
+     the new <b>File_Config.c</b> from from <b>..\ARM\RL\FlashFS\Config</b> folder 
+     to the project.
+  </li> 
+  <li>Open both files <b>File_Config.c</b> and <b>File_Config_old.c</b>, select 
+    the <b>Configuration Wizard</b> and compare the options.
+  </li>
+  <li>Select the same configuration options in <b>File_Config.c</b> as they are 
+    set in old configuration file. Enable the same drive, set the caching options etc.
+  </li>
+  <li>Save the new <b>File_Config.c</b> and delete old config file.</li>
+</ul>
+
+<h3>Replace SD/MMC drivers</h3>
+
+<ul>  
+  <li>Replace the original MCI, SDIO or SPI driver from the project with new driver 
+    copied from <b>..\ARM\RL\FlashFS\Drivers</b> folder. For NXP LPC23xx those are 
+    <b>MCI_LPC23xx.c</b> and <b>MCI_LPC23xx.h</b> files. 
+  </li>
+  <li>Check and optionally update the <b>driver instance</b> definition. The first 
+    driver instance is 0, second instance is 1, etc. This is an instance definition 
+    of the first mci driver in the system:
+<pre>
+#define __DRV_ID  mci0_drv
+</pre>
+    and this is an instance definition of the second mci driver:
+<pre>
+#define __DRV_ID  mci1_drv
+</pre>
+    In most cases the default settings are just ok.
+  <li>Check and optionally update the <b>clock definitions</b> for the driver to
+    reflect real clock settings for the project. Incorrect setting might result 
+    in wrong peripheral operation. 
+<pre>
+#define __MCLK    48000000
+#define __CPUCLK  48000000
+</pre>  
+  <li>Update the <b>CheckMedia</b> function of SD Card driver. If you have the CD 
+    (Card Detect) and WP (Write Protect) digital inputs connected, modify the 
+    <b>CheckMedia</b> function in the driver to check those signals from SD Card 
+    socket.
+<pre>
+static U32 CheckMedia (void) {
+  /* Read CardDetect and WriteProtect card socket pins. */
+  U32 stat = 0;
+ 
+  if (!(FIO0PIN & 0x04)) {
+    /* Card is inserted (CD=0). */
+    stat |= M_INSERTED;
+  } 
+  if ((FIO0PIN & 0x20)) {
+    /* Write Protect switch is active (WP=1). */
+    stat |= M_PROTECTED;
+  }
+  return (stat);
+}
+</pre>
+  <li>If those signals are not connected, this function should return 
+    <b>M_INSERTED</b> status. 
+<pre>
+static U32 CheckMedia (void) {
+  /* Read CardDetect and WriteProtect card socket pins. */
+  return (M_INSERTED);
+}
+</pre>    
+  </li> 
+</ul>
+
+
+<h3>Replace flash programming algorithms</h3>
+
+<ul>  
+  <li>Replace the original <b>FS_FlashPrg.c</b> parallel flash programming 
+    algorithm with new copied from <b>..\ARM\RL\FlashFS\Flash\[device]</b> folder
+    for <b>F:</b> drive.
+  </li>
+  <li>Replace the original <b>FS_SPI_FlashPrg.c</b> SPI flash programming algorithm
+    with new copied from <b>..\ARM\RL\FlashFS\Flash\[device]</b> folder for 
+    <b>S:</b> drive.
+  </li>
+  <li>Check and optionally change the <b>SPI driver instance</b> definition for
+    <b>S:</b> drive. This is required if you already have an existing spi driver
+    in the system (for SD Card in SPI mode). This is an instance definition of 
+    the first spi driver in the system (default):
+<pre>
+#define __SPI     spi0_drv
+</pre>
+    and this is an instance definition of the second spi driver (if spi0_drv
+    driver is used for SD Card):
+<pre>
+#define __SPI     spi1_drv
+</pre>
+  </li> 
+</ul>
+
+
+<h3>Update the code</h3>
+
+<ul>  
+  <li>The function <b>finit</b> is changed to accept parameter. The old function 
+<pre>
+  finit ();
+</pre>  
+    should be replaced by 
+<pre>
+  finit (NULL);
+</pre>
+
+</ul>
+<p>&nbsp;</p>
+<h2><a name="TechnicalSupport"></a>Technical Support</h2>
+
+<p>At Keil Software, we are dedicated to providing you with the best development
+tools and technical support. That's why we offer numerous ways you can get the
+technical support you need to complete your embedded projects.</p>
+
+<ul>
+  <li class="LI2"><a href="http://www.keil.com/support"><b>Technical Support
+    Knowledgebase</b></a><br>
+    More than 1500 technical support questions and answers are available in the
+    Support Solutions Knowledgebase. When a new question arises, it is added to
+    the knowledgebase which is continuously published to the Web. This enables
+    you to get technical support at times when our support staff is unavailable.</li>
+  <li class="LI2"><a href="http://www.keil.com/appnotes"><b>Application Notes</b></a><br>
+    Numerous Application Notes help you decipher complex features and implement
+    robust applications.</li>
+  <li class="LI2"><a href="http://www.keil.com/download"><b>Example Programs and
+    Files</b></a><br>
+    Utility programs, example code, and sample projects are regularly added to
+    the Download File section of the web site.</li>
+  <li class="LI2"><a href="http://www.keil.com/discuss"><b>Discussion Forum</b></a><br>
+    Post questions, comments, and suggestions to the Keil Software Discussion
+    Forum and interact with other Keil users around the world.</li>
+</ul>
+
+<p>Many of the features of our Technical Support Knowledgebase and Web Site are
+the results of your suggestions. If you have any ideas that will improve them,
+please <a href="http://www.keil.com/support/feedback.asp">give us your feedback</a>!</p>
+<p>&nbsp;</p>
+
+<h2><a name="ContactDetails"></a>Contact Details</h2>
+
+<p>If you experience any problems or have any questions about this Application
+Note, contact one of our <a href="http://www.keil.com/distis">distributors</a>
+or offices for assistance.</p>
+
+<div align="center">
+  <center>
+  <table border="0" cellpadding="5" cellspacing="0">
+    <tr>
+      <td valign="top" nowrap bgcolor="#FFFFCC" style="border: 1 solid #800000">
+
+        <p><b>In the USA...<br>
+        </b><br>
+        <b>KEIL - An ARM Company</b><br>
+        1501 10th Street, Suite 110<br>
+        Plano, TX&nbsp; 75074<br>
+        USA<br>
+        <br>
+        800-348-8051 - Sales<br>
+        972-312-1107 - Support<br>
+        972-312-1159 - Fax<br>
+        <a href="mailto:sales.us@keil.com"><br>
+        sales.us@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.us@keil.com"><br>
+        support.us@keil.com</a> - Support E-mail&nbsp;<br>
+        &nbsp;&nbsp;</p>
+
+      </td>
+      <td valign="top" width="30" nowrap></td>
+      <td valign="top" nowrap style="border: 1 solid #800000" bgcolor="#FFFFCC">
+
+        <p><b>In Europe...<br>
+        </b><br>
+        <b>KEIL - An ARM Company<br>
+        </b>Bretonischer Ring 15<br>
+        D-85630 Grasbrunn<br>
+        Germany<br>
+        <br>
+        +49 89 456040-0 - Sales<br>
+        +49 89 456040-24 - Support<br>
+        +49 89 468162 - Fax<br>
+        <a href="mailto:sales.intl@keil.com"><br>
+        sales.intl@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.intl@keil.com"><br>
+        support.intl@keil.com</a> - Support E-Mail<br>
+        &nbsp;&nbsp;</p>
+
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+
+<p class="TinyT">Copyright © KEIL - An ARM Company.<br>
+All rights reserved.<br>
+Visit our web site at <a href="http://www.keil.com">www.keil.com</a>.</p>
+
+</body>
+
+</html>

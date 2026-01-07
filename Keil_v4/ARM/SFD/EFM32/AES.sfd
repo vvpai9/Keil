@@ -1,0 +1,399 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\AES.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          AES                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  AES_CTRL  --------------------------------------------
+
+unsigned int AES_CTRL __AT (0x400E0000);
+
+//  <item> Reg_AES_CTRL
+//    <i> AES_CTRL [31..0] (@ 0x400E0000) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_CTRL>>0) & 0xFFFFFFFF), ( (AES_CTRL &= ~(0xFFFFFFFF<<0)), (AES_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_CTRL_DECRYPT
+//    <i> DECRYPT [0] (@ 0x400E0000) </i>
+//    <check> 
+//      <loc> AES_CTRL </loc>
+//      <o.0..0> DECRYPT
+//    </check>
+//  </item>
+//  
+//  <item> AES_CTRL_AES256
+//    <i> AES256 [1] (@ 0x400E0000) </i>
+//    <check> 
+//      <loc> AES_CTRL </loc>
+//      <o.1..1> AES256
+//    </check>
+//  </item>
+//  
+//  <item> AES_CTRL_KEYBUFEN
+//    <i> KEYBUFEN [2] (@ 0x400E0000) </i>
+//    <check> 
+//      <loc> AES_CTRL </loc>
+//      <o.2..2> KEYBUFEN
+//    </check>
+//  </item>
+//  
+//  <item> AES_CTRL_DATASTART
+//    <i> DATASTART [4] (@ 0x400E0000) </i>
+//    <check> 
+//      <loc> AES_CTRL </loc>
+//      <o.4..4> DATASTART
+//    </check>
+//  </item>
+//  
+//  <item> AES_CTRL_XORSTART
+//    <i> XORSTART [5] (@ 0x400E0000) </i>
+//    <check> 
+//      <loc> AES_CTRL </loc>
+//      <o.5..5> XORSTART
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  AES_CMD  --------------------------------------------
+
+unsigned int AES_CMD __AT (0x400E0004);
+
+//  <item> Reg_AES_CMD
+//    <i> AES_CMD [31..0] (@ 0x400E0004) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_CMD>>0) & 0xFFFFFFFF), ( (AES_CMD &= ~(0xFFFFFFFF<<0)), (AES_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_CMD_START
+//    <i> START [0] (@ 0x400E0004) </i>
+//    <check> 
+//      <loc> AES_CMD </loc>
+//      <o.0..0> START
+//    </check>
+//  </item>
+//  
+//  <item> AES_CMD_STOP
+//    <i> STOP [1] (@ 0x400E0004) </i>
+//    <check> 
+//      <loc> AES_CMD </loc>
+//      <o.1..1> STOP
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  AES_STATUS  -------------------------------------------
+
+unsigned int AES_STATUS __AT (0x400E0008);
+
+//  <item> Reg_AES_STATUS
+//    <i> AES_STATUS [31..0] (@ 0x400E0008) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_STATUS>>0) & 0xFFFFFFFF), ( (AES_STATUS &= ~(0xFFFFFFFF<<0)), (AES_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_STATUS_RUNNING
+//    <i> RUNNING [0] (@ 0x400E0008) </i>
+//    <check> 
+//      <loc> AES_STATUS </loc>
+//      <o.0..0> RUNNING
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  AES_IEN  --------------------------------------------
+
+unsigned int AES_IEN __AT (0x400E000C);
+
+//  <item> Reg_AES_IEN
+//    <i> AES_IEN [31..0] (@ 0x400E000C) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_IEN>>0) & 0xFFFFFFFF), ( (AES_IEN &= ~(0xFFFFFFFF<<0)), (AES_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_IEN_DONE
+//    <i> DONE [0] (@ 0x400E000C) </i>
+//    <check> 
+//      <loc> AES_IEN </loc>
+//      <o.0..0> DONE
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  AES_IF  ---------------------------------------------
+
+unsigned int AES_IF __AT (0x400E0010);
+
+//  <item> Reg_AES_IF
+//    <i> AES_IF [31..0] (@ 0x400E0010) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_IF>>0) & 0xFFFFFFFF), ( (AES_IF &= ~(0xFFFFFFFF<<0)), (AES_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_IF_DONE
+//    <i> DONE [0] (@ 0x400E0010) </i>
+//    <check> 
+//      <loc> AES_IF </loc>
+//      <o.0..0> DONE
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  AES_IFS  --------------------------------------------
+
+unsigned int AES_IFS __AT (0x400E0014);
+
+//  <item> Reg_AES_IFS
+//    <i> AES_IFS [31..0] (@ 0x400E0014) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_IFS>>0) & 0xFFFFFFFF), ( (AES_IFS &= ~(0xFFFFFFFF<<0)), (AES_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_IFS_DONE
+//    <i> DONE [0] (@ 0x400E0014) </i>
+//    <check> 
+//      <loc> AES_IFS </loc>
+//      <o.0..0> DONE
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  AES_IFC  --------------------------------------------
+
+unsigned int AES_IFC __AT (0x400E0018);
+
+//  <item> Reg_AES_IFC
+//    <i> AES_IFC [31..0] (@ 0x400E0018) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_IFC>>0) & 0xFFFFFFFF), ( (AES_IFC &= ~(0xFFFFFFFF<<0)), (AES_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_IFC_DONE
+//    <i> DONE [0] (@ 0x400E0018) </i>
+//    <check> 
+//      <loc> AES_IFC </loc>
+//      <o.0..0> DONE
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_DATA  --------------------------------------------
+
+unsigned int AES_DATA __AT (0x400E001C);
+
+//  <item> Reg_AES_DATA
+//    <i> AES_DATA [31..0] (@ 0x400E001C) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_DATA>>0) & 0xFFFFFFFF), ( (AES_DATA &= ~(0xFFFFFFFF<<0)), (AES_DATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_DATA_DATA
+//    <i> DATA [31..0] (@ 0x400E001C) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_DATA>>0) & 0xFFFFFFFE), ( (AES_DATA &= ~(0xFFFFFFFE<<0)), (AES_DATA |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  AES_XORDATA  ------------------------------------------
+
+unsigned int AES_XORDATA __AT (0x400E0020);
+
+//  <item> Reg_AES_XORDATA
+//    <i> AES_XORDATA [31..0] (@ 0x400E0020) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_XORDATA>>0) & 0xFFFFFFFF), ( (AES_XORDATA &= ~(0xFFFFFFFF<<0)), (AES_XORDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_XORDATA_XORDATA
+//    <i> XORDATA [31..0] (@ 0x400E0020) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_XORDATA>>0) & 0xFFFFFFFE), ( (AES_XORDATA &= ~(0xFFFFFFFE<<0)), (AES_XORDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYLA  -------------------------------------------
+
+unsigned int AES_KEYLA __AT (0x400E0030);
+
+//  <item> Reg_AES_KEYLA
+//    <i> AES_KEYLA [31..0] (@ 0x400E0030) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLA>>0) & 0xFFFFFFFF), ( (AES_KEYLA &= ~(0xFFFFFFFF<<0)), (AES_KEYLA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYLA_KEYLA
+//    <i> KEYLA [31..0] (@ 0x400E0030) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLA>>0) & 0xFFFFFFFE), ( (AES_KEYLA &= ~(0xFFFFFFFE<<0)), (AES_KEYLA |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYLB  -------------------------------------------
+
+unsigned int AES_KEYLB __AT (0x400E0034);
+
+//  <item> Reg_AES_KEYLB
+//    <i> AES_KEYLB [31..0] (@ 0x400E0034) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLB>>0) & 0xFFFFFFFF), ( (AES_KEYLB &= ~(0xFFFFFFFF<<0)), (AES_KEYLB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYLB_KEYLB
+//    <i> KEYLB [31..0] (@ 0x400E0034) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLB>>0) & 0xFFFFFFFE), ( (AES_KEYLB &= ~(0xFFFFFFFE<<0)), (AES_KEYLB |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYLC  -------------------------------------------
+
+unsigned int AES_KEYLC __AT (0x400E0038);
+
+//  <item> Reg_AES_KEYLC
+//    <i> AES_KEYLC [31..0] (@ 0x400E0038) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLC>>0) & 0xFFFFFFFF), ( (AES_KEYLC &= ~(0xFFFFFFFF<<0)), (AES_KEYLC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYLC_KEYLC
+//    <i> KEYLC [31..0] (@ 0x400E0038) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLC>>0) & 0xFFFFFFFE), ( (AES_KEYLC &= ~(0xFFFFFFFE<<0)), (AES_KEYLC |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYLD  -------------------------------------------
+
+unsigned int AES_KEYLD __AT (0x400E003C);
+
+//  <item> Reg_AES_KEYLD
+//    <i> AES_KEYLD [31..0] (@ 0x400E003C) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLD>>0) & 0xFFFFFFFF), ( (AES_KEYLD &= ~(0xFFFFFFFF<<0)), (AES_KEYLD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYLD_KEYLD
+//    <i> KEYLD [31..0] (@ 0x400E003C) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYLD>>0) & 0xFFFFFFFE), ( (AES_KEYLD &= ~(0xFFFFFFFE<<0)), (AES_KEYLD |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYHA  -------------------------------------------
+
+unsigned int AES_KEYHA __AT (0x400E0040);
+
+//  <item> Reg_AES_KEYHA
+//    <i> AES_KEYHA [31..0] (@ 0x400E0040) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHA>>0) & 0xFFFFFFFF), ( (AES_KEYHA &= ~(0xFFFFFFFF<<0)), (AES_KEYHA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYHA_KEYHA
+//    <i> KEYHA [31..0] (@ 0x400E0040) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHA>>0) & 0xFFFFFFFE), ( (AES_KEYHA &= ~(0xFFFFFFFE<<0)), (AES_KEYHA |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYHB  -------------------------------------------
+
+unsigned int AES_KEYHB __AT (0x400E0044);
+
+//  <item> Reg_AES_KEYHB
+//    <i> AES_KEYHB [31..0] (@ 0x400E0044) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHB>>0) & 0xFFFFFFFF), ( (AES_KEYHB &= ~(0xFFFFFFFF<<0)), (AES_KEYHB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYHB_KEYHB
+//    <i> KEYHB [31..0] (@ 0x400E0044) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHB>>0) & 0xFFFFFFFE), ( (AES_KEYHB &= ~(0xFFFFFFFE<<0)), (AES_KEYHB |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYHC  -------------------------------------------
+
+unsigned int AES_KEYHC __AT (0x400E0048);
+
+//  <item> Reg_AES_KEYHC
+//    <i> AES_KEYHC [31..0] (@ 0x400E0048) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHC>>0) & 0xFFFFFFFF), ( (AES_KEYHC &= ~(0xFFFFFFFF<<0)), (AES_KEYHC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYHC_KEYHC
+//    <i> KEYHC [31..0] (@ 0x400E0048) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHC>>0) & 0xFFFFFFFE), ( (AES_KEYHC &= ~(0xFFFFFFFE<<0)), (AES_KEYHC |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  AES_KEYHD  -------------------------------------------
+
+unsigned int AES_KEYHD __AT (0x400E004C);
+
+//  <item> Reg_AES_KEYHD
+//    <i> AES_KEYHD [31..0] (@ 0x400E004C) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHD>>0) & 0xFFFFFFFF), ( (AES_KEYHD &= ~(0xFFFFFFFF<<0)), (AES_KEYHD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> AES_KEYHD_KEYHD
+//    <i> KEYHD [31..0] (@ 0x400E004C) </i>
+//    <edit> 
+//      <loc> ( (int)((AES_KEYHD>>0) & 0xFFFFFFFE), ( (AES_KEYHD &= ~(0xFFFFFFFE<<0)), (AES_KEYHD |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

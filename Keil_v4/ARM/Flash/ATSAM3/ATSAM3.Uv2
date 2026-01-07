@@ -1,0 +1,284 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (ATSAM3_64), 0x0004 // Tools: 'ARM-ADS'
+Target (ATSAM3_128), 0x0004 // Tools: 'ARM-ADS'
+Target (ATSAM3_128_B1), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Program Functions)
+Group (Device Description)
+
+File 1,1,<.\FlashPrg.c><FlashPrg.c>
+File 2,1,<.\FlashDev.c><FlashDev.c>
+
+
+Options 1,0,0  // Target 'ATSAM3_64'
+ Device (ATSAM3U4E)
+ Vendor (Atmel)
+ Cpu (IRAM(0x20000000-0x2000BFFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\startup_SAM3U.s" ("Atmel ATSAM3U Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4876)
+ Rgf (SAM3U4.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM3U\)
+ OrgReg (ÿAtmel\SAM3U\)
+ TgStat=16
+ OutDir (.\Out\)
+ OutName (ATSAM3_64)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Out\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Out\ATSAM3_64.axf ..\ATSAM3_64.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,192,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,8,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,64,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (SIZE_64k)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMP1.DLL)(-pLPC1766)(SARMCM3.DLL)(-MPU)(TARMP1.DLL)(-pLPC1766)
+  OPTDBG 43509,1,()()()()()()()()()() (BIN\UL2CM3.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'ATSAM3_128'
+ Device (ATSAM3U4E)
+ Vendor (Atmel)
+ Cpu (IRAM(0x20000000-0x2000BFFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\startup_SAM3U.s" ("Atmel ATSAM3U Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4876)
+ Rgf (SAM3U4.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM3U\)
+ OrgReg (ÿAtmel\SAM3U\)
+ TgStat=16
+ OutDir (.\Out\)
+ OutName (ATSAM3_128)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Out\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Out\ATSAM3_128.axf ..\ATSAM3_128.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,192,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,8,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,64,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (SIZE_128k)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMP1.DLL)(-pLPC1766)(SARMCM3.DLL)(-MPU)(TARMP1.DLL)(-pLPC1766)
+  OPTDBG 43509,1,()()()()()()()()()() (BIN\UL2CM3.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'ATSAM3_128_B1'
+ Device (ATSAM3U4E)
+ Vendor (Atmel)
+ Cpu (IRAM(0x20000000-0x2000BFFF) IROM(0-0x3FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\Atmel\startup_SAM3U.s" ("Atmel ATSAM3U Startup Code"))
+ FlashDR (UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_256 -FS00 -FL040000))
+ DevID (4876)
+ Rgf (SAM3U4.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\SAM3U\)
+ OrgReg (ÿAtmel\SAM3U\)
+ TgStat=16
+ OutDir (.\Out\)
+ OutName (ATSAM3_128_B1)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Out\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy Out\ATSAM3_128_B1.axf ..\ATSAM3_128_B1.FLM>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,192,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,8,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,64,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 12,0,160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (SIZE_128k_B1)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (.\Target.lin)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--diag_suppress L6305)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)(-MPU)(DARMP1.DLL)(-pLPC1766)(SARMCM3.DLL)(-MPU)(TARMP1.DLL)(-pLPC1766)
+  OPTDBG 43509,1,()()()()()()()()()() (BIN\UL2CM3.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,1,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2CM3.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

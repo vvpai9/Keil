@@ -1,0 +1,10 @@
+This is a simple RTX Kernel based example which blinks LED
+on the Phytec phyCORE LPC229x Evaluation Board.
+
+
+The BLINKY example program is available for several targets:
+
+Simulator: uVision Simulator for evaluation
+
+LPC229x:   Phytec phyCORE LPC229x Evaluation Board with ULINK debugger
+           - Application is loaded to external Flash.

@@ -1,0 +1,47 @@
+SF        P256              CS0
+SerialFlash Page 256 bytes on Chip Select 0
+
+The 2-nd level Bootloader for Atmel 'AT91SAM9G35',
+running from External SerialFlash (Page Size 256 
+Bytes, eg. AT25D321D) using Chip Select 0 for 
+SerialFlash interfacing
+
+It downloads to first 64kB of SerialFlash.
+1-st level bootloader that is in ROM of 
+AT91SAM9G15 first downloads this 2-nd level 
+bootloader to internal RAM and starts it.
+
+2-nd level bootloader's main function is to 
+copy user program from SerialFlash to 
+External SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to DataFlash.
+
+Clocks: Oscillator      =   12   MHz
+        PLLA            =  516   MHz
+        Processor Clock =  258   MHz
+        Master Clock    =   64.5 MHz
+
+Important: !!! Do not rebuild with EVAL version !!!
+
+
+Serial Flash Organization:
+
+0x00000000 _ ____________________________
+            |                            |
+            |   2-nd Level Bootloader    |
+            |                            |    
+0x00006000 -| - - - - - - - - - - - - - -|	  
+            |                            |
+            :  Reserved for future use   :
+            :                            :
+            |                            |
+0x00010000 -|============================|
+            |                            |
+            |       User Program         |
+            :                            :
+            :                            :
+0x00400000 _|____________________________|
+
+

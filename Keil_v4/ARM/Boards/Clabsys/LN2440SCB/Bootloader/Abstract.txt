@@ -1,0 +1,43 @@
+The 2-nd level Bootloader for 'S3C2440'
+
+This is a 2-nd level bootloader for 'Samsung S3C2440' 
+microcontroller with NAND Flash and External SDRAM. 
+It downloads to BANK 0 of NAND Flash.
+1-st level bootloader that is in ROM of S3C2440  
+first downloads this 2-nd level bootloader to 
+internal RAM and starts it.
+
+2-nd level bootloader's main function is to copy the 
+user program from NAND Flash to External SDRAM and 
+start it.
+
+Clock Settings:
+  - XTAL             =  12 MHz
+  - FCLK = MPLL      = 300 MHz
+  - UCLK = UPLL / 2  =  48 MHz
+  - HCLK = FCLK / 3  = 100 MHz
+  - PCLK = HCLK / 2  =  50 MHz
+
+Just select 'Flash -> Download', to download it 
+to NAND Flash.
+
+Note: Bad block skipping is supported
+      Error correction (ECC) is not used.
+
+NAND Flash Organization (64MB NAND Flash):
+
+0x00000000 _ ____________________________
+            |                            |
+            |   2-nd Level Bootloader    |
+            |                            |
+0x00001000 -| - - - - - - - - - - - - - -|
+            |                            |
+            :  Reserved for future use   :
+            :                            :
+            |                            |
+0x00004000 -|============================|
+            |                            |
+            |       User Program         |
+            :                            :
+            :                            :
+0x04000000 _|____________________________|

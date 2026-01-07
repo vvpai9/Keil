@@ -1,0 +1,46 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (LPC3131 Ext SDRAM), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Startup Code),1,0,0
+GRPOPT 2,(Source Code),1,0,0
+GRPOPT 3,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\LPC31xx.s><LPC31xx.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\Blinky.c><Blinky.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<.\IRQ.c><IRQ.c> 
+OPTFFF 3,4,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,255,255,255,255,1,0,0,0,93,2,0,0,29,3,0,0 }
+
+
+TARGOPT 1, (LPC3131 Ext SDRAM)
+ ADSCLK=12000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Ext_SDRAM\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 8
+  OPTBL 0,(Data Sheet)<DATASHTS\PHILIPS\LPC313x_DS.pdf>
+  OPTBL 1,(User Manual)<DATASHTS\PHILIPS\LPC313x_UM.pdf>
+  OPTBL 2,(Errata Sheet)<DATASHTS\PHILIPS\LPC313x_ES.pdf>
+  OPTDL (SARM.DLL)(-cLPC313x)(DARMP3.DLL)(-pLPC3131)(SARM.DLL)()(TARMP3.DLL)(-pLPC3131)
+  OPTDBG 47614,0,()()()()()()()()()(.\Ext_SDRAM.ini) (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)((õ)
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV1742AOE -O47 -S0 -C0 -N00("ARM926EJ-S Core") -D00(07926F0F) -L00(4) -FO7 -FD11028000 -FC2000 -FN1 -FF0LPC31xx_NAND_LP -FS030000000 -FL0FFE0000)
+  OPTDF 0x82
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

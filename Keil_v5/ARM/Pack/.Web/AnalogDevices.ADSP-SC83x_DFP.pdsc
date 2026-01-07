@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>AnalogDevices</vendor>
+  <name>ADSP-SC83x_DFP</name>
+  <description>
+    Analog Devices ADSP-SC83x Cortex-M33 Core Support
+    (Subject to the Software License Agreement referred to in the Release Notes.)
+  </description>
+  <url>http://download.analog.com/tools/EZBoards/ADSP-SC83x/Releases/</url>
+  <supportContact>http://www.analog.com/en/support/technical-support.html</supportContact>
+  <license>License/2023-11-23 SC83XDFP Click Thru SLA.txt</license>
+
+  <releases>
+    <release version="2.0.0" date="2024-02-07">
+      - QM release of support for the Cortex-M33 core of the ADSP-SC83x
+        family of processorss.
+    </release>
+    <release version="1.10.0" date="2023-10-13">
+      - Support for Cortex-M33 core 2 of ADSP-SC83x family of processors
+        in CrossCore Embedded Studio.
+    </release>
+    <release version="1.0.0" date="2023-03-30">
+      - Support for Cortex-M33 core 2 of ADSP-SC83x family of processors
+        in IAR Embedded Workbench.
+    </release>
+  </releases>
+
+  <requirements>
+    <packages>
+      <package name="CMSIS" vendor="ARM" version="5.9.0:5.9.0"/>
+    </packages>
+  </requirements>
+
+  <boards>
+    <board vendor="AnalogDevices" name="ADSPSC835W-EV-SOM" revision="A">
+      <description>Analog Devices ADSP-SC835W Board</description>
+      <mountedDevice    deviceIndex="0" Dvendor="Analog Devices:1" Dname="ADSP-SC835W"/>
+      <compatibleDevice deviceIndex="0" Dvendor="Analog Devices:1" Dfamily="ADSP-SC83x Family"/>
+    </board>
+  </boards>
+
+  <keywords>
+    <keyword>Analog Devices</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Analog Devices</keyword>
+    <keyword>ADSP-SC83x</keyword>
+    <keyword>ADSP-SC834</keyword>
+    <keyword>ADSP-SC834W</keyword>
+    <keyword>ADSP-SC835</keyword>
+    <keyword>ADSP-SC835W</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="ADSP-SC83x Series" Dvendor="Analog Devices:1">
+      <processor
+        Dcore="Cortex-M33"
+        DcoreVersion="r1p0"
+        Dfpu="SP_FPU"
+        Dmpu="MPU"
+        Dtz="TZ"
+        Ddsp="DSP"
+        Dendian="Little-endian"
+        Dclock="400000000"
+      />
+
+      <debugconfig default="jtag" clock="1000000"/>
+
+      <debugport __dp="0">
+        <jtag tapindex="0"/>
+      </debugport>
+
+      <description>The ADSP-SC83x series of processors comprises a SHARC-FX core (core 1) along with an ARM Cortex-M33 core (core 2). Toolchain support for the ARM Cortex-M33 core is provided via this CMSIS Device Family Pack.</description>
+
+      <memory name="L2_boot_rom"    start="0x00000000" size="0x00010000" access="rx"/>
+      <memory name="L1_dram"        start="0x28AC0000" size="0x00020000" access="rw"  default="true"/>
+      <memory name="L1_iram"        start="0x00040000" size="0x00010000" access="rwx" default="true" startup="true"/>
+      <memory name="L3_sdram"       start="0x80000000" size="0x40000000" access="rwx" default="true"/>
+
+      <memory name="L2_boot_rom_mp" start="0x28A40000" size="0x00010000" access="rx"/>
+      <memory name="L1_iram_mp"     start="0x28A80000" size="0x00010000" access="rwx"/>
+
+      <memory name="L2_boot_rom_fx" start="0x20200000" size="0x00020000" access="r"/>
+      <memory name="L1_dram_fx"     start="0x28240000" size="0x00080000" access="rw"/>
+      <memory name="L1_iram_fx"     start="0x282C0000" size="0x00010000" access="rw"/>
+
+      <memory name="SPI"            start="0x60000000" size="0x20000000" access="rw"/>
+
+      <memory name="Sys_mmr"        start="0x30000000" size="0x10000000" access="rwp"/>
+
+      <environment name="iar">
+        <debugger>
+          <file category="jlinkscriptfile" name="Config/IAR/debugger/ADSP-SC83x.JLinkScript"/>
+        </debugger>
+      </environment>
+
+      <environment name="cces">
+        <properties>
+          <property name="toolchain" value="arm.gcc.toolchain"/>
+          <property name="gdb-qemu" value="true"/>
+        </properties>
+
+        <silicon-revisions command-line-default="0.0">
+          <silicon revision="0.0"/>
+          <silicon revision="any"/>
+        </silicon-revisions>
+      </environment>
+
+      <device Dname="ADSP-SC834">
+        <memory name="L2_sram" start="0x20100000" size="0x00100000" access="rwx" default="true"/>
+        <compile header="Include/ADSP-SC834.h" define="__ADSPSC834__"/>
+        <environment name="iar">
+          <file category="linkerfile" name="Source/IAR/ADSP-SC83x-1MB.icf"/>
+        </environment>
+        <environment name="cces">
+          <file category="linkerfile" name="Source/GCC/ADSP-SC83x-1MB.ld"/>
+        </environment>
+        <debug svd="SVD/ADSP-SC83x_HPC.svd"/>
+      </device>
+      <device Dname="ADSP-SC834W">
+        <memory name="L2_sram" start="0x20100000" size="0x00100000" access="rwx" default="true"/>
+        <compile header="Include/ADSP-SC834W.h" define="__ADSPSC834W__"/>
+        <environment name="iar">
+          <file category="linkerfile" name="Source/IAR/ADSP-SC83x-1MB.icf"/>
+        </environment>
+        <environment name="cces">
+          <file category="linkerfile" name="Source/GCC/ADSP-SC83x-1MB.ld"/>
+        </environment>
+        <debug svd="SVD/ADSP-SC83xW_HPC.svd"/>
+      </device>
+      <device Dname="ADSP-SC835">
+        <memory name="L2_sram" start="0x20000000" size="0x00200000" access="rwx" default="true"/>
+        <compile header="Include/ADSP-SC835.h" define="__ADSPSC835__"/>
+        <environment name="iar">
+          <file category="linkerfile" name="Source/IAR/ADSP-SC83x-2MB.icf"/>
+        </environment>
+        <environment name="cces">
+          <file category="linkerfile" name="Source/GCC/ADSP-SC83x-2MB.ld"/>
+        </environment>
+        <debug svd="SVD/ADSP-SC83x_HPC.svd"/>
+      </device>
+      <device Dname="ADSP-SC835W">
+        <memory name="L2_sram" start="0x20000000" size="0x00200000" access="rwx" default="true"/>
+        <compile header="Include/ADSP-SC835W.h" define="__ADSPSC835W__"/>
+        <environment name="iar">
+          <file category="linkerfile" name="Source/IAR/ADSP-SC83x-2MB.icf"/>
+        </environment>
+        <environment name="cces">
+          <file category="linkerfile" name="Source/GCC/ADSP-SC83x-2MB.ld"/>
+        </environment>
+        <debug svd="SVD/ADSP-SC83xW_HPC.svd"/>
+      </device>
+    </family>
+  </devices>
+
+  <conditions>
+
+    <condition id="IAR">
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <condition id="GCC">
+      <require Tcompiler="GCC"/>
+    </condition>
+
+    <condition id="ADSP-SC83x">
+      <require Dvendor="Analog Devices:1"/>
+      <require Dname="ADSP-SC83*"/>
+    </condition>
+
+    <condition id="ADSP-SC834">
+      <require Dvendor="Analog Devices:1"/>
+      <require Dname="ADSP-SC834"/>
+    </condition>
+    <condition id="ADSP-SC834W">
+      <require Dvendor="Analog Devices:1"/>
+      <require Dname="ADSP-SC834W"/>
+    </condition>
+    <condition id="ADSP-SC835">
+      <require Dvendor="Analog Devices:1"/>
+      <require Dname="ADSP-SC835"/>
+    </condition>
+    <condition id="ADSP-SC835W">
+      <require Dvendor="Analog Devices:1"/>
+      <require Dname="ADSP-SC835W"/>
+    </condition>
+
+    <condition id="ADSP-SC834_IAR">
+      <require condition="ADSP-SC834"/>
+      <require condition="IAR"/>
+    </condition>
+    <condition id="ADSP-SC834W_IAR">
+      <require condition="ADSP-SC834W"/>
+      <require condition="IAR"/>
+    </condition>
+    <condition id="ADSP-SC835_IAR">
+      <require condition="ADSP-SC835"/>
+      <require condition="IAR"/>
+    </condition>
+    <condition id="ADSP-SC835W_IAR">
+      <require condition="ADSP-SC835W"/>
+      <require condition="IAR"/>
+    </condition>
+    <condition id="ADSP-SC834_GCC">
+      <require condition="ADSP-SC834"/>
+      <require condition="GCC"/>
+    </condition>
+    <condition id="ADSP-SC834W_GCC">
+      <require condition="ADSP-SC834W"/>
+      <require condition="GCC"/>
+    </condition>
+     <condition id="ADSP-SC835_GCC">
+      <require condition="ADSP-SC835"/>
+      <require condition="GCC"/>
+    </condition>
+    <condition id="ADSP-SC835W_GCC">
+      <require condition="ADSP-SC835W"/>
+      <require condition="GCC"/>
+    </condition>
+    <condition id="Startup">
+      <description>Startup ADSP-SC83x requirements</description>
+      <require condition="ADSP-SC83x"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+  </conditions>
+
+  <components>
+
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="Startup">
+      <description>System Startup for ADSP-SC83x</description>
+      <RTE_Components_h>#define RTE_Startup</RTE_Components_h>
+      <files>
+        <!-- additional include path -->
+        <file category="include" name="Include/"/>
+
+        <!-- startup files -->
+        <file category="source" name="Source/startup_ADSP-SC83x.c" version="1.0.0" attr="config"/>
+
+        <!-- system files -->
+        <file category="header" name="Include/system_ADSP-SC83x.h" version="1.0.0" attr="config"/>
+        <file category="source" name="Source/system_ADSP-SC83x.c" version="1.0.0" attr="config"/>
+
+        <!-- linker files -->
+        <file category="linkerScript" name="Source/GCC/ADSP-SC83x-1MB.ld" version="0.0.0" attr="config" condition="ADSP-SC834_GCC"/>
+        <file category="linkerScript" name="Source/GCC/ADSP-SC83x-1MB.ld" version="0.0.0" attr="config" condition="ADSP-SC834W_GCC"/>
+        <file category="linkerScript" name="Source/GCC/ADSP-SC83x-2MB.ld" version="0.0.0" attr="config" condition="ADSP-SC835_GCC"/>
+        <file category="linkerScript" name="Source/GCC/ADSP-SC83x-2MB.ld" version="0.0.0" attr="config" condition="ADSP-SC835W_GCC"/>
+
+        <file category="linkerScript" name="Source/IAR/ADSP-SC83x-1MB.icf" version="1.0.0" attr="config" condition="ADSP-SC834_IAR"/>
+        <file category="linkerScript" name="Source/IAR/ADSP-SC83x-1MB.icf" version="1.0.0" attr="config" condition="ADSP-SC834W_IAR"/>
+        <file category="linkerScript" name="Source/IAR/ADSP-SC83x-2MB.icf" version="1.0.0" attr="config" condition="ADSP-SC835_IAR"/>
+        <file category="linkerScript" name="Source/IAR/ADSP-SC83x-2MB.icf" version="1.0.0" attr="config" condition="ADSP-SC835W_IAR"/>
+      </files>
+    </component>
+
+  </components>
+
+  <examples>
+
+    <example name="HelloWorld"
+             folder="Examples/HelloWorld"
+             doc="Readme.txt"
+             version="1.0.0">
+      <description>Hello World example</description>
+      <board name="ADSPSC835W-EV-SOM" vendor="AnalogDevices" Dname="ADSP-SC835W" revision="A"/>
+      <project>
+        <environment name="iar" load="IAR/HelloWorld.ewp"/>
+        <environment name="cces" load="CCES/.project"/>
+      </project>
+      <attributes>
+        <category>Getting Started</category>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+      </attributes>
+    </example>
+
+  </examples>
+
+</package>

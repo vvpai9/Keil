@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.40" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.40/schema/PACK.xsd">
+  <vendor>ARM</vendor>
+  <name>CMSIS-MLEK</name>
+  <description overview="overview/README.md">MLEK (Machine Learning Evaluation Kit) for CMSIS workflows</description>
+  <!-- web download link -->
+  <url>https://www.keil.com/pack/</url>
+  <license>LICENSE</license>
+
+  <releases>
+    <release version="0.5.0" date="2025-07-31" tag="v0.5.0">
+      Rename ARM.cmsis-mlek.pdsc to ARM.CMSIS-MLEK.pdsc
+    </release>
+  </releases>
+
+  <examples>
+    <example name="MLEK_Audio" folder="template/audio" doc="README.md">
+      <description>MLEK Keyword Spotting and Audio User Algorithm Template</description>
+      <project>
+        <environment name="csolution" load="mlek_audio.csolution.yml"/>
+      </project>
+      <attributes>
+        <component Cclass="Machine Learning"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+    <example name="MLEK_Video" folder="template/video" doc="README.md">
+      <description>MLEK Object Detection and Video User Algorithm Template</description>
+      <project>
+        <environment name="csolution" load="mlek_video.csolution.yml"/>
+      </project>
+      <attributes>
+        <component Cclass="Machine Learning"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+  <!-- example name="MLEK_Generic" folder="template/generic" doc="README.md">
+      <description>MLEK Generic Inference Runner</description>
+      <project>
+        <environment name="csolution" load="mlek_generic.csolution.yml"/>
+      </project>
+      <attributes>
+        <component Cclass="Machine Learning"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example -->
+
+  </examples>
+
+</package>

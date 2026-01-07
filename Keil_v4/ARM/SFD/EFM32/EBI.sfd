@@ -1,0 +1,297 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\EBI.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          EBI                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  EBI_CTRL  --------------------------------------------
+
+unsigned int EBI_CTRL __AT (0x40008000);
+
+//  <item> Reg_EBI_CTRL
+//    <i> EBI_CTRL [31..0] (@ 0x40008000) </i>
+//    <edit> 
+//      <loc> ( (int)((EBI_CTRL>>0) & 0xFFFFFFFF), ( (EBI_CTRL &= ~(0xFFFFFFFF<<0)), (EBI_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_CTRL_MODE
+//    <i> MODE [2..0] (@ 0x40008000) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_CTRL>>0) & 0x6), ( (EBI_CTRL &= ~(0x6<<0)), (EBI_CTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_CTRL_BANK0EN
+//    <i> BANK0EN [8] (@ 0x40008000) </i>
+//    <check> 
+//      <loc> EBI_CTRL </loc>
+//      <o.8..8> BANK0EN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_CTRL_BANK1EN
+//    <i> BANK1EN [9] (@ 0x40008000) </i>
+//    <check> 
+//      <loc> EBI_CTRL </loc>
+//      <o.9..9> BANK1EN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_CTRL_BANK2EN
+//    <i> BANK2EN [10] (@ 0x40008000) </i>
+//    <check> 
+//      <loc> EBI_CTRL </loc>
+//      <o.10..10> BANK2EN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_CTRL_BANK3EN
+//    <i> BANK3EN [11] (@ 0x40008000) </i>
+//    <check> 
+//      <loc> EBI_CTRL </loc>
+//      <o.11..11> BANK3EN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_CTRL_ARDYEN
+//    <i> ARDYEN [16] (@ 0x40008000) </i>
+//    <check> 
+//      <loc> EBI_CTRL </loc>
+//      <o.16..16> ARDYEN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_CTRL_ARDYTODIS
+//    <i> ARDYTODIS [17] (@ 0x40008000) </i>
+//    <check> 
+//      <loc> EBI_CTRL </loc>
+//      <o.17..17> ARDYTODIS
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  EBI_ADDRTIMING  -----------------------------------------
+
+unsigned int EBI_ADDRTIMING __AT (0x40008004);
+
+//  <item> Reg_EBI_ADDRTIMING
+//    <i> EBI_ADDRTIMING [31..0] (@ 0x40008004) </i>
+//    <edit> 
+//      <loc> ( (int)((EBI_ADDRTIMING>>0) & 0xFFFFFFFF), ( (EBI_ADDRTIMING &= ~(0xFFFFFFFF<<0)), (EBI_ADDRTIMING |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_ADDRTIMING_ADDRSET
+//    <i> ADDRSET [1..0] (@ 0x40008004) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_ADDRTIMING>>0) & 0x2), ( (EBI_ADDRTIMING &= ~(0x2<<0)), (EBI_ADDRTIMING |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_ADDRTIMING_ADDRHOLD
+//    <i> ADDRHOLD [9..8] (@ 0x40008004) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_ADDRTIMING>>8) & 0x2), ( (EBI_ADDRTIMING &= ~(0x2<<8)), (EBI_ADDRTIMING |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  EBI_RDTIMING  ------------------------------------------
+
+unsigned int EBI_RDTIMING __AT (0x40008008);
+
+//  <item> Reg_EBI_RDTIMING
+//    <i> EBI_RDTIMING [31..0] (@ 0x40008008) </i>
+//    <edit> 
+//      <loc> ( (int)((EBI_RDTIMING>>0) & 0xFFFFFFFF), ( (EBI_RDTIMING &= ~(0xFFFFFFFF<<0)), (EBI_RDTIMING |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_RDTIMING_RDSETUP
+//    <i> RDSETUP [1..0] (@ 0x40008008) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_RDTIMING>>0) & 0x2), ( (EBI_RDTIMING &= ~(0x2<<0)), (EBI_RDTIMING |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_RDTIMING_RDSTRB
+//    <i> RDSTRB [11..8] (@ 0x40008008) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_RDTIMING>>8) & 0xE), ( (EBI_RDTIMING &= ~(0xE<<8)), (EBI_RDTIMING |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_RDTIMING_RDHOLD
+//    <i> RDHOLD [17..16] (@ 0x40008008) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_RDTIMING>>16) & 0x2), ( (EBI_RDTIMING &= ~(0x2<<16)), (EBI_RDTIMING |= ((Gui_u8:GuiVal & 0x2)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  EBI_WRTIMING  ------------------------------------------
+
+unsigned int EBI_WRTIMING __AT (0x4000800C);
+
+//  <item> Reg_EBI_WRTIMING
+//    <i> EBI_WRTIMING [31..0] (@ 0x4000800C) </i>
+//    <edit> 
+//      <loc> ( (int)((EBI_WRTIMING>>0) & 0xFFFFFFFF), ( (EBI_WRTIMING &= ~(0xFFFFFFFF<<0)), (EBI_WRTIMING |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_WRTIMING_WRSETUP
+//    <i> WRSETUP [1..0] (@ 0x4000800C) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_WRTIMING>>0) & 0x2), ( (EBI_WRTIMING &= ~(0x2<<0)), (EBI_WRTIMING |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_WRTIMING_WRSTRB
+//    <i> WRSTRB [11..8] (@ 0x4000800C) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_WRTIMING>>8) & 0xE), ( (EBI_WRTIMING &= ~(0xE<<8)), (EBI_WRTIMING |= ((Gui_u8:GuiVal & 0xE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_WRTIMING_WRHOLD
+//    <i> WRHOLD [17..16] (@ 0x4000800C) </i>
+//    <edit> 
+//      <loc> ( (char)((EBI_WRTIMING>>16) & 0x2), ( (EBI_WRTIMING &= ~(0x2<<16)), (EBI_WRTIMING |= ((Gui_u8:GuiVal & 0x2)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  EBI_POLARITY  ------------------------------------------
+
+unsigned int EBI_POLARITY __AT (0x40008010);
+
+//  <item> Reg_EBI_POLARITY
+//    <i> EBI_POLARITY [31..0] (@ 0x40008010) </i>
+//    <edit> 
+//      <loc> ( (int)((EBI_POLARITY>>0) & 0xFFFFFFFF), ( (EBI_POLARITY &= ~(0xFFFFFFFF<<0)), (EBI_POLARITY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_POLARITY_CSPOL
+//    <i> CSPOL [0] (@ 0x40008010) </i>
+//    <check> 
+//      <loc> EBI_POLARITY </loc>
+//      <o.0..0> CSPOL
+//    </check>
+//  </item>
+//  
+//  <item> EBI_POLARITY_REPOL
+//    <i> REPOL [1] (@ 0x40008010) </i>
+//    <check> 
+//      <loc> EBI_POLARITY </loc>
+//      <o.1..1> REPOL
+//    </check>
+//  </item>
+//  
+//  <item> EBI_POLARITY_WEPOL
+//    <i> WEPOL [2] (@ 0x40008010) </i>
+//    <check> 
+//      <loc> EBI_POLARITY </loc>
+//      <o.2..2> WEPOL
+//    </check>
+//  </item>
+//  
+//  <item> EBI_POLARITY_ALEPOL
+//    <i> ALEPOL [3] (@ 0x40008010) </i>
+//    <check> 
+//      <loc> EBI_POLARITY </loc>
+//      <o.3..3> ALEPOL
+//    </check>
+//  </item>
+//  
+//  <item> EBI_POLARITY_ARDYPOL
+//    <i> ARDYPOL [4] (@ 0x40008010) </i>
+//    <check> 
+//      <loc> EBI_POLARITY </loc>
+//      <o.4..4> ARDYPOL
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  EBI_ROUTE  -------------------------------------------
+
+unsigned int EBI_ROUTE __AT (0x40008014);
+
+//  <item> Reg_EBI_ROUTE
+//    <i> EBI_ROUTE [31..0] (@ 0x40008014) </i>
+//    <edit> 
+//      <loc> ( (int)((EBI_ROUTE>>0) & 0xFFFFFFFF), ( (EBI_ROUTE &= ~(0xFFFFFFFF<<0)), (EBI_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> EBI_ROUTE_EBIPEN
+//    <i> EBIPEN [0] (@ 0x40008014) </i>
+//    <check> 
+//      <loc> EBI_ROUTE </loc>
+//      <o.0..0> EBIPEN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_ROUTE_CS0PEN
+//    <i> CS0PEN [1] (@ 0x40008014) </i>
+//    <check> 
+//      <loc> EBI_ROUTE </loc>
+//      <o.1..1> CS0PEN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_ROUTE_CS1PEN
+//    <i> CS1PEN [2] (@ 0x40008014) </i>
+//    <check> 
+//      <loc> EBI_ROUTE </loc>
+//      <o.2..2> CS1PEN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_ROUTE_CS2PEN
+//    <i> CS2PEN [3] (@ 0x40008014) </i>
+//    <check> 
+//      <loc> EBI_ROUTE </loc>
+//      <o.3..3> CS2PEN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_ROUTE_CS3PEN
+//    <i> CS3PEN [4] (@ 0x40008014) </i>
+//    <check> 
+//      <loc> EBI_ROUTE </loc>
+//      <o.4..4> CS3PEN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_ROUTE_ALEPEN
+//    <i> ALEPEN [5] (@ 0x40008014) </i>
+//    <check> 
+//      <loc> EBI_ROUTE </loc>
+//      <o.5..5> ALEPEN
+//    </check>
+//  </item>
+//  
+//  <item> EBI_ROUTE_ARDYPEN
+//    <i> ARDYPEN [6] (@ 0x40008014) </i>
+//    <check> 
+//      <loc> EBI_ROUTE </loc>
+//      <o.6..6> ARDYPEN
+//    </check>
+//  </item>
+//  

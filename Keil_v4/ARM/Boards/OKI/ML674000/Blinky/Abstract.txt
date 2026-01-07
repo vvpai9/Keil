@@ -1,0 +1,40 @@
+The Blinky project is a demo program for the ML674000
+using OKI ML674000 Microcontroller Board.
+
+It displays numbers on the 7-segment LED Display
+(0, 1, ..., A, b, C, d, E, F).
+
+The demo continues to count on the 7-segment LED Display
+in an infinite loop. Pressing the EXINT0 button on the
+board will reverse the counting direction.
+
+Boards switches and jumper setting:
+
+   OSC SEL      -> SYSTEM      NORMAL -> ON
+   RS232C1 SEL1 -> ENA         SA     -> OFF
+   RS232C1 SEL2 -> ENA         ANGEL  -> OFF
+   RS232C2 SEL  -> ENA         IAR    -> OFF
+
+   VDD CORE -> SYSTEM
+   VREF     -> SYSTEM
+   AVDD     -> SYSTEM
+   VDD IO   -> SYSTEM
+   MODE0    -> L
+   MODE1    -> H
+   FWENA    -> ENA
+   NEFIQ    -> ENA
+   EXINT0   -> ENA
+
+The Blinky program is available in different targets:
+  ML674000 Flash: configured for off-chip Flash ROM with Boot SRAM
+                  Runs from off-chip Boot SRAM which is mapped into 
+                  Boot Region instead of the off-chip Flash ROM.
+                  Memory image is the same as in stand alone mode
+                  and can be programmed into the off-chip Flash.
+                  Stand alone mode can be configured with jumpers
+                  NORMAL -> OFF, SA -> ON
+                  (used for production or target debugging)
+  ML674000 SRAM:  configured to run from off-chip SRAM
+                  (may be used for target debugging) 
+  ML674000 DRAM:  configured to run from off-chip DRAM
+                  (may be used for target debugging) 

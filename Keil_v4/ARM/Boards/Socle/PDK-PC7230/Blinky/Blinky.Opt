@@ -1,0 +1,67 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (PC7230 Ext SDRAM), 0x0004 // Tools: 'ARM-ADS'
+Target (PC7230 Ext NOR), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Startup Code),1,0,0
+GRPOPT 2,(Source Code),1,0,0
+GRPOPT 3,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\PC72xx.s><PC72xx.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\Blinky.c><Blinky.c> 
+OPTFFF 3,3,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,2,0,0,0,1,0,0,0,30,2,0,0,210,1,0,0 }
+
+
+TARGOPT 1, (PC7230 Ext SDRAM)
+ ADSCLK=12000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Ext_SDRAM\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 255
+  OPTBL 0,(Data Sheet)<DATASHTS\Socle\PC7230_DS.PDF>
+  OPTBL 1,(User Manual)<DATASHTS\Socle\PC7230_UM.PDF>
+  OPTDL (SARM.DLL)(-cLPC3000)(DARMP3.DLL)(-pLPC3000)(SARM.DLL)()(TARMP3.DLL)(-pLPC3000)
+  OPTDBG 43518,0,()()()()()()()()()(.\Dbg_Ext_SDRAM.ini) (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)()
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV0446D8E -O14 -S0 -C0 -N00("ARM7EJ-S Core") -D00(17700F0F) -L00(4) -FO7 -FD80000000 -FC800 -FN0)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (PC7230 Ext NOR)
+ ADSCLK=12000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Ext_NOR\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTBL 0,(Data Sheet)<DATASHTS\Socle\PC7230_DS.PDF>
+  OPTBL 1,(User Manual)<DATASHTS\Socle\PC7230_UM.PDF>
+  OPTDL (SARM.DLL)(-cLPC3000)(DARMP3.DLL)(-pLPC3000)(SARM.DLL)()(TARMP3.DLL)(-pLPC3000)
+  OPTDBG 45054,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)(°4ŽLî)
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV0446D8E -O15 -S0 -C0 -N00("ARM7EJ-S Core") -D00(17700F0F) -L00(4) -FO7 -FD80000000 -FC800 -FN1 -FF0MX29LV320B_x2 -FS00 -FL0800000)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

@@ -1,0 +1,65 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (MCBSTM32E), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(asm),1,0,0
+GRPOPT 2,(cmsis),1,0,0
+GRPOPT 3,(App),1,0,0
+GRPOPT 4,(System),1,0,0
+GRPOPT 5,(Low Level Drv),1,0,0
+GRPOPT 6,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\src\cmsis\startup_stm32f10x.s><startup_stm32f10x.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\src\cmsis\core_cm3.c><core_cm3.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<.\src\cmsis\system_stm32.c><system_stm32.c> 
+OPTFFF 3,4,1,251658240,0,0,0,0,<.\src\main.c><main.c> 
+OPTFFF 3,5,1,469762048,0,0,0,0,<.\src\application.c><application.c> 
+OPTFFF 3,6,1,234881024,0,0,0,0,<.\src\picture.c><picture.c> 
+OPTFFF 4,7,1,352321536,0,0,0,0,<.\src\taskman.c><taskman.c> 
+OPTFFF 4,8,1,0,0,0,0,0,<.\src\term_ctrl.c><term_ctrl.c> 
+OPTFFF 4,9,1,0,0,0,0,0,<.\src\drv_glcd0.c><drv_glcd0.c> 
+OPTFFF 4,10,1,0,0,0,0,0,<.\src\RTX_Config.c><RTX_Config.c> 
+OPTFFF 4,11,1,570425344,0,0,0,0,<.\src\retarget.c><retarget.c> 
+OPTFFF 4,12,1,0,0,0,0,0,<.\src\framebuf.c><framebuf.c> 
+OPTFFF 4,13,1,318767104,0,0,0,0,<.\src\drv_itm.c><drv_itm.c> 
+OPTFFF 5,14,1,0,0,0,0,0,<.\src\led.c><led.c> 
+OPTFFF 5,15,1,0,0,0,0,0,<.\src\ext_sram.c><ext_sram.c> 
+OPTFFF 5,16,1,0,0,0,0,0,<.\src\GLCD.c><GLCD.c> 
+OPTFFF 5,17,1,0,0,0,0,0,<.\src\keyboard.c><keyboard.c> 
+OPTFFF 5,18,1,0,0,0,0,0,<.\src\itm_rx.c><itm_rx.c> 
+OPTFFF 6,19,5,0,0,90,90,0,<.\Abstract.txt><Abstract.txt> 
+
+
+TARGOPT 1, (MCBSTM32E)
+ ADSCLK=8000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\lst\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pSTM32F103ZE)(SARMCM3.DLL)()(TARMSTM.DLL)(-pSTM32F103ZE)
+  OPTDBG 48126,1,()()()()()()()()()(.\STM32DBG.ini) (BIN\UL2CM3.DLL)()()()
+  OPTKEY 0,(JL2CM3)(-U171100061 -O78 -S8 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -N00("ARM CoreSight SW-DP") -D00(1BA01477) -L00(4) -TO19 -TC72000000 -TP21 -TDS800B -TDT0 -TDC1F -TIE80000001 -TIP9 -TB1 -TRE0 -FO15 -FD20000000 -FC800 -FN1 -FF0STM32F10x_512 -FS08000000 -FL080000)
+  OPTKEY 0,(DLGARARM)((6000=697,106,1369,515,0))
+  OPTKEY 0,(DLGTARM)((1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(1011=-1,-1,-1,-1,0)(180=-1,-1,-1,-1,0)(120=-1,-1,-1,-1,0)(121=-1,-1,-1,-1,0)(122=-1,-1,-1,-1,0)(123=-1,-1,-1,-1,0)(124=-1,-1,-1,-1,0)(125=-1,-1,-1,-1,0)(126=-1,-1,-1,-1,0)(140=-1,-1,-1,-1,0)(240=-1,-1,-1,-1,0)(190=-1,-1,-1,-1,0)(200=-1,-1,-1,-1,0)(170=-1,-1,-1,-1,0)(130=-1,-1,-1,-1,0)(131=-1,-1,-1,-1,0)(132=-1,-1,-1,-1,0)(133=-1,-1,-1,-1,0)(160=-1,-1,-1,-1,0)(161=-1,-1,-1,-1,0)(162=-1,-1,-1,-1,0)(210=-1,-1,-1,-1,0)(211=-1,-1,-1,-1,0)(220=-1,-1,-1,-1,0)(221=-1,-1,-1,-1,0)(230=-1,-1,-1,-1,0)(231=-1,-1,-1,-1,0)(232=-1,-1,-1,-1,0)(233=-1,-1,-1,-1,0)(150=-1,-1,-1,-1,0)(151=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(DLGUARM)((105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0))
+  OPTKEY 0,(UL2CM3)(-UV0299MAE -O2254 -S9 -C0 -TO3 -TC72000000 -TP21 -TDS803D -TDT3 -TDC1F -TIE80000001 -TIP9 -FO15 -FD20000000 -FC800 -FN1 -FF0STM32F10x_512 -FS08000000 -FL080000)
+  OPTMM 1,8,(buf)
+  OPTDF 0x8000086
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

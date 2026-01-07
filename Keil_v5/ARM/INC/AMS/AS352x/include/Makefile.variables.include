@@ -1,0 +1,220 @@
+##############################################################################
+#  Copyright @ 2007 by austriamicrosystems AG
+#  All rights are reserved.
+#
+#  Reproduction in whole or in part is prohibited without the written consent
+#  of the copyright owner. Austriamicrosystems reserves the right to make
+#  changes without notice at any time. The software is provided as is and
+#  Austriamicrosystems makes no warranty, expressed, implied or statutory,
+#  including but not limited to any implied warranty of merchantability or
+#  fitness for any particular purpose, or that the use will not infringe any
+#  third party patent, copyright or trademark. Austriamicrosystems should
+#  not be liable for any loss or damage arising from its use.
+##############################################################################
+
+#############################################################################
+#
+#        PROJECT: AS353x
+#      COPYRIGHT: austriamicrosystems 2007
+#      $Revision: 759 $
+#         AUTHOR: M. Arpa
+#     SUBSTITUTE: W. Schoegler
+#    DESCRIPTION: Makefile include which has to be included by all makefiles
+#                 for project AS353x This file defines the tools which shall
+#                 be used for compilation, linking and binding.
+#                 This file has to be changed, when the software shall be
+#                 compiled with a different tool chain.
+#
+#                 Currently the following tool chains are defined:
+#
+#                 1. ARM ADS 1.2
+#
+#############################################################################
+
+#############################################################################
+# ----------------------------Shell Envrionment------------------------------
+#############################################################################
+
+# always use bash, it has more features than sh, especially for string 
+# substitution
+export SHELL = /bin/bash
+
+#############################################################################
+# -------------------------------- ARM TOOLS --------------------------------
+#############################################################################
+
+
+#############################################################################
+# ARM Tool Chain
+#############################################################################
+CXX = armcc --cpp
+CC  = armcc --c90
+TC  = armcc --thumb --c90
+TXX = armcc --thumb --cpp
+AS  = armasm
+LD  = armlink
+AR  = armar
+RM  = rm -f
+FE  = fromelf
+CP  = cp
+
+ifeq ($(OSTYPE),solaris)
+# under Solaris explicitly use xpg4 (POSIX) utils and not Berkeley tools (/usr/ucb/*)
+TR=/usr/xpg4/bin/tr
+HEAD=head
+CUT=cut
+GREP=/usr/xpg4/bin/grep
+SED=/usr/xpg4/bin/sed
+DIFF=diff
+COMPRESSTOOL = uncompress
+else
+#use tools from the path
+TR=tr
+HEAD=head
+CUT=cut
+GREP=grep
+SED=sed
+DIFF=diff
+COMPRESSTOOL = gunzip
+endif
+
+
+#############################################################################
+# Check TARGET variable and set appropriate defines
+# These should be used throughout the source code.
+#############################################################################
+
+OMIT = $(shell test -f .omit && echo yes)
+ifeq ($(OMIT),yes)
+$(error module is omitted, no src available)
+endif
+
+ifdef AS3525_EXTERNAL_VERSION
+override DEFINES += AS3525_EXTERNAL_VERSION
+endif
+
+#############################################################################
+# Check for variables set on the command line that
+# would prevent local setting
+#############################################################################
+
+ifeq ($(origin CXXFLAGS),command line)
+$(error CXXFLAGS was specified on the command line, use USER_CXXFLAGS instead)
+endif
+
+ifeq ($(origin CFLAGS),command line)
+$(error CFLAGS was specified on the command line, use USER_CFLAGS instead)
+endif
+
+ifeq ($(origin TXXFLAGS),command line)
+$(error TXXFLAGS was specified on the command line, use USER_TXXFLAGS instead)
+endif
+
+ifeq ($(origin TCFLAGS),command line)
+$(error TCFLAGS was specified on the command line, use USER_TCFLAGS instead)
+endif
+
+ifeq ($(origin ASFLAGS),command line)
+$(error ASFLAGS was specified on the command line, use USER_ASFLAGS instead)
+endif
+
+ifeq ($(origin LDFLAGS),command line)
+$(error LDFLAGS was specified on the command line, use USER_LDFLAGS instead)
+endif
+
+ifeq ($(origin ARFLAGS),command line)
+$(error ARFLAGS was specified on the command line, use USER_ARFLAGS instead)
+endif
+
+#############################################################################
+# ARM Tool Chain Options
+#############################################################################
+
+ifndef USE_LINKER_FEEDBACK
+USE_LINKER_FEEDBACK=1
+endif
+
+ifeq ($(USE_LINKER_FEEDBACK),1)
+# handle feedback files in actual compiler call to be able to adjust path
+FEEDBACK_OPTION=--feedback
+ifndef FEEDBACK_FILE_PATH
+FEEDBACK_FILE_PATH=$(SDK_CORE_PATH)/include/linker_feedback.txt
+endif
+else
+FEEDBACK_OPTION=
+override FEEDBACK_FILE_PATH=
+endif
+
+CDEFINES=  $(foreach i,$(DEFINES),-D$(i))
+ASMDEFINES=$(foreach i,$(DEFINES),--pd "$(i) SETL {TRUE}")
+
+CXXFLAGS += --apcs /interwork --cpu ARM922T --bss_threshold=0 --min_array_alignment=4 -g -O2 $(USER_CXXFLAGS) $(CDEFINES)
+CFLAGS   += --apcs /interwork --cpu ARM922T --bss_threshold=0 --min_array_alignment=4 -g -O2 $(USER_CFLAGS) $(CDEFINES)
+TXXFLAGS += --apcs /interwork --cpu ARM922T --bss_threshold=0 --min_array_alignment=4 -g -O2 $(USER_TXXFLAGS) $(CDEFINES)
+TCFLAGS  += --apcs /interwork --cpu ARM922T --bss_threshold=0 --min_array_alignment=4 -g -O2 $(USER_TFLAGS) $(CDEFINES)
+
+ASFLAGS  += $(USER_ASFLAGS) --apcs /interwork --cpu ARM922T --fpu None --keep -g $(ASMDEFINES)
+LDFLAGS  += $(USER_LDFLAGS) --info totals $(FEEDBACK_OPTION) $(FEEDBACK_FILE_PATH) --info sizes --map --symbols --list application.map
+ARFLAGS  = $(USER_ARFLAGS) -ru
+
+
+#############################################################################
+# File lists
+#############################################################################
+
+#
+# for application image generation
+#
+LD_FILES_PLAIN = $(notdir $(CXX_FILES:%.cpp=%.o) $(C_FILES:%.c=%.o) $(TXX_FILES:%.tpp=%.o) $(TC_FILES:%.c=%.to) $(AS_FILES:%.s=%.o))
+
+LD_FILES = $(LD_FILES_PLAIN:%=objs/%)
+
+#
+# for application image generation
+#
+LD_FILES_ADD_PLAIN = $(notdir $(CXX_FILES_ADD:%.cpp=%.o) $(C_FILES_ADD:%.c=%.o) $(TXX_FILES_ADD:%.tpp=%.o) $(TC_FILES_ADD:%.c=%.to) $(AS_FILES_ADD:%.s=%.o))
+
+LD_FILES_ADD = $(LD_FILES_ADD_PLAIN:%=objs/%)
+
+#
+# for library generation
+#
+LIB_FILES = $(LD_FILES) $(O_FILES)
+
+#
+# for additional library generation
+#
+LIB_FILES_ADD = $(LD_FILES_ADD)
+
+#
+# for test application image generation
+#
+LD_FILES_TEST = $(CXX_FILES_TEST:%.cpp=%.o) $(C_FILES_TEST:%.c=%.o) $(TC_FILES_TEST:%.c=%.to) $(AS_FILES_TEST:%.s=%.o)
+
+
+#############################################################################
+# Set default for path-variables
+#############################################################################
+
+ifndef SDK_CORE_PATH
+SDK_CORE_PATH=../
+endif
+
+ifndef SDK_MAIN_PATH
+SDK_MAIN_PATH=$(SDK_APPL_PATH)/main/
+endif
+
+#############################################################################
+# Set default variable ALL_MODULES to current module
+#############################################################################
+ifndef ALL_MODULES
+ALL_MODULES=$(shell pwd)
+endif
+
+#############################################################################
+# Set default variable OBJECTS_FOLDER, where the objects will be generated
+#############################################################################
+ifndef OBJECTS_FOLDER
+OBJECTS_FOLDER=objs
+endif
+

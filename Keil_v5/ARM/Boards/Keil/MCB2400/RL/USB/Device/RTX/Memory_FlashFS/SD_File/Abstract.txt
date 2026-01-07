@@ -1,0 +1,42 @@
+The Memory project is a demo program for the MCB2400
+Board using LPC2468 Microcontroller.
+ (Daughter Board - 'LPC2468 OEM Board v2.0')
+ (Mother   Board - 'OEM Base Board Basic v1.3')
+
+Example functionality:
+
+  - Clock Settings:
+    - XTAL                   =  12 MHz
+    - PLL                    = 288 MHz
+    - processor clock = CCLK =  48 MHz
+    - USB clock              =  48 MHz
+    - CCLK / 4 clock         =  12 MHz
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+SD/MMC Card inserted in the target is used for the actual Memory.
+
+The USB Memory is automatically recognized by the host PC running
+Windows which will load a generic Mass Storage driver.
+
+File manipulation from the target is also available over serial port.
+
+When EINT0 button is pressed the USB Memory is unmounted from the PC
+and can be accessed from the target over serial port. It allows to 
+create, read, copy, delete files and format the card.
+Pressing EINT0 button again, will re-mount the USB Memory on the PC.
+
+Connect a serial cable to RS232 UART #1 port using HyperTerminal
+  at 115200 baud, 8-bits, no parity, 1 stop bit, No Flow Control.
+
+
+The Memory program is a standalone application loaded into
+on-chip flash and available for one target:
+
+LPC2468 Flash:
+    Standalone application for MCB24000 using RTX kernel
+    and serial port as communication interface
+    
+
+Note:  J42, J43, J45, J46 to [1 2]3 (select device)
+       MCIDATA0 - P0.22
+       MCIPWR   - high 

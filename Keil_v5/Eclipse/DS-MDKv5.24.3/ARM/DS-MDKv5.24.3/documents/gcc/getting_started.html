@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Getting Started with the GNU Compilation Tools</title>
+</head>
+<body>
+    <h1>Getting Started with the GNU Compilation Tools</h1>
+    <p>
+        Development Studio 5 includes a distribution of the GNU Compiler Collection (GCC) and related GNU utilities. This distribution is referred to in this document as the 'GNU Compilation Tools'.
+    </p>
+    <p>
+        The GNU Compilation Tools can be used to build applications and libraries suitable for ARM Linux targets, including the example ARM Linux distribution which can be found in the DS-5 examples.
+    </p>
+    <p>
+         The GNU Compilation Tools are a subset of the 13.03 release of the Linaro distribution for ARM GNU/Linux and are based on GCC version 4.7. Sources can be found in the 'sources' directory of your installation medium, on the DS-5 download page and at <a href="http://www.linaro.org/downloads/">Linaro's web site</a>.
+    </p>
+    <h2>Terminology</h2>
+    <p>
+        This document makes use of the following terms.
+    </p>
+    <table class="table" title="Terminology">
+        <tr align="left"><th>Term</th><th>Meaning</th></tr>
+        <tr><td>Host</td><td>The computer used for building and debugging.</td></tr>
+        <tr><td>Target</td><td>The system on which the built software is deployed and run.</td></tr>
+        <tr><td>Target distribution</td><td>The Linux distribution running on the target system.</td></tr>
+        <tr><td>Sysroot</td><td>A directory on the host system containing a copy of the files that exist in the target distribution and/or extra files required to develop for the target distribution.</td></tr>
+    </table>
+
+    <h2>Host Development Tools</h2>
+    <p>
+        GNU Compilation Tools are in the <code>bin</code> directory. They can be identified by the prefix <code>arm-linux-gnueabihf-</code>. The tools can be used from the command line, or in Makefile projects in the Eclipse IDE. For Windows users, the DS-5 Command Prompt has the tools in its path.
+    </p>
+    <p>
+        Some of the most important tools are:
+    </p>
+    <table class="table" title="Terminology">
+        <tr align="left"><th>Tool</th><th>Description</th></tr>
+        <tr><td>arm-linux-gnueabihf-ar</td><td>GNU Librarian</td></tr>
+        <tr><td>arm-linux-gnueabihf-as</td><td>GNU Assembler</td></tr>
+        <tr><td>arm-linux-gnueabihf-gcc</td><td>GNU C Compiler</td></tr>
+        <tr><td>arm-linux-gnueabihf-g++</td><td>GNU C++ Compiler</td></tr>
+        <tr><td>arm-linux-gnueabihf-ld</td><td>GNU Linker</td></tr>
+    </table>
+
+    <h2>gdbserver</h2>
+    <p>
+        A gdbserver utility is included as part of the GNU Compilation Tools, under the <code>arm</code> directory of your Development Studio 5 installation. It is taken from Linaro GDB 2013.03 and corresponds to GDB 7.5. It is suitable for use on ARM Linux targets with a VFP and Advanced SIMD coprocessor.
+    </p>
+
+    <h2>Libraries And Headers</h2>
+    <h3>Sysroots</h3>
+
+    <p>Applications and shared libraries for target distributions must be built with respect to resources available on the target distribution. In particular, libraries and corresponding headers from the target distribution must be available on the host. The necessary libraries and headers are here referred to as a <i>sysroot</i>. A sysroot may or may not also include binaries, configuration files, or any other part of the target distribution.</p>
+
+    <h3>Sysroot Selection</h3>
+    <p>You should build your code with respect to the headers and libraries for your target distribution. However, three sysroots are provided with DS-5:</p>
+    <ol>
+      <li>Hardfloat Linaro sysroot in the installation beneath: <code>sw/gcc/arm-linux-gnueabihf/libc</code></li>
+      <li>Softfloat Linaro sysroot in the installation, also beneath: <code>sw/gcc/arm-linux-gnueabihf/libc</code></li>
+      <li>Softfloat CodeSourcery sysroot on the installation medium and the DS-5 download page at: <code>linux_distributions/Linux_distribution_example.zip</code></li>
+    </ol>
+    <p>The hardfloat Linaro sysroot is suitable for building applications to run on hardfloat targets such as Linaro LEBs and is used by default.</p>
+    <p>The softfloat Linaro sysroot is suitable for building applications to run on softfloat targets and is used when <code>-marm -march=armv4t -mfloat-abi=soft</code> are specified and <code>--sysroot</code> is left unspecified.</p>
+    <p>The softfloat CodeSourcery sysroot is suitable for building applications to run on softfloat targets such as the Linux distribution provided for the DS-5 examples. It is in the zip file at <code>distribution/filesystem/armv5t_mtx</code> and may be used by specifying the flags: <code>-marm -march=armv4t -mfloat-abi=soft --sysroot=/path/to/unzip/dir/distribution/filesystem/armv5t_mtx</code>. The softfloat sysroot is taken from the 2009q3-67 GNU/Linux release of CodeSourcery G++ Lite, available from <a href="http://www.codesourcery.com">Mentor Graphics Sourcery Tools</a>. Note that this sysroot's libraries are not guaranteed to be debug-compatible with the example distribution.</p>
+    <p>To use your own sysroot, specify its location on your host using <code>--sysroot</code>. If it is a softfloat sysroot, also set the flags <code>-marm -march=armv4t -mfloat-abi=soft</code>.</p>
+    <p><b>Note</b></p>
+    <p>Ordinarily, you are able to install sysroot filesystems onto real targets. However, if you are using a Windows host then the provided sysroots will not be suitable for use on a real target, due to differences between Windows and Linux filesystems.</p>
+
+    <h2>Documentation And Support</h2>
+    <p>
+        HTML documentation for the included tools is in the <code>documentation/gcc</code> folder of your Development Studio 5 installation. The most relevant documents are likely to be:
+    </p>
+    <table>
+        <tr align="left"><th>Tool</th><th>Document</th></tr>
+        <tr><td>ARM Modifications to the Linaro Toolchain</td><td><a href="../../sw/gcc/README_MODIFICATIONS.txt">ARM Modifications</a></td></tr>
+        <tr><td>Linaro Toolchain Readme</td><td><a href="README_LINARO.txt">Linaro Toolchain 2012.05</a></td></tr>
+        <tr><td>GNU Assembler</td><td><a href="as.html/index.html">Using as</a></td></tr>
+        <tr><td>GNU C/C++ compiler</td><td><a href="gcc/index.html">Using GCC</a></td></tr>
+        <tr><td>GNU Linker</td><td><a href="ld.html/index.html">LD</a></td></tr>
+    </table>
+
+    <p>
+        Go to <a href="http://www.arm.com/ds5">http://www.arm.com/ds5</a> for support.
+    </p>
+</body>
+</html>

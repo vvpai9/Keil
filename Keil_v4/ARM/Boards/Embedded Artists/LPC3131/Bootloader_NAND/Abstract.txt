@@ -1,0 +1,31 @@
+The 2-nd level Bootloader for the NXP 'LPC31xx' 
+(LPC313x, LPC314x and LPC315x) device series 
+(configured for External SDRAM and loaded to 
+External NAND Flash on the Embedded Artists 
+LPC313x/4x/5x Board)
+
+This is a 2-nd level bootloader for NXP LPC31xx 
+(LPC313x, LPC314x and LPC315x) device series with 
+External NAND Flash and External SDRAM. 
+It downloads to BLOCK 1 (128 kB) of the NAND Flash.
+The 1-st level bootloader that is in ROM of 
+LPC31xx first downloads this 2-nd level 
+bootloader to internal RAM and starts it.
+
+The 2-nd level bootloader's main function is to 
+copy user program from the External NAND Flash 
+to the External SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to the NAND Flash.
+
+Note: - Bad block skipping is supported
+      - If system is to be used with APEX please 
+        run Full Chip Erase previously
+      - For debugging please change boot 
+        settings not to boot from NAND Flash
+        (for example change jumper BOOT0 to high) 
+        and reset the board manually
+      - For NAND Flash booting jumpers BOOT0..2
+        have to be set to GND and jumper DBUF_EN 
+        has to be disconnected

@@ -1,0 +1,6 @@
+The Memory program demonstrates how to setup a simple
+custom Memory Layout for the selected Target.
+
+It shows how to define Memory regions which are mapped
+to actual Memory like ROM, RAM, FLASH ...
+It also shows how to setup the Stack and Heap.

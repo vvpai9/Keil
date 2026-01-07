@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>SiliconLabs</vendor>
+  <url>https://www.silabs.com/documents/public/cmsis-packs/</url>
+  <name>GeckoPlatform_SIMG301_DFP</name>
+  <description>Silicon Labs SIMG301 Mighty Gecko Series Device Support.</description>
+  <license>License/license.md</license>
+
+  <releases>
+    <release version="2025.6.2" date="2025-10-06">
+      New device families for SIBG301, SIMG301 and New OPNs for Socs EFR32FG23, EFR32MG26, .
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Silicon Labs</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Silicon Labs</keyword>
+    <keyword>SIMG301</keyword>
+    <keyword>SIMG3</keyword>
+    <keyword>Mighty Gecko</keyword>
+    <keyword>Gecko</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="SIMG301 Series" Dvendor="Silicon Labs:21">
+      <processor Dcore="Cortex-M33" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dtz="NO_TZ" Ddsp="NO_DSP" Dendian="Little-endian" Dclock="0"/>
+      <book name="Documents/cortex_m33_dgug.pdf"      title="Cortex-M33 Generic User Guide"/>
+      <description>
+- 32-bit ARM core with 150 MHz maximum operating frequency&#xD;&#xA;-  Up to 4 MB of flash and 512 KB of RAM&#xD;&#xA;- High-performance radio with up to +10 dBm output power&#xD;&#xA;- Secure Vault (RTSL)&#xD;&#xA;- Energy-efficient design with low active and sleep currents&#xD;&#xA;- Secure Vault&#xD;&#xA;
+      </description>
+
+      <subFamily DsubFamily="SIMG301M104">
+        <!-- *************************  Device 'SIMG301M104LGH'  ***************************** -->
+        <device Dname="SIMG301M104LGH">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M104LGH"/>
+          <debug      svd="SVD/SIMG301/SIMG301M104LGH.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'SIMG301M104LGL'  ***************************** -->
+        <device Dname="SIMG301M104LGL">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M104LGL"/>
+          <debug      svd="SVD/SIMG301/SIMG301M104LGL.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'SIMG301M104LIH'  ***************************** -->
+        <device Dname="SIMG301M104LIH">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M104LIH"/>
+          <debug      svd="SVD/SIMG301/SIMG301M104LIH.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'SIMG301M104LIL'  ***************************** -->
+        <device Dname="SIMG301M104LIL">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M104LIL"/>
+          <debug      svd="SVD/SIMG301/SIMG301M104LIL.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'SIMG301M104XIL'  ***************************** -->
+        <device Dname="SIMG301M104XIL">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M104XIL"/>
+          <debug      svd="SVD/SIMG301/SIMG301M104XIL.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+      <subFamily DsubFamily="SIMG301M114">
+        <!-- *************************  Device 'SIMG301M114KGH'  ***************************** -->
+        <device Dname="SIMG301M114KGH">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M114KGH"/>
+          <debug      svd="SVD/SIMG301/SIMG301M114KGH.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'SIMG301M114KIH'  ***************************** -->
+        <device Dname="SIMG301M114KIH">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M114KIH"/>
+          <debug      svd="SVD/SIMG301/SIMG301M114KIH.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'SIMG301M114LGH'  ***************************** -->
+        <device Dname="SIMG301M114LGH">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M114LGH"/>
+          <debug      svd="SVD/SIMG301/SIMG301M114LGH.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+        <!-- *************************  Device 'SIMG301M114LIH'  ***************************** -->
+        <device Dname="SIMG301M114LIH">
+          <compile header="Device/SiliconLabs/SIMG301/Include/em_device.h"  define="SIMG301M114LIH"/>
+          <debug      svd="SVD/SIMG301/SIMG301M114LIH.svd"/>
+          <memory     id="IROM1"                start="0x01000000"  size="0x003D0000"  startup="1"   default="1"/>
+          <memory     id="IRAM1"                start="0x20000000"  size="0x00080000"  init   ="0"   default="1"/>
+          <algorithm  name="Flash/GECKOS2C3.FLM"  start="0x01000000"  size="0x003D0000"  RAMstart="0x20000000" RAMsize="0x80000" default="1" style="Keil"/>
+          <algorithm  name="Flash/FlashGECKOS2C3.flash"  start="0x01000000"  size="0x003D0000"  default="0"  style="IAR"/>
+        </device>
+
+      </subFamily>
+
+    </family>
+  </devices>
+
+  <conditions>
+    <!-- Compiler Conditions -->
+    <condition id="Compiler GCC">
+      <require Tcompiler="GCC"/>
+    </condition>
+    <condition id="Compiler IAR">
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="SIMG301">
+      <description>Silicon Labs SIMG301 device series</description>
+      <require Dvendor="Silicon Labs:21" Dname="SIMG301*"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="2025.6.2" condition="SIMG301">
+      <description>System Startup for Silicon Labs SIMG301 device series</description>
+      <files>
+        <!-- include folder -->
+        <file category="include" name="Device/SiliconLabs/SIMG301/Include/"/>
+        <file category="header"  name="Device/SiliconLabs/SIMG301/Include/em_device.h"/>
+        <!-- system file -->
+        <file category="source"  name="Device/SiliconLabs/SIMG301/Source/system_simg301.c" attr="config" version="2025.6.2"/>
+      </files>
+    </component>
+  </components>
+</package>

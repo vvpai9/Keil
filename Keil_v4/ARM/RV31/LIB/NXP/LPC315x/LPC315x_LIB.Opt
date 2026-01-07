@@ -1,0 +1,60 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (LPC315x Library), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(ASM Source Files),1,0,0
+GRPOPT 2,(C Source Files),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\lpc315x_vectors.s><lpc315x_vectors.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\lpc315x_adc10b_driver.c><lpc315x_adc10b_driver.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<.\lpc315x_cgu_default.c><lpc315x_cgu_default.c> 
+OPTFFF 2,4,1,0,0,0,0,0,<.\lpc315x_cgu_driver.c><lpc315x_cgu_driver.c> 
+OPTFFF 2,5,1,0,0,0,0,0,<.\lpc315x_crc_driver.c><lpc315x_crc_driver.c> 
+OPTFFF 2,6,1,0,0,0,0,0,<.\lpc315x_dma_driver.c><lpc315x_dma_driver.c> 
+OPTFFF 2,7,1,0,0,0,0,0,<.\lpc315x_evt_driver.c><lpc315x_evt_driver.c> 
+OPTFFF 2,8,1,0,0,0,0,0,<.\lpc315x_i2c_driver.c><lpc315x_i2c_driver.c> 
+OPTFFF 2,9,1,0,0,0,0,0,<.\lpc315x_i2s_driver.c><lpc315x_i2s_driver.c> 
+OPTFFF 2,10,1,0,0,0,0,0,<.\lpc315x_intc_driver.c><lpc315x_intc_driver.c> 
+OPTFFF 2,11,1,0,0,0,0,0,<.\lpc315x_ipint_driver.c><lpc315x_ipint_driver.c> 
+OPTFFF 2,12,1,0,0,0,0,0,<.\lpc315x_mci_driver.c><lpc315x_mci_driver.c> 
+OPTFFF 2,13,1,0,0,0,0,0,<.\lpc315x_nand_driver.c><lpc315x_nand_driver.c> 
+OPTFFF 2,14,1,0,0,0,0,0,<.\lpc315x_otp_driver.c><lpc315x_otp_driver.c> 
+OPTFFF 2,15,1,0,0,0,0,0,<.\lpc315x_psu_driver.c><lpc315x_psu_driver.c> 
+OPTFFF 2,16,1,0,0,0,0,0,<.\lpc315x_pwm_driver.c><lpc315x_pwm_driver.c> 
+OPTFFF 2,17,1,0,0,0,0,0,<.\lpc315x_rtc_driver.c><lpc315x_rtc_driver.c> 
+OPTFFF 2,18,1,0,0,0,0,0,<.\lpc315x_spi_driver.c><lpc315x_spi_driver.c> 
+OPTFFF 2,19,1,0,0,0,0,0,<.\lpc315x_timer_driver.c><lpc315x_timer_driver.c> 
+OPTFFF 2,20,1,0,0,0,0,0,<.\lpc315x_uart_driver.c><lpc315x_uart_driver.c> 
+OPTFFF 2,21,1,0,0,0,0,0,<.\lpc315x_wdt_driver.c><lpc315x_wdt_driver.c> 
+
+
+TARGOPT 1, (LPC315x Library)
+ ADSCLK=12000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTBL 0,(Data Sheet)<DATASHTS\PHILIPS\LPC315x_DS.pdf>
+  OPTBL 1,(User Manual)<DATASHTS\PHILIPS\LPC315x_UM.pdf>
+  OPTBL 2,(Errata Sheet)<DATASHTS\PHILIPS\LPC315x_ES.pdf>
+  OPTDL (SARM.DLL)(-cLPC315x)(DARMP3.DLL)(-pLPC3152)(SARM.DLL)()(TARMP3.DLL)(-pLPC3152)
+  OPTDBG 43517,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(UL2ARM)(-U268772636 -O15 -S0 -C0 -FO7 -FD20000000 -FC800 -FN0)
+  OPTDF 0x2
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

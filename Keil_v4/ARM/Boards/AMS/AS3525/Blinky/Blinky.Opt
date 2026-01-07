@@ -1,0 +1,90 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (AS3525 Int RAM), 0x0004 // Tools: 'ARM-ADS'
+Target (AS3525 Ext M25P40 Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (AS3525 Ext SDRAM), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Startup Code),1,0,0
+GRPOPT 2,(Source Code),1,0,0
+GRPOPT 3,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\AS352x.s><AS352x.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\Blinky.c><Blinky.c> 
+OPTFFF 3,3,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,0,0,0,0,2,0,0,0,105,2,0,0,220,1,0,0 }
+
+
+TARGOPT 1, (AS3525 Int RAM)
+ ADSCLK=24000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Int_RAM\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 255
+  OPTBL 0,(Datasheet)<DATASHTS\AMS\AS3525_DS.pdf>
+  OPTDL (SARM.DLL)()(DARMSS9.DLL)(-pAS3525)(SARM.DLL)()(TARMSS9.DLL)(-pAS3525)
+  OPTDBG 45054,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(AGDIRDI)(-O6 -P(C:\Keil\ARM\Segger\JLinkRDI.dll) -T() -J1 -FO7 -FD200000 -FC800 -FN1 -FF0AT91SAM7_256 -FS0100000 -FL040000)
+  OPTKEY 0,(DLGTARM)((113=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)(103=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(109=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV2077N9E -O15 -S0 -C0 -N00("ARM922T Core") -D00(00922F0F) -L00(4) -FO7 -FD300000 -FC800 -FN0)
+  OPTDF 0x40000080
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (AS3525 Ext M25P40 Flash)
+ ADSCLK=24000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Ext_M25P40_Flash\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTBL 0,(Datasheet)<DATASHTS\AMS\AS3525_DS.pdf>
+  OPTDL (SARM.DLL)()(DARMSS9.DLL)(-pAS3525)(SARM.DLL)()(TARMSS9.DLL)(-pAS3525)
+  OPTDBG 45054,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(AGDIRDI)(-O6 -P(C:\Keil\ARM\Segger\JLinkRDI.dll) -T() -J1 -FO7 -FD200000 -FC800 -FN1 -FF0AT91SAM7_256 -FS0100000 -FL040000)
+  OPTKEY 0,(DLGTARM)((113=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)(103=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(109=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV2077N9E -O15 -S0 -C0 -N00("ARM922T Core") -D00(00922F0F) -L00(4) -FO7 -FD81000000 -FC1000 -FN1 -FF0AS352x_M25P40 -FS00 -FL040000)
+  OPTDF 0x40000080
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 3, (AS3525 Ext SDRAM)
+ ADSCLK=24000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Ext_SDRAM\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 255
+  OPTBL 0,(Datasheet)<DATASHTS\AMS\AS3525_DS.pdf>
+  OPTDL (SARM.DLL)()(DARMSS9.DLL)(-pAS3525)(SARM.DLL)()(TARMSS9.DLL)(-pAS3525)
+  OPTDBG 43518,0,()()()()()()()()()(.\Ext_SDRAM.ini) (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(AGDIRDI)(-O6 -P(C:\Keil\ARM\Segger\JLinkRDI.dll) -T() -J1 -FO7 -FD200000 -FC800 -FN1 -FF0AT91SAM7_256 -FS0100000 -FL040000)
+  OPTKEY 0,(DLGTARM)((113=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)(103=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(109=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV2077N9E -O47 -S0 -C0 -N00("ARM922T Core") -D00(00922F0F) -L00(4) -FO7 -FD300000 -FC800 -FN0)
+  OPTDF 0x40000080
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

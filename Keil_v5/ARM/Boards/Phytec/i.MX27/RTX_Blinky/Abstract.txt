@@ -1,0 +1,21 @@
+This is a simple RTX Kernel based example for the 
+Freescale 'MCIMX27' microcontroller using: 
+- PHYTEC 'PCM-970' Baseboard PHYCORE-i.MX
+- PHYTEC 'PMA-002-PHYMAP-i.MX27' Middle Board 
+- PHYTEC 'PCM-038 PHYCORE-i.MX27' Daughter Board
+which shows LED toggling every 1 second done by 
+2 tasks (one turns LED ON and other turns LED OFF).
+
+Clocks:   XTAL                     =  26.00 MHz 
+          MPLL                     = 399.00 MHz 
+          SPLL                     = 240.00 MHz 
+          FCLK    = ((2*MPLL)/3)   = 266.00 MHz 
+          HCLK    = ((2*MPLL)/3)/2 = 133.00 MHz 
+          ARM CLK = FCLK           = 266.00 MHz
+          AHB CLK = HCLK           = 133.00 MHz
+          NFC CLK = HCLK / 6       =  22.16 MHz
+
+The BLINKY example program is available for target:
+
+MCIMX27 Ext NOR: Phytec i.MX27 evaluation board 
+                 with ULINK debugger

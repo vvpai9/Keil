@@ -1,0 +1,40 @@
+This is a HTTP Server example. It shows you how to use the
+Web Server CGI interface as well. 
+
+Use this example to connect MCIMX27 Board to a LAN with DHCP
+server (most LANs have this). This example will configure the 
+LAN network parameters automatically using a DHCP protocol.
+
+You may connect MCIMX27 Board to PC directly over a crosslink
+network cable. In this case configure a PC to use a static 
+IP address 192.168.0.1
+
+If after a timeout of 5 seconds DHCP did not obtain an IP address,
+this example will use a static IP address 192.168.0.100
+
+The WEB pages are included into the project under HTTP Files 
+group. You can simply add or remove a page or image. Web files
+which are compiled into the project are added to the 'Web.inp'
+Web Converter input file.
+
+To test this example, run your internet browser and type in
+the name of this board 'imx27' in the address line.
+
+Default user    : admin
+Default password: <none>
+
+You can change the password at runtime on page 'system'
+
+The HTTP_demo example is available for several targets:
+
+MCIMX27:       Standalone application for Phytec MCIMX27 board,
+               configured for execution from external NOR flash.
+
+
+MCIMX27 Debug: Standalone Debug application. Debug level configured
+               in Net_Debug.c debug configuration file.
+               Connect a serial cable to COM5 (bottom conn.) to view
+               output messages using HyperTerminal at 115200 baud,
+               8-bits, no parity, 1 stop bit, XON/XOFF.
+
+MCIMX27 RTX:   The same example configured for RTX Kernel.

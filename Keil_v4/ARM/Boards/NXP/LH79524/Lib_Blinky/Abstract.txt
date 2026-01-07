@@ -1,0 +1,22 @@
+The Blinky project is a simple program for the NXP 'LH79524' 
+microcontroller using NXP 'SDKLH79524-10' evaluation board, 
+demonstrating interrupt functionality and using library 
+functions.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                     =  11.2896 MHz
+   - PLL                      = 101.6064 MHz
+   - SYS   = HCLK  = PLL / 2  =  50.8032 MHz
+   - CPU   = FCLK  = PLL / 8  =  50.8032 MHz
+ - 2 status LEDs blink (STATUS0, STATUS1) with speed 
+   of 1 second, determined by Timer0 working in 
+   interrupt mode
+ 
+The Blinky program is available for different targets:
+  LH79524 Int RAM:       configured for on-chip RAM
+                         (may be used for target debugging)
+  LH79524 Ext NOR Flash: runs from External NOR Flash
+                         (used for production or target debugging)
+  LH79524 Ext SDRAM:     configured for external SDRAM, 
+                         (may be used for target debugging)

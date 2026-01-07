@@ -1,0 +1,879 @@
+// CortexM3Evt.def - Definition of Cortex-M3 Hardware Events
+
+Ident   = "DefEvt";
+Name    = "CortexM3Evt";     // Must match with name of file
+Version = "1.00";
+Date    = "03/22/07";
+// Date    = "1/8/2008";
+
+Option {
+    Name = "ChangeInRunAllowed";    // Allow change of EVT while CPU is running
+}
+
+Group {
+    Name = "Comparator 1";
+
+    ComboBox {
+        Name = "Output";
+        Value = "Disabled=0,"
+                "ITM Trace=2,"
+                "Watchpoint=3,"
+                "ETM Event=4"
+                ;
+        Default = 0;
+        Index = 0x1010;
+    }
+
+    ComboBox {
+        Name = "Function";
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 0; }   // Disabled=0
+            Value = "None=0";
+            Default = 0;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 1; }   // Coupled=1
+            Value = "Data Address Match=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 2; }   // ITM=2
+            Value = "Emit PC on Data Address Match=5,"
+                    "Emit PC on Clock Cycle Count Match=6,"
+                    "Emit Address Offset on Data Address Match=7,"
+                    "Emit Data on Data Address Match=8,"
+                    "Emit Data and Address Offset on Data Address Match=9,"
+                    "Emit PC and Data on Data Address Match=10"
+                    ;
+            Default = 5;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 3; }   // Watchpoint=3
+            Value = "PC Match=2,"
+                    "Data Address Match=1,"
+                    "Data Value Match=4"
+                    ;
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 4; }   // ETM=4
+            Value = "PC Match=2,"
+                    "Data Address Match=1,"
+                    "Data Value Match=4"
+                    ;
+            Default = 1;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0; } }
+
+        Index = 0x1110;
+    }
+
+    ComboBox {
+        Name = "Access";
+
+        ValueCond {
+            Condition { Name = "Function"; Value = 2 3; }   // PC or clock cycle match
+            Value = "Fetch=0";
+            Default = 0;
+        }
+        ValueCond {
+            Condition { Name = "Function"; Value = 4 1; }   // data value or address match
+            Value = "Read=1,"
+                    "Write=2,"
+                    "Read or Write=3"
+                    ;
+            Default = 3;
+        }
+        ValueCond {
+            Condition { Name = "Function"; }   // Any other (no value specified)
+            Value = "Read or Write=3";
+            Default = 3;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0; } }
+
+        Index = 0x1210;
+    }
+
+    EditBox  {
+        Name = "Value"; 
+        Disable { Condition { Name = "Output"; Value = 0; } }
+        Index = 0x1310;
+    }
+
+    EditBox  {
+        Name = "Ignore Bits"; 
+        Disable {
+            Condition { Name = "Output"; Value = 0; }
+        }
+        Disable {
+            Condition { Name = "Output";   Value = 2 3 4; }
+            Condition { Name = "Function"; Value = 3 4 6; } // clock-cycle, data value
+        }
+        Index = 0x1410;
+    }
+
+    Text  {
+        Name = "Data Address Range";
+    }
+
+    ComboBox  {
+        Name = "Address Match 0"; 
+        Value = "Comparator 0=0,None=1,Comparator 2=2,Comparator 3=3";
+        Disable {
+            Condition { Name = "Output"; Value = 0 2; }
+        }
+        Disable {
+            Condition { Name = "Function"; Value = 1 2; } // Allowed for data value match only
+        }
+        Default = 1;
+        Index = 0x1510;
+    }
+
+    ComboBox  {
+        Name = "Address Match 1"; 
+        Value = "Comparator 0=0,None=1,Comparator 2=2,Comparator 3=3";
+        Disable {
+            Condition { Name = "Output"; Value = 0 2; }
+        }
+        Disable {
+            Condition { Name = "Function"; Value = 1 2; } // Allowed for data value match only
+        }
+        Default = 1;
+        Index = 0x1610;
+    }
+
+    ComboBox {
+        Name = "Data Value Size";
+        Value = "Byte=0,HalfWord=1,Word=2";
+        Disable {
+            Condition { Name = "Output"; Value = 0 2; }
+        }
+        Disable {
+            Condition { Name = "Function"; Value = 1 2; } // Allowed for data value match only
+        }
+        Default = 2;
+        Index = 0x1710;
+    }
+}
+
+Group {
+    Name = "Comparator 0";
+
+    ComboBox {
+        Name = "Output";
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function"; Value = 4; }   // Function data value match
+            Condition { Name = "Comparator 1.Address Match 0";     Value = 0; }   // Comparator 0 selected for addr match
+            Value = "Coupled=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function"; Value = 4; }   // Function data value match
+            Condition { Name = "Comparator 1.Address Match 1";       Value = 0; }   // Comparator 0 selected for addr match
+            Value = "Coupled=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function";  }   // Any other function 
+            Value = "Disabled=0,"
+                    "ITM Trace=2,"
+                    "Watchpoint=3,"
+                    "ETM Event=4"
+                    ;
+            Default = 0;
+        }
+
+        Index = 0x1000;
+    }
+
+    ComboBox {
+        Name = "Function";
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 0; }   // Disabled=0
+            Value = "None=0";
+            Default = 0;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 1; }   // Coupled=1
+            Value = "Data Address Match=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 2; }   // ITM=2
+            Value = "Emit PC on Data Address Match=5,"
+                    "Emit PC on Clock Cycle Count Match=6,"
+                    "Emit Address Offset on Data Address Match=7,"
+                    "Emit Data on Data Address Match=8,"
+                    "Emit Data and Address Offset on Data Address Match=9,"
+                    "Emit PC and Data on Data Address Match=10"
+                    ;
+            Default = 5;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 3; }   // Watchpoint=3
+            Value = "PC Match=2,"
+                    "Clock Cycle Count Match=3,"
+                    "Data Address Match=1"
+                    ;
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 4; }   // ETM=4
+            Value = "PC Match=2,"
+                    "Clock Cycle Count Match=3,"
+                    "Data Address Match=1"
+                    ;
+            Default = 1;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0; } }
+
+        Index = 0x1100;
+    }
+
+    ComboBox {
+        Name = "Access";
+
+        ValueCond {
+            Condition { Name = "Function"; Value = 2 3; }   // PC or clock cycle match
+            Value = "Fetch=0";
+            Default = 0;
+        }
+        ValueCond {
+            Condition { Name = "Function"; Value = 4 1; }   // data value or address match
+            Value = "Read=1,"
+                    "Write=2,"
+                    "Read or Write=3"
+                    ;
+            Default = 3;
+        }
+        ValueCond {
+            Condition { Name = "Function"; }   // Any other (no value specified)
+            Value = "Read or Write=3";
+            Default = 3;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0 1; } }
+
+        Index = 0x1200;
+    }
+
+    EditBox  {
+        Name = "Value"; 
+        Disable { Condition { Name = "Output"; Value = 0; } }
+        Index = 0x1300;
+    }
+
+    EditBox  {
+        Name = "Ignore Bits"; 
+        Disable {
+            Condition { Name = "Output"; Value = 0; }
+        }
+        Disable {
+            Condition { Name = "Output";   Value = 2 3 4; }
+            Condition { Name = "Function"; Value = 3 6; } // clock-cycle and data value match
+        }
+        Index = 0x1400;
+    }
+}
+
+Group {
+    Name = "Comparator 2";
+
+    ComboBox {
+        Name = "Output";
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function"; Value = 4; }   // Function data value match
+            Condition { Name = "Comparator 1.Address Match 0";     Value = 2; }   // Comparator 0 selected for addr match
+            Value = "Coupled=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function"; Value = 4; }   // Function data value match
+            Condition { Name = "Comparator 1.Address Match 1";       Value = 2; }   // Comparator 0 selected for addr match
+            Value = "Coupled=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function";  }   // Any other function 
+            Value = "Disabled=0,"
+                    "ITM Trace=2,"
+                    "Watchpoint=3,"
+                    "ETM Event=4"
+                    ;
+            Default = 0;
+        }
+
+        Index = 0x1020;
+    }
+
+    ComboBox {
+        Name = "Function";
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 0; }   // Disabled=0
+            Value = "None=0";
+            Default = 0;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 1; }   // Coupled=1
+            Value = "Data Address Match=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 2; }   // ITM=2
+            Value = "Emit PC on Data Address Match=5,"
+                    "Emit PC on Clock Cycle Count Match=6,"
+                    "Emit Address Offset on Data Address Match=7,"
+                    "Emit Data on Data Address Match=8,"
+                    "Emit Data and Address Offset on Data Address Match=9,"
+                    "Emit PC and Data on Data Address Match=10"
+                    ;
+            Default = 5;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 3; }   // Watchpoint=3
+            Value = "PC Match=2,"
+                    "Data Address Match=1"
+                    ;
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 4; }   // ETM=4
+            Value = "PC Match=2,"
+                    "Data Address Match=1"
+                    ;
+            Default = 1;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0; } }
+
+        Index = 0x1120;
+    }
+
+    ComboBox {
+        Name = "Access";
+
+        ValueCond {
+            Condition { Name = "Function"; Value = 2 3; }   // PC or clock cycle match
+            Value = "Fetch=0";
+            Default = 0;
+        }
+        ValueCond {
+            Condition { Name = "Function"; Value = 4 1; }   // data value or address match
+            Value = "Read=1,"
+                    "Write=2,"
+                    "Read or Write=3"
+                    ;
+            Default = 3;
+        }
+        ValueCond {
+            Condition { Name = "Function"; }   // Any other (no value specified)
+            Value = "Read or Write=3";
+            Default = 3;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0 1; } }
+
+        Index = 0x1220;
+    }
+
+    EditBox  {
+        Name = "Value"; 
+        Disable { Condition { Name = "Output"; Value = 0; } }
+        Index = 0x1320;
+    }
+
+    EditBox  {
+        Name = "Ignore Bits"; 
+        Disable {
+            Condition { Name = "Output"; Value = 0; }
+        }
+        Disable {
+            Condition { Name = "Output";   Value = 2; }
+            Condition { Name = "Function"; Value = 6; } // clock-cycle
+        }
+        Index = 0x1420;
+    }
+}
+
+Group {
+    Name = "Comparator 3";
+
+    ComboBox {
+        Name = "Output";
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function"; Value = 4; }   // Function-data match
+            Condition { Name = "Comparator 1.Address Match 0";     Value = 3; }   // Comparator 0 selected for addr match
+            Value = "Coupled=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function"; Value = 4; }   // Function-data match
+            Condition { Name = "Comparator 1.Address Match 1";       Value = 3; }   // Comparator 0 selected for addr match
+            Value = "Coupled=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Comparator 1.Function";  }   // Any other function 
+            Value = "Disabled=0,"
+                    "ITM Trace=2,"
+                    "Watchpoint=3,"
+                    "ETM Event=4"
+                    ;
+            Default = 0;
+        }
+
+        Index = 0x1030;
+    }
+
+    ComboBox {
+        Name = "Function";
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 0; }   // Disabled=0
+            Value = "None=0";
+            Default = 0;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 1; }   // Coupled=1
+            Value = "Data Address Match=1";
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 2; }   // ITM=2
+            Value = "Emit PC on Data Address Match=5,"
+                    "Emit PC on Clock Cycle Count Match=6,"
+                    "Emit Address Offset on Data Address Match=7,"
+                    "Emit Data on Data Address Match=8,"
+                    "Emit Data and Address Offset on Data Address Match=9,"
+                    "Emit PC and Data on Data Address Match=10"
+                    ;
+            Default = 5;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 3; }   // Watchpoint=3
+            Value = "PC Match=2,"
+                    "Data Address Match=1"
+                    ;
+            Default = 1;
+        }
+
+        ValueCond {
+            Condition { Name = "Output"; Value = 4; }   // ETM=4
+            Value = "PC Match=2,"
+                    "Data Address Match=1"
+                    ;
+            Default = 1;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0; } }
+
+        Index = 0x1130;
+    }
+
+    ComboBox {
+        Name = "Access";
+
+        ValueCond {
+            Condition { Name = "Function"; Value = 2 3; }   // PC or clock cycle match
+            Value = "Fetch=0";
+            Default = 0;
+        }
+        ValueCond {
+            Condition { Name = "Function"; Value = 4 1; }   // data value or address match
+            Value = "Read=1,"
+                    "Write=2,"
+                    "Read or Write=3"
+                    ;
+            Default = 3;
+        }
+        ValueCond {
+            Condition { Name = "Function"; }   // Any other (no value specified)
+            Value = "Read or Write=3";
+            Default = 3;
+        }
+
+        Disable { Condition { Name = "Output"; Value = 0 1; } }
+
+        Index = 0x1230;
+    }
+
+    EditBox  {
+        Name = "Value"; 
+        Disable { Condition { Name = "Output"; Value = 0; } }
+        Index = 0x1330;
+    }
+
+    EditBox  {
+        Name = "Ignore Bits"; 
+        Disable {
+            Condition { Name = "Output"; Value = 0; }
+        }
+        Disable {
+            Condition { Name = "Output";   Value = 2; }
+            Condition { Name = "Function"; Value = 6; } // Clock-cycle
+        }
+        Index = 0x1430;
+    }
+}
+
+Group {
+    Name ="Vectors";
+    CheckBox { Name = "Enable"; Index = 0x4000; }
+
+    CheckBox { Name = "Reset";                      Index = 0x4010; Disable { Condition { Name = "Enable"; Value = 0; } } }
+    CheckBox { Name = "Hard Fault";                 Index = 0x4020; Disable { Condition { Name = "Enable"; Value = 0; } } }
+    CheckBox { Name = "Interrupt Error";            Index = 0x4030; Disable { Condition { Name = "Enable"; Value = 0; } } }
+    CheckBox { Name = "Bus Fault";                  Index = 0x4040; Disable { Condition { Name = "Enable"; Value = 0; } } }
+    CheckBox { Name = "Usage Fault State Error";    Index = 0x4050; Disable { Condition { Name = "Enable"; Value = 0; } } }
+    CheckBox { Name = "Usage Fault Checking Error"; Index = 0x4060; Disable { Condition { Name = "Enable"; Value = 0; } } }
+    CheckBox { Name = "Usage Fault No Coprocessor"; Index = 0x4070; Disable { Condition { Name = "Enable"; Value = 0; } } }
+    CheckBox { Name = "Memory Management";          Index = 0x4080; Disable { Condition { Name = "Enable"; Value = 0; } } }
+}
+
+Group {
+    Name ="ITM Events";
+
+    CheckBox { Name = "Enable";  Index = 0x5000; }
+
+    Text  { Name = "8-bit overflow counter events"; Option = 0x10; } // Option: 0x10 - left align display
+
+    CheckBox { Name = "CPI";    Index = 0x5010; Disable { Condition { Name = "Enable"; Value = 0; } } } Text { Name = "(cycles per instruction)"; Option = 0x10; }
+    CheckBox { Name = "LSU";    Index = 0x5011; Disable { Condition { Name = "Enable"; Value = 0; } } } Text { Name = "(load-store cycles)"; Option = 0x10; }
+    CheckBox { Name = "FOLD";   Index = 0x5012; Disable { Condition { Name = "Enable"; Value = 0; } } } Text { Name = "(folded instructions)"; Option = 0x10; }
+    CheckBox { Name = "EXC";    Index = 0x5013; Disable { Condition { Name = "Enable"; Value = 0; } } } Text { Name = "(exception overhead)"; Option = 0x10; }
+    CheckBox { Name = "SLEEP";  Index = 0x5014; Disable { Condition { Name = "Enable"; Value = 0; } } } Text { Name = "(sleep overhead)"; Option = 0x10; }
+    CheckBox { Name = "EXCTRC"; Index = 0x5015; Disable { Condition { Name = "Enable"; Value = 0; } } } Text { Name = "(exception tracing)"; Option = 0x10; }
+
+    Text  { Name = "Scaled CPU cycle events"; Option = 0x10; } // Option: 0x10 - left align display
+
+    CheckBox { Name = "CYC";
+        Index = 0x5016; 
+        Disable { Condition { Name = "Emit PC Sample"; Value = 1; } } 
+        Disable { Condition { Name = "Enable"; Value = 0; } } 
+    } 
+    Text { Name = "(CPU clock cycles)"; Option = 0x10; }
+
+    CheckBox { Name = "Emit PC Sample"; 
+        Index = 0x5021; 
+        Disable { Condition { Name = "CYC"; Value = 1; } } 
+        Disable { Condition { Name = "Enable"; Value = 0; } } 
+    }
+
+    ComboBox {
+        Name = "Every N Cycles";
+        Value ="64,128,192,256,320,384,448,512,576,640,704,768,832,896,960,1024,2048,3072,4096,5120,6144,7168,8192,9216,10240,11264,12288,13312,14336,15360,16384";
+        Default = 1024;
+        Disable { 
+            Condition { Name = "CYC"; Value = 0; } 
+            Condition { Name = "Emit PC Sample"; Value = 0; } 
+        } 
+        Disable { Condition { Name = "Enable"; Value = 0; } }
+        Index = 0x5022;
+    }
+}
+
+Group {
+    Name ="ITM Timestamp";
+
+    CheckBox { Name = "Enable";   Index = 0x6000; }
+    ComboBox {
+        Name = "Based On";
+        Value = "CPU Clock=0,TPIU Clock=1";
+        Default = 0;
+        Disable { 
+            Condition { Name = "Enable"; Value = 0; } 
+        } 
+        Index = 0x6010;
+    }
+    ComboBox {
+        Name = "Divider";
+        Value = "1,4,16,64";
+        Default = 1;
+        Disable { 
+            Condition { Name = "Enable"; Value = 0; } 
+        } 
+        Index = 0x6020;
+    }
+}
+
+Group {
+    Name = "ITM Stimulus Ports";
+
+    // EditBox { Name = "Enable";    Default = 0; Index = 0x7000; }
+    // EditBox { Name = "Privilege"; Default = 0; Index = 0x7010; }
+
+    Text { Name = "Enable"; Option = 0x10; }
+
+    Text { Name = "31"; Option = 0x10; }
+    Text { Name = "24"; Option = 0x10; }
+    Text { Name = "23"; Option = 0x10; }
+    Text { Name = "16"; Option = 0x10; }
+    Text { Name = "15"; Option = 0x10; }
+    Text { Name = "8";  Option = 0x10; }
+    Text { Name = "7";  Option = 0x10; }
+    Text { Name = "0";  Option = 0x10; }
+
+    CheckBox { Name = "_p0";   Index = 0x7020; }
+    CheckBox { Name = "_p1";   Index = 0x7021; }
+    CheckBox { Name = "_p2";   Index = 0x7022; }
+    CheckBox { Name = "_p3";   Index = 0x7023; }
+    CheckBox { Name = "_p4";   Index = 0x7024; }
+    CheckBox { Name = "_p5";   Index = 0x7025; }
+    CheckBox { Name = "_p6";   Index = 0x7026; }
+    CheckBox { Name = "_p7";   Index = 0x7027; }
+    CheckBox { Name = "_p8";   Index = 0x7028; }
+    CheckBox { Name = "_p9";   Index = 0x7029; }
+    CheckBox { Name = "_p10";  Index = 0x702A; }
+    CheckBox { Name = "_p11";  Index = 0x702B; }
+    CheckBox { Name = "_p12";  Index = 0x702C; }
+    CheckBox { Name = "_p13";  Index = 0x702D; }
+    CheckBox { Name = "_p14";  Index = 0x702E; }
+    CheckBox { Name = "_p15";  Index = 0x702F; }
+    CheckBox { Name = "_p16";  Index = 0x7030; }
+    CheckBox { Name = "_p17";  Index = 0x7031; }
+    CheckBox { Name = "_p18";  Index = 0x7032; }
+    CheckBox { Name = "_p19";  Index = 0x7033; }
+    CheckBox { Name = "_p20";  Index = 0x7034; }
+    CheckBox { Name = "_p21";  Index = 0x7035; }
+    CheckBox { Name = "_p22";  Index = 0x7036; }
+    CheckBox { Name = "_p23";  Index = 0x7037; }
+    CheckBox { Name = "_p24";  Index = 0x7038; }
+    CheckBox { Name = "_p25";  Index = 0x7039; }
+    CheckBox { Name = "_p26";  Index = 0x703A; }
+    CheckBox { Name = "_p27";  Index = 0x703B; }
+    CheckBox { Name = "_p28";  Index = 0x703C; }
+    CheckBox { Name = "_p29";  Index = 0x703D; }
+    CheckBox { Name = "_p30";  Index = 0x703E; }
+    CheckBox { Name = "_p31";  Index = 0x703F; }
+
+    Text { Name = "Privilege"; Option = 0x10; }
+
+    Text { Name = "Port 31..24"; Option = 0x10; }
+    CheckBox { Name = "_priv0";   Index = 0x7040; }
+    Text { Name = "Port 23..16"; Option = 0x10; }
+    CheckBox { Name = "_priv1";   Index = 0x7041; }
+    Text { Name = "Port 15..8"; Option = 0x10; }
+    CheckBox { Name = "_priv2";   Index = 0x7042; }
+    Text { Name = "Port 7..0"; Option = 0x10; }
+    CheckBox { Name = "_priv3";   Index = 0x7043; }
+}
+
+Layout {
+    w  = 640; h  = 481;   // Size in screen cordinate system, i.e. in pixels.
+
+    Layout {
+    	Object = "Comparator 0";
+
+	x =  4; y =  6; w = 625; h = 52;
+
+        Layout { Object = "Output";       x =   5; y = 25; w =  90; h = 23; }
+        Layout { Object = "Function";     x =  95; y = 25; w = 275; h = 23; }
+        Layout { Object = "Access";       x = 370; y = 25; w =  95; h = 23; }
+        Layout { Object = "Value";        x = 465; y = 27; w =  95; h = 20; }
+        Layout { Object = "Ignore Bits";  x = 560; y = 27; w =  60; h = 20; }
+    }
+
+    Layout {
+    	Object = "Comparator 1";
+
+	x =  4; y = 62; w = 625; h = 94;
+
+        Layout { Object = "Output";       x =   5; y = 25; w =  90; h = 23; }
+        Layout { Object = "Function";     x =  95; y = 25; w = 275; h = 23; }
+        Layout { Object = "Access";       x = 370; y = 25; w =  95; h = 23; }
+        Layout { Object = "Value";        x = 465; y = 27; w =  95; h = 20; }
+        Layout { Object = "Ignore Bits";  x = 560; y = 27; w =  60; h = 20; }
+
+        Layout { Object = "Data Address Range"; x = 250; y = 67; w =100; h = 20; }
+        Layout { Object = "Address Match 0";               x = 350; y = 67; w = 95; h = 20; }
+        Layout { Object = "Address Match 1";                 x = 445; y = 67; w = 95; h = 20; }
+        Layout { Object = "Data Value Size";    x = 540; y = 67; w = 80; h = 20; }
+    }
+
+    Layout {
+    	Object = "Comparator 2";
+
+	x =  4; y = 160; w = 625; h = 52;
+
+        Layout { Object = "Output";       x =   5; y = 25; w =  90; h = 23; }
+        Layout { Object = "Function";     x =  95; y = 25; w = 275; h = 23; }
+        Layout { Object = "Access";       x = 370; y = 25; w =  95; h = 23; }
+        Layout { Object = "Value";        x = 465; y = 27; w =  95; h = 20; }
+        Layout { Object = "Ignore Bits";  x = 560; y = 27; w =  60; h = 20; }
+    }
+
+    Layout {
+    	Object = "Comparator 3";
+
+	x =  4; y = 216; w = 625; h = 52;
+
+        Layout { Object = "Output";       x =   5; y = 25; w =  90; h = 23; }
+        Layout { Object = "Function";     x =  95; y = 25; w = 275; h = 23; }
+        Layout { Object = "Access";       x = 370; y = 25; w =  95; h = 23; }
+        Layout { Object = "Value";        x = 465; y = 27; w =  95; h = 20; }
+        Layout { Object = "Ignore Bits";  x = 560; y = 27; w =  60; h = 20; }
+    }
+
+    Layout {
+    	Object = "Vectors";
+
+        x = 4; y = 272; w = 180; h = 145;
+
+        Layout { Object = "Enable";        x = 60; y =  5; w = 55; h = 15; }
+
+        Layout { Object = "Reset";                      x = 6; y =  20; w =  80; h = 15; }
+        Layout { Object = "Hard Fault";                 x = 6; y =  35; w =  80; h = 15; }
+        Layout { Object = "Interrupt Error";            x = 6; y =  50; w =  85; h = 15; }
+        Layout { Object = "Bus Fault";                  x = 6; y =  65; w =  80; h = 15; }
+        Layout { Object = "Usage Fault State Error";    x = 6; y =  80; w = 140; h = 15; }
+        Layout { Object = "Usage Fault Checking Error"; x = 6; y =  95; w = 150; h = 15; }
+        Layout { Object = "Usage Fault No Coprocessor"; x = 6; y = 110; w = 150; h = 15; }
+	Layout { Object = "Memory Management";          x = 6; y = 125; w = 130; h = 15; }
+    }
+
+    Layout {
+    	Object = "ITM Events";
+
+        x = 190; y = 272; w = 330; h = 135;
+
+        Layout { Object = "Enable";              x = 100; y = 5; w = 55; h = 15; }
+
+        Layout { Object = "EXCTRC";                     x = 6; y =  20; w =  60; h = 15; }
+        Layout { Object = "(exception tracing)";        x = 70; y = 20; w = 120; h = 15; }
+
+        Layout { Object = "8-bit overflow counter events"; x = 6; y =  40; w = 200; h = 15; }
+
+        Layout { Object = "CPI";                        x = 6; y =  55; w =  40; h = 15; }
+        Layout { Object = "LSU";                        x = 6; y =  70; w =  40; h = 15; }
+        Layout { Object = "FOLD";                       x = 6; y =  85; w =  50; h = 15; }
+        Layout { Object = "EXC";                        x = 6; y = 100; w =  40; h = 15; }
+        Layout { Object = "SLEEP";                      x = 6; y = 115; w =  54; h = 15; }
+
+        Layout { Object = "(cycles per instruction)";   x = 50; y =  55; w = 120; h = 15; }
+        Layout { Object = "(load-store cycles)";        x = 50; y =  70; w = 120; h = 15; }
+        Layout { Object = "(folded instructions)";      x = 60; y =  85; w = 120; h = 15; }
+        Layout { Object = "(exception overhead)";       x = 50; y = 100; w = 120; h = 15; }
+        Layout { Object = "(sleep overhead)";           x = 64; y = 115; w = 120; h = 15; }
+
+        Layout { Object = "Scaled CPU cycle events";    x = 190; y = 20; w = 200; h = 15; }
+
+        Layout { Object = "CYC";                        x = 190; y = 35; w =  40; h = 15; }
+        Layout { Object = "(CPU clock cycles)";         x = 235; y = 35; w =  60; h = 15; }
+        Layout { Object = "Emit PC Sample";             x = 190; y = 50; w = 120; h = 15; }
+        Layout { Object = "Every N Cycles";             x = 189; y = 80; w =  80; h = 20; }
+    }
+
+    Layout {
+    	Object = "ITM Timestamp";
+
+        x = 526; y = 272; w = 103; h = 135;
+
+        Layout { Object = "Enable"   ;                  x = 6; y =  20; w =  55; h = 15; }
+        Layout { Object = "Based On";                   x = 4; y =  60; w =  90; h = 20; }
+        Layout { Object = "Divider";                    x = 5; y = 100; w =  50; h = 20; }
+    }
+
+    Layout {
+        Object = "ITM Stimulus Ports";
+
+	x =  4; y =  421; w = 625; h = 60;
+        ax = 41;
+
+        Layout { Object = "Enable";     x = 1; y = 15; w = 3; h = 20; }
+        Layout { Object = "Privilege";  x = 1; y = 35; w = 6; h = 20; }
+
+        Layout { Object = "31";   x =  5; y = -5; w = 1; h = 15; }
+
+        Layout { Object = "_p31"; x =  5; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p30"; x =  6; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p29"; x =  7; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p28"; x =  8; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p27"; x =  9; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p26"; x = 10; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p25"; x = 11; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p24"; x = 12; y = 15; w = 1; h = 20; }
+
+        Layout { Object = "24";   x = 12; y = -5; w = 1; h = 15; }
+        Layout { Object = "23";   x = 14; y = -5; w = 1; h = 15; }
+
+        Layout { Object = "Port 31..24";   x =  8; y = 35; w = 6; h = 20; }
+        Layout { Object = "_priv0";        x = 12; y = 35; w = 1; h = 20; }
+
+        Layout { Object = "_p23"; x = 14; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p22"; x = 15; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p21"; x = 16; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p20"; x = 17; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p19"; x = 18; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p18"; x = 19; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p17"; x = 20; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p16"; x = 21; y = 15; w = 1; h = 20; }
+
+        Layout { Object = "16";   x = 21; y = -5; w = 1; h = 20; }
+        Layout { Object = "15";   x = 23; y = -5; w = 1; h = 20; }
+
+        Layout { Object = "Port 23..16";   x = 17; y = 35; w = 6; h = 20; }
+        Layout { Object = "_priv1";        x = 21; y = 35; w = 1; h = 20; }
+
+        Layout { Object = "_p15"; x = 23; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p14"; x = 24; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p13"; x = 25; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p12"; x = 26; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p11"; x = 27; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p10"; x = 28; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p9";  x = 29; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p8";  x = 30; y = 15; w = 1; h = 20; }
+
+        Layout { Object = "8";    x = 30; y = -5; w = 1; h = 20; }
+        Layout { Object = "7";    x = 32; y = -5; w = 1; h = 20; }
+
+        Layout { Object = "Port 15..8";    x = 26; y = 35; w = 6; h = 20; }
+        Layout { Object = "_priv2";        x = 30; y = 35; w = 1; h = 20; }
+
+        Layout { Object = "_p7";  x = 32; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p6";  x = 33; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p5";  x = 34; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p4";  x = 35; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p3";  x = 36; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p2";  x = 37; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p1";  x = 38; y = 15; w = 1; h = 20; }
+        Layout { Object = "_p0";  x = 39; y = 15; w = 1; h = 20; }
+
+        Layout { Object = "0";    x = 39; y = -5; w = 1; h = 20; }
+
+        Layout { Object = "Port 7..0";     x = 36; y = 35; w = 6; h = 20; }
+        Layout { Object = "_priv3";        x = 39; y = 35; w = 1; h = 20; }
+    }
+}
+
+
+// End of file "CortexM3Evt.def"

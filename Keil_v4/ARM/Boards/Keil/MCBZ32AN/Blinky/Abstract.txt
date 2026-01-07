@@ -1,0 +1,24 @@
+The Blinky project is an example program for the Zilog 'Z32AN11'
+microcontroller using Keil 'MCBZ32AN' Evaluation Board.
+
+Example functionality:                                                   
+ - 8 LEDs blink
+ - time of LED switching is determined by Timer 8 working in 
+   interrupt mode
+ - AD conveted value (potentiometer value) is shown in a form 
+   of bargraph on Character LCD Display
+
+Clocks:   Oscillator      =  24.000 MHz
+          pll_clk         = 384.000 MHz
+          fclk            =  96.000 MHz
+          hclk            =  96.000 MHz
+
+Memories: Internal RAM    - 64kB
+          External Flash  -  4MB
+          External SDRAM  - 32MB
+
+The Blinky program is available for different targets:
+  Z32AN11 Int RAM:   configured for on-chip RAM (64kB)
+                     (used for target debugging)
+  Z32AN11 Ext Flash: configured for external flash (4MB)
+                     (used for target debugging and production)

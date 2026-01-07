@@ -1,0 +1,1497 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\UART0.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         UART0                                        -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ---------------------------------------  UART0_CTRL  -------------------------------------------
+
+unsigned int UART0_CTRL __AT (0x4000E000);
+
+//  <item> Reg_UART0_CTRL
+//    <i> UART0_CTRL [31..0] (@ 0x4000E000) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_CTRL>>0) & 0xFFFFFFFF), ( (UART0_CTRL &= ~(0xFFFFFFFF<<0)), (UART0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_CTRL_SYNC
+//    <i> SYNC [0] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.0..0> SYNC
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_LOOPBK
+//    <i> LOOPBK [1] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.1..1> LOOPBK
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_CCEN
+//    <i> CCEN [2] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.2..2> CCEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_MPM
+//    <i> MPM [3] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.3..3> MPM
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_MPAB
+//    <i> MPAB [4] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.4..4> MPAB
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_OVS
+//    <i> OVS [6..5] (@ 0x4000E000) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_CTRL>>5) & 0x2), ( (UART0_CTRL &= ~(0x2<<5)), (UART0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<5)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_CTRL_CLKPOL
+//    <i> CLKPOL [8] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.8..8> CLKPOL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_CLKPHA
+//    <i> CLKPHA [9] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.9..9> CLKPHA
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_MSBF
+//    <i> MSBF [10] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.10..10> MSBF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_CSMA
+//    <i> CSMA [11] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.11..11> CSMA
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_TXBIL
+//    <i> TXBIL [12] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.12..12> TXBIL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_RXINV
+//    <i> RXINV [13] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.13..13> RXINV
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_TXINV
+//    <i> TXINV [14] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.14..14> TXINV
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_CSINV
+//    <i> CSINV [15] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.15..15> CSINV
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_AUTOCS
+//    <i> AUTOCS [16] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.16..16> AUTOCS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_AUTOTRI
+//    <i> AUTOTRI [17] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.17..17> AUTOTRI
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_SCMODE
+//    <i> SCMODE [18] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.18..18> SCMODE
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_SCRETRANS
+//    <i> SCRETRANS [19] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.19..19> SCRETRANS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_SKIPPERRF
+//    <i> SKIPPERRF [20] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.20..20> SKIPPERRF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_BIT8DV
+//    <i> BIT8DV [21] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.21..21> BIT8DV
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_ERRSDMA
+//    <i> ERRSDMA [22] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.22..22> ERRSDMA
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_ERRSRX
+//    <i> ERRSRX [23] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.23..23> ERRSRX
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_ERRSTX
+//    <i> ERRSTX [24] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.24..24> ERRSTX
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CTRL_TXDELAY
+//    <i> TXDELAY [27..26] (@ 0x4000E000) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_CTRL>>26) & 0x2), ( (UART0_CTRL &= ~(0x2<<26)), (UART0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<26)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_CTRL_BYTESWAP
+//    <i> BYTESWAP [28] (@ 0x4000E000) </i>
+//    <check> 
+//      <loc> UART0_CTRL </loc>
+//      <o.28..28> BYTESWAP
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  UART0_FRAME  ------------------------------------------
+
+unsigned int UART0_FRAME __AT (0x4000E004);
+
+//  <item> Reg_UART0_FRAME
+//    <i> UART0_FRAME [31..0] (@ 0x4000E004) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_FRAME>>0) & 0xFFFFFFFF), ( (UART0_FRAME &= ~(0xFFFFFFFF<<0)), (UART0_FRAME |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_FRAME_DATABITS
+//    <i> DATABITS [3..0] (@ 0x4000E004) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_FRAME>>0) & 0xE), ( (UART0_FRAME &= ~(0xE<<0)), (UART0_FRAME |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_FRAME_PARITY
+//    <i> PARITY [9..8] (@ 0x4000E004) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_FRAME>>8) & 0x2), ( (UART0_FRAME &= ~(0x2<<8)), (UART0_FRAME |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_FRAME_STOPBITS
+//    <i> STOPBITS [13..12] (@ 0x4000E004) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_FRAME>>12) & 0x2), ( (UART0_FRAME &= ~(0x2<<12)), (UART0_FRAME |= ((Gui_u8:GuiVal & 0x2)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  UART0_TRIGCTRL  -----------------------------------------
+
+unsigned int UART0_TRIGCTRL __AT (0x4000E008);
+
+//  <item> Reg_UART0_TRIGCTRL
+//    <i> UART0_TRIGCTRL [31..0] (@ 0x4000E008) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_TRIGCTRL>>0) & 0xFFFFFFFF), ( (UART0_TRIGCTRL &= ~(0xFFFFFFFF<<0)), (UART0_TRIGCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TRIGCTRL_TSEL
+//    <i> TSEL [2..0] (@ 0x4000E008) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_TRIGCTRL>>0) & 0x6), ( (UART0_TRIGCTRL &= ~(0x6<<0)), (UART0_TRIGCTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TRIGCTRL_RXTEN
+//    <i> RXTEN [4] (@ 0x4000E008) </i>
+//    <check> 
+//      <loc> UART0_TRIGCTRL </loc>
+//      <o.4..4> RXTEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TRIGCTRL_TXTEN
+//    <i> TXTEN [5] (@ 0x4000E008) </i>
+//    <check> 
+//      <loc> UART0_TRIGCTRL </loc>
+//      <o.5..5> TXTEN
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  UART0_CMD  -------------------------------------------
+
+unsigned int UART0_CMD __AT (0x4000E00C);
+
+//  <item> Reg_UART0_CMD
+//    <i> UART0_CMD [31..0] (@ 0x4000E00C) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_CMD>>0) & 0xFFFFFFFF), ( (UART0_CMD &= ~(0xFFFFFFFF<<0)), (UART0_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_CMD_RXEN
+//    <i> RXEN [0] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.0..0> RXEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_RXDIS
+//    <i> RXDIS [1] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.1..1> RXDIS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_TXEN
+//    <i> TXEN [2] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.2..2> TXEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_TXDIS
+//    <i> TXDIS [3] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.3..3> TXDIS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_MASTEREN
+//    <i> MASTEREN [4] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.4..4> MASTEREN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_MASTERDIS
+//    <i> MASTERDIS [5] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.5..5> MASTERDIS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_RXBLOCKEN
+//    <i> RXBLOCKEN [6] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.6..6> RXBLOCKEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_RXBLOCKDIS
+//    <i> RXBLOCKDIS [7] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.7..7> RXBLOCKDIS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_TXTRIEN
+//    <i> TXTRIEN [8] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.8..8> TXTRIEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_TXTRIDIS
+//    <i> TXTRIDIS [9] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.9..9> TXTRIDIS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_CLEARTX
+//    <i> CLEARTX [10] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.10..10> CLEARTX
+//    </check>
+//  </item>
+//  
+//  <item> UART0_CMD_CLEARRX
+//    <i> CLEARRX [11] (@ 0x4000E00C) </i>
+//    <check> 
+//      <loc> UART0_CMD </loc>
+//      <o.11..11> CLEARRX
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  UART0_STATUS  ------------------------------------------
+
+unsigned int UART0_STATUS __AT (0x4000E010);
+
+//  <item> Reg_UART0_STATUS
+//    <i> UART0_STATUS [31..0] (@ 0x4000E010) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_STATUS>>0) & 0xFFFFFFFF), ( (UART0_STATUS &= ~(0xFFFFFFFF<<0)), (UART0_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_STATUS_RXENS
+//    <i> RXENS [0] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.0..0> RXENS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_TXENS
+//    <i> TXENS [1] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.1..1> TXENS
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_MASTER
+//    <i> MASTER [2] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.2..2> MASTER
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_RXBLOCK
+//    <i> RXBLOCK [3] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.3..3> RXBLOCK
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_TXTRI
+//    <i> TXTRI [4] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.4..4> TXTRI
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_TXC
+//    <i> TXC [5] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.5..5> TXC
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_TXBL
+//    <i> TXBL [6] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.6..6> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_RXDATAV
+//    <i> RXDATAV [7] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.7..7> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> UART0_STATUS_RXFULL
+//    <i> RXFULL [8] (@ 0x4000E010) </i>
+//    <check> 
+//      <loc> UART0_STATUS </loc>
+//      <o.8..8> RXFULL
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  UART0_CLKDIV  ------------------------------------------
+
+unsigned int UART0_CLKDIV __AT (0x4000E014);
+
+//  <item> Reg_UART0_CLKDIV
+//    <i> UART0_CLKDIV [31..0] (@ 0x4000E014) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_CLKDIV>>0) & 0xFFFFFFFF), ( (UART0_CLKDIV &= ~(0xFFFFFFFF<<0)), (UART0_CLKDIV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_CLKDIV_DIV
+//    <i> DIV [20..6] (@ 0x4000E014) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_CLKDIV>>6) & 0x7FFE), ( (UART0_CLKDIV &= ~(0x7FFE<<6)), (UART0_CLKDIV |= ((Gui_u16:GuiVal & 0x7FFE)<<6)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  UART0_RXDATAX  -----------------------------------------
+
+unsigned int UART0_RXDATAX __AT (0x4000E018);
+
+//  <item> Reg_UART0_RXDATAX
+//    <i> UART0_RXDATAX [31..0] (@ 0x4000E018) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_RXDATAX>>0) & 0xFFFFFFFF), ( (UART0_RXDATAX &= ~(0xFFFFFFFF<<0)), (UART0_RXDATAX |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDATAX_RXDATA
+//    <i> RXDATA [8..0] (@ 0x4000E018) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_RXDATAX>>0) & 0x1FE), ( (UART0_RXDATAX &= ~(0x1FE<<0)), (UART0_RXDATAX |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDATAX_PERR
+//    <i> PERR [14] (@ 0x4000E018) </i>
+//    <check> 
+//      <loc> UART0_RXDATAX </loc>
+//      <o.14..14> PERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDATAX_FERR
+//    <i> FERR [15] (@ 0x4000E018) </i>
+//    <check> 
+//      <loc> UART0_RXDATAX </loc>
+//      <o.15..15> FERR
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  UART0_RXDATA  ------------------------------------------
+
+unsigned int UART0_RXDATA __AT (0x4000E01C);
+
+//  <item> Reg_UART0_RXDATA
+//    <i> UART0_RXDATA [31..0] (@ 0x4000E01C) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_RXDATA>>0) & 0xFFFFFFFF), ( (UART0_RXDATA &= ~(0xFFFFFFFF<<0)), (UART0_RXDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDATA_RXDATA
+//    <i> RXDATA [7..0] (@ 0x4000E01C) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_RXDATA>>0) & 0xFE), ( (UART0_RXDATA &= ~(0xFE<<0)), (UART0_RXDATA |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  UART0_RXDOUBLEX  ----------------------------------------
+
+unsigned int UART0_RXDOUBLEX __AT (0x4000E020);
+
+//  <item> Reg_UART0_RXDOUBLEX
+//    <i> UART0_RXDOUBLEX [31..0] (@ 0x4000E020) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_RXDOUBLEX>>0) & 0xFFFFFFFF), ( (UART0_RXDOUBLEX &= ~(0xFFFFFFFF<<0)), (UART0_RXDOUBLEX |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEX_RXDATA0
+//    <i> RXDATA0 [8..0] (@ 0x4000E020) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_RXDOUBLEX>>0) & 0x1FE), ( (UART0_RXDOUBLEX &= ~(0x1FE<<0)), (UART0_RXDOUBLEX |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEX_PERR0
+//    <i> PERR0 [14] (@ 0x4000E020) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEX </loc>
+//      <o.14..14> PERR0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEX_FERR0
+//    <i> FERR0 [15] (@ 0x4000E020) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEX </loc>
+//      <o.15..15> FERR0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEX_RXDATA1
+//    <i> RXDATA1 [24..16] (@ 0x4000E020) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_RXDOUBLEX>>16) & 0x1FE), ( (UART0_RXDOUBLEX &= ~(0x1FE<<16)), (UART0_RXDOUBLEX |= ((Gui_u16:GuiVal & 0x1FE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEX_PERR1
+//    <i> PERR1 [30] (@ 0x4000E020) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEX </loc>
+//      <o.30..30> PERR1
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEX_FERR1
+//    <i> FERR1 [31] (@ 0x4000E020) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEX </loc>
+//      <o.31..31> FERR1
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  UART0_RXDOUBLE  -----------------------------------------
+
+unsigned int UART0_RXDOUBLE __AT (0x4000E024);
+
+//  <item> Reg_UART0_RXDOUBLE
+//    <i> UART0_RXDOUBLE [31..0] (@ 0x4000E024) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_RXDOUBLE>>0) & 0xFFFFFFFF), ( (UART0_RXDOUBLE &= ~(0xFFFFFFFF<<0)), (UART0_RXDOUBLE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLE_RXDATA0
+//    <i> RXDATA0 [7..0] (@ 0x4000E024) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_RXDOUBLE>>0) & 0xFE), ( (UART0_RXDOUBLE &= ~(0xFE<<0)), (UART0_RXDOUBLE |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLE_RXDATA1
+//    <i> RXDATA1 [15..8] (@ 0x4000E024) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_RXDOUBLE>>8) & 0xFE), ( (UART0_RXDOUBLE &= ~(0xFE<<8)), (UART0_RXDOUBLE |= ((Gui_u8:GuiVal & 0xFE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  UART0_RXDATAXP  -----------------------------------------
+
+unsigned int UART0_RXDATAXP __AT (0x4000E028);
+
+//  <item> Reg_UART0_RXDATAXP
+//    <i> UART0_RXDATAXP [31..0] (@ 0x4000E028) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_RXDATAXP>>0) & 0xFFFFFFFF), ( (UART0_RXDATAXP &= ~(0xFFFFFFFF<<0)), (UART0_RXDATAXP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDATAXP_RXDATAP
+//    <i> RXDATAP [8..0] (@ 0x4000E028) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_RXDATAXP>>0) & 0x1FE), ( (UART0_RXDATAXP &= ~(0x1FE<<0)), (UART0_RXDATAXP |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDATAXP_PERRP
+//    <i> PERRP [14] (@ 0x4000E028) </i>
+//    <check> 
+//      <loc> UART0_RXDATAXP </loc>
+//      <o.14..14> PERRP
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDATAXP_FERRP
+//    <i> FERRP [15] (@ 0x4000E028) </i>
+//    <check> 
+//      <loc> UART0_RXDATAXP </loc>
+//      <o.15..15> FERRP
+//    </check>
+//  </item>
+//  
+
+
+// ------------------------------------  UART0_RXDOUBLEXP  ----------------------------------------
+
+unsigned int UART0_RXDOUBLEXP __AT (0x4000E02C);
+
+//  <item> Reg_UART0_RXDOUBLEXP
+//    <i> UART0_RXDOUBLEXP [31..0] (@ 0x4000E02C) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_RXDOUBLEXP>>0) & 0xFFFFFFFF), ( (UART0_RXDOUBLEXP &= ~(0xFFFFFFFF<<0)), (UART0_RXDOUBLEXP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEXP_RXDATAP0
+//    <i> RXDATAP0 [8..0] (@ 0x4000E02C) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_RXDOUBLEXP>>0) & 0x1FE), ( (UART0_RXDOUBLEXP &= ~(0x1FE<<0)), (UART0_RXDOUBLEXP |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEXP_PERRP0
+//    <i> PERRP0 [14] (@ 0x4000E02C) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEXP </loc>
+//      <o.14..14> PERRP0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEXP_FERRP0
+//    <i> FERRP0 [15] (@ 0x4000E02C) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEXP </loc>
+//      <o.15..15> FERRP0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEXP_RXDATAP1
+//    <i> RXDATAP1 [24..16] (@ 0x4000E02C) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_RXDOUBLEXP>>16) & 0x1FE), ( (UART0_RXDOUBLEXP &= ~(0x1FE<<16)), (UART0_RXDOUBLEXP |= ((Gui_u16:GuiVal & 0x1FE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEXP_PERRP1
+//    <i> PERRP1 [30] (@ 0x4000E02C) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEXP </loc>
+//      <o.30..30> PERRP1
+//    </check>
+//  </item>
+//  
+//  <item> UART0_RXDOUBLEXP_FERRP1
+//    <i> FERRP1 [31] (@ 0x4000E02C) </i>
+//    <check> 
+//      <loc> UART0_RXDOUBLEXP </loc>
+//      <o.31..31> FERRP1
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  UART0_TXDATAX  -----------------------------------------
+
+unsigned int UART0_TXDATAX __AT (0x4000E030);
+
+//  <item> Reg_UART0_TXDATAX
+//    <i> UART0_TXDATAX [31..0] (@ 0x4000E030) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_TXDATAX>>0) & 0xFFFFFFFF), ( (UART0_TXDATAX &= ~(0xFFFFFFFF<<0)), (UART0_TXDATAX |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDATAX_TXDATAX
+//    <i> TXDATAX [8..0] (@ 0x4000E030) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_TXDATAX>>0) & 0x1FE), ( (UART0_TXDATAX &= ~(0x1FE<<0)), (UART0_TXDATAX |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDATAX_UBRXAT
+//    <i> UBRXAT [11] (@ 0x4000E030) </i>
+//    <check> 
+//      <loc> UART0_TXDATAX </loc>
+//      <o.11..11> UBRXAT
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDATAX_TXTRIAT
+//    <i> TXTRIAT [12] (@ 0x4000E030) </i>
+//    <check> 
+//      <loc> UART0_TXDATAX </loc>
+//      <o.12..12> TXTRIAT
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDATAX_TXBREAK
+//    <i> TXBREAK [13] (@ 0x4000E030) </i>
+//    <check> 
+//      <loc> UART0_TXDATAX </loc>
+//      <o.13..13> TXBREAK
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDATAX_TXDISAT
+//    <i> TXDISAT [14] (@ 0x4000E030) </i>
+//    <check> 
+//      <loc> UART0_TXDATAX </loc>
+//      <o.14..14> TXDISAT
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDATAX_RXENAT
+//    <i> RXENAT [15] (@ 0x4000E030) </i>
+//    <check> 
+//      <loc> UART0_TXDATAX </loc>
+//      <o.15..15> RXENAT
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  UART0_TXDATA  ------------------------------------------
+
+unsigned int UART0_TXDATA __AT (0x4000E034);
+
+//  <item> Reg_UART0_TXDATA
+//    <i> UART0_TXDATA [31..0] (@ 0x4000E034) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_TXDATA>>0) & 0xFFFFFFFF), ( (UART0_TXDATA &= ~(0xFFFFFFFF<<0)), (UART0_TXDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDATA_TXDATA
+//    <i> TXDATA [7..0] (@ 0x4000E034) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_TXDATA>>0) & 0xFE), ( (UART0_TXDATA &= ~(0xFE<<0)), (UART0_TXDATA |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  UART0_TXDOUBLEX  ----------------------------------------
+
+unsigned int UART0_TXDOUBLEX __AT (0x4000E038);
+
+//  <item> Reg_UART0_TXDOUBLEX
+//    <i> UART0_TXDOUBLEX [31..0] (@ 0x4000E038) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_TXDOUBLEX>>0) & 0xFFFFFFFF), ( (UART0_TXDOUBLEX &= ~(0xFFFFFFFF<<0)), (UART0_TXDOUBLEX |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXDATA0
+//    <i> TXDATA0 [8..0] (@ 0x4000E038) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_TXDOUBLEX>>0) & 0x1FE), ( (UART0_TXDOUBLEX &= ~(0x1FE<<0)), (UART0_TXDOUBLEX |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_UBRXAT0
+//    <i> UBRXAT0 [11] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.11..11> UBRXAT0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXTRIAT0
+//    <i> TXTRIAT0 [12] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.12..12> TXTRIAT0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXBREAK0
+//    <i> TXBREAK0 [13] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.13..13> TXBREAK0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXDISAT0
+//    <i> TXDISAT0 [14] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.14..14> TXDISAT0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_RXENAT0
+//    <i> RXENAT0 [15] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.15..15> RXENAT0
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXDATA1
+//    <i> TXDATA1 [24..16] (@ 0x4000E038) </i>
+//    <edit> 
+//      <loc> ( (short int)((UART0_TXDOUBLEX>>16) & 0x1FE), ( (UART0_TXDOUBLEX &= ~(0x1FE<<16)), (UART0_TXDOUBLEX |= ((Gui_u16:GuiVal & 0x1FE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_UBRXAT1
+//    <i> UBRXAT1 [27] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.27..27> UBRXAT1
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXTRIAT1
+//    <i> TXTRIAT1 [28] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.28..28> TXTRIAT1
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXBREAK1
+//    <i> TXBREAK1 [29] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.29..29> TXBREAK1
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_TXDISAT1
+//    <i> TXDISAT1 [30] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.30..30> TXDISAT1
+//    </check>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLEX_RXENAT1
+//    <i> RXENAT1 [31] (@ 0x4000E038) </i>
+//    <check> 
+//      <loc> UART0_TXDOUBLEX </loc>
+//      <o.31..31> RXENAT1
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  UART0_TXDOUBLE  -----------------------------------------
+
+unsigned int UART0_TXDOUBLE __AT (0x4000E03C);
+
+//  <item> Reg_UART0_TXDOUBLE
+//    <i> UART0_TXDOUBLE [31..0] (@ 0x4000E03C) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_TXDOUBLE>>0) & 0xFFFFFFFF), ( (UART0_TXDOUBLE &= ~(0xFFFFFFFF<<0)), (UART0_TXDOUBLE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLE_TXDATA0
+//    <i> TXDATA0 [7..0] (@ 0x4000E03C) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_TXDOUBLE>>0) & 0xFE), ( (UART0_TXDOUBLE &= ~(0xFE<<0)), (UART0_TXDOUBLE |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_TXDOUBLE_TXDATA1
+//    <i> TXDATA1 [15..8] (@ 0x4000E03C) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_TXDOUBLE>>8) & 0xFE), ( (UART0_TXDOUBLE &= ~(0xFE<<8)), (UART0_TXDOUBLE |= ((Gui_u8:GuiVal & 0xFE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  UART0_IF  --------------------------------------------
+
+unsigned int UART0_IF __AT (0x4000E040);
+
+//  <item> Reg_UART0_IF
+//    <i> UART0_IF [31..0] (@ 0x4000E040) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_IF>>0) & 0xFFFFFFFF), ( (UART0_IF &= ~(0xFFFFFFFF<<0)), (UART0_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_IF_TXC
+//    <i> TXC [0] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_TXBL
+//    <i> TXBL [1] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.1..1> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_RXDATAV
+//    <i> RXDATAV [2] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.2..2> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_RXFULL
+//    <i> RXFULL [3] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.3..3> RXFULL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_RXOF
+//    <i> RXOF [4] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.4..4> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_RXUF
+//    <i> RXUF [5] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.5..5> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_TXOF
+//    <i> TXOF [6] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.6..6> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_TXUF
+//    <i> TXUF [7] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.7..7> TXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_PERR
+//    <i> PERR [8] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.8..8> PERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_FERR
+//    <i> FERR [9] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.9..9> FERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_MPAF
+//    <i> MPAF [10] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.10..10> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_SSM
+//    <i> SSM [11] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.11..11> SSM
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IF_CCF
+//    <i> CCF [12] (@ 0x4000E040) </i>
+//    <check> 
+//      <loc> UART0_IF </loc>
+//      <o.12..12> CCF
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  UART0_IFS  -------------------------------------------
+
+unsigned int UART0_IFS __AT (0x4000E044);
+
+//  <item> Reg_UART0_IFS
+//    <i> UART0_IFS [31..0] (@ 0x4000E044) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_IFS>>0) & 0xFFFFFFFF), ( (UART0_IFS &= ~(0xFFFFFFFF<<0)), (UART0_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_IFS_TXC
+//    <i> TXC [0] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_RXFULL
+//    <i> RXFULL [3] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.3..3> RXFULL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_RXOF
+//    <i> RXOF [4] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.4..4> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_RXUF
+//    <i> RXUF [5] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.5..5> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_TXOF
+//    <i> TXOF [6] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.6..6> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_TXUF
+//    <i> TXUF [7] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.7..7> TXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_PERR
+//    <i> PERR [8] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.8..8> PERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_FERR
+//    <i> FERR [9] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.9..9> FERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_MPAF
+//    <i> MPAF [10] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.10..10> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_SSM
+//    <i> SSM [11] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.11..11> SSM
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFS_CCF
+//    <i> CCF [12] (@ 0x4000E044) </i>
+//    <check> 
+//      <loc> UART0_IFS </loc>
+//      <o.12..12> CCF
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  UART0_IFC  -------------------------------------------
+
+unsigned int UART0_IFC __AT (0x4000E048);
+
+//  <item> Reg_UART0_IFC
+//    <i> UART0_IFC [31..0] (@ 0x4000E048) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_IFC>>0) & 0xFFFFFFFF), ( (UART0_IFC &= ~(0xFFFFFFFF<<0)), (UART0_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_IFC_TXC
+//    <i> TXC [0] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_RXFULL
+//    <i> RXFULL [3] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.3..3> RXFULL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_RXOF
+//    <i> RXOF [4] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.4..4> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_RXUF
+//    <i> RXUF [5] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.5..5> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_TXOF
+//    <i> TXOF [6] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.6..6> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_TXUF
+//    <i> TXUF [7] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.7..7> TXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_PERR
+//    <i> PERR [8] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.8..8> PERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_FERR
+//    <i> FERR [9] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.9..9> FERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_MPAF
+//    <i> MPAF [10] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.10..10> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_SSM
+//    <i> SSM [11] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.11..11> SSM
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IFC_CCF
+//    <i> CCF [12] (@ 0x4000E048) </i>
+//    <check> 
+//      <loc> UART0_IFC </loc>
+//      <o.12..12> CCF
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  UART0_IEN  -------------------------------------------
+
+unsigned int UART0_IEN __AT (0x4000E04C);
+
+//  <item> Reg_UART0_IEN
+//    <i> UART0_IEN [31..0] (@ 0x4000E04C) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_IEN>>0) & 0xFFFFFFFF), ( (UART0_IEN &= ~(0xFFFFFFFF<<0)), (UART0_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_IEN_TXC
+//    <i> TXC [0] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_TXBL
+//    <i> TXBL [1] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.1..1> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_RXDATAV
+//    <i> RXDATAV [2] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.2..2> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_RXFULL
+//    <i> RXFULL [3] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.3..3> RXFULL
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_RXOF
+//    <i> RXOF [4] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.4..4> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_RXUF
+//    <i> RXUF [5] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.5..5> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_TXOF
+//    <i> TXOF [6] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.6..6> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_TXUF
+//    <i> TXUF [7] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.7..7> TXUF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_PERR
+//    <i> PERR [8] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.8..8> PERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_FERR
+//    <i> FERR [9] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.9..9> FERR
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_MPAF
+//    <i> MPAF [10] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.10..10> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_SSM
+//    <i> SSM [11] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.11..11> SSM
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IEN_CCF
+//    <i> CCF [12] (@ 0x4000E04C) </i>
+//    <check> 
+//      <loc> UART0_IEN </loc>
+//      <o.12..12> CCF
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  UART0_IRCTRL  ------------------------------------------
+
+unsigned int UART0_IRCTRL __AT (0x4000E050);
+
+//  <item> Reg_UART0_IRCTRL
+//    <i> UART0_IRCTRL [31..0] (@ 0x4000E050) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_IRCTRL>>0) & 0xFFFFFFFF), ( (UART0_IRCTRL &= ~(0xFFFFFFFF<<0)), (UART0_IRCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_IRCTRL_IREN
+//    <i> IREN [0] (@ 0x4000E050) </i>
+//    <check> 
+//      <loc> UART0_IRCTRL </loc>
+//      <o.0..0> IREN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IRCTRL_IRPW
+//    <i> IRPW [2..1] (@ 0x4000E050) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_IRCTRL>>1) & 0x2), ( (UART0_IRCTRL &= ~(0x2<<1)), (UART0_IRCTRL |= ((Gui_u8:GuiVal & 0x2)<<1)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_IRCTRL_IRFILT
+//    <i> IRFILT [3] (@ 0x4000E050) </i>
+//    <check> 
+//      <loc> UART0_IRCTRL </loc>
+//      <o.3..3> IRFILT
+//    </check>
+//  </item>
+//  
+//  <item> UART0_IRCTRL_IRPRSSEL
+//    <i> IRPRSSEL [6..4] (@ 0x4000E050) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_IRCTRL>>4) & 0x6), ( (UART0_IRCTRL &= ~(0x6<<4)), (UART0_IRCTRL |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_IRCTRL_IRPRSEN
+//    <i> IRPRSEN [7] (@ 0x4000E050) </i>
+//    <check> 
+//      <loc> UART0_IRCTRL </loc>
+//      <o.7..7> IRPRSEN
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  UART0_ROUTE  ------------------------------------------
+
+unsigned int UART0_ROUTE __AT (0x4000E054);
+
+//  <item> Reg_UART0_ROUTE
+//    <i> UART0_ROUTE [31..0] (@ 0x4000E054) </i>
+//    <edit> 
+//      <loc> ( (int)((UART0_ROUTE>>0) & 0xFFFFFFFF), ( (UART0_ROUTE &= ~(0xFFFFFFFF<<0)), (UART0_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> UART0_ROUTE_RXPEN
+//    <i> RXPEN [0] (@ 0x4000E054) </i>
+//    <check> 
+//      <loc> UART0_ROUTE </loc>
+//      <o.0..0> RXPEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_ROUTE_TXPEN
+//    <i> TXPEN [1] (@ 0x4000E054) </i>
+//    <check> 
+//      <loc> UART0_ROUTE </loc>
+//      <o.1..1> TXPEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_ROUTE_CSPEN
+//    <i> CSPEN [2] (@ 0x4000E054) </i>
+//    <check> 
+//      <loc> UART0_ROUTE </loc>
+//      <o.2..2> CSPEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_ROUTE_CLKPEN
+//    <i> CLKPEN [3] (@ 0x4000E054) </i>
+//    <check> 
+//      <loc> UART0_ROUTE </loc>
+//      <o.3..3> CLKPEN
+//    </check>
+//  </item>
+//  
+//  <item> UART0_ROUTE_LOCATION
+//    <i> LOCATION [9..8] (@ 0x4000E054) </i>
+//    <edit> 
+//      <loc> ( (char)((UART0_ROUTE>>8) & 0x2), ( (UART0_ROUTE &= ~(0x2<<8)), (UART0_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

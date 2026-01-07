@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['endpoint_5fhalt',['endpoint_halt',['../namespace_3global_scope_4.html#a819e89360fc2bd8f85154adf937a4d64',1,'usbd_data_t']]],
+  ['endpoint_5fmask',['endpoint_mask',['../namespace_3global_scope_4.html#aa2136c57f090d7dc61d4a9e0772a2394',1,'usbd_data_t']]],
+  ['endpoint_5fstall',['endpoint_stall',['../namespace_3global_scope_4.html#a6ddc52188e33ad661561dfed1935f298',1,'usbd_data_t']]],
+  ['ep0',['ep0',['../namespace_3global_scope_4.html#a2eecc2db3842d4e4d2460f71537f9778',1,'USBH_HCI']]],
+  ['ep0_5fbuf',['ep0_buf',['../namespace_3global_scope_4.html#a9d2b674374dc1676047accdbaf5451cd',1,'usbd_dev_t']]],
+  ['ep0_5fdata',['ep0_data',['../namespace_3global_scope_4.html#af7a21be14373baca253ebe61acfa77d5',1,'usbd_data_t']]],
+  ['ep0_5fdescriptor',['ep0_descriptor',['../namespace_3global_scope_4.html#ab62331ef1627cceea4e9a602a525585d',1,'usbd_desc_t']]],
+  ['ep_5fbulk_5fin',['ep_bulk_in',['../namespace_3global_scope_4.html#ab9ec9aa1bb0707e796d21d5c8530d1b8',1,'usbd_cdc_t::ep_bulk_in()'],['../namespace_3global_scope_4.html#acae74b8a647e1a7621da602f8eb69985',1,'usbd_msc_t::ep_bulk_in()']]],
+  ['ep_5fbulk_5fout',['ep_bulk_out',['../namespace_3global_scope_4.html#a551d98d6297c93529c6b6fc8b120f7c2',1,'usbd_cdc_t::ep_bulk_out()'],['../namespace_3global_scope_4.html#a00c983e98ef248c9e203683618d28fbc',1,'usbd_msc_t::ep_bulk_out()']]],
+  ['ep_5fhandle',['ep_handle',['../namespace_3global_scope_4.html#a008f33e931b7384bc521d389c7ae34b4',1,'USBH_EP_TID_t::ep_handle()'],['../namespace_3global_scope_4.html#a5b7bc1e1778669d49e00beda9c55d3e7',1,'USBH_EP::ep_handle()']]],
+  ['ep_5fint_5fin',['ep_int_in',['../namespace_3global_scope_4.html#a38fc9196277bfba44f889ab1f5eac92d',1,'usbd_cdc_t::ep_int_in()'],['../namespace_3global_scope_4.html#a9ba3364dcaf19f8c1ae45084aba13c7b',1,'usbd_hid_t::ep_int_in()']]],
+  ['ep_5fint_5fout',['ep_int_out',['../namespace_3global_scope_4.html#a2ceae8fc453d0435ca89594398a041c3',1,'usbd_hid_t']]],
+  ['ep_5fiso_5fout',['ep_iso_out',['../namespace_3global_scope_4.html#a64775fea1e3334354fc03d0f52db2b2c',1,'usbd_adc_t']]],
+  ['ep_5fmsk',['ep_msk',['../namespace_3global_scope_4.html#a42d0b4c3057af805fdd26299ae095b38',1,'usbd_custom_class_t']]],
+  ['ep_5fnum',['ep_num',['../namespace_3global_scope_4.html#a93cc1e43c8bfa06342f959db0c726106',1,'usbd_dev_t']]],
+  ['ep_5ftid_5findex',['ep_tid_index',['../namespace_3global_scope_4.html#a995de4294393c2cd7b77ddd3d56a1fb3',1,'USBH_EP']]],
+  ['endpoint_20descriptor',['Endpoint Descriptor',['../_u_s_b__endpoint__descriptor.html',1,'USB_Descriptors']]]
+];

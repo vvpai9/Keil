@@ -1,0 +1,30 @@
+The Blinky project is a simple program for the NXP 'LH7A404' 
+microcontroller using NXP 'SDK-LH7A404-11' evaluation board 
+and demonstrating interrupt functionality and using library 
+functions.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                     =  14.7456 MHz
+   - PLL (GCLK)               = 199.9872 MHz
+   - FCLK  = GCLK             = 199.9872 MHz
+   - HCLK  = FCLK / 2         =  99.9936 MHz
+   - PCLK  = HCLK / 2         =  49.9968 MHz
+ - 2 status LEDs blink (STATUS0, STATUS1) with speed 
+   of 1 second, determined by Timer0 working in 
+   interrupt mode
+ 
+The Blinky program is available for different targets:
+  LH7A404 Int RAM:       configured for on-chip RAM
+                         (may be used for target debugging)
+  LH7A404 Ext NOR Flash: runs from External NOR Flash
+                         (used for production or target debugging)
+  LH7A404 Ext SDRAM:     configured for external SDRAM, 
+                         (may be used for target debugging)
+
+Notes:
+  - on jumper J6 jump pins 1-3 and 4-6
+  - MMU is initialized in startup so that all memory areas are 
+    mapped to their original addresses, Internal RAM or External 
+    SDRAM is mapped to address 0 according to settings and VIC1 is 
+    mapped to address 0xFFFFF000 in adition to its original address.

@@ -1,0 +1,18 @@
+The Blinky project is a simple program for the LPC2129
+using 'Embedded Artists LPC2129 CAN QuickStart Board v1.0' 
+as dauhgter board and 'QuickStart Prototype Board v1.1' 
+as mother board.
+
+It blinks the LEDs at constant speed and prints current 
+state on LED pins to the Serial Port 0 (115200 baud, 8 data 
+bits, no parity, 1 stop bit).
+
+The Blinky program is available in different targets:
+  Simulator:      runs in software Simulator
+  LPC2129 RAM:    runs from Internal RAM located on chip
+                  (used for target debugging) 
+  LPC2129 Flash:  runs from Internal Flash located on chip
+                  (used for final application version)
+
+Notes: 
+  - Remove jumpers J6 and J7 on daughter board

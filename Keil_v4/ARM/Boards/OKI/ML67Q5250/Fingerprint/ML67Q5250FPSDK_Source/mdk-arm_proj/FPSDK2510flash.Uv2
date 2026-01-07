@@ -1,0 +1,159 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (FPSDK2510flash), 0x0004 // Tools: 'ARM-ADS'
+
+Group (FPSDK2510)
+Group (APP)
+Group (DMAC)
+Group (FLASH)
+Group (FPAE)
+Group (FPSP)
+Group (KEY)
+Group (ml675250)
+Group (SPI)
+Group (Sensor)
+Group (Timer)
+Group (DigitalIndicator)
+Group (SIO)
+Group (SSIO)
+Group (LED)
+Group (Lib)
+Group (UsbPeri_Drv)
+Group (UsbPeri_usbfp)
+
+File 1,1,<..\source\APP\main.c><main.c>
+File 2,1,<..\source\APP\src\unused_port.c><unused_port.c>
+File 2,1,<..\source\APP\src\Assert.c><Assert.c>
+File 2,1,<..\source\APP\src\console_out.c><console_out.c>
+File 2,1,<..\source\APP\src\Indicator.c><Indicator.c>
+File 2,1,<..\source\APP\src\IndicatorDevKit.c><IndicatorDevKit.c>
+File 2,1,<..\source\APP\src\main_spectral_demo.c><main_spectral_demo.c>
+File 3,1,<..\source\DMAC\dmac.c><dmac.c>
+File 4,1,<..\source\FLASH\flash_sdp.c><flash_sdp.c>
+File 4,1,<..\source\FLASH\flash_memory.c><flash_memory.c>
+File 5,1,<..\source\FPAE\tsmwrp.c><tsmwrp.c>
+File 5,1,<..\source\FPAE\fpaehal.c><fpaehal.c>
+File 6,1,<..\source\FPSP\fpsp_wrp_rel.c><fpsp_wrp_rel.c>
+File 6,1,<..\source\FPSP\fpsp_heap.c><fpsp_heap.c>
+File 7,1,<..\source\KEY\src\key.c><key.c>
+File 8,1,<..\source\HAL\ML675250\SRC\retarget.c><retarget.c>
+File 8,1,<..\source\HAL\ML675250\SRC\irq.c><irq.c>
+File 8,1,<..\source\HAL\ML675250\SRC\irq_api.c><irq_api.c>
+File 8,2,<..\source\HAL\ML675250\SRC\swi_handler.s><swi_handler.s>
+File 8,2,<..\source\HAL\ML675250\SRC\init.s><init.s>
+File 8,2,<..\source\HAL\ML675250\SRC\irq_handler.s><irq_handler.s>
+File 8,2,<..\source\HAL\ML675250\SRC\stack.s><stack.s>
+File 9,1,<..\source\SPI\spi.c><spi.c>
+File 10,1,<..\source\Sensor\SlideSensor\sensor_port.c><sensor_port.c>
+File 10,1,<..\source\Sensor\SlideSensor\sensor_heap.c><sensor_heap.c>
+File 11,1,<..\source\Timer\src\timera.c><timera.c>
+File 12,1,<..\source\DigitalIndicator\digital_indicator.c><digital_indicator.c>
+File 13,1,<..\source\SIO\src\sio.c><sio.c>
+File 14,1,<..\source\SSIO\ssio.c><ssio.c>
+File 15,1,<..\source\LED\src\led.c><led.c>
+File 16,4,<..\mdk-arm_lib\mSensor2510.lib><mSensor2510.lib>
+File 16,4,<..\mdk-arm_lib\mFPAE.lib><mFPAE.lib>
+File 16,4,<..\mdk-arm_lib\mFPSP.lib><mFPSP.lib>
+File 17,1,<..\source\UsbPeri\Drv\src\descript.c><descript.c>
+File 17,1,<..\source\UsbPeri\Drv\src\intr.c><intr.c>
+File 17,1,<..\source\UsbPeri\Drv\src\req_clss.c><req_clss.c>
+File 17,1,<..\source\UsbPeri\Drv\src\request.c><request.c>
+File 17,1,<..\source\UsbPeri\Drv\src\trans.c><trans.c>
+File 17,1,<..\source\UsbPeri\Drv\src\usb_api.c><usb_api.c>
+File 17,1,<..\source\UsbPeri\Drv\src\usb_init.c><usb_init.c>
+File 18,2,<..\source\UsbPeri\USBFp\avoid_link_float.s><avoid_link_float.s>
+File 18,1,<..\source\UsbPeri\USBFp\usbfphal.c><usbfphal.c>
+File 18,1,<..\source\UsbPeri\USBFp\usbfp.c><usbfp.c>
+
+
+Options 1,0,0  // Target 'FPSDK2510flash'
+ Device (ML67Q5250)
+ Vendor (OKI)
+ Cpu (IRAM(0x10000000-0x10003FFF) IROM(0x08000000-0x0801FFFF) CLOCK(12000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("STARTUP\OKI\ML675250.s" ("OKI ML67Q5250 Startup Code"))
+ FlashDR ()
+ DevID (4626)
+ Rgf (ML675250.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿOKI\)
+ OrgReg (ÿOKI\)
+ TgStat=16
+ OutDir (.\FPSDK2510flash_Data\)
+ OutName (FPSDK2510flash)
+ GenApp=1
+ GenLib=0
+ GenHex=1
+ Debug=1
+ Browse=1
+ LstDir (.\FPSDK2510flash_Data\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd /C "move @L_Data\@H.hex @L_Data\flash_data.hex">
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 243,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,16,0,64,0,0 }
+ OCMADSIROM { 1,0,0,0,8,0,0,2,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,8,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,0,64,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--dwarf2)
+ ADSCDEFN (AE_SUPPORT_AES2510 USE_STDOUT_USB USE_SENSOR_MASTER)
+ ADSCUDEF ()
+ ADSCINCD (..\source\APP\inc;..\source\DigitalIndicator;..\source\DMAC;..\source\FLASH;..\source\FPAE;..\source\FPSP;..\source\HAL\hal_wrap;..\source\HAL\ML675250\INC;..\source\KEY\inc;..\source\LED\inc;..\source\Sensor;..\source\Sensor\SlideSensor;..\source\SIO\inc;..\source\SPI;..\source\SSIO;..\source\Timer\inc;..\source\UsbPeri\Drv\inc;..\source\UsbPeri\USBFp)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC (--dwarf2)
+ ADSADEFN (top_of_memory=0x10004000)
+ ADSAUDEF ()
+ ADSAINCD (..\source\HAL\ML675250\INC)
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x00000000)
+ ADSLDDA (0x10000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--first=init.o(Vector))
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cML67)(DARMO.DLL)(-pML675250)(SARM.DLL)()(TARMO.DLL)(-pML675250)
+  OPTDBG 48126,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,0,0,0,0,255,255,255,255,0,0,0,0,0,0,0,0 }
+ FLASH2 ()
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+

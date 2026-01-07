@@ -1,0 +1,13 @@
+This is an RL Flash File System file manipulation example.
+You can create, read, copy, delete files from the SD/MMC 
+Flash Memory Card and format the card.
+
+The SD_FILE program is a standalone application loaded into
+on-chip flash and available for one target:
+
+AT91SAM7X: Standalone application for Atmel AT91SAM7X-EK evaluation
+           Board using RS232 COM port as a communication interface.
+
+           Connect a serial null-modem cable to RS232 COM1 port 
+           using a HyperTerminal at 115200 baud, 8-bits, no parity,
+           1 stop bit, XON/XOFF.

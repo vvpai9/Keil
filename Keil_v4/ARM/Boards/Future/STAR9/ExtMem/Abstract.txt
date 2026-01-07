@@ -1,0 +1,21 @@
+The ExtMem project is a simple memory test program for the STR912FW44
+using Star9 Evaluation Board with external Memory and external Flash.
+The used memory test is published by Michael Barr.
+
+Example functionality:                                                   
+ - ExtMem programm runs a memory test for the external memory
+   on the Star9 Board.
+
+   external RAM:   0x38000000 - 0x380FFFFF
+   external Flash: 0x3C000000 - 0x3C7FFFFF
+
+   Red LED:    memory tests for external RAM failed.
+   Yellow LED: memory tests for external RAM successful
+
+The ExtMem program is available for target:
+
+  Star9 IntFlash: runs from internal Flash located on chip
+
+  Star9 ExtFlash: runs from external Flash located on board
+                  (start ExtMem in a Debug session)
+

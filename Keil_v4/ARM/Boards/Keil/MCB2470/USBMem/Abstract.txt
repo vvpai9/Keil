@@ -1,0 +1,29 @@
+The Memory project is a demo program for the LPC2478
+using Embedded Artists boards:
+  Daughter Board - 'LPC24xx OEM Board v1.1a'
+  Mother   Board - 'OEM Base Board QVGA v1.1'
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - PLL                    = 288 MHz
+   - processor clock = CCLK =  48 MHz
+   - USB clock              =  48 MHz
+   - CCLK / 4 clock         =  12 MHz
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+LEDs are used to display the following:
+  - LED0: LED_RD   is on when USB Device is performing Read access
+  - LED1: LED_WR   is on when USB Device is performing Write access
+  - LED2: LED_CFG  is on when USB Device is configured
+  - LED3: LED_SUSP is on when USB Device is suspended
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  MCB2470: configured for on-chip Flash ROM
+           (used for production or target debugging)
+
+Note: set jumper J37 to Lower Pos (enable via P0.14)

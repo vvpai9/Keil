@@ -1,0 +1,25 @@
+The HID project is a demo program for the Keil MCB2900 Board 
+using a NXP LPC2929 Microcontroller.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - PLL                    = 196 MHz
+   - processor clock = CCLK =  48 MHz
+   - USB clock              =  48 MHz
+
+It demonstrates an USB HID (Human Interface Device):
+  - 8 LEDs (LED0..7)
+  - 1 Push Button (S1)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following target:
+  MCB2900    : configured for on-chip Flash ROM
+              (used for production or target debugging)
+
+Note: set jumper J7 to 1[2 3] (jumper towards JTAG connector)
+      for USB soft connect

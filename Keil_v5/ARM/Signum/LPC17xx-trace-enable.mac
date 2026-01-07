@@ -1,0 +1,9 @@
+;[SignumSystemsTraceInitFile]
+;Title=LPC17xx ETM Initialization
+
+sd 0x4002C028 = 0x8   ; Set PINSEL10 bit#3  (TPIU interface is enabled.)
+
+trace clear
+trace enable
+trace etm portsize=4
+trace calibrate 5

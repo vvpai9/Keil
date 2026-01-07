@@ -1,0 +1,22 @@
+/******************** (C) COPYRIGHT 2006 Embest ********************************
+* File Name          : Readme.txt
+* Author             : Embest
+* Date First Issued  : 26/03/2007
+* Description        : Description of the Blinky Example.
+*******************************************************************************/
+
+Example description
+===================
+
+
+This is a simple RTX Kernel based example which simulates
+the led switching. 
+
+The BLINKY example program is available for several targets:
+
+Simulator: uVision Simulator for evaluation
+
+STR711:    Embest STR711 Evaluation board with ULINK2 debugger
+           - Application is loaded to internal Flash.
+
+The company web address: www.embedinfo.com

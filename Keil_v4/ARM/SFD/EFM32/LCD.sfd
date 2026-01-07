@@ -1,0 +1,648 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\LCD.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          LCD                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  LCD_CTRL  --------------------------------------------
+
+unsigned int LCD_CTRL __AT (0x4008A000);
+
+//  <item> Reg_LCD_CTRL
+//    <i> LCD_CTRL [31..0] (@ 0x4008A000) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_CTRL>>0) & 0xFFFFFFFF), ( (LCD_CTRL &= ~(0xFFFFFFFF<<0)), (LCD_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_CTRL_EN
+//    <i> EN [0] (@ 0x4008A000) </i>
+//    <check> 
+//      <loc> LCD_CTRL </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> LCD_CTRL_UDCTRL
+//    <i> UDCTRL [2..1] (@ 0x4008A000) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_CTRL>>1) & 0x2), ( (LCD_CTRL &= ~(0x2<<1)), (LCD_CTRL |= ((Gui_u8:GuiVal & 0x2)<<1)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  LCD_DISPCTRL  ------------------------------------------
+
+unsigned int LCD_DISPCTRL __AT (0x4008A004);
+
+//  <item> Reg_LCD_DISPCTRL
+//    <i> LCD_DISPCTRL [31..0] (@ 0x4008A004) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_DISPCTRL>>0) & 0xFFFFFFFF), ( (LCD_DISPCTRL &= ~(0xFFFFFFFF<<0)), (LCD_DISPCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_DISPCTRL_MUX
+//    <i> MUX [1..0] (@ 0x4008A004) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_DISPCTRL>>0) & 0x2), ( (LCD_DISPCTRL &= ~(0x2<<0)), (LCD_DISPCTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_DISPCTRL_BIAS
+//    <i> BIAS [3..2] (@ 0x4008A004) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_DISPCTRL>>2) & 0x2), ( (LCD_DISPCTRL &= ~(0x2<<2)), (LCD_DISPCTRL |= ((Gui_u8:GuiVal & 0x2)<<2)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_DISPCTRL_WAVE
+//    <i> WAVE [4] (@ 0x4008A004) </i>
+//    <check> 
+//      <loc> LCD_DISPCTRL </loc>
+//      <o.4..4> WAVE
+//    </check>
+//  </item>
+//  
+//  <item> LCD_DISPCTRL_CONLEV
+//    <i> CONLEV [12..8] (@ 0x4008A004) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_DISPCTRL>>8) & 0x1E), ( (LCD_DISPCTRL &= ~(0x1E<<8)), (LCD_DISPCTRL |= ((Gui_u8:GuiVal & 0x1E)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_DISPCTRL_CONCONF
+//    <i> CONCONF [15] (@ 0x4008A004) </i>
+//    <check> 
+//      <loc> LCD_DISPCTRL </loc>
+//      <o.15..15> CONCONF
+//    </check>
+//  </item>
+//  
+//  <item> LCD_DISPCTRL_VLCDSEL
+//    <i> VLCDSEL [16] (@ 0x4008A004) </i>
+//    <check> 
+//      <loc> LCD_DISPCTRL </loc>
+//      <o.16..16> VLCDSEL
+//    </check>
+//  </item>
+//  
+//  <item> LCD_DISPCTRL_VBLEV
+//    <i> VBLEV [20..18] (@ 0x4008A004) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_DISPCTRL>>18) & 0x6), ( (LCD_DISPCTRL &= ~(0x6<<18)), (LCD_DISPCTRL |= ((Gui_u8:GuiVal & 0x6)<<18)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  LCD_SEGEN  -------------------------------------------
+
+unsigned int LCD_SEGEN __AT (0x4008A008);
+
+//  <item> Reg_LCD_SEGEN
+//    <i> LCD_SEGEN [31..0] (@ 0x4008A008) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGEN>>0) & 0xFFFFFFFF), ( (LCD_SEGEN &= ~(0xFFFFFFFF<<0)), (LCD_SEGEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGEN_SEGEN
+//    <i> SEGEN [9..0] (@ 0x4008A008) </i>
+//    <edit> 
+//      <loc> ( (short int)((LCD_SEGEN>>0) & 0x3FE), ( (LCD_SEGEN &= ~(0x3FE<<0)), (LCD_SEGEN |= ((Gui_u16:GuiVal & 0x3FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_BACTRL  -------------------------------------------
+
+unsigned int LCD_BACTRL __AT (0x4008A00C);
+
+//  <item> Reg_LCD_BACTRL
+//    <i> LCD_BACTRL [31..0] (@ 0x4008A00C) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_BACTRL>>0) & 0xFFFFFFFF), ( (LCD_BACTRL &= ~(0xFFFFFFFF<<0)), (LCD_BACTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_BACTRL_BLINKEN
+//    <i> BLINKEN [0] (@ 0x4008A00C) </i>
+//    <check> 
+//      <loc> LCD_BACTRL </loc>
+//      <o.0..0> BLINKEN
+//    </check>
+//  </item>
+//  
+//  <item> LCD_BACTRL_BLANK
+//    <i> BLANK [1] (@ 0x4008A00C) </i>
+//    <check> 
+//      <loc> LCD_BACTRL </loc>
+//      <o.1..1> BLANK
+//    </check>
+//  </item>
+//  
+//  <item> LCD_BACTRL_AEN
+//    <i> AEN [2] (@ 0x4008A00C) </i>
+//    <check> 
+//      <loc> LCD_BACTRL </loc>
+//      <o.2..2> AEN
+//    </check>
+//  </item>
+//  
+//  <item> LCD_BACTRL_AREGASC
+//    <i> AREGASC [4..3] (@ 0x4008A00C) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_BACTRL>>3) & 0x2), ( (LCD_BACTRL &= ~(0x2<<3)), (LCD_BACTRL |= ((Gui_u8:GuiVal & 0x2)<<3)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_BACTRL_AREGBSC
+//    <i> AREGBSC [6..5] (@ 0x4008A00C) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_BACTRL>>5) & 0x2), ( (LCD_BACTRL &= ~(0x2<<5)), (LCD_BACTRL |= ((Gui_u8:GuiVal & 0x2)<<5)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_BACTRL_ALOGSEL
+//    <i> ALOGSEL [7] (@ 0x4008A00C) </i>
+//    <check> 
+//      <loc> LCD_BACTRL </loc>
+//      <o.7..7> ALOGSEL
+//    </check>
+//  </item>
+//  
+//  <item> LCD_BACTRL_FCEN
+//    <i> FCEN [8] (@ 0x4008A00C) </i>
+//    <check> 
+//      <loc> LCD_BACTRL </loc>
+//      <o.8..8> FCEN
+//    </check>
+//  </item>
+//  
+//  <item> LCD_BACTRL_FCPRESC
+//    <i> FCPRESC [17..16] (@ 0x4008A00C) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_BACTRL>>16) & 0x2), ( (LCD_BACTRL &= ~(0x2<<16)), (LCD_BACTRL |= ((Gui_u8:GuiVal & 0x2)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_BACTRL_FCTOP
+//    <i> FCTOP [23..18] (@ 0x4008A00C) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_BACTRL>>18) & 0x3E), ( (LCD_BACTRL &= ~(0x3E<<18)), (LCD_BACTRL |= ((Gui_u8:GuiVal & 0x3E)<<18)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_STATUS  -------------------------------------------
+
+unsigned int LCD_STATUS __AT (0x4008A010);
+
+//  <item> Reg_LCD_STATUS
+//    <i> LCD_STATUS [31..0] (@ 0x4008A010) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_STATUS>>0) & 0xFFFFFFFF), ( (LCD_STATUS &= ~(0xFFFFFFFF<<0)), (LCD_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_STATUS_ASTATE
+//    <i> ASTATE [3..0] (@ 0x4008A010) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_STATUS>>0) & 0xE), ( (LCD_STATUS &= ~(0xE<<0)), (LCD_STATUS |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_STATUS_BLINK
+//    <i> BLINK [8] (@ 0x4008A010) </i>
+//    <check> 
+//      <loc> LCD_STATUS </loc>
+//      <o.8..8> BLINK
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  LCD_AREGA  -------------------------------------------
+
+unsigned int LCD_AREGA __AT (0x4008A014);
+
+//  <item> Reg_LCD_AREGA
+//    <i> LCD_AREGA [31..0] (@ 0x4008A014) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_AREGA>>0) & 0xFFFFFFFF), ( (LCD_AREGA &= ~(0xFFFFFFFF<<0)), (LCD_AREGA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_AREGA_AREGA
+//    <i> AREGA [7..0] (@ 0x4008A014) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_AREGA>>0) & 0xFE), ( (LCD_AREGA &= ~(0xFE<<0)), (LCD_AREGA |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  LCD_AREGB  -------------------------------------------
+
+unsigned int LCD_AREGB __AT (0x4008A018);
+
+//  <item> Reg_LCD_AREGB
+//    <i> LCD_AREGB [31..0] (@ 0x4008A018) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_AREGB>>0) & 0xFFFFFFFF), ( (LCD_AREGB &= ~(0xFFFFFFFF<<0)), (LCD_AREGB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_AREGB_AREGB
+//    <i> AREGB [7..0] (@ 0x4008A018) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_AREGB>>0) & 0xFE), ( (LCD_AREGB &= ~(0xFE<<0)), (LCD_AREGB |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------------  LCD_IF  ---------------------------------------------
+
+unsigned int LCD_IF __AT (0x4008A01C);
+
+//  <item> Reg_LCD_IF
+//    <i> LCD_IF [31..0] (@ 0x4008A01C) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_IF>>0) & 0xFFFFFFFF), ( (LCD_IF &= ~(0xFFFFFFFF<<0)), (LCD_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_IF_FC
+//    <i> FC [0] (@ 0x4008A01C) </i>
+//    <check> 
+//      <loc> LCD_IF </loc>
+//      <o.0..0> FC
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  LCD_IFS  --------------------------------------------
+
+unsigned int LCD_IFS __AT (0x4008A020);
+
+//  <item> Reg_LCD_IFS
+//    <i> LCD_IFS [31..0] (@ 0x4008A020) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_IFS>>0) & 0xFFFFFFFF), ( (LCD_IFS &= ~(0xFFFFFFFF<<0)), (LCD_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_IFS_FC
+//    <i> FC [0] (@ 0x4008A020) </i>
+//    <check> 
+//      <loc> LCD_IFS </loc>
+//      <o.0..0> FC
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  LCD_IFC  --------------------------------------------
+
+unsigned int LCD_IFC __AT (0x4008A024);
+
+//  <item> Reg_LCD_IFC
+//    <i> LCD_IFC [31..0] (@ 0x4008A024) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_IFC>>0) & 0xFFFFFFFF), ( (LCD_IFC &= ~(0xFFFFFFFF<<0)), (LCD_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_IFC_FC
+//    <i> FC [0] (@ 0x4008A024) </i>
+//    <check> 
+//      <loc> LCD_IFC </loc>
+//      <o.0..0> FC
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  LCD_IEN  --------------------------------------------
+
+unsigned int LCD_IEN __AT (0x4008A028);
+
+//  <item> Reg_LCD_IEN
+//    <i> LCD_IEN [31..0] (@ 0x4008A028) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_IEN>>0) & 0xFFFFFFFF), ( (LCD_IEN &= ~(0xFFFFFFFF<<0)), (LCD_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_IEN_FC
+//    <i> FC [0] (@ 0x4008A028) </i>
+//    <check> 
+//      <loc> LCD_IEN </loc>
+//      <o.0..0> FC
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD0L  -------------------------------------------
+
+unsigned int LCD_SEGD0L __AT (0x4008A040);
+
+//  <item> Reg_LCD_SEGD0L
+//    <i> LCD_SEGD0L [31..0] (@ 0x4008A040) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD0L>>0) & 0xFFFFFFFF), ( (LCD_SEGD0L &= ~(0xFFFFFFFF<<0)), (LCD_SEGD0L |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD0L_SEGD0L
+//    <i> SEGD0L [31..0] (@ 0x4008A040) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD0L>>0) & 0xFFFFFFFE), ( (LCD_SEGD0L &= ~(0xFFFFFFFE<<0)), (LCD_SEGD0L |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD1L  -------------------------------------------
+
+unsigned int LCD_SEGD1L __AT (0x4008A044);
+
+//  <item> Reg_LCD_SEGD1L
+//    <i> LCD_SEGD1L [31..0] (@ 0x4008A044) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD1L>>0) & 0xFFFFFFFF), ( (LCD_SEGD1L &= ~(0xFFFFFFFF<<0)), (LCD_SEGD1L |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD1L_SEGD1L
+//    <i> SEGD1L [31..0] (@ 0x4008A044) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD1L>>0) & 0xFFFFFFFE), ( (LCD_SEGD1L &= ~(0xFFFFFFFE<<0)), (LCD_SEGD1L |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD2L  -------------------------------------------
+
+unsigned int LCD_SEGD2L __AT (0x4008A048);
+
+//  <item> Reg_LCD_SEGD2L
+//    <i> LCD_SEGD2L [31..0] (@ 0x4008A048) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD2L>>0) & 0xFFFFFFFF), ( (LCD_SEGD2L &= ~(0xFFFFFFFF<<0)), (LCD_SEGD2L |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD2L_SEGD2L
+//    <i> SEGD2L [31..0] (@ 0x4008A048) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD2L>>0) & 0xFFFFFFFE), ( (LCD_SEGD2L &= ~(0xFFFFFFFE<<0)), (LCD_SEGD2L |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD3L  -------------------------------------------
+
+unsigned int LCD_SEGD3L __AT (0x4008A04C);
+
+//  <item> Reg_LCD_SEGD3L
+//    <i> LCD_SEGD3L [31..0] (@ 0x4008A04C) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD3L>>0) & 0xFFFFFFFF), ( (LCD_SEGD3L &= ~(0xFFFFFFFF<<0)), (LCD_SEGD3L |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD3L_SEGD3L
+//    <i> SEGD3L [31..0] (@ 0x4008A04C) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD3L>>0) & 0xFFFFFFFE), ( (LCD_SEGD3L &= ~(0xFFFFFFFE<<0)), (LCD_SEGD3L |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD0H  -------------------------------------------
+
+unsigned int LCD_SEGD0H __AT (0x4008A050);
+
+//  <item> Reg_LCD_SEGD0H
+//    <i> LCD_SEGD0H [31..0] (@ 0x4008A050) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD0H>>0) & 0xFFFFFFFF), ( (LCD_SEGD0H &= ~(0xFFFFFFFF<<0)), (LCD_SEGD0H |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD0H_SEGD0H
+//    <i> SEGD0H [7..0] (@ 0x4008A050) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_SEGD0H>>0) & 0xFE), ( (LCD_SEGD0H &= ~(0xFE<<0)), (LCD_SEGD0H |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD1H  -------------------------------------------
+
+unsigned int LCD_SEGD1H __AT (0x4008A054);
+
+//  <item> Reg_LCD_SEGD1H
+//    <i> LCD_SEGD1H [31..0] (@ 0x4008A054) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD1H>>0) & 0xFFFFFFFF), ( (LCD_SEGD1H &= ~(0xFFFFFFFF<<0)), (LCD_SEGD1H |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD1H_SEGD1H
+//    <i> SEGD1H [7..0] (@ 0x4008A054) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_SEGD1H>>0) & 0xFE), ( (LCD_SEGD1H &= ~(0xFE<<0)), (LCD_SEGD1H |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD2H  -------------------------------------------
+
+unsigned int LCD_SEGD2H __AT (0x4008A058);
+
+//  <item> Reg_LCD_SEGD2H
+//    <i> LCD_SEGD2H [31..0] (@ 0x4008A058) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD2H>>0) & 0xFFFFFFFF), ( (LCD_SEGD2H &= ~(0xFFFFFFFF<<0)), (LCD_SEGD2H |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD2H_SEGD2H
+//    <i> SEGD2H [7..0] (@ 0x4008A058) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_SEGD2H>>0) & 0xFE), ( (LCD_SEGD2H &= ~(0xFE<<0)), (LCD_SEGD2H |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_SEGD3H  -------------------------------------------
+
+unsigned int LCD_SEGD3H __AT (0x4008A05C);
+
+//  <item> Reg_LCD_SEGD3H
+//    <i> LCD_SEGD3H [31..0] (@ 0x4008A05C) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SEGD3H>>0) & 0xFFFFFFFF), ( (LCD_SEGD3H &= ~(0xFFFFFFFF<<0)), (LCD_SEGD3H |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SEGD3H_SEGD3H
+//    <i> SEGD3H [7..0] (@ 0x4008A05C) </i>
+//    <edit> 
+//      <loc> ( (char)((LCD_SEGD3H>>0) & 0xFE), ( (LCD_SEGD3H &= ~(0xFE<<0)), (LCD_SEGD3H |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LCD_FREEZE  -------------------------------------------
+
+unsigned int LCD_FREEZE __AT (0x4008A060);
+
+//  <item> Reg_LCD_FREEZE
+//    <i> LCD_FREEZE [31..0] (@ 0x4008A060) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_FREEZE>>0) & 0xFFFFFFFF), ( (LCD_FREEZE &= ~(0xFFFFFFFF<<0)), (LCD_FREEZE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_FREEZE_REGFREEZE
+//    <i> REGFREEZE [0] (@ 0x4008A060) </i>
+//    <check> 
+//      <loc> LCD_FREEZE </loc>
+//      <o.0..0> REGFREEZE
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  LCD_SYNCBUSY  ------------------------------------------
+
+unsigned int LCD_SYNCBUSY __AT (0x4008A064);
+
+//  <item> Reg_LCD_SYNCBUSY
+//    <i> LCD_SYNCBUSY [31..0] (@ 0x4008A064) </i>
+//    <edit> 
+//      <loc> ( (int)((LCD_SYNCBUSY>>0) & 0xFFFFFFFF), ( (LCD_SYNCBUSY &= ~(0xFFFFFFFF<<0)), (LCD_SYNCBUSY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_CTRL
+//    <i> CTRL [0] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.0..0> CTRL
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_BACTRL
+//    <i> BACTRL [1] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.1..1> BACTRL
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_AREGA
+//    <i> AREGA [2] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.2..2> AREGA
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_AREGB
+//    <i> AREGB [3] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.3..3> AREGB
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD0L
+//    <i> SEGD0L [4] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.4..4> SEGD0L
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD1L
+//    <i> SEGD1L [5] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.5..5> SEGD1L
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD2L
+//    <i> SEGD2L [6] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.6..6> SEGD2L
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD3L
+//    <i> SEGD3L [7] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.7..7> SEGD3L
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD0H
+//    <i> SEGD0H [8] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.8..8> SEGD0H
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD1H
+//    <i> SEGD1H [9] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.9..9> SEGD1H
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD2H
+//    <i> SEGD2H [10] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.10..10> SEGD2H
+//    </check>
+//  </item>
+//  
+//  <item> LCD_SYNCBUSY_SEGD3H
+//    <i> SEGD3H [11] (@ 0x4008A064) </i>
+//    <check> 
+//      <loc> LCD_SYNCBUSY </loc>
+//      <o.11..11> SEGD3H
+//    </check>
+//  </item>
+//  

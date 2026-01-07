@@ -1,0 +1,123 @@
+Release notes for v117:
+(*) Updates Cyclone Max Firmware to 7.80
+(*) Adds device support for the following:
+
+  Kinetis- KE06 Series:
+  KE06Z64M4, KE06Z128M4
+
+  Kinetis- KEAZ Series:
+  KEAZN8M4, KEAZN16M2, KEAZN32M2, KEAZN64M2,
+  KEAZ64M4, KEAZ128M4
+
+
+
+Release notes for v116:
+(*) Added device support for the following:
+
+  Kinetis- KV10 Series:
+  KV10Z16M7
+  KV10Z32M7
+
+
+Release notes for v115:
+(*) Added device support for the following:
+
+  Kinetis- KE04 Series:
+  KE04Z8M4
+
+
+Release notes for v114:
+(*) Added USB Multilink FX Firmware 7.09
+(*) Added Cyclone Max Firmware 7.77
+(*) Added device support for the following:
+
+  Kinetis- L Series:
+  KL16Z32M4, KL16Z64M4, KL16Z128M4, KL16Z256M4,
+  KL26Z32M4, KL26Z64M4, KL26Z128M4, KL26Z256M4,
+  KL34Z64M4,
+  KL36Z64M4, KL36Z128M4, KL36Z256M4,
+  KL46Z128M4,KL46Z256M4  
+  
+  
+
+Release notes for v113:
+(*) Added Tracelink Firmware 1.31
+(*) Added device support for the following:
+
+  KE02 Series:
+  KE02Z16M2, KE02Z32M2, KE02Z64M2
+
+
+Release notes for v112:
+(*) Updated drivers
+(*) Updated USB-ML-Universal Firmware to 6.10
+(*) Updated USB-ML-FX Firmware to 7.08
+(*) Updated OSBDM Arm Firmware to 31.21
+(*) Added device support for the following:
+
+  K21/K22 120MHz:
+  K21FX512M12, K21FN1M0M12, K22FX512M12, K22FN1M0M12
+
+  K21/K22 100MHz:
+  K21FX512M10, K22FX512M10
+
+  Kinetis- L Series;
+  KL02Z32M4, KL02Z16M4, KL02Z8M4
+
+  Kinetis- M Series:
+  KM13Z64M5, KM14Z64M5, KM14Z128M5, KM32Z64M5, KM33Z64M5, KM33Z128M5, KM34Z128M5, KM38Z128M5
+
+
+Release notes for v111:
+
+(*) Updated Cyclone Max Firmware to 7.73
+(*) Updated USB-ML-Universal Firmware to 6.09
+(*) Added device support for the following:
+
+  K1x/K2x:
+  k11fn1m0m10, k12fn1m0m10, k21fn1m0m10, k22fn1m0m10
+
+Release notes for v110:
+
+(*) Added OPENSDA support for production firmware v1.00
+(*) L-Series support for breakpoints, stepping, etc
+(*) Updated Pemicro_ArmConnectionAssistant.dll to support OpenSDA
+(*) Updated drivers to support OPENSDA production firmware v1.00
+
+Release notes for v106:
+
+(*) Updated Cyclone Max Firmware to 7.70
+(*) Updated USB-ML-Universal Firmware to 6.08
+(*) Updated USB-ML-FX Firmware to 7.07
+(*) Updated ICD dll to version 1.09 to support M0+ core and low power modes
+(*) Updated prog dll to version 1.11 to support M0+ core and low power modes
+(*) Updated Pemicro_ArmConnectionAssistant.dll to support SWD
+(*) Added device support for the following:
+
+  L1PT/L2K:
+  KL04Z8M4, KL04Z16M4,KL04Z32M4,KL05Z8M4,KL05Z16M4,
+  KL05Z32M4,KL14Z32M4,KL14Z64M4,KL15Z32M4,KL15Z64M4,
+  KL15Z128M4,KL24Z32M4,KL24Z64M4,KL25Z32M4,KL25Z64M4,
+  KL25Z128M4
+
+  Guiness:
+  KE14D256M7,KE15D128M7,KE15D256M7,KE14D128M7
+
+  K20_512K:
+  K11DN512M5,K11DX128M5,K11DX256M5,K12DN512M5,
+  K12DX128M5,K12DX256M5,K21DN512M5,K21DX128M5,
+  K21DX256M5,K22DN512M5,K22DX128M5,K22DX256M5,
+
+  P2.2:
+  K10DX128M10,K10DX256M10,K10DN512M10,
+  K20DX128M10,K20DX256M10,K20DN512M10,
+  K30DX128M10,K30DX256M10,K30DN512M10,
+  K40DX128M10,K40DX256M10,K40DN512M10,
+  K50DX256M10,K50DN512M10,
+  K51DX256M10,K51DN512M10,K51DN256M10,
+  K52DN512M10,
+  K53DN512M10,K53DX256M10,
+  K60DN256M10,K60DN512M10,K60DX256M10
+
+
+

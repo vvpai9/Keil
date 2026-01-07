@@ -1,0 +1,13 @@
+The Memory project is a demo program for the Keil MCBSTR9 Board 
+using a ST STR912FW44 Microcontroller.
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following target:
+  MCBSTR9:     configured for on-chip Flash ROM
+              (used for production or target debugging)
+
+Note: set jumper J3 to P3.7 for debugging

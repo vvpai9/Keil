@@ -1,0 +1,46 @@
+This program is a TFTP Server example. It shows how to use a 
+Trivial File Transfer Protocol to send files to and receive 
+files from an evaluation board. 
+
+This example will configure the LAN network parameters for 
+the evaluation board automatically if a DHCP Server is available 
+in your LAN.
+
+If you do not have a DHCP server, you need to configure
+the IP address, net mask and default gateway manually in
+the Net_Config.c configuration file. You have to disable also
+'Dynamic Host Configuration' under the 'Ethernet Network 
+Interface' section.
+
+This example is configured to run in 3 simultaneous sessions.
+This means that 3 TFTP Clients can be connected to TFTP Server
+at the same time. This can be either 3 different PC computers or a
+single PC computer running 3 instances of TFTP Client. 
+
+To test this example you need to run a TFTP client on your PC.
+If you do not have installed a special TFTP Client software on your
+PC, you can run the Windows tftp client from a Console Window.
+
+To send a file to TFTP Server from the console window:
+  tftp sam7x put [file.ext]
+
+To receive a file from TFTP Server from the console window:
+  tftp sam7x get [file.ext]
+
+Flash File System running from SRAM is used as the file system.
+It is configured for total capacity of 32 kByte.
+
+The TFTP_demo example is available for several targets:
+
+AT91SAM7X: Standalone application for Atmel AT91SAM7X Board.
+           Program code is loaded into on-chip flash.
+
+AT91SAM7X Debug:
+           Standalone Debug application. Debug level configured
+           in Net_Debug.c debug configuration file.
+           Connect a serial cable to SERIAL DEBUG port to view
+           output messages using HyperTerminal at 115200 baud,
+           8-bits, no parity, 1 stop bit, XON/XOFF.
+
+Note:      To debug the application with ULINK2, you need to cut 
+           the S2 jumper located near the JTAG INTERFACE connector.

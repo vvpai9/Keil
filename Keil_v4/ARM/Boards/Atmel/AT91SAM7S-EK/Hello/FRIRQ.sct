@@ -1,0 +1,20 @@
+; Linker Control File (scatter-loading)
+
+FLASH_LOAD 0x00100000 0x10000      ; Load Region: 64kB Flash at 0x00100000
+{
+  CodeFlash 0x00100000             ; Code in Flash
+  {
+    *.o (RESET, +First)            ; Startup Code placed first
+    * (+RO)
+  }
+  CodeRAM 0x00200040 0x1FC0        ; Code in RAM
+  {
+    time.o (system_int, +RO)
+    extint.o (irq0_nint, +RO)
+    irq0.o (+RO)
+  }
+  DataRAM 0x00202000 0x2000        ; Data in RAM
+  {
+    * (+RW,+ZI)                    ; RW & ZI sections
+  }
+}

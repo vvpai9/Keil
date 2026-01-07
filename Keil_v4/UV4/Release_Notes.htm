@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>µVision4 Release Notes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style>
+<!--
+p            { font-family: Verdana; font-size: 10pt }
+.Release     { background-color: #CCCCCC; font-weight: bold; padding: 6 }
+.ToolT       { font-size: 8pt; color: #808080 }
+.TinyT       { font-size: 8pt; text-align: Center }
+ul           { font-family: Verdana; font-size: 10pt; list-style-type: square }
+ol           { font-family: Verdana; font-size: 10pt }
+h1           { font-family: Verdana; font-size: 18pt; color: #000080; font-weight: bold; text-align: Center; margin-right: 3 }
+h2           { font-family: Verdana; font-size: 14pt; color: #000080; font-weight: bold; margin-top: 24; margin-bottom: 3; background-color: #CCCCCC; padding: 6 }
+h3           { font-family: Verdana; font-size: 10pt; font-weight: bold; margin-top: 24; margin-bottom: 3; background-color: #CCCCCC; padding: 6 }
+pre          { font-family: Courier New; font-size: 10pt; background-color: #CCFFCC; margin-left: 24; margin-right: 24 }
+li           { margin-top: 6; margin-bottom: 6 }
+-->
+</style>
+</head>
+
+<body>
+
+<h1>
+Release Notes for µVision4<br>
+<font size="2">IDE and Debugger</font>
+</h1>
+
+<p align="center">
+This file contains release notes and last minute changes that are not found
+in the printed manuals.
+</p>
+
+<p class="TinyT">
+Information in this file, the accompany manuals, and software is<br>
+Copyright © ARM Ltd. All rights reserved.
+</p>
+
+<hr>
+
+<h2>Contents</h2>
+
+<ol>
+  <li><a href="#Using">Using µVision4</a></li>
+  <li><a href="#New">What's New in µVision4?</a></li>
+  <li><a href="#TechnicalSupport">Technical Support</a></li>
+  <li><a href="#ContactDetails">Contact Details</a></li>
+</ol>
+
+<h2><a name="Using"></a>Using µVision4</h2>
+
+<p>µVision4 is fully compatible with exisiting µVision3 projects. To load existing projects:</p>
+<ol>
+  <li>Select Project - Open Project.</li>
+  <li>Change the file filter in the Select Project File dialog to <b>Previous Project Files (*.uv2; *.uv3; *.mpw)</b>.</li>
+  <li>Select the project to load.</li>
+</ol>
+
+<p>For more information refer to the Getting Started User's Guide available at <a href="http://www.keil.com/uv4">www.keil.com/uv4</a>.</p>
+
+
+<h2><a name="New"></a>What's New in µVision4?</h2>
+
+<p>
+µVision4 is an IDE (Integrated Development Environment) that helps you write, compile, and debug
+embedded programs. It encapsulates the following components:
+</p>
+
+<ul>
+  <li><b>Multiple Monitor</b> - flexible window management system.</li>
+  <li><b>System Viewer</b> - display device peripheral register information.</li>
+  <li><b>Debug Views</b> - create and save multiple debug window layouts.</li>
+  <li><b>Multi-Project Workspace</b> - simplify working with numerous projects.</li>
+  <li><b>Source and Disassembly Linking</b> - the Disassembly Window and Source Windows are fully synchronized making program debugging and cursor navigation easier.</li>
+  <li><b>Memory Window Freeze</b> - store the current Memory Window view allowing easy comparison of memory contents at different points in time.</li>
+  <li><b>Device Simulation</b> has been updated to support many new devices such as Infineon XC88x, SiLABS C8051Fxx, Atmel SAM7/9, and Cortex-M3 MCUs from Luminary, NXP, and Toshiba.</li>
+  <li><b>Support for Hardware</b> debug adapters added including ADI miDAS-Link, Atmel SAM-ICE, Infineon DAS, and ST-Link.</li>
+  <li><b>New Data and Instruction Trace</b> capabilities for ARM and Cortex MCUs.</li>
+  <li><b>XML based Project Files</b> - create, view and modify projects as easily readable XML text files.</li>
+  <li><b>Serial Window</b> - extended to provide a basic VT-100 terminal, ASCII Mode, Mixed Mode, and Hex Mode views.</li>
+  <li><b>Watchpoints and Logic Analyzer</b> variables are now easier to set.</li>
+</ul>
+
+<h3>Building an Application in µVision4</h3>
+
+<p>To build (compile, assemble, and link) an application in µVision4, you must:</p>
+
+<ol>
+  <li>Select Project - Open Project.</li>
+  <li>If loading a µVision3 project, change the file filter in the Select Project File dialog to <b>Previous Project Files (*.uv2; *.uv3; *.mpw)</b>.</li>
+  <li>Select the project to load (for example,&nbsp;<b>\ARM\EXAMPLES\MEASURE\MEASURE.UV2</b>).</li>
+  <li>Select Project - Rebuild all target files or Build target.</li>
+</ol>
+
+<p>µVision4 compiles, assembles, and links the files in your project.</p>
+
+
+<h3>Debugging an Application in µVision4</h3>
+
+<p>To debug an application created using µVision4, you must:</p>
+
+<ol>
+  <li>Select Debug - Start/Stop Debug Session.</li>
+  <li>
+    Use the Step toolbar buttons to single-step through your program. You may
+    enter <b>  G, main</b> in the Output Window to execute to the main C
+    function.
+  </li>
+  <li>Open the UART #2 Window using the <b>Serial Windows - UART #2</b> button on the toolbar.</li>
+  <li>Debug your program using standard options like Step, Go, Break, and so on.</li>
+</ol>
+
+
+<h3>Creating Your Own Application in µVision4</h3>
+
+<p>To create a new project in µVision4, you must:</p>
+
+<ol>
+  <li>Select Project - New Project.</li>
+  <li>Select a directory and enter the name of the project file.</li>
+  <li>Select Project - Select Device and select an ARM, 8051, 251, or C16x/ST10 device from the Device Database™.</li>
+  <li>Create source files to add to the project.</li>
+  <li>Select Project - Targets, Groups, Files. Add/Files, select Source Group1, and add the source files to the project.</li>
+  <li>
+    Select Project - Options and set the tool options. Note when you select
+    the target device from the Device Database™ all special options are set
+    automatically. You typically only need to configure the memory map of your
+    target hardware. Default memory model settings are optimal for most
+    applications.
+  </li>
+  <li>Select Project - Rebuild all target files or Build target.</li>
+</ol>
+
+<h2><a name="TechnicalSupport"></a>Technical Support</h2>
+
+<p>
+At Keil Software, we are dedicated to providing you with the best development
+tools and technical support. That's why we offer numerous ways you can get the
+technical support you need to complete your embedded projects.
+</p>
+
+<ul>
+  <li>
+    <a href="http://www.keil.com/support"><b>Technical Support Knowledgebase</b></a><br>
+    More than 1500 technical support questions and answers are available in the Support
+    Solutions Knowledgebase. When a new question arises, it is added to the knowledgebase
+    which is continuously published to the Web. This enables you to get technical support
+    at times when our support staff is unavailable.
+  </li>
+  <li>
+    <a href="http://www.keil.com/appnotes"><b>Application Notes</b></a><br>
+    Numerous Application Notes help you decipher complex features and implement
+    robust applications.
+  </li>
+  <li>
+    <a href="http://www.keil.com/download"><b>Example Programs and Files</b></a><br>
+    Utility programs, example code, and sample projects are regularly added to
+    the Download File section of the web site.
+  </li>
+  <li>
+    <a href="http://www.keil.com/discuss"><b>Discussion Forum</b></a><br>
+    Post questions, comments, and suggestions to the Keil Software Discussion
+    Forum and interact with other Keil users around the world.
+  </li>
+</ul>
+
+<p>
+Many of the features of our Technical Support Knowledgebase and
+Web Site are the results of your suggestions. If you have any
+ideas that will improve them, please
+<a href="http://www.keil.com/support/feedback.asp"> give us your feedback</a>!
+</p>
+
+
+<h2><a name="ContactDetails"></a>Contact Details</h2>
+
+<p>
+If you experience any problems or have any questions about this
+product, contact one of our <a href="http://www.keil.com/distis">distributors</a>
+or offices for assistance.
+</p>
+
+<div align="center">
+  <center>
+<table border="0" cellpadding="5" cellspacing="0">
+  <tr>
+    <td valign="top" nowrap bgcolor="#FFFFCC" style="border: 1 solid #800000">
+      <p>
+      <b>
+      In the USA...<br>
+      </b>
+      <br>
+      <b>
+      Keil Software, Inc.</b><br>
+      1501 10th Street, Suite 110<br>
+      Plano, TX&nbsp; 75074<br>
+      USA<br>
+      <br>
+      800-348-8051 - Sales<br>
+      972-312-1107 - Support<br>
+      972-312-1159 - Fax<br>
+      <a href="mailto:sales.us@keil.com"><br>
+      sales.us@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.us@keil.com"><br>
+      support.us@keil.com</a> - Support E-mail&nbsp;<br>
+      &nbsp;&nbsp;
+      </p>
+    </td>
+    <td valign="top" width="30" nowrap>
+    </td>
+    <td valign="top" nowrap style="border: 1 solid #800000" bgcolor="#FFFFCC">
+      <p>
+      <b>
+      In Europe...<br>
+      </b>
+      <br>
+      <b>
+      Keil Elektronik GmbH<br>
+      </b>
+      Bretonischer Ring 15<br>
+      D-85630 Grasbrunn<br>
+      Germany<br>
+      <br>
+      +49 89 456040-0 - Sales<br>
+      +49 89 456040-24 - Support<br>
+      +49 89 468162 - Fax<br>
+      <a href="mailto:sales.intl@keil.com"><br>
+      sales.intl@keil.com</a> - Sales E-Mail<a href="mailto:E-Mailsupport.intl@keil.com"><br>
+      support.intl@keil.com</a> - Support E-Mail<br>
+      &nbsp;&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+  </center>
+</div>
+
+<hr>
+
+<p class="TinyT">
+Copyright © ARM Ltd. All rights reserved.<br>
+Visit our web site at <a href="http://www.keil.com">www.keil.com</a>.
+</p>
+
+</body>
+
+</html>

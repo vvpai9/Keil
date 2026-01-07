@@ -1,0 +1,168 @@
+
+The 'Framebuffer' project is a simple program for the STM32F103ZE 
+using Keil 'MCBSTM32E' Evaluation Board and demonstrating 
+external SRAM and GLCD functionality by using a framebuffer.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL    =            8.00 MHz
+   - SYSCLK  =           72.00 MHz
+
+
+
+Focus
+++++++
+
+The main focus in this example is the usage of the external SRAM togather with the display. 
+The SRAM is used to store two framebuffers, the text- and the background area.
+
+The example shows, that both, the glcd and the external SRAM can be written "simultaneously" 
+by loading a pixel from SRAM and writing it to the GLCD.
+
+
+
+Organisation
++++++++++++++
+
+The example consists of different modules, and each module (a .c and a .h file) can be used
+seperately in other projects. 
+
+Each module consists of an Init-function (if nessessary) which must be called to use the 
+peripheral covered by the module.
+Each module also does the complete initialisation and control of the peripheral, 
+beginning with the clock-enable.
+
+All modules have their prototypes in the appropriate headerfile.
+
+All hardware and CMSIS dependant modules need the STM32F10x register structures.
+
+
+
+General description:
++++++++++++++++++++++
+
+The main() function initializes the microcontroller through the CMSIS function 'SystemInit' and starts the RTOS with the taskman.
+For debug purpose it opens the STDIN and STDOUT channel for the ITM. If printf's or getchar's / scanf  are done, they operate 
+through the ITM printf Viewer window in uVision (Debug Mode).
+
+The taskman inserts the nessessary system tasks and initializes the running light and the joystick.
+
+The redirection of STDOUT through freopen, which directs STDOUT to the GLCD, initializes the extSRAM, the GLCD and the framebuffer.
+This is done through the _sys_open function in retarget.c
+
+
+Playing with the example
++++++++++++++++++++++++++++
+
+The joystick moves the background picture of the MCBSTM32E, if enabled in picture.h.
+When the User-Button is pressed and the joystick is moved up or down, the text buffer is moved.
+When pressing the joystick down, 'Hello, World' and an increasing number appears on the GLCD.
+When a button is kept pressed, a fast repeat mode is entered.
+
+In DEBUG MODE the ITM printf window of uVision displays some additional text. It also shows text inputs to this window and echos them
+on the GLCD. The <ENTER> key moves to the next line, <BACKSPACE> deletes a character.
+
+
+
+Description of the Architecture
+++++++++++++++++++++++++++++++++
+
+Init
+-----
+
+When the system starts, the controller is initialized and the STDIN/OUT is redirected to ITM. So, additional debug messages can be sent through 
+printf to the ITM printf window. Then the RTX is initialized, which starts the taskman task.
+
+The taskman inserts some required tasks for the FrameBuffer and the application, executes an additional boot function, sends the start events to 
+the tasks and then kills itselv from the task list.
+
+The additional boot function 'BootSystem' is the main function for the system initialisation (The fopen on STDIN/OUT in 'main' is only for debug 
+purposes). It initializes the running light (which runs inside the idle-task, see RTX_Config.c), the keyboard (joystick and user button), and then 
+redirects the STDOUT channel to the GLCD, using the retarget layer of the STDIO library.
+
+
+Retargeting
+------------
+All calls to IO function 'end' in the module 'retarget.c', where they are brought to the actual hardware. When opening a channel (fopen), the 
+function _sys_open is called from the library. This function searches for the device name given through fopen, and opens a stream to that device.
+The initialisation is also done here, that means, the complete initialization of External RAM, GLCD and Framebuffer is done in it's correct order.
+
+
+
+
+Description of the Framebuffer
++++++++++++++++++++++++++++++++
+
+Every printf-ed character reaches _sys_write in the module 'retarget.c', where the appropriate output function is called (Output_GLCD0 in this case).
+The output function for the GLCD calles a state machine, which searches for terminal control sequences and executes them (Text Positioning, Color, etc).
+The 'exit' points in the state machine then call the appropriate functions in the framebuffer module, i.e. 'FrameBuf_PutStr'. See 'framebuf.h' for 
+the exported functions.
+
+The advantage of using the external RAM is, that it can be accessed linear in one 'cycle' without having sequences for positioning a cursor (as we 
+have in the GLCD). So, the calculation for graphic representation of the text can be done very quickly in RAM (Per pixel: 1 memory write to RAM or 4 
+memory writes to GLCD), and then send as one big image at once to the GLCD. Here the auto-increment function of the GLCD is used, that means, that 
+the GLCD RAM cursor is set to (0, 0), and after that 320x240 x2 bytes are sent.
+
+
+Update
+-------
+
+Each character that comes into the FB should appear instantly on the screen. If the screen would be updated instantly with every incomming character,
+this would slow down the system extremely.
+To avoid this, the 'FrameBuf_Update' function starts a 250ms OS timer and a marker that the timer is running. If this function is called again with 
+the next incomming character, it is ignored.
+After 250ms the timer expires, the RAM content is written to the GLCD, and the timer-running flag is cleared.
+
+
+
+
+
+
+
+Description of the modules:
+++++++++++++++++++++++++++++
+
+ext_sram
+--------
+Needs:      gpio.h
+Function:   Initializes the external 1MB SRAM
+            Executes a simple RAM test by writing a testpattern
+
+glcd
+-----
+Needs:      font-header
+Function:   Initializes and drives the QVGA LCD
+
+drv_glcd0
+----------
+Needs:      term_ctrl.h, glcd.h, framebuf.h
+Function:   contains the low level IO-functions for the retarget-layer
+            contains a VT100 state machine to decode terminal control sequences for the GLCD
+
+framebuf
+---------
+Needs:      glcd.h, joystick.h, ext_sram.h, RTX kernel functions & defines
+Function:   Initializes the framebuffer, contains functions for text- and graphic-output to the glcd
+            
+            This module contains two buffers, located inside the SRAM: frameBuf and backBuf, each (320 x 240 x sizeof(short)).
+            The buffers are witten through WriteFB() to the GLCD using transparency. Transparency (of the foreground text) color is black.
+            The task MoveBackImage() controls the moveable background image.
+            
+            To update the display the function UpdateFB() should be called. The display is updated through an RTOS timer with a minimum 
+            of 20*10ms (10ms: see RTX_Config.c).
+
+keyboard
+---------
+Needs:      gpio.h
+Function:   Initializes the joystick and the user button
+            A read function returns the status of the joystick and user button
+
+taskman
+--------
+Needs:      complete set of the headerfiles above, RTX kernel functions & defines
+Function:   Initializes the RTOS and the peripherals,
+            prints a message to the glcd and "idles" in a while-loop.
+
+
+
+

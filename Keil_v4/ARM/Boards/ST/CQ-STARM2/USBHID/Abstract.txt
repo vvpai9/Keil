@@ -1,0 +1,17 @@
+The HID project is a demo program for the STM32F103VBT6 
+using CQ-STARM2 Board plugged to CQ-STARM BaseBoard.
+
+It demonstrates an USB HID (Human Interface Device):
+  - 8 LEDs         (right 7 segment display)
+  - 8 Push Buttons (SW1..SW8)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LED
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  CQ-STARM: configured for on-chip Flash ROM
+           (used for production or target debugging)
+
+

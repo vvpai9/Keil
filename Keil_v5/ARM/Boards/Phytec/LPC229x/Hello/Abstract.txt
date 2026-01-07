@@ -1,0 +1,9 @@
+The Hello program is a very simple program that prints
+"Hello World" to the serial port (UART1) of the LPC229x
+using the Phytec phyCORE Single Board Computer.
+
+UART1 settings: 9600 baud, 8 data bits, 1 stop bit, no parity
+
+The Hello program is available in different targets:
+  Simulator LPC229x: runs in software Simulator
+  phyCore   LPC229x: runs on phyCore Board

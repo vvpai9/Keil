@@ -1,0 +1,31 @@
+This example program shows how to use the RTX CAN Driver on 
+'HITEX STR730 Evaluation Board' with 
+'ST STR730' microcontroller.
+
+Example functionality:
+ - send converted analog value in first byte in CAN message on 
+   CAN 2 controller (CAN_2 header on board) every 1 second
+ - display received byte on CAN 1 controller (CAN_1 header 
+   on board) in hexadecimal representation on two 7-segment 
+   LED displays
+   CAN 1 controller speed: 500 kbits
+   CAN 2 controller speed: 500 kbits
+
+This example shows how to use RTX CAN Driver and how 
+to simulate analog input in uVision.
+
+You may change the value of analog input with potentiometer 
+and watch the value on 7-segment LED displays change accordingly.
+
+The CAN_Ex1 example program is available for several targets:
+
+Simulator:    configured for software Simulator
+STR730 Flash: runs from Internal Flash located on chip
+              (used for production or target debugging)
+
+Notes:      
+  - To see the example functionality on hardware, loopback has 
+    to be connected between CAN_1 and CAN_2 (pins 7 on both DB-9 
+    headers shorted, and pins 2 on both DB-9 headers shorted)
+  - CAN 1 controller is really CAN0 in chip documentation
+  - CAN 2 controller is really CAN1 in chip documentation

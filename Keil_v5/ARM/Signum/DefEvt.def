@@ -1,0 +1,870 @@
+// DefEvt.def
+
+Ident = "DefSyntax";
+
+Name  = "DefEvt";
+// Version = "2.10";   // allowed default links and check-boxes
+// Version = "2.20";      // direction for In/Out signals allowed
+//Version = "2.30";      // Option and Button records added
+//Version = "2.40";      // New records and fields for Wemu Complex Events added
+//Version = "2.50";      // New records and fields for Wemu Complex Events added
+Version = "2.60";       // ComboBox added (for ARM11).
+Date    = "13/Nov/2006";
+
+// Usage summary:
+// If Name starts from - or _, it is not displayed, but exists
+// Bits in field 'Option' has the following meaning:
+//      0x1 - item is diabled
+//      0x2 - item is not visible on the screen (useful to make groups without a frame)
+//  Default value is 0.
+// Value in ComboBox has a value One|Two|Three (value set is 0|1|2).
+
+Field {
+    Name = "Ident";
+    Type = text;
+}
+
+Field {
+    Name = "Version";
+    Type = text;
+    Default = "1.00";
+}
+
+Field {
+    Name = "Name";
+    Type = text;
+    Default = "";
+}
+
+Field {
+    Name = "Date";
+    Type = text;
+    Default = "";
+}
+
+Record {
+    Name = "Group";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Record = "In";
+    Record = "Out";
+    Record = "EditBox";
+    Record = "CheckBox";
+    Record = "Text";
+    Record = "Button";
+    Record = "And";
+    Record = "Or";
+    Record = "ConnBox";
+    Record = "OneOfNode";
+    Record = "HLine";
+    Record = "VLine";
+    Record = "ConnBox2";
+    Record = "ComboBox";
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Multi";
+
+    Field {
+        // Object Index Step - 1 is default
+        Name = "IndexStep";
+	Type = number;
+    }
+
+    Field {
+        // Number of records (if not given will ask by ID until all objects in group will exist)
+        Name = "Count";
+	Type = number;
+    }
+}
+
+Record {
+    Name = "Layout";
+
+    Field {
+	Name = "Object";
+	Type = text;
+    }
+
+    Field {
+	Name = "x";
+	Type = number;
+    }
+
+    Field {
+	Name = "y";
+	Type = number;
+    }
+
+    Field {
+	Name = "h";
+	Type = number;
+    }
+
+    Field {
+	Name = "w";
+	Type = number;
+    }
+
+    Field {
+	Name = "ax";
+	Type = number;
+    }
+
+    Field {
+	Name = "ay";
+	Type = number;
+    }
+
+    Record = "Layout";
+}
+
+Record {
+    Name = "In";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Type";
+	Type = list Or One;
+	Default = Or;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Out";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Type";
+	Type = list Or One;
+	Default = Or;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+    }
+
+    Field {
+	Name = "VisMode";
+	Type = ident Nonvisible;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "EditBox";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Value";
+	Type = text;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Left Right None;
+	Default = Right;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Field {
+	Name = "Default";
+	Type = number;
+    }
+
+    Record = "Disable";
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "ComboBox";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Record = "ValueCond";   // Complex or conditional value (multiple conditional values are allowed).
+
+    Field {
+	Name = "Value";
+	// Type = text;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Field {
+	Name = "Default";
+	Type = number;
+    }
+
+    Record = "Disable";
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "ValueCond";
+
+    Record = "Condition";   // Condition when the value is used
+
+    Field {
+	Name = "Value";     // A list of enumerated values
+	// Type = text;
+    }
+
+    Field {
+	Name = "Default";   // Default value selected
+	Type = number;
+    }
+}
+
+Record {
+    Name = "CheckBox";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Value";
+	Type = number;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Info";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "HLine";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "VLine";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Dot";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Arrow";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+	Default = Right;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "And";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Type";
+	Type = list Or One;
+	Default = Or;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+	Default = Right;
+    }
+
+    Field {
+	Name = "VisMode";
+	Type = ident Nonvisible;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Or";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Type";
+	Type = list Or One;
+	Default = Or;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+	Default = Right;
+    }
+
+    Field {
+	Name = "VisMode";
+	Type = ident Nonvisible;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Break";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Type";
+	Type = list Or One;
+	Default = Or;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+	Default = Left;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+}
+
+Record {
+    Name = "Text";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "ConnBox";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "DefState";
+	Type = ident Connected Disconnected;
+	Default = Disconnected;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+	Default = Right;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "ConnBox2";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "DefState";
+	Type = ident Connected Disconnected;
+	Default = Disconnected;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "OneOfNode";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "DefState";
+	Type = ident AlwaysOne OneOrNothing;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Button";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {
+    Name = "Match";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Label";
+	Type = text;
+	Default = "";
+    }
+
+    Field {
+	Name = "Index";
+	Type = number;
+    }
+
+    Field {
+	Name = "Direction";
+	Type = list Up Down Left Right;
+	Default = "Right";
+    }
+
+    Field {
+	Name = "Model";	    // optional model (for hard-coded processing)
+	Type = text;
+	Default = "";
+    }
+
+    Field {
+	Name = "Style";	    // optional style
+	Type = text;
+	Default = "";
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;	    // bit 0x01 - "Exclude" mode available for Match
+	Default = "0";
+    }
+
+    Field {
+	Name = "DataWidth"; // Width of data [bits] for the match
+	Type = number;
+    }
+
+    Field {
+	Name = "MaxItemCnt";// max number of items (ranges+points+patterns) allowed
+	Type = number;
+    }
+
+    Field {
+	Name = "MaxCnt";    // max number of ranges allowed (0 if no ranges allowed)
+	Type = number;
+    }
+
+    Field {
+	Name = "MaxPointCnt";    // max number of points allowed (0 if no points allowed)
+	Type = number;
+    }
+
+    Field {
+	Name = "MaxPatternCnt";    // max number of patterns allowed (0 if no patterns allowed)
+	Type = number;
+    }
+
+    Field {
+	Name = "Min";	    // min range/point value allowed
+	Type = number;
+	Default = "0";
+    }
+
+    Field {
+	Name = "Max";	    // max range/point value allowed
+	Type = number;
+	Default = "0xFFFFFFFF";
+    }
+
+    Field {
+	Name = "VisMode";
+	Type = ident Nonvisible;
+    }
+
+    Field {
+	Name    = "Pattern";   // width of pattern allowed (0 if not allowed)
+	Type    = number;
+	Default = "0";
+    }
+
+    Record = "Multi";   // Can be repeated several times
+}
+
+Record {                    // Disable control conditionally
+    Name = "Disable";
+
+    Record = "Condition";
+}
+
+Record {
+    Name = "Condition";
+
+    Field {
+	Name = "Name";      // control name
+	Type = text;
+    }
+
+    Field {
+	Name = "Value";     // Control value
+	// Type = number;
+    }
+}
+
+Record {
+    Name = "Links";
+
+    Record {
+	Name = "Link";
+
+	Field {
+	    Name = "From";
+	    Type = textlist;
+	}
+
+	Field {
+	    Name = "To";
+	    Type = textlist;
+	}
+
+	Field {
+	    Name = "Mode";
+	    Type = ident fixed default;
+	}
+
+	Field {
+	    Name = "VisMode";
+	    Type = ident Nonvisible;
+	}
+    }
+
+    Field {
+	Name = "Option";
+	Type = number;
+    }
+}
+
+Record {
+    Name = "Option";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Value";
+	Type = text;
+	Default = "";
+    }
+}
+
+Record {
+    Name = "SethMap";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "MappedObjects";
+	Type = textlist;
+    }
+}
+
+// end of DefEvt.def file

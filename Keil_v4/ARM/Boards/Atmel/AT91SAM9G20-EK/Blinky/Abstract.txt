@@ -1,0 +1,41 @@
+The Blinky project is an example program for the 'AT91SAM9G20'
+using Atmel 'AT91SAM9G20-EK' Evaluation Board and demonstrating
+interrupt usage.
+
+Example functionality:                                                   
+ - 1 LED blinks (DS5)
+ - time of LED switching is determined by Programmable Interrupt 
+   Timer (PIT) working in interrupt mode
+
+Clocks: Oscillator      =  18.432 MHz
+        PLLA            = 792.576 MHz
+        Processor Clock = 396.288 MHz
+        Master Clock    =  99.072 MHz
+
+The Blinky program is available for different targets:
+  SAM9G20 Int RAM:   configured for on-chip RAM (2*16kB)
+                     (used for target debugging)
+  SAM9G20 Ext SDRAM: configured for external SDRAM (64MB)
+                     downloaded to external DataFlash (8.25MB)
+                     (used for target debugging and production)
+  SAM9G20 Ext SDRAM - SAMICE: configured for external SDRAM (64MB)
+                     downloaded to external DataFlash (8.25MB),
+                     prepared to be downloaded and debugged with SAMICE
+                     (used for target debugging and production)
+
+Notes: 
+  - For "SAM9G20 Ext SDRAM" target if Debug is selected 
+    the code is loaded to External SDRAM and debugging happens there, 
+    if Download to Flash Memory is selected the code downloads to 
+    External DataFlash
+  - Bootloader has to be downloaded to flash for "SAM9G20 Ext SDRAM"
+    version to work as standalone. This is done by opening 
+    Bootloader project and clicking on "Download to Flash Memory" 
+    button.
+
+How to start:
+  1. Open Bootloader project and click on "Download to Flash Memory"
+     button
+  2. Select "SAM9G20 Ext SDRAM" target in this project and 
+     click on "Download to Flash Memory" button
+  3. Reset the board

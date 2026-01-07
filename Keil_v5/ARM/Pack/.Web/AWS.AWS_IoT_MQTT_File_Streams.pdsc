@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>AWS_IoT_MQTT_File_Streams</name>
+
+  <description>Client library for using the AWS IoT MQTT File Streams service on embedded devices.</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://freertos-cmsis-packs.s3.us-west-2.amazonaws.com/</url>
+
+  <requirements>
+    <packages>
+      <package name="coreJSON" vendor="AWS" version="4.2.0"/>
+      <package name="TinyCBOR" vendor="MDK-Packs"/>
+    </packages>
+  </requirements>
+
+  <releases>
+    <release date="2025-06-09" version="1.0.0">Based on the https://github.com/aws/aws-iot-core-mqtt-file-streams-embedded-c/tree/v1.1.0 repository.</release>
+  </releases>
+
+  <conditions>
+    <condition id="aws_iot_mqtt_file_streams_library Condition">
+      <require Cclass="Data Exchange" Cgroup="CBOR" Csub="TinyCBOR"/>
+      <require Cclass="FreeRTOS" Cgroup="coreJSON"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="AWS IoT" Cgroup="AWS IoT MQTT File Streams" Cversion="1.1.0" condition="aws_iot_mqtt_file_streams_library Condition">
+      <description>Client library for using the AWS IoT MQTT File Streams service on embedded devices.</description>
+      <files>
+        <file category="source" name="aws-iot-core-mqtt-file-streams-embedded-c/source/MQTTFileDownloader.c"/>
+        <file category="source" name="aws-iot-core-mqtt-file-streams-embedded-c/source/MQTTFileDownloader_base64.c"/>
+        <file category="source" name="aws-iot-core-mqtt-file-streams-embedded-c/source/MQTTFileDownloader_cbor.c"/>
+        <file category="include" name="aws-iot-core-mqtt-file-streams-embedded-c/source/include/"/>
+      </files>
+    </component>
+  </components>
+</package>
+

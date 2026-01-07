@@ -1,0 +1,12 @@
+This is a simple RTX Kernel based Blinky example which 
+simulates the Traffic light. The traffic light is timed 
+and lets cars pass during a specific time period.  There 
+is a pedestrial crossing button that lets pedestrians cross.
+Press S1 button to let pedestrians cross before a timeout.
+
+The BLINKY example program is available for several targets:
+
+Simulator: uVision Simulator for evaluation
+
+MCBLM3S:   Keil Evaluation board with ULINK debugger
+          - Application is loaded to internal Flash.

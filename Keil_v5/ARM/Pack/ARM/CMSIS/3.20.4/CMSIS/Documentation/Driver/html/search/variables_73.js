@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['sector_5fcount',['sector_count',['../group__nor__interface__gr.html#a50947f9a42bbaa2d68d6e5079150d7bf',1,'ARM_NOR_DEVICE']]],
+  ['sector_5finc',['sector_inc',['../group__nand__interface__gr.html#a4502dc6ac7500f615ffdae6600bbe479',1,'ARM_NAND_PAGE_LAYOUT']]],
+  ['sector_5finfo',['sector_info',['../group__nor__interface__gr.html#aec50a7e7613051b669ce9e8a81603a05',1,'ARM_NOR_DEVICE']]],
+  ['send_5fdone_5fevent',['send_done_event',['../group__spi__interface__gr.html#a22ab14bb216059f8641c3873e938fb82',1,'ARM_SPI_CAPABILITIES']]],
+  ['sendcommand',['SendCommand',['../group__mci__interface__gr.html#a26c5ad345d8b370e59d6949d51946c15',1,'ARM_DRIVER_MCI']]],
+  ['senddata',['SendData',['../group__i2c__interface__gr.html#ad116300aab8cdc705f597488c0b5be02',1,'ARM_DRIVER_I2C::SendData()'],['../group__spi__interface__gr.html#adf4d80c9cb3f6b2f8fc2e6f6cf3fa714',1,'ARM_DRIVER_SPI::SendData()']]],
+  ['sendframe',['SendFrame',['../group__eth__mac__interface__gr.html#ad8a026d84cc1d1f8030fe149e06f007b',1,'ARM_DRIVER_ETH_MAC']]],
+  ['setcombreak',['SetComBreak',['../group__uart__interface__gr.html#a2413991febaa0303d49d85713e00d4d3',1,'ARM_DRIVER_UART']]],
+  ['setinterface',['SetInterface',['../group__eth__phy__interface__gr.html#af00c0621f83f0a0403230fdf105f36cd',1,'ARM_DRIVER_ETH_PHY']]],
+  ['setmode',['SetMode',['../group__eth__mac__interface__gr.html#afa86fce27f90a17c8db604863e5d62c2',1,'ARM_DRIVER_ETH_MAC::SetMode()'],['../group__eth__phy__interface__gr.html#a07bece853f3ba4619b54bef1a47af389',1,'ARM_DRIVER_ETH_PHY::SetMode()']]],
+  ['setmodemcontrol',['SetModemControl',['../group__uart__interface__gr.html#a8e048afae9b89d6835fc403fb6ab392c',1,'ARM_DRIVER_UART']]],
+  ['setmulticastaddr',['SetMultiCastAddr',['../group__eth__mac__interface__gr.html#adb8b55ce8ada54928c62a5ab95de980b',1,'ARM_DRIVER_ETH_MAC']]],
+  ['setrxthreshold',['SetRxThreshold',['../group__uart__interface__gr.html#afaa2a08e52d77d7ab7d4c2f9657e614f',1,'ARM_DRIVER_UART']]],
+  ['settxthreshold',['SetTxThreshold',['../group__uart__interface__gr.html#a6936202de75ef9f894f587981a7f78bd',1,'ARM_DRIVER_UART']]],
+  ['setuptransfer',['SetupTransfer',['../group__mci__interface__gr.html#a06e8970c89e4af4feedf6f67b98da049',1,'ARM_DRIVER_MCI']]],
+  ['signaling_5f1v8',['signaling_1v8',['../group__mci__interface__gr.html#aff57e8c348c13d5d2066478c03aeef5a',1,'ARM_MCI_CAPABILITIES']]],
+  ['size',['size',['../group__nor__interface__gr.html#ab2c6b258f02add8fdf4cfc7c371dd772',1,'ARM_NOR_DEVICE']]],
+  ['slaveselect',['SlaveSelect',['../group__spi__interface__gr.html#a4d91b34b48688a7487a27d92abaee8e4',1,'ARM_DRIVER_SPI']]],
+  ['spare',['spare',['../group__nand__interface__gr.html#aff2741587e9ab1daa12ce8b99ecd9e6e',1,'ARM_NAND_PAGE_LAYOUT']]],
+  ['spare_5finc',['spare_inc',['../group__nand__interface__gr.html#a8c27b29ecc6c45a28f53801bbc679bf4',1,'ARM_NAND_PAGE_LAYOUT']]],
+  ['spare_5fofs',['spare_ofs',['../group__nand__interface__gr.html#ac2d16f58cc8bd9cade8c27f6e181387f',1,'ARM_NAND_PAGE_LAYOUT']]],
+  ['speed',['speed',['../group__eth__interface__gr.html#aae32029df16a54aa86c0aec2df9f7bb7',1,'ARM_ETH_LINK_INFO::speed()'],['../group__usbd__interface__gr.html#aae32029df16a54aa86c0aec2df9f7bb7',1,'ARM_USBD_STATE::speed()'],['../group__usbh__interface__gr.html#aae32029df16a54aa86c0aec2df9f7bb7',1,'ARM_USBH_STATE::speed()']]],
+  ['start',['start',['../group__nor__interface__gr.html#a61eb63d26b2fa6c2971603ceccffb14b',1,'ARM_NOR_SECTOR']]],
+  ['sw_5fecc',['sw_ecc',['../group__nand__interface__gr.html#ab79c5bd161bfca7c986648ab39dd37d5',1,'ARM_NAND_DEVICE']]]
+];

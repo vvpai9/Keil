@@ -1,0 +1,957 @@
+Device {
+    IRLength = 10;
+    ID =  0x110300DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1k30f256 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x110500DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1k50f484 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x201000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1k100f484 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x010100DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k10l84 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x010200DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k20r240 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x010300DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k30b356 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x010400DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k40r240 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x010500DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k50r240";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x010700DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k70r240 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x001000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k100g503 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x101000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k100bq208 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x101300DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k130eb600 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x001300DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k130vg599 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x102000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k200ef672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x002500DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epf10k250ag599 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x080300DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k30ef324 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x080600DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k60ef144 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x004160DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k100f324 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x081000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k100ef144 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x081600DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k160ef484 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x008320DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k200f484 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x082000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k200cf484 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x083000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k300ef672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x016640DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k400f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x084000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "hc20k400b652 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x086000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "hc20k600f33 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x090000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep20k1000cf33 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x095000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "hc20k1000f33 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x170320DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm3032al44 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x170640DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm3064al44 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x171280DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm3128af256 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x172560DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm3256af256 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x175120DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm3512af256 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x270320DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7032bl44 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x070320DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7032sq44 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x270640DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7064bl44 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x070640DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7064sl84 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x071280DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7128al84 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x271280DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7128bu49 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x071600DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7160sq160 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x071920DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7192sq160 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x072560DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7256aq208 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x272560DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7256bf256 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x275120DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm7512bb256 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x093200DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm9320l84 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x094000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm9400r208 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x094800DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm9480r240 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x095600DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm9560g280 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020810DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1c3t144 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020850DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1c4f400 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020820DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1c6q240 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020830DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1c12f324 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020840DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1c20f400 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x030000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1m120f484a ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x030020DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1m120f484c ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x030010DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1m350f780 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020010DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1s10f484 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020020DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1s20f484 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020030DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1s25f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020040DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1s30f780 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020050DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1s40f780 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020060DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1s60f1020 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020070DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "hc1s80b956 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020410DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1sgx10df672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020430DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1sgx25df672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020450DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1sgx40gf1020 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0C4000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2a15f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0C6000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2a25f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0D0000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2a40f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0E0000DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2a70f1508 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020910DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2s15f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020920DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2s30f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x120930DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2s60f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020930DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2s60f672es ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020940DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2s90f1508 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020950DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2s130f1508 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020960DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep2s180f1508 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x010020DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epc2t32 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x0100A0DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epc4q100 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020A10DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm240t100 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020A20DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm570t100 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020A30DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm1270t144 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x020A40DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epm2210f324 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x081010DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epxa1f672 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x084010DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epxa4f1020 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x090010DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "epxa10f1020 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 
+Device {
+    IRLength = 10;
+    ID =  0x110100DD;
+    IDMask =  0xFFFFFFFF;
+    Name  = "Altera";
+    Family  = "";
+    Model  = "ep1k10q208 ";
+    Part  = "";
+    Manufacturer  = "Altera";
+}
+ 

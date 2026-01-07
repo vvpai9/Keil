@@ -1,0 +1,103 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (ADuC7128), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (Source Code)
+
+File 1,2,<.\ADuC712x.s><ADuC712x.s> 0x464846C9 
+File 2,1,<.\main.c><main.c> 0x462E1CFE 
+File 2,1,<.\Retarget.c><Retarget.c> 0x462E1CFE 
+File 2,1,<..\..\..\..\INC\ADI\irq_arm.c><irq_arm.c> 0x462E1CA8 
+
+
+Options 1,0,0  // Target 'ADuC7128'
+ Device (ADuC7128)
+ Vendor (Analog Devices)
+ Cpu (IRAM(0x40000-0x41FFF) IROM(0x80000-0x9F7FF) CLOCK(32768) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("Startup\ADI\ADuC712x.s" ("ADuC712x Startup Code"))
+ FlashDR (UL2ARM(-U268772636 -O7 -S0 -C0 -FO7 -FD40000 -FC800 -FN1 -FF0ADuC712x -FS080000 -FL01F800))
+ DevID (4116)
+ Rgf (ADuC7128.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿADI\)
+ OrgReg (ÿADI\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (CBlinky)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 178,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ ADSTFLGA { 0,12,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,4,0,0,32,0,0 }
+ OCMADSIROM { 1,0,0,8,0,0,248,1,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,8,0,0,248,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,32,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x80000)
+ ADSLDDA (0x40000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cADuC70)(DARMAD.DLL)(-pADuC7128)(SARM.DLL)(-cADuC70)(TARMAD.DLL)(-pADuC7128)
+  OPTDBG 49150,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

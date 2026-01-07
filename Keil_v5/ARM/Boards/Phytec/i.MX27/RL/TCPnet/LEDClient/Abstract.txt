@@ -1,0 +1,26 @@
+This program is a LEDSwitch Client example. It is used to send commands
+to a LEDSwitch Server connected on the same LAN. The sending commands 
+control LED diodes on remote Server, how they are switched on or off.
+
+In order to run this example, you need to set the network parameters
+to match your local area network.
+
+To test this example, run application LEDSwitch on one phyCore MCIMX27
+board and Client application on other phyCore MCIMX27 board. 
+The Client application sends the value of P2 to LEDSwitch 
+application over TCP or UDP.
+
+NOTE: IP address and MAC address of this example must be set different
+      from IP and MAC addressess on LEDSwitch Server.
+
+The Client example is available for several targets:
+
+MCIMX27:       Standalone application for Phytec MCIMX27 board,
+               configured for execution from external NOR flash.
+
+
+MCIMX27 Debug: Standalone Debug application. Debug level configured
+               in Net_Debug.c debug configuration file.
+               Connect a serial cable to COM1 (bottom conn.) to view
+               output messages using HyperTerminal at 115200 baud,
+               8-bits, no parity, 1 stop bit, XON/XOFF.

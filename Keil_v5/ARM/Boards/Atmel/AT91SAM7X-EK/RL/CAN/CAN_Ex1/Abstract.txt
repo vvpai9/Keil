@@ -1,0 +1,26 @@
+This example program shows how to use the RTX CAN Driver on 
+'Atmel AT91SAM7X-EK Evaluation Board' with 
+'Atmel AT91SAM7X256' microcontroller.
+
+Example functionality:
+ - send joystick position in first byte in CAN message on 
+   CAN 1 controller every 1 second
+   (UP = bit 0, DOWN = bit 1, LEFT = bit 2, RIGHT = bit 3)
+ - display higher 4 bits of received byte on CAN 1 controller 
+   in hexadecimal representation on 4 LEDs
+   CAN 1 controller speed: 500 kbits
+
+This example shows how to use RTX CAN Driver and how 
+to simulate input pins in uVision.
+
+The CAN_Ex1 example program is available for several targets:
+
+Simulator:    configured for software Simulator
+SAM7X Flash:  runs from Internal Flash located on chip
+              (used for production or target debugging)
+
+Notes:
+  - As this microcontroller only has only one CAN controller 
+    the example is not demonstrative by itself, to be able to 
+    see whole functionality another device that sends or 
+    receives CAN messages is necessary

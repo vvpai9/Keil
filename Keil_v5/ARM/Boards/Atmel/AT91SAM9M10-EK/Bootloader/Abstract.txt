@@ -1,0 +1,48 @@
+SAM9M10 DF        P528              CS0
+SAM9M10 DataFlash Page 528 bytes on Chip Select 0
+
+The 2-nd level Bootloader for Atmel 'AT91SAM9M10' 
+running from External DataFlash (Page Size 528 
+Bytes, eg. AT45D321D) using Chip Select 0 for 
+DataFlash interfacing
+
+It downloads to first 16.5kB of DataFlash.
+1-st level bootloader that is in ROM of 
+AT91SAM9M10 first downloads this 2-nd level 
+bootloader to internal RAM and starts it.
+
+2-nd level bootloader's main function is to 
+copy user program from DataFlash to 
+External SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to DataFlash.
+
+Clocks: Oscillator      =   12.00 MHz
+        PLLA            =  800.00 MHz
+        Processor Clock =  400.00 MHz
+        Master Clock    =  133.33 MHz
+
+Important: !!! Do not rebuild with EVAL version !!!
+
+Notes:
+  - to erase Bootloader just press "BP4" button 
+    on the board while power-up
+
+DataFlash Organization:
+
+0x00000000 _ ____________________________
+            |                            |
+            |   2-nd Level Bootloader    |
+            |                            |
+0x00001000 -| - - - - - - - - - - - - - -|
+            |                            |
+            :  Reserved for future use   :
+            :                            :
+            |                            |
+0x00004200 -|============================|
+            |                            |
+            |       User Program         |
+            :                            :
+            :                            :
+0x00840000 _|____________________________|

@@ -1,0 +1,22 @@
+; Linker Control File (scatter-loading)
+;
+
+IntFLASH_LOAD 0x00080000 0xF800    ; Load Region: 62kB IntFLASH at 0x00080000
+{
+  IntFLASH 0x00080000 0xF800       ; Exec Region: 62kB IntFLASH at 0x00080000
+  {
+    *.o (RESET, +First)            ; Startup Code placed first
+  }
+}
+
+ExtFLASH_LOAD 0x20000000 0x20000   ; Load Region: 128kB ExtFLASH at 0x20000000
+{
+  ExtFLASH 0x20000000 0x20000      ; Exec Region: 128kB ExtFLASH at 0x20000000
+  {
+    * (+RO)                        ; all other RO sections
+  }
+  IntRAM 0x00010000 0x2000         ; Exec Region: 8kB IntRAM at 0x00010000
+  {
+    * (+RW,+ZI)                    ; all other RW & ZI sections
+  }
+}

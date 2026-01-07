@@ -1,0 +1,76 @@
+// DefSyntax.def - definition of syntax of definition file
+
+Ident   = "DefSyntax";  // file identifier
+Name    = "DefSyntax";
+Version = "2.00";
+Date    = "98/08/14";
+
+Field {
+    Name = "Ident";
+    Type = text;
+}
+
+Field {
+    Name = "Version";
+    Type = text;
+    Default = "1.00";
+}
+
+Field {
+    Name = "Name";
+    Type = text;
+    Default = "";
+}
+
+Field {
+    Name = "Date";
+    Type = text;
+    Default = "";
+}
+
+Record {
+    Name = "Record";    // name of record
+
+    Field {
+	Name = "Name";  // name of field
+	Type = text;    // allowed types
+    }
+
+    Field {
+	Name = "Record";
+	Type = text;
+    }
+
+    Field {
+	Name = "Count";
+	Type = number;
+	Default = 0;
+    }
+
+    // allow two records (same definition as in Root)
+    Record = "Field";
+    Record = "Record";
+}
+
+Record {
+    Name = "Field";
+
+    Field {
+	Name = "Name";
+	Type = text;
+    }
+
+    Field {
+	Name = "Type";
+    }
+
+    Field {
+	Name = "Default";
+    }
+
+    Field {
+	Name = "Count";
+	Type = number;
+	Default = 0;
+    }
+}

@@ -1,0 +1,46 @@
+The 'Blinky' project is an simple example program for the  
+Freescale 'MCIMX27' microcontroller using: 
+- PHYTEC 'PCM-970' Baseboard PHYCORE-i.MX
+- PHYTEC 'PMA-002-PHYMAP-i.MX27' Middle Board 
+- PHYTEC 'PCM-038 PHYCORE-i.MX27' Daughter Board
+
+Example functionality:
+ - 1 LED blinks (GPIO), timing is generated with interrupt
+
+Core Power (QVDD): 1.2V
+Clocks:   XTAL                     =  26.00 MHz 
+          MPLL                     = 399.00 MHz 
+          SPLL                     = 240.00 MHz 
+          FCLK    = ((2*MPLL)/3)   = 266.00 MHz 
+          HCLK    = ((2*MPLL)/3)/2 = 133.00 MHz 
+          ARM CLK = FCLK           = 266.00 MHz
+          AHB CLK = HCLK           = 133.00 MHz
+          NFC CLK = HCLK / 6       =  22.16 MHz
+Memories: 128MB LP DDR SDRAM (adr: 0xA0000000)
+          512KB SRAM
+          64MB  NAND Flash
+          32MB  NOR Flash    (adr: 0xC0000000)
+          32KB  I2C EEPROM
+
+The Blinky program is available for different targets:
+  MCIMX27 Int RAM:  configured for on-chip RAM
+                    (may be used for target debugging)
+  MCIMX27 Ext NOR:  configured for external NOR flash
+                    (may be used for target debugging or 
+                    production)
+  MCIMX27 Ext SDRAM (NAND): configured to run in external 
+                    SDRAM and loaded to external NAND flash
+                    (may be used for target debugging or 
+                    production)
+  Download NAND Bootloader: this target is only used for 
+                    download of prebuilt 2-nd level 
+                    bootloader to NAND flash
+  
+Notes: 
+  For Target 'MCIMX27 Ext SDRAM (NAND)' jumper 'Boot Mode/
+  CLK-Sel.' (S5) has to be in position: 4,6,8 = ON, other = OFF
+  2-nd level bootloader (from Keil) has to be downloaded to 
+  NAND flash also (just select 'Download NAND Bootloader' 
+  target and click on flash download, and prebuilt 
+  bootloader will be downloaded to external NAND flash)
+    

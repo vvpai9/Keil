@@ -1,0 +1,202 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Slovenian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SLV)
+#ifdef _WIN32
+LANGUAGE LANG_SLOVENIAN, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\LEDSwitch.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\LEDSwitch.ico"
+#endif    // Slovenian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LEDSWITCH_DIALOG DIALOGEX 0, 0, 115, 114
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "LEDSwitch"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_TRANSFERPORT,57,17,46,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_P2,7,91,24,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    CONTROL         "TCP",IDC_PROTOCOL_TCP,"Button",BS_AUTORADIOBUTTON,8,14,
+                    30,10
+    CONTROL         "UDP",IDC_PROTOCOL_UDP,"Button",BS_AUTORADIOBUTTON,8,26,
+                    31,10
+    GROUPBOX        "Protocol",IDC_STATIC,4,3,41,37
+    GROUPBOX        "P2",IDC_STATIC,4,75,107,35
+    CONTROL         "",IDC_P2_15,"Button",BS_AUTOCHECKBOX,35,93,8,8
+    CONTROL         "",IDC_P2_14,"Button",BS_AUTOCHECKBOX,44,93,8,8
+    CONTROL         "",IDC_P2_13,"Button",BS_AUTOCHECKBOX,53,93,8,8
+    CONTROL         "",IDC_P2_12,"Button",BS_AUTOCHECKBOX,62,93,8,8
+    CONTROL         "",IDC_P2_11,"Button",BS_AUTOCHECKBOX,71,93,8,8
+    CONTROL         "",IDC_P2_10,"Button",BS_AUTOCHECKBOX,80,93,8,8
+    CONTROL         "",IDC_P2_9,"Button",BS_AUTOCHECKBOX,89,93,8,8
+    CONTROL         "",IDC_P2_8,"Button",BS_AUTOCHECKBOX,98,93,8,8
+    LTEXT           "15",IDC_STATIC,36,83,8,8
+    LTEXT           "8",IDC_STATIC,100,83,8,8
+    LTEXT           "Bits",IDC_STATIC,64,83,13,8
+    GROUPBOX        "Transfer port",IDC_STATIC,49,3,62,37
+    PUSHBUTTON      "OK",IDOK,58,34,19,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "CANCEL",IDCANCEL,80,34,30,14,NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    GROUPBOX        "Board IP",IDC_STATIC,4,40,107,35
+    EDITTEXT        IDC_BOARDIP,14,54,86,14,ES_AUTOHSCROLL
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "LEDSwitch MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "LEDSwitch\0"
+            VALUE "LegalCopyright", "Copyright (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "LEDSwitch.EXE\0"
+            VALUE "ProductName", "LEDSwitch Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\LEDSwitch.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

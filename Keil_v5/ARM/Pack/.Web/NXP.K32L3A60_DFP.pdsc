@@ -1,0 +1,2956 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package xmlns:xs='http://www.w3.org/2001/XMLSchema-instance' xs:noNamespaceSchemaLocation='PACK.xsd' schemaVersion='1.4'>
+  <name>K32L3A60_DFP</name>
+  <vendor>NXP</vendor>
+  <description>Device Family Pack for K32L3A60</description>
+  <url>https://mcuxpresso.nxp.com/cmsis_pack/repo/</url>
+  <license>Licenses.txt</license>
+  <releases>
+    <release version='25.06.00' date='2025-06-24'>NXP CMSIS Packs based on MCUXpresso SDK 25.06.00</release>
+    <release version='25.03.00' date='2025-03-28'>NXP CMSIS Packs based on MCUXpresso SDK 25.03.00</release>
+    <release version='19.0.0' date='2024-07-17'>NXP CMSIS Packs based on MCUXpresso SDK 2.16.0</release>
+    <release version='18.0.0' date='2024-01-14'>NXP CMSIS Packs based on MCUXpresso SDK 2.15.0</release>
+    <release version='17.0.0' date='2023-07-27'>NXP CMSIS Packs based on MCUXpresso SDK 2.14.0</release>
+    <release version='16.0.0' date='2023-01-16'>NXP CMSIS Packs based on MCUXpresso SDK 2.13.0</release>
+    <release version='15.0.0' date='2022-07-13'>NXP CMSIS Packs based on MCUXpresso SDK 2.12.0</release>
+    <release version='14.0.0' date='2022-01-05'>NXP CMSIS Packs based on MCUXpresso SDK 2.11.0</release>
+    <release version='13.1.0' date='2021-07-13'>NXP CMSIS Packs based on MCUXpresso SDK 2.10.0</release>
+    <release version='13.0.0' date='2021-02-05'>
+      NXP CMSIS Packs based on MCUXpresso SDK 2.9.0 with restructured startup component files
+    </release>
+    <release version='12.3.0' date='2021-01-14'>NXP CMSIS Packs based on MCUXpresso SDK 2.9.0</release>
+    <release version='12.2.0' date='2020-07-20'>NXP CMSIS Packs based on MCUXpresso SDK 2.8.0</release>
+    <release version='12.1.0' date='2019-12-19'>NXP CMSIS Packs based on MCUXpresso SDK 2.7.0</release>
+    <release version='12.0.0' date='2019-08-16'>NXP CMSIS packs based on MCUXpresso SDK 2.6.0</release>
+  </releases>
+  <keywords>
+    <keyword>Device Family Pack</keyword>
+  </keywords>
+  <requirements>
+    <packages>
+      <package name='CMSIS' vendor='ARM' version='6.1.0'/>
+    </packages>
+    <languages>
+      <language name='C' version='99'/>
+    </languages>
+  </requirements>
+  <devices>
+    <family Dfamily='K32L3A60' Dvendor='NXP:11'>
+      <description>NXP’s Energy Efficient Cortex-M4 MCU with Cortex-M0+ and Advanced Security</description>
+      <device Dname='K32L3A60xxx'>
+        <processor Pname='cm0plus' Dcore='Cortex-M0+' Dfpu='NO_FPU' Dmpu='MPU' Dendian='Little-endian' Dclock='72000000'/>
+        <processor Pname='cm4' Dcore='Cortex-M4' Dfpu='SP_FPU' Dmpu='MPU' Dendian='Little-endian' Dclock='72000000'/>
+        <environment Pname='cm0plus' name='iar'>
+          <file category='linkerfile' name='devices/K32L3A60/iar/K32L3A60xxx_cm0plus_flash.icf'/>
+        </environment>
+        <environment Pname='cm4' name='iar'>
+          <file category='linkerfile' name='devices/K32L3A60/iar/K32L3A60xxx_cm4_flash.icf'/>
+        </environment>
+        <memory name='FLEX_RAM' start='0x48000000' size='0x1000' access='rw' default='1'/>
+        <memory name='PROGRAM_FLASH_cm0plus' start='0x01000000' size='0x040000' access='rx' default='1'/>
+        <memory name='PROGRAM_FLASH_cm4' start='0x00000000' size='0x100000' access='rx' default='1' startup='1'/>
+        <memory name='SRAM_DTC_cm4' start='0x20000000' size='0x030000' access='rw' default='1'/>
+        <memory name='SRAM_ITC_cm4' start='0x08000000' size='0x010000' access='rw' default='1'/>
+        <memory name='SRAM_TCM_cm0plus' start='0x09000000' size='0x020000' access='rw' default='1'/>
+        <memory name='USB_RAM' start='0x48010000' size='0x0800' access='rw' default='1'/>
+        <algorithm name='devices/K32L3A60/arm/K32L3A60_P1024_4KB_SEC.FLM' start='0x00000000' size='0x00100000' RAMstart='0x20000000' RAMsize='0x00002000' default='1'/>
+        <algorithm name='devices/K32L3A60/arm/K32L3A60_P256_2KB_SEC.FLM' start='0x01000000' size='0x00040000' RAMstart='0x20000000' RAMsize='0x00002000' default='1'/>
+        <debug svd='devices/K32L3A60/K32L3A60_cm0plus.xml' Pname='cm0plus' __dp='0' __ap='2'/>
+        <debug svd='devices/K32L3A60/K32L3A60_cm4.xml' Pname='cm4' __dp='0' __ap='0'/>
+        <variant Dvariant='K32L3A60VPJ1A'>
+          <compile Pname='cm0plus' header='devices/K32L3A60/fsl_device_registers.h' define='CPU_K32L3A60VPJ1A_cm0plus'/>
+          <compile Pname='cm4' header='devices/K32L3A60/fsl_device_registers.h' define='CPU_K32L3A60VPJ1A_cm4'/>
+        </variant>
+      </device>
+    </family>
+  </devices>
+  <conditions>
+    <condition id='device.K32L3A60.internal_condition'>
+      <accept Dname='K32L3A60VPJ1A' Dvendor='NXP:11'/>
+    </condition>
+    <condition id='cmake_toolchain.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.device=K32L3A60.internal_condition'>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.Legacy_flash_adapter.condition_id'>
+      <require condition='allOf.driver.flash, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.flash, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flash'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.ak4497_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.at_least_one_i2c_mux_device_enabled.condition_id'>
+      <require condition='allOf.component.i2c_mux_pca954x, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.i2c_mux_pca954x, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux_pca954x'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.audio_sai_edma_adapter.condition_id'>
+      <require condition='allOf.driver.sai_edma, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.sai_edma, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='sai_edma'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.button.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.allOf=component.gpio_adapter, driver.gpio.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='timer_manager'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.gpio_adapter, driver.gpio.internal_condition'>
+      <accept condition='allOf.component.gpio_adapter, driver.gpio.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.gpio_adapter, driver.gpio.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio'/>
+    </condition>
+    <condition id='component.cmsis_drivers.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.codec_adapters.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.codec_i2c.condition_id'>
+      <require condition='allOf.component.i2c_adapter_interface, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.i2c_adapter_interface, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_adapter_interface'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.crc_adapter.condition_id'>
+      <require condition='allOf.driver.crc, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.crc, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='crc'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.cs42448_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.cs42888_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.da7212_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.eeprom_AT25Fxxxx.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.eeprom_AT45DBxxxx.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.eeprom_InternalFlash.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.enable_pca9544.condition_id'>
+      <require condition='allOf.component.i2c_mux_pca954x, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.enable_pca9548.condition_id'>
+      <require condition='allOf.component.i2c_mux_pca954x, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.flash_adapter.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.Legacy_flash_adapter, driver.flash, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.Legacy_flash_adapter, driver.flash, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.allOf=component.Legacy_flash_adapter, driver.flash.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.Legacy_flash_adapter, driver.flash.internal_condition'>
+      <accept condition='allOf.component.Legacy_flash_adapter, driver.flash.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.Legacy_flash_adapter, driver.flash.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='Legacy_flash_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flash'/>
+    </condition>
+    <condition id='component.flash_nor_lpspi.condition_id'>
+      <require condition='allOf.driver.lpspi, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpspi, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.gpio_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.port, driver.gpio, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.port, driver.gpio, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.port.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.port.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='port'/>
+    </condition>
+    <condition id='component.i2c_adapter_interface.condition_id'>
+      <require condition='allOf.anyOf=allOf=anyOf=driver.lpi2c, component.lpi2c_adapter, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=anyOf=driver.lpi2c, component.lpi2c_adapter, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.allOf=anyOf=driver.lpi2c, component.lpi2c_adapter.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=anyOf=driver.lpi2c, component.lpi2c_adapter.internal_condition'>
+      <accept condition='allOf.anyOf=driver.lpi2c, component.lpi2c_adapter.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpi2c, component.lpi2c_adapter.internal_condition'>
+      <require condition='anyOf.driver.lpi2c.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpi2c_adapter'/>
+    </condition>
+    <condition id='anyOf.driver.lpi2c.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='i2c'/>
+    </condition>
+    <condition id='component.i2c_mux.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.i2c_mux_pca954x.condition_id'>
+      <require condition='allOf.component.i2c_mux, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.i2c_mux, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.led.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.gpio_adapter, driver.gpio, component.timer_manager, driver.common, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.allOf=component.gpio_adapter, driver.gpio.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='timer_manager'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.lists.condition_id'>
+      <require condition='allOf.driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.log.condition_id'>
+      <require condition='allOf.driver.common, utility.str, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, utility.str, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='str'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.log.backend.debug_console.condition_id'>
+      <require condition='allOf.component.log, driver.common, utility.debug_console, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.log, driver.common, utility.debug_console, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='log'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.log.backend.debug_console_lite.condition_id'>
+      <require condition='allOf.component.log, driver.common, utility.debug_console_lite, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.log, driver.common, utility.debug_console_lite, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='log'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.log.backend.ringbuffer.condition_id'>
+      <require condition='allOf.component.log, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.log, driver.common, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='log'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.lpi2c_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, component.i2c_adapter_interface, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpi2c, component.i2c_adapter_interface, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.lpi2c.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_adapter_interface'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.lpit_adapter.condition_id'>
+      <require condition='allOf.driver.lpit, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpit, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpit'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.lpspi_adapter.condition_id'>
+      <require condition='allOf.driver.common, driver.lpspi, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, driver.lpspi, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.lptmr_adapter.condition_id'>
+      <require condition='allOf.driver.lptmr, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lptmr, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.lpuart_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.lpuart, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpuart, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.lpuart.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.lpuart.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+    </condition>
+    <condition id='component.lpuart_dma_adapter.condition_id'>
+      <require condition='allOf.anyOf=driver.edma, component.lpuart_adapter, component.timer_manager, driver.lpuart, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.edma, component.lpuart_adapter, component.timer_manager, driver.lpuart, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.edma.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='timer_manager'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.edma.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+    </condition>
+    <condition id='component.mem_manager.condition_id'>
+      <require condition='allOf.anyOf=component.mem_manager_legacy, component.mem_manager_light, component.lists, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=component.mem_manager_legacy, component.mem_manager_light, component.lists, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.component.mem_manager_legacy, component.mem_manager_light.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.component.mem_manager_legacy, component.mem_manager_light.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_legacy'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_light'/>
+    </condition>
+    <condition id='component.mem_manager_legacy.condition_id'>
+      <require condition='allOf.component.mem_manager, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.mem_manager, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.mem_manager_light.condition_id'>
+      <require condition='allOf.component.mem_manager, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.mflash_onchip.condition_id'>
+      <require condition='allOf.anyOf=driver.flash, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.flash, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.flash.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.driver.flash.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='flash'/>
+    </condition>
+    <condition id='component.mflash_onchip_fmu.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.panic.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.pcm186x_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.pcm512x_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.pwm_tpm_adapter.condition_id'>
+      <require condition='allOf.driver.tpm, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.tpm, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tpm'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.reset_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.rng_adapter_interface.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.trng_adapter, driver.trng, component.software_rng_adapter, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.trng_adapter, driver.trng, component.software_rng_adapter, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.allOf=component.trng_adapter, driver.trng, component.software_rng_adapter.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.trng_adapter, driver.trng, component.software_rng_adapter.internal_condition'>
+      <accept condition='allOf.component.trng_adapter, driver.trng.internal_condition'/>
+      <accept Cclass='Device' Cgroup='SDK Drivers' Csub='software_rng_adapter'/>
+    </condition>
+    <condition id='allOf.component.trng_adapter, driver.trng.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='trng_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='trng'/>
+    </condition>
+    <condition id='component.rnga_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.rtc_adapter.condition_id'>
+      <require condition='allOf.driver.rtc, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.rtc, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='rtc'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.serial_manager.condition_id'>
+      <require condition='allOf.anyOf=component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual, component.lists, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual, component.lists, driver.common, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.component.serial_manager_spi, component.serial_manager_swo, component.serial_manager_uart, component.serial_manager_virtual.internal_condition'>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_spi'/>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_swo'/>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_uart'/>
+      <accept Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_virtual'/>
+    </condition>
+    <condition id='component.serial_manager_spi.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.lpspi_adapter, driver.lpspi, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.lpspi_adapter, driver.lpspi, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.allOf=component.lpspi_adapter, driver.lpspi.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.lpspi_adapter, driver.lpspi.internal_condition'>
+      <accept condition='allOf.component.lpspi_adapter, driver.lpspi.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lpspi_adapter, driver.lpspi.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+    </condition>
+    <condition id='component.serial_manager_swo.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.serial_manager_uart.condition_id'>
+      <require condition='allOf.anyOf=driver.lpuart, component.lpuart_adapter, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpuart, component.lpuart_adapter, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.lpuart.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.serial_manager_virtual.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.sgtl_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.software_crc_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.software_rng_adapter.condition_id'>
+      <require condition='allOf.component.rng_adapter_interface, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.rng_adapter_interface, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='rng_adapter_interface'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.tfa9896_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.tfa9xxx_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.timer_manager.condition_id'>
+      <require condition='allOf.anyOf=allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm, component.lists, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm, component.lists, driver.common, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.lpit_adapter, driver.lpit, allOf=component.lptmr_adapter, driver.lptmr, allOf=component.tpm_adapter, driver.tpm.internal_condition'>
+      <accept condition='allOf.component.lpit_adapter, driver.lpit.internal_condition'/>
+      <accept condition='allOf.component.lptmr_adapter, driver.lptmr.internal_condition'/>
+      <accept condition='allOf.component.tpm_adapter, driver.tpm.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lpit_adapter, driver.lpit.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpit_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpit'/>
+    </condition>
+    <condition id='allOf.component.lptmr_adapter, driver.lptmr.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr'/>
+    </condition>
+    <condition id='allOf.component.tpm_adapter, driver.tpm.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tpm_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tpm'/>
+    </condition>
+    <condition id='component.tpm_adapter.condition_id'>
+      <require condition='allOf.driver.tpm, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.trng_adapter.condition_id'>
+      <require condition='allOf.component.rng_adapter_interface, driver.trng, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.rng_adapter_interface, driver.trng, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='rng_adapter_interface'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='trng'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.wm8524_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.wm8904_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.wm8960_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='component.wm8962_adapter.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='device.CMSIS.condition_id'>
+      <require condition='allOf.CMSIS_Include_core_cm, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Include_core_cm, device=K32L3A60.internal_condition'>
+      <require Cclass='CMSIS' Cgroup='CORE'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.core_ids=cm0plus.condition_id'>
+      <require condition='core_ids.cm0plus.internal_condition'/>
+    </condition>
+    <condition id='core_ids.cm0plus.internal_condition'>
+      <accept Pname='cm0plus' Dname='*'/>
+    </condition>
+    <condition id='allOf.core_ids=cm4.condition_id'>
+      <require condition='core_ids.cm4.internal_condition'/>
+    </condition>
+    <condition id='core_ids.cm4.internal_condition'>
+      <accept Pname='cm4' Dname='*'/>
+    </condition>
+    <condition id='device_id.K32L3A60xxx.internal_condition'>
+      <accept Dname='K32L3A60VPJ1A' Dvendor='NXP:11'/>
+    </condition>
+    <condition id='device.RTE.condition_id'>
+      <require condition='allOf.device_id=K32L3A60xxx, driver.dmamux, driver.edma.internal_condition'/>
+    </condition>
+    <condition id='allOf.device_id=K32L3A60xxx, driver.dmamux, driver.edma.internal_condition'>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dmamux'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+    </condition>
+    <condition id='device.linker.condition_id'>
+      <require condition='allOf.device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.device_id=K32L3A60xxx.internal_condition'>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='device_ids.K32L3A60xxx.internal_condition'>
+      <accept Dname='K32L3A60VPJ1A' Dvendor='NXP:11'/>
+    </condition>
+    <condition id='allOf.toolchains=mdk, cores=cm0p, device_ids=K32L3A60xxx.condition_id'>
+      <require condition='toolchains.mdk.internal_condition'/>
+      <require condition='cores.cm0p.internal_condition'/>
+      <require condition='device_ids.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='toolchains.mdk.internal_condition'>
+      <accept Tcompiler='ARMCC'/>
+    </condition>
+    <condition id='cores.cm0p.internal_condition'>
+      <accept Dcore='Cortex-M0+'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, cores=cm0p, device_ids=K32L3A60xxx.condition_id'>
+      <require condition='toolchains.armgcc.internal_condition'/>
+      <require condition='cores.cm0p.internal_condition'/>
+      <require condition='device_ids.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='toolchains.armgcc.internal_condition'>
+      <accept Tcompiler='GCC'/>
+    </condition>
+    <condition id='allOf.toolchains=iar, cores=cm0p, device_ids=K32L3A60xxx.condition_id'>
+      <require condition='toolchains.iar.internal_condition'/>
+      <require condition='cores.cm0p.internal_condition'/>
+      <require condition='device_ids.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='toolchains.iar.internal_condition'>
+      <accept Tcompiler='IAR'/>
+    </condition>
+    <condition id='allOf.toolchains=mdk, cores=cm4f, device_ids=K32L3A60xxx.condition_id'>
+      <require condition='toolchains.mdk.internal_condition'/>
+      <require condition='cores.cm4f.internal_condition'/>
+      <require condition='device_ids.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='cores.cm4f.internal_condition'>
+      <accept Dcore='Cortex-M4'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, cores=cm4f, device_ids=K32L3A60xxx.condition_id'>
+      <require condition='toolchains.armgcc.internal_condition'/>
+      <require condition='cores.cm4f.internal_condition'/>
+      <require condition='device_ids.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=iar, cores=cm4f, device_ids=K32L3A60xxx.condition_id'>
+      <require condition='toolchains.iar.internal_condition'/>
+      <require condition='cores.cm4f.internal_condition'/>
+      <require condition='device_ids.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='device.project_template.condition_id'>
+      <require condition='allOf.component.lpuart_adapter, device_id=K32L3A60xxx, device.startup, driver.clock, driver.common, driver.gpio, driver.lpi2c, driver.lpuart, driver.msmc, driver.port, anyOf=allOf=component.serial_manager, component.serial_manager_uart, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lpuart_adapter, device_id=K32L3A60xxx, device.startup, driver.clock, driver.common, driver.gpio, driver.lpi2c, driver.lpuart, driver.msmc, driver.port, anyOf=allOf=component.serial_manager, component.serial_manager_uart, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='Startup' Csub=''/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='clock'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='gpio'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='msmc'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='port'/>
+      <require condition='anyOf.allOf=component.serial_manager, component.serial_manager_uart, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition'/>
+    </condition>
+    <condition id='anyOf.allOf=component.serial_manager, component.serial_manager_uart, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition'>
+      <accept condition='allOf.component.serial_manager, component.serial_manager_uart, utility.assert, utility.debug_console, utility.debug_console_template_config.internal_condition'/>
+      <accept condition='allOf.utility.assert_lite, utility.debug_console_lite.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.serial_manager, component.serial_manager_uart, utility.assert, utility.debug_console, utility.debug_console_template_config.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_uart'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='assert'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug console template config'/>
+    </condition>
+    <condition id='allOf.utility.assert_lite, utility.debug_console_lite.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='assert_lite'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite'/>
+    </condition>
+    <condition id='device.startup.condition_id'>
+      <require condition='allOf.device.system, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.device.system, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='CMSIS' Csub='K32L3A60_system'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=iar, core_ids=cm0plus.condition_id'>
+      <require condition='toolchains.iar.internal_condition'/>
+      <require condition='core_ids.cm0plus.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, core_ids=cm0plus.condition_id'>
+      <require condition='toolchains.armgcc.internal_condition'/>
+      <require condition='core_ids.cm0plus.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=mdk, core_ids=cm0plus.condition_id'>
+      <require condition='toolchains.mdk.internal_condition'/>
+      <require condition='core_ids.cm0plus.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=iar, core_ids=cm4.condition_id'>
+      <require condition='toolchains.iar.internal_condition'/>
+      <require condition='core_ids.cm4.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, core_ids=cm4.condition_id'>
+      <require condition='toolchains.armgcc.internal_condition'/>
+      <require condition='core_ids.cm4.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=mdk, core_ids=cm4.condition_id'>
+      <require condition='toolchains.mdk.internal_condition'/>
+      <require condition='core_ids.cm4.internal_condition'/>
+    </condition>
+    <condition id='device.system.condition_id'>
+      <require condition='allOf.device.CMSIS, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.device.CMSIS, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='CMSIS' Csub='K32L3A60_header'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.ak4497.condition_id'>
+      <require condition='allOf.component.ak4497_adapter, component.codec_adapters, component.codec_i2c, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.ak4497_adapter, component.codec_adapters, component.codec_i2c, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='ak4497_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.cache_lpcac.condition_id'>
+      <require condition='allOf.core=cm4f, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.core=cm4f, device=K32L3A60.internal_condition'>
+      <require condition='core.cm4f.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='core.cm4f.internal_condition'>
+      <accept Dcore='Cortex-M4'/>
+    </condition>
+    <condition id='driver.cache_lplmem.condition_id'>
+      <require condition='allOf.core=cm0p, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.core=cm0p, device=K32L3A60.internal_condition'>
+      <require condition='core.cm0p.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='core.cm0p.internal_condition'>
+      <accept Dcore='Cortex-M0+'/>
+    </condition>
+    <condition id='driver.cau3.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.clock.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.cmsis_lpi2c.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.I2C, anyOf=allOf=driver.lpi2c, device_id=K32L3A60xxx, device.RTE, device_id=K32L3A60xxx, driver.lpi2c_edma.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.I2C, anyOf=allOf=driver.lpi2c, device_id=K32L3A60xxx, device.RTE, device_id=K32L3A60xxx, driver.lpi2c_edma.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='I2C' Capiversion='2.4.0'/>
+      <require condition='anyOf.allOf=driver.lpi2c, device_id=K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_edma'/>
+    </condition>
+    <condition id='anyOf.allOf=driver.lpi2c, device_id=K32L3A60xxx.internal_condition'>
+      <accept condition='allOf.driver.lpi2c, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpi2c, device_id=K32L3A60xxx.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.cmsis_lpspi.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.SPI, anyOf=allOf=driver.lpspi, device_id=K32L3A60xxx, device.RTE, device_id=K32L3A60xxx, driver.lpspi_edma.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.SPI, anyOf=allOf=driver.lpspi, device_id=K32L3A60xxx, device.RTE, device_id=K32L3A60xxx, driver.lpspi_edma.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='SPI' Capiversion='2.3.0'/>
+      <require condition='anyOf.allOf=driver.lpspi, device_id=K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_edma'/>
+    </condition>
+    <condition id='anyOf.allOf=driver.lpspi, device_id=K32L3A60xxx.internal_condition'>
+      <accept condition='allOf.driver.lpspi, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpspi, device_id=K32L3A60xxx.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.cmsis_lpuart.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.USART, anyOf=allOf=driver.lpuart, device_id=K32L3A60xxx, device.RTE, device_id=K32L3A60xxx, driver.lpuart_edma.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.USART, anyOf=allOf=driver.lpuart, device_id=K32L3A60xxx, device.RTE, device_id=K32L3A60xxx, driver.lpuart_edma.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='USART' Capiversion='2.4.0'/>
+      <require condition='anyOf.allOf=driver.lpuart, device_id=K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_edma'/>
+    </condition>
+    <condition id='anyOf.allOf=driver.lpuart, device_id=K32L3A60xxx.internal_condition'>
+      <accept condition='allOf.driver.lpuart, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.lpuart, device_id=K32L3A60xxx.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.codec.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.common.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.cores=cm0p, cm4f.condition_id'>
+      <require condition='cores.cm0p, cm4f.internal_condition'/>
+    </condition>
+    <condition id='cores.cm0p, cm4f.internal_condition'>
+      <accept Dcore='Cortex-M0+'/>
+      <accept Dcore='Cortex-M4'/>
+    </condition>
+    <condition id='driver.crc.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.cs42448.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.cs42448_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.cs42448_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='cs42448_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.cs42888.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.cs42888_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.cs42888_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='cs42888_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.dac_1.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.dialog7212.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.da7212_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.da7212_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='da7212_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.dmamux.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.edma.condition_id'>
+      <require condition='allOf.driver.common, driver.dmamux, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, driver.dmamux, device_id=K32L3A60xxx.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='dmamux'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.ektf2k.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.ewm.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.flash.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.flexbus.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_i2c_master.condition_id'>
+      <require condition='allOf.driver.flexio, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.flexio, device_id=K32L3A60xxx.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flexio'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_spi.condition_id'>
+      <require condition='allOf.driver.flexio, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_spi_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.edma, driver.flexio_spi, driver.edma, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.edma, driver.flexio_spi, driver.edma, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.edma.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_spi'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_uart.condition_id'>
+      <require condition='allOf.driver.flexio, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.flexio_uart_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.edma, driver.flexio_uart, driver.edma, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.edma, driver.flexio_uart, driver.edma, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.edma.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_uart'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.ft3267.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.ft5406.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.ft5406_rt.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpi2c, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.lpi2c.internal_condition'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.ft6x06.condition_id'>
+      <require condition='allOf.CMSIS_Driver_Include.I2C, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.CMSIS_Driver_Include.I2C, device=K32L3A60.internal_condition'>
+      <require Cclass='CMSIS Driver' Cgroup='I2C' Capiversion='2.4.0'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.fxas21002cq.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.lpi2c.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.fxls8974cf.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.fxos8700cq.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.gpio.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.gt911.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.htu21d.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.icm42688p.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.ili9341.condition_id'>
+      <require condition='allOf.driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.intmux.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.llwu.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpadc.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpcmp.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpi2c.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpi2c_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.edma, driver.lpi2c, driver.edma, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.edma, driver.lpi2c, driver.edma, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.edma.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.lpit.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpspi.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpspi_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.edma, driver.lpspi, driver.edma, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.edma, driver.lpspi, driver.edma, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.edma.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.lptmr.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpuart.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.lpuart_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.edma, driver.lpuart, driver.edma, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.edma, driver.lpuart, driver.edma, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.edma.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.lsm6dso.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.max30101.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.mma8451q.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.mma8652fc.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.mmdvsq.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.msmc.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.mu.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.mx25r_flash.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.nmh1000.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.p3t1755.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.pcm186x.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.pcm186x_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.pcm186x_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='pcm186x_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.pcm512x.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.pcm512x_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.pcm512x_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='pcm512x_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.pf1550.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.pf3000.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.pf5020.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.port.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.psp27801.condition_id'>
+      <require condition='allOf.driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.rtc.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.sai.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.sai_edma.condition_id'>
+      <require condition='allOf.anyOf=driver.edma, driver.sai, driver.edma, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.edma, driver.sai, driver.edma, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.edma.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='sai'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='edma'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.sema42.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.sgtl5000.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.sgtl_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.sgtl_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='sgtl_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.sim.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.smartcard_phy_gpio.condition_id'>
+      <require condition='allOf.driver.common, driver.smartcard_uart, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, driver.smartcard_uart, device_id=K32L3A60xxx.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_uart'/>
+      <require condition='device_id.K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.smartcard_phy_tda8035.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.smartcard_uart.condition_id'>
+      <require condition='allOf.driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.spm.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.tfa9896.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.tfa9896_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.tfa9896_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9896_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.tfa9xxx.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.tfa9xxx_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.tfa9xxx_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9xxx_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.tfa9xxx_hal.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, driver.codec, driver.tfa9xxx, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, driver.codec, driver.tfa9xxx, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9xxx'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.tma525b.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.tpm.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.trgmux.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.trng.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.tsl2561.condition_id'>
+      <require condition='allOf.anyOf=driver.lpi2c, driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.tstmr.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.usdhc.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.vref.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.wdog32.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='driver.wm8524.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.wm8524_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.wm8524_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='wm8524_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.wm8904.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.wm8904_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.wm8904_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='wm8904_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.wm8960.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.wm8960_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.wm8960_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='wm8960_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.wm8962.condition_id'>
+      <require condition='allOf.component.codec_adapters, component.codec_i2c, component.wm8962_adapter, driver.codec, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.codec_adapters, component.codec_i2c, component.wm8962_adapter, driver.codec, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='wm8962_adapter'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='codec'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='driver.xrdc.condition_id'>
+      <require condition='allOf.driver.common, device_id=K32L3A60xxx.internal_condition'/>
+    </condition>
+    <condition id='utilities.misc_utilities.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc.condition_id'>
+      <require condition='toolchains.armgcc.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, mdk, cores=cm4f.condition_id'>
+      <require condition='toolchains.armgcc, mdk.internal_condition'/>
+      <require condition='cores.cm4f.internal_condition'/>
+    </condition>
+    <condition id='toolchains.armgcc, mdk.internal_condition'>
+      <accept Tcompiler='GCC'/>
+      <accept Tcompiler='ARMCC'/>
+    </condition>
+    <condition id='utility.assert.condition_id'>
+      <require condition='allOf.driver.common, utility.debug_console, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, utility.debug_console, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='utility.assert_lite.condition_id'>
+      <require condition='allOf.driver.common, not=utility.assert, utility.debug_console_lite, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.driver.common, not=utility.assert, utility.debug_console_lite, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='not.utility.assert.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='not.utility.assert.internal_condition'>
+      <deny Cclass='Device' Cgroup='SDK Utilities' Csub='assert'/>
+    </condition>
+    <condition id='utility.debug_console.condition_id'>
+      <require condition='allOf.component.serial_manager, driver.common, utility.str, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.serial_manager, driver.common, utility.str, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='str'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='utility.debug_console_lite.condition_id'>
+      <require condition='allOf.anyOf=driver.lpuart, driver.common, not=utility.debug_console, utility.str, component.lpuart_adapter, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.anyOf=driver.lpuart, driver.common, not=utility.debug_console, utility.str, component.lpuart_adapter, device=K32L3A60.internal_condition'>
+      <require condition='anyOf.driver.lpuart.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require condition='not.utility.debug_console.internal_condition'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='str'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='not.utility.debug_console.internal_condition'>
+      <deny Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+    </condition>
+    <condition id='utility.debug_console_template_config.condition_id'>
+      <require condition='allOf.utility.debug_console, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.utility.debug_console, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='utility.incbin.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.toolchains=armgcc, mdk.condition_id'>
+      <require condition='toolchains.armgcc, mdk.internal_condition'/>
+    </condition>
+    <condition id='utility.notifier.condition_id'>
+      <require condition='allOf.device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='utility.shell.condition_id'>
+      <require condition='allOf.component.lists, driver.common, utility.str, device=K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='allOf.component.lists, driver.common, utility.str, device=K32L3A60.internal_condition'>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='lists'/>
+      <require Cclass='Device' Cgroup='SDK Drivers' Csub='common'/>
+      <require Cclass='Device' Cgroup='SDK Utilities' Csub='str'/>
+      <require condition='device.K32L3A60.internal_condition'/>
+    </condition>
+    <condition id='utility.str.condition_id'>
+      <require condition='allOf.driver.common, device=K32L3A60.internal_condition'/>
+    </condition>
+  </conditions>
+  <components>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='cmake_toolchain' Cversion='1.0.0' condition='cmake_toolchain.condition_id'>
+      <description>Cmake_toolchain</description>
+      <files>
+        <file category='other' name='tools/cmake_toolchain_files/armgcc.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/xcc.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/xclang.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/armgcc_force_cpp.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/mcux_config.cmake' projectpath='cmake_toolchain_files'/>
+        <file category='other' name='tools/cmake_toolchain_files/riscvllvm.cmake' projectpath='cmake_toolchain_files'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='Legacy_flash_adapter' Cversion='1.0.0' condition='component.Legacy_flash_adapter.condition_id'>
+      <description>Component Legacy_flash_adapter</description>
+      <files>
+        <file category='header' name='components/internal_flash/fsl_adapter_flash.h' projectpath='component/internal_flash'/>
+        <file category='sourceC' name='components/internal_flash/fsl_adapter_flash.c' projectpath='component/internal_flash'/>
+        <file category='include' name='components/internal_flash/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ak4497_adapter' Cversion='2.2.0' condition='component.ak4497_adapter.condition_id'>
+      <description>Component ak4497 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/ak4497/fsl_codec_ak4497_adapter.h' projectpath='codec/port/ak4497'/>
+        <file category='sourceC' name='components/codec/port/ak4497/fsl_codec_ak4497_adapter.c' projectpath='codec/port/ak4497'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/ak4497/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='one_i2c_mux_device_enabled' Cversion='1.0.0' condition='component.at_least_one_i2c_mux_device_enabled.condition_id'>
+      <description>Component at_least_one_i2c_mux_device_enabled</description>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.at_least_one_i2c_mux_device_enabled_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='audio_sai_edma_adapter' Cversion='1.0.0' condition='component.audio_sai_edma_adapter.condition_id'>
+      <description>Component sai_edma_adapter</description>
+      <files>
+        <file category='header' name='components/audio/fsl_adapter_audio.h' projectpath='component/audio'/>
+        <file category='sourceC' name='components/audio/fsl_adapter_sai.c' projectpath='component/audio'/>
+        <file category='include' name='components/audio/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='button' Cversion='1.0.0' condition='component.button.condition_id'>
+      <description>Component button</description>
+      <files>
+        <file category='header' name='components/button/fsl_component_button.h' projectpath='component/button'/>
+        <file category='sourceC' name='components/button/fsl_component_button.c' projectpath='component/button'/>
+        <file category='include' name='components/button/'/>
+      </files>
+    </component>
+    <component Cclass='Board Support' Cgroup='SDK Project Template' Csub='cmsis_drivers' Cversion='2.0.0' condition='component.cmsis_drivers.condition_id'>
+      <description>CMSIS driver</description>
+      <files>
+        <file category='doc' name='components/cmsis_drivers/component.cmsis_drivers_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='codec_adapters' Cversion='2.2.0' condition='component.codec_adapters.condition_id'>
+      <description>Component codec adapters for multi codec</description>
+      <RTE_Components_h>
+#ifndef CODEC_MULTI_ADAPTERS
+#define CODEC_MULTI_ADAPTERS 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='sourceC' name='components/codec/port/fsl_codec_adapter.c' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='codec_i2c' Cversion='2.1.0' condition='component.codec_i2c.condition_id'>
+      <description>Component codec_i2c</description>
+      <RTE_Components_h>
+        #ifndef SDK_I2C_BASED_COMPONENT_USED
+        #define SDK_I2C_BASED_COMPONENT_USED 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/i2c/fsl_codec_i2c.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/i2c/fsl_codec_i2c.c' projectpath='codec'/>
+        <file category='include' name='components/codec/i2c/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='crc_adapter' Cversion='1.0.0' condition='component.crc_adapter.condition_id'>
+      <description>Component crc_adapter</description>
+      <files>
+        <file category='header' name='components/crc/fsl_adapter_crc.h' projectpath='component/crc'/>
+        <file category='sourceC' name='components/crc/fsl_adapter_crc.c' projectpath='component/crc'/>
+        <file category='include' name='components/crc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cs42448_adapter' Cversion='2.2.1' condition='component.cs42448_adapter.condition_id'>
+      <description>Component cs42448 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/cs42448/fsl_codec_cs42448_adapter.h' projectpath='codec/port/cs42448'/>
+        <file category='sourceC' name='components/codec/port/cs42448/fsl_codec_cs42448_adapter.c' projectpath='codec/port/cs42448'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/cs42448/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cs42888_adapter' Cversion='2.2.1' condition='component.cs42888_adapter.condition_id'>
+      <description>Component cs42888 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/cs42888/fsl_codec_cs42888_adapter.h' projectpath='codec/port/cs42888'/>
+        <file category='sourceC' name='components/codec/port/cs42888/fsl_codec_cs42888_adapter.c' projectpath='codec/port/cs42888'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/cs42888/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='da7212_adapter' Cversion='2.2.0' condition='component.da7212_adapter.condition_id'>
+      <description>Component da7212 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/da7212/fsl_codec_da7212_adapter.h' projectpath='codec/port/da7212'/>
+        <file category='sourceC' name='components/codec/port/da7212/fsl_codec_da7212_adapter.c' projectpath='codec/port/da7212'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/da7212/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='eeprom_AT25Fxxxx' Cversion='1.0.0' condition='component.eeprom_AT25Fxxxx.condition_id'>
+      <description>Component eeprom_at25fxxxx</description>
+      <files>
+        <file category='doc' name='components/extern_flash/component.eeprom_AT25Fxxxx_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='eeprom_AT45DBxxxx' Cversion='1.0.0' condition='component.eeprom_AT45DBxxxx.condition_id'>
+      <description>Component eeprom_at45dbxxxx</description>
+      <files>
+        <file category='doc' name='components/extern_flash/component.eeprom_AT45DBxxxx_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='eeprom_InternalFlash' Cversion='1.0.0' condition='component.eeprom_InternalFlash.condition_id'>
+      <description>Component eeprom_internalflash</description>
+      <files>
+        <file category='doc' name='components/extern_flash/component.eeprom_InternalFlash_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='enable_pca9544' Cversion='1.0.0' condition='component.enable_pca9544.condition_id'>
+      <description>Component enable_pca9544</description>
+      <RTE_Components_h>
+#ifndef MCUX_ENABLE_PCA9544
+#define MCUX_ENABLE_PCA9544 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.enable_pca9544_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='enable_pca9548' Cversion='1.0.0' condition='component.enable_pca9548.condition_id'>
+      <description>Component enable_pca9548</description>
+      <RTE_Components_h>
+#ifndef MCUX_ENABLE_PCA9548
+#define MCUX_ENABLE_PCA9548 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.enable_pca9548_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flash_adapter' Cversion='1.0.0' condition='component.flash_adapter.condition_id'>
+      <description>Component flash_adapter</description>
+      <files>
+        <file category='doc' name='components/internal_flash/component.flash_adapter_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flash_nor_lpspi' Cversion='1.0.0' condition='component.flash_nor_lpspi.condition_id'>
+      <description>Component flash_nor_lpspi</description>
+      <files>
+        <file category='header' name='components/flash/nor/fsl_nor_flash.h' projectpath='nor_flash/nor'/>
+        <file category='sourceC' name='components/flash/nor/lpspi/fsl_lpspi_nor_flash.c' projectpath='nor_flash/nor/lpspi'/>
+        <file category='header' name='components/flash/nor/lpspi/fsl_lpspi_nor_flash.h' projectpath='nor_flash/nor/lpspi'/>
+        <file category='sourceC' name='components/flash/nor/lpspi/fsl_lpspi_mem_adapter.c' projectpath='nor_flash/nor/lpspi'/>
+        <file category='header' name='components/flash/nor/lpspi/fsl_lpspi_mem_adapter.h' projectpath='nor_flash/nor/lpspi'/>
+        <file category='include' name='components/flash/nor/'/>
+        <file category='include' name='components/flash/nor/lpspi/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='gpio_adapter' Cversion='1.0.1' condition='component.gpio_adapter.condition_id'>
+      <description>Component gpio_adapter</description>
+      <files>
+        <file category='header' name='components/gpio/fsl_adapter_gpio.h' projectpath='component/gpio'/>
+        <file category='sourceC' name='components/gpio/fsl_adapter_gpio.c' projectpath='component/gpio'/>
+        <file category='include' name='components/gpio/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_adapter_interface' Cversion='1.0.0' condition='component.i2c_adapter_interface.condition_id'>
+      <description>Component i2c_adapter_interface</description>
+      <files>
+        <file category='header' name='components/i2c/fsl_adapter_i2c.h' projectpath='component/i2c'/>
+        <file category='include' name='components/i2c/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux' Cversion='1.0.0' condition='component.i2c_mux.condition_id'>
+      <description>Component i2c_mux</description>
+      <files>
+        <file category='doc' name='components/i2c/muxes/component.i2c_mux_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_mux_pca954x' Cversion='1.0.0' condition='component.i2c_mux_pca954x.condition_id'>
+      <description>Component i2c_mux_pca954x</description>
+      <files>
+        <file category='header' name='components/i2c/muxes/fsl_pca954x.h' projectpath='component/i2c/muxes'/>
+        <file category='sourceC' name='components/i2c/muxes/fsl_pca954x.c' projectpath='component/i2c/muxes'/>
+        <file category='include' name='components/i2c/muxes/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='led' Cversion='1.0.0' condition='component.led.condition_id'>
+      <description>Component led</description>
+      <files>
+        <file category='header' name='components/led/fsl_component_led.h' projectpath='component/led'/>
+        <file category='sourceC' name='components/led/fsl_component_led.c' projectpath='component/led'/>
+        <file category='include' name='components/led/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lists' Cversion='1.0.0' condition='component.lists.condition_id'>
+      <description>Component lists</description>
+      <files>
+        <file category='header' name='components/lists/fsl_component_generic_list.h' projectpath='component/lists'/>
+        <file category='sourceC' name='components/lists/fsl_component_generic_list.c' projectpath='component/lists'/>
+        <file category='include' name='components/lists/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='log' Cversion='1.0.0' condition='component.log.condition_id'>
+      <description>Component log</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log.c' projectpath='component/log'/>
+        <file category='header' name='components/log/fsl_component_log_config.h' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debugconsole' Cversion='1.0.0' condition='component.log.backend.debug_console.condition_id'>
+      <description>Component log backend debug console</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log_backend_debugconsole.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log_backend_debugconsole.c' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='debugconsole_lite' Cversion='1.0.0' condition='component.log.backend.debug_console_lite.condition_id'>
+      <description>Component log backend debug console lite</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log_backend_debugconsole.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log_backend_debugconsole.c' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ringbuffer' Cversion='1.0.0' condition='component.log.backend.ringbuffer.condition_id'>
+      <description>Component log backend ring buffer</description>
+      <files>
+        <file category='header' name='components/log/fsl_component_log_backend_ringbuffer.h' projectpath='component/log'/>
+        <file category='sourceC' name='components/log/fsl_component_log_backend_ringbuffer.c' projectpath='component/log'/>
+        <file category='include' name='components/log/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpi2c_adapter' Cversion='1.0.0' condition='component.lpi2c_adapter.condition_id'>
+      <description>Component lpi2c_adapter</description>
+      <files>
+        <file category='sourceC' name='components/i2c/fsl_adapter_lpi2c.c' projectpath='component/i2c'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpit_adapter' Cversion='1.0.0' condition='component.lpit_adapter.condition_id'>
+      <description>Component lpit_adapter</description>
+      <RTE_Components_h>
+#ifndef TIMER_PORT_TYPE_LPIT
+#define TIMER_PORT_TYPE_LPIT 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/timer/fsl_adapter_timer.h' projectpath='component/timer'/>
+        <file category='sourceC' name='components/timer/fsl_adapter_lpit.c' projectpath='component/timer'/>
+        <file category='include' name='components/timer/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_adapter' Cversion='1.0.0' condition='component.lpspi_adapter.condition_id'>
+      <description>Component lpspi_adapter</description>
+      <files>
+        <file category='header' name='components/spi/fsl_adapter_spi.h' projectpath='component/spi'/>
+        <file category='sourceC' name='components/spi/fsl_adapter_lpspi.c' projectpath='component/spi'/>
+        <file category='include' name='components/spi/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr_adapter' Cversion='1.0.0' condition='component.lptmr_adapter.condition_id'>
+      <description>Component lptmr_adapter</description>
+      <RTE_Components_h>
+#ifndef TIMER_PORT_TYPE_LPTMR
+#define TIMER_PORT_TYPE_LPTMR 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/timer/fsl_adapter_timer.h' projectpath='component/timer'/>
+        <file category='sourceC' name='components/timer/fsl_adapter_lptmr.c' projectpath='component/timer'/>
+        <file category='include' name='components/timer/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_adapter' Cversion='1.0.0' condition='component.lpuart_adapter.condition_id'>
+      <description>Component lpuart_adapter</description>
+      <files>
+        <file category='header' name='components/uart/fsl_adapter_uart.h' projectpath='component/uart'/>
+        <file category='sourceC' name='components/uart/fsl_adapter_lpuart.c' projectpath='component/uart'/>
+        <file category='include' name='components/uart/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_dma_adapter' Cversion='1.0.0' condition='component.lpuart_dma_adapter.condition_id'>
+      <description>Component lpuart_dma_adapter</description>
+      <RTE_Components_h>
+#ifndef HAL_UART_DMA_ENABLE
+#define HAL_UART_DMA_ENABLE 0
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/uart/fsl_adapter_uart.h' projectpath='component/uart'/>
+        <file category='sourceC' name='components/uart/fsl_adapter_lpuart.c' projectpath='component/uart'/>
+        <file category='include' name='components/uart/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager' Cversion='1.0.0' condition='component.mem_manager.condition_id'>
+      <description>Component mem_manager</description>
+      <files>
+        <file category='header' name='components/mem_manager/fsl_component_mem_manager.h' projectpath='component/mem_manager'/>
+        <file category='include' name='components/mem_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_legacy' Cversion='1.0.0' condition='component.mem_manager_legacy.condition_id'>
+      <description>Component mem_manager_legacy</description>
+      <files>
+        <file category='sourceC' name='components/mem_manager/fsl_component_mem_manager.c' projectpath='component/mem_manager'/>
+        <file category='include' name='components/mem_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mem_manager_light' Cversion='1.0.0' condition='component.mem_manager_light.condition_id'>
+      <description>Component mem_manager_light</description>
+      <files>
+        <file category='sourceC' name='components/mem_manager/fsl_component_mem_manager_light.c' projectpath='component/mem_manager'/>
+        <file category='include' name='components/mem_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mflash_onchip' Cversion='1.0.0' condition='component.mflash_onchip.condition_id'>
+      <description>mflash onchip</description>
+      <files>
+        <file category='doc' name='components/flash/mflash/component.mflash_onchip_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mflash_onchip_fmu' Cversion='1.0.0' condition='component.mflash_onchip_fmu.condition_id'>
+      <description>mflash onchip_fmu</description>
+      <files>
+        <file category='doc' name='components/flash/mflash/component.mflash_onchip_fmu_dummy.txt'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='panic' Cversion='1.0.0' condition='component.panic.condition_id'>
+      <description>Component panic</description>
+      <files>
+        <file category='header' name='components/panic/fsl_component_panic.h' projectpath='component/panic'/>
+        <file category='sourceC' name='components/panic/fsl_component_panic.c' projectpath='component/panic'/>
+        <file category='include' name='components/panic/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pcm186x_adapter' Cversion='2.0.0' condition='component.pcm186x_adapter.condition_id'>
+      <description>Component pcm186x adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/pcm186x/fsl_codec_pcm186x_adapter.h' projectpath='codec/port/pcm186x'/>
+        <file category='sourceC' name='components/codec/port/pcm186x/fsl_codec_pcm186x_adapter.c' projectpath='codec/port/pcm186x'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/pcm186x/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pcm512x_adapter' Cversion='2.0.0' condition='component.pcm512x_adapter.condition_id'>
+      <description>Component pcm512x adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/pcm512x/fsl_codec_pcm512x_adapter.h' projectpath='codec/port/pcm512x'/>
+        <file category='sourceC' name='components/codec/port/pcm512x/fsl_codec_pcm512x_adapter.c' projectpath='codec/port/pcm512x'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/pcm512x/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pwm_tpm_adapter' Cversion='1.0.0' condition='component.pwm_tpm_adapter.condition_id'>
+      <description>Component pwm_tpm_adapter</description>
+      <files>
+        <file category='header' name='components/pwm/fsl_adapter_pwm.h' projectpath='component/pwm'/>
+        <file category='sourceC' name='components/pwm/fsl_adapter_pwm_tpm.c' projectpath='component/pwm'/>
+        <file category='include' name='components/pwm/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='reset_adapter' Cversion='1.0.0' condition='component.reset_adapter.condition_id'>
+      <description>Component reset_adapter</description>
+      <files>
+        <file category='header' name='components/reset/fsl_adapter_reset.h' projectpath='component/reset'/>
+        <file category='sourceC' name='components/reset/fsl_adapter_reset.c' projectpath='component/reset'/>
+        <file category='include' name='components/reset/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='rng_adapter_interface' Cversion='1.0.0' condition='component.rng_adapter_interface.condition_id'>
+      <description>Component rng_adapter_interface</description>
+      <files>
+        <file category='header' name='components/rng/fsl_adapter_rng.h' projectpath='component/rng'/>
+        <file category='include' name='components/rng/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='rnga_adapter' Cversion='1.0.0' condition='component.rnga_adapter.condition_id'>
+      <description>Component rnga_adapter</description>
+      <files>
+        <file category='sourceC' name='components/rng/fsl_adapter_rnga.c' projectpath='component/rng'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='component_rtc' Cversion='1.0.0' condition='component.rtc_adapter.condition_id'>
+      <description>Component rtc</description>
+      <RTE_Components_h>
+        #ifndef RTC_LEGACY_FUNCTION_PROTOTYPE
+        #define RTC_LEGACY_FUNCTION_PROTOTYPE 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/rtc/fsl_adapter_rtc.h' projectpath='component/rtc'/>
+        <file category='sourceC' name='components/rtc/fsl_adapter_rtc.c' projectpath='component/rtc'/>
+        <file category='include' name='components/rtc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager' Cversion='1.0.1' condition='component.serial_manager.condition_id'>
+      <description>Component serial_manager</description>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_manager.h' projectpath='component/serial_manager'/>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_internal.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_manager.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_spi' Cversion='1.0.0' condition='component.serial_manager_spi.condition_id'>
+      <description>Component serial_manager_spi</description>
+      <RTE_Components_h>
+        #ifndef SERIAL_PORT_TYPE_SPI
+        #define SERIAL_PORT_TYPE_SPI 1
+        #endif
+        #ifndef SERIAL_PORT_TYPE_SPI_MASTER
+        #define SERIAL_PORT_TYPE_SPI_MASTER 1
+        #endif
+        #ifndef SERIAL_PORT_TYPE_SPI_SLAVE
+        #define SERIAL_PORT_TYPE_SPI_SLAVE 1
+        #endif
+        #ifndef SERIAL_MANAGER_NON_BLOCKING_MODE
+        #define SERIAL_MANAGER_NON_BLOCKING_MODE 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_spi.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_spi.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_swo' Cversion='1.0.0' condition='component.serial_manager_swo.condition_id'>
+      <description>Component serial_manager_swo</description>
+      <RTE_Components_h>
+#ifndef SERIAL_PORT_TYPE_SWO
+#define SERIAL_PORT_TYPE_SWO 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_swo.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_swo.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_uart' Cversion='1.0.0' condition='component.serial_manager_uart.condition_id'>
+      <description>Component serial_manager_uart</description>
+      <RTE_Components_h>
+#ifndef SERIAL_PORT_TYPE_UART
+#define SERIAL_PORT_TYPE_UART 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_uart.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_uart.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='serial_manager_virtual' Cversion='1.0.0' condition='component.serial_manager_virtual.condition_id'>
+      <description>Component serial_manager_virtual</description>
+      <RTE_Components_h>
+        #ifndef SSERIAL_PORT_TYPE_VIRTUAL
+        #define SSERIAL_PORT_TYPE_VIRTUAL 1
+        #endif
+        #ifndef DEBUG_CONSOLE_TRANSFER_NON_BLOCKING
+        #define DEBUG_CONSOLE_TRANSFER_NON_BLOCKING 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/serial_manager/fsl_component_serial_port_virtual.h' projectpath='component/serial_manager'/>
+        <file category='sourceC' name='components/serial_manager/fsl_component_serial_port_virtual.c' projectpath='component/serial_manager'/>
+        <file category='include' name='components/serial_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sgtl_adapter' Cversion='2.2.0' condition='component.sgtl_adapter.condition_id'>
+      <description>Component sgtl5000 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/sgtl5000/fsl_codec_sgtl_adapter.h' projectpath='codec/port/sgtl5000'/>
+        <file category='sourceC' name='components/codec/port/sgtl5000/fsl_codec_sgtl_adapter.c' projectpath='codec/port/sgtl5000'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/sgtl5000/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='software_crc_adapter' Cversion='1.0.0' condition='component.software_crc_adapter.condition_id'>
+      <description>Component software_crc_adapter</description>
+      <files>
+        <file category='header' name='components/crc/fsl_adapter_crc.h' projectpath='component/crc'/>
+        <file category='sourceC' name='components/crc/fsl_adapter_software_crc.c' projectpath='component/crc'/>
+        <file category='include' name='components/crc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='software_rng_adapter' Cversion='1.0.0' condition='component.software_rng_adapter.condition_id'>
+      <description>Component software_rng_adapter</description>
+      <files>
+        <file category='sourceC' name='components/rng/fsl_adapter_software_rng.c' projectpath='component/rng'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9896_adapter' Cversion='2.2.0' condition='component.tfa9896_adapter.condition_id'>
+      <description>Component tfa9896 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/tfa9896/fsl_codec_tfa9896_adapter.h' projectpath='codec/port/tfa9896'/>
+        <file category='sourceC' name='components/codec/port/tfa9896/fsl_codec_tfa9896_adapter.c' projectpath='codec/port/tfa9896'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/tfa9896/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9xxx_adapter' Cversion='2.2.0' condition='component.tfa9xxx_adapter.condition_id'>
+      <description>Component tfa9xxx adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/tfa9xxx/fsl_codec_tfa9xxx_adapter.h' projectpath='codec/port/tfa9xxx'/>
+        <file category='sourceC' name='components/codec/port/tfa9xxx/fsl_codec_tfa9xxx_adapter.c' projectpath='codec/port/tfa9xxx'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/tfa9xxx/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='timer_manager' Cversion='1.0.0' condition='component.timer_manager.condition_id'>
+      <description>Component timer_manager</description>
+      <files>
+        <file category='header' name='components/timer_manager/fsl_component_timer_manager.h' projectpath='component/timer_manager'/>
+        <file category='sourceC' name='components/timer_manager/fsl_component_timer_manager.c' projectpath='component/timer_manager'/>
+        <file category='include' name='components/timer_manager/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tpm_adapter' Cversion='1.0.0' condition='component.tpm_adapter.condition_id'>
+      <description>Component tpm_adapter</description>
+      <RTE_Components_h>
+#ifndef TIMER_PORT_TYPE_TPM
+#define TIMER_PORT_TYPE_TPM 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/timer/fsl_adapter_timer.h' projectpath='component/timer'/>
+        <file category='sourceC' name='components/timer/fsl_adapter_tpm.c' projectpath='component/timer'/>
+        <file category='include' name='components/timer/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='trng_adapter' Cversion='1.0.0' condition='component.trng_adapter.condition_id'>
+      <description>Component trng_adapter</description>
+      <files>
+        <file category='sourceC' name='components/rng/fsl_adapter_trng.c' projectpath='component/rng'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8524_adapter' Cversion='2.2.0' condition='component.wm8524_adapter.condition_id'>
+      <description>Component wm8524 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/wm8524/fsl_codec_wm8524_adapter.h' projectpath='codec/port/wm8524'/>
+        <file category='sourceC' name='components/codec/port/wm8524/fsl_codec_wm8524_adapter.c' projectpath='codec/port/wm8524'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/wm8524/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8904_adapter' Cversion='2.2.0' condition='component.wm8904_adapter.condition_id'>
+      <description>Component wm8904 adapter for single codec</description>
+      <files>
+        <file category='header' name='components/codec/port/wm8904/fsl_codec_wm8904_adapter.h' projectpath='codec/port/wm8904'/>
+        <file category='sourceC' name='components/codec/port/wm8904/fsl_codec_wm8904_adapter.c' projectpath='codec/port/wm8904'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/wm8904/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8960_adapter' Cversion='2.2.0' condition='component.wm8960_adapter.condition_id'>
+      <description>Component wm8960 adapter for single codecs</description>
+      <files>
+        <file category='header' name='components/codec/port/wm8960/fsl_codec_wm8960_adapter.h' projectpath='codec/port/wm8960'/>
+        <file category='sourceC' name='components/codec/port/wm8960/fsl_codec_wm8960_adapter.c' projectpath='codec/port/wm8960'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/wm8960/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8962_adapter' Cversion='2.2.0' condition='component.wm8962_adapter.condition_id'>
+      <description>Component wm8962 adapter for single codecs</description>
+      <files>
+        <file category='header' name='components/codec/port/wm8962/fsl_codec_wm8962_adapter.h' projectpath='codec/port/wm8962'/>
+        <file category='sourceC' name='components/codec/port/wm8962/fsl_codec_wm8962_adapter.c' projectpath='codec/port/wm8962'/>
+        <file category='header' name='components/codec/port/fsl_codec_adapter.h' projectpath='codec/port'/>
+        <file category='include' name='components/codec/port/wm8962/'/>
+        <file category='include' name='components/codec/port/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='CMSIS' Csub='K32L3A60_header' Cversion='1.0.0' condition='device.CMSIS.condition_id'>
+      <description>Device K32L3A60_cmsis</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/fsl_device_registers.h' projectpath='device'/>
+        <file condition='allOf.core_ids=cm0plus.condition_id' category='header' name='devices/K32L3A60/K32L3A60_cm0plus.h' projectpath='device'/>
+        <file condition='allOf.core_ids=cm0plus.condition_id' category='header' name='devices/K32L3A60/K32L3A60_cm0plus_COMMON.h' projectpath='device'/>
+        <file condition='allOf.core_ids=cm0plus.condition_id' category='header' name='devices/K32L3A60/K32L3A60_cm0plus_features.h' projectpath='device'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_ADC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_ATX.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_AXBS.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_CAU3.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_CRC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_DMA.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_DMAMUX.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_EMVSIM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_EWM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_FB.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_FGPIO.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_FLEXIO.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_FMC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_FTFE.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_GPIO.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_I2S.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_INTMUX.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LLWU.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LPCMP.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LPDAC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LPI2C.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LPIT.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LPSPI.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LPTMR.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_LPUART.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_MCM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_MMDVSQ.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_MSCM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_MTB.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_MTBDWT.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_MU.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_PCC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_PORT.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_ROM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_RSIM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_RTC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_SCG.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_SEMA42.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_SIM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_SMC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_SPM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_TPM.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_TRGMUX.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_TRNG.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_TSTMR.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_USB.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_USBVREG.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_USDHC.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_VREF.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_WDOG.h' projectpath='device/periph3'/>
+        <file category='header' name='devices/K32L3A60/periph3/PERI_XRDC.h' projectpath='device/periph3'/>
+        <file condition='allOf.core_ids=cm4.condition_id' category='header' name='devices/K32L3A60/K32L3A60_cm4.h' projectpath='device'/>
+        <file condition='allOf.core_ids=cm4.condition_id' category='header' name='devices/K32L3A60/K32L3A60_cm4_COMMON.h' projectpath='device'/>
+        <file condition='allOf.core_ids=cm4.condition_id' category='header' name='devices/K32L3A60/K32L3A60_cm4_features.h' projectpath='device'/>
+        <file category='include' name='devices/K32L3A60/'/>
+        <file category='include' name='devices/K32L3A60/periph3/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Project Template' Csub='RTE_Device' Cversion='1.0.0' condition='device.RTE.condition_id'>
+      <description>Rte_device</description>
+      <files>
+        <file category='header' attr='config' name='devices/K32L3A60/template/RTE_Device.h' version='1.0.0' projectpath='board'/>
+        <file category='include' name='devices/K32L3A60/template/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='K32L3A60_linker' Cversion='1.0.0' condition='device.linker.condition_id'>
+      <description>Device K32L3A60_linker</description>
+      <files>
+        <file condition='allOf.toolchains=mdk, cores=cm0p, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/arm/K32L3A60xxx_cm0plus_flash.scf' version='1.0.0' projectpath='K32L3A60/arm'/>
+        <file condition='allOf.toolchains=mdk, cores=cm0p, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/arm/K32L3A60xxx_cm0plus_ram.scf' version='1.0.0' projectpath='K32L3A60/arm'/>
+        <file condition='allOf.toolchains=armgcc, cores=cm0p, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/gcc/K32L3A60xxx_cm0plus_flash.ld' version='1.0.0' projectpath='K32L3A60/gcc'/>
+        <file condition='allOf.toolchains=armgcc, cores=cm0p, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/gcc/K32L3A60xxx_cm0plus_ram.ld' version='1.0.0' projectpath='K32L3A60/gcc'/>
+        <file condition='allOf.toolchains=iar, cores=cm0p, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/iar/K32L3A60xxx_cm0plus_flash.icf' version='1.0.0' projectpath='K32L3A60/iar'/>
+        <file condition='allOf.toolchains=iar, cores=cm0p, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/iar/K32L3A60xxx_cm0plus_ram.icf' version='1.0.0' projectpath='K32L3A60/iar'/>
+        <file condition='allOf.toolchains=mdk, cores=cm4f, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/arm/K32L3A60xxx_cm4_flash.scf' version='1.0.0' projectpath='K32L3A60/arm'/>
+        <file condition='allOf.toolchains=mdk, cores=cm4f, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/arm/K32L3A60xxx_cm4_ram.scf' version='1.0.0' projectpath='K32L3A60/arm'/>
+        <file condition='allOf.toolchains=armgcc, cores=cm4f, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/gcc/K32L3A60xxx_cm4_flash.ld' version='1.0.0' projectpath='K32L3A60/gcc'/>
+        <file condition='allOf.toolchains=armgcc, cores=cm4f, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/gcc/K32L3A60xxx_cm4_ram.ld' version='1.0.0' projectpath='K32L3A60/gcc'/>
+        <file condition='allOf.toolchains=iar, cores=cm4f, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/iar/K32L3A60xxx_cm4_flash.icf' version='1.0.0' projectpath='K32L3A60/iar'/>
+        <file condition='allOf.toolchains=iar, cores=cm4f, device_ids=K32L3A60xxx.condition_id' category='linkerScript' attr='config' name='devices/K32L3A60/iar/K32L3A60xxx_cm4_ram.icf' version='1.0.0' projectpath='K32L3A60/iar'/>
+      </files>
+    </component>
+    <component Cclass='Board Support' Cgroup='SDK Project Template' Csub='project_template' Cvariant='K32L3A60' Cversion='1.0.0' condition='device.project_template.condition_id' isDefaultVariant='1'>
+      <description>Devices_project_template K32L3A60</description>
+      <files>
+        <file category='header' attr='config' name='devices/K32L3A60/project_template/board.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/K32L3A60/project_template/board.c' version='1.0.0' projectpath='board'/>
+        <file category='header' attr='config' name='devices/K32L3A60/project_template/clock_config.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/K32L3A60/project_template/clock_config.c' version='1.0.0' projectpath='board'/>
+        <file category='header' attr='config' name='devices/K32L3A60/project_template/pin_mux.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/K32L3A60/project_template/pin_mux.c' version='1.0.0' projectpath='board'/>
+        <file category='header' attr='config' name='devices/K32L3A60/project_template/peripherals.h' version='1.0.0' projectpath='board'/>
+        <file category='sourceC' attr='config' name='devices/K32L3A60/project_template/peripherals.c' version='1.0.0' projectpath='board'/>
+        <file category='include' name='devices/K32L3A60/project_template/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='Startup' Csub='' Cversion='1.0.0' condition='device.startup.condition_id'>
+      <description>Device K32L3A60_startup</description>
+      <files>
+        <file condition='allOf.toolchains=iar, core_ids=cm0plus.condition_id' category='sourceAsm' attr='config' name='devices/K32L3A60/iar/startup_K32L3A60_cm0plus.s' version='1.0.0' projectpath='startup/iar'/>
+        <file condition='allOf.toolchains=armgcc, core_ids=cm0plus.condition_id' category='sourceAsm' attr='config' name='devices/K32L3A60/gcc/startup_K32L3A60_cm0plus.S' version='1.0.0' projectpath='startup/gcc'/>
+        <file condition='allOf.toolchains=mdk, core_ids=cm0plus.condition_id' category='sourceAsm' attr='config' name='devices/K32L3A60/arm/startup_K32L3A60_cm0plus.S' version='1.0.0' projectpath='startup/arm'/>
+        <file condition='allOf.toolchains=iar, core_ids=cm4.condition_id' category='sourceAsm' attr='config' name='devices/K32L3A60/iar/startup_K32L3A60_cm4.s' version='1.0.0' projectpath='startup/iar'/>
+        <file condition='allOf.toolchains=armgcc, core_ids=cm4.condition_id' category='sourceAsm' attr='config' name='devices/K32L3A60/gcc/startup_K32L3A60_cm4.S' version='1.0.0' projectpath='startup/gcc'/>
+        <file condition='allOf.toolchains=mdk, core_ids=cm4.condition_id' category='sourceAsm' attr='config' name='devices/K32L3A60/arm/startup_K32L3A60_cm4.S' version='1.0.0' projectpath='startup/arm'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='CMSIS' Csub='K32L3A60_system' Cversion='1.0.0' condition='device.system.condition_id'>
+      <description>Device K32L3A60_system</description>
+      <files>
+        <file condition='allOf.core_ids=cm0plus.condition_id' category='sourceC' name='devices/K32L3A60/system_K32L3A60_cm0plus.c' projectpath='device'/>
+        <file condition='allOf.core_ids=cm0plus.condition_id' category='header' name='devices/K32L3A60/system_K32L3A60_cm0plus.h' projectpath='device'/>
+        <file condition='allOf.core_ids=cm4.condition_id' category='sourceC' name='devices/K32L3A60/system_K32L3A60_cm4.c' projectpath='device'/>
+        <file condition='allOf.core_ids=cm4.condition_id' category='header' name='devices/K32L3A60/system_K32L3A60_cm4.h' projectpath='device'/>
+        <file category='include' name='devices/K32L3A60/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ak4497' Cversion='2.1.2' condition='driver.ak4497.condition_id'>
+      <description>Driver ak4497</description>
+      <RTE_Components_h>
+#ifndef CODEC_AK4497_ENABLE
+#define CODEC_AK4497_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/ak4497/fsl_ak4497.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/ak4497/fsl_ak4497.c' projectpath='codec'/>
+        <file category='include' name='components/codec/ak4497/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cache_lpcac' Cversion='2.1.1' condition='driver.cache_lpcac.condition_id'>
+      <description>CACHE Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/cm4/fsl_cache.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/cm4/fsl_cache.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/cm4/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cache_lplmem' Cversion='2.1.1' condition='driver.cache_lplmem.condition_id'>
+      <description>CACHE Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/cm0plus/fsl_cache.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/cm0plus/fsl_cache.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/cm0plus/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cau3' Cversion='2.0.5' condition='driver.cau3.condition_id'>
+      <description>CAU3 Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_cau3.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_cau3.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='clock' Cversion='2.2.1' condition='driver.clock.condition_id'>
+      <description>Clock Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_clock.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_clock.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='CMSIS Driver' Cgroup='I2C' Csub='lpi2c_cmsis' Cversion='2.6.0' Capiversion='2.3.0' condition='driver.cmsis_lpi2c.condition_id'>
+      <description>LPI2C CMSIS Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/cmsis_drivers/fsl_lpi2c_cmsis.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/cmsis_drivers/fsl_lpi2c_cmsis.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/cmsis_drivers/'/>
+      </files>
+    </component>
+    <component Cclass='CMSIS Driver' Cgroup='SPI' Csub='lpspi_cmsis' Cversion='2.12.0' Capiversion='2.2.0' condition='driver.cmsis_lpspi.condition_id'>
+      <description>LPSPI CMSIS Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/cmsis_drivers/fsl_lpspi_cmsis.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/cmsis_drivers/fsl_lpspi_cmsis.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/cmsis_drivers/'/>
+      </files>
+    </component>
+    <component Cclass='CMSIS Driver' Cgroup='USART' Csub='lpuart_cmsis' Cversion='2.7.0' Capiversion='2.3.0' condition='driver.cmsis_lpuart.condition_id'>
+      <description>LPUART CMSIS Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/cmsis_drivers/fsl_lpuart_cmsis.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/cmsis_drivers/fsl_lpuart_cmsis.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/cmsis_drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='codec' Cversion='2.3.1' condition='driver.codec.condition_id'>
+      <description>Driver codec</description>
+      <RTE_Components_h>
+        #ifndef SDK_I2C_BASED_COMPONENT_USED
+        #define SDK_I2C_BASED_COMPONENT_USED 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/fsl_codec_common.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/fsl_codec_common.c' projectpath='codec'/>
+        <file category='include' name='components/codec/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='common' Cversion='2.6.0' condition='driver.common.condition_id'>
+      <description>common Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_common.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_common.c' projectpath='drivers'/>
+        <file condition='allOf.cores=cm0p, cm4f.condition_id' category='sourceC' name='devices/K32L3A60/drivers/fsl_common_arm.c' projectpath='drivers'/>
+        <file condition='allOf.cores=cm0p, cm4f.condition_id' category='header' name='devices/K32L3A60/drivers/fsl_common_arm.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='crc' Cversion='2.0.4' condition='driver.crc.condition_id'>
+      <description>CRC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_crc.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_crc.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cs42448' Cversion='2.0.1' condition='driver.cs42448.condition_id'>
+      <description>Driver cs42448</description>
+      <RTE_Components_h>
+#ifndef CODEC_CS42448_ENABLE
+#define CODEC_CS42448_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/cs42448/fsl_cs42448.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/cs42448/fsl_cs42448.c' projectpath='codec'/>
+        <file category='include' name='components/codec/cs42448/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='cs42888' Cversion='2.1.3' condition='driver.cs42888.condition_id'>
+      <description>Driver cs42888</description>
+      <RTE_Components_h>
+#ifndef CODEC_CS42888_ENABLE
+#define CODEC_CS42888_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/cs42888/fsl_cs42888.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/cs42888/fsl_cs42888.c' projectpath='codec'/>
+        <file category='include' name='components/codec/cs42888/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='dac' Cversion='2.1.2' condition='driver.dac_1.condition_id'>
+      <description>DAC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_dac.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_dac.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='dialog7212' Cversion='2.3.1' condition='driver.dialog7212.condition_id'>
+      <description>Driver dialog7212</description>
+      <RTE_Components_h>
+#ifndef CODEC_DA7212_ENABLE
+#define CODEC_DA7212_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/da7212/fsl_dialog7212.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/da7212/fsl_dialog7212.c' projectpath='codec'/>
+        <file category='include' name='components/codec/da7212/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='dmamux' Cversion='2.1.2' condition='driver.dmamux.condition_id'>
+      <description>DMAMUX Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_dmamux.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_dmamux.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='edma' Cversion='2.4.5' condition='driver.edma.condition_id'>
+      <description>EDMA Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ektf2k' Cversion='1.0.0' condition='driver.ektf2k.condition_id'>
+      <description>Driver ektf2k</description>
+      <RTE_Components_h>
+        #ifndef SDK_I2C_BASED_COMPONENT_USED
+        #define SDK_I2C_BASED_COMPONENT_USED 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/touch/ektf2k/fsl_ektf2k.h' projectpath='touchpanel'/>
+        <file category='sourceC' name='components/touch/ektf2k/fsl_ektf2k.c' projectpath='touchpanel'/>
+        <file category='include' name='components/touch/ektf2k/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ewm' Cversion='2.0.4' condition='driver.ewm.condition_id'>
+      <description>EWM Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_ewm.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ewm.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flash' Cversion='3.1.3' condition='driver.flash.condition_id'>
+      <description>Flash Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ftfx_adapter.h' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ftfx_utilities.h' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ftfx_features.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_ftfx_controller.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ftfx_controller.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_ftfx_flash.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ftfx_flash.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_ftfx_cache.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ftfx_cache.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_ftfx_flexnvm.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_ftfx_flexnvm.h' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flash.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexbus' Cversion='2.1.1' condition='driver.flexbus.condition_id'>
+      <description>FLEXBUS Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flexbus.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_flexbus.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio' Cversion='2.3.0' condition='driver.flexio.condition_id'>
+      <description>FLEXIO Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_flexio.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flexio.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_i2c_master' Cversion='2.6.1' condition='driver.flexio_i2c_master.condition_id'>
+      <description>FLEXIO I2C Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_flexio_i2c_master.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flexio_i2c_master.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_spi' Cversion='2.4.2' condition='driver.flexio_spi.condition_id'>
+      <description>FLEXIO SPI Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_flexio_spi.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flexio_spi.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_spi_edma' Cversion='2.3.0' condition='driver.flexio_spi_edma.condition_id'>
+      <description>FLEXIO SPI EDMA Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_flexio_spi_edma.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flexio_spi_edma.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_uart' Cversion='2.6.2' condition='driver.flexio_uart.condition_id'>
+      <description>FLEXIO UART Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_flexio_uart.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flexio_uart.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='flexio_uart_edma' Cversion='2.4.1' condition='driver.flexio_uart_edma.condition_id'>
+      <description>FLEXIO UART EDMA Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_flexio_uart_edma.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_flexio_uart_edma.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ft3267' Cversion='1.0.1' condition='driver.ft3267.condition_id'>
+      <description>Touch panel controller FT3267 driver</description>
+      <files>
+        <file category='header' name='components/touch/ft3267/fsl_ft3267.h' projectpath='touchpanel'/>
+        <file category='sourceC' name='components/touch/ft3267/fsl_ft3267.c' projectpath='touchpanel'/>
+        <file category='include' name='components/touch/ft3267/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ft5406' Cversion='1.0.0' condition='driver.ft5406.condition_id'>
+      <description>Driver ft5406</description>
+      <files>
+        <file category='header' name='components/touch/ft5406/fsl_ft5406.h' projectpath='touchpanel'/>
+        <file category='sourceC' name='components/touch/ft5406/fsl_ft5406.c' projectpath='touchpanel'/>
+        <file category='include' name='components/touch/ft5406/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ft5406_rt' Cversion='1.0.0' condition='driver.ft5406_rt.condition_id'>
+      <description>Driver ft5406_rt</description>
+      <files>
+        <file category='header' name='components/touch/ft5406_rt/fsl_ft5406_rt.h' projectpath='touchpanel'/>
+        <file category='sourceC' name='components/touch/ft5406_rt/fsl_ft5406_rt.c' projectpath='touchpanel'/>
+        <file category='include' name='components/touch/ft5406_rt/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ft6x06' Cversion='1.0.0' condition='driver.ft6x06.condition_id'>
+      <description>Driver ft6x06</description>
+      <files>
+        <file category='header' name='components/touch/ft6x06/fsl_ft6x06.h' projectpath='touchpanel'/>
+        <file category='sourceC' name='components/touch/ft6x06/fsl_ft6x06.c' projectpath='touchpanel'/>
+        <file category='include' name='components/touch/ft6x06/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='fxas21002cq' Cversion='1.0.0' condition='driver.fxas21002cq.condition_id'>
+      <description>Driver fxas21002cq</description>
+      <files>
+        <file category='header' name='components/sensor/fxas21002cq/fsl_fxas.h' projectpath='gyroscope'/>
+        <file category='sourceC' name='components/sensor/fxas21002cq/fsl_fxas.c' projectpath='gyroscope'/>
+        <file category='include' name='components/sensor/fxas21002cq/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='fxls8974cf' Cversion='1.0.0' condition='driver.fxls8974cf.condition_id'>
+      <description>Driver fxls8974cf</description>
+      <files>
+        <file category='header' name='components/sensor/fxls8974cf/fsl_fxls.h' projectpath='accel'/>
+        <file category='sourceC' name='components/sensor/fxls8974cf/fsl_fxls.c' projectpath='accel'/>
+        <file category='include' name='components/sensor/fxls8974cf/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='fxos8700cq' Cversion='1.0.0' condition='driver.fxos8700cq.condition_id'>
+      <description>Driver fxos8700cq</description>
+      <files>
+        <file category='header' name='components/sensor/fxos8700cq/fsl_fxos.h' projectpath='accel'/>
+        <file category='sourceC' name='components/sensor/fxos8700cq/fsl_fxos.c' projectpath='accel'/>
+        <file category='include' name='components/sensor/fxos8700cq/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='gpio' Cversion='2.8.2' condition='driver.gpio.condition_id'>
+      <description>GPIO Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_gpio.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_gpio.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='gt911' Cversion='1.0.4' condition='driver.gt911.condition_id'>
+      <description>Driver gt911</description>
+      <RTE_Components_h>
+        #ifndef SDK_I2C_BASED_COMPONENT_USED
+        #define SDK_I2C_BASED_COMPONENT_USED 1
+        #endif
+      </RTE_Components_h>
+      <files>
+        <file category='header' name='components/touch/gt911/fsl_gt911.h' projectpath='touchpanel'/>
+        <file category='sourceC' name='components/touch/gt911/fsl_gt911.c' projectpath='touchpanel'/>
+        <file category='include' name='components/touch/gt911/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='htu21d' Cversion='1.0.0' condition='driver.htu21d.condition_id'>
+      <description>Driver htu21d</description>
+      <files>
+        <file category='header' name='components/sensor/htu21d/fsl_htu21d.h' projectpath='htu'/>
+        <file category='sourceC' name='components/sensor/htu21d/fsl_htu21d.c' projectpath='htu'/>
+        <file category='include' name='components/sensor/htu21d/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='icm42688p' Cversion='1.0.0' condition='driver.icm42688p.condition_id'>
+      <description>Driver icm42688p</description>
+      <files>
+        <file category='header' name='components/sensor/icm42688p/fsl_icm42688p.h' projectpath='icm42688p'/>
+        <file category='sourceC' name='components/sensor/icm42688p/fsl_icm42688p.c' projectpath='icm42688p'/>
+        <file category='include' name='components/sensor/icm42688p/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='ili9341' Cversion='1.0.2' condition='driver.ili9341.condition_id'>
+      <description>Driver ili9341</description>
+      <files>
+        <file category='header' name='components/display/ili9341/fsl_ili9341.h' projectpath='lcdc'/>
+        <file category='sourceC' name='components/display/ili9341/fsl_ili9341.c' projectpath='lcdc'/>
+        <file category='include' name='components/display/ili9341/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='intmux' Cversion='2.0.4' condition='driver.intmux.condition_id'>
+      <description>INTMUX Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_intmux.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_intmux.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='llwu' Cversion='2.0.5' condition='driver.llwu.condition_id'>
+      <description>LLWU Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_llwu.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_llwu.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpadc' Cversion='2.9.3' condition='driver.lpadc.condition_id'>
+      <description>LPADC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpadc.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpadc.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpcmp' Cversion='2.3.2' condition='driver.lpcmp.condition_id'>
+      <description>LPCMP Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpcmp.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpcmp.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c' Cversion='2.6.1' condition='driver.lpi2c.condition_id'>
+      <description>LPI2C Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpi2c.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpi2c.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='i2c_edma' Cversion='2.4.4' condition='driver.lpi2c_edma.condition_id'>
+      <description>LPI2C Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpi2c_edma.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpi2c_edma.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpit' Cversion='2.1.1' condition='driver.lpit.condition_id'>
+      <description>LPIT Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpit.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpit.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi' Cversion='2.7.1' condition='driver.lpspi.condition_id'>
+      <description>LPSPI Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpspi.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpspi.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpspi_edma' Cversion='2.4.6' condition='driver.lpspi_edma.condition_id'>
+      <description>LPSPI Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpspi_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpspi_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lptmr' Cversion='2.2.0' condition='driver.lptmr.condition_id'>
+      <description>LPTMR Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lptmr.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lptmr.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart' Cversion='2.9.1' condition='driver.lpuart.condition_id'>
+      <description>LPUART Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpuart.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpuart.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lpuart_edma' Cversion='2.6.0' condition='driver.lpuart_edma.condition_id'>
+      <description>LPUART Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_lpuart_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_lpuart_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='lsm6dso' Cversion='1.0.0' condition='driver.lsm6dso.condition_id'>
+      <description>Driver lsm6dso</description>
+      <files>
+        <file category='header' name='components/sensor/lsm6dso/fsl_lsm.h' projectpath='tilt_pedo'/>
+        <file category='sourceC' name='components/sensor/lsm6dso/fsl_lsm.c' projectpath='tilt_pedo'/>
+        <file category='include' name='components/sensor/lsm6dso/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='max30101' Cversion='1.0.0' condition='driver.max30101.condition_id'>
+      <description>Driver max30101</description>
+      <files>
+        <file category='header' name='components/sensor/max30101/fsl_max.h' projectpath='heartrate'/>
+        <file category='sourceC' name='components/sensor/max30101/fsl_max.c' projectpath='heartrate'/>
+        <file category='include' name='components/sensor/max30101/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mma8451q' Cversion='1.0.0' condition='driver.mma8451q.condition_id'>
+      <description>Driver mma8451q</description>
+      <files>
+        <file category='header' name='components/sensor/mma8451q/fsl_mma.h' projectpath='accel'/>
+        <file category='sourceC' name='components/sensor/mma8451q/fsl_mma.c' projectpath='accel'/>
+        <file category='include' name='components/sensor/mma8451q/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mma8652fc' Cversion='1.0.0' condition='driver.mma8652fc.condition_id'>
+      <description>Driver mma8652fc</description>
+      <files>
+        <file category='header' name='components/sensor/mma8652fc/fsl_mma.h' projectpath='accel'/>
+        <file category='sourceC' name='components/sensor/mma8652fc/fsl_mma.c' projectpath='accel'/>
+        <file category='include' name='components/sensor/mma8652fc/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mmdvsq' Cversion='2.0.4' condition='driver.mmdvsq.condition_id'>
+      <description>MMDVSQ Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_mmdvsq.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_mmdvsq.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='msmc' Cversion='2.1.2' condition='driver.msmc.condition_id'>
+      <description>MSMC Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_msmc.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_msmc.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mu' Cversion='2.2.0' condition='driver.mu.condition_id'>
+      <description>MU Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_mu.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_mu.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='mx25r_flash' Cversion='2.0.0' condition='driver.mx25r_flash.condition_id'>
+      <description>Driver mx25r_flash</description>
+      <files>
+        <file category='header' name='components/mx25r_flash/mx25r_flash.h' projectpath='source'/>
+        <file category='sourceC' name='components/mx25r_flash/mx25r_flash.c' projectpath='source'/>
+        <file category='include' name='components/mx25r_flash/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='nmh1000' Cversion='1.0.0' condition='driver.nmh1000.condition_id'>
+      <description>Driver nmh1000</description>
+      <files>
+        <file category='header' name='components/sensor/nmh1000/fsl_nmh1000.h' projectpath='nmh1000'/>
+        <file category='sourceC' name='components/sensor/nmh1000/fsl_nmh1000.c' projectpath='nmh1000'/>
+        <file category='include' name='components/sensor/nmh1000/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='p3t1755' Cversion='2.0.0' condition='driver.p3t1755.condition_id'>
+      <description>Driver p3t1755</description>
+      <files>
+        <file category='header' name='components/sensor/p3t1755/fsl_p3t1755.h' projectpath='component/p3t1755'/>
+        <file category='sourceC' name='components/sensor/p3t1755/fsl_p3t1755.c' projectpath='component/p3t1755'/>
+        <file category='include' name='components/sensor/p3t1755/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pcm186x' Cversion='2.0.1' condition='driver.pcm186x.condition_id'>
+      <description>Driver pcm186x</description>
+      <RTE_Components_h>
+#ifndef CODEC_PCM186X_ENABLE
+#define CODEC_PCM186X_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/pcm186x/fsl_pcm186x.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/pcm186x/fsl_pcm186x.c' projectpath='codec'/>
+        <file category='include' name='components/codec/pcm186x/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pcm512x' Cversion='2.0.1' condition='driver.pcm512x.condition_id'>
+      <description>Driver pcm512x</description>
+      <RTE_Components_h>
+#ifndef CODEC_PCM512X_ENABLE
+#define CODEC_PCM512X_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/pcm512x/fsl_pcm512x.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/pcm512x/fsl_pcm512x.c' projectpath='codec'/>
+        <file category='include' name='components/codec/pcm512x/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pf1550' Cversion='1.0.0' condition='driver.pf1550.condition_id'>
+      <description>Driver pf1550</description>
+      <files>
+        <file category='sourceC' name='components/pmic/pf1550/fsl_pf1550.c' projectpath='component/pmic/pf1550'/>
+        <file category='header' name='components/pmic/pf1550/fsl_pf1550.h' projectpath='component/pmic/pf1550'/>
+        <file category='sourceC' name='components/pmic/pf1550/fsl_pf1550_charger.c' projectpath='component/pmic/pf1550'/>
+        <file category='header' name='components/pmic/pf1550/fsl_pf1550_charger.h' projectpath='component/pmic/pf1550'/>
+        <file category='include' name='components/pmic/pf1550/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pf3000' Cversion='1.0.0' condition='driver.pf3000.condition_id'>
+      <description>Driver pf3000</description>
+      <files>
+        <file category='sourceC' name='components/pmic/pf3000/fsl_pf3000.c' projectpath='component/pmic/pf3000'/>
+        <file category='header' name='components/pmic/pf3000/fsl_pf3000.h' projectpath='component/pmic/pf3000'/>
+        <file category='include' name='components/pmic/pf3000/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='pf5020' Cversion='2.0.0' condition='driver.pf5020.condition_id'>
+      <description>Driver pf5020</description>
+      <files>
+        <file category='sourceC' name='components/pmic/pf5020/fsl_pf5020.c' projectpath='component/pmic/pf5020'/>
+        <file category='header' name='components/pmic/pf5020/fsl_pf5020.h' projectpath='component/pmic/pf5020'/>
+        <file category='include' name='components/pmic/pf5020/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='port' Cversion='2.5.1' condition='driver.port.condition_id'>
+      <description>PORT Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_port.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='psp27801' Cversion='1.0.0' condition='driver.psp27801.condition_id'>
+      <description>Driver psp27801</description>
+      <files>
+        <file category='header' name='components/display/psp27801/fsl_psp27801.h' projectpath='oled'/>
+        <file category='sourceC' name='components/display/psp27801/fsl_psp27801.c' projectpath='oled'/>
+        <file category='include' name='components/display/psp27801/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='rtc' Cversion='2.3.3' condition='driver.rtc.condition_id'>
+      <description>RTC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_rtc.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_rtc.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sai' Cversion='2.4.7' condition='driver.sai.condition_id'>
+      <description>SAI Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_sai.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_sai.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sai_edma' Cversion='2.7.3' condition='driver.sai_edma.condition_id'>
+      <description>SAI EDMA Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_sai_edma.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_sai_edma.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sema42' Cversion='2.1.0' condition='driver.sema42.condition_id'>
+      <description>SEMA42 Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_sema42.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_sema42.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sgtl5000' Cversion='2.1.1' condition='driver.sgtl5000.condition_id'>
+      <description>Driver sgtl5000</description>
+      <RTE_Components_h>
+#ifndef CODEC_SGTL5000_ENABLE
+#define CODEC_SGTL5000_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/sgtl5000/fsl_sgtl5000.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/sgtl5000/fsl_sgtl5000.c' projectpath='codec'/>
+        <file category='include' name='components/codec/sgtl5000/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sim' Cversion='2.2.0' condition='driver.sim.condition_id'>
+      <description>SIM Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_sim.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_sim.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_phy_gpio' Cversion='2.3.0' condition='driver.smartcard_phy_gpio.condition_id'>
+      <description>SMARTCARD PHY GPIO, use only one SMARTCARD PHY in the project</description>
+      <RTE_Components_h>
+#ifndef USING_PHY_GPIO
+#define USING_PHY_GPIO 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_smartcard_phy.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_smartcard_phy_gpio.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_phy_tda8035' Cversion='2.3.0' condition='driver.smartcard_phy_tda8035.condition_id'>
+      <description>SMARTCARD PHY TDA8035, use only one SMARTCARD PHY in the project</description>
+      <RTE_Components_h>
+#ifndef USING_PHY_TDA8035
+#define USING_PHY_TDA8035 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_smartcard_phy.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_smartcard_phy_tda8035.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='smartcard_uart' Cversion='2.3.0' condition='driver.smartcard_uart.condition_id'>
+      <description>SMARTCARD UART Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_smartcard.h' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_smartcard_uart.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_smartcard_uart.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='spm' Cversion='2.3.0' condition='driver.spm.condition_id'>
+      <description>SPM Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_spm.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_spm.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9896' Cversion='6.0.2' condition='driver.tfa9896.condition_id'>
+      <description>Driver tfa9896</description>
+      <RTE_Components_h>
+#ifndef CODEC_TFA9896_ENABLE
+#define CODEC_TFA9896_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/tfa9896/fsl_tfa9896_buffer.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/tfa9896/fsl_hal_registers.c' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/tfa9896/fsl_tfa9896.c' projectpath='codec'/>
+        <file category='header' name='components/codec/tfa9896/fsl_tfa9896.h' projectpath='codec'/>
+        <file category='doc' name='components/codec/tfa9896/MIMXRT595595-EVK_TFA9896_SW.pdf' projectpath='codec'/>
+        <file category='include' name='components/codec/tfa9896/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9xxx' Cversion='2.1.0' condition='driver.tfa9xxx.condition_id'>
+      <description>Driver tfa9xxx</description>
+      <RTE_Components_h>
+#ifndef CODEC_TFA9XXX_ENABLE
+#define CODEC_TFA9XXX_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/tfa9xxx/tfa_config_TFA9892N1.h' projectpath='codec/tfa9xxx'/>
+        <file category='header' name='components/codec/tfa9xxx/tfa_config_TFA9894N1.h' projectpath='codec/tfa9xxx'/>
+        <file category='header' name='components/codec/tfa9xxx/tfa_config_TFA9894N2.h' projectpath='codec/tfa9xxx'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/fsl_tfa9xxx.c' projectpath='codec/tfa9xxx'/>
+        <file category='header' name='components/codec/tfa9xxx/fsl_tfa9xxx.h' projectpath='codec/tfa9xxx'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/fsl_tfa9xxx_IMX.c' projectpath='codec/tfa9xxx'/>
+        <file category='doc' name='components/codec/tfa9xxx/README.md' projectpath='codec/tfa9xxx'/>
+        <file category='header' name='components/codec/tfa9xxx/vas_tfa_drv/config.h' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_container.c' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='header' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_container.h' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_dev.c' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='header' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_dev.h' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='header' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_dsp_fw.h' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_haptic.c' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='header' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_haptic.h' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/vas_tfa_drv/tfa2_init.c' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='header' name='components/codec/tfa9xxx/vas_tfa_drv/tfa9xxx_parameters.h' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/vas_tfa_drv/tfa_container_crc32.c' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='header' name='components/codec/tfa9xxx/vas_tfa_drv/tfa_haptic_fw_defs.h' projectpath='codec/tfa9xxx/vas_tfa_drv'/>
+        <file category='include' name='components/codec/tfa9xxx/'/>
+        <file category='include' name='components/codec/tfa9xxx/vas_tfa_drv/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tfa9xxx_hal' Cversion='2.1.0' condition='driver.tfa9xxx_hal.condition_id'>
+      <description>Driver tfa9xxx_hal</description>
+      <files>
+        <file category='header' name='components/codec/tfa9xxx/tfa_device_hal.h' projectpath='codec/tfa9xxx'/>
+        <file category='sourceC' name='components/codec/tfa9xxx/tfa_device_hal.c' projectpath='codec/tfa9xxx'/>
+        <file category='include' name='components/codec/tfa9xxx/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tma525b' Cversion='1.0.0' condition='driver.tma525b.condition_id'>
+      <description>Driver tma525b</description>
+      <files>
+        <file category='header' name='components/touch/tma525b/fsl_tma525b.h' projectpath='touchpanel'/>
+        <file category='sourceC' name='components/touch/tma525b/fsl_tma525b.c' projectpath='touchpanel'/>
+        <file category='include' name='components/touch/tma525b/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tpm' Cversion='2.3.5' condition='driver.tpm.condition_id'>
+      <description>TPM Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_tpm.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_tpm.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='trgmux' Cversion='2.0.1' condition='driver.trgmux.condition_id'>
+      <description>TRGMUX Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_trgmux.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_trgmux.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='trng' Cversion='2.0.18' condition='driver.trng.condition_id'>
+      <description>TRNG Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_trng.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_trng.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tsl2561' Cversion='1.0.0' condition='driver.tsl2561.condition_id'>
+      <description>Driver tsl2561</description>
+      <files>
+        <file category='header' name='components/sensor/tsl2561/fsl_tsl2561.h' projectpath='tsl'/>
+        <file category='sourceC' name='components/sensor/tsl2561/fsl_tsl2561.c' projectpath='tsl'/>
+        <file category='include' name='components/sensor/tsl2561/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='tstmr' Cversion='2.0.2' condition='driver.tstmr.condition_id'>
+      <description>TSTMR Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_tstmr.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='sdhc' Cversion='2.8.5' condition='driver.usdhc.condition_id'>
+      <description>USDHC Driver</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_usdhc.c' projectpath='drivers'/>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_usdhc.h' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='vref' Cversion='2.1.3' condition='driver.vref.condition_id'>
+      <description>VREF Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_vref.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_vref.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wdog' Cversion='2.2.0' condition='driver.wdog32.condition_id'>
+      <description>WDOG32 Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_wdog32.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_wdog32.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8524' Cversion='2.1.1' condition='driver.wm8524.condition_id'>
+      <description>Driver wm8524</description>
+      <RTE_Components_h>
+#ifndef CODEC_WM8524_ENABLE
+#define CODEC_WM8524_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/wm8524/fsl_wm8524.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/wm8524/fsl_wm8524.c' projectpath='codec'/>
+        <file category='include' name='components/codec/wm8524/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8904' Cversion='2.5.1' condition='driver.wm8904.condition_id'>
+      <description>Driver wm8904</description>
+      <RTE_Components_h>
+#ifndef CODEC_WM8904_ENABLE
+#define CODEC_WM8904_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/wm8904/fsl_wm8904.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/wm8904/fsl_wm8904.c' projectpath='codec'/>
+        <file category='include' name='components/codec/wm8904/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8960' Cversion='2.2.4' condition='driver.wm8960.condition_id'>
+      <description>Driver wm8960</description>
+      <RTE_Components_h>
+#ifndef CODEC_WM8960_ENABLE
+#define CODEC_WM8960_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/wm8960/fsl_wm8960.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/wm8960/fsl_wm8960.c' projectpath='codec'/>
+        <file category='include' name='components/codec/wm8960/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='wm8962' Cversion='2.2.0' condition='driver.wm8962.condition_id'>
+      <description>Driver wm8962</description>
+      <RTE_Components_h>
+#ifndef CODEC_WM8962_ENABLE
+#define CODEC_WM8962_ENABLE 
+#endif
+</RTE_Components_h>
+      <files>
+        <file category='header' name='components/codec/wm8962/fsl_wm8962.h' projectpath='codec'/>
+        <file category='sourceC' name='components/codec/wm8962/fsl_wm8962.c' projectpath='codec'/>
+        <file category='include' name='components/codec/wm8962/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Drivers' Csub='xrdc' Cversion='2.0.7' condition='driver.xrdc.condition_id'>
+      <description>XRDC Driver</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/drivers/fsl_xrdc.h' projectpath='drivers'/>
+        <file category='sourceC' name='devices/K32L3A60/drivers/fsl_xrdc.c' projectpath='drivers'/>
+        <file category='include' name='devices/K32L3A60/drivers/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='misc_utilities' Cversion='1.1.1' condition='utilities.misc_utilities.condition_id'>
+      <description>
+        Utilities which is needed for particular toolchain like the SBRK function required to address limitation between HEAP and STACK in GCC toolchain library.
+      </description>
+      <files>
+        <file condition='allOf.toolchains=armgcc.condition_id' category='sourceC' name='devices/K32L3A60/utilities/fsl_syscall_stub.c' projectpath='utilities'/>
+        <file condition='allOf.toolchains=armgcc.condition_id' category='sourceC' name='devices/K32L3A60/utilities/fsl_sbrk.c' projectpath='utilities'/>
+        <file condition='allOf.toolchains=armgcc, mdk, cores=cm4f.condition_id' category='sourceAsm' name='devices/K32L3A60/utilities/fsl_memcpy.S' projectpath='utilities'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='assert' Cversion='1.0.0' condition='utility.assert.condition_id'>
+      <description>Utility assert</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/utilities/debug_console/fsl_assert.h' projectpath='utilities'/>
+        <file category='sourceC' name='devices/K32L3A60/utilities/debug_console/fsl_assert.c' projectpath='utilities'/>
+        <file category='include' name='devices/K32L3A60/utilities/debug_console/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='assert_lite' Cversion='1.0.0' condition='utility.assert_lite.condition_id'>
+      <description>Utility assert_lite</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/utilities/debug_console_lite/fsl_assert.h' projectpath='utilities'/>
+        <file category='sourceC' name='devices/K32L3A60/utilities/debug_console_lite/fsl_assert.c' projectpath='utilities'/>
+        <file category='include' name='devices/K32L3A60/utilities/debug_console_lite/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console' Cversion='1.0.1' condition='utility.debug_console.condition_id'>
+      <description>Utility debug_console</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/utilities/debug_console/fsl_debug_console.h' projectpath='utilities/debug_console'/>
+        <file category='sourceC' name='devices/K32L3A60/utilities/debug_console/fsl_debug_console.c' projectpath='utilities/debug_console'/>
+        <file category='include' name='devices/K32L3A60/utilities/debug_console/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='debug_console_lite' Cversion='1.0.0' condition='utility.debug_console_lite.condition_id'>
+      <description>Utility debug_console_lite</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/utilities/debug_console_lite/fsl_debug_console.h' projectpath='utilities/debug_console_lite'/>
+        <file category='sourceC' name='devices/K32L3A60/utilities/debug_console_lite/fsl_debug_console.c' projectpath='utilities/debug_console_lite'/>
+        <file category='include' name='devices/K32L3A60/utilities/debug_console_lite/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='debug console template config' Cversion='1.0.0' condition='utility.debug_console_template_config.condition_id'>
+      <description>Utility debug_console Template Config</description>
+      <files>
+        <file category='header' attr='config' name='devices/K32L3A60/utilities/debug_console/config/fsl_debug_console_conf.h' version='1.0.0' projectpath='utilities/debug_console/config'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='incbin' Cversion='1.0.0' condition='utility.incbin.condition_id'>
+      <description>Used to include slave core binary into master core binary.</description>
+      <files>
+        <file condition='allOf.toolchains=armgcc, mdk.condition_id' category='sourceAsm' name='devices/K32L3A60/utilities/incbin/fsl_incbin.S' projectpath='utilities'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='notifier' Cversion='1.0.0' condition='utility.notifier.condition_id'>
+      <description>Utility notifier</description>
+      <files>
+        <file category='sourceC' name='devices/K32L3A60/utilities/fsl_notifier.c' projectpath='utilities/utilities'/>
+        <file category='header' name='devices/K32L3A60/utilities/fsl_notifier.h' projectpath='utilities/utilities'/>
+        <file category='include' name='devices/K32L3A60/utilities/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='shell' Cversion='1.0.0' condition='utility.shell.condition_id'>
+      <description>Utility shell</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/utilities/shell/fsl_shell.h' projectpath='utilities'/>
+        <file category='sourceC' name='devices/K32L3A60/utilities/shell/fsl_shell.c' projectpath='utilities'/>
+        <file category='include' name='devices/K32L3A60/utilities/shell/'/>
+      </files>
+    </component>
+    <component Cclass='Device' Cgroup='SDK Utilities' Csub='str' Cversion='1.0.0' condition='utility.str.condition_id'>
+      <description>Utility str</description>
+      <files>
+        <file category='header' name='devices/K32L3A60/utilities/str/fsl_str.h' projectpath='utilities/str'/>
+        <file category='sourceC' name='devices/K32L3A60/utilities/str/fsl_str.c' projectpath='utilities/str'/>
+        <file category='include' name='devices/K32L3A60/utilities/str/'/>
+      </files>
+    </component>
+  </components>
+</package>

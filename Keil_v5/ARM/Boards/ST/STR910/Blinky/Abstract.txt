@@ -1,0 +1,15 @@
+The Blinky project is a simple program for the STR910
+using ST Microelectronics 'STR910-EVAL' Evaluation Board.
+
+Example functionality:                                                   
+ - text is displayed to graphical LCD
+ - bargraph is displayed to graphical LCD, according to 
+   potentiometer position
+ - 4 LEDs blink from left to right
+ - speed of blinking can be altered with potentiometer position
+
+The Blinky program is available in different targets:
+  STR910 Flash:  runs from Internal Flash located on chip
+                 (used for production or target debugging)
+  STR910 RAM:    runs from Internal RAM located on chip
+                 (may be used for target debugging) 

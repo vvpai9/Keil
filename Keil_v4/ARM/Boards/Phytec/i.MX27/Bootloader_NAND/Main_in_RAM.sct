@@ -1,0 +1,16 @@
+; Linker Control File (scatter-loading)
+
+FLASH_LOAD 0xD8000000 0x00000800  {  ; load region size_region
+  Starup   0xD8000000 0x00000800  {  ; Startup + premain
+   *.o (RESET, +First)
+   *(InRoot$$Sections)
+   handlers.o
+  }
+  Main     0xFFFF4C00 0x00000800  {  ; Main bootloader code
+   .ANY (+RO)
+  }
+  RAM      0xFFFF5400 0x0000AC00  {  ; RAM Variables
+   .ANY (+RW +ZI)
+  }
+}
+

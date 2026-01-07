@@ -1,0 +1,30 @@
+The LCD_Blinky project is a simple program for the Winbond 'W90P710' 
+microcontroller using Winbond 'W90P710/W90N745 Application Board R1.2' 
+evaluation board and demonstrating interrupt functionality and 
+display to graphic LCD.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL  =  15 MHz
+   - PLL0  = 480 MHz
+   - SYS   =  80 MHz
+   - TCLK  =  15 MHz
+ - Displays rotating ARM 3D logo, each picture is displayed every 
+   200 ms
+ - 8 LEDs blink (LED8 .. LED15) with speed of 1 second, determined 
+   by Timer1 working in interrupt mode
+ 
+The Blinky program is available for different targets:
+  W90P710 Ext Boot Flash: runs from External Boot Flash
+                          (used for production or target debugging)
+  W90P710 Ext SDRAM:      configured for external SDRAM, 
+                          (may be used for target debugging)
+
+Notes: - In EVAL version of uVision do not rebuild the target as 
+         this example's size exceeds EVAL version limitation
+
+Picture conversion procedure:
+1. Convert picture to 16 BPP (R - 5bits, G - 6bits, B - 5bits)
+2. Remove header from bmp by hex editor, remaining file size should 
+   be equal to (width * height * 2) bytes
+3. Convert prepared file without header to C array

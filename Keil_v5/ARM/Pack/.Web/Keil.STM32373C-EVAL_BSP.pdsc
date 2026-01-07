@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32373C-EVAL_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32F3 Series STM32373C-EVAL Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32373C-EVAL_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.0" date="2025-09-17" tag="v1.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Added DWARF-5 debug information
+      - Added generated output files
+      - Updated RTE_Components.h file
+      Package Description (pdsc):
+      - Removed 'compatibleDevice' element
+    </release>
+    <release version="1.0.0" date="2025-03-25" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for STM32373C-EVAL
+      Blinky example (CMSIS Solution)
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32F3</keyword>
+    <keyword>STM32373C-EVAL</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32F3xx_DFP"      version="3.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32373C-EVAL">
+      <description>STMicroelectronics STM32373C-EVAL Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32373C-EVAL"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32373C-EVAL GPIO">
+      <description>STMicroelectronics STM32373C-EVAL Board with CMSIS Driver GPIO</description>
+      <require condition="STM32373C-EVAL"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32373C-EVAL -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="STM32373C-EVAL GPIO">
+      <description>I/O implementation for STM32373C-EVAL</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32373C_EVAL
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32373C-EVAL.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- STM32373C-EVAL -->
+    <board vendor="STMicroelectronics" name="STM32373C-EVAL" revision="Rev.A"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Evaluation development board with STM32F373VCTx MCU</description>
+      <image small="Images/stm32373c-eval_small.png"
+             large="Images/stm32373c-eval_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/stm32373c-eval.html" title="STM32373C-EVAL Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/stm32373c-eval.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um1564-stm32373ceval-evaluation-board-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/stm32373c-eval_sch.zip" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32F373VCTx"/>
+      <feature type="ODbg"        n="1"              name="On-board ST-LINK/V2"/>
+      <feature type="XTAL"        n="8000000"        name="8 MHz Crystal Oscillator"/>
+      <feature type="PWR"         n="5"              name="USB Powered"/>
+      <feature type="PWR"         n="3"  m="5"       name="External Supply"/> 
+      <feature type="USB"         n="1"              name="USB 2.0 Full Speed"/>
+      <feature type="CAN"         n="2"/>
+      <feature type="RS232"       n="1"/>
+      <feature type="GLCD"        n="1"  m="240.320" name="2.4 inch Color QVGA TFT LCD with resistive touchscreen"/>
+      <feature type="Joystick"    n="1"              name="5-position Joystick"/>
+      <feature type="Poti"        n="1"              name="Analog Voltage Control for ADC Input (potentiometer)"/>
+      <feature type="Button"      n="4"              name="Push-Buttons for Reset, Tamper and User"/>
+      <feature type="LED"         n="4"              name="LEDs directly connected to port pins"/>
+      <feature type="MemCard"     n="1"              name="microSD card"/>
+      <feature type="MemoryOther" n="1"              name="Smartcard socket"/>
+      <feature type="MemoryOther" n="1"              name="1-Mbit I2C EEPROM"/>
+      <feature type="ConnOther"   n="1"              name="RF-EEPROM daughterboard expansion"/>
+      <feature type="ConnOther"   n="2"              name="HDMI connector"/>
+      <feature type="ConnOther"   n="2"              name="I/O expansion connector"/>
+      <feature type="Touch"       n="1"              name="Touch sensing slider"/>
+      <feature type="IrDA"        n="1"              name="IrDA transceiver"/>
+      <feature type="PressSens"   n="1"              name="Pressure sensor"/>
+      <feature type="SensOther"   n="1"              name="PT100 thermal sensor"/>
+      <feature type="SensOther"   n="1"              name="ECG sensor"/>
+      <feature type="LineOut"     n="2"              name="Audio CODEC with Stereo Line-Out and Speaker/Microphone"/>
+      <debugInterface adapter="JTAG/SW" connector="20-pin JTAG (0.1 inch connector)"/>
+      <debugInterface adapter="JTAG/SW" connector="20-pin Cortex debug + ETM Trace (0.05 inch connector)"/>
+      <debugInterface adapter="ST-Link" connector="USB"/>
+      <debugProbe connector="USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32373C-EVAL" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

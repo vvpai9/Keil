@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd" schemaVersion="1.4">
+  <name>FRDM-MCXE31B_BSP</name>
+  <vendor>NXP</vendor>
+  <description>Board Support Pack for FRDM-MCXE31B</description>
+  <url>https://mcuxpresso.nxp.com/cmsis_pack/repo/</url>
+  <license>Licenses.txt</license>
+  <releases>
+    <release version="25.09.00" date="2025-09-19">NXP CMSIS Packs based on MCUXpresso SDK 25.09.00</release>
+  </releases>
+  <keywords>
+    <keyword>Board Support Pack</keyword>
+  </keywords>
+  <requirements>
+    <packages>
+      <package name="MCXE31B_DFP" vendor="NXP" version="25.09.00"/>
+      <package name="CMSIS" vendor="ARM" version="6.1.0"/>
+    </packages>
+    <languages>
+      <language name="C" version="99"/>
+    </languages>
+  </requirements>
+  <boards>
+    <board vendor="NXP" name="FRDM-MCXE31B">
+      <description>FRDM-MCXE31B</description>
+      <image small="boards/frdmmcxe31b/frdmmcxe31b.png"/>
+      <mountedDevice Dname="MCXE31BMPB" Dvendor="NXP:11"/>
+      <compatibleDevice Dname="MCXE315MLF" Dvendor="NXP:11"/>
+      <compatibleDevice Dname="MCXE315MPA" Dvendor="NXP:11"/>
+      <compatibleDevice Dname="MCXE316MLF" Dvendor="NXP:11"/>
+      <compatibleDevice Dname="MCXE316MPA" Dvendor="NXP:11"/>
+      <compatibleDevice Dname="MCXE317MPA" Dvendor="NXP:11"/>
+      <compatibleDevice Dname="MCXE317MPB" Dvendor="NXP:11"/>
+    </board>
+  </boards>
+  <conditions>
+    <condition id="device.MCXE31B.internal_condition">
+      <accept Dname="MCXE31BMPB" Dvendor="NXP:11"/>
+    </condition>
+    <condition id="board.boot_header.condition_id">
+      <require condition="allOf.device=MCXE31B.internal_condition"/>
+    </condition>
+    <condition id="allOf.device=MCXE31B.internal_condition">
+      <require condition="device.MCXE31B.internal_condition"/>
+    </condition>
+    <condition id="device_id.MCXE31B.internal_condition">
+      <accept Dname="MCXE31BMPB" Dvendor="NXP:11"/>
+    </condition>
+    <condition id="device.MCXE315.internal_condition">
+      <accept Dname="MCXE315MLF" Dvendor="NXP:11"/>
+      <accept Dname="MCXE315MPA" Dvendor="NXP:11"/>
+    </condition>
+    <condition id="device.MCXE316.internal_condition">
+      <accept Dname="MCXE316MLF" Dvendor="NXP:11"/>
+      <accept Dname="MCXE316MPA" Dvendor="NXP:11"/>
+    </condition>
+    <condition id="device.MCXE317.internal_condition">
+      <accept Dname="MCXE317MPA" Dvendor="NXP:11"/>
+      <accept Dname="MCXE317MPB" Dvendor="NXP:11"/>
+    </condition>
+    <condition id="board.project_template.condition_id">
+      <require condition="allOf.component.lpuart_adapter, driver.lpuart, driver.memory, driver.clock, driver.siul2, driver.cache_armv7_m7, board.boot_header, device_id=MCXE31B, device.startup, board=frdmmcxe31b, anyOf=allOf=component.serial_manager, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition"/>
+    </condition>
+    <condition id="allOf.component.lpuart_adapter, driver.lpuart, driver.memory, driver.clock, driver.siul2, driver.cache_armv7_m7, board.boot_header, device_id=MCXE31B, device.startup, board=frdmmcxe31b, anyOf=allOf=component.serial_manager, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition">
+      <require Cclass="Device" Cgroup="SDK Drivers" Csub="lpuart_adapter"/>
+      <require Cclass="Device" Cgroup="SDK Drivers" Csub="lpuart"/>
+      <require Cclass="Device" Cgroup="SDK Drivers" Csub="memory"/>
+      <require Cclass="Device" Cgroup="SDK Drivers" Csub="clock"/>
+      <require Cclass="Device" Cgroup="SDK Drivers" Csub="Siul2"/>
+      <require Cclass="Device" Cgroup="SDK Drivers" Csub="cache_armv7_m7"/>
+      <require Cclass="Board Support" Cgroup="SDK Drivers" Csub="frdmmcxe31b boot_header"/>
+      <require condition="device_id.MCXE31B.internal_condition"/>
+      <require Cclass="Device" Cgroup="Startup" Csub=""/>
+      <require condition="board.frdmmcxe31b.internal_condition"/>
+      <require condition="anyOf.allOf=component.serial_manager, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition"/>
+    </condition>
+    <condition id="board.frdmmcxe31b.internal_condition">
+      <accept condition="device.MCXE31B.internal_condition"/>
+      <accept condition="device.MCXE315.internal_condition"/>
+      <accept condition="device.MCXE316.internal_condition"/>
+      <accept condition="device.MCXE317.internal_condition"/>
+    </condition>
+    <condition id="anyOf.allOf=component.serial_manager, utility.assert, utility.debug_console, utility.debug_console_template_config, allOf=utility.assert_lite, utility.debug_console_lite.internal_condition">
+      <accept condition="allOf.component.serial_manager, utility.assert, utility.debug_console, utility.debug_console_template_config.internal_condition"/>
+      <accept condition="allOf.utility.assert_lite, utility.debug_console_lite.internal_condition"/>
+    </condition>
+    <condition id="allOf.component.serial_manager, utility.assert, utility.debug_console, utility.debug_console_template_config.internal_condition">
+      <require Cclass="Device" Cgroup="SDK Utilities" Csub="serial_manager"/>
+      <require Cclass="Device" Cgroup="SDK Utilities" Csub="assert"/>
+      <require Cclass="Device" Cgroup="SDK Utilities" Csub="debug_console"/>
+      <require Cclass="Device" Cgroup="SDK Utilities" Csub="debug console template config"/>
+    </condition>
+    <condition id="allOf.utility.assert_lite, utility.debug_console_lite.internal_condition">
+      <require Cclass="Device" Cgroup="SDK Utilities" Csub="assert_lite"/>
+      <require Cclass="Device" Cgroup="SDK Utilities" Csub="debug_console_lite"/>
+    </condition>
+  </conditions>
+  <examples>
+    <example name="adc_interrupt" folder="boards/frdmmcxe31b/driver_examples/sar_adc/interrupt" doc="readme.md">
+      <description>The SAR ADC interrupt example shows the simplest way to use the SAR ADC driver. In this example, three channels (channels 0, 1, and 2) are used to form a conversion chain, these three channels are executed in the...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/adc_interrupt.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="adc_polling" folder="boards/frdmmcxe31b/driver_examples/sar_adc/polling" doc="readme.md">
+      <description>The SAR ADC polling example shows the simplest way to use the SAR ADC driver. In this example, three channels (channel 0, 1, and 2) are used to form a conversion chain, these three channels are executed in the normal...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/adc_polling.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="adc_sample_rate_measurement" folder="boards/frdmmcxe31b/driver_examples/sar_adc/sample_rate_measurement" doc="readme.md">
+      <description>The SAR ADC sample rate measurement example shows how to measure SAR ADC sample rate. In this demo, the ADC works at maximum clock frequency, after presses any key on the keyboard, the ADC sample rate will be printed to the serial terminal.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/adc_sample_rate_measurement.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="adc_watchdog" folder="boards/frdmmcxe31b/driver_examples/sar_adc/watchdog" doc="readme.md">
+      <description>The SAR ADC watchdog example shows the simplest way to use the SAR ADC driver. In this example, channel 0 is used to execute in the normal conversion scan mode. The end-of-conversion, pre-sample, and DMA transfer...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/adc_watchdog.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="bubble" folder="boards/frdmmcxe31b/demo_apps/bubble" doc="readme.md">
+      <description>The bubble level demo demonstrates basic usage of the on-board accelerometer to implement a bubble level. A bubble level utilizes two axes to visually show deviation from a level plane (0 degrees) on a given axis.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/bubble.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="canfd_loopback" folder="boards/frdmmcxe31b/driver_examples/canfd/loopback" doc="readme.md">
+      <description>The canfd_loopback_functional example shows how to use the loopback test mode to debug your CAN Bus design:To demonstrates this example, only one board is needed. The example will config one FlexCAN MessageBuffer to...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/canfd_loopback.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="canfd_loopback_transfer" folder="boards/frdmmcxe31b/driver_examples/canfd/loopback_transfer" doc="readme.md">
+      <description>The canfd_loopback example shows how to use the loopback test mode to debug your CAN Bus design:To demonstrates this example, only one board is needed. The example will config one FlexCAN MessageBuffer to Rx Message...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/canfd_loopback_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="cmu_fc" folder="boards/frdmmcxe31b/driver_examples/cmu_fc" doc="readme.md">
+      <description>The cmu_fc example is to demonstrate usage of the SDK cmu_fc driver to check if the target clock frequency is within the threshold range.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/cmu_fc.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="cmu_fm_interrupt" folder="boards/frdmmcxe31b/driver_examples/cmu_fm" doc="readme.md">
+      <description>The cmu_fm_interrupt example is to demonstrate usage of the SDK cmu_fm driver with interrupt callback functions. When cmu_fm completes the metering of the target clock, the interrupt callback functions for this module will be called.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/cmu_fm_interrupt.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="crc" folder="boards/frdmmcxe31b/driver_examples/crc" doc="readme.md">
+      <description>The CRC Example project is a demonstration program that uses the KSDK software to generate checksumsfor an ASCII string. Several CRC protocols are implemented using the CRC driver API.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/crc.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_channel_link" folder="boards/frdmmcxe31b/driver_examples/edma4/channel_link" doc="readme.md">
+      <description>The EDMA4 channel link example is a simple demonstration program that uses the SDK software.The purpose of this example is to show how to use the EDMA4 and to provide a simple example for debugging and further development.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_channel_link.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_interleave_transfer" folder="boards/frdmmcxe31b/driver_examples/edma4/interleave_transfer" doc="readme.md">
+      <description>The EDMA4 interleave example is a simple demonstration program that uses the SDK software.The purpose of this example is to show how to use the EDMA4 and to provide a simple example for debugging and further development.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_interleave_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_memory_to_memory" folder="boards/frdmmcxe31b/driver_examples/edma4/memory_to_memory" doc="readme.md">
+      <description>The EDMA4 memory to memory example is a simple demonstration program that uses the SDK software.It executes one shot transfer from source buffer to destination buffer using the SDK EDMA4 drivers.The purpose of this...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_memory_to_memory.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_memory_to_memory_transfer" folder="boards/frdmmcxe31b/driver_examples/edma4/memory_to_memory_transfer" doc="readme.md">
+      <description>The EDMA4 memory to memory transfer example is a simple demonstration program that uses the SDK software.It executes one shot transfer from source buffer to destination buffer using the SDK EDMA4 drivers.The purpose...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_memory_to_memory_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_memset" folder="boards/frdmmcxe31b/driver_examples/edma4/memset" doc="readme.md">
+      <description>The EDMA4 memset example is a simple demonstration program that uses the SDK software.It executes one shot transfer from source buffer to destination buffer using the SDK EDMA4 drivers.The purpose of this example is...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_memset.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_ping_pong_transfer" folder="boards/frdmmcxe31b/driver_examples/edma4/ping_pong_transfer" doc="readme.md">
+      <description>The EDMA4 ping pong transfer example is a simple demonstration program that uses the SDK software.The purpose of this example is to show how to use the EDMA4 and to provide a simple example for debugging and further development.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_ping_pong_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_scatter_gather" folder="boards/frdmmcxe31b/driver_examples/edma4/scatter_gather" doc="readme.md">
+      <description>The EDMA4 scatter gather example is a simple demonstration program that uses the SDK software.It executes one shot transfer from source buffer to destination buffer using the SDK EDMA4 drivers.The purpose of this...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_scatter_gather.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="edma4_wrap_transfer" folder="boards/frdmmcxe31b/driver_examples/edma4/wrap_transfer" doc="readme.md">
+      <description>The EDMA4 wrap transfer example is a simple demonstration program that uses the SDK software.The purpose of this example is to show how to use the EDMA4 and to provide a simple example for debugging and further development.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/edma4_wrap_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="ele_hseb_demo" folder="boards/frdmmcxe31b/ele_hseb/ele_hseb_demo" doc="readme.md">
+      <description>The ELE HSEB demo project is a demonstration program that uses the MCUX SDK software to perform crypto operations with HSEB EdgeLock Enclave (ELE) and usage of its services with direct use of Messaging Unit driver.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/ele_hseb_demo.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="emios_center_aligned_pwm" folder="boards/frdmmcxe31b/driver_examples/emios/center_aligned_pwm" doc="readme.md">
+      <description>The eMIOS project is a simple demonstration example of the SDK eMIOS driver to use eMIOS as PWM generator. It configures eMIOS UC (Unified channel) as Center Aligned Output PWM with Dead Time Insertion Buffered...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/emios_center_aligned_pwm.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="emios_frequency_modulated_pwm" folder="boards/frdmmcxe31b/driver_examples/emios/frequency_modulated_pwm" doc="readme.md">
+      <description>The eMIOS project is a simple demonstration example of the SDK eMIOS driver to use eMIOS as PWM generator. It configures eMIOS UC (Unified channel) as Output Pulse Width and Frequency Modulation Buffered (OPWFMB)...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/emios_frequency_modulated_pwm.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="emios_input_capture" folder="boards/frdmmcxe31b/driver_examples/emios/input_capture" doc="readme.md">
+      <description>The eMIOS project is a simple demonstration example of the SDK eMIOS driver to use eMIOS as pulse width measurement. Example will print pulse width in ticks after a successful capture.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/emios_input_capture.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="emios_simple_pwm" folder="boards/frdmmcxe31b/driver_examples/emios/simple_pwm" doc="readme.md">
+      <description>The eMIOS project is a simple demonstration example of the SDK eMIOS driver to use eMIOS as PWM generator. It configures eMIOS UC (Unified channel) as Output PWM Buffered (OPWMB) mode and generate one 10kHz, 25% duty cycle PWM.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/emios_simple_pwm.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="emios_timer" folder="boards/frdmmcxe31b/driver_examples/emios/timer" doc="readme.md">
+      <description>The eMIOS project is a simple demonstration example of the SDK eMIOS driver to use eMIOS as a timer. It sets up the eMIOS Modulus Counter to trigger an interrupt every 1 millisecond, and print '1s elapsed' every 1 second.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/emios_timer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="enet_qos_txrx_multiring_transfer" folder="boards/frdmmcxe31b/driver_examples/enet_qos/txrx_multiring_transfer" doc="readme.md">
+      <description>The example shows the way to use ENET QOS driver to receive and transmit frames supported multi-ring platforms. this example is only supported in multi-ring platform. 1. This example shows how to initialize the ENET...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/enet_qos_txrx_multiring_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="enet_qos_txrx_ptp1588_transfer" folder="boards/frdmmcxe31b/driver_examples/enet_qos/txrx_ptp1588_transfer" doc="readme.md">
+      <description>The example shows the way to use ENET QOS driver to receive and transmit frame in the 1588 feature required cases.1. This example shows how to initialize the ENET_QOS.2. How to get the time stamp of the PTP 1588...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/enet_qos_txrx_ptp1588_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexcan_efifo_edma_transfer" folder="boards/frdmmcxe31b/driver_examples/flexcan/efifo_edma_transfer" doc="readme.md">
+      <description>The flexcan_efifo_edma_transfer example shows how to use the EDMA version transactional driver to receive CAN FD Message from Enhanced Rx FIFO:In this example, when set ENABLE_LOOPBACK macro, only one board is...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexcan_efifo_edma_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexcan_efifo_interrupt_transfer" folder="boards/frdmmcxe31b/driver_examples/flexcan/efifo_interrupt_transfer" doc="readme.md">
+      <description>flexcan_efifo_interrupt_transfer example shows how to use FlexCAN Enhanced Rx FIFO in none-blocking interrupt way:In this example, when set ENABLE_LOOPBACK macro, only one board is needed. The example will config one...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexcan_efifo_interrupt_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexcan_interrupt_transfer" folder="boards/frdmmcxe31b/driver_examples/flexcan/interrupt_transfer" doc="readme.md">
+      <description>The flexcan_interrupt example shows how to use FlexCAN driver in none-blocking interrupt way:In this example, 2 boards are connected through CAN bus. Endpoint A(board A) send a CAN Message toEndpoint B(board B) when...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexcan_interrupt_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexcan_loopback" folder="boards/frdmmcxe31b/driver_examples/flexcan/loopback" doc="readme.md">
+      <description>The flexcan_loopback_functional example shows how to use the loopback test mode to debug your CAN Bus design:To demonstrates this example, only one board is needed. The example will config one FlexCAN MessageBuffer...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexcan_loopback.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexcan_loopback_transfer" folder="boards/frdmmcxe31b/driver_examples/flexcan/loopback_transfer" doc="readme.md">
+      <description>The flexcan_loopback example shows how to use the loopback test mode to debug your CAN Bus design:To demonstrates this example, only one board is needed. The example will config one FlexCAN MessageBuffer to Rx...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexcan_loopback_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexio_i2c_interrupt_lpi2c_transfer" folder="boards/frdmmcxe31b/driver_examples/flexio/i2c/interrupt_lpi2c_transfer" doc="readme.md">
+      <description>The flexio_lpi2c_interrupt example shows how to use flexio i2c master  driver in interrupt way:In this example, a flexio simulated i2c master connect to a LPI2C slave</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexio_i2c_interrupt_lpi2c_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexio_i2c_read_accel_value_transfer" folder="boards/frdmmcxe31b/driver_examples/flexio/i2c/read_accel_value_transfer" doc="readme.md">
+      <description>The flexio_i2c_read_accel_value example shows how to use FLEXIO I2C Master driver to communicate with an i2c device: 1. How to use the flexio i2c master driver to read a i2c device who_am_I register. 2. How to use...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexio_i2c_read_accel_value_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexio_mculcd_edma_transfer" folder="boards/frdmmcxe31b/driver_examples/flexio/mculcd/edma_transfer" doc="readme.md">
+      <description>The flexio_mculcd_edma_transfer example shows how to use flexio mculcd edma driver to drive MCU LCD panel.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexio_mculcd_edma_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexio_mculcd_int_transfer" folder="boards/frdmmcxe31b/driver_examples/flexio/mculcd/int_transfer" doc="readme.md">
+      <description>The flexio_mculcd_int_transfer example shows how to use flexio mculcd driver interrupt based transactional APIs to drive MCU LCD panel.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexio_mculcd_int_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexio_mculcd_polling" folder="boards/frdmmcxe31b/driver_examples/flexio/mculcd/polling" doc="readme.md">
+      <description>The flexio_mculcd_polling example shows how to use flexio mculcd driver polling APIs to drive MCU LCD panel.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexio_mculcd_polling.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="flexio_pwm" folder="boards/frdmmcxe31b/driver_examples/flexio/pwm" doc="readme.md">
+      <description>This demo describes how to use SDK drivers to implement the PWM feature by FLEXIO IP module. It outputs the PWM singal with fixed frequency defined by "DEMO_FLEXIO_FREQUENCY" in source code and dynamic duty from 99 to 1 to one of the FLEXIO pin.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/flexio_pwm.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="hello_world" folder="boards/frdmmcxe31b/demo_apps/hello_world" doc="readme.md">
+      <description>The HelloWorld demo prints the "Hello World" string to the terminal using the SDK UART drivers and repeat what user input. The purpose of this demo is to show how to use the UART, and to provide a simple project for debugging and further development.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/hello_world.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="hw_trig" folder="boards/frdmmcxe31b/driver_examples/bctu/hw_trig" doc="readme.md">
+      <description>In the hw_trig example, a counter is used to generate a 10KHz, 70% duty cycle PWM, and a trigger is generated at 50% of the PWM period. This trigger is routed to bctu as the hardware trigger source, which is then trigger ADC to convert.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/hw_trig.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="intm" folder="boards/frdmmcxe31b/driver_examples/intm" doc="readme.md">
+      <description>The INTM project is a simple demonstration of the SDK INTM driver. The role of INTM is to monitor the interrupt response. The main monitoring is whether the interrupt has timed out from the request to the response....See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/intm.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lcu" folder="boards/frdmmcxe31b/driver_examples/lcu" doc="readme.md">
+      <description>The lcu Example project is to demonstrate usage of the KSDK lcu driver. In this example, lcu will be refreshed by fixed service and keyed service sequence in regular window. After this, it will refresh lcu with fixed service sequence in window mode.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lcu.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="led_blinky" folder="boards/frdmmcxe31b/demo_apps/led_blinky" doc="readme.md">
+      <description>The LED Blinky demo application provides a sanity check for the new SDK build environments and board bring up. The LED Blinky demo uses the systick interrupt to realize the function of timing delay. The example takes...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/led_blinky.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpcmp_interrupt" folder="boards/frdmmcxe31b/driver_examples/lpcmp/interrupt" doc="readme.md">
+      <description>The LPCMP interrupt Example shows how to use interrupt with LPCMP driver.In this example, user should indicate an input channel to capture a voltage signal (can be controlled by user) as the LPCMP's positive channel...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpcmp_interrupt.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpcmp_polling" folder="boards/frdmmcxe31b/driver_examples/lpcmp/polling" doc="readme.md">
+      <description>The LPCMP polling Example shows the simplest way to use LPCMP driver and help user with a quick start.In this example, user should indicate an input channel to capture a voltage signal (can be controlled by user) as...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpcmp_polling.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpcmp_round_robin" folder="boards/frdmmcxe31b/driver_examples/lpcmp/round_robin" doc="readme.md">
+      <description>The LPCMP round robin example is a simple demonstration program to use the LPCMP driver and help user with a quick start.In this example, user needs to specify which port and channel to fixed, users also need to...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpcmp_round_robin.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpi2c_edma_b2b_transfer_master" folder="boards/frdmmcxe31b/driver_examples/lpi2c/edma_b2b_transfer/master" doc="readme.md">
+      <description>The lpi2c_edma_b2b_transfer_master example shows how to use lpi2c driver as master to do board to board transfer with EDMA:In this example, one lpi2c instance as master and another lpi2c instance on the other board...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpi2c_edma_b2b_transfer_master.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpi2c_edma_b2b_transfer_slave" folder="boards/frdmmcxe31b/driver_examples/lpi2c/edma_b2b_transfer/slave" doc="readme.md">
+      <description>The lpi2c_edma_b2b_transfer_slave example shows how to use lpi2c driver as slave to do board to board transfer with a EDMA master:In this example, one lpi2c instance as slave and another lpi2c instance on the other...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpi2c_edma_b2b_transfer_slave.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpi2c_interrupt" folder="boards/frdmmcxe31b/driver_examples/lpi2c/interrupt" doc="readme.md">
+      <description>The lpi2c_functional_interrupt example shows how to use lpi2c functional driver to build a interrupt based application:In this example , one lpi2c instance used as lpi2c master and another lpi2c instance used as...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpi2c_interrupt.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpi2c_interrupt_b2b_transfer_master" folder="boards/frdmmcxe31b/driver_examples/lpi2c/interrupt_b2b_transfer/master" doc="readme.md">
+      <description>The lpi2c_interrupt_b2b_transfer_master example shows how to use lpi2c driver as master to do board to board transfer with interrupt:In this example, one lpi2c instance as master and another lpi2c instance on the...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpi2c_interrupt_b2b_transfer_master.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpi2c_interrupt_b2b_transfer_slave" folder="boards/frdmmcxe31b/driver_examples/lpi2c/interrupt_b2b_transfer/slave" doc="readme.md">
+      <description>The lpi2c_interrupt_b2b_transfer_slave example shows how to use lpi2c driver as slave to do board to board transfer with interrupt:In this example, one lpi2c instance as slave and another lpi2c instance on the other...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpi2c_interrupt_b2b_transfer_slave.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpi2c_polling_b2b_master" folder="boards/frdmmcxe31b/driver_examples/lpi2c/polling_b2b/master" doc="readme.md">
+      <description>The lpi2c_polling_b2b_master example shows how to use lpi2c driver as master to do board to board transfer using polling method:In this example, one lpi2c instance as master and another lpi2c instance on the other...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpi2c_polling_b2b_master.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpi2c_polling_b2b_slave" folder="boards/frdmmcxe31b/driver_examples/lpi2c/polling_b2b/slave" doc="readme.md">
+      <description>The lpi2c_polling_b2b_slave example shows how to use lpi2c driver as slave to do board to board transfer with a polling master:In this example, one lpi2c instance as slave and another lpi2c instance on the other...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpi2c_polling_b2b_slave.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_edma_b2b_transfer_master" folder="boards/frdmmcxe31b/driver_examples/lpspi/edma_b2b_transfer/master" doc="readme.md">
+      <description>The lpspi_edma_b2b_transfer example shows how to use LPSPI driver in edma way:In this example , we need two boards, one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_edma_b2b_transfer_master.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_edma_b2b_transfer_slave" folder="boards/frdmmcxe31b/driver_examples/lpspi/edma_b2b_transfer/slave" doc="readme.md">
+      <description>The lpspi_edma_b2b_transfer example shows how to use LPSPI driver in edma way:In this example , we need two boards, one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_edma_b2b_transfer_slave.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_interrupt_b2b_master" folder="boards/frdmmcxe31b/driver_examples/lpspi/interrupt_b2b/master" doc="readme.md">
+      <description>The lpspi_interrupt_b2b example shows how to use LPSPI driver in interrupt way:In this example , we need two boards , one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_interrupt_b2b_master.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_interrupt_b2b_slave" folder="boards/frdmmcxe31b/driver_examples/lpspi/interrupt_b2b/slave" doc="readme.md">
+      <description>The lpspi_interrupt_b2b example shows how to use LPSPI driver in interrupt way:In this example , we need two boards , one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_interrupt_b2b_slave.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_interrupt_b2b_transfer_master" folder="boards/frdmmcxe31b/driver_examples/lpspi/interrupt_b2b_transfer/master" doc="readme.md">
+      <description>The lpspi_interrupt_b2b_transfer example shows how to use LPSPI driver in interrupt way:In this example , we need two boards, one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_interrupt_b2b_transfer_master.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_interrupt_b2b_transfer_slave" folder="boards/frdmmcxe31b/driver_examples/lpspi/interrupt_b2b_transfer/slave" doc="readme.md">
+      <description>The lpspi_interrupt_b2b_transfer example shows how to use LPSPI driver in interrupt way:In this example , we need two boards, one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_interrupt_b2b_transfer_slave.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_polling_b2b_transfer_master" folder="boards/frdmmcxe31b/driver_examples/lpspi/polling_b2b_transfer/master" doc="readme.md">
+      <description>The lpspi_polling_b2b_transfer example shows how to use LPSPI driver in polling way:In this example , we need two boards, one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_polling_b2b_transfer_master.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpspi_polling_b2b_transfer_slave" folder="boards/frdmmcxe31b/driver_examples/lpspi/polling_b2b_transfer/slave" doc="readme.md">
+      <description>The lpspi_polling_b2b_transfer example shows how to use LPSPI driver in polling way:In this example , we need two boards, one board used as LPSPI master and another board used as LPSPI slave.The file...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpspi_polling_b2b_transfer_slave.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpuart_interrupt_transfer" folder="boards/frdmmcxe31b/driver_examples/lpuart/interrupt_transfer" doc="readme.md">
+      <description>The lpuart_interrupt Example project is to demonstrate usage of the KSDK lpuart driver.In the example, you can send characters to the console back and they will be printed out onto console in a group of 8 characters.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpuart_interrupt_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpuart_polling" folder="boards/frdmmcxe31b/driver_examples/lpuart/polling" doc="readme.md">
+      <description>The lpuart_polling Example project is to demonstrate usage of the KSDK lpuart driver.In the example, you can send characters to the console back and they will be printed out onto console instantly.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpuart_polling.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="lpuart_polling_seven_bits" folder="boards/frdmmcxe31b/driver_examples/lpuart/polling_seven_bits" doc="readme.md">
+      <description>The lpuart_polling_seven_bits Example project is to demonstrate usage of the KSDK lpuart driver with seven data bits feature enabled.In the example, you can send characters to the console back and they will be...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/lpuart_polling_seven_bits.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="magnetic_switch" folder="boards/frdmmcxe31b/demo_apps/magnetic_switch" doc="readme.md">
+      <description>The magnetic_switch example demonstrates communication with the on-board I2C magnetic switch NMH1000. The value of magnetic field strength is read from the magnetic switch and print to terminal.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/magnetic_switch.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="pflash_c40" folder="boards/frdmmcxe31b/driver_examples/flash/pflash" doc="readme.md">
+      <description>The pflash example shows how to use flash driver to operate program flash:</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/pflash_c40.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="pit" folder="boards/frdmmcxe31b/driver_examples/pit" doc="readme.md">
+      <description>The PIT project is a simple demonstration program of the SDK PIT driver. It sets up the PIT hardware block to trigger a periodic interrupt after every 1 second. When the PIT interrupt is triggered, a message will be...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/pit.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="power_mode_switch_mcxe" folder="boards/frdmmcxe31b/demo_apps/power_mode_switch/low_level" doc="readme.md">
+      <description>Low level power_mode_switch demo.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/power_mode_switch_mcxe.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="qspi_edma_transfer" folder="boards/frdmmcxe31b/driver_examples/qspi/edma_transfer" doc="readme.md">
+      <description>The qspi_edma example shows how to use qspi driver with EDMA:In this example, qspi will send data and operate the external flash connected with QSPI. Some simple flash command willbe executed, such as Write Enable,...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/qspi_edma_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="qspi_polling_transfer" folder="boards/frdmmcxe31b/driver_examples/qspi/polling_transfer" doc="readme.md">
+      <description>The qspi_polling example shows how to use qspi driver with polling:In this example, qspi will send data and operate the external flash connected with QSPI. Some simple flash command willbe executed, such as Write...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/qspi_polling_transfer.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="rtc_jdp" folder="boards/frdmmcxe31b/driver_examples/rtc" doc="readme.md">
+      <description>The RTC example is a simple demonstration program of the SDK RTC driver. The RTC interrupt is enabled in period 1000ms, the API(Autonomous Periodic Interrupt) interrupt is enabled in 500ms. A callback function sample...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/rtc_jdp.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="shell" folder="boards/frdmmcxe31b/demo_apps/shell" doc="readme.md">
+      <description>The Shell Demo application demonstrates to control Leds by commands.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/shell.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="siul2_input_dma" folder="boards/frdmmcxe31b/driver_examples/siul2/input_dma" doc="readme.md">
+      <description>The siul2 Example project is a demonstration program that uses the KSDK software to manipulate the general-purposeoutputs.The example is supported by the set, clear, and toggle write-only registers for each port...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/siul2_input_dma.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="siul2_input_interrupt" folder="boards/frdmmcxe31b/driver_examples/siul2/input_interrupt" doc="readme.md">
+      <description>The siul2 Example project is a demonstration program that uses the KSDK software to manipulate the general-purposeoutputs.The example is supported by the set, clear, and toggle write-only registers for each port...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/siul2_input_interrupt.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="siul2_led_output" folder="boards/frdmmcxe31b/driver_examples/siul2/led_output" doc="readme.md">
+      <description>The siul2 Example project is a demonstration program that uses the KSDK software to manipulate the general-purposeoutputs.The example is supported by the set, clear, and toggle write-only registers for each port...See more details in readme document.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/siul2_led_output.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="stm_match_interrupt" folder="boards/frdmmcxe31b/driver_examples/stm" doc="readme.md">
+      <description>The stm_match_interrupt example is to demonstrate usage of the SDK STM driver with interrupt callback functions. When STM timer count matches the channel value, the interrupt callback functions for this channel will be called.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/stm_match_interrupt.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="sw_trig" folder="boards/frdmmcxe31b/driver_examples/bctu/sw_trig" doc="readme.md">
+      <description>The sw_trig example demostrated how to use BCTU software trigger function to trigger the ADC to convert.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/sw_trig.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="sw_trig_cl" folder="boards/frdmmcxe31b/driver_examples/bctu/sw_trig_cl" doc="readme.md">
+      <description>In sw_trig_cl, the conversion list function of BCTU is used. Implemented the use of one trigger signal to trigger multiple parallel ADC conversions.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/sw_trig_cl.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="swt" folder="boards/frdmmcxe31b/driver_examples/swt" doc="readme.md">
+      <description>The SWT Example project is to demonstrate usage of the KSDK swt driver. In this example, SWT will be refreshed by fixed service and keyed service sequence in regular window. After this, it will refresh SWT with fixed service sequence in window mode.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/swt.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="temp_measure" folder="boards/frdmmcxe31b/driver_examples/tempsense/temp_measure" doc="readme.md">
+      <description>The temp_measure project is a simple demonstration program of the SDK TEMPSENSE driver. The system can use the tempsense module to measure the on-die temperature.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/temp_measure.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="tspc" folder="boards/frdmmcxe31b/driver_examples/tspc" doc="readme.md">
+      <description>The tspc Example project is to demonstrate usage of the KSDK tspc driver. In this example, tspc will put the two pads into a group, then disable the output buffer of one pad, and the output buffer of the other pad will change accordingly.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/tspc.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="virt_wrapper_siul2_example" folder="boards/frdmmcxe31b/driver_examples/virt_wrapper/siul2" doc="readme.md">
+      <description>This exapmle shows how to use VIRT WRAPPER driver to map the SIUL2 peripheral to a different virtual address.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/virt_wrapper_siul2_example.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="xbic" folder="boards/frdmmcxe31b/driver_examples/xbic" doc="readme.md">
+      <description>The xbic Example project is to demonstrate usage of the KSDK xbic driver. In this example, The XBIC will enable master port and slave port error detection. Then inject errors into the communication and check whether the error information is correct.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/xbic.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+    <example name="xrdc" folder="boards/frdmmcxe31b/driver_examples/xrdc" doc="readme.md">
+      <description>The xrdc example shows how to control the memory and peripheral accesspolicy using XRDC.In this example, one peripheral and a memory region are set to unaccessible, thenthe hardfault occurs.</description>
+      <board name="FRDM-MCXE31B" vendor="NXP" Dvendor="NXP:11"/>
+      <project>
+        <environment name="uv" load="mdk/xrdc.uvprojx"/>
+      </project>
+      <attributes/>
+    </example>
+  </examples>
+  <components>
+    <component Cclass="Board Support" Cgroup="SDK Drivers" Csub="frdmmcxe31b boot_header" Cversion="2.0.1" condition="board.boot_header.condition_id">
+      <description>Board BOOT HEADER Driver</description>
+      <RTE_Components_h>
+#ifndef BOOT_HEADER_ENABLE
+#define BOOT_HEADER_ENABLE 1
+#endif
+</RTE_Components_h>
+      <files>
+        <file category="sourceC" name="boards/frdmmcxe31b/boot_header/boot_header.c" projectpath="boot_header"/>
+        <file category="header" name="boards/frdmmcxe31b/boot_header/boot_header.h" projectpath="boot_header"/>
+        <file category="include" name="boards/frdmmcxe31b/boot_header/"/>
+      </files>
+    </component>
+    <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="frdmmcxe31b" Cversion="1.0.0" condition="board.project_template.condition_id">
+      <description>Board_project_template frdmmcxe31b</description>
+      <files>
+        <file category="header" name="boards/frdmmcxe31b/project_template/board.h" projectpath="board"/>
+        <file category="sourceC" name="boards/frdmmcxe31b/project_template/board.c" projectpath="board"/>
+        <file category="header" attr="config" name="boards/frdmmcxe31b/project_template/clock_config.h" version="1.0.0" projectpath="board"/>
+        <file category="sourceC" attr="config" name="boards/frdmmcxe31b/project_template/clock_config.c" version="1.0.0" projectpath="board"/>
+        <file category="header" attr="config" name="boards/frdmmcxe31b/project_template/pin_mux.h" version="1.0.0" projectpath="board"/>
+        <file category="sourceC" attr="config" name="boards/frdmmcxe31b/project_template/pin_mux.c" version="1.0.0" projectpath="board"/>
+        <file category="header" attr="config" name="boards/frdmmcxe31b/project_template/peripherals.h" version="1.0.0" projectpath="board"/>
+        <file category="sourceC" attr="config" name="boards/frdmmcxe31b/project_template/peripherals.c" version="1.0.0" projectpath="board"/>
+        <file category="include" name="boards/frdmmcxe31b/project_template/"/>
+      </files>
+    </component>
+  </components>
+</package>

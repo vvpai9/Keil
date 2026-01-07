@@ -1,0 +1,20 @@
+The 'PWM' project is a simple program for the STM32F103VBT6 
+and demonstrates the use of PWM (Pulse Width Modulation) with Timer TIM3.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - HSI     =            8.00 MHz
+   - SYSCLK  =           48.00 MHz
+   - HCLK    = SYSCLK  = 48.00 MHz
+   - PCLK1   = HCLK/2  = 24.00 MHz
+   - PCLK2   = HCLK    = 48.00 MHz
+   - ADCLK   = PCLK2/6 =  8.00 MHz
+   - SYSTICK = HCLK/8  =  6.00 MHz
+
+ - TIM3 is running at  100Hz.
+   LED  is dimmed using the PWM function of TIM3 channel1
+ 
+The Timer program is available in different targets:
+  Simulator:   - configured for software Simulator
+  CQ-STARM:    - runs from Internal Flash located on chip
+                 (used for production or target debugging)

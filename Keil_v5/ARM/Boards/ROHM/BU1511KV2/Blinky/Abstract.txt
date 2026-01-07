@@ -1,0 +1,20 @@
+The Blinky project is a simple demo program for the ROHM 'BU1511KV2' 
+microcontroller using ROHM BU1511KV2 Evaluation Board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL     =  13.5 MHz
+   - PLL0     =  81.0 MHz
+   - SysCCLK  =  40.5 MHz
+
+ - USART2 settings: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+The Blinky program is available for different targets:
+  Ext. Flash:    runs from external Flash
+                 (used for production or target debugging)
+
+  Ext. RAM:      runs from external RAM
+                 (TCM Cache needs to be enabled before)
+
+  TCM Cache:     runs I-TCM cache
+                 (TCM Cache needs to be enabled before)

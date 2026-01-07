@@ -1,0 +1,17 @@
+;[SignumSystemsTraceInitFile]
+;Title=Atmel AT91RM9200 ETM Initialization
+
+trace clear
+trace enable
+
+;*****************************
+; Setup GPIO pins for ETM data
+;*****************************
+
+; PIOD_BSR = 0x0FFF_FF80          ; select Peripheral B
+sd 0xFFFFFA74 = 0x0FFFFF80
+
+; PIOD_PDR = 0x0FFF_FF80          ; disable PIO, enable ETM
+sd 0xFFFFFA04 = 0x0FFFFF80
+
+;*****************************

@@ -1,0 +1,69 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Z32AN11 Int RAM), 0x0004 // Tools: 'ARM-ADS'
+Target (Z32AN11 Ext Flash), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Startup Code),1,0,0
+GRPOPT 2,(Source Code),1,0,0
+GRPOPT 3,(Documentation),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\Z32AN.s><Z32AN.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\Blinky.c><Blinky.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<.\LCD_8bit.c><LCD_8bit.c> 
+OPTFFF 3,4,5,2,0,1,1,0,<.\Abstract.txt><Abstract.txt> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,255,255,255,255,1,0,0,0,129,2,0,0,208,1,0,0 }
+
+
+TARGOPT 1, (Z32AN11 Int RAM)
+ ADSCLK=24000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Int_RAM\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 255
+  OPTBL 0,(Data Sheet)<DATASHTS\ZILOG\Z32AN11_DS.PDF>
+  OPTBL 1,(Product Specification)<DATASHTS\ZILOG\Z32AN11_PS.PDF>
+  OPTDL (SARM.DLL)(-cLH7A400)(DARMSS9.DLL)(-pLH7A404)(SARM.DLL)()(TARMSS9.DLL)(-pLH7A404)
+  OPTDBG 45054,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGTARM)((113=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)(103=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(109=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV1742AOE -O15 -S0 -C0 -N00("ARM922T Core") -D00(00922F0F) -L00(4) -FO7 -FD800000 -FC800 -FN0)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (Z32AN11 Ext Flash)
+ ADSCLK=24000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Ext_Flash\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTBL 0,(Data Sheet)<DATASHTS\ZILOG\Z32AN11_DS.PDF>
+  OPTBL 1,(Product Specification)<DATASHTS\ZILOG\Z32AN11_PS.PDF>
+  OPTDL (SARM.DLL)(-cLH7A400)(DARMSS9.DLL)(-pLH7A404)(SARM.DLL)()(TARMSS9.DLL)(-pLH7A404)
+  OPTDBG 45054,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(AGDIRDI)(-O6 -P(C:\Keil\ARM\Segger\JLinkRDI.dll) -T() -J1 -FO7 -FD200000 -FC800 -FN1 -FF0AT91SAM7_256 -FS0100000 -FL040000)
+  OPTKEY 0,(DLGTARM)((113=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)(103=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(109=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)()
+  OPTKEY 0,(UL2ARM)(-UV1742AOE -O15 -S0 -C0 -N00("ARM922T Core") -D00(00922F0F) -L00(4) -FO7 -FD0 -FC800 -FN1 -FF0S29GL032 -FS010000000 -FL0400000)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

@@ -1,0 +1,18 @@
+The Blinky project is a simple program for the 'SJA2510' 
+microcontroller using NXP's 'SJA2510 Customer Demo Board'.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL           =  10 MHz
+   - PLL            = 160 MHz
+   - SYS  = PLL / 2 =  80 MHz
+ - 6 LEDs blink from left to right and back
+   (LEDs are connected to P1.24 .. P1.29)
+ - speed of LED blinking can be changed by pressing 
+   S1001 (decreased) or S1002 (increased) buttons
+   (S1001 - P1.31; S1002 - P1.30)
+ 
+The Blinky program is available in different targets:
+  Simulator:       configured for software Simulator
+  SJA2510 Flash:   runs from Internal Flash located on chip
+                   (used for production or target debugging)

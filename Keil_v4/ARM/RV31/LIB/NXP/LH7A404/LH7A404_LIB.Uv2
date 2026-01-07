@@ -1,0 +1,122 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (LH7A404 Library), 0x0004 // Tools: 'ARM-ADS'
+
+Group (ASM Source Files)
+Group (C Source Files)
+
+File 1,2,<.\lh7a404_vectors.s><lh7a404_vectors.s>
+File 2,1,<.\lh7a404_ac97_driver.c><lh7a404_ac97_driver.c>
+File 2,1,<.\lh7a404_adc_driver.c><lh7a404_adc_driver.c>
+File 2,1,<.\lh7a404_clcdc_driver.c><lh7a404_clcdc_driver.c>
+File 2,1,<.\lh7a404_csc_driver.c><lh7a404_csc_driver.c>
+File 2,1,<.\lh7a404_dcdc_driver.c><lh7a404_dcdc_driver.c>
+File 2,1,<.\lh7a404_dma_driver.c><lh7a404_dma_driver.c>
+File 2,1,<.\lh7a404_gpio_driver.c><lh7a404_gpio_driver.c>
+File 2,1,<.\lh7a404_kmi_driver.c><lh7a404_kmi_driver.c>
+File 2,1,<.\lh7a404_pwm_driver.c><lh7a404_pwm_driver.c>
+File 2,1,<.\lh7a404_rtc_driver.c><lh7a404_rtc_driver.c>
+File 2,1,<.\lh7a404_sdmmc_driver.c><lh7a404_sdmmc_driver.c>
+File 2,1,<.\lh7a404_ssp_driver.c><lh7a404_ssp_driver.c>
+File 2,1,<.\lh7a404_timer_driver.c><lh7a404_timer_driver.c>
+File 2,1,<.\lh7a404_uart_driver.c><lh7a404_uart_driver.c>
+File 2,1,<.\lh7a404_vic_driver.c><lh7a404_vic_driver.c>
+File 2,1,<.\lh7a404_wdt_driver.c><lh7a404_wdt_driver.c>
+File 2,1,<.\sdk7a404_cf_driver.c><sdk7a404_cf_driver.c>
+File 2,1,<.\sdk7a404_cf_fat.c><sdk7a404_cf_fat.c>
+File 2,1,<.\sdk7a404_cpld_driver.c><sdk7a404_cpld_driver.c>
+File 2,1,<.\sdk7a404_strataflash.c><sdk7a404_strataflash.c>
+File 2,1,<.\lpc_arm922t_cp15_driver.c><lpc_arm922t_cp15_driver.c>
+
+
+Options 1,0,0  // Target 'LH7A404 Library'
+ Device (LH7A404)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0xB0000000-0xB0013FFF) CLOCK(14745600) CPUTYPE(ARM922T))
+ FlashUt ()
+ StupF ("STARTUP\Sharp\LH7A40x.s" ("Sharp LH7A40x Startup Code"))
+ FlashDR ()
+ DevID (4472)
+ Rgf (LH7A404.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿSharp\LH7A404\)
+ OrgReg (ÿSharp\LH7A404\)
+ TgStat=16
+ OutDir (.\Output\)
+ OutName (LH7A404)
+ GenApp=0
+ GenLib=1
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Output\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy .\Output\LH7A404.LIB ..\LH7A404.LIB>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM922T)
+ RVDEV ()
+ ADSTFLGA { 0,8,0,18,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,176,0,64,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,16,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,0,64,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--diag_suppress 186,188)
+ ADSCDEFN (__arm)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cLH7A400)(DARMSS9.DLL)(-pLH7A404)(SARM.DLL)()(TARMSS9.DLL)(-pLH7A404)
+  OPTDBG 43517,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

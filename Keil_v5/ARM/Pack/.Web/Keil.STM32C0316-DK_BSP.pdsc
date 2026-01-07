@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32C0316-DK_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32C0 Series STM32C0316-DK Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32C0316-DK_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.0" date="2025-09-10" tag="v1.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replace loop forever)
+      - Added dbgconf files
+      - Updated RTE_Components.h files
+      - Added DWARF-5 debug information
+      - Added generated output files
+      Package Description (pdsc):
+      - Removed 'compatibleDevice' element
+    </release>
+    <release version="1.0.0" date="2024-12-19" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for STM32C0316-DK
+      Blinky example (CMSIS Solution)
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32C0</keyword>
+    <keyword>STM32C0316-DK</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32C0xx_DFP"      version="2.1.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32C0316-DK">
+      <description>STMicroelectronics STM32C0316-DK Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32C0316-DK"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32C0316-DK GPIO">
+      <description>STMicroelectronics STM32C0316-DK Board with CMSIS Driver GPIO</description>
+      <require condition="STM32C0316-DK"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32C0316-DK -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="STM32C0316-DK GPIO">
+      <description>I/O implementation for STM32C0316-DK</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32C0316_DK
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32C0316-DK.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- STM32C0316-DK -->
+    <board vendor="STMicroelectronics" name="STM32C0316-DK" revision="Rev.A"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Discovery development board with STM32C031C6Tx MCU</description>
+      <image small="Images/stm32c0316-dk_small.png"
+             large="Images/stm32c0316-dk_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/stm32c0316-dk.html" title="STM32C0316-DK Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/stm32c0316-dk.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2969-discovery-kit-with-stm32c031c6-mcu-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1716-c031c6-a03_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32C031C6Tx"/>
+      <feature type="ODbg"      n="1"              name="On-board STLINK-V3MINIE"/>
+      <feature type="PWR"       n="5"              name="USB Powered"/>
+      <feature type="ConnOther" n="2"              name="Extension connector (CN6, CN7)"/>
+      <feature type="ConnOther" n="1"              name="Pads for BTB connector top/bottom (CN4)"/>
+      <feature type="ConnOther" n="1"              name="Bluetooth connector (CN2)"/>
+      <feature type="ConnOther" n="1"              name="STMod+ expansion connectors"/>
+      <feature type="Button"    n="1"              name="Reset push-button (B1)"/>
+      <feature type="Joystick"  n="1"              name="5-position Joystick (B2)"/>
+      <feature type="LED"       n="3"              name="LEDs: COM, User"/>
+      <debugInterface adapter="ST-Link" connector="USB-C"/>
+      <debugInterface adapter="JTAG/SW" connector="14-pin JTAG STDC14 interface (0.05 inch connector)"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32C0316-DK" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

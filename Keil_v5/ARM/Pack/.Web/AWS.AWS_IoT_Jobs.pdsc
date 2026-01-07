@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>AWS_IoT_Jobs</name>
+
+  <description>Client library for using the AWS IoT Jobs service on embedded devices.</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://freertos-cmsis-packs.s3.us-west-2.amazonaws.com/</url>
+
+  <requirements>
+    <packages>
+      <package name="coreJSON" vendor="AWS" version="4.2.0"/>
+    </packages>
+  </requirements>
+
+  <releases>
+    <release date="2025-06-09" version="4.2.0">Based on the https://github.com/aws/jobs-for-aws-iot-embedded-sdk/tree/v1.5.1 repository.</release>
+    <release date="2023-02-23" version="4.1.0">Based on the https://github.com/aws/jobs-for-aws-iot-embedded-sdk/tree/v1.3.0 repository.</release>
+    <release date="2022-06-16" version="4.0.0">Based on the https://github.com/aws/jobs-for-aws-iot-embedded-sdk/tree/v1.1.0 repository.</release>
+    <release date="2020-12-15" version="1.1.0-Beta">Based on the https://github.com/aws/jobs-for-aws-iot-embedded-sdk/tree/v1.1.0 repository.</release>
+  </releases>
+
+  <conditions>
+    <condition id="aws_iot_jobs_library Condition">
+      <require Cclass="FreeRTOS" Cgroup="coreJSON"/>
+    </condition>
+    <condition id="aws_iot_jobs_ota_handler_library Condition">
+      <require Cclass="FreeRTOS" Cgroup="coreJSON"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="AWS IoT" Cgroup="AWS IoT Jobs" Csub="Core Library" Cversion="1.5.1" condition="aws_iot_jobs_library Condition">
+      <description>Client library for using the AWS IoT Jobs service on embedded devices.</description>
+      <files>
+        <file category="source" name="Jobs-for-AWS-IoT-embedded-sdk/source/jobs.c"/>
+        <file category="include" name="Jobs-for-AWS-IoT-embedded-sdk/source/include/"/>
+      </files>
+    </component>
+    <component Cclass="AWS IoT" Cgroup="AWS IoT Jobs" Csub="OTA Job Handler" Cversion="1.5.1" condition="aws_iot_jobs_ota_handler_library Condition">
+      <description>OTA handler library for using the AWS IoT Jobs service on embedded devices.</description>
+      <files>
+        <file category="source" name="Jobs-for-AWS-IoT-embedded-sdk/source/otaJobParser/job_parser.c"/>
+        <file category="source" name="Jobs-for-AWS-IoT-embedded-sdk/source/otaJobParser/ota_job_handler.c"/>
+        <file category="include" name="Jobs-for-AWS-IoT-embedded-sdk/source/otaJobParser/include/"/>
+      </files>
+    </component>
+  </components>
+</package>
+

@@ -1,0 +1,27 @@
+This is a simple RTX Kernel based example which:
+ - simulates the step-motor driver
+   - four LEDs are blinking simulating the activation of the 
+     four output driver stages (phase A, phase B, phase C, phase D)
+ - demonstrates HET (High End Timer) working in interrupt mode 
+   for generating PWM (shown on LED L15) 
+ - uses push button (B1) detection by using GIO interrupt
+   - LED L7 toggles when interrupt is registered
+
+The BLINKY example program is available for target:
+
+  TMS470R1B1M Flash: configured for on-chip Flash ROM
+                     (used for production or target debugging)
+
+NOTES:
+- clean project does not show HET.c because it will be generated 
+  after first project build (by HET assembly)
+
+IMPORTANT !!!
+- R4 resistor (under the ARM-JTAG connector) has to be removed
+  (unsoldered) to enable ULINK support, not necessary for ULINK2
+- Jumpers on board TMS470R1B1M_A have to be set as follows:
+  J_1.9V ON, J_3.3V ON, EXT (1-2), AWD ON, TEST OFF, PLLDIS OFF
+- When developing application never change protection keys
+- NEVER USE 0x00000000 VALUES FOR MEMORY PROTECTION KEYS BECAUSE 
+  THE DEVICE WILL NOT BE ACCESSIBLE AFTER THAT, AND CAN NOT BE 
+  ERASED OR PROGRAMMED ANY MORE

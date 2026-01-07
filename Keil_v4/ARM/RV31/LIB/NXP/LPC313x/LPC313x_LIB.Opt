@@ -1,0 +1,60 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (LPC313x Library), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(ASM Source Files),1,0,0
+GRPOPT 2,(C Source Files),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\lpc313x_vectors.s><lpc313x_vectors.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\lpc313x_adc10b_driver.c><lpc313x_adc10b_driver.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<.\lpc313x_cgu_default.c><lpc313x_cgu_default.c> 
+OPTFFF 2,4,1,0,0,0,0,0,<.\lpc313x_cgu_driver.c><lpc313x_cgu_driver.c> 
+OPTFFF 2,5,1,0,0,0,0,0,<.\lpc313x_crc_driver.c><lpc313x_crc_driver.c> 
+OPTFFF 2,6,1,0,0,0,0,0,<.\lpc313x_dma_driver.c><lpc313x_dma_driver.c> 
+OPTFFF 2,7,1,0,0,0,0,0,<.\lpc313x_evt_driver.c><lpc313x_evt_driver.c> 
+OPTFFF 2,8,1,0,0,0,0,0,<.\lpc313x_i2c_driver.c><lpc313x_i2c_driver.c> 
+OPTFFF 2,9,1,0,0,0,0,0,<.\lpc313x_i2s_driver.c><lpc313x_i2s_driver.c> 
+OPTFFF 2,10,1,0,0,0,0,0,<.\lpc313x_intc_driver.c><lpc313x_intc_driver.c> 
+OPTFFF 2,11,1,0,0,0,0,0,<.\lpc313x_ipint_driver.c><lpc313x_ipint_driver.c> 
+OPTFFF 2,12,1,872415232,0,0,0,0,<.\lpc313x_mci_driver.c><lpc313x_mci_driver.c> 
+OPTFFF 2,13,1,0,0,0,0,0,<.\lpc313x_nand_driver.c><lpc313x_nand_driver.c> 
+OPTFFF 2,14,1,0,0,0,0,0,<.\lpc313x_pwm_driver.c><lpc313x_pwm_driver.c> 
+OPTFFF 2,15,1,0,0,0,0,0,<.\lpc313x_spi_driver.c><lpc313x_spi_driver.c> 
+OPTFFF 2,16,1,0,0,0,0,0,<.\lpc313x_timer_driver.c><lpc313x_timer_driver.c> 
+OPTFFF 2,17,1,0,0,0,0,0,<.\lpc313x_uart_driver.c><lpc313x_uart_driver.c> 
+OPTFFF 2,18,1,0,0,0,0,0,<.\lpc313x_wdt_driver.c><lpc313x_wdt_driver.c> 
+OPTFFF 2,19,1,0,0,0,0,0,<.\lpc315x_otp_driver.c><lpc315x_otp_driver.c> 
+OPTFFF 2,20,1,0,0,0,0,0,<.\lpc315x_psu_driver.c><lpc315x_psu_driver.c> 
+OPTFFF 2,21,1,0,0,0,0,0,<.\lpc315x_rtc_driver.c><lpc315x_rtc_driver.c> 
+
+
+TARGOPT 1, (LPC313x Library)
+ ADSCLK=12000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 8
+  OPTBL 0,(Data Sheet)<DATASHTS\PHILIPS\LPC313x_DS.pdf>
+  OPTBL 1,(User Manual)<DATASHTS\PHILIPS\LPC313x_UM.pdf>
+  OPTBL 2,(Errata Sheet)<DATASHTS\PHILIPS\LPC313x_ES.pdf>
+  OPTDL (SARM.DLL)(-cLPC313x)(DARMP3.DLL)(-pLPC3131)(SARM.DLL)()(TARMP3.DLL)(-pLPC3131)
+  OPTDBG 43517,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(UL2ARM)(-UV1742AOE -O47 -S0 -C0 -N00("ARM926EJ-S Core") -D00(07926F0F) -L00(4) -FO7 -FD11028000 -FC2000 -FN1 -FF0LPC313x_NAND_LP -FS030000000 -FL0FFE0000))
+  OPTDF 0x2
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

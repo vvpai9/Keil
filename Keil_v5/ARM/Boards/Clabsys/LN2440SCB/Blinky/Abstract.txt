@@ -1,0 +1,32 @@
+The 'Blinky' project is a simple program for the S3C2440 
+using CLABSYS 'LN2440SBC' Evaluation Board and demonstrating 
+interrupt functionality.
+
+Example functionality:                                                   
+  - Clock Settings are used from bootloader:
+    - XTAL    =            12.00 MHz
+    - MPLL    =           300.00 MHz
+    - UPLL    =            96.00 MHz
+    - FCLK    = MPLL      300.00 MHz
+    - HCLK    = FCLK/3  = 100.00 MHz
+    - PCLK    = HCLK/2  =  50.00 MHz
+    - UCLK    = UPLL/2  =  48.00 MHz
+    - CAMCLK  = UPLL    =  96.00 MHz
+  - 3 LEDs blink from left to right and back
+    - Timer0 is used in interrupt mode
+ 
+The Blinky program is available in different targets:
+  Simulator:         configured for software Simulator
+  S3C2440 Ext SDRAM: configured for external SDRAM loaded 
+                     to External NAND Flash (64MB)
+                     (may be used for target debugging
+                     or production)
+
+Notes: 
+  - JTAG connector has to be connected with custom made 
+    connector to ULINK JTAG
+  - for standalone application you have to:
+    1. Download the 2-nd level bootloader 
+       (from Keil) to NAND Flash 
+    2. Download application built for 'Ext SDRAM' 
+       target to NAND Flash

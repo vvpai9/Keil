@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.44" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.44/schema/PACK.xsd">
+  <vendor>Infineon</vendor>
+  <name>PSoC-HVMS_DFP</name>
+  <description overview="Documentation/Overview.md">Infineon KIT_PSoC4-HVMS Device Family Pack</description>
+  <url>https://itools.infineon.com/cmsis_packs/PSoC_HVMS/</url>
+  <supportContact>https://www.infineon.com/support</supportContact>
+  <license>APACHE_LICENSE.txt</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license name="./APACHE_LICENSE.txt" title="Apache 2.0 License" spdx="Apache-2.0"/>
+    </licenseSet>
+  </licenseSets>
+  
+  <releases>
+    <release version="1.0.0" date="2025-10-17">
+      Initial Version
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Infineon</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>PSoC</keyword>
+    <keyword>PSoC-HVMS</keyword>
+  </keywords>
+
+  <requirements>
+    <languages>
+      <language name="C" version="99"/>
+    </languages>
+  </requirements>
+
+  <devices>
+    <family Dfamily="PSoC-HVMS" Dvendor="Infineon:7">
+      <book name="https://developer.arm.com/documentation/dui0662/latest" title="Cortex-M0+ Generic User Guide"/>
+      <feature type="Temp" n="-40" m="125" name="Extended Operating Temperature Range"/>
+      <feature type="VCC" n="2.7" m="5.5"/>
+      <feature type="MemoryOther" n="64" name="KB Code Flash"/> 
+      <feature type="MemoryOther" n="128" name="KB Code Flash"/>
+      <description>PSoC-HVMS devices</description>
+      <sequences>
+        <sequence name="ResetSystem">
+          <block>
+            // System Control Space (SCS) offset as defined in Armv6-M/Armv7-M.
+            __var SCS_Addr   = 0xE000E000;
+            __var AIRCR_Addr = SCS_Addr + 0xD0C;
+            __var DHCSR_Addr = SCS_Addr + 0xDF0;
+            __var DEMCR_Addr = SCS_Addr + 0xDFC;
+
+            // Clear Reset Vector Catch bit set in ResetSetCatch (done so as not to redefine the default ResetSetCatch)
+            Write32(DEMCR_Addr, (Read32(DEMCR_Addr) &amp; 0xFFFFFFFE));
+
+            // Map the address bits to the breakpoint compare register
+            // bit map, set the enable breakpoint bit, and the match bits
+            __var reset_addr = (Read32(0x00000004) &amp; 0x1FFFFFFC) | 0x40000001;
+            Write32(0xE0002008, reset_addr);
+
+            // Enable Breakpoint unit
+            Write32(0xE0002000, 0x00000003);
+
+            // Issue software reset
+            __errorcontrol = 1;
+            Write32(AIRCR_Addr, 0x05FA0004);
+            __errorcontrol = 0;
+
+            // Wait 100ms to omit the DHCSR register reading until the device is ready
+            DAP_Delay(100000);
+          </block>
+          <!-- Reset Recovery: Wait for DHCSR.S_RESET_ST bit to clear on read -->
+          <control while="(Read32(DHCSR_Addr) &amp; 0x02000000)" timeout="5000" />
+        </sequence>
+        <sequence name="ResetHardware">
+          <block>
+            __var nReset      = 0x80;
+            __var canReadPins = 0;
+
+            // De-assert nRESET line
+            canReadPins = (DAP_SWJ_Pins(0x00, nReset, 0) != 0xFFFFFFFF);
+          </block>
+          <!-- Keep reset active for 50 ms -->
+          <control while="1" timeout="50000" />
+          <control if="canReadPins">
+            <!-- Assert nRESET line and wait max. 1s for recovery -->
+            <control while="(DAP_SWJ_Pins(nReset, nReset, 0) &amp; nReset) == 0" timeout="1000000" />
+          </control>
+          <control if="!canReadPins">
+            <block>
+              // Assert nRESET line
+              DAP_SWJ_Pins(nReset, nReset, 0);
+            </block>
+            <!-- Wait 100ms for recovery if nRESET not readable -->
+            <control while="1" timeout="100000" />
+          </control>
+        </sequence>
+        <!-- Does not unlock device. Reused for reading and printing device info -->
+        <sequence name="DebugDeviceUnlock">
+          <block>
+            __var siId;
+            __var siRev;
+            __var siFamily;
+            __var protection;
+            __var v;
+            __errorcontrol = 1;
+            __var is_protected = Read32(0xE000ED00);
+          </block>
+          <control if="is_protected == 1">
+            <block>
+              is_protected = Read32(0xE000ED00);
+            </block>
+          </control>
+          <control if="is_protected == 1">
+            <block>
+              is_protected = Read32(0xE000ED00);
+            </block>
+          </control>
+          <block>
+            __errorcontrol = 0;
+          </block>
+          <control if="is_protected == 1">
+            <block>
+              Message(0, "****************************************************");
+              Message(0, "** Chip Protection: PROTECTED");
+              Message(0, "****************************************************");
+            </block>
+          </control>
+          <control if="is_protected != 1">
+            <block>
+              __var prot_offset;
+              __var siid_offset;
+              __var is_legacy = 0;
+              __var geometry_address = 0x40110000;
+              __var sflash_address = 0x0FFFF000;
+              __var pid_0 = Read32(0xF0000FE0);
+              __var pid_1 = Read32(0xF0000FE4);
+              __var pid_2 = Read32(0xF0000FE8);
+              __var pid_3 = Read32(0xF0000FEC);
+              siFamily = pid_0 + ((pid_1 &amp; 0xFu) &lt;&lt; 8);
+              siRev = (pid_2 &amp; 0xF0) + ((pid_3 &amp; 0xF0) &gt;&gt; 4);
+            </block>
+            <control if="(((siFamily&gt;=0x92) &amp;&amp; (siFamily&lt;0x97)) || siFamily==0x98 || siFamily==0x99 || siFamily==0x9C)">
+              <block>
+                is_legacy = 1;
+              </block>
+            </control>
+            <control if="siFamily==0xBE">
+              <block>
+                sflash_address = 0x0FFFE000;
+              </block>
+            </control>
+            <control if="is_legacy==1">
+              <block>
+                geometry_address = 0x400E0000;
+              </block>
+            </control>
+            <!-- Get row size -->
+            <block>
+              v = Read32(geometry_address);
+            </block>
+            <control if="is_legacy==0">
+              <block>
+                v = (v &gt;&gt; 22) &amp; 0x03;
+                v = 64 * (v + 1);
+              </block>
+            </control>
+            <control if="is_legacy==1">
+              <block>
+                v = v * 128;
+              </block>
+            </control>
+            <!-- Define silicon ID and protection offesets for 64 -->
+            <control if="v == 0x40">
+              <block>
+                siid_offset = 0x0144;
+                prot_offset = 0x7C;
+              </block>
+            </control>
+            <!-- Define silicon ID and protection offesets for 128 -->
+            <control if="v == 0x80">
+              <block>
+                siid_offset = 0x0144;
+                prot_offset = 0x7C;
+              </block>
+            </control>
+            <!-- Define silicon ID and protection offesets for 256 -->
+            <control if="v == 0x100">
+              <block>
+                siid_offset = 0x244;
+                prot_offset = 0x0FC;
+              </block>
+            </control>
+            <!-- Read Silicon ID and protection values -->
+            <block>
+              siId = Read32(siid_offset|sflash_address);
+              protection = Read32(prot_offset|sflash_address);
+              Message(0, "****************************************************");
+              Message(0, "** Silicon: 0x%04X, Family: 0x%02X, Rev.: 0x%02X", siId, siFamily, siRev);
+            </block>
+            <!-- Decode life-cycle stage -->
+            <control if="protection == 0">
+              <block>
+                Message(0, "** Chip Protection: OPEN");
+              </block>
+            </control>
+            <control if="protection == 1">
+              <block>
+                Message(0, "** Chip Protection: VIRGIN");
+              </block>
+            </control>
+            <control if="(protection &gt; 1)">
+              <block>
+                Message(0, "** Chip Protection: UNKNOWN");
+              </block>
+            </control>
+            <block>
+              Message(0, "****************************************************");
+            </block>
+          </control>
+        </sequence>
+      </sequences>
+      <subFamily DsubFamily="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx">
+        <processor Pname="Cortex-M0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" />
+        <debug Pname="Cortex-M0p" svd="Libraries/mtb-pdl-cat2/devices/svd/psoc4hvms64k.svd" />
+        <memory name="SRAM" access="rwx" start="0x20000000" size="0x00002000" default="1" />
+        <memory name="FLASH" access="rx" start="0x00000000" size="0x00010000" default="1" startup="1" />
+        <algorithm name="Flash/CAT2.FLM" start="0x00000000" size="0x00010000" RAMstart="0x20000300" RAMsize="0x00000D00" default="1" style="Keil" />
+        <feature type="Memory" n="64" name="64KB FLASH Memory"/>
+        <feature type="LIN" n="2" name="2 LIN channels"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy8c41x5-cy8c41x6-psoc-4-high-voltage-hv-mixed-signal-ms-automotive-mcu-based-on-32-bit-arm-cortex--m0-datasheet-en.pdf?fileId=8ac78c8c956a0a470195817712a75d7a" title="PSoC4_HVMS64K Data sheet"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/57/infineon-psoc-4-high-voltagehvmixed-signalmsmcu-psoc4hvms-64k-registers-reference-manual-additionaltechnicalinformation-en.pdf" title="PSoC4_HVMS64K Register TRM"/>
+        <device Dname="CY8C4126LCE-HVS003">
+          <compile define="CY8C4126LCE_HVS003" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LCE-HVS013">
+          <compile define="CY8C4126LCE_HVS013" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LDE-HVS004">
+          <compile define="CY8C4126LDE_HVS004" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>  
+        </device>
+        <device Dname="CY8C4126LDE-HVS014">
+          <compile define="CY8C4126LDE_HVS014" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LWE-HVS005">
+          <compile define="CY8C4126LWE_HVS005" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LWE-HVS015">
+          <compile define="CY8C4126LWE_HVS015" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LCE-HVS003">
+          <compile define="CY8C4146LCE_HVS003" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LCE-HVS013">
+          <compile define="CY8C4146LCE_HVS013" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LCE-HVS003X">
+          <compile define="CY8C4146LCE_HVS003X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LCE-HVS013X">
+          <compile define="CY8C4146LCE_HVS013X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>        
+        <device Dname="CY8C4146LDE-HVS004">
+          <compile define="CY8C4146LDE_HVS004" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>  
+        </device>
+        <device Dname="CY8C4146LDE-HVS014">
+          <compile define="CY8C4146LDE_HVS014" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LDE-HVS004X">
+          <compile define="CY8C4146LDE_HVS004X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LDE-HVS014X">
+          <compile define="CY8C4146LDE_HVS014X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>        
+        <device Dname="CY8C4146LWE-HVS005">
+        <compile define="CY8C4146LWE_HVS005" />
+        <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LWE-HVS015">
+          <compile define="CY8C4146LWE_HVS015" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LWE-HVS005X">
+          <compile define="CY8C4146LWE_HVS005X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LWE-HVS015X">
+        <compile define="CY8C4146LWE_HVS015X" />
+        <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>         
+      </subFamily> 
+      <subFamily DsubFamily="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx">
+        <processor Pname="Cortex-M0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" />
+        <debug Pname="Cortex-M0p" svd="Libraries/mtb-pdl-cat2/devices/svd/psoc4hvms64k.svd" />
+        <memory name="SRAM" access="rwx" start="0x20000000" size="0x00002000" default="1" />
+        <memory name="FLASH" access="rx" start="0x00000000" size="0x00010000" default="1" startup="1" />
+        <algorithm name="Flash/CAT2.FLM" start="0x00000000" size="0x00010000" RAMstart="0x20000300" RAMsize="0x00000D00" default="1" style="Keil" />
+        <feature type="Memory" n="64" name="64KB FLASH Memory"/>
+        <feature type="LIN" n="2" name="2 LIN channels"/>
+        <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy8c41x5-cy8c41x6-psoc-4-high-voltage-hv-mixed-signal-ms-automotive-mcu-based-on-32-bit-arm-cortex--m0-datasheet-en.pdf?fileId=8ac78c8c956a0a470195817712a75d7a" title="PSoC4_HVMS64K Data sheet"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/57/infineon-psoc-4-high-voltagehvmixed-signalmsmcu-psoc4hvms-64k-registers-reference-manual-additionaltechnicalinformation-en.pdf" title="PSoC4_HVMS64K Register TRM"/>
+        <device Dname="CY8C4126LCE-HVS103">
+          <compile define="CY8C4126LCE_HVS103" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LCE-HVS113">
+          <compile define="CY8C4126LCE_HVS113" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LDE-HVS104">
+          <compile define="CY8C4126LDE_HVS104" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LDE-HVS114">
+          <compile define="CY8C4126LDE_HVS114" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LWE-HVS105">
+          <compile define="CY8C4126LWE_HVS105" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4126LWE-HVS115">
+          <compile define="CY8C4126LWE_HVS115" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device> 
+        <device Dname="CY8C4146LCE-HVS103">
+          <compile define="CY8C4146LCE_HVS103" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LCE-HVS113">
+          <compile define="CY8C4146LCE_HVS113" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LCE-HVS103X">
+          <compile define="CY8C4146LCE_HVS103X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LCE-HVS113X">
+          <compile define="CY8C4146LCE_HVS113X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="32"/>
+          <feature type="IOs" n="18" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LDE-HVS104">
+          <compile define="CY8C4146LDE_HVS104" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LDE-HVS114">
+          <compile define="CY8C4146LDE_HVS114" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LDE-HVS104X">
+          <compile define="CY8C4146LDE_HVS104X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LDE-HVS114X">
+          <compile define="CY8C4146LDE_HVS114X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LWE-HVS105">
+          <compile define="CY8C4146LWE_HVS105" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LWE-HVS115">
+          <compile define="CY8C4146LWE_HVS115" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LWE-HVS105X">
+          <compile define="CY8C4146LWE_HVS105X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4146LWE-HVS115X">
+          <compile define="CY8C4146LWE_HVS115X" />
+          <feature type="Memory" n="8" name="8KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>    
+      </subFamily>
+      <subFamily DsubFamily="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx">
+        <processor Pname="Cortex-M0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" />
+        <debug Pname="Cortex-M0p" svd="Libraries/mtb-pdl-cat2/devices/svd/psoc4hvms128k.svd" />
+        <memory name="SRAM" access="rwx" start="0x20000000" size="0x00004000" default="1" />
+        <memory name="FLASH" access="rx" start="0x00000000" size="0x00020000" default="1" startup="1" />
+        <algorithm name="Flash/CAT2.FLM" start="0x00000000" size="0x00020000" RAMstart="0x20000300" RAMsize="0x00000D00" default="1" style="Keil" />
+        <feature type="Memory" n="128" name="128KB FLASH Memory"/>
+        <feature type="LIN" n="2" name="2 LIN channels"/>
+        <feature type="IOs" n="47" name="General Purpose I/Os"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy8c41x7-psoc-4-high-voltage-hv-mixed-signal-ms-automotive-mcu-based-on-32-bit-arm-cortex--m0-datasheet-en.pdf?fileId=8ac78c8c956a0a470195817786015ddd" title="PSoC4_HVMS128K Data sheet"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/57/infineon-psoc-high-voltagehvmixed-signal-msmcu-psoc-hvms-128k-registers-reference-manual-additionaltechnicalinformation-en.pdf" title="PSoC4_HVMS128K Register TRM"/>
+        <device Dname="CY8C4127LDE-HVS004">
+          <compile define="CY8C4127LDE_HVS004" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LDE-HVS014">
+          <compile define="CY8C4127LDE_HVS014" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LWE-HVS005">
+          <compile define="CY8C4127LWE_HVS005" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LWE-HVS015">
+          <compile define="CY8C4127LWE_HVS015" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LQE-HVS006">
+          <compile define="CY8C4127LQE_HVS006" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LQE-HVS016">
+          <compile define="CY8C4127LQE_HVS016" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS004">
+          <compile define="CY8C4147LDE_HVS004" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS014">
+          <compile define="CY8C4147LDE_HVS014" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS024">
+          <compile define="CY8C4147LDE_HVS024" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS034">
+          <compile define="CY8C4147LDE_HVS034" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS024X">
+          <compile define="CY8C4147LDE_HVS024X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS034X">
+          <compile define="CY8C4147LDE_HVS034X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>        
+        <device Dname="CY8C4147LWE-HVS005">
+          <compile define="CY8C4147LWE_HVS005" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS015">
+          <compile define="CY8C4147LWE_HVS015" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS025">
+          <compile define="CY8C4147LWE_HVS025" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS035">
+          <compile define="CY8C4147LWE_HVS035" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS025X">
+          <compile define="CY8C4147LWE_HVS025X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS035X">
+          <compile define="CY8C4147LWE_HVS035X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>        
+        <device Dname="CY8C4147LQE-HVS006">
+          <compile define="CY8C4147LQE_HVS006" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS016">
+          <compile define="CY8C4147LQE_HVS016" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS026">
+          <compile define="CY8C4147LQE_HVS026" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS036">
+          <compile define="CY8C4147LQE_HVS036" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS026X">
+          <compile define="CY8C4147LQE_HVS026X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS036X">
+          <compile define="CY8C4147LQE_HVS036X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+      </subFamily>
+      <subFamily DsubFamily="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx">
+        <processor Pname="Cortex-M0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Little-endian" />
+        <debug Pname="Cortex-M0p" svd="Libraries/mtb-pdl-cat2/devices/svd/psoc4hvms128k.svd" />
+        <memory name="SRAM" access="rwx" start="0x20000000" size="0x00004000" default="1" />
+        <memory name="FLASH" access="rx" start="0x00000000" size="0x00020000" default="1" startup="1" />
+        <algorithm name="Flash/CAT2.FLM" start="0x00000000" size="0x00020000" RAMstart="0x20000300" RAMsize="0x00000D00" default="1" style="Keil" />
+        <feature type="Memory" n="128" name="128KB FLASH Memory"/>
+        <feature type="LIN" n="2" name="2 LIN channels"/>
+        <feature type="IOs" n="47" name="General Purpose I/Os"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy8c41x7-psoc-4-high-voltage-hv-mixed-signal-ms-automotive-mcu-based-on-32-bit-arm-cortex--m0-datasheet-en.pdf?fileId=8ac78c8c956a0a470195817786015ddd" title="PSoC4_HVMS128K Data sheet"/>
+        <book name="https://www.infineon.com/assets/row/public/documents/10/57/infineon-psoc-high-voltagehvmixed-signal-msmcu-psoc-hvms-128k-registers-reference-manual-additionaltechnicalinformation-en.pdf" title="PSoC4_HVMS128K Register TRM"/>
+        <device Dname="CY8C4127LDE-HVS104">
+          <compile define="CY8C4127LDE_HVS104" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LDE-HVS114">
+          <compile define="CY8C4127LDE_HVS114" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>        
+        <device Dname="CY8C4127LWE-HVS105">
+          <compile define="CY8C4127LWE_HVS105" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LWE-HVS115">
+          <compile define="CY8C4127LWE_HVS115" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>        
+        <device Dname="CY8C4127LQE-HVS106">
+          <compile define="CY8C4127LQE_HVS106" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4127LQE-HVS116">
+          <compile define="CY8C4127LQE_HVS116" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS104">
+          <compile define="CY8C4147LDE_HVS104" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS114">
+          <compile define="CY8C4147LDE_HVS114" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS124">
+          <compile define="CY8C4147LDE_HVS124" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS134">
+          <compile define="CY8C4147LDE_HVS134" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS124X">
+          <compile define="CY8C4147LDE_HVS124X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LDE-HVS134X">
+          <compile define="CY8C4147LDE_HVS134X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="48"/>
+          <feature type="IOs" n="33" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS105">
+          <compile define="CY8C4147LWE_HVS105" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS115">
+          <compile define="CY8C4147LWE_HVS115" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS125">
+          <compile define="CY8C4147LWE_HVS125" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS135">
+          <compile define="CY8C4147LWE_HVS135" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS125X">
+          <compile define="CY8C4147LWE_HVS125X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LWE-HVS135X">
+          <compile define="CY8C4147LWE_HVS135X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="56"/>
+          <feature type="IOs" n="41" name="General Purpose I/Os"/>
+        </device>        
+        <device Dname="CY8C4147LQE-HVS106">
+          <compile define="CY8C4147LQE_HVS106" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS116">
+          <compile define="CY8C4147LQE_HVS116" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS126">
+          <compile define="CY8C4147LQE_HVS126" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS136">
+          <compile define="CY8C4147LQE_HVS136" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS126X">
+          <compile define="CY8C4147LQE_HVS126X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>
+        <device Dname="CY8C4147LQE-HVS136X">
+          <compile define="CY8C4147LQE_HVS136X" />
+          <feature type="Memory" n="16" name="16KB SRAM"/>
+          <feature type="QFN" n="64"/>
+          <feature type="IOs" n="49" name="General Purpose I/Os"/>
+        </device>        
+      </subFamily>          
+    </family>   
+  </devices>
+
+  <conditions>  
+      <!-- Compiler Conditions -->
+      <condition id="ARMCC">
+        <require Tcompiler="ARMCC"/>
+      </condition>
+      <condition id="GCC">
+        <require Tcompiler="GCC"/>
+      </condition>
+      <condition id="IAR">
+        <require Tcompiler="IAR"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx">
+        <description>PSoC HVMS CY8C41x6LxE-HVS0xx series devices</description>
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LCE-HVS003" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LCE-HVS013" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LDE-HVS004" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LDE-HVS014" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LWE-HVS005" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LWE-HVS015" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS003" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS003X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS013" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS013X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS004" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS014" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS004X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS014X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS005" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS015" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS005X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS015X" />
+      </condition>
+
+      <condition id="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx">
+        <description>PSoC HVMS CY8C41x6LxE-HVS1xx series devices</description>
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LCE-HVS103" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LCE-HVS113" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LDE-HVS104" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LDE-HVS114" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LWE-HVS105" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4126LWE-HVS115" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS103" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS113" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS103X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LCE-HVS113X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS104" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS114" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS104X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LDE-HVS114X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS105" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS115" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS105X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4146LWE-HVS115X" />
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx">
+        <description>PSoC HVMS CY8C41x7LxE-HVS0xx series devices</description>
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LDE-HVS004" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LDE-HVS014" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LWE-HVS005" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LWE-HVS015" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LQE-HVS006" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LQE-HVS016" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS004" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS014" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS024" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS034" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS024X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS034X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS005" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS015" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS025" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS035" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS025X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS035X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS006" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS016" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS026" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS036" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS026X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS036X" />      
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx">
+        <description>PSoC HVMS CY8C41x7LxE-HVS1xx series devices</description>
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LDE-HVS104" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LDE-HVS114" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LWE-HVS105" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LWE-HVS115" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LQE-HVS106" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4127LQE-HVS116" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS104" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS114" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS124" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS134" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS124X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LDE-HVS134X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS105" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS115" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS125" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS135" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS125X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LWE-HVS135X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS106" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS116" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS126" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS136" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS126X" />
+        <accept Dvendor="Infineon:7" Dname="CY8C4147LQE-HVS136X" />
+       </condition>       
+
+      <condition id="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_GCC">
+        <description>Infineon PSoC HVMS CY8C41x6LxE-HVS0xx Series devices compiled using GCC</description>
+        <require condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx"/>
+        <require condition="GCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_ARMCC">
+        <description>Infineon PSoC HVMS CY8C41x6LxE-HVS0xx Series devices compiled using ARMCC</description>
+        <require condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx"/>
+        <require condition="ARMCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_IAR">
+        <description>Infineon PSoC HVMS CY8C41x6LxE-HVS0xx Series devices compiled using IAR</description>
+        <require condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx"/>
+        <require condition="IAR"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_GCC">
+        <description>Infineon PSoC HVMS CY8C41x6LxE-HVS1xx Series devices compiled using GCC</description>
+        <require condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx"/>
+        <require condition="GCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_ARMCC">
+        <description>Infineon PSoC HVMS CY8C41x6LxE-HVS1xx Series devices compiled using ARMCC</description>
+        <require condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx"/>
+        <require condition="ARMCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_IAR">
+        <description>Infineon PSoC HVMS CY8C41x6LxE-HVS1xx Series devices compiled using IAR</description>
+        <require condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx"/>
+        <require condition="IAR"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_GCC">
+        <description>Infineon PSoC HVMS CY8C41x7LxE-HVS0xx Series devices compiled using GCC</description>
+        <require condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx"/>
+        <require condition="GCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_ARMCC">
+        <description>Infineon PSoC HVMS CY8C41x7LxE-HVS0xx Series devices compiled using ARMCC</description>
+        <require condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx"/>
+        <require condition="ARMCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_IAR">
+        <description>Infineon PSoC HVMS CY8C41x7LxE-HVS0xx Series devices compiled using IAR</description>
+        <require condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx"/>
+        <require condition="IAR"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_GCC">
+        <description>Infineon PSoC HVMS CY8C41x7LxE-HVS1xx Series devices compiled using GCC</description>
+        <require condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx"/>
+        <require condition="GCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_ARMCC">
+        <description>Infineon PSoC HVMS CY8C41x7LxE-HVS1xx Series devices compiled using ARMCC</description>
+        <require condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx"/>
+        <require condition="ARMCC"/>
+      </condition>
+
+      <condition id="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_IAR">
+        <description>Infineon PSoC HVMS CY8C41x7LxE-HVS1xx Series devices compiled using IAR</description>
+        <require condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx"/>
+        <require condition="IAR"/>
+      </condition>
+
+      <condition id="CM0P">
+        <description>Infineon PSoC HVMS Series devices CM0P</description>
+        <accept condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx"/>
+        <accept condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx"/>
+        <accept condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx"/>
+        <accept condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx"/>
+        <require Dcore="Cortex-M0+"/>
+      </condition>
+
+      <condition id="CMSIS">
+        <description>Infineon PSoC HVMS Series devices and CMSIS-CORE</description>
+        <accept condition="CM0P"/>
+        <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+
+      <condition id="CM0P CMSIS">
+        <description>Infineon PSoC HVMS Series devices CM0P and CMSIS-CORE</description>
+        <require condition="CM0P"/>
+        <require Cclass="CMSIS" Cgroup="CORE"/>
+        <require Cclass="Device" Cgroup="Peripheral Driver Library" Csub="PDL"/>
+      </condition>      
+   
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" condition="CM0P CMSIS" Cversion="1.0.0">
+      <description>Cortex-M0+ System Startup for Infineon PSoC HVMS</description>
+      <RTE_Components_h>  <!-- the following content goes into file 'RTE_Components.h' -->
+        #define CMSIS_device_header "cy_device.h"
+      </RTE_Components_h>
+      <files>
+        <file category="include"       name="Libraries/core-lib/include/"/>
+        <file category="include"       name="Libraries/mtb-pdl-cat2/devices/include/"/>
+        <file category="include"       name="Libraries/mtb-pdl-cat2/drivers/include/"/>
+        <file category="include"       name="Libraries/mtb-pdl-cat2/devices/include/"/>
+        <file category="include"       name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/"/>      
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/system_cat2.c" attr="config" version="2.0"/>        
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms64k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_GCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms64k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_GCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms64k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_ARMCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms64k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_ARMCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms64k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_IAR"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms64k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_IAR"/>        
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_GCC_ARM/cy8c41x6xhvs.ld"  attr="config" version="1.0.0" condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_GCC"/> 
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_GCC_ARM/cy8c41x6xhvs.ld"  attr="config" version="1.0.0" condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_GCC"/>  
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_ARM/cy8c41x6xhvs.sct"  attr="config" version="1.0.0" condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_ARMCC"/>
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_ARM/cy8c41x6xhvs.sct"  attr="config" version="1.0.0" condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_ARMCC"/>
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_IAR/cy8c41x6xhvs.icf"  attr="config" version="1.0.0" condition="PSoC_HVMS_64KB_3V3_CY8C41x6LxE-HVS0xx_IAR"/> 
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_IAR/cy8c41x6xhvs.icf"  attr="config" version="1.0.0" condition="PSoC_HVMS_64KB_5V_CY8C41x6LxE-HVS1xx_IAR"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms128k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_GCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms128k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_GCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms128k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_ARMCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms128k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_ARMCC"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms128k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_IAR"/>
+        <file category="source"        name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/startup_psoc4hvms128k.c"  attr="config" version="2.1.0" condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_IAR"/>        
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_GCC_ARM/cy8c41x7xhvs.ld"  attr="config" version="1.0.0" condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_GCC"/> 
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_GCC_ARM/cy8c41x7xhvs.ld"  attr="config" version="1.0.0" condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_GCC"/>  
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_ARM/cy8c41x7xhvs.sct"  attr="config" version="1.0.0" condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_ARMCC"/>
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_ARM/cy8c41x7xhvs.sct"  attr="config" version="1.0.0" condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_ARMCC"/>
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_IAR/cy8c41x7xhvs.icf"  attr="config" version="1.0.0" condition="PSoC_HVMS_128KB_3V3_CY8C41x7LxE-HVS0xx_IAR"/> 
+        <file category="linkerScript"  name="Libraries/mtb-template-cat2/files/templates/COMPONENT_MTB/TOOLCHAIN_IAR/cy8c41x7xhvs.icf"  attr="config" version="1.0.0" condition="PSoC_HVMS_128KB_5V_CY8C41x7LxE-HVS1xx_IAR"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="Peripheral Driver Library" Csub="PDL" condition="CMSIS" Cversion="3.10.0">
+        <description>MTB CAT2 Peripheral driver library</description>
+        <files>
+          <file category="doc"     name="Libraries/mtb-pdl-cat2/docs/pdl_api_reference_manual/html/index.html"/>
+          <file category="include" name="Libraries/mtb-pdl-cat2/drivers/include/"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_canfd.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_crwdt.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_crypto_aes.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_crypto_crc.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_crypto_hw.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_crypto_sha.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_crypto_trng.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_cryptolite_aes.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_cryptolite_rsa.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_cryptolite_sha.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_cryptolite_trng.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_csd.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_ctb.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_dmac.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_flash.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_gpio.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_hvss.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_i2s.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_lin.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_lpcomp.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_ltc.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_msc.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_msclp.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_ram.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_sar.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_scb_common.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_scb_ezi2c.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_scb_i2c.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_scb_spi.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_scb_uart.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_seglcd.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_smartio.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_sysclk.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_sysfault.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_sysint.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_syslib.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_syspm.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_systick.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_tcpwm_counter.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_tcpwm_pwm.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_tcpwm_quaddec.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_trigmux.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbfs_dev_drv.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbfs_dev_drv_io.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbfs_dev_drv_io_dma.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_bch.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_buck_boost.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_config_table.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_hpd.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_idac_ctrl.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_lf_counter.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_mux.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_phy.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_typec.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_usbpd_vbus_ctrl.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_wdc.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_wdt.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_can.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_dsadc.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_dsadc_achan.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_dsadc_calibration.c"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/cy_dsadc_dchan.c"/> 
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/COMPONENT_CM0P/TOOLCHAIN_ARM/cy_syslib_mdk.s" condition="ARMCC"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/COMPONENT_CM0P/TOOLCHAIN_IAR/cy_syslib_iar.s" condition="IAR"/>
+          <file category="source"  name="Libraries/mtb-pdl-cat2/drivers/source/COMPONENT_CM0P/TOOLCHAIN_GCC_ARM/cy_syslib_gcc.S" condition="GCC"/>
+        </files>
+    </component>
+  </components>  
+</package>

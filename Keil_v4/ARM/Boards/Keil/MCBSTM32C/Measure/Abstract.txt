@@ -1,0 +1,32 @@
+The 'Measure' project is a demonstration program for the 
+'STM32F107VCT6' microcontroller using Keil 'MCBSTM32C' Evaluation Board.
+
+Clock Settings:
+ - XTAL    =               25.00 MHz
+ - PLL3    = (XTAL/5)*10 = 50.00 MHz
+ - PLL2    = (XTAL/5)* 8 = 40.00 MHz
+ - PLL1    = (PLL2/5)* 9 = 72.00 MHz
+ - SYSCLK  = PLL1        = 72.00 MHz
+ - HCLK    = SYSCLK      = 72.00 MHz
+ - PCLK1   = HCLK/2      = 36.00 MHz
+ - PCLK2   = HCLK        = 72.00 MHz
+ - ADCLK   = PCLK2/6     = 12.00 MHz
+ - SYSTICK = HCLK/2      = 36.00 MHz
+
+USART2 settings:
+ - 115200 baud, 8 data bits, no parity, 1 stop bit
+
+ - ADC
+   - ADC1 channel14 connected to potentiometer POT1 
+
+Memories:
+ - Internal Flash        - 256 kB (adr: 0x08000000)
+ - Internal RAM          -  64 kB (adr: 0x20000000)
+
+Example functionality:                                                   
+You may watch the value of analog input POT1 and the state of the
+Joystick (Buttons right, left, up, select) on MCBSTM32C evaluation board.
+
+The Traffic program is available in different targets:
+  MCBSTM32C:       runs from Internal Flash located on chip
+                   (used for production or target debugging)

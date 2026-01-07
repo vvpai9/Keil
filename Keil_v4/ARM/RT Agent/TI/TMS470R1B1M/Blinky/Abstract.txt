@@ -1,0 +1,34 @@
+The Blinky project is a simple program for the 'TMS470R1B1M'
+using the Texas Instruments 'TMS470R1B1M' Evaluation Board.
+
+Example functionality:
+ - Clock Settings:
+   - SYSCLK = XTAL*8/1 = 60.0 MHz
+   - ICLK   = SYSCLK/8 =  7.5 MHz
+ - LED L15 blinks with PWM generated with HET, used with 
+   interrupt
+ - LED L7 toggles by pressing button B1, used with interrupt
+ - LED is blinking from LED L1 to LED L6 and circulates
+ - bargraph is shown on text LCD according to analog value 
+   (potentiometer AN_TR)
+
+The Blinky program is available in:
+  TMS470R1B1M Flash:    configured for on-chip Flash ROM
+                        (used for production or target debugging)
+  TMS470R1B1M RT_Agent: configured for on-chip Flash ROM using 
+                        RT Agent for debugging 
+                        (used for target debugging)
+
+NOTES:
+- clean project does not show HET.c because it will be generated 
+  after first project build (by HET assembly)
+
+IMPORTANT !!!
+- R4 resistor (under the ARM-JTAG connector) has to be removed
+  (unsoldered) to enable ULINK support, not necessary for ULINK2
+- Jumpers on board TMS470R1B1M_A have to be set as follows:
+  J_1.9V ON, J_3.3V ON, EXT (1-2), AWD ON, TEST OFF, PLLDIS OFF
+- When developing application never change protection keys
+- NEVER USE 0x00000000 VALUES FOR MEMORY PROTECTION KEYS BECAUSE 
+  THE DEVICE WILL NOT BE ACCESSIBLE AFTER THAT, AND CAN NOT BE 
+  ERASED OR PROGRAMMED ANY MORE

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>NUCLEO-G0B1RE_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32G0 Series NUCLEO-G0B1RE Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/ST_NUCLEO-G0B1RE_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="2.1.0" date="2025-08-18" tag="v2.1.0">
+      CMSIS Driver:
+      - VIO: Added support for LED LD4
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Added RTE_Components.h files
+      - Updated README.md file
+      - Added DWARF-5 debug information
+      - Added generated output files
+      Layers:
+      - Modified Default layer (removed SPI1 support)
+      - Added SPI1 board layer
+    </release>
+    <release version="2.0.0" date="2025-05-09" tag="v2.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Board description for NUCLEO-G0B1RE
+      Blinky example (CMSIS Solution)
+      Default Board Layer
+      CMSIS Drivers:
+      -CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32G0</keyword>
+    <keyword>NUCLEO-G0B1RE</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32G0xx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="NUCLEO-G0B1RE">
+      <description>STMicroelectronics NUCLEO-G0B1RE Board</description>
+      <require Bvendor="STMicroelectronics" Bname="NUCLEO-G0B1RE"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="NUCLEO-G0B1RE GPIO">
+      <description>STMicroelectronics NUCLEO-G0B1RE Board with CMSIS Driver GPIO</description>
+      <require condition="NUCLEO-G0B1RE"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for NUCLEO-G0B1RE -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.1.0" Capiversion="1.0.0" condition="NUCLEO-G0B1RE GPIO">
+      <description>I/O implementation for NUCLEO-G0B1RE</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_NUCLEO_G0B1RE
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_NUCLEO-G0B1RE.c"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <clayer type="Board" path="Layers/Default" file="Board.clayer.yml" copy-to="Board/NUCLEO-G0B1RE" condition="NUCLEO-G0B1RE"/>
+    <clayer type="Board" path="Layers/SPI1   " file="Board.clayer.yml" copy-to="Board/NUCLEO-G0B1RE" condition="NUCLEO-G0B1RE"/>
+  </csolution>
+
+  <boards>
+    <!-- NUCLEO-G0B1RE -->
+    <board vendor="STMicroelectronics" name="NUCLEO-G0B1RE" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Nucleo development board with STM32G0B1RETx MCU</description>
+      <image small="Images/nucleo-g0b1re_small.png"
+             large="Images/nucleo-g0b1re_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/nucleo-g0b1re.html" title="NUCLEO-G0B1RE Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/nucleo-g0b1re.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2324-stm32-nucleo64-boards-mb1360-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1360-g0b1re-c02_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32G0B1RETx"/>
+      <feature type="ODbg"      n="1"              name="On-board ST-LINK/V2-1"/>
+      <feature type="PWR"       n="4"              name="USB VBUS, ext. VIN, ext. 5V, ext +3.3V"/>
+      <feature type="CustomFF"  n="2"              name="STMicroelectronics Morpho connector"/>
+      <feature type="ArduinoFF" n="2"              name="STMicroelectronics Arduino connector"/>
+      <feature type="USB"       n="1"              name="USB re-enumeration capability"/>
+      <feature type="Button"    n="2"              name="Push-buttons: User and Reset"/>
+      <feature type="LED"       n="3"              name="LEDs: COM, Power, User LEDs"/>
+      <feature type="ConnOther" n="1"              name="JP3 (IDD) for current measurement"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="NUCLEO-G0B1RE" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

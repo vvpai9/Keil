@@ -1,0 +1,215 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (STR91x Library - Release), 0x0004 // Tools: 'ARM-ADS'
+Target (STR91x Library - Debug), 0x0004 // Tools: 'ARM-ADS'
+
+Group (ASM Source Files)
+Group (C Source Files)
+
+File 1,2,<.\Undef.s><Undef.s>
+File 1,2,<.\PAbt.s><PAbt.s>
+File 1,2,<.\DAbt.s><DAbt.s>
+File 1,2,<.\SWI.s><SWI.s>
+File 1,2,<.\FIQ.s><FIQ.s>
+File 1,2,<.\IRQ.s><IRQ.s>
+File 2,1,<.\91x_ahbapb.c><91x_ahbapb.c>
+File 2,1,<.\91x_adc.c><91x_adc.c>
+File 2,1,<.\91x_can.c><91x_can.c>
+File 2,1,<.\91x_dma.c><91x_dma.c>
+File 2,1,<.\91x_emi.c><91x_emi.c>
+File 2,1,<.\91x_fmi.c><91x_fmi.c>
+File 2,1,<.\91x_gpio.c><91x_gpio.c>
+File 2,1,<.\91x_i2c.c><91x_i2c.c>
+File 2,1,<.\91x_lib.c><91x_lib.c>
+File 2,1,<.\91x_MC.c><91x_MC.c>
+File 2,1,<.\91x_rtc.c><91x_rtc.c>
+File 2,1,<.\91x_scu.c><91x_scu.c>
+File 2,1,<.\91x_ssp.c><91x_ssp.c>
+File 2,1,<.\91x_tim.c><91x_tim.c>
+File 2,1,<.\91x_uart.c><91x_uart.c>
+File 2,1,<.\91x_vic.c><91x_vic.c>
+File 2,1,<.\91x_wdg.c><91x_wdg.c>
+File 2,1,<.\91x_wiu.c><91x_wiu.c>
+
+
+Options 1,0,0  // Target 'STR91x Library - Release'
+ Device (STR911FM44)
+ Vendor (STMicroelectronics)
+ Cpu (IRAM(0x04000000-0x04017FFF) IROM(0x0-0x87FFF) CLOCK(25000000) CPUTYPE(ARM9E))
+ FlashUt ()
+ StupF ("STARTUP\ST\STR91x.s" ("STR91x Startup Code"))
+ FlashDR ()
+ DevID (4069)
+ Rgf (STR91x.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿST\91x\)
+ OrgReg (ÿST\91x\)
+ TgStat=16
+ OutDir (.\Release\)
+ OutName (STR91xR)
+ GenApp=0
+ GenLib=1
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Release\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy .\Release\STR91xR.LIB ..\STR91xR.LIB>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM9E)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,4,0,128,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,128,8,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,128,8,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,128,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cSTR91x)(DARMST9.DLL)(-pSTR911)(SARM.DLL)(-cSTR91x)(TARMST9.DLL)(-pSTR911)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'STR91x Library - Debug'
+ Device (STR911FM44)
+ Vendor (STMicroelectronics)
+ Cpu (IRAM(0x04000000-0x04017FFF) IROM(0x0-0x87FFF) CLOCK(25000000) CPUTYPE(ARM9E))
+ FlashUt ()
+ StupF ("STARTUP\ST\STR91x.s" ("STR91x Startup Code"))
+ FlashDR ()
+ DevID (4069)
+ Rgf (STR91x.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿST\91x\)
+ OrgReg (ÿST\91x\)
+ TgStat=16
+ OutDir (.\Debug\)
+ OutName (STR91xD)
+ GenApp=0
+ GenLib=1
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Debug\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <cmd.exe /C copy .\Debug\STR91xD.LIB ..\STR91xD.LIB>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM9E)
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,4,0,128,1,0 }
+ OCMADSIROM { 1,0,0,0,0,0,128,8,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,128,8,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,128,1,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (DEBUG)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cSTR91x)(DARMST9.DLL)(-pSTR911)(SARM.DLL)(-cSTR91x)(TARMST9.DLL)(-pSTR911)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

@@ -1,0 +1,1031 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\LEUART0.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        LEUART0                                       -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// --------------------------------------  LEUART0_CTRL  ------------------------------------------
+
+unsigned int LEUART0_CTRL __AT (0x40084000);
+
+//  <item> Reg_LEUART0_CTRL
+//    <i> LEUART0_CTRL [31..0] (@ 0x40084000) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_CTRL>>0) & 0xFFFFFFFF), ( (LEUART0_CTRL &= ~(0xFFFFFFFF<<0)), (LEUART0_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_AUTOTRI
+//    <i> AUTOTRI [0] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.0..0> AUTOTRI
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_DATABITS
+//    <i> DATABITS [1] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.1..1> DATABITS
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_PARITY
+//    <i> PARITY [3..2] (@ 0x40084000) </i>
+//    <edit> 
+//      <loc> ( (char)((LEUART0_CTRL>>2) & 0x2), ( (LEUART0_CTRL &= ~(0x2<<2)), (LEUART0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<2)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_STOPBITS
+//    <i> STOPBITS [4] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.4..4> STOPBITS
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_INV
+//    <i> INV [5] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.5..5> INV
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_ERRSDMA
+//    <i> ERRSDMA [6] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.6..6> ERRSDMA
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_LOOPBK
+//    <i> LOOPBK [7] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.7..7> LOOPBK
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_SFUBRX
+//    <i> SFUBRX [8] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.8..8> SFUBRX
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_MPM
+//    <i> MPM [9] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.9..9> MPM
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_MPAB
+//    <i> MPAB [10] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.10..10> MPAB
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_BIT8DV
+//    <i> BIT8DV [11] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.11..11> BIT8DV
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_RXDMAWU
+//    <i> RXDMAWU [12] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.12..12> RXDMAWU
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_TXDMAWU
+//    <i> TXDMAWU [13] (@ 0x40084000) </i>
+//    <check> 
+//      <loc> LEUART0_CTRL </loc>
+//      <o.13..13> TXDMAWU
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CTRL_TXDELAY
+//    <i> TXDELAY [15..14] (@ 0x40084000) </i>
+//    <edit> 
+//      <loc> ( (char)((LEUART0_CTRL>>14) & 0x2), ( (LEUART0_CTRL &= ~(0x2<<14)), (LEUART0_CTRL |= ((Gui_u8:GuiVal & 0x2)<<14)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LEUART0_CMD  ------------------------------------------
+
+unsigned int LEUART0_CMD __AT (0x40084004);
+
+//  <item> Reg_LEUART0_CMD
+//    <i> LEUART0_CMD [31..0] (@ 0x40084004) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_CMD>>0) & 0xFFFFFFFF), ( (LEUART0_CMD &= ~(0xFFFFFFFF<<0)), (LEUART0_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_CMD_RXEN
+//    <i> RXEN [0] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.0..0> RXEN
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CMD_RXDIS
+//    <i> RXDIS [1] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.1..1> RXDIS
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CMD_TXEN
+//    <i> TXEN [2] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.2..2> TXEN
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CMD_TXDIS
+//    <i> TXDIS [3] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.3..3> TXDIS
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CMD_RXBLOCKEN
+//    <i> RXBLOCKEN [4] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.4..4> RXBLOCKEN
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CMD_RXBLOCKDIS
+//    <i> RXBLOCKDIS [5] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.5..5> RXBLOCKDIS
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CMD_CLEARTX
+//    <i> CLEARTX [6] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.6..6> CLEARTX
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_CMD_CLEARRX
+//    <i> CLEARRX [7] (@ 0x40084004) </i>
+//    <check> 
+//      <loc> LEUART0_CMD </loc>
+//      <o.7..7> CLEARRX
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LEUART0_STATUS  -----------------------------------------
+
+unsigned int LEUART0_STATUS __AT (0x40084008);
+
+//  <item> Reg_LEUART0_STATUS
+//    <i> LEUART0_STATUS [31..0] (@ 0x40084008) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_STATUS>>0) & 0xFFFFFFFF), ( (LEUART0_STATUS &= ~(0xFFFFFFFF<<0)), (LEUART0_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_STATUS_RXENS
+//    <i> RXENS [0] (@ 0x40084008) </i>
+//    <check> 
+//      <loc> LEUART0_STATUS </loc>
+//      <o.0..0> RXENS
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_STATUS_TXENS
+//    <i> TXENS [1] (@ 0x40084008) </i>
+//    <check> 
+//      <loc> LEUART0_STATUS </loc>
+//      <o.1..1> TXENS
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_STATUS_RXBLOCK
+//    <i> RXBLOCK [2] (@ 0x40084008) </i>
+//    <check> 
+//      <loc> LEUART0_STATUS </loc>
+//      <o.2..2> RXBLOCK
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_STATUS_TXC
+//    <i> TXC [3] (@ 0x40084008) </i>
+//    <check> 
+//      <loc> LEUART0_STATUS </loc>
+//      <o.3..3> TXC
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_STATUS_TXBL
+//    <i> TXBL [4] (@ 0x40084008) </i>
+//    <check> 
+//      <loc> LEUART0_STATUS </loc>
+//      <o.4..4> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_STATUS_RXDATAV
+//    <i> RXDATAV [5] (@ 0x40084008) </i>
+//    <check> 
+//      <loc> LEUART0_STATUS </loc>
+//      <o.5..5> RXDATAV
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LEUART0_CLKDIV  -----------------------------------------
+
+unsigned int LEUART0_CLKDIV __AT (0x4008400C);
+
+//  <item> Reg_LEUART0_CLKDIV
+//    <i> LEUART0_CLKDIV [31..0] (@ 0x4008400C) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_CLKDIV>>0) & 0xFFFFFFFF), ( (LEUART0_CLKDIV &= ~(0xFFFFFFFF<<0)), (LEUART0_CLKDIV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_CLKDIV_DIV
+//    <i> DIV [14..3] (@ 0x4008400C) </i>
+//    <edit> 
+//      <loc> ( (short int)((LEUART0_CLKDIV>>3) & 0xFFE), ( (LEUART0_CLKDIV &= ~(0xFFE<<3)), (LEUART0_CLKDIV |= ((Gui_u16:GuiVal & 0xFFE)<<3)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  LEUART0_STARTFRAME  ---------------------------------------
+
+unsigned int LEUART0_STARTFRAME __AT (0x40084010);
+
+//  <item> Reg_LEUART0_STARTFRAME
+//    <i> LEUART0_STARTFRAME [31..0] (@ 0x40084010) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_STARTFRAME>>0) & 0xFFFFFFFF), ( (LEUART0_STARTFRAME &= ~(0xFFFFFFFF<<0)), (LEUART0_STARTFRAME |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_STARTFRAME_STARTFRAME
+//    <i> STARTFRAME [8..0] (@ 0x40084010) </i>
+//    <edit> 
+//      <loc> ( (short int)((LEUART0_STARTFRAME>>0) & 0x1FE), ( (LEUART0_STARTFRAME &= ~(0x1FE<<0)), (LEUART0_STARTFRAME |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  LEUART0_SIGFRAME  ----------------------------------------
+
+unsigned int LEUART0_SIGFRAME __AT (0x40084014);
+
+//  <item> Reg_LEUART0_SIGFRAME
+//    <i> LEUART0_SIGFRAME [31..0] (@ 0x40084014) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_SIGFRAME>>0) & 0xFFFFFFFF), ( (LEUART0_SIGFRAME &= ~(0xFFFFFFFF<<0)), (LEUART0_SIGFRAME |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_SIGFRAME_SIGFRAME
+//    <i> SIGFRAME [8..0] (@ 0x40084014) </i>
+//    <edit> 
+//      <loc> ( (short int)((LEUART0_SIGFRAME>>0) & 0x1FE), ( (LEUART0_SIGFRAME &= ~(0x1FE<<0)), (LEUART0_SIGFRAME |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  LEUART0_RXDATAX  ----------------------------------------
+
+unsigned int LEUART0_RXDATAX __AT (0x40084018);
+
+//  <item> Reg_LEUART0_RXDATAX
+//    <i> LEUART0_RXDATAX [31..0] (@ 0x40084018) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_RXDATAX>>0) & 0xFFFFFFFF), ( (LEUART0_RXDATAX &= ~(0xFFFFFFFF<<0)), (LEUART0_RXDATAX |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_RXDATAX_RXDATA
+//    <i> RXDATA [8..0] (@ 0x40084018) </i>
+//    <edit> 
+//      <loc> ( (short int)((LEUART0_RXDATAX>>0) & 0x1FE), ( (LEUART0_RXDATAX &= ~(0x1FE<<0)), (LEUART0_RXDATAX |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_RXDATAX_PERR
+//    <i> PERR [14] (@ 0x40084018) </i>
+//    <check> 
+//      <loc> LEUART0_RXDATAX </loc>
+//      <o.14..14> PERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_RXDATAX_FERR
+//    <i> FERR [15] (@ 0x40084018) </i>
+//    <check> 
+//      <loc> LEUART0_RXDATAX </loc>
+//      <o.15..15> FERR
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LEUART0_RXDATA  -----------------------------------------
+
+unsigned int LEUART0_RXDATA __AT (0x4008401C);
+
+//  <item> Reg_LEUART0_RXDATA
+//    <i> LEUART0_RXDATA [31..0] (@ 0x4008401C) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_RXDATA>>0) & 0xFFFFFFFF), ( (LEUART0_RXDATA &= ~(0xFFFFFFFF<<0)), (LEUART0_RXDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_RXDATA_RXDATA
+//    <i> RXDATA [7..0] (@ 0x4008401C) </i>
+//    <edit> 
+//      <loc> ( (char)((LEUART0_RXDATA>>0) & 0xFE), ( (LEUART0_RXDATA &= ~(0xFE<<0)), (LEUART0_RXDATA |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  LEUART0_RXDATAXP  ----------------------------------------
+
+unsigned int LEUART0_RXDATAXP __AT (0x40084020);
+
+//  <item> Reg_LEUART0_RXDATAXP
+//    <i> LEUART0_RXDATAXP [31..0] (@ 0x40084020) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_RXDATAXP>>0) & 0xFFFFFFFF), ( (LEUART0_RXDATAXP &= ~(0xFFFFFFFF<<0)), (LEUART0_RXDATAXP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_RXDATAXP_RXDATAP
+//    <i> RXDATAP [8..0] (@ 0x40084020) </i>
+//    <edit> 
+//      <loc> ( (short int)((LEUART0_RXDATAXP>>0) & 0x1FE), ( (LEUART0_RXDATAXP &= ~(0x1FE<<0)), (LEUART0_RXDATAXP |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_RXDATAXP_PERRP
+//    <i> PERRP [14] (@ 0x40084020) </i>
+//    <check> 
+//      <loc> LEUART0_RXDATAXP </loc>
+//      <o.14..14> PERRP
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_RXDATAXP_FERRP
+//    <i> FERRP [15] (@ 0x40084020) </i>
+//    <check> 
+//      <loc> LEUART0_RXDATAXP </loc>
+//      <o.15..15> FERRP
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LEUART0_TXDATAX  ----------------------------------------
+
+unsigned int LEUART0_TXDATAX __AT (0x40084024);
+
+//  <item> Reg_LEUART0_TXDATAX
+//    <i> LEUART0_TXDATAX [31..0] (@ 0x40084024) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_TXDATAX>>0) & 0xFFFFFFFF), ( (LEUART0_TXDATAX &= ~(0xFFFFFFFF<<0)), (LEUART0_TXDATAX |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_TXDATAX_TXDATA
+//    <i> TXDATA [8..0] (@ 0x40084024) </i>
+//    <edit> 
+//      <loc> ( (short int)((LEUART0_TXDATAX>>0) & 0x1FE), ( (LEUART0_TXDATAX &= ~(0x1FE<<0)), (LEUART0_TXDATAX |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_TXDATAX_TXBREAK
+//    <i> TXBREAK [13] (@ 0x40084024) </i>
+//    <check> 
+//      <loc> LEUART0_TXDATAX </loc>
+//      <o.13..13> TXBREAK
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_TXDATAX_TXDISAT
+//    <i> TXDISAT [14] (@ 0x40084024) </i>
+//    <check> 
+//      <loc> LEUART0_TXDATAX </loc>
+//      <o.14..14> TXDISAT
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_TXDATAX_RXENAT
+//    <i> RXENAT [15] (@ 0x40084024) </i>
+//    <check> 
+//      <loc> LEUART0_TXDATAX </loc>
+//      <o.15..15> RXENAT
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LEUART0_TXDATA  -----------------------------------------
+
+unsigned int LEUART0_TXDATA __AT (0x40084028);
+
+//  <item> Reg_LEUART0_TXDATA
+//    <i> LEUART0_TXDATA [31..0] (@ 0x40084028) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_TXDATA>>0) & 0xFFFFFFFF), ( (LEUART0_TXDATA &= ~(0xFFFFFFFF<<0)), (LEUART0_TXDATA |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_TXDATA_TXDATA
+//    <i> TXDATA [7..0] (@ 0x40084028) </i>
+//    <edit> 
+//      <loc> ( (char)((LEUART0_TXDATA>>0) & 0xFE), ( (LEUART0_TXDATA &= ~(0xFE<<0)), (LEUART0_TXDATA |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  LEUART0_IF  -------------------------------------------
+
+unsigned int LEUART0_IF __AT (0x4008402C);
+
+//  <item> Reg_LEUART0_IF
+//    <i> LEUART0_IF [31..0] (@ 0x4008402C) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_IF>>0) & 0xFFFFFFFF), ( (LEUART0_IF &= ~(0xFFFFFFFF<<0)), (LEUART0_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_IF_TXC
+//    <i> TXC [0] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_TXBL
+//    <i> TXBL [1] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.1..1> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_RXDATAV
+//    <i> RXDATAV [2] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.2..2> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_RXOF
+//    <i> RXOF [3] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.3..3> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_RXUF
+//    <i> RXUF [4] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.4..4> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_TXOF
+//    <i> TXOF [5] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.5..5> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_PERR
+//    <i> PERR [6] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.6..6> PERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_FERR
+//    <i> FERR [7] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.7..7> FERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_MPAF
+//    <i> MPAF [8] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.8..8> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_STARTF
+//    <i> STARTF [9] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.9..9> STARTF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IF_SIGF
+//    <i> SIGF [10] (@ 0x4008402C) </i>
+//    <check> 
+//      <loc> LEUART0_IF </loc>
+//      <o.10..10> SIGF
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  LEUART0_IFS  ------------------------------------------
+
+unsigned int LEUART0_IFS __AT (0x40084030);
+
+//  <item> Reg_LEUART0_IFS
+//    <i> LEUART0_IFS [31..0] (@ 0x40084030) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_IFS>>0) & 0xFFFFFFFF), ( (LEUART0_IFS &= ~(0xFFFFFFFF<<0)), (LEUART0_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_IFS_TXC
+//    <i> TXC [0] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_RXOF
+//    <i> RXOF [3] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.3..3> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_RXUF
+//    <i> RXUF [4] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.4..4> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_TXOF
+//    <i> TXOF [5] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.5..5> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_PERR
+//    <i> PERR [6] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.6..6> PERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_FERR
+//    <i> FERR [7] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.7..7> FERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_MPAF
+//    <i> MPAF [8] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.8..8> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_STARTF
+//    <i> STARTF [9] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.9..9> STARTF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFS_SIGF
+//    <i> SIGF [10] (@ 0x40084030) </i>
+//    <check> 
+//      <loc> LEUART0_IFS </loc>
+//      <o.10..10> SIGF
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  LEUART0_IFC  ------------------------------------------
+
+unsigned int LEUART0_IFC __AT (0x40084034);
+
+//  <item> Reg_LEUART0_IFC
+//    <i> LEUART0_IFC [31..0] (@ 0x40084034) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_IFC>>0) & 0xFFFFFFFF), ( (LEUART0_IFC &= ~(0xFFFFFFFF<<0)), (LEUART0_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_IFC_TXC
+//    <i> TXC [0] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_RXOF
+//    <i> RXOF [3] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.3..3> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_RXUF
+//    <i> RXUF [4] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.4..4> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_TXOF
+//    <i> TXOF [5] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.5..5> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_PERR
+//    <i> PERR [6] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.6..6> PERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_FERR
+//    <i> FERR [7] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.7..7> FERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_MPAF
+//    <i> MPAF [8] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.8..8> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_STARTF
+//    <i> STARTF [9] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.9..9> STARTF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IFC_SIGF
+//    <i> SIGF [10] (@ 0x40084034) </i>
+//    <check> 
+//      <loc> LEUART0_IFC </loc>
+//      <o.10..10> SIGF
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  LEUART0_IEN  ------------------------------------------
+
+unsigned int LEUART0_IEN __AT (0x40084038);
+
+//  <item> Reg_LEUART0_IEN
+//    <i> LEUART0_IEN [31..0] (@ 0x40084038) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_IEN>>0) & 0xFFFFFFFF), ( (LEUART0_IEN &= ~(0xFFFFFFFF<<0)), (LEUART0_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_IEN_TXC
+//    <i> TXC [0] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.0..0> TXC
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_TXBL
+//    <i> TXBL [1] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.1..1> TXBL
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_RXDATAV
+//    <i> RXDATAV [2] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.2..2> RXDATAV
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_RXOF
+//    <i> RXOF [3] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.3..3> RXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_RXUF
+//    <i> RXUF [4] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.4..4> RXUF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_TXOF
+//    <i> TXOF [5] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.5..5> TXOF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_PERR
+//    <i> PERR [6] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.6..6> PERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_FERR
+//    <i> FERR [7] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.7..7> FERR
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_MPAF
+//    <i> MPAF [8] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.8..8> MPAF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_STARTF
+//    <i> STARTF [9] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.9..9> STARTF
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_IEN_SIGF
+//    <i> SIGF [10] (@ 0x40084038) </i>
+//    <check> 
+//      <loc> LEUART0_IEN </loc>
+//      <o.10..10> SIGF
+//    </check>
+//  </item>
+//  
+
+
+// ------------------------------------  LEUART0_PULSECTRL  ---------------------------------------
+
+unsigned int LEUART0_PULSECTRL __AT (0x4008403C);
+
+//  <item> Reg_LEUART0_PULSECTRL
+//    <i> LEUART0_PULSECTRL [31..0] (@ 0x4008403C) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_PULSECTRL>>0) & 0xFFFFFFFF), ( (LEUART0_PULSECTRL &= ~(0xFFFFFFFF<<0)), (LEUART0_PULSECTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_PULSECTRL_PULSEW
+//    <i> PULSEW [3..0] (@ 0x4008403C) </i>
+//    <edit> 
+//      <loc> ( (char)((LEUART0_PULSECTRL>>0) & 0xE), ( (LEUART0_PULSECTRL &= ~(0xE<<0)), (LEUART0_PULSECTRL |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_PULSECTRL_PULSEEN
+//    <i> PULSEEN [4] (@ 0x4008403C) </i>
+//    <check> 
+//      <loc> LEUART0_PULSECTRL </loc>
+//      <o.4..4> PULSEEN
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_PULSECTRL_PULSEFILT
+//    <i> PULSEFILT [5] (@ 0x4008403C) </i>
+//    <check> 
+//      <loc> LEUART0_PULSECTRL </loc>
+//      <o.5..5> PULSEFILT
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  LEUART0_FREEZE  -----------------------------------------
+
+unsigned int LEUART0_FREEZE __AT (0x40084040);
+
+//  <item> Reg_LEUART0_FREEZE
+//    <i> LEUART0_FREEZE [31..0] (@ 0x40084040) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_FREEZE>>0) & 0xFFFFFFFF), ( (LEUART0_FREEZE &= ~(0xFFFFFFFF<<0)), (LEUART0_FREEZE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_FREEZE_REGFREEZE
+//    <i> REGFREEZE [0] (@ 0x40084040) </i>
+//    <check> 
+//      <loc> LEUART0_FREEZE </loc>
+//      <o.0..0> REGFREEZE
+//    </check>
+//  </item>
+//  
+
+
+// ------------------------------------  LEUART0_SYNCBUSY  ----------------------------------------
+
+unsigned int LEUART0_SYNCBUSY __AT (0x40084044);
+
+//  <item> Reg_LEUART0_SYNCBUSY
+//    <i> LEUART0_SYNCBUSY [31..0] (@ 0x40084044) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_SYNCBUSY>>0) & 0xFFFFFFFF), ( (LEUART0_SYNCBUSY &= ~(0xFFFFFFFF<<0)), (LEUART0_SYNCBUSY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_CTRL
+//    <i> CTRL [0] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.0..0> CTRL
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_CMD
+//    <i> CMD [1] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.1..1> CMD
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_CLKDIV
+//    <i> CLKDIV [2] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.2..2> CLKDIV
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_STARTFRAME
+//    <i> STARTFRAME [3] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.3..3> STARTFRAME
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_SIGFRAME
+//    <i> SIGFRAME [4] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.4..4> SIGFRAME
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_TXDATAX
+//    <i> TXDATAX [5] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.5..5> TXDATAX
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_TXDATA
+//    <i> TXDATA [6] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.6..6> TXDATA
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_SYNCBUSY_PULSECTRL
+//    <i> PULSECTRL [7] (@ 0x40084044) </i>
+//    <check> 
+//      <loc> LEUART0_SYNCBUSY </loc>
+//      <o.7..7> PULSECTRL
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  LEUART0_ROUTE  -----------------------------------------
+
+unsigned int LEUART0_ROUTE __AT (0x40084054);
+
+//  <item> Reg_LEUART0_ROUTE
+//    <i> LEUART0_ROUTE [31..0] (@ 0x40084054) </i>
+//    <edit> 
+//      <loc> ( (int)((LEUART0_ROUTE>>0) & 0xFFFFFFFF), ( (LEUART0_ROUTE &= ~(0xFFFFFFFF<<0)), (LEUART0_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> LEUART0_ROUTE_RXPEN
+//    <i> RXPEN [0] (@ 0x40084054) </i>
+//    <check> 
+//      <loc> LEUART0_ROUTE </loc>
+//      <o.0..0> RXPEN
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_ROUTE_TXPEN
+//    <i> TXPEN [1] (@ 0x40084054) </i>
+//    <check> 
+//      <loc> LEUART0_ROUTE </loc>
+//      <o.1..1> TXPEN
+//    </check>
+//  </item>
+//  
+//  <item> LEUART0_ROUTE_LOCATION
+//    <i> LOCATION [9..8] (@ 0x40084054) </i>
+//    <edit> 
+//      <loc> ( (char)((LEUART0_ROUTE>>8) & 0x2), ( (LEUART0_ROUTE &= ~(0x2<<8)), (LEUART0_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

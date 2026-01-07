@@ -1,0 +1,561 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<title>MDK-ARM - Release Notes</title>
+<meta http-equiv=content-language content=en-us>
+<meta name=GENERATOR content="Microsoft FrontPage 12.0">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<style>
+
+
+    p{font-family:verdana;font-size:10pt}
+    .LI2{margin-top:6px;margin-bottom:6px}
+    Release{background-color:#ccc;font-weight:bold;padding:6px}
+    .ToolT{font-size:8pt;color:#808080}
+    .TinyT{font-size:8pt;text-align:center}
+    h1{font-family:verdana;font-size:18pt;color:#000080;font-weight:bold;text-align:center;margin-right:3px}
+    h2{font-family:verdana;font-size:14pt;color:#000080;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+    h3{font-family:verdana;font-size:11pt;font-weight:bold;margin-top:24px;margin-bottom:3px;background-color:#ccc;padding:6px}
+    h4{font-family:verdana;font-size:10pt;font-weight:bold;color:#FFFFFF;margin-top:24px;margin-bottom:3px;background-color:#0000FF;padding:6px}
+    h5{font-family:verdana;font-size:10pt;font-weight:bold;color:#800000;margin-top:3px;margin-bottom:1px;}
+    pre{font-family:courier new;font-size:10pt;background-color:#cfc;margin-left:24px;margin-right:24px}
+    ul{font-family:verdana;font-size:10pt;list-style-type:square}
+    ol{font-family:verdana;font-size:10pt}li{margin-left:12pt;padding-left:0;margin-top:12px;margin-bottom:6px}
+    ul 
+    li 
+    pre{margin-top:6pt;font-family:courier new;font-size:9pt;background-color:#cfc;margin-left:0px;margin-right:0px}
+    ul 
+    li 
+    ul{margin-top:6pt;margin-bottom:6pt;margin-left:0pt;padding-left:0}ul li ul li{margin-top:3pt;margin-bottom:3pt}
+    ul
+    li 
+    ol{margin-top:6pt;margin-bottom:6pt;margin-left:12pt;padding-left:0}ul li ol li{margin-top:3pt;margin-bottom:3pt}
+.style1 {font-weight: normal;}
+.style2 {color: #FF0000;}
+.prelim {color: Red; }
+</style>
+</head>
+<body><h1>Release Notes for<br>
+MDK ARM7 & ARM9 legacy support</h1>
+<p align=center>This file contains release notes and last minute changes.</p>
+<p class=TinyT>Information in this file, the accompany manuals, and software is<br>
+Copyright © 2018 ARM Ltd and ARM Germany GmbH.<br>All rights reserved.</p>
+<hr><h2>Contents</h2>
+  <ol>
+    <li class=LI2><a href="#WhatsNew">What's New in the MDK ARM7 & ARM9 legacy package.</a></li>
+    <li class=LI2><a href="#DeviceDatabase">Device Database™</a></li>
+    <li class=LI2><a href="#PeripheralSimulation">Peripheral Simulation</a></li>
+    <li class=LI2><a href="#TechnicalSupport">Technical Support</a></li>
+    <li class=LI2><a href="#ContactDetails">Contact Details</a></li>
+  </ol>
+<p>
+  The <a target="_blank" href="http://www.keil.com/arm/mdk.asp"><b>Microcontroller Development Kit (MDK-ARM)</b></a> supports software development for and debugging of 
+  <b>ARM7</b> and <b>ARM9</b> processor-based devices. A detailed description of 
+  <b>MDK-ARM</b> can be found in the section <b>Complete User's Guide Selection</b>
+  of the µVision window <b>Books</b>. 
+  The <b>Getting Started</b> is a good introduction to the main concepts of <b>MDK-ARM</b> and gives guidelines for programming ARM devices.
+</p>
+
+<h2><a name="WhatsNew"></a>What's New in the MDK ARM7 & ARM9 legacy package.</h2>
+
+<p>The next sections list the changes for each release of the MDK ARM7 & ARM9 legacy package.</p>
+
+<h3> MDK Version 5.25 Legacy support for ARM7 & ARM9 devices </h3>
+<ul>
+
+
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+  <ul>
+
+      <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><b>[FlashFS]</b></a>
+       <ul>
+          <li> Corrected: <b>LFN</b> name compare function.</li>
+       </ul>
+      </li>
+
+
+      <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/Graphic/html/index.html"><font color="#0065AF" size="2"><b>[Segger Graphic Library]</b></font></a>
+        <ul>
+         <li>Updated the <b>Graphic Component emWin</b> to version <b>5.46e</b> in folder <b>..\ARM\Segger\emWin\</b> and affected examples.</li>
+        </ul>
+      </li>
+
+  </ul></li>
+
+
+</ul>
+
+
+<h3> MDK Version 5.24 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+  <ul>
+
+       <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><b>[FlashFS]</b></a>
+         <ul>
+         <li> Corrected: nonaligned writes to the end of <b>NOR</b> sectors.</li>
+       </ul></li>
+  
+  </ul></li>
+
+</ul>
+
+
+<h3> MDK Version 5.23 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+         <li>Updated the MCB54110 user's guide.</li>
+</ul>
+
+
+
+<h3> MDK Version 5.22 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+  <ul>
+
+      <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/Graphic/html/index.html"><font color="#0065AF" size="2"><b>[Segger Graphic Library]</b></font></a>
+        <ul>
+         <li>Updated the <b>Graphic Component emWin</b> to version <b>5.36f</b> in folder <b>..\ARM\Segger\emWin\</b> and affected examples.</li>
+        </ul>
+      </li>
+
+
+      <li><a target="_blank" href="http://www.keil.com/rl-arm/kernel.asp"><b>[RTX]</b></a>
+         <ul>
+           <li>Added: endless loop to functions with the attribute <b>__naked</b>. This is necessary because compilers may ignore this attribute 
+               and generates prologue as well as epilogue sequences for these functions.</li>
+         </ul></li>	  
+
+  </ul></li>
+
+</ul>
+
+
+<h3> MDK Version 5.21 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+        <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+        <ul>
+
+          <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><b>[FlashFS]</b></a>
+            <ul>
+             <li> Improved: mount speed for <b>FAT-32</b> formatted removable devices.</li>
+          </ul></li>
+
+        </ul></li>
+
+</ul>
+
+
+<h3> MDK Version 5.20 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul><li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+
+      <ul>
+      <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-usb.asp"><font color="#0065AF" size="2"><b>[USB Device]</b></font></a>
+         <ul>
+           <li>Corrected: Mass Storage Class hang in case of Bulk-Only Mass Storage Reset was issued during 
+               Write 10 operation (MemoryWrite condition correction).</li>
+         </ul>
+      </li>	  
+	  </ul>
+
+    </li></ul>
+  </li>
+
+</ul>
+
+
+
+<h3> MDK Version 5.18 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+  <ul>
+
+        <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+        <ul>
+         <li>Corrected the RTX_CR4_L.lib library, introduced wiht MDK5.13, which has been build with a big-endian instead of a little endian setup.</li>
+        </ul></li>  
+  
+  
+        <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/Graphic/html/index.html"><font color="#0065AF" size="2"><b>[Segger Graphic Library]</b></font></a>
+          <ul>
+           <li>Updated the <b>Graphic Component emWin</b> to version <b>5.32b</b> in folder <b>..\ARM\Segger\emWin\</b> and affected examples.</li>
+          </ul>
+        </li>
+  
+  </ul></li>
+
+</ul>
+
+
+<h3> MDK Version 5.17 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+  <ul>
+
+    <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-tcpnet.asp"><font color="#0065AF" size="2"><b>[TCPnet]</b></font></a>
+     <ul>
+       <li>Added support for content type <b>"text/plain"</b> in HTTP Server POST requests from HTTP client.</li>
+     </ul></li>
+
+     <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><b>[FlashFS]</b></a>
+      <ul>
+       <li> Corrected: under some circumstances a delete operation in the <b>FAT</b> name cache can cause an application crash.</li>
+     </ul></li>
+
+  </ul></li>
+
+
+</ul>
+
+
+<h3> MDK Version 5.16 Legacy support for ARM7 & ARM9 devices </h3>
+<ul>
+
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+  <ul>
+
+        <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+        <ul>
+          <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-tcpnet.asp"><font color="#0065AF" size="2"><b>[TCPnet]</b></font></a>
+            <ul>
+              <li>Enhancement: the <b>DHCP</b> client updates <b>DNS</b> information during the lease renewal.</li>
+            </ul>
+          </li>
+        </ul>
+        </li>  
+
+
+        <li><a target="_blank" href="http://www.keil.com/pack/doc/mw/Graphic/html/index.html"><font color="#0065AF" size="2"><b>[Segger Graphic Library]</b></font></a>
+          <ul>
+           <li>Updated the <b>Graphic Component emWin</b> to version <b>5.30</b> which includes multilayer and multidisplay support.</li>
+          </ul>
+        </li>
+  
+  </ul></li>
+
+</ul>
+
+<h3> MDK Version 5.15 Legacy support for ARM7 & ARM9 devices </h3>
+<ul>
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul>
+       <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+       <ul>
+         <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-tcpnet.asp"><font color="#0065AF" size="2"><b>[TCPnet]</b></font></a>
+           <ul>
+             <li>Added: full <b>FTP</b> server path information in case of user access control.</li>
+             <li>Corrected: an error when processing fragmented <b>POST</b> requests.</li>
+           </ul>
+         </li>
+       </ul>
+       </li>
+     </ul>
+   </li>
+</ul>
+
+
+<h3> MDK Version 5.14 Legacy support for ARM7 & ARM9 devices </h3>
+<ul>
+  <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul>
+       <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+       <ul>
+         <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-usb.asp"><font color="#0065AF" size="2"><b>[USB Device]</b></font></a>
+           <ul>
+             <li> Added: <b>INQUIRY [vital product data pages : 0x00 and 0x80]</b> command for <b>USB Mass Storage Devices</b>.</li>
+           </ul>
+         </li>
+         <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-tcpnet.asp"><font color="#0065AF" size="2"><b>[TCPnet]</b></font></a>
+           <ul>
+             <li> Corrected: Vulnerability to <b>Spank Attack</b> and <b>Spoofed RST packets</b>.</li>
+           </ul>
+         </li>
+       </ul>
+       </li>
+     </ul>
+   </li>
+</ul>
+
+<h3> MDK Version 5.13 Legacy support for ARM7 & ARM9 devices </h3>
+<ul>
+
+    <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul>
+
+       <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+       <ul>	
+
+       <li>Added: <b>RTX_CR4_B.lib, RTX_CR4_BA.lib, RTX_CR4F_B.lib, RTX_CR4F_BA.lib, RTX_CR4F_L.lib, RTX_CR4F_LA.lib, RTX_CR4_L.lib, and RTX_CR4_LA.lib RTX</b> libraries 
+       for <b>Cortex-R4</b> and <b>Cortex-R4F</b> in <b>ARM</b> as well as in <b>thumb</b> mode.
+       For naming consistency the current <b>RTX_CR4.lib</b> is now replaced by <b>RTX_CR4_L.lib</b>.
+	   <br>
+	   The following naming convention is used for the above libraries:
+	   <b>L</b> = little endian, <b>B</b> = big endian, <b>A</b> = ARM mode (else thumb), and <b>F</b> = HW Floating Point enabled.
+	   </li>
+
+       </ul>
+
+    </ul>
+
+</ul>
+
+<h3> MDK Version 5.12a Legacy support for ARM7 & ARM9 devices </h3>
+<ul>
+
+    <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul>
+
+          <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+          <ul>
+
+              <li>Added: Middleware libraries build with <b>ARM7/ARM9 ARM mode</b> enabled, indicated by the letter 'A' in the library name (e.g. FS_ARM_LA.lib).</li>
+		  
+              <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><b>[FlashFS]</b></a>
+              <ul>
+                  <li> Corrected: when a embedded drive is full, the system fails to write allocation information 
+				       and correctly close a file. So the drive becomes corrupted.</li>
+                  <li> Corrected: EFS fails to detect full blocks during fopen in case of a RAM drive.</li>
+              </ul></li>
+
+          </ul></li>
+
+          <li><a target="_blank" href="http://www.keil.com/rl-arm/gui.asp"><font color="#0065AF" size="2"><b>[Segger Graphic Library]</b></font></a>
+            <ul><li>Updated: <b>Segger emWin graphic library</b> version <b>5.26a</b> in folder <b>..\ARM\Segger\emWin\</b>.</li></ul>
+          </li>
+
+    </ul></li>
+
+
+    
+
+
+
+
+</ul>
+
+<h3> MDK Version 5.12 Legacy support for ARM7 & ARM9 devices </h3>
+<ul>
+
+    <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul>
+
+          <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+          <ul>
+
+              <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><b>[FlashFS]</b></a>
+              <ul>
+                  <li> Added : basic support for eMMC devices (MMC NAND flash).</li>
+                  <li> Corrected: multithread file write function which could cause corruption of the EFS file system.</li>
+                  <li> Corrected: an frename function issue when using FAT name cache. After renaming a file it was still possible to open it using old file name.</li>
+                  <li> Corrected: timestamp handling when the file size remains unchanged after a write access.</li>
+              </ul></li>
+
+              <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-usb.asp"><b>[USB Device </b></a> <b>and</b>
+                  <a target="_blank" href="http://www.keil.com/rl-arm/rl-usbhost.asp"><b> USB Host]</b></a>
+              <ul>
+                  <li> Removed: USB Host OHCI delay of 1 ms when returning from an interrupt service routine.</li>
+              </ul></li>
+
+              <li><a target="_blank" href="http://www.keil.com/rl-arm/kernel.asp"><b>[RTX]</b></a>
+              <ul>
+                 <li>Corrected: an RTX mailbox issue which occurs when multiple tasks are sending to the same mailbox and are blocked.</li>
+              </ul></li>
+
+
+
+          </ul></li>
+
+    </ul></li>
+
+
+
+</ul>
+
+
+
+<h3> MDK Version 5.11a Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+    <li>
+     The current version of this legacy support package corresponds exactly to the previous version <b>5.10</b> except for the updates listed below. <br>
+    </li>
+
+    <li>
+     Removed references to <b>absacc.h</b> from affected examples. This file no longer ships as part of MDK-ARM.
+     Use the <b>_attribute_</b> syntax instead of the macro <b>__at</b>.	 
+    </li>
+
+    <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul>
+
+      <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+      <ul>
+
+        <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><font color="#0065AF" size="2"><b>[FlashFS]</b></font></a>
+         <ul>
+          <li> Corrected: timestamp handling in case file size was unchanged after update.</li>
+          <li> Corrected: ffind() when searching directory without wildcard character included.</li>
+          <li> Corrected: ffind() handling of directory separators “\” and “/”.</li>
+          <li> Corrected: overlap detection in fcheck() for EFS.</li>
+         </ul>
+        </li>
+
+
+        <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-tcpnet.asp"><font color="#0065AF" size="2"><b>[TCPnet]</b></font></a>
+          <ul>
+          <li> Corrected: file upload failure in HTTP Server.</li>
+          <li> Corrected: file upload failure in FTP client.</li>
+          </ul>
+        </li>
+
+
+        <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-usb.asp"><font color="#0065AF" size="2"><b>[USB Device </b></a> <b>and</b>
+            <a target="_blank" href="http://www.keil.com/rl-arm/rl-usbhost.asp"><b> USB Host]</b></font></a>
+          <ul>
+           <li> Corrected: USB Device problem with HID in transfers.</li>
+           <li> Corrected: USB Host keyboard handling.</li>
+          </ul>
+        </li>
+
+        </ul></li>
+
+
+          <li><a target="_blank" href="http://www.keil.com/rl-arm/gui.asp"><font color="#0065AF" size="2"><b>[Segger Graphic Library]</b></font></a>
+            <ul><li>Updated: <b>Segger emWin graphic library</b> version <b>5.24b</b> in folder <b>..\ARM\Segger\emWin\</b> and affected examples.</li></ul>
+          </li>
+  
+
+     </ul></li>
+
+
+
+</ul>
+
+
+<h3> MDK Version 5.10 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+  <li>
+    The current version of this legacy support package corresponds exactly to the previous version <b>5.01</b> except for the updates listed below. <br>
+  </li>
+  
+  
+    <li><font color="#0065AF" size="2"><b>[Middleware]</b></font>
+    <ul>
+      <li><a target="_blank" href="http://www.keil.com/rl-arm/rl_benefits.asp"><font color="#0065AF" size="2"><b>[ARM Middleware]</b></font></a>
+      <ul>
+
+        <li><a target="_blank" href="http://www.keil.com/rl-arm/rl-flash.asp"><font color="#0065AF" size="2"><b>[FlashFS]</b></font></a>
+        <ul>
+        <li>Corrections in <b>FlashFS</b>: <b>FAT</b> file name processing has been reworked. Library version <b>4.74</b>. FTP server interface module fixed (filenames with leading '.' were not listed).</li>
+        </ul></li>
+      </ul></li>
+     </ul></li>
+
+ </ul>
+</ul>
+
+
+
+<h3> MDK Version 5 Legacy support for ARM7 & ARM9 devices</h3>
+<ul>
+
+<li>
+   The current version of this legacy support package corresponds excatly the state of the <b>MDK-ARM 473</b> release. <br>
+   Detailed informations about the current <b>MDK-ARM 473</b> release are included in the <a target="_blank" href="Release_Notes_473.htm"><b>Release_Notes_473</b></a>. 
+</li>
+</ul>
+
+
+   <h2><a name=DeviceDatabase></a>Device Database™</h2>
+   <p>
+    A unique feature of the Keil µVision5 IDE is the <a href="http://www.keil.com/dd" target="_blank">Device Database™</a> 
+    which contains information about more than 3000 supported microcontrollers. 
+    When you create a new µVision5 project and select the target chip from the database, µVision5 sets all assembler, compiler, linker, and debugger options for you. 
+    The only option you must configure is the memory map.</p><p>As new devices become available, 
+    they are added to the database along with data sheets and header files. 
+   </p>
+
+   <h2><a name=PeripheralSimulation></a>Peripheral Simulation</h2>
+   <p>
+    The µVision5 Debugger provides <a href="http://www.keil.com/uvision/db_sim.asp" target="_blank">complete simulation</a> 
+    for the CPU and on-chip peripherals of the most popular ARM-powered microcontroller devices. 
+    To discover which peripherals of a device are supported, in µVision5 select the Simulated Peripherals item 
+    from the Help menu. You may also use the web-based <a href="http://www.keil.com/dd" target="_blank">Device Database™</a>. 
+    We are constantly adding new devices and simulation support for on-chip peripherals so be sure to check Device Database™ often.
+   </p>
+
+<h2><a name=TechnicalSupport></a>Technical Support</h2>
+   <p>
+    At Keil Software, we are dedicated to providing you with the best development tools and technical support. 
+    That's why we offer numerous ways you can get the technical support you need to complete your embedded projects.
+   </p>
+<ul>
+  <li class=LI2><a href="http://www.keil.com/support/knowledgebase.asp" target="_blank"><b>Technical Support Knowledgebase</b></a><br>
+   More than 2500 technical support questions and answers are available in the Support Solutions Knowledgebase. 
+   When a new question arises, it is added to the knowledgebase which is continuously published to the Web. 
+   This enables you to get technical support at times when our support staff is unavailable.</li>
+  <li class=LI2><a href="http://www.keil.com/appnotes" target="_blank"><b>Application Notes</b></a><br>
+   Numerous Application Notes help you decipher complex features and implement robust applications.</li>
+  <li class=LI2><a href="http://www.keil.com/download/file/" target="_blank"><b>Example Programs and Files</b></a><br>
+   Utility programs, example code, and sample projects are regularly added to the Download File section of the web site.</li>
+  <li class=LI2><a href="http://www.keil.com/forum" target="_blank"><b>Discussion Forum</b></a><br>
+   Post questions, comments, and suggestions to the Keil Software Discussion Forum and interact with other Keil users around the world.</li>
+  <li class=LI2><a href="http://www2.keil.com/support/silver" target="_blank"><b>Contact Technical Support</b></a><br>
+   Describes how to contact the Technical Support.</li>
+</ul>
+
+<p>Many of the features of our Technical Support Knowledgebase and Web Site are the results of your suggestions. 
+   If you have any ideas that will improve them, please <a href="http://www.keil.com/support/feedback.asp" target="_blank">give us your feedback</a>!</p>
+
+<h2><a name=ContactDetails></a>Contact Details</h2>
+<p>
+  If you experience any problems or have any questions about this product, 
+  contact one of our <a href="http://www.keil.com/distis" target="_blank">distributors</a> or offices for assistance.
+</p>
+
+<div align=center><center><table border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td valign=top nowrap bgcolor="#ffffcc" style="border:1 solid #800000">
+  <p>
+   <b>In the USA...</b></br><br>
+   <b>ARM, Inc.</b><br>
+      4965 Preston Park Blvd, Suite 650<br>
+      Plano, TX&nbsp; 75093<br>
+      USA<br><br>
+      800-348-8051 - Sales<br>
+      972-312-1107 - Support<br>
+      972-312-1159 - Fax<br><br>
+      <a href="mailto:sales.us@keil.com" target="_blank">sales.us@keil.com</a> - Sales E-Mail <br>
+  </p>
+</td>
+<td valign=top width=30 nowrap></td>
+<td valign=top nowrap style="border:1 solid #800000" bgcolor="#ffffcc">
+  <p>
+   <b>In Europe...</b><br><br>
+   <b>ARM Germany GmbH</b><br>
+      Bretonischer Ring 16<br>
+      D-85630 Grasbrunn<br>
+      Germany<br><br>
+      +49 89 456040-0 - Sales<br>
+      +49 89 456040-24 - Support<br>
+      +49 89 468162 - Fax<br><br>
+      <a href="mailto:sales.intl@keil.com" target="_blank">sales.intl@keil.com</a> - Sales E-Mail<br>
+   </p>
+</td>
+</tr></table></center></div>
+   <hr><p class=TinyT>Copyright © 2018 ARM Ltd and ARM Germany GmbH.<br>
+       All rights reserved.<br>
+       Visit our web site at <a href="http://www.keil.com" target="_blank">www.keil.com</a>.
+      </p>
+
+</body>
+</html>

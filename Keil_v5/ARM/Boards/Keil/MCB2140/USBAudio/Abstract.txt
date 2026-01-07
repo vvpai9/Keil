@@ -1,0 +1,20 @@
+The Audio project is a demo program for the LPC2148 
+using Keil MCB2140 Board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - processor clock = CCLK =  60 MHz
+   - USB clock              =  48 MHz
+
+It demonstrates an USB Audio Device - Speaker.
+
+The USB Audio Device is recognized by the host PC running
+Windows which will load a generic Audio driver and add a
+speaker which can be used for sound playback on the PC.
+Potentiometer on the board is used for setting the Volume
+and the LEDs are used to display a simplified VU Meter.
+
+The Audio program is available for the following targets:
+  MCB2140: configured for on-chip Flash ROM
+           (used for production or target debugging)

@@ -1,0 +1,29 @@
+This program is a BSD Client example. It is used to send commands
+to a BSD_server or LEDSwitch server connected on the same LAN. The 
+sending commands control LED diodes on remote Server, how they are
+switched on or off.
+
+In order to run this example, you need to set the network parameters
+to match your local area network.
+
+To test this example, run BSD_server or LEDSwitch server on eval board
+and Client application on another eval board connected on the same LAN. 
+The Client sends the value of P2 to BSD_server over TCP or UDP.
+
+NOTE: IP address and MAC address of this example must be set different
+      from IP and MAC addressess on LEDSwitch Server.
+
+The BSD_client example is available for several targets:
+
+AT91SAM9263: Standalone application for AT91SAM9263 board, configured
+             for external SDRAM (64MB), downloaded to external
+             DataFlash (8.25MB).
+
+AT91SAM9263 Debug:
+             Standalone with debug output, configured
+             for external SDRAM, downloaded to external DataFlash.
+             Debug level configured in Net_Debug.c configuration file.
+             Connect a serial cable to SERIAL DEBUG port to view
+             output messages using HyperTerminal at 115200 baud,
+             8-bits, no parity, 1 stop bit, XON/XOFF.
+

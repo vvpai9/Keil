@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.45" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.45/schema/PACK.xsd">
+  <vendor>ARM</vendor>
+  <name>SDS</name>
+  <description overview="overview/README.md">Synchronous Data Stream (SDS) Framework</description>
+  <url>https://www.keil.com/pack/</url>
+  <license>LICENSE</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license name="LICENSE" title="Apache 2.0 open-source license" spdx="Apache-2.0"/>
+    </licenseSet>
+  </licenseSets>
+  <repository type="git">https://github.com/ARM-software/SDS-Framework.git</repository>
+
+  <releases>
+    <release version="2.0.0" date="2025-07-03" tag="v2.0.0">
+      Enhanced SDS file I/O interface extended with USB bulk communication
+      Concurrent recording and playback of multiple data streams
+      Test framework template as reference application:
+      - Data Test for communication and bandwidth verification
+      - Algorithm Test for algorithm development and testing
+      - Verification using different hardware with Board layers
+      - Verification using simulation models with AVH FVP
+      Improved Python utilities:
+      - SDSIO-Server for capturing SDS data files via multiple interfaces
+      - SDS-Check to validate SDS data files
+      Extensive documentation:
+      - github.com/Arm-Examples/SDS-Examples show multiple use cases on different hardware
+    </release>
+    <release version="1.1.0" date="2024-02-20" tag="v1.1.0">
+      SDS Player:
+      - Improve performance
+      - Update configuration file
+      SDS Recorder:
+      - Improve performance
+      - Update configuration file
+      SDSIO-Server:
+      - Correct response handling for open and read commands
+      - Remove automatic file open after .sds file index is reset in read mode
+      SDS-View:
+      - Fix grid line setting for multiple graphs
+      SDSIO:
+      - Improve read functionality. Introduce an .index.txt file to track the index of the .sds file to read from
+      - Remove automatic file open after .sds file index is reset in read mode
+      - Correct receive in sdsio_socket and sdsio_vcom drivers.
+      Examples:
+      - Align with CMSIS v6
+      - Add sds_player example
+    </release>
+    <release version="1.0.0" date="2023-10-20" tag="v1.0.0">
+      Initial release
+    </release>
+  </releases>
+
+  <conditions>
+    <condition id="SDS IO via VSI">
+      <description>SDS IO via VSI</description>
+      <require Cclass="CMSIS" Cgroup="RTOS2"/>
+    </condition>
+    <condition id="SDS IO via Socket">
+      <description>SDS IO via Socket (IoT Socket)</description>
+      <require Cclass="CMSIS"        Cgroup="RTOS2"/>
+      <require Cclass="IoT Utility"  Cgroup="Socket"/>
+    </condition>
+    <condition id="SDS IO via USB - MDK USB">
+      <description>SDS IO via USB (MDK USB)</description>
+      <require Cclass="CMSIS" Cgroup="RTOS2"/>
+      <require Cvendor="Keil" Cclass="USB" Cgroup="Device" Csub="Custom Class"/>
+    </condition>
+    <condition id="SDS IO via Serial Port - CMSIS USART">
+      <description>SDS IO via Serial Port (CMSIS Driver USART)</description>
+      <require Cclass="CMSIS"        Cgroup="RTOS2"/>
+      <require Cclass="CMSIS Driver" Cgroup="USART"/>
+    </condition>
+    <condition id="SDS IO via File System - MDK FS">
+      <description>SDS IO via File System (MDK FS)</description>
+      <require Cvendor="Keil" Cclass="File System" Cgroup="Drive"/>
+    </condition>
+    <condition id="SDS IO via File System - Semihosting">
+      <description>SDS IO via File System (Semihosting)</description>
+      <require Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="Semihosting"/>
+    </condition>
+    <condition id="SDS Recorder and Player with CMSIS-RTOS2">
+      <description>SDS Recorder and Player with CMSIS-RTOS2</description>
+      <require Cclass="CMSIS" Cgroup="RTOS2"/>
+      <require Cclass="SDS"   Cgroup="Buffer"/>
+      <require Cclass="SDS"   Cgroup="IO"/>
+    </condition>
+  </conditions>
+
+  <taxonomy>
+    <description Cclass="SDS" doc="docs/index.html">Synchronous Data Stream framework for developing DSP, ML, or Edge AI algorithms</description>
+  </taxonomy>
+
+  <apis>
+    <api Cclass="SDS" Cgroup="IO" Capiversion="2.0.0">
+      <description>Blocking I/O interface to read/write SDS files</description>
+      <files>
+        <file category="header" name="sds/include/sdsio.h" />
+        <file category="doc"    name="docs/SDS_API/group__SDS__IO__Interface.html"/>
+      </files>
+    </api>
+  </apis>
+
+  <components>
+    <!-- SDS -->
+    <component Cclass="SDS" Cgroup="Buffer" Cversion="2.0.0">
+      <description>Non-blocking read/write to a circular buffer</description>
+      <RTE_Components_h>
+        #define RTE_SDS_BUFFER                          /* Synchronous Data Stream Buffer */
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="sds/include/sds_buffer.h"/>
+        <file category="source" name="sds/source/sds_buffer.c"/>
+        <file category="header" name="sds/config/sds_buffer_config.h" attr="config" version="2.0.0"/>
+        <file category="doc"    name="docs/SDS_API/group__SDS__Buffer.html"/>
+      </files>
+    </component>
+
+    <!-- SDS I/O (VSI) -->
+    <component Cclass="SDS" Cgroup="IO" Csub="VSI" Capiversion="2.0.0" Cversion="2.0.0" condition="SDS IO via VSI">
+      <description>I/O via VSI</description>
+      <RTE_Components_h>
+        #define RTE_SDS_IO                              /* Synchronous Data Stream Input/Output */
+        #define RTE_SDS_IO_VSI                          /* Synchronous Data Stream Input/Output (VSI) */
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="sds/source/sdsio/vsi/sdsio_vsi.c"/>
+        <file category="doc"    name="docs/sdsio.html"/>
+      </files>
+    </component>
+
+    <!-- SDS I/O (Socket) -->
+    <component Cclass="SDS" Cgroup="IO" Csub="Socket" Capiversion="2.0.0" Cversion="2.0.0" condition="SDS IO via Socket">
+      <description>I/O via Socket to SDSIO Server (using component MDK-Packs::IoT Utility:Socket)</description>
+      <RTE_Components_h>
+        #define RTE_SDS_IO                              /* Synchronous Data Stream Input/Output */
+        #define RTE_SDS_IO_SOCKET                       /* Synchronous Data Stream Input/Output (Socket) */
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="sds/source/sdsio/client/sdsio_client.c"/>
+        <file category="source" name="sds/source/sdsio/client/socket/sdsio_client_socket.c"/>
+        <file category="header" name="sds/config/sdsio_config_socket.h" attr="config" version="2.0.0"/>
+        <file category="doc"    name="docs/sdsio.html"/>
+      </files>
+    </component>
+
+    <!-- SDS I/O (USB - MDK_USB) -->
+    <component Cclass="SDS" Cgroup="IO" Csub="USB" Cvariant="MDK USB" Capiversion="2.0.0" Cversion="2.0.0" condition="SDS IO via USB - MDK USB">
+      <description>I/O via USB Virtual COM Port to SDSIO Server (using component Keil::USB:Device:Custom)</description>
+      <RTE_Components_h>
+        #define RTE_SDS_IO                              /* Synchronous Data Stream Input/Output */
+        #define RTE_SDS_IO_USB                          /* Synchronous Data Stream Input/Output (USB) */
+        #define RTE_SDS_IO_USB_MDK_USB                  /* Synchronous Data Stream Input/Output (USB - MDK USB) */
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="sds/source/sdsio/client/sdsio_client.c"/>
+        <file category="source" name="sds/source/sdsio/client/usb/mdk/sdsio_client_usb.c"/>
+        <file category="header" name="sds/config/sdsio_config_usb_mdk.h" attr="config" version="2.0.0"/>
+        <file category="doc"    name="docs/index.html"/>
+      </files>
+    </component>
+
+    <!-- SDS I/O (Serial - CMSIS USART) -->
+    <component Cclass="SDS" Cgroup="IO" Csub="Serial" Cvariant="CMSIS USART" Capiversion="2.0.0" Cversion="2.0.0" condition="SDS IO via Serial Port - CMSIS USART">
+      <description>I/O via Serial Port to SDSIO Server (using component CMSIS Driver:USART)</description>
+      <RTE_Components_h>
+        #define RTE_SDS_IO                              /* Synchronous Data Stream Input/Output */
+        #define RTE_SDS_IO_SERIAL                       /* Synchronous Data Stream Input/Output (Serial) */
+        #define RTE_SDS_IO_SERIAL_CMSIS_USART           /* Synchronous Data Stream Input/Output (Serial - CMSIS USART) */
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="sds/source/sdsio/client/sdsio_client.c"/>
+        <file category="source" name="sds/source/sdsio/client/serial/usart/sdsio_client_serial.c"/>
+        <file category="header" name="sds/config/sdsio_config_serial_usart.h" attr="config" version="2.0.0"/>
+        <file category="doc"    name="docs/sdsio.html"/>
+      </files>
+    </component>
+
+    <!-- SDS I/O (Custom client) -->
+    <component Cclass="SDS" Cgroup="IO" Csub="Custom" Capiversion="2.0.0" Cversion="2.0.0">
+      <description>I/O via Custom I/O to SDSIO Server</description>
+      <RTE_Components_h>
+        #define RTE_SDS_IO                              /* Synchronous Data Stream Input/Output */
+        #define RTE_SDS_IO_CUSTOM                       /* Synchronous Data Stream Input/Output via Custom I/O */
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="sds/source/sdsio/client/sdsio_client.c"/>
+        <file category="source" name="sds/source/sdsio/client/template/sdsio_client_custom.c" attr="template" select="Custom SDS I/O Client Driver"/>
+        <file category="doc"    name="docs/sdsio.html"/>
+      </files>
+    </component>
+
+    <!-- SDS I/O (File System - MDK FS) -->
+    <component Cclass="SDS" Cgroup="IO" Csub="File System" Cvariant="MDK FS" Capiversion="2.0.0" Cversion="2.0.0" condition="SDS IO via File System - MDK FS">
+      <description>I/O via File System (using component Keil::File System)</description>
+      <RTE_Components_h>
+        #define RTE_SDS_IO                              /* Synchronous Data Stream Input/Output */
+        #define RTE_SDS_IO_FILE_SYSTEM                  /* Synchronous Data Stream Input/Output via File System */
+        #define RTE_SDS_IO_FILE_SYSTEM_MDK_FS           /* Synchronous Data Stream Input/Output via File System (MDK FS) */
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="sds/source/sdsio/fs/mdk/sdsio_fs.c"/>
+        <file category="header" name="sds/config/sdsio_config_fs_mdk.h" attr="config" version="2.0.0"/>
+        <file category="doc"    name="docs/sdsio.html"/>
+      </files>
+    </component>
+
+    <!-- SDS I/O (File System - Semihosting) -->
+    <component Cclass="SDS" Cgroup="IO" Csub="File System" Cvariant="Semihosting" Capiversion="2.0.0" Cversion="2.0.0" condition="SDS IO via File System - Semihosting">
+      <description>I/O via File System (using Semihosting)</description>
+      <RTE_Components_h>
+        #define RTE_SDS_IO                              /* Synchronous Data Stream Input/Output */
+        #define RTE_SDS_IO_FILE_SYSTEM                  /* Synchronous Data Stream Input/Output via File System */
+        #define RTE_SDS_IO_FILE_SYSTEM_SEMIHOSTING      /* Synchronous Data Stream Input/Output via File System (Semihosting) */
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="sds/source/sdsio/fs/semihosting/sdsio_fs.c"/>
+        <file category="doc"    name="docs/sdsio.html"/>
+      </files>
+    </component>
+
+    <!-- SDS Recorder and Player -->
+    <component Cclass="SDS" Cgroup="RecPlay" Cvariant="CMSIS-RTOS2" Cversion="2.0.0" condition="SDS Recorder and Player with CMSIS-RTOS2">
+      <description>Recorder/Player interface for data stream</description>
+      <RTE_Components_h>
+        #define RTE_SDS_REC_PLAY                        /* Synchronous Data Stream Recorder and Player */
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="sds/include/sds_rec_play.h"/>
+        <file category="source" name="sds/source/sds_rec_play.c"/>
+        <file category="header" name="sds/config/sds_rec_play_config.h" attr="config" version="2.0.0"/>
+        <file category="doc"    name="docs/SDS_API/group__SDS__Recorder__Player.html"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <clayer type="SDSIO" path="layer/sdsio/usb"        file="sdsio_usb.clayer.yml"     copy-to="sdsio/usb"/>
+    <clayer type="SDSIO" path="layer/sdsio/network"    file="sdsio_network.clayer.yml" copy-to="sdsio/network"/>
+    <clayer type="SDSIO" path="layer/sdsio/filesystem" file="sdsio_fs.clayer.yml"      copy-to="sdsio/filesystem"/>
+  </csolution>
+
+  <examples>
+    <example name="SDS" doc="README.md" folder="template">
+      <description>Data streaming test framework for DSP/ML algorithm development</description>
+      <project>
+        <environment name="csolution" load="SDS.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

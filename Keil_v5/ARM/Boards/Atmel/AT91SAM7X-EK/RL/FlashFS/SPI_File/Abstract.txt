@@ -1,0 +1,25 @@
+This is an RL Flash File System file manipulation example.
+You can create, read, copy, delete files from on-board
+Atmel AT45DB321C or AT45DB642D SPI Data Flash.
+
+The SPI_FILE program is a standalone application loaded into
+on-chip flash and available for two targets:
+
+AT91SAM7X-321:
+        Standalone application for Atmel AT91SAM7X-EK evaluation
+        Board using RS232 COM port as a communication interface.
+        The board is populated with AT45DB321C SPI flash.
+
+AT91SAM7X-642:
+        Standalone application for Atmel AT91SAM7X-EK evaluation
+        Board using RS232 COM port as a communication interface.
+        The board is populated with AT45DB642D SPI flash.
+
+
+        Connect a serial null-modem cable to RS232 COM1 port 
+        using a HyperTerminal at 115200 baud, 8-bits, no parity,
+        1 stop bit, XON/XOFF.
+
+Note: Jumper settings are:
+        J19 - ON  (SPI_NPCS0)
+        S3  - OFF (Write protect)

@@ -1,0 +1,10 @@
+This is a simple RTX Kernel based example which blinks LED
+on the Analog Device ADuC7024 Evaluation Board.
+
+
+The BLINKY example program is available for several targets:
+
+Simulator: uVision Simulator for evaluation
+
+ADuC702x:  ADI ADuC7024 Evaluation Board with ULINK debugger
+           - Application is loaded to internal Flash.

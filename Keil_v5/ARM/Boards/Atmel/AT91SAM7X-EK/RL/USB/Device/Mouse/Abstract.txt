@@ -1,0 +1,19 @@
+The Mouse project is a demo program for the Atmel AT91SAM7X-EK Board 
+using a Atmel AT91SAM7X Microcontroller.
+
+The following is used for Mouse movements and clicks:
+  - Joystick up (SW1) up movement
+  - Joystick down (SW2) down movement
+  - Joystick left (SW3) left movement
+  - Joystick right (SW4) right movement
+  - Joystick pressed (SW5) left click
+
+LEDs are used to display the following:
+  - LED1 shows the SW5 state
+
+The USB Mouse is automatically recognized by the host PC
+running Windows which will load a generic Mouse driver.
+
+The Mouse program is available for the following target:
+  SAM7X-EK:     configured for on-chip Flash ROM
+               (used for production or target debugging)

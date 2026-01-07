@@ -1,0 +1,15 @@
+This is an RL Flash File System file manipulation example.
+You can create, read, copy, delete files on the NAND Flash
+Memory. 
+
+The NAND_FILE program is a standalone application loaded into
+off-chip flash and available for one target:
+
+LPC3250:   Standalone application for Phytec LPC3250 board,
+           configured to run in external SDRAM and loaded to
+           external NOR flash. This example uses COM5 
+           (bottom conn.) as a communication interface.
+ 
+           Connect a serial cable to RS232 COM5 port using
+           HyperTerminal at 115200 baud, 8-bits, no parity,
+           1 stop bit, XON/XOFF.

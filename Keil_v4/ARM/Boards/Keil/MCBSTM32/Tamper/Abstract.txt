@@ -1,0 +1,23 @@
+The 'Tamper' project is a simple program for the STM32F103RBT6 
+using Keil 'MCBSTM32' Evaluation Board and demonstrating 
+the use of the Tamper detection.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL    =            8.00 MHz
+   - SYSCLK  =           72.00 MHz
+   - HCLK    = SYSCLK  = 72.00 MHz
+   - PCLK1   = HCLK/2  = 36.00 MHz
+   - PCLK2   = HCLK    = 72.00 MHz
+   - ADCLK   = PCLK2/6 = 12.00 MHz
+   - SYSTICK = HCLK/8  =  9.00 MHz
+
+ - After startup BKP_DR1 and BKP_DR2 are set to specific values.
+   Tamper pin is configured to generate an interrupt  
+   led PB9 is lit if BKP_DR1, BKP_DR2 are cleared upon a tamper event
+   led PB8 is lit if BKP_DR1, BKP_DR2 are not cleared 
+ 
+The EXTI program is available in different targets:
+  Simulator:   - configured for software Simulator
+  MCBSTM32:    - runs from Internal Flash located on chip
+                 (used for production or target debugging)

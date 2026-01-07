@@ -1,0 +1,315 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\RTC.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          RTC                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  RTC_CTRL  --------------------------------------------
+
+unsigned int RTC_CTRL __AT (0x40080000);
+
+//  <item> Reg_RTC_CTRL
+//    <i> RTC_CTRL [31..0] (@ 0x40080000) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_CTRL>>0) & 0xFFFFFFFF), ( (RTC_CTRL &= ~(0xFFFFFFFF<<0)), (RTC_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_CTRL_EN
+//    <i> EN [0] (@ 0x40080000) </i>
+//    <check> 
+//      <loc> RTC_CTRL </loc>
+//      <o.0..0> EN
+//    </check>
+//  </item>
+//  
+//  <item> RTC_CTRL_DEBUGRUN
+//    <i> DEBUGRUN [1] (@ 0x40080000) </i>
+//    <check> 
+//      <loc> RTC_CTRL </loc>
+//      <o.1..1> DEBUGRUN
+//    </check>
+//  </item>
+//  
+//  <item> RTC_CTRL_COMP0TOP
+//    <i> COMP0TOP [2] (@ 0x40080000) </i>
+//    <check> 
+//      <loc> RTC_CTRL </loc>
+//      <o.2..2> COMP0TOP
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  RTC_CNT  --------------------------------------------
+
+unsigned int RTC_CNT __AT (0x40080004);
+
+//  <item> Reg_RTC_CNT
+//    <i> RTC_CNT [31..0] (@ 0x40080004) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_CNT>>0) & 0xFFFFFFFF), ( (RTC_CNT &= ~(0xFFFFFFFF<<0)), (RTC_CNT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_CNT_CNT
+//    <i> CNT [23..0] (@ 0x40080004) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_CNT>>0) & 0xFFFFFE), ( (RTC_CNT &= ~(0xFFFFFE<<0)), (RTC_CNT |= ((Gui_u32:GuiVal & 0xFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  RTC_COMP0  -------------------------------------------
+
+unsigned int RTC_COMP0 __AT (0x40080008);
+
+//  <item> Reg_RTC_COMP0
+//    <i> RTC_COMP0 [31..0] (@ 0x40080008) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_COMP0>>0) & 0xFFFFFFFF), ( (RTC_COMP0 &= ~(0xFFFFFFFF<<0)), (RTC_COMP0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_COMP0_COMP0
+//    <i> COMP0 [23..0] (@ 0x40080008) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_COMP0>>0) & 0xFFFFFE), ( (RTC_COMP0 &= ~(0xFFFFFE<<0)), (RTC_COMP0 |= ((Gui_u32:GuiVal & 0xFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  RTC_COMP1  -------------------------------------------
+
+unsigned int RTC_COMP1 __AT (0x4008000C);
+
+//  <item> Reg_RTC_COMP1
+//    <i> RTC_COMP1 [31..0] (@ 0x4008000C) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_COMP1>>0) & 0xFFFFFFFF), ( (RTC_COMP1 &= ~(0xFFFFFFFF<<0)), (RTC_COMP1 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_COMP1_COMP1
+//    <i> COMP1 [23..0] (@ 0x4008000C) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_COMP1>>0) & 0xFFFFFE), ( (RTC_COMP1 &= ~(0xFFFFFE<<0)), (RTC_COMP1 |= ((Gui_u32:GuiVal & 0xFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------------  RTC_IF  ---------------------------------------------
+
+unsigned int RTC_IF __AT (0x40080010);
+
+//  <item> Reg_RTC_IF
+//    <i> RTC_IF [31..0] (@ 0x40080010) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_IF>>0) & 0xFFFFFFFF), ( (RTC_IF &= ~(0xFFFFFFFF<<0)), (RTC_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_IF_OF
+//    <i> OF [0] (@ 0x40080010) </i>
+//    <check> 
+//      <loc> RTC_IF </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IF_COMP0
+//    <i> COMP0 [1] (@ 0x40080010) </i>
+//    <check> 
+//      <loc> RTC_IF </loc>
+//      <o.1..1> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IF_COMP1
+//    <i> COMP1 [2] (@ 0x40080010) </i>
+//    <check> 
+//      <loc> RTC_IF </loc>
+//      <o.2..2> COMP1
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  RTC_IFS  --------------------------------------------
+
+unsigned int RTC_IFS __AT (0x40080014);
+
+//  <item> Reg_RTC_IFS
+//    <i> RTC_IFS [31..0] (@ 0x40080014) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_IFS>>0) & 0xFFFFFFFF), ( (RTC_IFS &= ~(0xFFFFFFFF<<0)), (RTC_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_IFS_OF
+//    <i> OF [0] (@ 0x40080014) </i>
+//    <check> 
+//      <loc> RTC_IFS </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IFS_COMP0
+//    <i> COMP0 [1] (@ 0x40080014) </i>
+//    <check> 
+//      <loc> RTC_IFS </loc>
+//      <o.1..1> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IFS_COMP1
+//    <i> COMP1 [2] (@ 0x40080014) </i>
+//    <check> 
+//      <loc> RTC_IFS </loc>
+//      <o.2..2> COMP1
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  RTC_IFC  --------------------------------------------
+
+unsigned int RTC_IFC __AT (0x40080018);
+
+//  <item> Reg_RTC_IFC
+//    <i> RTC_IFC [31..0] (@ 0x40080018) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_IFC>>0) & 0xFFFFFFFF), ( (RTC_IFC &= ~(0xFFFFFFFF<<0)), (RTC_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_IFC_OF
+//    <i> OF [0] (@ 0x40080018) </i>
+//    <check> 
+//      <loc> RTC_IFC </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IFC_COMP0
+//    <i> COMP0 [1] (@ 0x40080018) </i>
+//    <check> 
+//      <loc> RTC_IFC </loc>
+//      <o.1..1> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IFC_COMP1
+//    <i> COMP1 [2] (@ 0x40080018) </i>
+//    <check> 
+//      <loc> RTC_IFC </loc>
+//      <o.2..2> COMP1
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  RTC_IEN  --------------------------------------------
+
+unsigned int RTC_IEN __AT (0x4008001C);
+
+//  <item> Reg_RTC_IEN
+//    <i> RTC_IEN [31..0] (@ 0x4008001C) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_IEN>>0) & 0xFFFFFFFF), ( (RTC_IEN &= ~(0xFFFFFFFF<<0)), (RTC_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_IEN_OF
+//    <i> OF [0] (@ 0x4008001C) </i>
+//    <check> 
+//      <loc> RTC_IEN </loc>
+//      <o.0..0> OF
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IEN_COMP0
+//    <i> COMP0 [1] (@ 0x4008001C) </i>
+//    <check> 
+//      <loc> RTC_IEN </loc>
+//      <o.1..1> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> RTC_IEN_COMP1
+//    <i> COMP1 [2] (@ 0x4008001C) </i>
+//    <check> 
+//      <loc> RTC_IEN </loc>
+//      <o.2..2> COMP1
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  RTC_FREEZE  -------------------------------------------
+
+unsigned int RTC_FREEZE __AT (0x40080020);
+
+//  <item> Reg_RTC_FREEZE
+//    <i> RTC_FREEZE [31..0] (@ 0x40080020) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_FREEZE>>0) & 0xFFFFFFFF), ( (RTC_FREEZE &= ~(0xFFFFFFFF<<0)), (RTC_FREEZE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_FREEZE_REGFREEZE
+//    <i> REGFREEZE [0] (@ 0x40080020) </i>
+//    <check> 
+//      <loc> RTC_FREEZE </loc>
+//      <o.0..0> REGFREEZE
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  RTC_SYNCBUSY  ------------------------------------------
+
+unsigned int RTC_SYNCBUSY __AT (0x40080024);
+
+//  <item> Reg_RTC_SYNCBUSY
+//    <i> RTC_SYNCBUSY [31..0] (@ 0x40080024) </i>
+//    <edit> 
+//      <loc> ( (int)((RTC_SYNCBUSY>>0) & 0xFFFFFFFF), ( (RTC_SYNCBUSY &= ~(0xFFFFFFFF<<0)), (RTC_SYNCBUSY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RTC_SYNCBUSY_CTRL
+//    <i> CTRL [0] (@ 0x40080024) </i>
+//    <check> 
+//      <loc> RTC_SYNCBUSY </loc>
+//      <o.0..0> CTRL
+//    </check>
+//  </item>
+//  
+//  <item> RTC_SYNCBUSY_COMP0
+//    <i> COMP0 [1] (@ 0x40080024) </i>
+//    <check> 
+//      <loc> RTC_SYNCBUSY </loc>
+//      <o.1..1> COMP0
+//    </check>
+//  </item>
+//  
+//  <item> RTC_SYNCBUSY_COMP1
+//    <i> COMP1 [2] (@ 0x40080024) </i>
+//    <check> 
+//      <loc> RTC_SYNCBUSY </loc>
+//      <o.2..2> COMP1
+//    </check>
+//  </item>
+//  

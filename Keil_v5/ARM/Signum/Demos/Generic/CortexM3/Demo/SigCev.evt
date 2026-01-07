@@ -1,0 +1,22 @@
+; Saved EVT - this can be used as Chameleon script
+evt clear
+; values of controls
+evt Comparator1.Output=Disabled
+evt Comparator1.Function=None
+evt Comparator1.Access=ReadorWrite
+evt Comparator1.AddressMatch0=None
+evt Comparator1.AddressMatch1=None
+evt Comparator1.DataValueSize=Word
+evt Comparator0.Output=Disabled
+evt Comparator0.Function=None
+evt Comparator0.Access=ReadorWrite
+evt Comparator2.Output=Disabled
+evt Comparator2.Function=None
+evt Comparator2.Access=ReadorWrite
+evt Comparator3.Output=Disabled
+evt Comparator3.Function=None
+evt Comparator3.Access=ReadorWrite
+evt ITMEvents.EveryNCycles=1024
+evt ITMTimestamp.BasedOn=CPUClock
+evt ITMTimestamp.Divider=1
+; End of saved EVT

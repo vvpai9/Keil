@@ -1,0 +1,91 @@
+[Signum Systems SigUV3Arm.dll Settings]
+
+[Flash Programming - Demo_0_20000000]
+ProgrammingOptions=0x20003            
+RAMAreaAddr=0x20000000            
+RAMAreaSize=0x8000            
+FlashDevice_0=STM32F10x 512kB Flash,257,1,0x0,0x80000,STM32F10x_512.FLM            
+
+[Emulation Parameters - Demo_0_20000000]
+BoardCfg=SigUV3ArmJtagChain.cfg            
+BoardDID=DEV1            
+BypassTest=no            
+JtagSpeed=10000            
+JtagHeader=ARM,trst:c,dbgrq:0,reset:r            
+JtagInitDelay=200,r:300            
+MemFast=rw1            
+ResetCPUonStartup=yes            
+SetPCandCPSRonCPUReset=yes            
+ResetStyle=HARDWARE            
+
+[Flash Programming - Demo_0_08000000]
+ProgrammingOptions=0x20003            
+RAMAreaAddr=0x8000000            
+RAMAreaSize=0x8000            
+FlashDevice_0=STM32F10x 512kB Flash,257,1,0x0,0x80000,STM32F10x_512.FLM            
+
+[Emulation Parameters - Demo_0_08000000]
+BoardCfg=SigUV3ArmJtagChain.cfg            
+BoardDID=DEV1            
+BypassTest=no            
+JtagSpeed=10000            
+JtagHeader=ARM,trst:c,dbgrq:0,reset:r            
+JtagInitDelay=200,r:300            
+MemFast=rw1            
+ResetCPUonStartup=yes            
+SetPCandCPSRonCPUReset=yes            
+ResetStyle=HARDWARE            
+
+[Flash Programming - Demo_08000000_20000000]
+ProgrammingOptions=0x20003            
+RAMAreaAddr=0x20000000            
+RAMAreaSize=0x8000            
+FlashDevice_0=STM32F10x 512kB Flash,257,1,0x8000000,0x80000,STM32F10x_512.FLM            
+
+[Emulation Parameters - Demo_08000000_20000000]
+BoardCfg=SigUV3ArmJtagChain.cfg            
+BoardDID=DEV1            
+BypassTest=no            
+JtagSpeed=10000            
+JtagHeader=ARM,trst:c,dbgrq:0,reset:r            
+JtagInitDelay=200,r:300            
+MemFast=rw1            
+ResetCPUonStartup=yes            
+SetPCandCPSRonCPUReset=yes            
+ResetStyle=HARDWARE            
+
+[Emulation Parameters - Demo_20000000]
+BoardCfg=SigUV3ArmJtagChain.cfg            
+BoardDID=DEV1            
+BypassTest=no            
+JtagSpeed=10000            
+JtagHeader=ARM,trst:c,dbgrq:0,reset:r            
+JtagInitDelay=200,r:300            
+MemFast=rw1            
+ResetCPUonStartup=yes            
+SetPCandCPSRonCPUReset=yes            
+ResetStyle=HARDWARE            
+
+[Emulation Parameters - Demo_08000000]
+BoardCfg=SigUV3ArmJtagChain.cfg            
+BoardDID=DEV1            
+BypassTest=no            
+JtagSpeed=10000            
+JtagHeader=ARM,trst:c,dbgrq:0,reset:r            
+JtagInitDelay=200,r:300            
+MemFast=rw1            
+ResetCPUonStartup=yes            
+SetPCandCPSRonCPUReset=yes            
+ResetStyle=HARDWARE            
+
+[Emulation Parameters - Demo_0]
+BoardCfg=SigUV3ArmJtagChain.cfg            
+BoardDID=DEV1            
+BypassTest=no            
+JtagSpeed=10000            
+JtagHeader=ARM,trst:c,dbgrq:0,reset:r            
+JtagInitDelay=200,r:300            
+MemFast=rw1            
+ResetCPUonStartup=yes            
+SetPCandCPSRonCPUReset=yes            
+ResetStyle=HARDWARE            

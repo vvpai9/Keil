@@ -1,0 +1,9 @@
+The Blinky project is a simple program for the Cortex-M1
+using ARM Emulation Baseboard HBI-0140 and LT-XC2V6000
+Logic Tile which emulates ARM Cortex-M1.
+
+It just blinks the user LEDs on the Emulation Baseboard.
+
+The Blinky program is available in different targets:
+  Simulator:  runs in µVision Simulator
+  Emulator:   runs in Emulator

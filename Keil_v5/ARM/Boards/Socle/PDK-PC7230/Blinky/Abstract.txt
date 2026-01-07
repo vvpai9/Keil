@@ -1,0 +1,28 @@
+The 'Blinky' project is an simple example program for the  
+Socle 'PC7230-QG' microcontroller using 
+Socle 'PDK-PC7230 Ver.1.0' Evaluation Board. 
+
+Example functionality:
+ - 1 LED blinks in 1 second intervals
+ - time of LED switching is determined by Timer (TIM1) 
+   working in interrupt mode
+
+Clocks:   XTAL                   =  12.0000 MHz
+          CPLL                   = 133.0000 MHz
+          UPLL                   =  88.4736 MHz
+          AHB Clock = CPLL       = 133.0000 MHz
+
+Memories: 64MB  SDRAM      (adr: 0x80000000-0x83FFFFFF)
+          8MB   NOR Flash  (adr: 0x00000000-0x007FFFFF)
+          128MB NAND Flash
+
+Important !!! Hardware adjustment needed !!!
+  Please remove resistor R15 and connect ARM_SRSTn line to  
+  pin 3 of U6 chip. 
+
+The Blinky program is available for different targets:
+  PC7230 Ext SDRAM: configured for external SDRAM
+                    (may be used for target debugging)
+  PC7230 Ext NOR:   configured for external NOR flash
+                    (may be used for target debugging or 
+                    production)

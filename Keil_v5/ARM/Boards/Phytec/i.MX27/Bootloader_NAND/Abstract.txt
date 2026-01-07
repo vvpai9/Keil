@@ -1,0 +1,23 @@
+The 2-nd level Bootloader for Freescale 'MCIMX27'  
+device series (configured for External SDRAM 
+and loaded to External NAND Flash on the 
+Phytec Board)
+
+This is a 2-nd level bootloader for Freescale 
+'MCIMX27' device series with External NAND 
+Flash and External SDRAM. 
+It downloads to first 2kB of the NAND Flash.
+The 1-st level bootloader that is in ROM of 
+MCIMX27 first downloads this 2-nd level 
+bootloader to internal NAND RAM and starts it.
+
+The 2-nd level bootloader's main function is to 
+copy user program from the External NAND Flash 
+to the External SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to the NAND Flash.
+
+Notes:
+  Jumper 'Boot Mode/CLK-Sel.' (S5) has to be in 
+  position: 4,6,8 = ON, other = OFF

@@ -1,0 +1,14 @@
+This is an RL Flash File System file manipulation example.
+You can create, read, copy, delete files from internal
+STR75x Embedded Flash Bank 1.
+
+The EM_FILE program is a standalone application loaded into
+on-chip flash and available for one target:
+
+MCBSTR750: Standalone application for Keil MCBSTR750 Board using
+           COM1 port as a communication interface.
+
+           Connect a serial cable to RS232 COM1 port using
+           HyperTerminal at 115200 baud, 8-bits, no parity,
+           1 stop bit, XON/XOFF.
+

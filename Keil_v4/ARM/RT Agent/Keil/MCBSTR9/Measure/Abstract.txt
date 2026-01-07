@@ -1,0 +1,14 @@
+The MEASURE program uses analog and digital inputs to simulate a datalogger.
+
+You may watch the value of analog input POT1 and the state of S2, S3 Buttons
+on MCBSTR9 evaluation board. The required jumper setting are described below.
+
+The program is available in different targets:
+  Simulator:  runs in software Simulator
+              ADC0 simulated using a debug function.
+  MCBSTR9:    runs from Internal Flash located on chip
+              COM1, 115200 baud, 8 data bits, 1 stop bit, no parity 
+              Buttons S2, S3 (GPIO7) are sampled
+              potentiometer POT1 is sampled as ADC0	(J4 = on)
+
+The measure is precompiled for target Simulator and target MCBSTR9.

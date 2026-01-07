@@ -1,0 +1,15 @@
+The Blinky project is a simple program for the ST710FZ2T6
+using ST Microelectronics STR710 Evaluation Board.
+
+It blinks the Bicolor (Red/Green) LED. Blinkig rate is doubled
+while the SEL button is pressed. It also shows the Potenciometer
+position via the 16 Red LEDs.
+
+The Blinky program is available in different targets:
+  Simulator:           configured for software Simulator
+  STR710 Board Flash:  runs from Internal Flash located on chip
+                       (used for production or target debugging)
+  STR710 Board RAM:    runs from Internal RAM located on chip
+                       (may be used for target debugging) 
+  STR710 Board ExtMem: runs from External Flash located on board
+                       (used for production or target debugging)

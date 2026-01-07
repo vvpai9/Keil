@@ -1,0 +1,20 @@
+This is a simple RTX Kernel based example which simulates
+the step-motor driver. Three LEDs are blinking simulating
+the activation of the three output driver stages:
+
+- phase A
+- phase B
+- phase C
+
+This example simulates step driver mode.
+
+The BLINKY example program is available for several targets:
+
+Simulator:  uVision Simulator for evaluation
+
+AT91RM9200: Atmel AT91RM9200 evaluation board with ULINK debugger
+            - Application is loaded to external Flash.
+
+Notes: 
+  - If "AT91RM9200" is used as target jumper J15 should be 
+    in position EXT (pins 2-3)

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.7.52" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.52/schema/PACK.xsd">
+  <!-- Must have - software pack name: -->
+  <name>NuMicro_M55M1_BSP</name>
+  <!-- Must have - software pack vendor name: -->
+  <vendor>Nuvoton</vendor>
+  <!-- Strongly recommended - pack description with Overview.md file: -->
+  <description overview="README.md">Board Support Pack for M55M1 Series</description>
+  <!-- Optional - pack download URL (if publicly available): -->
+  <url>https://github.com/OpenNuvoton/keil_packs/raw/master/m55m1_bsp/</url>
+  <!-- Optional - Git repo URL (if applicable): -->
+  <repository></repository>
+  <!-- Strongly recommended - support contact information: -->
+  <supportContact></supportContact>
+  <!-- Must have - licensing information (for software BOM): -->
+  <license>LICENSE</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license name="LICENSE" title="Apache 2.0 open-source license" spdx="Apache-2.0"/>
+    </licenseSet>
+  </licenseSets>
+
+  <!-- Must have - pack release information for versioning: -->
+  <releases>
+    <release version="3.1.4-rc.3" date="2025-11-28">
+      Blinky example updated cmsis-toolbox version and debug configuration.
+    </release>
+    <release version="3.1.4-rc.2" date="2025-11-26">
+      Removed dummy files of CMSIS VIO driver and Template example.
+    </release>
+    <release version="3.1.4-rc.1" date="2025-11-21">
+      Moved CMSIS VIO driver to BSP pack.
+    </release>
+    <release version="3.1.3" date="2025-11-04">
+      Moved standard drivers, CMSIS drivers, and libraries to DFP pack.
+      Added Blink example.
+    </release>
+    <release version="3.1.2" date="2025-08-08">
+      Supported M55M1B.
+      Added CMSIS drivers, new sample codes.
+      Updated startup, standard drivers, libraries, sample codes.
+      Removed RTC_TimeAndTick sample code.
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- Optional - keywords for indexing: -->
+    <keyword>Nuvoton</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>NuMicro_M55M1</keyword>
+    <keyword>M55M1 BSP</keyword>
+    <keyword>M55M1H2LJAE</keyword>
+    <keyword>NuMaker-X-M55M1D</keyword>
+  </keywords>
+
+  <requirements>
+    <!-- Strongly recommended - requirement to DFP (or other packs): -->
+    <packages>
+      <package vendor="Nuvoton" name="NuMicroM55_DFP" version="3.1.4-rc.2"/>
+    </packages>
+  </requirements>
+
+  <!-- Must have - conditions section: -->
+  <conditions>
+    <condition id="CMSIS Driver M55M1 VIO">
+      <description>CMSIS VIO M55M1 Driver</description>
+      <require Dfamily="NuMicro M55 Family" Dvendor="Nuvoton:18"/>
+    </condition>
+  </conditions>
+
+  <!-- Strongly recommended - components section: -->
+  <components>
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="NuMaker-X-M55M1D" Cversion="1.0.0" condition="CMSIS Driver M55M1 VIO">
+      <description>CMSIS VIO driver for NuMaker-X-M55M1D</description>
+      <files>
+      <file category="sourceC" name="Library/CMSIS/Driver/VIO/Source/vio_NuMaker-M55M1.c"/>
+      </files>
+    </component>
+  </components>
+
+  <!-- Must have - boards section: -->
+  <boards>
+    <!-- Must have - board information: -->
+    <board vendor="Nuvoton" name="NuMaker-X-M55M1D" revision="V1.0"
+           salesContact="https://direct.nuvoton.com/en/contact-us"
+           orderForm="https://direct.nuvoton.com/en/numaker-x-m55m1d">
+      <!-- Strongly recommended - board description: -->
+      <description>NuMaker-X-M55M1 Development Board with M55M1H2LJAE MCU</description>
+      <image small="Images/numaker-x-m55m1d_small.png"
+             large="Images/numaker-x-m55m1d_large.png"/>
+      <book category="overview"  name="https://direct.nuvoton.com/en/numaker-x-m55m1d" title="NuMaker-X-M55M1D"/>
+      <book category="schematic" name="https://www.nuvoton.com/resource-download.jsp?tp_GUID=HL102025092207032917" title="Schematic"/>
+      <book category="manual"    name="https://www.nuvoton.com/resource-download.jsp?tp_GUID=UG132025091911464523" title="User Manual"/>
+      <book category="other"     name="Documents/OVERVIEW.md" title="Guide"/>
+      <!-- Must have - on-board device information: -->
+      <mountedDevice    deviceIndex="0" Dvendor="Nuvoton:18" Dname="M55M1H2LJAE"/>
+      <!-- Strongly recommended - on-board device compatibility information: -->
+      <compatibleDevice deviceIndex="0" Dvendor="Nuvoton:18" Dname="M55M1*"/>
+      <!-- Strongly recommended - board features: -->
+      <feature type="ODbg"          n="1"         name="On-board Nu-Link2-Me"/>
+      <feature type="PWR"           n="5"         name="USB Powered"/>
+      <feature type="PWR"           n="3.3" m="5" name="External Supply"/>
+      <feature type="LED"           n="3"         name="User LEDs"/>
+      <feature type="Button"        n="2"         name="User Buttons"/>
+      <feature type="DIO"           n="4"         name="Extended connectors to all chip pins"/>
+      <feature type="USB"           n="1"         name="High-Speed USB OTG with USB-C Connector"/>
+      <feature type="USB"           n="1"         name="Full-Speed USB OTG with USB-C Connector"/>
+      <feature type="RAM"           n="1"         name="64 Mb HyperRAM"/>
+      <feature type="ConnOther"     n="1"         name="ESP-12F Wi-Fi® module from Espressif"/>
+      <feature type="MIC"           n="1"         name="MEMS Digital microphones"/>
+      <feature type="Accelerometer" n="1"         name="Accelerometer (MPU6500)"/>
+      <feature type="Gyro"          n="1"         name="Gyroscope (MPU6500)"/>
+      <feature type="ETH"           n="1"         name="10/100 Ethernet Port"/>
+      <feature type="CAN"           n="1"         name="CAN FD Transceiver"/>
+      <feature type="MemCard"       n="1"         name="SDIO interface microSD card"/>
+      <feature type="ArduinoFF"     n="1"         name="ARDUINO® Uno V3 expansion connectors"/>
+      <feature type="Other"         n="1"         name="mikroBUS® expansion connectors"/>
+      <feature type="ConnOther"     n="1"         name="CMOS I/F Connector"/>
+      <feature type="ConnOther"     n="1"         name="LCD I/F Connector"/>
+      <feature type="LineIn"        n="1"         name="Audio CODEC with Line-In"/>
+      <feature type="LineOut"       n="1"         name="Audio CODEC with Line-Out"/>
+      <!-- Strongly recommended - on-board debug probe information (if applicable): -->
+      <debugInterface adapter="Nu-Link" connector="USB-C"/>
+      <debugProbe connector="USB-C" debugClock="10000000" debugLink="swd" name="CMSIS-DAP"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>Blinky example with VIO</description>
+      <board name="NuMaker-X-M55M1D" vendor="Nuvoton"/>
+      <project>
+        <environment name="csolution" load="VSCode/Blinky.csolution.yml"/>
+        <environment name="uv"        load="KEIL/Blinky.uvprojx"/>
+        <environment name="iar"       load="IAR/Blinky.ewp"/>
+      </project>
+    </example>
+  </examples>
+
+</package>

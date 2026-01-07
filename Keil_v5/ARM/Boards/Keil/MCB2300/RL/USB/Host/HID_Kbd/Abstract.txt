@@ -1,0 +1,27 @@
+This is an RL-USB-Host Human Interface Device (HID) usage example.
+
+Example functionality:
+ - Clock Settings:
+   - XTAL   =  12 MHz
+   - PLL    = 288 MHz
+   - CCLK   =  48 MHz
+   - USBCLK =  48 MHz
+
+ - Communication Interface Settings:
+   - UART1: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+This example shows how to use USB Keyboard as terminal input to 
+the device and it uses UART as terminal output.
+
+The Measure example is described in detail in the Getting Started
+User's Guide.
+
+The HID_KBD program is a standalone application loaded into
+on-chip flash and available for one target:
+
+MCB2300:   Standalone application for Keil MCB2300 Board using
+           COM port as a communication interface.
+
+Note: 
+    - set jumper D- to 1[2 3] 
+    - set jumper D+ to 1[2 3]

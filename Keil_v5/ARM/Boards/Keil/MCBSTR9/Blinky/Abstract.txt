@@ -1,0 +1,18 @@
+The Blinky project is a simple program for the STR912FW44
+using Keil 'MCB-STR9' Evaluation Board.
+
+Example functionality:                                                   
+ - interrupt driven TIM3 timer (starts AD conversion)
+ - interrupt driven AD convertor (reads conversion result)
+ - text is displayed to character LCD
+ - bargraph is displayed to character LCD, according to 
+   potentiometer position
+ - 8 LEDs blink from left to right
+ - speed of blinking can be altered with potentiometer position
+
+The Blinky program is available in target:
+  STR910 Flash:  runs from Internal Flash located on chip
+                 (used for production or target debugging)
+  STR910 Flash 
+      with CFG:  same as "STR910 Flash" + Flash Configuration
+                 (OTP, User Code, Configuration, Security Bit)

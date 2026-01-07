@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32L562E-DK_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32L5 Series STM32L562E-DK Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32L562E-DK_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="2.1.0" date="2025-09-17" tag="v2.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Added DWARF-5 debug information
+      - Added generated output files
+      - Updated RTE_Components.h file
+      Package Description (pdsc):
+      - Removed 'compatibleDevice' element
+    </release>
+    <release version="2.0.0" date="2024-12-18" tag="v2.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Removed BSP drivers
+      Removed Platform project
+      Migrated Blinky example to CMSIS Solution
+      Added Default Board Layer
+      CMSIS Drivers:
+      - Updated VIO driver to API 1.0.0
+      Pack Description:
+      - Added LICENSE files
+      - Updated schemaVersion (1.7.36)
+    </release>
+    <release version="1.3.0" date="2021-12-15">
+      Synchronize with STM32CubeL5 Firmware Package version V1.4.0
+      Projects:
+      - Update CubeMX project
+      - Override default HAL_InitTick function
+      - Update Platform project: Blocking stdin_getchar in stdio retarget
+      Replace documentation files with links
+      Update schemaVersion (1.7.2)
+    </release>
+    <release version="1.2.1" date="2021-07-12">
+      Drivers:
+      - VIO: update vioInit (LEDs pins initialization)
+      Blinky project:
+      - update RTX configuration (CMSIS 5.8.0)
+      Platform project (synchronize with CB_Lab4Layer):
+      - update RTX configuration (CMSIS 5.8.0)
+      - update App layer description
+      - compiler optimization -O1
+    </release>
+    <release version="1.2.0" date="2020-11-19">
+      Synchronized with STM32CubeL5 Firmware Package version V1.3.1
+      Drivers:
+      - Updated VIO module (Added define VIO_LCD_DISABLE)
+      Updated CubeMX examples
+      Platform project (synchronize with CB_Lab4Layer):
+      - Updated Peripheral Interrupts Priority
+      - Restructured README.md
+      - Added board selection to board layer
+      Updated board description (add debugProbe)
+    </release>
+    <release version="1.1.0" date="2020-07-16">
+      Board Support:
+      - Updated BSP components
+      Drivers:
+      - Updated CMSIS-VIO driver
+      Example projects:
+      - Updated CMSIS-RTOS2 Blinky
+      - Updated CMSIS-RTOS2 Platform
+    </release>
+    <release version="1.0.0" date="2020-05-18">
+      Initial public release.
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32L5</keyword>
+    <keyword>STM32L562E-DK</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32L5xx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32L562E-DK">
+      <description>STMicroelectronics STM32L562E-DK Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32L562E-DK"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32L562E-DK GPIO">
+      <description>STMicroelectronics STM32L562E-DK Board with CMSIS Driver GPIO</description>
+      <require condition="STM32L562E-DK"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32L562E-DK -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.0.0" Capiversion="1.0.0" condition="STM32L562E-DK GPIO">
+      <description>I/O implementation for STM32L562E-DK</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32L562E_DK
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32L562E-DK.c"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <clayer type="Board" path="Layers/Default" file="Board.clayer.yml" copy-to="Board/STM32L562E-DK" condition="STM32L562E-DK"/>
+  </csolution>
+
+  <boards>
+    <!-- STM32L562E-DK -->
+    <board vendor="STMicroelectronics" name="STM32L562E-DK" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Discovery development board with STM32L562QEIxQ MCU</description>
+      <image small="Images/stm32l562e-dk_small.png"
+             large="Images/stm32l562e-dk_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/stm32l562e-dk.html" title="STM32L562E-DK Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/stm32l562e-dk.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2617-discovery-kit-with-stm32l562qe-mcu-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1373-l562qeq-c01_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32L562QEIxQ"/>
+      <feature type="ODbg"          n="1"             name="On-board ST-LINK-V3E"/>
+      <feature type="ROM"           n="1"             name="512-Mbit Octal-SPI Flash"/>
+      <feature type="MemCard"       n="1"             name="SDIO interface microSD card"/>
+      <feature type="PWR"           n="6"             name="USB Powered"/>
+      <feature type="PWR"           n="3" m="5"       name="External Supply"/>
+      <feature type="USB"           n="1"             name="USB Type-C Sink device FS"/>
+      <feature type="GLCD"          n="1" m="240.240" name="1.54 inch color TFT LCD module with parallel interface and touch control panel"/>
+      <feature type="MIC"           n="2"             name="Digital microphones"/>
+      <feature type="LineIn"        n="1"             name="Audio CODEC with Stereo Line-In/Out and Speaker/Microphone"/>
+      <feature type="LineOut"       n="1"             name="Audio CODEC with Stereo Line-In/Out and Speaker/Microphone"/>
+      <feature type="ConnOther"     n="1"             name="Bluetooth Low Energy from STMicroelectronics"/>
+      <feature type="Accelerometer" n="1"             name="3D digital Accelerometer"/>
+      <feature type="Gyro"          n="1"             name="3D Gyroscope"/>
+      <feature type="ArduinoFF"     n="1"             name="ARDUINO® Uno V3 expansion connectors"/>
+      <feature type="ConnOther"     n="1"             name="MEMS expansion connector"/>
+      <feature type="ConnOther"     n="1"             name="STMod+ expansion connector"/>
+      <feature type="ConnOther"     n="1"             name="Pmod expansion connector"/>
+      <feature type="ConnOther"     n="1"             name="I2C extension connector"/>
+      <feature type="Button"        n="2"             name="Push-Buttons for Reset and User"/>
+      <feature type="LED"           n="7"             name="LEDs: COM, Power, User LEDs"/>
+      <debugInterface adapter="JTAG/SW" connector="10-pin JTAG MIPI10 interface (0.05 inch connector)"/>
+      <debugInterface adapter="JTAG/SW" connector="10-pin TAG probe TC2050-IDC-NL"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32L562E-DK" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

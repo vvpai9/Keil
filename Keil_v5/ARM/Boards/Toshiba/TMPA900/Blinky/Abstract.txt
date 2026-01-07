@@ -1,0 +1,31 @@
+The 'Blinky' project is an simple example program for the  
+Toshiba 'TMPA900CMXBG' microcontroller using Toshiba 
+'TOPAS 900 BMSKTOPASA900(DCE) V1.0' Evaluation Board: 
+
+Example functionality:
+ - 7-segment LED display shows incrementing number
+
+Clocks:   XTAL                     =  24.00 MHz
+          PLL                      = 192.00 MHz
+          FCLK                     = 192.00 MHz
+          HCLK      = FCLK / 2     =  96.00 MHz
+          SMC_MCLK  = HCLK         =  96.00 MHz 
+          SMC_TIM45 = HCLK / 2     =  48.00 MHz 
+          SMC_TIM23 = HCLK / 2     =  48.00 MHz 
+          SMC_TIM01 = HCLK / 2     =  48.00 MHz 
+Memories: 16kB Internal ROM (adr: 0x00000000)
+          32kB Internal RAM (adr: 0xF8002000)
+          64MB SDRAM        (adr: 0x40000000)
+          16MB NOR Flash    (adr: 0x00000000)
+
+The Blinky program is available for different targets:
+  TMPA900 Int RAM:  configured for on-chip RAM
+                    (may be used for target debugging)
+  TMPA900 Ext NOR:  configured for external NOR flash
+                    (may be used for target debugging or 
+                    production)
+  TMPA900 Ext RAM:  configured for external SDRAM  (MICRON MT48CL16M)
+                    (may be used for target debugging)
+  
+Notes: 
+  DIP Switch positions: SELJTAG, AM[1] = ON, other = OFF    

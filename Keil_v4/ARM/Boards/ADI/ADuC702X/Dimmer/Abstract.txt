@@ -1,0 +1,10 @@
+The Dimmer project is a simple program for the ADuC7026
+using Analog Devices ADuC7026 Evaluation Board.
+
+It demonstrates a dimmer effect on the D1 LED.
+The IRQ button may be used to pause. 
+
+The Dimmer program is available for different targets:
+  Simulator:             runs in software Simulator
+  ADuC7026:              runs from Internal Flash located on chip
+  ADuC7026 + Ext. Flash: runs from External Flash located on board

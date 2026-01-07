@@ -1,0 +1,31 @@
+The Traffic Light project is an example program for Cortex-M1 using
+an Actel Cortex-M1 enabled ProASIC3 Development Kit (M1A3P).
+
+Example is based on the Sample System Hardware design provided by Actel
+(Cortex-M1 with External Flash & SRAM, Interrupts, GPIO, Timer, UART).
+
+Details about the Sample Hardware design and Actel tools are provided
+on the M1A3P-DEV-KIT CD.
+
+Note:
+Sample Hardware design with standard ARM JTAG debug port must be programmed
+into the FPGA device by using Actel tools (M1A3P is shipped with the Sample
+Hardware design which uses FlashPro3 UJTAG debug port).
+
+Example demonstrates the Cortex-M1 system executing a traffic light
+sequence to blink LEDs. It will also transmit control characters through
+the UART to an optional Traffic Light application running on a PC.
+
+To run the Traffic Light application on the PC first connect the USB port
+on the PC to the USB Serial Port (J2) on the board and istall the required
+drivers (provided by Actel). Then determine the COM port number by searching
+the Device Manager for "SFE USB to RS232" under Ports (COM & LPT). Then run
+the application Traffic_Light and select the appropriate COM Port.
+
+The Traffic Light program is available in different targets:
+  M1A3P Flash &  Board Configuration = SW2 #9 ON (Flash @ 0):
+     runs from External Flash located on board
+     (used for production or target debugging)
+  M1A3P SRAM  &  Board Configuration = SW2 #9 OFF (SRAM @ 0):
+     runs from External SRAM located on board
+     (may be used for target debugging)

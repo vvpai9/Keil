@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['raw_5fnand',['raw_nand',['../group__nand__interface__gr.html#acd416318ef267b7090e44fe23d369ac4',1,'ARM_NAND_CAPABILITIES']]],
+  ['readdata',['ReadData',['../group__nor__interface__gr.html#a5339605d478aee0fcdeedc1720308f15',1,'ARM_DRIVER_NOR::ReadData()'],['../group__uart__interface__gr.html#a146f8746964d3e9b87b9b1df146cc8fe',1,'ARM_DRIVER_UART::ReadData()']]],
+  ['readframe',['ReadFrame',['../group__eth__mac__interface__gr.html#a3a2d3935972351424ba14fc7956571ca',1,'ARM_DRIVER_ETH_MAC']]],
+  ['readid',['ReadID',['../group__nand__interface__gr.html#af4e434401744f22276ff9c89470b08ba',1,'ARM_DRIVER_NAND']]],
+  ['readpage',['ReadPage',['../group__nand__interface__gr.html#a94f4981575b90bb59a5efc67c5e9c50c',1,'ARM_DRIVER_NAND']]],
+  ['readparampage',['ReadParamPage',['../group__nand__interface__gr.html#ace1cf97eaa244fd47a77ae008cce87f2',1,'ARM_DRIVER_NAND']]],
+  ['readstatus',['ReadStatus',['../group__nand__interface__gr.html#ac090a4b0ab4266df188b12e1cbb87536',1,'ARM_DRIVER_NAND']]],
+  ['readtransfer',['ReadTransfer',['../group__mci__interface__gr.html#a6576d65b73347ecb7ce38d03c93b3979',1,'ARM_DRIVER_MCI']]],
+  ['receivedata',['ReceiveData',['../group__i2c__interface__gr.html#a396c568de0d3ae92e210989d716cabde',1,'ARM_DRIVER_I2C::ReceiveData()'],['../group__spi__interface__gr.html#ad5b5ff154884c27026b6b2686d667a5f',1,'ARM_DRIVER_SPI::ReceiveData()']]],
+  ['reserved',['reserved',['../group__eth__mac__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_ETH_MAC_CAPABILITIES::reserved()'],['../group__i2c__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_I2C_CAPABILITIES::reserved()'],['../group__mci__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_MCI_CAPABILITIES::reserved()'],['../group__nand__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_NAND_CAPABILITIES::reserved()'],['../group__spi__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_SPI_CAPABILITIES::reserved()'],['../group__uart__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_UART_CAPABILITIES::reserved()'],['../group__usbd__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_USBD_CAPABILITIES::reserved()'],['../group__usbh__interface__gr.html#aa43c4c21b173ada1b6b7568956f0d650',1,'ARM_USBH_CAPABILITIES::reserved()']]],
+  ['resetdevice',['ResetDevice',['../group__nand__interface__gr.html#a38d118203c0434d7c846e337b984aad2',1,'ARM_DRIVER_NAND']]],
+  ['rh_5fport_5fmask',['rh_port_mask',['../group__usbh__interface__gr.html#a49fcf437fff8fd02ef2bd699576b5f8c',1,'ARM_USBH_CAPABILITIES']]],
+  ['ri',['ri',['../group__uart__interface__gr.html#ae4f7634278018f4f94fe8eebd9cd832d',1,'ARM_UART_MODEM_STATUS::ri()'],['../group__uart__interface__gr.html#aa6cf03b82235bedc0acf00acb46130fb',1,'ARM_UART_CAPABILITIES::ri()']]],
+  ['ri_5fevent',['ri_event',['../group__uart__interface__gr.html#acce7a8752be82064d0affdf665ce64e2',1,'ARM_UART_CAPABILITIES']]],
+  ['row_5fcycles',['row_cycles',['../group__nand__interface__gr.html#a43697cbab96cec45072977987881914e',1,'ARM_NAND_DEVICE']]],
+  ['rx_5fbreak',['rx_break',['../group__uart__interface__gr.html#aae0d5bb472d3888681399eb6080f1f46',1,'ARM_UART_COM_ERROR']]],
+  ['rx_5fbuffer_5fsize',['rx_buffer_size',['../group__uart__interface__gr.html#a2540bc9a02b6dfb6fe58a8496c58afbb',1,'ARM_UART_CAPABILITIES']]],
+  ['rx_5fchecksum_5foffload_5ficmp',['rx_checksum_offload_icmp',['../group__eth__mac__interface__gr.html#a9bf6d7e9312b0af5a0a1b4760d8941d1',1,'ARM_ETH_MAC_CAPABILITIES']]],
+  ['rx_5fchecksum_5foffload_5fip',['rx_checksum_offload_ip',['../group__eth__mac__interface__gr.html#a4671fae601afbea91ad51a1dd42cb92e',1,'ARM_ETH_MAC_CAPABILITIES']]],
+  ['rx_5fchecksum_5foffload_5ftcp',['rx_checksum_offload_tcp',['../group__eth__mac__interface__gr.html#adb0403df76c804c5fa1d59e4e4f84839',1,'ARM_ETH_MAC_CAPABILITIES']]],
+  ['rx_5fchecksum_5foffload_5fudp',['rx_checksum_offload_udp',['../group__eth__mac__interface__gr.html#a5cb9b54aa29f1492721c6e046bc567e6',1,'ARM_ETH_MAC_CAPABILITIES']]],
+  ['rx_5fframing_5ferror',['rx_framing_error',['../group__uart__interface__gr.html#a6f14767e8162ab16e5da3894bb11cbbe',1,'ARM_UART_COM_ERROR']]],
+  ['rx_5foverrun',['rx_overrun',['../group__uart__interface__gr.html#a760b1efb44cdb6c72e20ee304bee35da',1,'ARM_UART_COM_ERROR']]],
+  ['rx_5fparity_5ferror',['rx_parity_error',['../group__uart__interface__gr.html#ae709faa7c1e2f4c39d21209ae0c0fa6d',1,'ARM_UART_COM_ERROR']]],
+  ['rx_5ftimeout_5fevent',['rx_timeout_event',['../group__uart__interface__gr.html#a84b19752c551306d461f894841da3741',1,'ARM_UART_CAPABILITIES']]]
+];

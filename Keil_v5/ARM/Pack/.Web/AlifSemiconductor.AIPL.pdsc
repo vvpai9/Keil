@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="1.7.7" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
+  <vendor>AlifSemiconductor</vendor>
+  <name>AIPL</name>
+  <description>Alif Semiconductor image processing library that uses D/AVE2D and Helium acceleration</description>
+  <url>https://github.com/alifsemi/alif_image-processing-lib/raw/main/</url>
+  <supportContact>support@alifsemi.com</supportContact>
+  <license>LICENSE.txt</license>
+
+  <releases>
+    <release version="1.3.2" tag="v1.3.2" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.3.2/AlifSemiconductor.AIPL.1.3.2.pack" date="2025-10-30">
+        Add default implementations for video memory allocation and cache management functions
+    </release>
+    <release version="1.3.1" tag="v1.3.1" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.3.1/AlifSemiconductor.AIPL.1.3.1.pack" date="2025-09-18">
+        Bugfixes and cosmetic changes
+    </release>
+    <release version="1.3.0" tag="v1.3.0" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.3.0/AlifSemiconductor.AIPL.1.3.0.pack" date="2025-08-01">
+        Rework demosaicing component
+    </release>
+    <release version="1.2.1" tag="v1.2.1" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.2.1/AlifSemiconductor.AIPL.1.2.1.pack" date="2025-06-23">
+        Add LGPL3 and GPL3 licenses
+    </release>
+    <release version="1.2.0" tag="v1.2.0" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.2.0/AlifSemiconductor.AIPL.1.2.0.pack" date="2025-06-10">
+        Bugfixes
+    </release>
+    <release version="1.1.1" tag="v1.1.1" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.1.1/AlifSemiconductor.AIPL.1.1.1.pack" date="2025-04-11">
+        Optimize Helium accelerated implementations
+    </release>
+    <release version="1.1.0" tag="v1.1.0" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.1.0/AlifSemiconductor.AIPL.1.1.0.pack" date="2025-03-18">
+      * Optimize color conversions functions
+      * Restructure the library to allow users to directly choose implementations
+        by suffixing the call with _dave2d, _helium or _default.
+      * Introduce additional configuration options
+    </release>
+    <release version="1.0.1" tag="v1.0.1" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.0.1/AlifSemiconductor.AIPL.1.0.1.pack" date="2025-02-17">
+      Fix the PDSC file schema check failure
+    </release>
+    <release version="1.0.0" tag="v1.0.0" url="https://github.com/alifsemi/alif_image-processing-lib/releases/download/v1.0.0/AlifSemiconductor.AIPL.1.0.0.pack" date="2024-12-23">
+      Basic operations:
+        * Crop
+        * Flip
+        * Resize
+        * Rotate
+      Color correction:
+        * Color correction using a matrix
+        * White balance
+        * Lookup Table channel transformation
+      Supported formats:
+        * ALPHA8
+        * ARGB8888
+        * ARGB4444
+        * ARGB1555
+        * RGBA8888
+        * RGBA4444
+        * RGBA5551
+        * BGR888
+        * RGB565
+        * YV12
+        * I420
+        * I422
+        * I444
+        * I400
+        * NV21
+        * NV12
+        * YUY2
+        * UYVY
+      Supported Bayer filters that can be decoded into RGB888 or BGR888 image:
+        * RGGB
+        * GRBG
+        * BGGR
+        * GBRG
+    </release>
+  </releases>
+
+  <requirements>
+    <packages>
+      <package name="Dave2DDriver"  vendor="AlifSemiconductor" version="1.0.1"/>
+    </packages>
+  </requirements>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Alif Semiconductor</keyword>
+    <keyword>GPU2D</keyword>
+    <keyword>D/AVE2D</keyword>
+    <keyword>Dave2d</keyword>
+    <keyword>Helium</keyword>
+    <keyword>Image Processing</keyword>
+  </keywords>
+
+  <conditions>
+    <condition id="AlifSemi-Dave2D">
+      <description>Condition for AlifSemi-Dave2D driver</description>
+      <require Cclass="Graphics" Cgroup="DAVE2D" Csub="Layer2"/>
+    </condition>
+    <condition id="AIPL-Essential">
+      <description>Condition for AIPL essential code base</description>
+      <require Cclass="Graphics" Cgroup="AIPL" Csub="Essential"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="Graphics" Cgroup="AIPL" Csub="Essential" Cversion="1.3.2">
+      <description>Alif Image Processing Library essential data types and functions</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="include"  name="include/"/>
+        <!-- include headers -->
+        <file category="header"   name="include/aipl_cache.h"/>
+        <file category="header"   name="include/aipl_color_formats.h"/>
+        <file category="header"   name="include/aipl_image.h"/>
+        <file category="header"   name="include/aipl_error.h"/>
+        <file category="header"   name="include/aipl_video_alloc.h"/>
+        <!-- source files -->
+        <file category="sourceC"  name="source/aipl_color_formats.c"/>
+        <file category="sourceC"  name="source/aipl_image.c"/>
+        <file category="sourceC"  name="source/aipl_error.c"/>
+        <file category="sourceC"  name="source/aipl_video_alloc.c"/>
+        <file category="sourceC"  name="source/aipl_cache.c"/>
+        <!-- config header -->
+        <file category="header"   name="aipl_config.h" attr="config" version="1.3.2"/>
+      </files>
+    </component>
+
+    <component Cclass="Graphics" Cgroup="Acceleration" Csub="Dave2d" Cversion="1.0.0" condition="AlifSemi-Dave2D">
+      <description>A hardware acceleration from Alif Semiconductor Dave2D</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="include"  name="include/"/>
+        <!-- include headers -->
+        <file category="header"   name="include/aipl_dave2d.h"/>
+        <!-- source files -->
+        <file category="sourceC"  name="source/aipl_dave2d.c"/>
+      </files>
+
+      <RTE_Components_h>
+
+/*! \brief enable Dave2D acceleration */
+#define AIPL_DAVE2D_ACCELERATION
+      </RTE_Components_h>
+    </component>
+
+    <component Cclass="Graphics" Cgroup="AIPL" Csub="Basic" Cversion="1.2.0" condition="AIPL-Essential">
+      <description>
+        Alif Image Processing Library basic functions:
+          * Crop
+          * Flip
+          * Resize
+          * Rotate
+      </description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="include"  name="include/"/>
+        <file category="include"  name="include/dave2d/"/>
+        <file category="include"  name="include/default/"/>
+        <file category="include"  name="include/helium/"/>
+        <!-- include headers -->
+        <file category="header"   name="include/aipl_crop.h"/>
+        <file category="header"   name="include/dave2d/aipl_crop_dave2d.h"/>
+        <file category="header"   name="include/default/aipl_crop_default.h"/>
+        <file category="header"   name="include/aipl_flip.h"/>
+        <file category="header"   name="include/dave2d/aipl_flip_dave2d.h"/>
+        <file category="header"   name="include/default/aipl_flip_default.h"/>
+        <file category="header"   name="include/helium/aipl_flip_helium.h"/>
+        <file category="header"   name="include/aipl_resize.h"/>
+        <file category="header"   name="include/dave2d/aipl_resize_dave2d.h"/>
+        <file category="header"   name="include/default/aipl_resize_default.h"/>
+        <file category="header"   name="include/helium/aipl_resize_helium.h"/>
+        <file category="header"   name="include/aipl_rotate.h"/>
+        <file category="header"   name="include/dave2d/aipl_rotate_dave2d.h"/>
+        <file category="header"   name="include/default/aipl_rotate_default.h"/>
+        <file category="header"   name="include/helium/aipl_rotate_helium.h"/>
+        <!-- source files -->
+        <file category="sourceC"  name="source/aipl_crop.c"/>
+        <file category="sourceC"  name="source/dave2d/aipl_crop_dave2d.c"/>
+        <file category="sourceC"  name="source/default/aipl_crop_default.c"/>
+        <file category="sourceC"  name="source/aipl_flip.c"/>
+        <file category="sourceC"  name="source/dave2d/aipl_flip_dave2d.c"/>
+        <file category="sourceC"  name="source/default/aipl_flip_default.c"/>
+        <file category="sourceC"  name="source/helium/aipl_flip_helium.c"/>
+        <file category="sourceC"  name="source/aipl_resize.c"/>
+        <file category="sourceC"  name="source/dave2d/aipl_resize_dave2d.c"/>
+        <file category="sourceC"  name="source/default/aipl_resize_default.c"/>
+        <file category="sourceC"  name="source/helium/aipl_resize_helium.c"/>
+        <file category="sourceC"  name="source/aipl_rotate.c"/>
+        <file category="sourceC"  name="source/dave2d/aipl_rotate_dave2d.c"/>
+        <file category="sourceC"  name="source/default/aipl_rotate_default.c"/>
+        <file category="sourceC"  name="source/helium/aipl_rotate_helium.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Graphics" Cgroup="AIPL" Csub="Color correction" Cversion="1.2.0" condition="AIPL-Essential">
+      <description>
+        Alif Image Processing Library color correction functions:
+          * Color correction (using a matrix)
+          * White balance (multiply each channel)
+          * Lookup Table transformation (mapping each 8-bit channel value to another)
+      </description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="include"  name="include/"/>
+        <file category="include"  name="include/helium/"/>
+        <file category="include"  name="include/default/"/>
+        <!-- include headers -->
+        <file category="header"   name="include/aipl_color_correction.h"/>
+        <file category="header"   name="include/default/aipl_color_correction_default.h"/>
+        <file category="header"   name="include/helium/aipl_color_correction_helium.h"/>
+        <file category="header"   name="include/aipl_white_balance.h"/>
+        <file category="header"   name="include/default/aipl_white_balance_default.h"/>
+        <file category="header"   name="include/helium/aipl_white_balance_helium.h"/>
+        <file category="header"   name="include/aipl_lut_transform.h"/>
+        <file category="header"   name="include/default/aipl_lut_transform_default.h"/>
+        <file category="header"   name="include/helium/aipl_lut_transform_helium.h"/>
+        <!-- source files -->
+        <file category="sourceC"  name="source/aipl_color_correction.c"/>
+        <file category="sourceC"  name="source/default/aipl_color_correction_default.c"/>
+        <file category="sourceC"  name="source/helium/aipl_color_correction_helium.c"/>
+        <file category="sourceC"  name="source/aipl_white_balance.c"/>
+        <file category="sourceC"  name="source/default/aipl_white_balance_default.c"/>
+        <file category="sourceC"  name="source/helium/aipl_white_balance_helium.c"/>
+        <file category="sourceC"  name="source/aipl_lut_transform.c"/>
+        <file category="sourceC"  name="source/default/aipl_lut_transform_default.c"/>
+        <file category="sourceC"  name="source/helium/aipl_lut_transform_helium.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Graphics" Cgroup="AIPL" Csub="Color conversion" Cversion="1.2.0" condition="AIPL-Essential">
+      <description>
+        Alif Image Processing Library color conversions between the following formats:
+          * ALPHA8
+          * ARGB8888
+          * ARGB4444
+          * ARGB1555
+          * RGBA8888
+          * RGBA4444
+          * RGBA5551
+          * BGR888
+          * RGB888
+          * RGB565
+          * YV12
+          * I420
+          * I422
+          * I444
+          * I400
+          * NV21
+          * NV12
+          * YUY2
+          * UYVY
+      </description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="include"  name="include/"/>
+        <file category="include"  name="include/dave2d/"/>
+        <file category="include"  name="include/helium/"/>
+        <file category="include"  name="include/default/"/>
+        <!-- include headers -->
+        <file category="header"   name="include/aipl_color_conversion.h"/>
+        <file category="header"   name="include/dave2d/aipl_color_conversion_dave2d.h"/>
+        <file category="header"   name="include/helium/aipl_color_conversion_helium.h"/>
+        <file category="header"   name="include/default/aipl_color_conversion_default.h"/>
+        <!-- source files -->
+        <file category="sourceC"  name="source/aipl_color_conversion.c"/>
+        <file category="sourceC"  name="source/dave2d/aipl_color_conversion_dave2d.c"/>
+        <file category="sourceC"  name="source/helium/aipl_color_conversion_helium.c"/>
+        <file category="sourceC"  name="source/default/aipl_color_conversion_default.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Graphics" Cgroup="AIPL" Csub="Demosaic" Cversion="1.3.0" condition="AIPL-Essential">
+      <description>
+        Alif Image Processing Library demosaicing from:
+          * RGGB
+          * GRBG
+          * BGGR
+          * GBRG
+        Bayer filters to any of the supported color formats
+      </description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="include"  name="include/"/>
+        <file category="include"  name="include/default/"/>
+        <file category="include"  name="include/helium/"/>
+        <!-- include headers -->
+        <file category="header"   name="include/aipl_demosaic.h"/>
+        <file category="header"   name="include/default/aipl_demosaic_default.h"/>
+        <file category="header"   name="include/helium/aipl_demosaic_helium.h"/>
+        <!-- source files -->
+        <file category="sourceC"  name="source/aipl_demosaic.c"/>
+        <file category="sourceC"  name="source/default/aipl_demosaic_default.c"/>
+        <file category="sourceC"  name="source/helium/aipl_demosaic_helium.c"/>
+      </files>
+    </component>
+
+  </components>
+</package>

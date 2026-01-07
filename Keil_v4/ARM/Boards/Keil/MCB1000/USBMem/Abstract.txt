@@ -1,0 +1,23 @@
+The Memory project is a demo program for the LPC1343
+using Keil MCB1000 board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL   =  12 MHz
+   - SYSPLL =  72 MHz
+   - USBPLL =  48 MHz
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+LEDs are used to display the following:
+  - LED0: LED_RD   lit when USB Device is performing Read access
+  - LED1: LED_WR   lit when USB Device is performing Write access
+  - LED2: LED_CFG  lit when USB Device is configured
+  - LED3: LED_SUSP lit when USB Device is suspended
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  MCB1000: configured for on-chip Flash ROM
+           (used for production or target debugging)

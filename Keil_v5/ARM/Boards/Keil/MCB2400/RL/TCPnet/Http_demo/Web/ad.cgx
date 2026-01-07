@@ -1,0 +1,11 @@
+t <form>
+t <text>
+t <id>ad1_value</id>
+c x1<value>0x%03X</value>
+t </text>
+t <text>
+t <id>ad2_value</id>
+c x2<value>0x%03X</value>
+t </text>
+t </form>
+.

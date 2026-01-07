@@ -1,0 +1,15 @@
+The Blinky project is a simple program for the AT91SAM7A3
+using Atmel AT91SAM7A3-EK Microcontroller Board.
+
+It blinks the 4 LEDs on the board. The board's joystick
+can be used to control the blinking speed (up/down),
+the direction (left/right) and to invert (push) the blinking.
+
+The Blinky program is available in different targets:
+  Simulator:             configured for software Simulator
+  SAM7A3 Flash - ULINK:  configured for on-chip Flash ROM, using ULINK
+                         (used for production or target debugging)
+  SAM7A3 RAM - ULINK:    configured to run from on-chip RAM, using ULINK
+                         (may be used for target debugging) 
+  SAM7A3 Flash - SAMICE: configured for on-chip Flash ROM, using SAM-ICE
+                         (used for production or target debugging)

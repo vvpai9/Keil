@@ -1,0 +1,17 @@
+The Memory project is a demo program for the AT91SAM7X256
+using Atmel AT91SAM7X-EK Microcontroller Board.
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+LEDs are used to display the following:
+  - PB19: LED_RD   is on when USB Device is performing Read access
+  - PB20: LED_WR   is on when USB Device is performing Write access
+  - PB21: LED_CFG  is on when USB Device is configured
+  - PB22: LED_SUSP is on when USB Device is suspended
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following targets:
+  AT91SAM7X-EK: configured for on-chip Flash ROM
+                (used for production or target debugging)

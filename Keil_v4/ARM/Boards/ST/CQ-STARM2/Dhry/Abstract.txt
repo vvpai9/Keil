@@ -1,0 +1,31 @@
+The DHRY program performs the dhrystone benchmarks.
+
+Dhrystone is a general-performance benchmark test originally
+
+developed by Reinhold Weicker in 1984.  This benchmark is
+used to measure and compare the performance of different
+computers or, in this case, the efficiency of the code
+generated for the same computer by different compilers.
+The test reports general performance in dhrystones per second.
+
+Like most benchmark programs, dhrystone consists of standard
+code and concentrates on string handling.  It uses no
+floating-point operations.  It is heavily influenced by
+hardware and software design, compiler and linker options,
+code optimizing, cache memory, wait states, and integer
+data types.
+
+
+Example functionality:                                                   
+ - Clock Settings:
+   - HSI     =            8.00 MHz
+   - SYSCLK  =           48.00 MHz
+   - HCLK    = SYSCLK  = 48.00 MHz
+   - PCLK1   = HCLK/2  = 24.00 MHz
+   - PCLK2   = HCLK    = 48.00 MHz
+   - ADCLK   = PCLK2/6 =  8.00 MHz
+   - SYSTICK = HCLK/8  =  6.00 MHz
+
+ - output onto serial port USART1 
+   USART1 settings: 115200 baud, 8 data bits, no parity, 1 stop bit
+

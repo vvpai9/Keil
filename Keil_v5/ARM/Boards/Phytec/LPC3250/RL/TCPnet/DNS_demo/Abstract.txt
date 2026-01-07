@@ -1,0 +1,31 @@
+This program shows you how to resolve an IP address of a Host
+from the Host name. It sends a DNS request to a remote DNS server. 
+
+This example will configure the LAN network parameters for 
+the evaluation board automatically if a DHCP Server is available
+in your LAN.
+
+If you do not have a DHCP server, you need to configure
+the IP address, net mask and default gateway and Primary DNS
+and Secondary DNS Server manually in the Net_Config.c configuration
+file. You have to disable also 'Dynamic Host Configuration' under 
+the 'Ethernet Network Interface' section.
+
+The DNS_demo example is available for several targets:
+
+LPC3250:       Standalone application for Phytec LPC3250 board,
+               configured to run in external SDRAM and loaded to
+               external NOR flash. 
+
+
+LPC3250 Debug: Standalone Debug application. Debug level configured
+               in Net_Debug.c debug configuration file.
+               Connect a serial cable to COM5 (bottom conn.) to view
+               output messages using HyperTerminal at 115200 baud,
+               8-bits, no parity, 1 stop bit, XON/XOFF.
+
+Notes: 
+  - for standalone application you have to:
+    1. Download the 2-nd level NOR bootloader
+       ('bootloader_NOR' from Keil) to external NOR flash 
+    2. Download this application to external NOR Flash

@@ -1,0 +1,37 @@
+This program is a FTP Client example. It shows you how to manipulate 
+files or directories on remote FTP server. This example will configure 
+the LAN network parameters for the evaluation board automatically
+if a DHCP Server is available in your LAN.
+
+If you do not have a DHCP server, you need to configure
+the IP address, net mask and default gateway and Primary DNS
+and Secondary DNS Server manually in the Net_Config.c configuration
+file. You have to disable also 'Dynamic Host Configuration' under 
+the 'Ethernet Network Interface' section.
+
+WARNING!!!
+
+You need to modify FTPC_uif.c user interface module and enter:
+ - username and pasword for logon
+ - working directory on FTP server 
+ - filename for a file command
+ - new filename for a rename command
+ - directory name for make or remove directory command
+ - local filename
+ 
+Modify also the FTP_client.c and enter:
+ - FTP server IP address and port
+ - FTP command to execute
+
+The FTP_client example is available for several targets:
+
+MCB2300:       Standalone application for Keil MCB2300 Board.
+               Program code is loaded into on-chip flash.
+
+MCB2300 Debug: Standalone Debug application. Debug level configured
+               in Net_Debug.c debug configuration file.
+               System messages printed to COM2 serial port.
+
+               Connect a serial cable to RS232 COM1 port to view
+               output messages using HyperTerminal at 115200 baud,
+               8-bits, no parity, 1 stop bit, XON/XOFF.

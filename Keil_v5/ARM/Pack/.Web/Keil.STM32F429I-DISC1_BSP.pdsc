@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32F429I-DISC1_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32F4 Series STM32F429I-DISC1 Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32F429I-DISC1_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.0" date="2025-08-21" tag="v1.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Updated RTE_Components.h files
+      - Added DWARF-5 debug information
+      - Added generated output files
+    </release>
+    <release version="1.0.0" date="2024-12-18" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for STM32F429I-DISC1
+      Blinky example (CMSIS Solution)
+      CMSIS-Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32F4</keyword>
+    <keyword>STM32F429I-DISC1</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32F4xx_DFP"      version="3.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32F429I-DISC1">
+      <description>STMicroelectronics STM32F429I-DISC1 Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32F429I-DISC1"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32F429I-DISC1 GPIO">
+      <description>STMicroelectronics STM32F429I-DISC1 Board with CMSIS Driver GPIO</description>
+      <require condition="STM32F429I-DISC1"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32F429I-DISC1 -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="STM32F429I-DISC1 GPIO">
+      <description>I/O implementation for STM32F429I-DISC1</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32F429I_DISC1
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32F429I-DISC1.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- STM32F429I-DISC1 -->
+    <board vendor="STMicroelectronics" name="STM32F429I-DISC1" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Discovery development board with STM32F429ZITx MCU</description>
+      <image small="Images/stm32f429i-disc1_small.png"
+             large="Images/stm32f429i-disc1_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/32f429idiscovery.html" title="STM32F429I-DISC1 Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/32f429idiscovery.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um1670-discovery-kit-with-stm32f429zi-mcu-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1075-f429i-c01_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32F429ZITx"/>
+      <feature type="ODbg"      n="1"              name="On-board ST-LINK/V2"/>
+      <feature type="XTAL"      n="8000000"/>
+      <feature type="PWR"       n="5"              name="USB Powered"/>
+      <feature type="PWR"       n="3"  m="5"       name="External Supply"/>
+      <feature type="RAM"       n="1"              name="64 MBit SDRAM"/>
+      <feature type="DIO"       n="128"            name="Extension header: 4 x 32 for LQFP144 with 2.54 mm Pitch"/>
+      <feature type="USB"       n="1"              name="High-Speed USB OTG with micro-AB Connector"/>
+      <feature type="ConnOther" n="1"              name="JP3 (Idd) for current measurement"/>
+      <feature type="Button"    n="2"              name="Push-buttons: User and Reset"/>
+      <feature type="Gyro"      n="1"              name="L3GD20, ST MEMS motion sensor, 3-axis digital output gyroscope"/>
+      <feature type="LED"       n="6"              name="LEDs: COM, 3.3 V Power, Two user, Two USB OTG LEDs"/>
+      <feature type="CustomFF"  n="66" m="119.3"   name="Discovery Board Formfactor"/>
+      <feature type="GLCD"      n="1"  m="240.320" name="2.4 inch QVGA TFT LCD"/>
+      <debugInterface adapter="ST-Link" connector="Mini-USB"/>
+      <debugProbe connector="Mini-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32F429I-DISC1" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

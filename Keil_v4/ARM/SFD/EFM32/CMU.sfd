@@ -1,0 +1,1317 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\CMU.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          CMU                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  CMU_CTRL  --------------------------------------------
+
+unsigned int CMU_CTRL __AT (0x400C8000);
+
+//  <item> Reg_CMU_CTRL
+//    <i> CMU_CTRL [31..0] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_CTRL>>0) & 0xFFFFFFFF), ( (CMU_CTRL &= ~(0xFFFFFFFF<<0)), (CMU_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_HFXOMODE
+//    <i> HFXOMODE [1..0] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CTRL>>0) & 0x2), ( (CMU_CTRL &= ~(0x2<<0)), (CMU_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_HFXOBOOST
+//    <i> HFXOBOOST [3..2] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CTRL>>2) & 0x2), ( (CMU_CTRL &= ~(0x2<<2)), (CMU_CTRL |= ((Gui_u8:GuiVal & 0x2)<<2)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_HFXOBUFCUR
+//    <i> HFXOBUFCUR [6..5] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CTRL>>5) & 0x2), ( (CMU_CTRL &= ~(0x2<<5)), (CMU_CTRL |= ((Gui_u8:GuiVal & 0x2)<<5)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_HFXOGLITCHDETEN
+//    <i> HFXOGLITCHDETEN [7] (@ 0x400C8000) </i>
+//    <check> 
+//      <loc> CMU_CTRL </loc>
+//      <o.7..7> HFXOGLITCHDETEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_CTRL_HFXOTIMEOUT
+//    <i> HFXOTIMEOUT [10..9] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CTRL>>9) & 0x2), ( (CMU_CTRL &= ~(0x2<<9)), (CMU_CTRL |= ((Gui_u8:GuiVal & 0x2)<<9)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_LFXOMODE
+//    <i> LFXOMODE [12..11] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CTRL>>11) & 0x2), ( (CMU_CTRL &= ~(0x2<<11)), (CMU_CTRL |= ((Gui_u8:GuiVal & 0x2)<<11)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_LFXOBOOST
+//    <i> LFXOBOOST [13] (@ 0x400C8000) </i>
+//    <check> 
+//      <loc> CMU_CTRL </loc>
+//      <o.13..13> LFXOBOOST
+//    </check>
+//  </item>
+//  
+//  <item> CMU_CTRL_LFXOBUFCUR
+//    <i> LFXOBUFCUR [17] (@ 0x400C8000) </i>
+//    <check> 
+//      <loc> CMU_CTRL </loc>
+//      <o.17..17> LFXOBUFCUR
+//    </check>
+//  </item>
+//  
+//  <item> CMU_CTRL_LFXOTIMEOUT
+//    <i> LFXOTIMEOUT [19..18] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CTRL>>18) & 0x2), ( (CMU_CTRL &= ~(0x2<<18)), (CMU_CTRL |= ((Gui_u8:GuiVal & 0x2)<<18)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_CLKOUTSEL0
+//    <i> CLKOUTSEL0 [22..20] (@ 0x400C8000) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CTRL>>20) & 0x6), ( (CMU_CTRL &= ~(0x6<<20)), (CMU_CTRL |= ((Gui_u8:GuiVal & 0x6)<<20)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CTRL_CLKOUTSEL1
+//    <i> CLKOUTSEL1 [23] (@ 0x400C8000) </i>
+//    <check> 
+//      <loc> CMU_CTRL </loc>
+//      <o.23..23> CLKOUTSEL1
+//    </check>
+//  </item>
+//  
+
+
+// ------------------------------------  CMU_HFCORECLKDIV  ----------------------------------------
+
+unsigned int CMU_HFCORECLKDIV __AT (0x400C8004);
+
+//  <item> Reg_CMU_HFCORECLKDIV
+//    <i> CMU_HFCORECLKDIV [31..0] (@ 0x400C8004) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_HFCORECLKDIV>>0) & 0xFFFFFFFF), ( (CMU_HFCORECLKDIV &= ~(0xFFFFFFFF<<0)), (CMU_HFCORECLKDIV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFCORECLKDIV_HFCORECLKDIV
+//    <i> HFCORECLKDIV [3..0] (@ 0x400C8004) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_HFCORECLKDIV>>0) & 0xE), ( (CMU_HFCORECLKDIV &= ~(0xE<<0)), (CMU_HFCORECLKDIV |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -------------------------------------  CMU_HFPERCLKDIV  ----------------------------------------
+
+unsigned int CMU_HFPERCLKDIV __AT (0x400C8008);
+
+//  <item> Reg_CMU_HFPERCLKDIV
+//    <i> CMU_HFPERCLKDIV [31..0] (@ 0x400C8008) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_HFPERCLKDIV>>0) & 0xFFFFFFFF), ( (CMU_HFPERCLKDIV &= ~(0xFFFFFFFF<<0)), (CMU_HFPERCLKDIV |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKDIV_HFPERCLKDIV
+//    <i> HFPERCLKDIV [3..0] (@ 0x400C8008) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_HFPERCLKDIV>>0) & 0xE), ( (CMU_HFPERCLKDIV &= ~(0xE<<0)), (CMU_HFPERCLKDIV |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKDIV_HFPERCLKEN
+//    <i> HFPERCLKEN [8] (@ 0x400C8008) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKDIV </loc>
+//      <o.8..8> HFPERCLKEN
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_HFRCOCTRL  -----------------------------------------
+
+unsigned int CMU_HFRCOCTRL __AT (0x400C800C);
+
+//  <item> Reg_CMU_HFRCOCTRL
+//    <i> CMU_HFRCOCTRL [31..0] (@ 0x400C800C) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_HFRCOCTRL>>0) & 0xFFFFFFFF), ( (CMU_HFRCOCTRL &= ~(0xFFFFFFFF<<0)), (CMU_HFRCOCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFRCOCTRL_TUNING
+//    <i> TUNING [7..0] (@ 0x400C800C) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_HFRCOCTRL>>0) & 0xFE), ( (CMU_HFRCOCTRL &= ~(0xFE<<0)), (CMU_HFRCOCTRL |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFRCOCTRL_BAND
+//    <i> BAND [10..8] (@ 0x400C800C) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_HFRCOCTRL>>8) & 0x6), ( (CMU_HFRCOCTRL &= ~(0x6<<8)), (CMU_HFRCOCTRL |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFRCOCTRL_SUDELAY
+//    <i> SUDELAY [16..12] (@ 0x400C800C) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_HFRCOCTRL>>12) & 0x1E), ( (CMU_HFRCOCTRL &= ~(0x1E<<12)), (CMU_HFRCOCTRL |= ((Gui_u8:GuiVal & 0x1E)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_LFRCOCTRL  -----------------------------------------
+
+unsigned int CMU_LFRCOCTRL __AT (0x400C8010);
+
+//  <item> Reg_CMU_LFRCOCTRL
+//    <i> CMU_LFRCOCTRL [31..0] (@ 0x400C8010) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LFRCOCTRL>>0) & 0xFFFFFFFF), ( (CMU_LFRCOCTRL &= ~(0xFFFFFFFF<<0)), (CMU_LFRCOCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFRCOCTRL_TUNING
+//    <i> TUNING [6..0] (@ 0x400C8010) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFRCOCTRL>>0) & 0x7E), ( (CMU_LFRCOCTRL &= ~(0x7E<<0)), (CMU_LFRCOCTRL |= ((Gui_u8:GuiVal & 0x7E)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ------------------------------------  CMU_AUXHFRCOCTRL  ----------------------------------------
+
+unsigned int CMU_AUXHFRCOCTRL __AT (0x400C8014);
+
+//  <item> Reg_CMU_AUXHFRCOCTRL
+//    <i> CMU_AUXHFRCOCTRL [31..0] (@ 0x400C8014) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_AUXHFRCOCTRL>>0) & 0xFFFFFFFF), ( (CMU_AUXHFRCOCTRL &= ~(0xFFFFFFFF<<0)), (CMU_AUXHFRCOCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_AUXHFRCOCTRL_TUNING
+//    <i> TUNING [7..0] (@ 0x400C8014) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_AUXHFRCOCTRL>>0) & 0xFE), ( (CMU_AUXHFRCOCTRL &= ~(0xFE<<0)), (CMU_AUXHFRCOCTRL |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  CMU_CALCTRL  ------------------------------------------
+
+unsigned int CMU_CALCTRL __AT (0x400C8018);
+
+//  <item> Reg_CMU_CALCTRL
+//    <i> CMU_CALCTRL [31..0] (@ 0x400C8018) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_CALCTRL>>0) & 0xFFFFFFFF), ( (CMU_CALCTRL &= ~(0xFFFFFFFF<<0)), (CMU_CALCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CALCTRL_REFSEL
+//    <i> REFSEL [2..0] (@ 0x400C8018) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CALCTRL>>0) & 0x6), ( (CMU_CALCTRL &= ~(0x6<<0)), (CMU_CALCTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  CMU_CALCNT  -------------------------------------------
+
+unsigned int CMU_CALCNT __AT (0x400C801C);
+
+//  <item> Reg_CMU_CALCNT
+//    <i> CMU_CALCNT [31..0] (@ 0x400C801C) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_CALCNT>>0) & 0xFFFFFFFF), ( (CMU_CALCNT &= ~(0xFFFFFFFF<<0)), (CMU_CALCNT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CALCNT_CALCNT
+//    <i> CALCNT [19..0] (@ 0x400C801C) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_CALCNT>>0) & 0xFFFFE), ( (CMU_CALCNT &= ~(0xFFFFE<<0)), (CMU_CALCNT |= ((Gui_u32:GuiVal & 0xFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_OSCENCMD  ------------------------------------------
+
+unsigned int CMU_OSCENCMD __AT (0x400C8020);
+
+//  <item> Reg_CMU_OSCENCMD
+//    <i> CMU_OSCENCMD [31..0] (@ 0x400C8020) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_OSCENCMD>>0) & 0xFFFFFFFF), ( (CMU_OSCENCMD &= ~(0xFFFFFFFF<<0)), (CMU_OSCENCMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_HFRCOEN
+//    <i> HFRCOEN [0] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.0..0> HFRCOEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_HFRCODIS
+//    <i> HFRCODIS [1] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.1..1> HFRCODIS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_HFXOEN
+//    <i> HFXOEN [2] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.2..2> HFXOEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_HFXODIS
+//    <i> HFXODIS [3] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.3..3> HFXODIS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_AUXHFRCOEN
+//    <i> AUXHFRCOEN [4] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.4..4> AUXHFRCOEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_AUXHFRCODIS
+//    <i> AUXHFRCODIS [5] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.5..5> AUXHFRCODIS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_LFRCOEN
+//    <i> LFRCOEN [6] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.6..6> LFRCOEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_LFRCODIS
+//    <i> LFRCODIS [7] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.7..7> LFRCODIS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_LFXOEN
+//    <i> LFXOEN [8] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.8..8> LFXOEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_OSCENCMD_LFXODIS
+//    <i> LFXODIS [9] (@ 0x400C8020) </i>
+//    <check> 
+//      <loc> CMU_OSCENCMD </loc>
+//      <o.9..9> LFXODIS
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  CMU_CMD  --------------------------------------------
+
+unsigned int CMU_CMD __AT (0x400C8024);
+
+//  <item> Reg_CMU_CMD
+//    <i> CMU_CMD [31..0] (@ 0x400C8024) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_CMD>>0) & 0xFFFFFFFF), ( (CMU_CMD &= ~(0xFFFFFFFF<<0)), (CMU_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CMD_HFCLKSEL
+//    <i> HFCLKSEL [2..0] (@ 0x400C8024) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_CMD>>0) & 0x6), ( (CMU_CMD &= ~(0x6<<0)), (CMU_CMD |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_CMD_CALSTART
+//    <i> CALSTART [3] (@ 0x400C8024) </i>
+//    <check> 
+//      <loc> CMU_CMD </loc>
+//      <o.3..3> CALSTART
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_LFCLKSEL  ------------------------------------------
+
+unsigned int CMU_LFCLKSEL __AT (0x400C8028);
+
+//  <item> Reg_CMU_LFCLKSEL
+//    <i> CMU_LFCLKSEL [31..0] (@ 0x400C8028) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LFCLKSEL>>0) & 0xFFFFFFFF), ( (CMU_LFCLKSEL &= ~(0xFFFFFFFF<<0)), (CMU_LFCLKSEL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFCLKSEL_LFA
+//    <i> LFA [1..0] (@ 0x400C8028) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFCLKSEL>>0) & 0x2), ( (CMU_LFCLKSEL &= ~(0x2<<0)), (CMU_LFCLKSEL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFCLKSEL_LFB
+//    <i> LFB [3..2] (@ 0x400C8028) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFCLKSEL>>2) & 0x2), ( (CMU_LFCLKSEL &= ~(0x2<<2)), (CMU_LFCLKSEL |= ((Gui_u8:GuiVal & 0x2)<<2)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  CMU_STATUS  -------------------------------------------
+
+unsigned int CMU_STATUS __AT (0x400C802C);
+
+//  <item> Reg_CMU_STATUS
+//    <i> CMU_STATUS [31..0] (@ 0x400C802C) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_STATUS>>0) & 0xFFFFFFFF), ( (CMU_STATUS &= ~(0xFFFFFFFF<<0)), (CMU_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_STATUS_HFRCOENS
+//    <i> HFRCOENS [0] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.0..0> HFRCOENS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_HFRCORDY
+//    <i> HFRCORDY [1] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.1..1> HFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_HFXOENS
+//    <i> HFXOENS [2] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.2..2> HFXOENS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_HFXORDY
+//    <i> HFXORDY [3] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.3..3> HFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_AUXHFRCOENS
+//    <i> AUXHFRCOENS [4] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.4..4> AUXHFRCOENS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_AUXHFRCORDY
+//    <i> AUXHFRCORDY [5] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.5..5> AUXHFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_LFRCOENS
+//    <i> LFRCOENS [6] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.6..6> LFRCOENS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_LFRCORDY
+//    <i> LFRCORDY [7] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.7..7> LFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_LFXOENS
+//    <i> LFXOENS [8] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.8..8> LFXOENS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_LFXORDY
+//    <i> LFXORDY [9] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.9..9> LFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_HFRCOSEL
+//    <i> HFRCOSEL [10] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.10..10> HFRCOSEL
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_HFXOSEL
+//    <i> HFXOSEL [11] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.11..11> HFXOSEL
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_LFRCOSEL
+//    <i> LFRCOSEL [12] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.12..12> LFRCOSEL
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_LFXOSEL
+//    <i> LFXOSEL [13] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.13..13> LFXOSEL
+//    </check>
+//  </item>
+//  
+//  <item> CMU_STATUS_CALBSY
+//    <i> CALBSY [14] (@ 0x400C802C) </i>
+//    <check> 
+//      <loc> CMU_STATUS </loc>
+//      <o.14..14> CALBSY
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  CMU_IF  ---------------------------------------------
+
+unsigned int CMU_IF __AT (0x400C8030);
+
+//  <item> Reg_CMU_IF
+//    <i> CMU_IF [31..0] (@ 0x400C8030) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_IF>>0) & 0xFFFFFFFF), ( (CMU_IF &= ~(0xFFFFFFFF<<0)), (CMU_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_IF_HFRCORDY
+//    <i> HFRCORDY [0] (@ 0x400C8030) </i>
+//    <check> 
+//      <loc> CMU_IF </loc>
+//      <o.0..0> HFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IF_HFXORDY
+//    <i> HFXORDY [1] (@ 0x400C8030) </i>
+//    <check> 
+//      <loc> CMU_IF </loc>
+//      <o.1..1> HFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IF_LFRCORDY
+//    <i> LFRCORDY [2] (@ 0x400C8030) </i>
+//    <check> 
+//      <loc> CMU_IF </loc>
+//      <o.2..2> LFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IF_LFXORDY
+//    <i> LFXORDY [3] (@ 0x400C8030) </i>
+//    <check> 
+//      <loc> CMU_IF </loc>
+//      <o.3..3> LFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IF_AUXHFRCORDY
+//    <i> AUXHFRCORDY [4] (@ 0x400C8030) </i>
+//    <check> 
+//      <loc> CMU_IF </loc>
+//      <o.4..4> AUXHFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IF_CALRDY
+//    <i> CALRDY [5] (@ 0x400C8030) </i>
+//    <check> 
+//      <loc> CMU_IF </loc>
+//      <o.5..5> CALRDY
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  CMU_IFS  --------------------------------------------
+
+unsigned int CMU_IFS __AT (0x400C8034);
+
+//  <item> Reg_CMU_IFS
+//    <i> CMU_IFS [31..0] (@ 0x400C8034) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_IFS>>0) & 0xFFFFFFFF), ( (CMU_IFS &= ~(0xFFFFFFFF<<0)), (CMU_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_IFS_HFRCORDY
+//    <i> HFRCORDY [0] (@ 0x400C8034) </i>
+//    <check> 
+//      <loc> CMU_IFS </loc>
+//      <o.0..0> HFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFS_HFXORDY
+//    <i> HFXORDY [1] (@ 0x400C8034) </i>
+//    <check> 
+//      <loc> CMU_IFS </loc>
+//      <o.1..1> HFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFS_LFRCORDY
+//    <i> LFRCORDY [2] (@ 0x400C8034) </i>
+//    <check> 
+//      <loc> CMU_IFS </loc>
+//      <o.2..2> LFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFS_LFXORDY
+//    <i> LFXORDY [3] (@ 0x400C8034) </i>
+//    <check> 
+//      <loc> CMU_IFS </loc>
+//      <o.3..3> LFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFS_AUXHFRCORDY
+//    <i> AUXHFRCORDY [4] (@ 0x400C8034) </i>
+//    <check> 
+//      <loc> CMU_IFS </loc>
+//      <o.4..4> AUXHFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFS_CALRDY
+//    <i> CALRDY [5] (@ 0x400C8034) </i>
+//    <check> 
+//      <loc> CMU_IFS </loc>
+//      <o.5..5> CALRDY
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  CMU_IFC  --------------------------------------------
+
+unsigned int CMU_IFC __AT (0x400C8038);
+
+//  <item> Reg_CMU_IFC
+//    <i> CMU_IFC [31..0] (@ 0x400C8038) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_IFC>>0) & 0xFFFFFFFF), ( (CMU_IFC &= ~(0xFFFFFFFF<<0)), (CMU_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_IFC_HFRCORDY
+//    <i> HFRCORDY [0] (@ 0x400C8038) </i>
+//    <check> 
+//      <loc> CMU_IFC </loc>
+//      <o.0..0> HFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFC_HFXORDY
+//    <i> HFXORDY [1] (@ 0x400C8038) </i>
+//    <check> 
+//      <loc> CMU_IFC </loc>
+//      <o.1..1> HFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFC_LFRCORDY
+//    <i> LFRCORDY [2] (@ 0x400C8038) </i>
+//    <check> 
+//      <loc> CMU_IFC </loc>
+//      <o.2..2> LFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFC_LFXORDY
+//    <i> LFXORDY [3] (@ 0x400C8038) </i>
+//    <check> 
+//      <loc> CMU_IFC </loc>
+//      <o.3..3> LFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFC_AUXHFRCORDY
+//    <i> AUXHFRCORDY [4] (@ 0x400C8038) </i>
+//    <check> 
+//      <loc> CMU_IFC </loc>
+//      <o.4..4> AUXHFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IFC_CALRDY
+//    <i> CALRDY [5] (@ 0x400C8038) </i>
+//    <check> 
+//      <loc> CMU_IFC </loc>
+//      <o.5..5> CALRDY
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  CMU_IEN  --------------------------------------------
+
+unsigned int CMU_IEN __AT (0x400C803C);
+
+//  <item> Reg_CMU_IEN
+//    <i> CMU_IEN [31..0] (@ 0x400C803C) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_IEN>>0) & 0xFFFFFFFF), ( (CMU_IEN &= ~(0xFFFFFFFF<<0)), (CMU_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_IEN_HFRCORDY
+//    <i> HFRCORDY [0] (@ 0x400C803C) </i>
+//    <check> 
+//      <loc> CMU_IEN </loc>
+//      <o.0..0> HFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IEN_HFXORDY
+//    <i> HFXORDY [1] (@ 0x400C803C) </i>
+//    <check> 
+//      <loc> CMU_IEN </loc>
+//      <o.1..1> HFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IEN_LFRCORDY
+//    <i> LFRCORDY [2] (@ 0x400C803C) </i>
+//    <check> 
+//      <loc> CMU_IEN </loc>
+//      <o.2..2> LFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IEN_LFXORDY
+//    <i> LFXORDY [3] (@ 0x400C803C) </i>
+//    <check> 
+//      <loc> CMU_IEN </loc>
+//      <o.3..3> LFXORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IEN_AUXHFRCORDY
+//    <i> AUXHFRCORDY [4] (@ 0x400C803C) </i>
+//    <check> 
+//      <loc> CMU_IEN </loc>
+//      <o.4..4> AUXHFRCORDY
+//    </check>
+//  </item>
+//  
+//  <item> CMU_IEN_CALRDY
+//    <i> CALRDY [5] (@ 0x400C803C) </i>
+//    <check> 
+//      <loc> CMU_IEN </loc>
+//      <o.5..5> CALRDY
+//    </check>
+//  </item>
+//  
+
+
+// ------------------------------------  CMU_HFCORECLKEN0  ----------------------------------------
+
+unsigned int CMU_HFCORECLKEN0 __AT (0x400C8040);
+
+//  <item> Reg_CMU_HFCORECLKEN0
+//    <i> CMU_HFCORECLKEN0 [31..0] (@ 0x400C8040) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_HFCORECLKEN0>>0) & 0xFFFFFFFF), ( (CMU_HFCORECLKEN0 &= ~(0xFFFFFFFF<<0)), (CMU_HFCORECLKEN0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFCORECLKEN0_AES
+//    <i> AES [0] (@ 0x400C8040) </i>
+//    <check> 
+//      <loc> CMU_HFCORECLKEN0 </loc>
+//      <o.0..0> AES
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFCORECLKEN0_DMA
+//    <i> DMA [1] (@ 0x400C8040) </i>
+//    <check> 
+//      <loc> CMU_HFCORECLKEN0 </loc>
+//      <o.1..1> DMA
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFCORECLKEN0_LE
+//    <i> LE [2] (@ 0x400C8040) </i>
+//    <check> 
+//      <loc> CMU_HFCORECLKEN0 </loc>
+//      <o.2..2> LE
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFCORECLKEN0_EBI
+//    <i> EBI [3] (@ 0x400C8040) </i>
+//    <check> 
+//      <loc> CMU_HFCORECLKEN0 </loc>
+//      <o.3..3> EBI
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  CMU_HFPERCLKEN0  ----------------------------------------
+
+unsigned int CMU_HFPERCLKEN0 __AT (0x400C8044);
+
+//  <item> Reg_CMU_HFPERCLKEN0
+//    <i> CMU_HFPERCLKEN0 [31..0] (@ 0x400C8044) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_HFPERCLKEN0>>0) & 0xFFFFFFFF), ( (CMU_HFPERCLKEN0 &= ~(0xFFFFFFFF<<0)), (CMU_HFPERCLKEN0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_USART0
+//    <i> USART0 [0] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.0..0> USART0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_USART1
+//    <i> USART1 [1] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.1..1> USART1
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_USART2
+//    <i> USART2 [2] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.2..2> USART2
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_UART0
+//    <i> UART0 [3] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.3..3> UART0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_TIMER0
+//    <i> TIMER0 [4] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.4..4> TIMER0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_TIMER1
+//    <i> TIMER1 [5] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.5..5> TIMER1
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_TIMER2
+//    <i> TIMER2 [6] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.6..6> TIMER2
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_ACMP0
+//    <i> ACMP0 [7] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.7..7> ACMP0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_ACMP1
+//    <i> ACMP1 [8] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.8..8> ACMP1
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_PRS
+//    <i> PRS [10] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.10..10> PRS
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_DAC0
+//    <i> DAC0 [11] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.11..11> DAC0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_GPIO
+//    <i> GPIO [12] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.12..12> GPIO
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_VCMP
+//    <i> VCMP [13] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.13..13> VCMP
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_ADC0
+//    <i> ADC0 [14] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.14..14> ADC0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_HFPERCLKEN0_I2C0
+//    <i> I2C0 [15] (@ 0x400C8044) </i>
+//    <check> 
+//      <loc> CMU_HFPERCLKEN0 </loc>
+//      <o.15..15> I2C0
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_SYNCBUSY  ------------------------------------------
+
+unsigned int CMU_SYNCBUSY __AT (0x400C8050);
+
+//  <item> Reg_CMU_SYNCBUSY
+//    <i> CMU_SYNCBUSY [31..0] (@ 0x400C8050) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_SYNCBUSY>>0) & 0xFFFFFFFF), ( (CMU_SYNCBUSY &= ~(0xFFFFFFFF<<0)), (CMU_SYNCBUSY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_SYNCBUSY_LFACLKEN0
+//    <i> LFACLKEN0 [0] (@ 0x400C8050) </i>
+//    <check> 
+//      <loc> CMU_SYNCBUSY </loc>
+//      <o.0..0> LFACLKEN0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_SYNCBUSY_LFAPRESC0
+//    <i> LFAPRESC0 [2] (@ 0x400C8050) </i>
+//    <check> 
+//      <loc> CMU_SYNCBUSY </loc>
+//      <o.2..2> LFAPRESC0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_SYNCBUSY_LFBCLKEN0
+//    <i> LFBCLKEN0 [4] (@ 0x400C8050) </i>
+//    <check> 
+//      <loc> CMU_SYNCBUSY </loc>
+//      <o.4..4> LFBCLKEN0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_SYNCBUSY_LFBPRESC0
+//    <i> LFBPRESC0 [6] (@ 0x400C8050) </i>
+//    <check> 
+//      <loc> CMU_SYNCBUSY </loc>
+//      <o.6..6> LFBPRESC0
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  CMU_FREEZE  -------------------------------------------
+
+unsigned int CMU_FREEZE __AT (0x400C8054);
+
+//  <item> Reg_CMU_FREEZE
+//    <i> CMU_FREEZE [31..0] (@ 0x400C8054) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_FREEZE>>0) & 0xFFFFFFFF), ( (CMU_FREEZE &= ~(0xFFFFFFFF<<0)), (CMU_FREEZE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_FREEZE_REGFREEZE
+//    <i> REGFREEZE [0] (@ 0x400C8054) </i>
+//    <check> 
+//      <loc> CMU_FREEZE </loc>
+//      <o.0..0> REGFREEZE
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_LFACLKEN0  -----------------------------------------
+
+unsigned int CMU_LFACLKEN0 __AT (0x400C8058);
+
+//  <item> Reg_CMU_LFACLKEN0
+//    <i> CMU_LFACLKEN0 [31..0] (@ 0x400C8058) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LFACLKEN0>>0) & 0xFFFFFFFF), ( (CMU_LFACLKEN0 &= ~(0xFFFFFFFF<<0)), (CMU_LFACLKEN0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFACLKEN0_RTC
+//    <i> RTC [0] (@ 0x400C8058) </i>
+//    <check> 
+//      <loc> CMU_LFACLKEN0 </loc>
+//      <o.0..0> RTC
+//    </check>
+//  </item>
+//  
+//  <item> CMU_LFACLKEN0_LETIMER0
+//    <i> LETIMER0 [1] (@ 0x400C8058) </i>
+//    <check> 
+//      <loc> CMU_LFACLKEN0 </loc>
+//      <o.1..1> LETIMER0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_LFACLKEN0_LCD
+//    <i> LCD [2] (@ 0x400C8058) </i>
+//    <check> 
+//      <loc> CMU_LFACLKEN0 </loc>
+//      <o.2..2> LCD
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_LFBCLKEN0  -----------------------------------------
+
+unsigned int CMU_LFBCLKEN0 __AT (0x400C8060);
+
+//  <item> Reg_CMU_LFBCLKEN0
+//    <i> CMU_LFBCLKEN0 [31..0] (@ 0x400C8060) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LFBCLKEN0>>0) & 0xFFFFFFFF), ( (CMU_LFBCLKEN0 &= ~(0xFFFFFFFF<<0)), (CMU_LFBCLKEN0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFBCLKEN0_LEUART0
+//    <i> LEUART0 [0] (@ 0x400C8060) </i>
+//    <check> 
+//      <loc> CMU_LFBCLKEN0 </loc>
+//      <o.0..0> LEUART0
+//    </check>
+//  </item>
+//  
+//  <item> CMU_LFBCLKEN0_LEUART1
+//    <i> LEUART1 [1] (@ 0x400C8060) </i>
+//    <check> 
+//      <loc> CMU_LFBCLKEN0 </loc>
+//      <o.1..1> LEUART1
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_LFAPRESC0  -----------------------------------------
+
+unsigned int CMU_LFAPRESC0 __AT (0x400C8068);
+
+//  <item> Reg_CMU_LFAPRESC0
+//    <i> CMU_LFAPRESC0 [31..0] (@ 0x400C8068) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LFAPRESC0>>0) & 0xFFFFFFFF), ( (CMU_LFAPRESC0 &= ~(0xFFFFFFFF<<0)), (CMU_LFAPRESC0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFAPRESC0_RTC
+//    <i> RTC [3..0] (@ 0x400C8068) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFAPRESC0>>0) & 0xE), ( (CMU_LFAPRESC0 &= ~(0xE<<0)), (CMU_LFAPRESC0 |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFAPRESC0_LETIMER0
+//    <i> LETIMER0 [7..4] (@ 0x400C8068) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFAPRESC0>>4) & 0xE), ( (CMU_LFAPRESC0 &= ~(0xE<<4)), (CMU_LFAPRESC0 |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFAPRESC0_LCD
+//    <i> LCD [9..8] (@ 0x400C8068) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFAPRESC0>>8) & 0x2), ( (CMU_LFAPRESC0 &= ~(0x2<<8)), (CMU_LFAPRESC0 |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_LFBPRESC0  -----------------------------------------
+
+unsigned int CMU_LFBPRESC0 __AT (0x400C8070);
+
+//  <item> Reg_CMU_LFBPRESC0
+//    <i> CMU_LFBPRESC0 [31..0] (@ 0x400C8070) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LFBPRESC0>>0) & 0xFFFFFFFF), ( (CMU_LFBPRESC0 &= ~(0xFFFFFFFF<<0)), (CMU_LFBPRESC0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFBPRESC0_LEUART0
+//    <i> LEUART0 [1..0] (@ 0x400C8070) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFBPRESC0>>0) & 0x2), ( (CMU_LFBPRESC0 &= ~(0x2<<0)), (CMU_LFBPRESC0 |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LFBPRESC0_LEUART1
+//    <i> LEUART1 [5..4] (@ 0x400C8070) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LFBPRESC0>>4) & 0x2), ( (CMU_LFBPRESC0 &= ~(0x2<<4)), (CMU_LFBPRESC0 |= ((Gui_u8:GuiVal & 0x2)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  CMU_PCNTCTRL  ------------------------------------------
+
+unsigned int CMU_PCNTCTRL __AT (0x400C8078);
+
+//  <item> Reg_CMU_PCNTCTRL
+//    <i> CMU_PCNTCTRL [31..0] (@ 0x400C8078) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_PCNTCTRL>>0) & 0xFFFFFFFF), ( (CMU_PCNTCTRL &= ~(0xFFFFFFFF<<0)), (CMU_PCNTCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_PCNTCTRL_PCNT0CLKEN
+//    <i> PCNT0CLKEN [0] (@ 0x400C8078) </i>
+//    <check> 
+//      <loc> CMU_PCNTCTRL </loc>
+//      <o.0..0> PCNT0CLKEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_PCNTCTRL_PCNT0CLKSEL
+//    <i> PCNT0CLKSEL [1] (@ 0x400C8078) </i>
+//    <check> 
+//      <loc> CMU_PCNTCTRL </loc>
+//      <o.1..1> PCNT0CLKSEL
+//    </check>
+//  </item>
+//  
+//  <item> CMU_PCNTCTRL_PCNT1CLKEN
+//    <i> PCNT1CLKEN [2] (@ 0x400C8078) </i>
+//    <check> 
+//      <loc> CMU_PCNTCTRL </loc>
+//      <o.2..2> PCNT1CLKEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_PCNTCTRL_PCNT1CLKSEL
+//    <i> PCNT1CLKSEL [3] (@ 0x400C8078) </i>
+//    <check> 
+//      <loc> CMU_PCNTCTRL </loc>
+//      <o.3..3> PCNT1CLKSEL
+//    </check>
+//  </item>
+//  
+//  <item> CMU_PCNTCTRL_PCNT2CLKEN
+//    <i> PCNT2CLKEN [4] (@ 0x400C8078) </i>
+//    <check> 
+//      <loc> CMU_PCNTCTRL </loc>
+//      <o.4..4> PCNT2CLKEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_PCNTCTRL_PCNT2CLKSEL
+//    <i> PCNT2CLKSEL [5] (@ 0x400C8078) </i>
+//    <check> 
+//      <loc> CMU_PCNTCTRL </loc>
+//      <o.5..5> PCNT2CLKSEL
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  CMU_LCDCTRL  ------------------------------------------
+
+unsigned int CMU_LCDCTRL __AT (0x400C807C);
+
+//  <item> Reg_CMU_LCDCTRL
+//    <i> CMU_LCDCTRL [31..0] (@ 0x400C807C) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LCDCTRL>>0) & 0xFFFFFFFF), ( (CMU_LCDCTRL &= ~(0xFFFFFFFF<<0)), (CMU_LCDCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LCDCTRL_FDIV
+//    <i> FDIV [2..0] (@ 0x400C807C) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LCDCTRL>>0) & 0x6), ( (CMU_LCDCTRL &= ~(0x6<<0)), (CMU_LCDCTRL |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LCDCTRL_VBOOSTEN
+//    <i> VBOOSTEN [3] (@ 0x400C807C) </i>
+//    <check> 
+//      <loc> CMU_LCDCTRL </loc>
+//      <o.3..3> VBOOSTEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_LCDCTRL_VBFREQ
+//    <i> VBFREQ [6..4] (@ 0x400C807C) </i>
+//    <edit> 
+//      <loc> ( (char)((CMU_LCDCTRL>>4) & 0x6), ( (CMU_LCDCTRL &= ~(0x6<<4)), (CMU_LCDCTRL |= ((Gui_u8:GuiVal & 0x6)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  CMU_ROUTE  -------------------------------------------
+
+unsigned int CMU_ROUTE __AT (0x400C8080);
+
+//  <item> Reg_CMU_ROUTE
+//    <i> CMU_ROUTE [31..0] (@ 0x400C8080) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_ROUTE>>0) & 0xFFFFFFFF), ( (CMU_ROUTE &= ~(0xFFFFFFFF<<0)), (CMU_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_ROUTE_CLKOUT0PEN
+//    <i> CLKOUT0PEN [0] (@ 0x400C8080) </i>
+//    <check> 
+//      <loc> CMU_ROUTE </loc>
+//      <o.0..0> CLKOUT0PEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_ROUTE_CLKOUT1PEN
+//    <i> CLKOUT1PEN [1] (@ 0x400C8080) </i>
+//    <check> 
+//      <loc> CMU_ROUTE </loc>
+//      <o.1..1> CLKOUT1PEN
+//    </check>
+//  </item>
+//  
+//  <item> CMU_ROUTE_LOCATION
+//    <i> LOCATION [2] (@ 0x400C8080) </i>
+//    <check> 
+//      <loc> CMU_ROUTE </loc>
+//      <o.2..2> LOCATION
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  CMU_LOCK  --------------------------------------------
+
+unsigned int CMU_LOCK __AT (0x400C8084);
+
+//  <item> Reg_CMU_LOCK
+//    <i> CMU_LOCK [31..0] (@ 0x400C8084) </i>
+//    <edit> 
+//      <loc> ( (int)((CMU_LOCK>>0) & 0xFFFFFFFF), ( (CMU_LOCK &= ~(0xFFFFFFFF<<0)), (CMU_LOCK |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CMU_LOCK_LOCKKEY
+//    <i> LOCKKEY [15..0] (@ 0x400C8084) </i>
+//    <edit> 
+//      <loc> ( (short int)((CMU_LOCK>>0) & 0xFFFE), ( (CMU_LOCK &= ~(0xFFFE<<0)), (CMU_LOCK |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

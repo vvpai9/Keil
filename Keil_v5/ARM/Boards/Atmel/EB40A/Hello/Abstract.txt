@@ -1,0 +1,14 @@
+The Hello program is a very simple program that prints
+"Hello World" to the serial port of the AT91R40008
+using the Atmel EB40A Evaluation Board.
+
+The Hello program is available in different targets:
+    Sim AT91R40008:  runs in software Simulator
+    RAM AT91R40008:  runs from Internal RAM located on chip
+                       (used for target debugging) 
+  Flash AT91R40008:  runs from External Flash located on board
+                       (used for final aplication version)
+   ERAM AT91R40008:  runs from External Flash located on board
+                     and copies the program to Internal RAM located
+                     on chip and then runs from Internal RAM
+                       (used for faster final application)

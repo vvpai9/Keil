@@ -1,0 +1,29 @@
+The MEASURE program uses analog and digital inputs to
+simulate a datalogger.
+
+You may watch the value of analog input POT1 and the state of
+the S2 switch on MCB21xx evaluation boards. The required jumper 
+settings are described below.
+
+This version includes the Real-Time Agent, which provides
+real-time target information. In this example it provides 
+serial terminal emulation, and memory and watch information 
+while the target is executing.
+
+The MEASURE example program is available for several targets:
+
+MCB2100:   Keil MCB2100 evaluation board with ULINK2 debugger
+           - Application is loaded to internal Flash.
+           - Switch S2 (INT1) is used as GPIO and sampled
+             (jumper positions: J1= off, J7= on)
+           - potentiometer POT1 is sampled as AIN0
+             (jumper position: J2= on)
+           - serial port is provided via the Real-Time Agent
+
+MCB2130:   Keil MCB2130/40 evaluation board with ULINK2 debugger
+MCB2140:   - Application is loaded to internal Flash.
+           - Switch S2 (INT1) is used as GPIO and sampled
+             (jumper positions: J1= off, J7= on)
+           - potentiometer POT1 is sampled as AIN1
+             (jumper position: J2= on)
+           - serial port is provided via the Real-Time Agent

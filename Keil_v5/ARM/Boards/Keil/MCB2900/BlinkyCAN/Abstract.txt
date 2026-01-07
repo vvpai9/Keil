@@ -1,0 +1,35 @@
+The BlinkyCAN project is a simple program for the 'LPC2919' 
+microcontroller using Keil 'MCB2900' evaluation board which
+demonstrates I/O, A/D, UART, CAN and Interrupt functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL             =  10 MHz
+   - PLL              = 160 MHz
+   - SYS   = PLL / 2  =  80 MHz
+   - TMR   = PLL / 2  =  80 MHz
+   - FDIV0 = PLL / 40 =   4 MHz
+   - ADC   = FDIV0    =   4 MHz
+ - Timer 0 is used for generating 10ms time base,
+   it works in interrupt mode
+ - ADC2 (IN0) is used for getting AD value from 
+   potentiometer POT1, it works in interrupt mode
+ - LED P1.24..28 show scaled AD value
+ - LED P1.29 blinks each second
+ - LED P1.30 shows inverted state of S1 button
+ - LED P1.31 shows inverted state of S2 button
+ - 8-bit counter value is incremented and transmitted
+   over CAN0 every 1 second (and displayed on LCD)
+ - Received value over CAN0 is also displayed on LCD
+ - AD value is sent over UART0 every 1 second
+   UART settings: 9600 baud, 8 data bits, 1 stop bit,
+                  no parity
+ 
+The Blinky program is available in different targets:
+  Simulator:        configured for software Simulator
+  LPC2919 Flash:    runs from Internal Flash located on chip
+                    (used for production or target debugging)
+
+Note: CAN0 is used in Loopback mode.
+It can be also used to connect two boards via CAN0
+(comment CAN_LOOPBACK definition in Blinky.c)

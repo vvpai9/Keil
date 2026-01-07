@@ -1,0 +1,29 @@
+;------------------------------------------------------------------------------
+;  Program name : HET.het, associated with
+;                 HET.c - HET demo
+;
+; Originator:  John Mangino
+; Texas Instruments Inc.
+; Sept 21th 2007
+; Build for Keil MDK Version 3.15 or higher
+;------------------------------------------------------------------------------
+
+pwm_a_01    CNT {next=pwm_a_02, reg=B, irq=OFF, max=0fffffh, data=0h}
+            
+pwm_a_02    ECMP {next=end, hr_lr=low, en_pin_action=ON, 
+                  cond_addr=pwm_a_clear,
+                  pin=CC6, action= set, reg=B, irq=ON, 
+                  data=100, hr_data=0h}
+
+;RADM64 is Register Add Move
+pwm_a_clear RADM64 {next=end, remote = pwm_a_02, en_pin_action =ON, 
+                    cond_addr = pwm_a_set,
+                    pin=CC6, comp_mode=ECMP, action=clear, reg = B, irq = ON,
+                    data=100, hr_data=00h}
+            
+pwm_a_set   RADM64 {next=end, remote = pwm_a_02, en_pin_action =ON, 
+                    cond_addr = pwm_a_clear,
+                    pin=CC6, comp_mode=ECMP, action=set, reg = B, irq = OFF,
+                    data=100, hr_data=00h}
+            
+end         BR {next=pwm_a_01, cond_addr=pwm_a_01, event=NOCOND}

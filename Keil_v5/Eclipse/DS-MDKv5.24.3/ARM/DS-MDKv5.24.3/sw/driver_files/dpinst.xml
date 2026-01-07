@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+  <dpinst>
+    <enableNotListedLanguages/>
+    <search>
+      <subDirectory>*</subDirectory>
+    </search>
+    <language code="0x0409">
+      <dpinstTitle>DS-MDK v5.24.2 Driver Installation Wizard </dpinstTitle>
+      <welcomeTitle>Welcome to the DS-MDK v5.24.2 Driver Installation Wizard</welcomeTitle>
+      <welcomeIntro>
+This wizard installs device drivers for DS-MDK v5.24.2.
+      
+WARNING: As some drivers have not been certified, you may be prompted to continue the installation for each driver.
+      </welcomeIntro>
+      <finishTitle>You have completed the DS-MDK v5.24.2 Driver Installation Wizard</finishTitle>
+    </language>
+    <watermarkPath>splash.bmp</watermarkPath>
+</dpinst>

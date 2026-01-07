@@ -1,0 +1,838 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\Register Views.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                    Register Views                                    -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          CM3                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> CM3
+//    <item> CM3_NVICAUXCTRL </item>
+//    <item> CM3_NVICVECTSETIEN </item>
+//    <item> CM3_NVICVECTSETIDIS </item>
+//    <item> CM3_NVICVECTSETPEND </item>
+//    <item> CM3_NVICVECTCLEARPEND </item>
+//    <item> CM3_NVICPRI0 </item>
+//    <item> CM3_NVICISCR </item>
+//    <item> CM3_NVICVECTTABOFF </item>
+//    <item> CM3_NVICSYSCTRL </item>
+//    <item> CM3_NVICSYSHANDLER </item>
+//    <item> CM3_NVICCFSR </item>
+//    <item> CM3_NVICHFSR </item>
+//    <item> CM3_NVICAIRC </item>
+//    <item> CM3_CHIPREVMAJORLSB </item>
+//    <item> CM3_CHIPREVMAJORMSB </item>
+//    <item> CM3_CHIPREVMINORMSB </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          MSC                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> MSC
+//    <item> MSC_CTRL </item>
+//    <item> MSC_READCTRL </item>
+//    <item> MSC_WRITECTRL </item>
+//    <item> MSC_WRITECMD </item>
+//    <item> MSC_ADDRB </item>
+//    <item> MSC_WDATA </item>
+//    <item> MSC_STATUS </item>
+//    <item> MSC_IF </item>
+//    <item> MSC_IFS </item>
+//    <item> MSC_IFC </item>
+//    <item> MSC_IEN </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          EMU                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> EMU
+//    <item> EMU_CTRL </item>
+//    <item> EMU_MEMCTRL </item>
+//    <item> EMU_LOCK </item>
+//    <item> EMU_ATESTCTRL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          RMU                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> RMU
+//    <item> RMU_CTRL </item>
+//    <item> RMU_RSTCAUSE </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          CMU                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> CMU
+//    <item> CMU_CTRL </item>
+//    <item> CMU_HFCORECLKDIV </item>
+//    <item> CMU_HFPERCLKDIV </item>
+//    <item> CMU_HFRCOCTRL </item>
+//    <item> CMU_LFRCOCTRL </item>
+//    <item> CMU_AUXHFRCOCTRL </item>
+//    <item> CMU_CALCTRL </item>
+//    <item> CMU_CALCNT </item>
+//    <item> CMU_OSCENCMD </item>
+//    <item> CMU_CMD </item>
+//    <item> CMU_LFCLKSEL </item>
+//    <item> CMU_STATUS </item>
+//    <item> CMU_IF </item>
+//    <item> CMU_IFS </item>
+//    <item> CMU_IFC </item>
+//    <item> CMU_IEN </item>
+//    <item> CMU_HFCORECLKEN0 </item>
+//    <item> CMU_HFPERCLKEN0 </item>
+//    <item> CMU_SYNCBUSY </item>
+//    <item> CMU_FREEZE </item>
+//    <item> CMU_LFACLKEN0 </item>
+//    <item> CMU_LFBCLKEN0 </item>
+//    <item> CMU_LFAPRESC0 </item>
+//    <item> CMU_LFBPRESC0 </item>
+//    <item> CMU_PCNTCTRL </item>
+//    <item> CMU_LCDCTRL </item>
+//    <item> CMU_ROUTE </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          AES                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> AES
+//    <item> AES_CTRL </item>
+//    <item> AES_CMD </item>
+//    <item> AES_STATUS </item>
+//    <item> AES_IEN </item>
+//    <item> AES_IF </item>
+//    <item> AES_IFS </item>
+//    <item> AES_IFC </item>
+//    <item> AES_DATA </item>
+//    <item> AES_XORDATA </item>
+//    <item> AES_KEYLA </item>
+//    <item> AES_KEYLB </item>
+//    <item> AES_KEYLC </item>
+//    <item> AES_KEYLD </item>
+//    <item> AES_KEYHA </item>
+//    <item> AES_KEYHB </item>
+//    <item> AES_KEYHC </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          EBI                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> EBI
+//    <item> EBI_CTRL </item>
+//    <item> EBI_ADDRTIMING </item>
+//    <item> EBI_RDTIMING </item>
+//    <item> EBI_WRTIMING </item>
+//    <item> EBI_POLARITY </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         GPIO                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> GPIO
+//    <item> GPIO_EXTIPSELL </item>
+//    <item> GPIO_EXTIPSELH </item>
+//    <item> GPIO_EXTIRISE </item>
+//    <item> GPIO_EXTIFALL </item>
+//    <item> GPIO_IEN </item>
+//    <item> GPIO_IF </item>
+//    <item> GPIO_IFS </item>
+//    <item> GPIO_IFC </item>
+//    <item> GPIO_ROUTE </item>
+//    <item> GPIO_INSENSE </item>
+//  </view>
+//  
+//  <view> GPIO_0
+//    <item> GPIO_PA_CTRL </item>
+//    <item> GPIO_PA_MODEL </item>
+//    <item> GPIO_PA_MODEH </item>
+//    <item> GPIO_PA_DOUT </item>
+//    <item> GPIO_PA_DOUTSET </item>
+//    <item> GPIO_PA_DOUTCLR </item>
+//    <item> GPIO_PA_DOUTTGL </item>
+//    <item> GPIO_PA_DIN </item>
+//    <item> GPIO_PA_PINLOCKN </item>
+//  </view>
+//  
+//  <view> GPIO_1
+//    <item> GPIO_PB_CTRL </item>
+//    <item> GPIO_PB_MODEL </item>
+//    <item> GPIO_PB_MODEH </item>
+//    <item> GPIO_PB_DOUT </item>
+//    <item> GPIO_PB_DOUTSET </item>
+//    <item> GPIO_PB_DOUTCLR </item>
+//    <item> GPIO_PB_DOUTTGL </item>
+//    <item> GPIO_PB_DIN </item>
+//    <item> GPIO_PB_PINLOCKN </item>
+//  </view>
+//  
+//  <view> GPIO_2
+//    <item> GPIO_PC_CTRL </item>
+//    <item> GPIO_PC_MODEL </item>
+//    <item> GPIO_PC_MODEH </item>
+//    <item> GPIO_PC_DOUT </item>
+//    <item> GPIO_PC_DOUTSET </item>
+//    <item> GPIO_PC_DOUTCLR </item>
+//    <item> GPIO_PC_DOUTTGL </item>
+//    <item> GPIO_PC_DIN </item>
+//    <item> GPIO_PC_PINLOCKN </item>
+//  </view>
+//  
+//  <view> GPIO_3
+//    <item> GPIO_PD_CTRL </item>
+//    <item> GPIO_PD_MODEL </item>
+//    <item> GPIO_PD_MODEH </item>
+//    <item> GPIO_PD_DOUT </item>
+//    <item> GPIO_PD_DOUTSET </item>
+//    <item> GPIO_PD_DOUTCLR </item>
+//    <item> GPIO_PD_DOUTTGL </item>
+//    <item> GPIO_PD_DIN </item>
+//    <item> GPIO_PD_PINLOCKN </item>
+//  </view>
+//  
+//  <view> GPIO_4
+//    <item> GPIO_PE_CTRL </item>
+//    <item> GPIO_PE_MODEL </item>
+//    <item> GPIO_PE_MODEH </item>
+//    <item> GPIO_PE_DOUT </item>
+//    <item> GPIO_PE_DOUTSET </item>
+//    <item> GPIO_PE_DOUTCLR </item>
+//    <item> GPIO_PE_DOUTTGL </item>
+//    <item> GPIO_PE_DIN </item>
+//    <item> GPIO_PE_PINLOCKN </item>
+//  </view>
+//  
+//  <view> GPIO_5
+//    <item> GPIO_PF_CTRL </item>
+//    <item> GPIO_PF_MODEL </item>
+//    <item> GPIO_PF_MODEH </item>
+//    <item> GPIO_PF_DOUT </item>
+//    <item> GPIO_PF_DOUTSET </item>
+//    <item> GPIO_PF_DOUTCLR </item>
+//    <item> GPIO_PF_DOUTTGL </item>
+//    <item> GPIO_PF_DIN </item>
+//    <item> GPIO_PF_PINLOCKN </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          PRS                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> PRS
+//    <item> PRS_SWPULSE </item>
+//    <item> PRS_SWLEVEL </item>
+//    <item> PRS_CH0_CTRL </item>
+//    <item> PRS_CH1_CTRL </item>
+//    <item> PRS_CH2_CTRL </item>
+//    <item> PRS_CH3_CTRL </item>
+//    <item> PRS_CH4_CTRL </item>
+//    <item> PRS_CH5_CTRL </item>
+//    <item> PRS_CH6_CTRL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          DMA                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> DMA
+//    <item> DMA_STATUS </item>
+//    <item> DMA_CONFIG </item>
+//    <item> DMA_CTRLBASE </item>
+//    <item> DMA_ALTCTRLBASE </item>
+//    <item> DMA_WAITSTATUS </item>
+//    <item> DMA_CHSWREQ </item>
+//    <item> DMA_CHUSEBURSTS </item>
+//    <item> DMA_CHUSEBURSTC </item>
+//    <item> DMA_CHREQMASKS </item>
+//    <item> DMA_CHREQMASKC </item>
+//    <item> DMA_CHENS </item>
+//    <item> DMA_CHENC </item>
+//    <item> DMA_CHALTS </item>
+//    <item> DMA_CHALTC </item>
+//    <item> DMA_CHPRIS </item>
+//    <item> DMA_CHPRIC </item>
+//    <item> DMA_ERRORC </item>
+//    <item> DMA_IF </item>
+//    <item> DMA_IFS </item>
+//    <item> DMA_IFC </item>
+//    <item> DMA_IEN </item>
+//    <item> DMA_CH0_CTRL </item>
+//    <item> DMA_CH1_CTRL </item>
+//    <item> DMA_CH2_CTRL </item>
+//    <item> DMA_CH3_CTRL </item>
+//    <item> DMA_CH4_CTRL </item>
+//    <item> DMA_CH5_CTRL </item>
+//    <item> DMA_CH6_CTRL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        TIMER0                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> TIMER0
+//    <item> TIMER0_CTRL </item>
+//    <item> TIMER0_CMD </item>
+//    <item> TIMER0_STATUS </item>
+//    <item> TIMER0_IEN </item>
+//    <item> TIMER0_IF </item>
+//    <item> TIMER0_IFS </item>
+//    <item> TIMER0_IFC </item>
+//    <item> TIMER0_TOP </item>
+//    <item> TIMER0_TOPB </item>
+//    <item> TIMER0_CNT </item>
+//    <item> TIMER0_ROUTE </item>
+//    <item> TIMER0_CC0_CTRL </item>
+//    <item> TIMER0_CC0_CCV </item>
+//    <item> TIMER0_CC0_CCVP </item>
+//    <item> TIMER0_CC0_CCVB </item>
+//    <item> TIMER0_CC1_CTRL </item>
+//    <item> TIMER0_CC1_CCV </item>
+//    <item> TIMER0_CC1_CCVP </item>
+//    <item> TIMER0_CC1_CCVB </item>
+//    <item> TIMER0_CC2_CTRL </item>
+//    <item> TIMER0_CC2_CCV </item>
+//    <item> TIMER0_CC2_CCVP </item>
+//    <item> TIMER0_CC2_CCVB </item>
+//    <item> TIMER0_DTCTRL </item>
+//    <item> TIMER0_DTTIME </item>
+//    <item> TIMER0_DTFC </item>
+//    <item> TIMER0_DTOGEN </item>
+//    <item> TIMER0_DTFAULT </item>
+//    <item> TIMER0_DTFAULTC </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        TIMER1                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> TIMER1
+//    <item> TIMER1_CTRL </item>
+//    <item> TIMER1_CMD </item>
+//    <item> TIMER1_STATUS </item>
+//    <item> TIMER1_IEN </item>
+//    <item> TIMER1_IF </item>
+//    <item> TIMER1_IFS </item>
+//    <item> TIMER1_IFC </item>
+//    <item> TIMER1_TOP </item>
+//    <item> TIMER1_TOPB </item>
+//    <item> TIMER1_CNT </item>
+//    <item> TIMER1_ROUTE </item>
+//    <item> TIMER1_CC0_CTRL </item>
+//    <item> TIMER1_CC0_CCV </item>
+//    <item> TIMER1_CC0_CCVP </item>
+//    <item> TIMER1_CC0_CCVB </item>
+//    <item> TIMER1_CC1_CTRL </item>
+//    <item> TIMER1_CC1_CCV </item>
+//    <item> TIMER1_CC1_CCVP </item>
+//    <item> TIMER1_CC1_CCVB </item>
+//    <item> TIMER1_CC2_CTRL </item>
+//    <item> TIMER1_CC2_CCV </item>
+//    <item> TIMER1_CC2_CCVP </item>
+//    <item> TIMER1_CC2_CCVB </item>
+//    <item> TIMER1_DTCTRL </item>
+//    <item> TIMER1_DTTIME </item>
+//    <item> TIMER1_DTFC </item>
+//    <item> TIMER1_DTOGEN </item>
+//    <item> TIMER1_DTFAULT </item>
+//    <item> TIMER1_DTFAULTC </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        TIMER2                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> TIMER2
+//    <item> TIMER2_CTRL </item>
+//    <item> TIMER2_CMD </item>
+//    <item> TIMER2_STATUS </item>
+//    <item> TIMER2_IEN </item>
+//    <item> TIMER2_IF </item>
+//    <item> TIMER2_IFS </item>
+//    <item> TIMER2_IFC </item>
+//    <item> TIMER2_TOP </item>
+//    <item> TIMER2_TOPB </item>
+//    <item> TIMER2_CNT </item>
+//    <item> TIMER2_ROUTE </item>
+//    <item> TIMER2_CC0_CTRL </item>
+//    <item> TIMER2_CC0_CCV </item>
+//    <item> TIMER2_CC0_CCVP </item>
+//    <item> TIMER2_CC0_CCVB </item>
+//    <item> TIMER2_CC1_CTRL </item>
+//    <item> TIMER2_CC1_CCV </item>
+//    <item> TIMER2_CC1_CCVP </item>
+//    <item> TIMER2_CC1_CCVB </item>
+//    <item> TIMER2_CC2_CTRL </item>
+//    <item> TIMER2_CC2_CCV </item>
+//    <item> TIMER2_CC2_CCVP </item>
+//    <item> TIMER2_CC2_CCVB </item>
+//    <item> TIMER2_DTCTRL </item>
+//    <item> TIMER2_DTTIME </item>
+//    <item> TIMER2_DTFC </item>
+//    <item> TIMER2_DTOGEN </item>
+//    <item> TIMER2_DTFAULT </item>
+//    <item> TIMER2_DTFAULTC </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        USART0                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> USART0
+//    <item> USART0_CTRL </item>
+//    <item> USART0_FRAME </item>
+//    <item> USART0_TRIGCTRL </item>
+//    <item> USART0_CMD </item>
+//    <item> USART0_STATUS </item>
+//    <item> USART0_CLKDIV </item>
+//    <item> USART0_RXDATAX </item>
+//    <item> USART0_RXDATA </item>
+//    <item> USART0_RXDOUBLEX </item>
+//    <item> USART0_RXDOUBLE </item>
+//    <item> USART0_RXDATAXP </item>
+//    <item> USART0_RXDOUBLEXP </item>
+//    <item> USART0_TXDATAX </item>
+//    <item> USART0_TXDATA </item>
+//    <item> USART0_TXDOUBLEX </item>
+//    <item> USART0_TXDOUBLE </item>
+//    <item> USART0_IF </item>
+//    <item> USART0_IFS </item>
+//    <item> USART0_IFC </item>
+//    <item> USART0_IEN </item>
+//    <item> USART0_IRCTRL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        USART1                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> USART1
+//    <item> USART1_CTRL </item>
+//    <item> USART1_FRAME </item>
+//    <item> USART1_TRIGCTRL </item>
+//    <item> USART1_CMD </item>
+//    <item> USART1_STATUS </item>
+//    <item> USART1_CLKDIV </item>
+//    <item> USART1_RXDATAX </item>
+//    <item> USART1_RXDATA </item>
+//    <item> USART1_RXDOUBLEX </item>
+//    <item> USART1_RXDOUBLE </item>
+//    <item> USART1_RXDATAXP </item>
+//    <item> USART1_RXDOUBLEXP </item>
+//    <item> USART1_TXDATAX </item>
+//    <item> USART1_TXDATA </item>
+//    <item> USART1_TXDOUBLEX </item>
+//    <item> USART1_TXDOUBLE </item>
+//    <item> USART1_IF </item>
+//    <item> USART1_IFS </item>
+//    <item> USART1_IFC </item>
+//    <item> USART1_IEN </item>
+//    <item> USART1_IRCTRL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        USART2                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> USART2
+//    <item> USART2_CTRL </item>
+//    <item> USART2_FRAME </item>
+//    <item> USART2_TRIGCTRL </item>
+//    <item> USART2_CMD </item>
+//    <item> USART2_STATUS </item>
+//    <item> USART2_CLKDIV </item>
+//    <item> USART2_RXDATAX </item>
+//    <item> USART2_RXDATA </item>
+//    <item> USART2_RXDOUBLEX </item>
+//    <item> USART2_RXDOUBLE </item>
+//    <item> USART2_RXDATAXP </item>
+//    <item> USART2_RXDOUBLEXP </item>
+//    <item> USART2_TXDATAX </item>
+//    <item> USART2_TXDATA </item>
+//    <item> USART2_TXDOUBLEX </item>
+//    <item> USART2_TXDOUBLE </item>
+//    <item> USART2_IF </item>
+//    <item> USART2_IFS </item>
+//    <item> USART2_IFC </item>
+//    <item> USART2_IEN </item>
+//    <item> USART2_IRCTRL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         UART0                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> UART0
+//    <item> UART0_CTRL </item>
+//    <item> UART0_FRAME </item>
+//    <item> UART0_TRIGCTRL </item>
+//    <item> UART0_CMD </item>
+//    <item> UART0_STATUS </item>
+//    <item> UART0_CLKDIV </item>
+//    <item> UART0_RXDATAX </item>
+//    <item> UART0_RXDATA </item>
+//    <item> UART0_RXDOUBLEX </item>
+//    <item> UART0_RXDOUBLE </item>
+//    <item> UART0_RXDATAXP </item>
+//    <item> UART0_RXDOUBLEXP </item>
+//    <item> UART0_TXDATAX </item>
+//    <item> UART0_TXDATA </item>
+//    <item> UART0_TXDOUBLEX </item>
+//    <item> UART0_TXDOUBLE </item>
+//    <item> UART0_IF </item>
+//    <item> UART0_IFS </item>
+//    <item> UART0_IFC </item>
+//    <item> UART0_IEN </item>
+//    <item> UART0_IRCTRL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        LEUART0                                       -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> LEUART0
+//    <item> LEUART0_CTRL </item>
+//    <item> LEUART0_CMD </item>
+//    <item> LEUART0_STATUS </item>
+//    <item> LEUART0_CLKDIV </item>
+//    <item> LEUART0_STARTFRAME </item>
+//    <item> LEUART0_SIGFRAME </item>
+//    <item> LEUART0_RXDATAX </item>
+//    <item> LEUART0_RXDATA </item>
+//    <item> LEUART0_RXDATAXP </item>
+//    <item> LEUART0_TXDATAX </item>
+//    <item> LEUART0_TXDATA </item>
+//    <item> LEUART0_IF </item>
+//    <item> LEUART0_IFS </item>
+//    <item> LEUART0_IFC </item>
+//    <item> LEUART0_IEN </item>
+//    <item> LEUART0_PULSECTRL </item>
+//    <item> LEUART0_FREEZE </item>
+//    <item> LEUART0_SYNCBUSY </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                        LEUART1                                       -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> LEUART1
+//    <item> LEUART1_CTRL </item>
+//    <item> LEUART1_CMD </item>
+//    <item> LEUART1_STATUS </item>
+//    <item> LEUART1_CLKDIV </item>
+//    <item> LEUART1_STARTFRAME </item>
+//    <item> LEUART1_SIGFRAME </item>
+//    <item> LEUART1_RXDATAX </item>
+//    <item> LEUART1_RXDATA </item>
+//    <item> LEUART1_RXDATAXP </item>
+//    <item> LEUART1_TXDATAX </item>
+//    <item> LEUART1_TXDATA </item>
+//    <item> LEUART1_IF </item>
+//    <item> LEUART1_IFS </item>
+//    <item> LEUART1_IFC </item>
+//    <item> LEUART1_IEN </item>
+//    <item> LEUART1_PULSECTRL </item>
+//    <item> LEUART1_FREEZE </item>
+//    <item> LEUART1_SYNCBUSY </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                       LETIMER0                                       -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> LETIMER0
+//    <item> LETIMER0_CTRL </item>
+//    <item> LETIMER0_CMD </item>
+//    <item> LETIMER0_STATUS </item>
+//    <item> LETIMER0_CNT </item>
+//    <item> LETIMER0_COMP0 </item>
+//    <item> LETIMER0_COMP1 </item>
+//    <item> LETIMER0_REP0 </item>
+//    <item> LETIMER0_REP1 </item>
+//    <item> LETIMER0_IF </item>
+//    <item> LETIMER0_IFS </item>
+//    <item> LETIMER0_IFC </item>
+//    <item> LETIMER0_IEN </item>
+//    <item> LETIMER0_FREEZE </item>
+//    <item> LETIMER0_SYNCBUSY </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         PCNT0                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> PCNT0
+//    <item> PCNT0_CTRL </item>
+//    <item> PCNT0_CMD </item>
+//    <item> PCNT0_STATUS </item>
+//    <item> PCNT0_CNT </item>
+//    <item> PCNT0_TOP </item>
+//    <item> PCNT0_TOPB </item>
+//    <item> PCNT0_IF </item>
+//    <item> PCNT0_IFS </item>
+//    <item> PCNT0_IFC </item>
+//    <item> PCNT0_IEN </item>
+//    <item> PCNT0_ROUTE </item>
+//    <item> PCNT0_FREEZE </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         PCNT1                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> PCNT1
+//    <item> PCNT1_CTRL </item>
+//    <item> PCNT1_CMD </item>
+//    <item> PCNT1_STATUS </item>
+//    <item> PCNT1_CNT </item>
+//    <item> PCNT1_TOP </item>
+//    <item> PCNT1_TOPB </item>
+//    <item> PCNT1_IF </item>
+//    <item> PCNT1_IFS </item>
+//    <item> PCNT1_IFC </item>
+//    <item> PCNT1_IEN </item>
+//    <item> PCNT1_ROUTE </item>
+//    <item> PCNT1_FREEZE </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         PCNT2                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> PCNT2
+//    <item> PCNT2_CTRL </item>
+//    <item> PCNT2_CMD </item>
+//    <item> PCNT2_STATUS </item>
+//    <item> PCNT2_CNT </item>
+//    <item> PCNT2_TOP </item>
+//    <item> PCNT2_TOPB </item>
+//    <item> PCNT2_IF </item>
+//    <item> PCNT2_IFS </item>
+//    <item> PCNT2_IFC </item>
+//    <item> PCNT2_IEN </item>
+//    <item> PCNT2_ROUTE </item>
+//    <item> PCNT2_FREEZE </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         I2C0                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> I2C0
+//    <item> I2C0_CTRL </item>
+//    <item> I2C0_CMD </item>
+//    <item> I2C0_STATE </item>
+//    <item> I2C0_STATUS </item>
+//    <item> I2C0_CLKDIV </item>
+//    <item> I2C0_SADDR </item>
+//    <item> I2C0_SADDRMASK </item>
+//    <item> I2C0_RXDATA </item>
+//    <item> I2C0_RXDATAP </item>
+//    <item> I2C0_TXDATA </item>
+//    <item> I2C0_IF </item>
+//    <item> I2C0_IFS </item>
+//    <item> I2C0_IFC </item>
+//    <item> I2C0_IEN </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         ADC0                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> ADC0
+//    <item> ADC0_CTRL </item>
+//    <item> ADC0_CMD </item>
+//    <item> ADC0_STATUS </item>
+//    <item> ADC0_SINGLECTRL </item>
+//    <item> ADC0_SCANCTRL </item>
+//    <item> ADC0_IEN </item>
+//    <item> ADC0_IF </item>
+//    <item> ADC0_IFS </item>
+//    <item> ADC0_IFC </item>
+//    <item> ADC0_SINGLEDATA </item>
+//    <item> ADC0_SCANDATA </item>
+//    <item> ADC0_SINGLEDATAP </item>
+//    <item> ADC0_SCANDATAP </item>
+//    <item> ADC0_CAL </item>
+//    <item> ADC0_ROUTE </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         DAC0                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> DAC0
+//    <item> DAC0_CTRL </item>
+//    <item> DAC0_STATUS </item>
+//    <item> DAC0_CH0CTRL </item>
+//    <item> DAC0_CH1CTRL </item>
+//    <item> DAC0_IEN </item>
+//    <item> DAC0_IF </item>
+//    <item> DAC0_IFS </item>
+//    <item> DAC0_IFC </item>
+//    <item> DAC0_CH0DATA </item>
+//    <item> DAC0_CH1DATA </item>
+//    <item> DAC0_COMBDATA </item>
+//    <item> DAC0_CAL </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         ACMP0                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> ACMP0
+//    <item> ACMP0_CTRL </item>
+//    <item> ACMP0_INPUTSEL </item>
+//    <item> ACMP0_STATUS </item>
+//    <item> ACMP0_IEN </item>
+//    <item> ACMP0_IF </item>
+//    <item> ACMP0_IFS </item>
+//    <item> ACMP0_IFC </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         ACMP1                                        -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> ACMP1
+//    <item> ACMP1_CTRL </item>
+//    <item> ACMP1_INPUTSEL </item>
+//    <item> ACMP1_STATUS </item>
+//    <item> ACMP1_IEN </item>
+//    <item> ACMP1_IF </item>
+//    <item> ACMP1_IFS </item>
+//    <item> ACMP1_IFC </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         VCMP                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> VCMP
+//    <item> VCMP_CTRL </item>
+//    <item> VCMP_INPUTSEL </item>
+//    <item> VCMP_STATUS </item>
+//    <item> VCMP_IEN </item>
+//    <item> VCMP_IF </item>
+//    <item> VCMP_IFS </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          LCD                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> LCD
+//    <item> LCD_CTRL </item>
+//    <item> LCD_DISPCTRL </item>
+//    <item> LCD_SEGEN </item>
+//    <item> LCD_BACTRL </item>
+//    <item> LCD_STATUS </item>
+//    <item> LCD_AREGA </item>
+//    <item> LCD_AREGB </item>
+//    <item> LCD_IF </item>
+//    <item> LCD_IFS </item>
+//    <item> LCD_IFC </item>
+//    <item> LCD_IEN </item>
+//    <item> LCD_SEGD0L </item>
+//    <item> LCD_SEGD1L </item>
+//    <item> LCD_SEGD2L </item>
+//    <item> LCD_SEGD3L </item>
+//    <item> LCD_SEGD0H </item>
+//    <item> LCD_SEGD1H </item>
+//    <item> LCD_SEGD2H </item>
+//    <item> LCD_SEGD3H </item>
+//    <item> LCD_FREEZE </item>
+//  </view>
+//  
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          RTC                                         -----
+// ------------------------------------------------------------------------------------------------
+
+//  <view> RTC
+//    <item> RTC_CTRL </item>
+//    <item> RTC_CNT </item>
+//    <item> RTC_COMP0 </item>
+//    <item> RTC_COMP1 </item>
+//    <item> RTC_IF </item>
+//    <item> RTC_IFS </item>
+//    <item> RTC_IFC </item>
+//    <item> RTC_IEN </item>
+//    <item> RTC_FREEZE </item>
+//  </view>
+//  

@@ -1,0 +1,13 @@
+The Blinky project is an simple example program for 
+the LPC2888 using NOHAU 'Philips LPC2800 Evaluation 
+Board'.
+
+Example functionality:
+ - 1 LED blink (D9)
+
+The Blinky program is available for different targets:
+  LPC2888 Int RAM:   configured for on-chip RAM
+                     (may be used for target debugging)
+  LPC2888 Int Flash: configured for internal Flash (1MB)
+                     (may be used for target debugging
+                      or production)

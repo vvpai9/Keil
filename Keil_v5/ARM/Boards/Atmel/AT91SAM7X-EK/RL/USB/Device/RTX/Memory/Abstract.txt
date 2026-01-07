@@ -1,0 +1,11 @@
+The Memory project is a demo program for the Atmel AT91SAM7X-EK Board 
+using a Atmel AT91SAM7X Microcontroller.
+
+It demonstrates an USB Memory based on USB Mass Storage Class.
+
+The USB Memory is automatically recognized by the host PC
+running Windows which will load a generic Mass Storage driver.
+
+The Memory program is available for the following target:
+  SAM7X-EK RTX: configured for on-chip Flash ROM - RTX version
+               (used for production or target debugging)

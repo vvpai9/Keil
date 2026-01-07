@@ -1,0 +1,121 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (LPC3250), 0x0004 // Tools: 'ARM-ADS'
+
+Group (HTML Source)
+Group (C Source Files)
+Group (Configuration Files)
+Group (Documentation)
+
+File 1,7,<.\webpage.html><webpage.html>
+File 2,1,<.\easyweb.c><easyweb.c>
+File 2,1,<.\tcpip.c><tcpip.c>
+File 2,1,<.\EMAC.c><EMAC.c>
+File 3,5,<.\tcpip.h><tcpip.h>
+File 3,2,<.\LPC32x0.s><LPC32x0.s>
+File 4,5,<.\Abstract.txt><Abstract.txt>
+
+
+Options 1,0,0  // Target 'LPC3250'
+ Device (LPC3250)
+ Vendor (NXP (founded by Philips))
+ Cpu (IRAM(0x08000000-0x0803FFFF) IROM(0-0x3FFF) CLOCK(13000000) CPUTYPE(ARM926EJ-S) FPU(ANSI))
+ FlashUt ()
+ StupF ("STARTUP\Philips\LPC32x0.s" ("Philips LPC32x0 Startup Code"))
+ FlashDR ()
+ DevID (4596)
+ Rgf (LPC325x.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿPhilips\)
+ OrgReg (ÿPhilips\)
+ TgStat=16
+ OutDir (.\Objects\)
+ OutName (easyweb)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\Listing\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM926EJ-S)
+ RVDEV ()
+ ADSTFLGA { 0,204,64,16,96,4,64,8,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,8,0,0,4,0 }
+ OCMADSIROM { 1,0,0,0,0,0,64,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,128,0,0,0,2,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,64,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,4,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 17,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN (SIZE_EXT_INFO EMC_NO_INIT RAM_INTVEC REMAP)
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x80000000)
+ ADSLDDA (0x82000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cLPC3000)(DARMP3.DLL)(-pLPC3250)(SARM.DLL)()(TARMP3.DLL)(-pLPC3000)
+  OPTDBG 43518,0,()()()()()()()()()(.\Ext_SDRAM.ini) (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.DLL)
+ FLASH3 ("" ())
+ FLASH4 (.\Prog_NOR.ini)
+EndOpt
+
+Options 1,1,1  // File 'webpage.html'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs (webconverter.exe webpage.html webpage.h)
+ LibMods ()
+EndOpt
+

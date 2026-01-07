@@ -1,0 +1,4 @@
+Dependencies for Project 'Blinky', Target 'SJA2510 Flash': (DO NOT MODIFY !)
+F (.\SJA2510.s)(0x4A02A6DC)(--device DARMP --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I "C:\Keil_v4\ARM\INC\Philips" --list ".\Flash\SJA2510.lst" --xref -o ".\Flash\SJA2510.o")
+F (.\Blinky.c)(0x4A02A6DC)(-c --device DARMP -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I "C:\Keil_v4\ARM\INC\Philips" -o ".\Flash\blinky.o" --depend ".\Flash\blinky.d")
+F (.\Abstract.txt)(0x4A02A6DC)()

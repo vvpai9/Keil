@@ -1,0 +1,16 @@
+The Blinky project is a simple demo program for the Toshiba TMPM330
+using Toshiba TMPM330 Evaluation Board.
+
+It blinks LED (PI.0) at a constant rate, SW3 (PJ.0/INT0) push button
+can be used to pause.
+
+Board connections:
+J14.1 (LED) <-> J29.PI0 (PI.0)
+JP22 fitted
+
+The Blinky program is available in different targets:
+  Simulator:       runs in software Simulator
+  TMPM330 Flash:   runs from Internal Flash located on chip
+                   (used for production or target debugging)
+  TMPM330 RAM:     runs from Internal RAM located on chip
+                   (used for target debugging)

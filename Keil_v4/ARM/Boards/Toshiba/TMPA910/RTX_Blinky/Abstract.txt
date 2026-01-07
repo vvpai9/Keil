@@ -1,0 +1,28 @@
+This is a simple RTX Kernel based example for the 
+Toshiba 'TMPA910CRAXBG' microcontroller using Toshiba 
+'TOPAS 910 BMSKTOPASA910(DCE) V1.0' Evaluation Board: 
+
+Example functionality:
+ - 7-segment LED display lights the segments in the
+   circulation mode, triggered by the clock pulses
+   of a decimal point segment.
+
+Clocks:   XTAL                     =  24.00 MHz
+          PLL                      = 192.00 MHz
+          FCLK                     = 192.00 MHz
+          HCLK      = FCLK / 2     =  96.00 MHz
+          SMC_MCLK  = HCLK         =  96.00 MHz 
+          SMC_TIM45 = HCLK / 2     =  48.00 MHz 
+          SMC_TIM23 = HCLK / 2     =  48.00 MHz 
+          SMC_TIM01 = HCLK / 2     =  48.00 MHz 
+Memories: 16kB Internal ROM (adr: 0x00000000)
+          56kB Internal RAM (adr: 0xF8002000)
+          64MB SDRAM        (adr: 0x40000000)
+          32MB NOR Flash    (adr: 0x00000000)
+
+The BLINKY example program is available for target:
+  TMPA910 Int RAM:  configured for on-chip RAM
+                    (may be used for target debugging)
+
+Notes:
+  DIP Switch positions: SELJTAG, AM[1] = ON, other = OFF

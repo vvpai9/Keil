@@ -1,0 +1,14 @@
+This is a simple Blinky example for the LM3S316 with the Keil
+MCBLM3S Evaluation Board.
+
+It blinks the Go LED once per second and shows a bar graph on
+the Red, Yellow and Green LED according to the analog voltage
+from the potentiometer. The push button controls the Stop LED.
+
+The Blinky program is available for different targets:
+  Simulator:      configured for software Simulator
+  MCBLM3S:        configured for MCBLM3S Board
+                  (runs from Internal Flash located on chip)
+  MCBLM3S Trace:  configured for MCBLM3S Board with Trace
+                  (shows variables AD_Value and Ticks in 
+                   Logic Analyzer)

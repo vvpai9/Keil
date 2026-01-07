@@ -1,0 +1,123 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\RMU.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          RMU                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ----------------------------------------  RMU_CTRL  --------------------------------------------
+
+unsigned int RMU_CTRL __AT (0x400CA000);
+
+//  <item> Reg_RMU_CTRL
+//    <i> RMU_CTRL [31..0] (@ 0x400CA000) </i>
+//    <edit> 
+//      <loc> ( (int)((RMU_CTRL>>0) & 0xFFFFFFFF), ( (RMU_CTRL &= ~(0xFFFFFFFF<<0)), (RMU_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RMU_CTRL_LOCKUPRDIS
+//    <i> LOCKUPRDIS [0] (@ 0x400CA000) </i>
+//    <check> 
+//      <loc> RMU_CTRL </loc>
+//      <o.0..0> LOCKUPRDIS
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  RMU_RSTCAUSE  ------------------------------------------
+
+unsigned int RMU_RSTCAUSE __AT (0x400CA004);
+
+//  <item> Reg_RMU_RSTCAUSE
+//    <i> RMU_RSTCAUSE [31..0] (@ 0x400CA004) </i>
+//    <edit> 
+//      <loc> ( (int)((RMU_RSTCAUSE>>0) & 0xFFFFFFFF), ( (RMU_RSTCAUSE &= ~(0xFFFFFFFF<<0)), (RMU_RSTCAUSE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RMU_RSTCAUSE_PORST
+//    <i> PORST [0] (@ 0x400CA004) </i>
+//    <check> 
+//      <loc> RMU_RSTCAUSE </loc>
+//      <o.0..0> PORST
+//    </check>
+//  </item>
+//  
+//  <item> RMU_RSTCAUSE_BODUNREGRST
+//    <i> BODUNREGRST [1] (@ 0x400CA004) </i>
+//    <check> 
+//      <loc> RMU_RSTCAUSE </loc>
+//      <o.1..1> BODUNREGRST
+//    </check>
+//  </item>
+//  
+//  <item> RMU_RSTCAUSE_BODREGRST
+//    <i> BODREGRST [2] (@ 0x400CA004) </i>
+//    <check> 
+//      <loc> RMU_RSTCAUSE </loc>
+//      <o.2..2> BODREGRST
+//    </check>
+//  </item>
+//  
+//  <item> RMU_RSTCAUSE_EXTRST
+//    <i> EXTRST [3] (@ 0x400CA004) </i>
+//    <check> 
+//      <loc> RMU_RSTCAUSE </loc>
+//      <o.3..3> EXTRST
+//    </check>
+//  </item>
+//  
+//  <item> RMU_RSTCAUSE_WDOGRST
+//    <i> WDOGRST [4] (@ 0x400CA004) </i>
+//    <check> 
+//      <loc> RMU_RSTCAUSE </loc>
+//      <o.4..4> WDOGRST
+//    </check>
+//  </item>
+//  
+//  <item> RMU_RSTCAUSE_LOCKUPRST
+//    <i> LOCKUPRST [5] (@ 0x400CA004) </i>
+//    <check> 
+//      <loc> RMU_RSTCAUSE </loc>
+//      <o.5..5> LOCKUPRST
+//    </check>
+//  </item>
+//  
+//  <item> RMU_RSTCAUSE_SYSREQRST
+//    <i> SYSREQRST [6] (@ 0x400CA004) </i>
+//    <check> 
+//      <loc> RMU_RSTCAUSE </loc>
+//      <o.6..6> SYSREQRST
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------------  RMU_CMD  --------------------------------------------
+
+unsigned int RMU_CMD __AT (0x400CA008);
+
+//  <item> Reg_RMU_CMD
+//    <i> RMU_CMD [31..0] (@ 0x400CA008) </i>
+//    <edit> 
+//      <loc> ( (int)((RMU_CMD>>0) & 0xFFFFFFFF), ( (RMU_CMD &= ~(0xFFFFFFFF<<0)), (RMU_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> RMU_CMD_RCCLR
+//    <i> RCCLR [0] (@ 0x400CA008) </i>
+//    <check> 
+//      <loc> RMU_CMD </loc>
+//      <o.0..0> RCCLR
+//    </check>
+//  </item>
+//  

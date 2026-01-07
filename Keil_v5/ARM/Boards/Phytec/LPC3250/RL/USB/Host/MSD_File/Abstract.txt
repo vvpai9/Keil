@@ -1,0 +1,34 @@
+This is an RL-USB-Host and RL Flash File System file manipulation example.
+You can create, read, copy, delete files from the Mass Storage 
+Device and format the device. 
+
+Example functionality:
+ - Clock Settings:
+   - XTAL                      =  13.00 MHz
+   - SYSCLK                    =  13.00 MHz
+   - HCLKPLL                   = 208.00 MHz
+   - USBPLL                    =  48.00 MHz
+   - ARM_CLK    = HCLKPLL      = 208.00 MHz
+   - HCLK       = HCLKPLL / 2  = 104.00 MHz
+   - USBCLK     = USBPLL       =  48.00 MHz
+   - PERIPH_CLK = HCLKPLL / 16 =  13.00 MHz
+
+ - Communication Interface Settings:
+   - UART5: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+The MSD_FILE program is a standalone application loaded into
+off-chip NOR flash and available for one target:
+
+Phytec LPC3250: Standalone application for Phytec LPC3250 board,
+           configured to run in external SDRAM and loaded to
+           external NOR flash. This example uses COM 
+           (bottom conn.) as a communication interface.
+
+Notes: for standalone application (NOR, NAND) you have to:
+        1. Download the 2-nd level bootloader 
+           (from Keil) to appropriate external flash 
+        2. Download application built for 'Ext SDRAM' 
+           target to appropriate Flash
+
+Documentation on the Web: 
+  http://www.keil.com/support/man/docs/rlarm/rlarm_fs_ex_msd.htm

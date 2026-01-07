@@ -1,0 +1,14 @@
+This is a simple RTX Kernel based example which toggles port
+pin GPIO0 and prints message on USART2 serial port.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL     =  13.5 MHz
+   - PLL0     =  81.0 MHz
+   - SysCCLK  =  40.5 MHz
+
+ - USART2 settings: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+The RTX_Blinky program is available for one target:
+  BU1511KV2-EB:  runs from external Flash
+                 (used for production or target debugging)

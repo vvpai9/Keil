@@ -1,0 +1,686 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\CM3.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                          CM3                                         -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// -------------------------------------  CM3_NVICAUXCTRL  ----------------------------------------
+
+unsigned int CM3_NVICAUXCTRL __AT (0xE000E008);
+
+//  <item> Reg_CM3_NVICAUXCTRL
+//    <i> CM3_NVICAUXCTRL [31..0] (@ 0xE000E008) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICAUXCTRL>>0) & 0xFFFFFFFF), ( (CM3_NVICAUXCTRL &= ~(0xFFFFFFFF<<0)), (CM3_NVICAUXCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICAUXCTRL_DISMCYCINT
+//    <i> DISMCYCINT [0] (@ 0xE000E008) </i>
+//    <check> 
+//      <loc> CM3_NVICAUXCTRL </loc>
+//      <o.0..0> DISMCYCINT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICAUXCTRL_DISDEFWBUF
+//    <i> DISDEFWBUF [1] (@ 0xE000E008) </i>
+//    <check> 
+//      <loc> CM3_NVICAUXCTRL </loc>
+//      <o.1..1> DISDEFWBUF
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICAUXCTRL_DISFOLD
+//    <i> DISFOLD [2] (@ 0xE000E008) </i>
+//    <check> 
+//      <loc> CM3_NVICAUXCTRL </loc>
+//      <o.2..2> DISFOLD
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_NVICVECTSETIEN  ---------------------------------------
+
+unsigned int CM3_NVICVECTSETIEN __AT (0xE000E100);
+
+//  <item> Reg_CM3_NVICVECTSETIEN
+//    <i> CM3_NVICVECTSETIEN [31..0] (@ 0xE000E100) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTSETIEN>>0) & 0xFFFFFFFF), ( (CM3_NVICVECTSETIEN &= ~(0xFFFFFFFF<<0)), (CM3_NVICVECTSETIEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICVECTSETIEN_IEN
+//    <i> IEN [31..0] (@ 0xE000E100) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTSETIEN>>0) & 0xFFFFFFFE), ( (CM3_NVICVECTSETIEN &= ~(0xFFFFFFFE<<0)), (CM3_NVICVECTSETIEN |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_NVICVECTSETIDIS  --------------------------------------
+
+unsigned int CM3_NVICVECTSETIDIS __AT (0xE000E180);
+
+//  <item> Reg_CM3_NVICVECTSETIDIS
+//    <i> CM3_NVICVECTSETIDIS [31..0] (@ 0xE000E180) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTSETIDIS>>0) & 0xFFFFFFFF), ( (CM3_NVICVECTSETIDIS &= ~(0xFFFFFFFF<<0)), (CM3_NVICVECTSETIDIS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICVECTSETIDIS_IDIS
+//    <i> IDIS [31..0] (@ 0xE000E180) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTSETIDIS>>0) & 0xFFFFFFFE), ( (CM3_NVICVECTSETIDIS &= ~(0xFFFFFFFE<<0)), (CM3_NVICVECTSETIDIS |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_NVICVECTSETPEND  --------------------------------------
+
+unsigned int CM3_NVICVECTSETPEND __AT (0xE000E200);
+
+//  <item> Reg_CM3_NVICVECTSETPEND
+//    <i> CM3_NVICVECTSETPEND [31..0] (@ 0xE000E200) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTSETPEND>>0) & 0xFFFFFFFF), ( (CM3_NVICVECTSETPEND &= ~(0xFFFFFFFF<<0)), (CM3_NVICVECTSETPEND |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICVECTSETPEND_SETPEND
+//    <i> SETPEND [31..0] (@ 0xE000E200) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTSETPEND>>0) & 0xFFFFFFFE), ( (CM3_NVICVECTSETPEND &= ~(0xFFFFFFFE<<0)), (CM3_NVICVECTSETPEND |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------  CM3_NVICVECTCLEARPEND  -------------------------------------
+
+unsigned int CM3_NVICVECTCLEARPEND __AT (0xE000E280);
+
+//  <item> Reg_CM3_NVICVECTCLEARPEND
+//    <i> CM3_NVICVECTCLEARPEND [31..0] (@ 0xE000E280) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTCLEARPEND>>0) & 0xFFFFFFFF), ( (CM3_NVICVECTCLEARPEND &= ~(0xFFFFFFFF<<0)), (CM3_NVICVECTCLEARPEND |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICVECTCLEARPEND_CLEARPEND
+//    <i> CLEARPEND [31..0] (@ 0xE000E280) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTCLEARPEND>>0) & 0xFFFFFFFE), ( (CM3_NVICVECTCLEARPEND &= ~(0xFFFFFFFE<<0)), (CM3_NVICVECTCLEARPEND |= ((Gui_u32:GuiVal & 0xFFFFFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  CM3_NVICPRI0  ------------------------------------------
+
+unsigned int CM3_NVICPRI0 __AT (0xE000E400);
+
+//  <item> Reg_CM3_NVICPRI0
+//    <i> CM3_NVICPRI0 [31..0] (@ 0xE000E400) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICPRI0>>0) & 0xFFFFFFFF), ( (CM3_NVICPRI0 &= ~(0xFFFFFFFF<<0)), (CM3_NVICPRI0 |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICPRI0_PRI0
+//    <i> PRI0 [7..0] (@ 0xE000E400) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_NVICPRI0>>0) & 0xFE), ( (CM3_NVICPRI0 &= ~(0xFE<<0)), (CM3_NVICPRI0 |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICPRI0_PRI1
+//    <i> PRI1 [15..8] (@ 0xE000E400) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_NVICPRI0>>8) & 0xFE), ( (CM3_NVICPRI0 &= ~(0xFE<<8)), (CM3_NVICPRI0 |= ((Gui_u8:GuiVal & 0xFE)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICPRI0_PRI2
+//    <i> PRI2 [23..16] (@ 0xE000E400) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_NVICPRI0>>16) & 0xFE), ( (CM3_NVICPRI0 &= ~(0xFE<<16)), (CM3_NVICPRI0 |= ((Gui_u8:GuiVal & 0xFE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICPRI0_PRI3
+//    <i> PRI3 [31..24] (@ 0xE000E400) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_NVICPRI0>>24) & 0xFE), ( (CM3_NVICPRI0 &= ~(0xFE<<24)), (CM3_NVICPRI0 |= ((Gui_u8:GuiVal & 0xFE)<<24)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  CM3_NVICISCR  ------------------------------------------
+
+unsigned int CM3_NVICISCR __AT (0xE000ED04);
+
+//  <item> Reg_CM3_NVICISCR
+//    <i> CM3_NVICISCR [31..0] (@ 0xE000ED04) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICISCR>>0) & 0xFFFFFFFF), ( (CM3_NVICISCR &= ~(0xFFFFFFFF<<0)), (CM3_NVICISCR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICISCR_VECTACTIVE
+//    <i> VECTACTIVE [8..0] (@ 0xE000ED04) </i>
+//    <edit> 
+//      <loc> ( (short int)((CM3_NVICISCR>>0) & 0x1FE), ( (CM3_NVICISCR &= ~(0x1FE<<0)), (CM3_NVICISCR |= ((Gui_u16:GuiVal & 0x1FE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICISCR_RETTOBASE
+//    <i> RETTOBASE [11] (@ 0xE000ED04) </i>
+//    <check> 
+//      <loc> CM3_NVICISCR </loc>
+//      <o.11..11> RETTOBASE
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICISCR_VECTPENDING
+//    <i> VECTPENDING [20..12] (@ 0xE000ED04) </i>
+//    <edit> 
+//      <loc> ( (short int)((CM3_NVICISCR>>12) & 0x1FE), ( (CM3_NVICISCR &= ~(0x1FE<<12)), (CM3_NVICISCR |= ((Gui_u16:GuiVal & 0x1FE)<<12)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_NVICVECTTABOFF  ---------------------------------------
+
+unsigned int CM3_NVICVECTTABOFF __AT (0xE000ED08);
+
+//  <item> Reg_CM3_NVICVECTTABOFF
+//    <i> CM3_NVICVECTTABOFF [31..0] (@ 0xE000ED08) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTTABOFF>>0) & 0xFFFFFFFF), ( (CM3_NVICVECTTABOFF &= ~(0xFFFFFFFF<<0)), (CM3_NVICVECTTABOFF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICVECTTABOFF_OFFSET
+//    <i> OFFSET [28..7] (@ 0xE000ED08) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICVECTTABOFF>>7) & 0x3FFFFE), ( (CM3_NVICVECTTABOFF &= ~(0x3FFFFE<<7)), (CM3_NVICVECTTABOFF |= ((Gui_u32:GuiVal & 0x3FFFFE)<<7)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICVECTTABOFF_BASE
+//    <i> BASE [29] (@ 0xE000ED08) </i>
+//    <check> 
+//      <loc> CM3_NVICVECTTABOFF </loc>
+//      <o.29..29> BASE
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  CM3_NVICSYSCTRL  ----------------------------------------
+
+unsigned int CM3_NVICSYSCTRL __AT (0xE000ED10);
+
+//  <item> Reg_CM3_NVICSYSCTRL
+//    <i> CM3_NVICSYSCTRL [31..0] (@ 0xE000ED10) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICSYSCTRL>>0) & 0xFFFFFFFF), ( (CM3_NVICSYSCTRL &= ~(0xFFFFFFFF<<0)), (CM3_NVICSYSCTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICSYSCTRL_SLEEPONEXIT
+//    <i> SLEEPONEXIT [1] (@ 0xE000ED10) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSCTRL </loc>
+//      <o.1..1> SLEEPONEXIT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSCTRL_GOSUBEM1
+//    <i> GOSUBEM1 [2] (@ 0xE000ED10) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSCTRL </loc>
+//      <o.2..2> GOSUBEM1
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSCTRL_SEVONPEND
+//    <i> SEVONPEND [4] (@ 0xE000ED10) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSCTRL </loc>
+//      <o.4..4> SEVONPEND
+//    </check>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_NVICSYSHANDLER  ---------------------------------------
+
+unsigned int CM3_NVICSYSHANDLER __AT (0xE000ED24);
+
+//  <item> Reg_CM3_NVICSYSHANDLER
+//    <i> CM3_NVICSYSHANDLER [31..0] (@ 0xE000ED24) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICSYSHANDLER>>0) & 0xFFFFFFFF), ( (CM3_NVICSYSHANDLER &= ~(0xFFFFFFFF<<0)), (CM3_NVICSYSHANDLER |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_MEMFAULTACT
+//    <i> MEMFAULTACT [0] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.0..0> MEMFAULTACT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_BUSFAULTACT
+//    <i> BUSFAULTACT [1] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.1..1> BUSFAULTACT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_USGFAULTACT
+//    <i> USGFAULTACT [3] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.3..3> USGFAULTACT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_SVCALLACT
+//    <i> SVCALLACT [7] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.7..7> SVCALLACT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_MONITORACT
+//    <i> MONITORACT [8] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.8..8> MONITORACT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_PENDSVACT
+//    <i> PENDSVACT [10] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.10..10> PENDSVACT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_SYSTICKACT
+//    <i> SYSTICKACT [11] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.11..11> SYSTICKACT
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_USGFAULTPENDED
+//    <i> USGFAULTPENDED [12] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.12..12> USGFAULTPENDED
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_MEMFAULTPENDED
+//    <i> MEMFAULTPENDED [13] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.13..13> MEMFAULTPENDED
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_BUSFAULTPENDED
+//    <i> BUSFAULTPENDED [14] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.14..14> BUSFAULTPENDED
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_SVCALLPENDED
+//    <i> SVCALLPENDED [15] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.15..15> SVCALLPENDED
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_MEMFAULTENA
+//    <i> MEMFAULTENA [16] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.16..16> MEMFAULTENA
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_BUSFAULTENA
+//    <i> BUSFAULTENA [17] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.17..17> BUSFAULTENA
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICSYSHANDLER_USGFAULTENA
+//    <i> USGFAULTENA [18] (@ 0xE000ED24) </i>
+//    <check> 
+//      <loc> CM3_NVICSYSHANDLER </loc>
+//      <o.18..18> USGFAULTENA
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CM3_NVICCFSR  ------------------------------------------
+
+unsigned int CM3_NVICCFSR __AT (0xE000ED28);
+
+//  <item> Reg_CM3_NVICCFSR
+//    <i> CM3_NVICCFSR [31..0] (@ 0xE000ED28) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICCFSR>>0) & 0xFFFFFFFF), ( (CM3_NVICCFSR &= ~(0xFFFFFFFF<<0)), (CM3_NVICCFSR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_IBUSERR
+//    <i> IBUSERR [8] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.8..8> IBUSERR
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_PRECISERR
+//    <i> PRECISERR [9] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.9..9> PRECISERR
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_IMPRECISERR
+//    <i> IMPRECISERR [10] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.10..10> IMPRECISERR
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_UNSTKERR
+//    <i> UNSTKERR [11] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.11..11> UNSTKERR
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_STKERR
+//    <i> STKERR [12] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.12..12> STKERR
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_BFARVALID
+//    <i> BFARVALID [15] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.15..15> BFARVALID
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_UNDEFINSTR
+//    <i> UNDEFINSTR [16] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.16..16> UNDEFINSTR
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_INVSTATE
+//    <i> INVSTATE [17] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.17..17> INVSTATE
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_INVPC
+//    <i> INVPC [18] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.18..18> INVPC
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_NOCP
+//    <i> NOCP [19] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.19..19> NOCP
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_UNALIGNED
+//    <i> UNALIGNED [24] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.24..24> UNALIGNED
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICCFSR_DIVBYZERO
+//    <i> DIVBYZERO [25] (@ 0xE000ED28) </i>
+//    <check> 
+//      <loc> CM3_NVICCFSR </loc>
+//      <o.25..25> DIVBYZERO
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CM3_NVICHFSR  ------------------------------------------
+
+unsigned int CM3_NVICHFSR __AT (0xE000ED2C);
+
+//  <item> Reg_CM3_NVICHFSR
+//    <i> CM3_NVICHFSR [31..0] (@ 0xE000ED2C) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICHFSR>>0) & 0xFFFFFFFF), ( (CM3_NVICHFSR &= ~(0xFFFFFFFF<<0)), (CM3_NVICHFSR |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICHFSR_VECTTBL
+//    <i> VECTTBL [1] (@ 0xE000ED2C) </i>
+//    <check> 
+//      <loc> CM3_NVICHFSR </loc>
+//      <o.1..1> VECTTBL
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICHFSR_FORCED
+//    <i> FORCED [30] (@ 0xE000ED2C) </i>
+//    <check> 
+//      <loc> CM3_NVICHFSR </loc>
+//      <o.30..30> FORCED
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICHFSR_DEBUGEVT
+//    <i> DEBUGEVT [31] (@ 0xE000ED2C) </i>
+//    <check> 
+//      <loc> CM3_NVICHFSR </loc>
+//      <o.31..31> DEBUGEVT
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  CM3_NVICAIRC  ------------------------------------------
+
+unsigned int CM3_NVICAIRC __AT (0xE001CD0C);
+
+//  <item> Reg_CM3_NVICAIRC
+//    <i> CM3_NVICAIRC [31..0] (@ 0xE001CD0C) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_NVICAIRC>>0) & 0xFFFFFFFF), ( (CM3_NVICAIRC &= ~(0xFFFFFFFF<<0)), (CM3_NVICAIRC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICAIRC_VECTRESET
+//    <i> VECTRESET [0] (@ 0xE001CD0C) </i>
+//    <check> 
+//      <loc> CM3_NVICAIRC </loc>
+//      <o.0..0> VECTRESET
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICAIRC_SYSRESETREQ
+//    <i> SYSRESETREQ [2] (@ 0xE001CD0C) </i>
+//    <check> 
+//      <loc> CM3_NVICAIRC </loc>
+//      <o.2..2> SYSRESETREQ
+//    </check>
+//  </item>
+//  
+//  <item> CM3_NVICAIRC_PRIGROUP
+//    <i> PRIGROUP [10..8] (@ 0xE001CD0C) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_NVICAIRC>>8) & 0x6), ( (CM3_NVICAIRC &= ~(0x6<<8)), (CM3_NVICAIRC |= ((Gui_u8:GuiVal & 0x6)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_NVICAIRC_VECTKEY
+//    <i> VECTKEY [31..16] (@ 0xE001CD0C) </i>
+//    <edit> 
+//      <loc> ( (short int)((CM3_NVICAIRC>>16) & 0xFFFE), ( (CM3_NVICAIRC &= ~(0xFFFE<<16)), (CM3_NVICAIRC |= ((Gui_u16:GuiVal & 0xFFFE)<<16)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_CHIPREVMAJORLSB  --------------------------------------
+
+unsigned int CM3_CHIPREVMAJORLSB __AT (0xE00FFFE0);
+
+//  <item> Reg_CM3_CHIPREVMAJORLSB
+//    <i> CM3_CHIPREVMAJORLSB [31..0] (@ 0xE00FFFE0) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_CHIPREVMAJORLSB>>0) & 0xFFFFFFFF), ( (CM3_CHIPREVMAJORLSB &= ~(0xFFFFFFFF<<0)), (CM3_CHIPREVMAJORLSB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_CHIPREVMAJORLSB_MAJORREVLSB
+//    <i> MAJORREVLSB [7..0] (@ 0xE00FFFE0) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_CHIPREVMAJORLSB>>0) & 0xFE), ( (CM3_CHIPREVMAJORLSB &= ~(0xFE<<0)), (CM3_CHIPREVMAJORLSB |= ((Gui_u8:GuiVal & 0xFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_CHIPREVMAJORMSB  --------------------------------------
+
+unsigned int CM3_CHIPREVMAJORMSB __AT (0xE00FFFE4);
+
+//  <item> Reg_CM3_CHIPREVMAJORMSB
+//    <i> CM3_CHIPREVMAJORMSB [31..0] (@ 0xE00FFFE4) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_CHIPREVMAJORMSB>>0) & 0xFFFFFFFF), ( (CM3_CHIPREVMAJORMSB &= ~(0xFFFFFFFF<<0)), (CM3_CHIPREVMAJORMSB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_CHIPREVMAJORMSB_MAJORREVMSB
+//    <i> MAJORREVMSB [3..0] (@ 0xE00FFFE4) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_CHIPREVMAJORMSB>>0) & 0xE), ( (CM3_CHIPREVMAJORMSB &= ~(0xE<<0)), (CM3_CHIPREVMAJORMSB |= ((Gui_u8:GuiVal & 0xE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_CHIPREVMAJORMSB_JEP106LSB
+//    <i> JEP106LSB [7..4] (@ 0xE00FFFE4) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_CHIPREVMAJORMSB>>4) & 0xE), ( (CM3_CHIPREVMAJORMSB &= ~(0xE<<4)), (CM3_CHIPREVMAJORMSB |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_CHIPREVMINORMSB  --------------------------------------
+
+unsigned int CM3_CHIPREVMINORMSB __AT (0xE00FFFE8);
+
+//  <item> Reg_CM3_CHIPREVMINORMSB
+//    <i> CM3_CHIPREVMINORMSB [31..0] (@ 0xE00FFFE8) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_CHIPREVMINORMSB>>0) & 0xFFFFFFFF), ( (CM3_CHIPREVMINORMSB &= ~(0xFFFFFFFF<<0)), (CM3_CHIPREVMINORMSB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_CHIPREVMINORMSB_JEP106MSB
+//    <i> JEP106MSB [2..0] (@ 0xE00FFFE8) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_CHIPREVMINORMSB>>0) & 0x6), ( (CM3_CHIPREVMINORMSB &= ~(0x6<<0)), (CM3_CHIPREVMINORMSB |= ((Gui_u8:GuiVal & 0x6)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_CHIPREVMINORMSB_JEP106USED
+//    <i> JEP106USED [3] (@ 0xE00FFFE8) </i>
+//    <check> 
+//      <loc> CM3_CHIPREVMINORMSB </loc>
+//      <o.3..3> JEP106USED
+//    </check>
+//  </item>
+//  
+//  <item> CM3_CHIPREVMINORMSB_MINORREVMSB
+//    <i> MINORREVMSB [7..4] (@ 0xE00FFFE8) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_CHIPREVMINORMSB>>4) & 0xE), ( (CM3_CHIPREVMINORMSB &= ~(0xE<<4)), (CM3_CHIPREVMINORMSB |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// -----------------------------------  CM3_CHIPREVMINORLSB  --------------------------------------
+
+unsigned int CM3_CHIPREVMINORLSB __AT (0xE00FFFEC);
+
+//  <item> Reg_CM3_CHIPREVMINORLSB
+//    <i> CM3_CHIPREVMINORLSB [31..0] (@ 0xE00FFFEC) </i>
+//    <edit> 
+//      <loc> ( (int)((CM3_CHIPREVMINORLSB>>0) & 0xFFFFFFFF), ( (CM3_CHIPREVMINORLSB &= ~(0xFFFFFFFF<<0)), (CM3_CHIPREVMINORLSB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> CM3_CHIPREVMINORLSB_MINORREVLSB
+//    <i> MINORREVLSB [7..4] (@ 0xE00FFFEC) </i>
+//    <edit> 
+//      <loc> ( (char)((CM3_CHIPREVMINORLSB>>4) & 0xE), ( (CM3_CHIPREVMINORLSB &= ~(0xE<<4)), (CM3_CHIPREVMINORLSB |= ((Gui_u8:GuiVal & 0xE)<<4)) ) ) </loc>
+//    </edit>
+//  </item>
+//  

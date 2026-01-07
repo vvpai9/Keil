@@ -1,0 +1,8 @@
+This is a simple RTX Kernel based example which blinks LED
+on the Luminary LM3S6965 Evaluation Board.
+
+The BLINKY example program is available one target:
+
+LM3S6965: Luminary LM3S6965 Evaluation board with ULINK debugger
+          - Application is loaded to internal Flash.
+

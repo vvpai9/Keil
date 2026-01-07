@@ -1,0 +1,65 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (LPC29xx 512kB Flash), 0x0004 // Tools: 'ARM-ADS'
+Target (LPC29xx 768kB Flash), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Program Functions),1,0,0
+GRPOPT 2,(Device Description),1,0,0
+
+OPTFFF 1,1,1,2,0,1,1,0,<.\FlashPrg.c><FlashPrg.c> { 44,0,0,0,2,0,0,0,3,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,22,0,0,0,29,0,0,0,158,4,0,0,200,2,0,0 }
+OPTFFF 2,2,1,0,0,1,1,0,<.\FlashDev.c><FlashDev.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,154,0,0,0,203,0,0,0,82,5,0,0,41,3,0,0 }
+
+
+TARGOPT 1, (LPC29xx 512kB Flash)
+ ADSCLK=10000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 8
+  OPTBL 0,(Data Sheet)<DATASHTS\PHILIPS\LPC2919_DS.PDF>
+  OPTBL 1,(User Manual)<DATASHTS\PHILIPS\LPC29xx_UM.pdf>
+  OPTDL (SARM.DLL)(-cLPC29xx)(DARMP.DLL)(-pLPC2919)(SARM.DLL)()(TARMP.DLL)(-pLPC2919)
+  OPTDBG 48125,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGDARM)((134=-1,-1,-1,-1,0)(135=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(80=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0)(136=-1,-1,-1,-1,0)(117=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(114=-1,-1,-1,-1,0)(115=-1,-1,-1,-1,0)(116=-1,-1,-1,-1,0))
+  OPTKEY 0,(ARMDBGFLAGS)(-T5F)
+  OPTKEY 0,(UL2ARM)(-U268761108 -O7 -S0 -C0 -FO15 -FD80000000 -FC800 -FN0)
+  OPTDF 0x84
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (LPC29xx 768kB Flash)
+ ADSCLK=10000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 8
+  OPTBL 0,(Data Sheet)<DATASHTS\PHILIPS\LPC2919_DS.PDF>
+  OPTBL 1,(User Manual)<DATASHTS\PHILIPS\LPC29xx_UM.pdf>
+  OPTDL (SARM.DLL)(-cLPC29xx)(DARMP.DLL)(-pLPC2919)(SARM.DLL)()(TARMP.DLL)(-pLPC2919)
+  OPTDBG 43509,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(DLGDARM)((134=-1,-1,-1,-1,0)(135=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)(108=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(105=-1,-1,-1,-1,0)(80=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(112=-1,-1,-1,-1,0)(136=-1,-1,-1,-1,0)(117=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(111=-1,-1,-1,-1,0)(114=-1,-1,-1,-1,0)(115=-1,-1,-1,-1,0)(116=-1,-1,-1,-1,0))
+  OPTKEY 0,(UL2ARM)(-U268761108 -O7 -S0 -C0 -FO15 -FD80000000 -FC800 -FN0)
+  OPTKEY 0,(ARMDBGFLAGS)(-T5F)
+  OPTDF 0x84
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

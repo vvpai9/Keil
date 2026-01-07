@@ -1,0 +1,15 @@
+The HID project is a demo program for the Atmel AT91SAM7X-EK Board 
+using a Atmel AT91SAM7X Microcontroller.
+
+It demonstrates an USB HID (Human Interface Device):
+  - 4 LEDs (DS1..4)
+  - 1 Joystick (simulating 5 Push Buttons SW1..5)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following target:
+  SAM7X-EK RTX: configured for on-chip Flash ROM - RTX version
+               (used for production or target debugging)

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>NUCLEO-WB55RG_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32WB Series NUCLEO-WB55RG Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/ST_NUCLEO-WB55RG_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.0" date="2025-09-17" tag="v1.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added DWARF-5 debug information
+      - Added generated output files
+      Package Description (pdsc):
+      - Removed 'compatibleDevice' element
+    </release>
+    <release version="1.0.0" date="2025-03-19" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for NUCLEO-WB55RG
+      Blinky example (CMSIS Solution)
+      Default Board Layer
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32WB</keyword>
+    <keyword>NUCLEO-WB55RG</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32WBxx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="NUCLEO-WB55RG">
+      <description>STMicroelectronics NUCLEO-WB55RG Board</description>
+      <require Bvendor="STMicroelectronics" Bname="NUCLEO-WB55RG"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="NUCLEO-WB55RG GPIO">
+      <description>STMicroelectronics NUCLEO-WB55RG Board with CMSIS Driver GPIO</description>
+      <require condition="NUCLEO-WB55RG"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for NUCLEO-WB55RG -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="NUCLEO-WB55RG GPIO">
+      <description>I/O implementation for NUCLEO-WB55RG</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_NUCLEO_WB55RG
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_NUCLEO-WB55RG.c"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <clayer type="Board" path="Layers/Default" file="Board.clayer.yml" copy-to="Board/NUCLEO-WB55RG" condition="NUCLEO-WB55RG"/>
+  </csolution>
+
+  <boards>
+    <!-- NUCLEO-WB55RG -->
+    <board vendor="STMicroelectronics" name="NUCLEO-WB55RG" revision="Rev.D"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Nucleo development board with STM32F446RETx MCU</description>
+      <image small="Images/nucleo-wb55rg_small.png"
+             large="Images/nucleo-wb55rg_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/nucleo-wb55rg.html" title="NUCLEO-WB55RG Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/nucleo-wb55rg.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um1727-getting-started-with-stm32-nucleo-board-software-development-tools-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1355-wb55rg-d01_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32WB55RGVx"/>
+      <feature type="ODbg"      n="1"              name="On-board ST-LINK/V2-1"/>
+      <feature type="PWR"       n="4"              name="USB VBUS, ext. VIN, ext. 5V, ext +3.3V"/>
+      <feature type="CustomFF"  n="2"              name="STMicroelectronics Morpho connector"/>
+      <feature type="ArduinoFF" n="2"              name="STMicroelectronics Arduino connector"/>
+      <feature type="USB"       n="1"              name="USB re-enumeration capability"/>
+      <feature type="Button"    n="4"              name="Push-buttons: 3 User and Reset"/>
+      <feature type="LED"       n="5"              name="LEDs: COM, Power, 3 User LEDs"/>
+      <feature type="ConnOther" n="1"              name="Integrated PCB antenna and SMA connector footprint"/>
+      <feature type="ConnOther" n="1"              name="2.4 GHz RF transceiver supporting IEEE 802.15.4-2011 PHY and MAC with Zigbee and Thread"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="NUCLEO-WB55RG" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

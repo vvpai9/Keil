@@ -1,0 +1,19 @@
+The Blinky project is a simple program for the Winbond 'W90P710' 
+microcontroller using Winbond 'W90P710/W90N745 Application Board R1.2' 
+evaluation board and demonstrating interrupt functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL  =  15 MHz
+   - PLL0  = 480 MHz
+   - SYS   =  80 MHz
+   - TCLK  =  15 MHz
+ - 8 LEDs blink (LED8 .. LED15) with speed 
+   of 1 second, determined by Timer1 working in 
+   interrupt mode
+ 
+The Blinky program is available for different targets:
+  W90P710 Ext Boot Flash: runs from External Boot Flash
+                          (used for production or target debugging)
+  W90P710 Ext SDRAM:      configured for external SDRAM, 
+                          (may be used for target debugging)

@@ -1,0 +1,71 @@
+; Copyright 2006-2007
+; Signum Systems Corp.
+; SigUSB64.inf
+; USB 2.0 Add-On Driver support for 64-bit Windows Vista64, XP64
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = SignumUSB
+ClassGUID   = {53F12DC4-BDE7-484e-AD4E-35958B05760E}
+Provider    = %SigString%
+DriverVer   = 10/25/2007,2.04
+CatalogFile = SigUSB64.cat
+
+[ClassInstall] 
+AddReg=AddRegClassInstallSection
+
+[ClassInstall32] 
+AddReg=AddRegClassInstallSection
+
+[AddRegClassInstallSection]
+HKR,,,,"%SigUSBDevices%"
+HKR,,Icon,,"-20"
+
+[SourceDisksNames]
+1=%Distribution%,SigUSB64.inf,, 
+
+[SourceDisksFiles]
+SigUsb64.sys = 1
+
+[DestinationDirs]
+JTAGJET.FilesNTamd64.Ext = 10,System32\Drivers
+
+[Manufacturer]
+%SigString% = SignumDeviceList,NTamd64
+
+[SignumDeviceList.NTamd64]
+; This VID/PID identifiers are used by Signum Systems devices :
+"Signum Systems JTAGjet Emulator"         = JTAGJET.Install.NTamd64, USB\VID_138E&PID_7D11
+"Signum Systems ADM51 Emulator"           = JTAGJET.Install.NTamd64, USB\VID_138E&PID_7D12
+"Signum Systems JTAGjet Emulator"         = JTAGJET.Install.NTamd64, USB\VID_04B4&PID_7D11
+"Signum Systems ADM51 Emulator"           = JTAGJET.Install.NTamd64, USB\VID_04B4&PID_7D12
+
+[JTAGJET.Install.NTamd64]
+CopyFiles = JTAGJET.FilesNTamd64.Ext
+AddReg    = JTAGJET.AddRegNTamd64
+
+[JTAGJET.Install.NTamd64.Services]
+Addservice = JTAGJET, 0x00000002, JTAGJET.AddService.NTamd64
+
+[JTAGJET.AddService.NTamd64]
+DisplayName    = %JTAGJET.ServiceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\SigUSB64.sys
+LoadOrderGroup = Base
+
+[JTAGJET.AddRegNTamd64]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,SigUSB64.sys
+
+[JTAGJET.FilesNTamd64.Ext]
+SigUSB64.sys,,,2
+
+;---------------------------------------------------------------;
+
+[Strings]
+Distribution        = "Signum Systems Distribution Media"
+SigString           = "Signum Systems Corp."
+SigUSBDevices       = "Signum Systems USB Emulators"
+JTAGJET.ServiceDesc = "Signum Systems USB Driver (SigUSB.sys)"

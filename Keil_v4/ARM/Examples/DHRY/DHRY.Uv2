@@ -1,0 +1,108 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (AT91R40008), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Startup Code)
+Group (System Calls)
+Group (Source Code)
+Group (Documentation)
+
+File 1,2,<.\Startup.s><Startup.s> 0x463EF07A 
+File 2,1,<.\Retarget.c><Retarget.c> 0x462E1E52 
+File 2,1,<.\Serial.c><Serial.c> 0x462E1E52 
+File 2,1,<.\Time.c><Time.c> 0x462E1E52 
+File 3,1,<.\dhry_1.c><dhry_1.c> 0x462E1E52 
+File 3,1,<.\dhry_2.c><dhry_2.c> 0x462E1E52 
+File 4,5,<.\Abstract.txt><Abstract.txt> 0x462E1E52 
+
+
+Options 1,0,0  // Target 'AT91R40008'
+ Device (AT91R40008)
+ Vendor (Atmel)
+ Cpu (IRAM(0-0x3FFFF) CLOCK(40000000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ()
+ FlashDR ()
+ DevID ()
+ Rgf (91R40008.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿAtmel\)
+ OrgReg (ÿAtmel\)
+ TgStat=16
+ OutDir (.\Obj\)
+ OutName (DHRY)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\Lst\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ ADSTFLGA { 0,8,64,0,96,0,64,64,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,0,0,0,4,0 }
+ OCMADSIROM { 0,0,0,0,0,0,0,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,0,224,255,3,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (MSC_CLOCK)
+ ADSCUDEF ()
+ ADSCINCD ()
+ ADSASFLG { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x01000000)
+ ADSLDDA (0x00000020)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91x40)(DARMAT.DLL)(-p91R40008)(SARM.DLL)(-cAT91x40)(TARMAT.DLL)(-p91R40008)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+ FLASH1 { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 ()
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+

@@ -1,0 +1,21 @@
+The HID project is a demo program for the LPC2148 
+using Keil MCB2140 Board.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL                   =  12 MHz
+   - processor clock = CCLK =  60 MHz
+   - USB clock              =  48 MHz
+
+It demonstrates an USB HID (Human Interface Device):
+  - 8 LEDs (LED0..7)
+  - 1 Push Button (INT)
+
+The USB HID is recognized by the host PC running Windows
+which will load a generic HID driver. The board LEDs
+and Push Buttons can then be accessed from the PC
+through a custom HID Client Program.
+
+The HID program is available for the following targets:
+  MCB2140: configured for on-chip Flash ROM
+           (used for production or target debugging)

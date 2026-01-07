@@ -1,0 +1,23 @@
+The Blinky project is an simple example program for the  
+Freescale 'MC9328MX21' microcontroller using Freescale 
+'M9328MX21ADSE' (Application Development System) Board.
+
+Example functionality:
+ - 2 LEDs blink (LED3, LED4)
+
+Clocks:   XTAL                  =  32.768 kHz 
+          MPLL                  = 266.000 MHz 
+          SPLL                  = 288.000 MHz 
+          FCLK (CPU) = MPLL     = 266.000 MHz
+          HCLK       = MPLL / 2 = 133.000 MHz
+          NFCCLK     = MPLL / 8 =  33.250 MHz
+Memories: 64MB SDRAM
+          32MB NOR Flash
+          64MB NAND Flash (small additional daughter board)
+
+The Blinky program is available for different targets:
+  i.MX21 Int RAM: configured for on-chip RAM
+                  (may be used for target debugging)
+  i.MX21 Ext NOR: configured for external NOR flash
+                  (may be used for target debugging or 
+                  production)

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>STM32F072B-DISCO_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32F0 Series STM32F072B-DISCO Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/STM32F072B-DISCO_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="1.1.1" date="2025-09-10" tag="v1.1.1">
+      Blinky project:
+      - Updated debug configuration file (MCU APBx Freeze registers)
+    </release>
+    <release version="1.1.0" date="2025-07-01" tag="v1.1.0">
+      Pack Description:
+      - Removed 'compatibleDevice' elements
+      Blinky example:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added DWARF-5 debug information
+      - Added dbgconf files
+      - Updated RTE_Components file
+    </release>
+    <release version="1.0.0" date="2025-03-24" tag="v1.0.0">
+      Prepared for new CMSIS-Toolbox CubeMX integration
+      Board description for STM32F072B-DISCO
+      Blinky example (CMSIS Solution)
+      Default Board Layer
+      CMSIS Drivers:
+      - CMSIS-Driver VIO
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32F0</keyword>
+    <keyword>STM32F072B-DISCO</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32F0xx_DFP"      version="3.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.2.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="STM32F072B-DISCO">
+      <description>STMicroelectronics STM32F072B-DISCO Board</description>
+      <require Bvendor="STMicroelectronics" Bname="STM32F072B-DISCO"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="STM32F072B-DISCO GPIO">
+      <description>STMicroelectronics STM32F072B-DISCO Board with CMSIS Driver GPIO</description>
+      <require condition="STM32F072B-DISCO"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for STM32F072B-DISCO -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="1.0.0" Capiversion="1.0.0" condition="STM32F072B-DISCO GPIO">
+      <description>I/O implementation for STM32F072B-DISCO</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_STM32F072B_DISCO
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_STM32F072B-DISCO.c"/>
+      </files>
+    </component>
+  </components>
+
+  <csolution>
+    <clayer type="Board" path="Layers/Default" file="Board.clayer.yml" copy-to="Board/STM32F072B-DISCO" condition="STM32F072B-DISCO"/>
+  </csolution>
+
+  <boards>
+    <!-- STM32F072B-DISCO -->
+    <board vendor="STMicroelectronics" name="STM32F072B-DISCO" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Discovery development board with STM32F072RBTx MCU</description>
+      <image small="Images/stm32f072b-disco_small.png"
+             large="Images/stm32f072b-disco_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/32f072bdiscovery.html" title="STM32F072B-DISCO Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/32f072bdiscovery.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um1690-discovery-kit-for-stm32f0-series-microcontrollers-with-stm32f072rb-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1076-f072b-c01_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32F072RBTx"/>
+      <feature type="ODbg"      n="1"              name="On-board ST-LINK/V2-1"/>
+      <feature type="XTAL"      n="8000000"        name="8 MHz Crystal Oscillator"/>
+      <feature type="PWR"       n="5"              name="USB Powered"/>
+      <feature type="PWR"       n="3"  m="5"       name="External Supply"/> 
+      <feature type="USB"       n="1"              name="User USB 2.0 FS with Mini-B connector"/>
+      <feature type="Button"    n="2"              name="Push-buttons: User and Reset"/>
+      <feature type="LED"       n="6"              name="LEDs: COM, Power, 4 user"/>
+      <feature type="Gyro"      n="1"              name="L3GD20, ST MEMS motion sensor, 3-axis digital output gyroscope"/>
+      <feature type="Touch"     n="1"              name="Linear Touch Sensor or four Touch Keys"/>
+      <feature type="ConnOther" n="1"              name="RF-EEPROM daughterboard expansion"/>
+      <feature type="ConnOther" n="2"              name="I/O expansion connector"/>
+      <debugInterface adapter="ST-Link" connector="Mini-USB"/>
+      <debugProbe connector="USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="STM32F072B-DISCO" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

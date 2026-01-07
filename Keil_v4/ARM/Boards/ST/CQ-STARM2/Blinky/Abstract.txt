@@ -1,0 +1,24 @@
+The 'Blinky' project is a simple program for the STM32F103VBT6 
+and demonstrates interrupt functionality.
+
+Example functionality:                                                   
+ - Clock Settings:
+   - HSI     =            8.00 MHz
+   - SYSCLK  =           48.00 MHz
+   - HCLK    = SYSCLK  = 48.00 MHz
+   - PCLK1   = HCLK/2  = 24.00 MHz
+   - PCLK2   = HCLK    = 48.00 MHz
+   - ADCLK   = PCLK2/6 =  8.00 MHz
+   - SYSTICK = HCLK/8  =  6.00 MHz
+
+ - LED blinks with speed depending on AD value
+   - Sys Timer is used in interrupt mode
+ - AD value is output onto serial port USART1 
+   USART1 settings: 115200 baud, 8 data bits, no parity, 1 stop bit
+ - AD is used with DMA
+   AD settings: 12 bit resolution
+ 
+The Blinky program is available in different targets:
+  Simulator:   configured for software Simulator
+  CQ-STARM:    runs from Internal Flash located on chip
+               (used for production or target debugging)

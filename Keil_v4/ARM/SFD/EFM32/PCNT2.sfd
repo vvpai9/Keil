@@ -1,0 +1,400 @@
+
+
+// SFR Description File
+// C:\Keil\ARM\sfd\EFM32\PCNT2.sfd
+
+
+// ------------------------------------------------------------------------------------------------
+// -----                                         PCNT2                                        -----
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
+// ---------------------------------------  PCNT2_CTRL  -------------------------------------------
+
+unsigned int PCNT2_CTRL __AT (0x40086800);
+
+//  <item> Reg_PCNT2_CTRL
+//    <i> PCNT2_CTRL [31..0] (@ 0x40086800) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_CTRL>>0) & 0xFFFFFFFF), ( (PCNT2_CTRL &= ~(0xFFFFFFFF<<0)), (PCNT2_CTRL |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_CTRL_MODE
+//    <i> MODE [1..0] (@ 0x40086800) </i>
+//    <edit> 
+//      <loc> ( (char)((PCNT2_CTRL>>0) & 0x2), ( (PCNT2_CTRL &= ~(0x2<<0)), (PCNT2_CTRL |= ((Gui_u8:GuiVal & 0x2)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_CTRL_CNTDIR
+//    <i> CNTDIR [2] (@ 0x40086800) </i>
+//    <check> 
+//      <loc> PCNT2_CTRL </loc>
+//      <o.2..2> CNTDIR
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_CTRL_EDGE
+//    <i> EDGE [3] (@ 0x40086800) </i>
+//    <check> 
+//      <loc> PCNT2_CTRL </loc>
+//      <o.3..3> EDGE
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_CTRL_FILT
+//    <i> FILT [4] (@ 0x40086800) </i>
+//    <check> 
+//      <loc> PCNT2_CTRL </loc>
+//      <o.4..4> FILT
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_CTRL_RSTEN
+//    <i> RSTEN [5] (@ 0x40086800) </i>
+//    <check> 
+//      <loc> PCNT2_CTRL </loc>
+//      <o.5..5> RSTEN
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  PCNT2_CMD  -------------------------------------------
+
+unsigned int PCNT2_CMD __AT (0x40086804);
+
+//  <item> Reg_PCNT2_CMD
+//    <i> PCNT2_CMD [31..0] (@ 0x40086804) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_CMD>>0) & 0xFFFFFFFF), ( (PCNT2_CMD &= ~(0xFFFFFFFF<<0)), (PCNT2_CMD |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_CMD_LCNTIM
+//    <i> LCNTIM [0] (@ 0x40086804) </i>
+//    <check> 
+//      <loc> PCNT2_CMD </loc>
+//      <o.0..0> LCNTIM
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_CMD_LTOPBIM
+//    <i> LTOPBIM [1] (@ 0x40086804) </i>
+//    <check> 
+//      <loc> PCNT2_CMD </loc>
+//      <o.1..1> LTOPBIM
+//    </check>
+//  </item>
+//  
+
+
+// --------------------------------------  PCNT2_STATUS  ------------------------------------------
+
+unsigned int PCNT2_STATUS __AT (0x40086808);
+
+//  <item> Reg_PCNT2_STATUS
+//    <i> PCNT2_STATUS [31..0] (@ 0x40086808) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_STATUS>>0) & 0xFFFFFFFF), ( (PCNT2_STATUS &= ~(0xFFFFFFFF<<0)), (PCNT2_STATUS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_STATUS_DIR
+//    <i> DIR [0] (@ 0x40086808) </i>
+//    <check> 
+//      <loc> PCNT2_STATUS </loc>
+//      <o.0..0> DIR
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  PCNT2_CNT  -------------------------------------------
+
+unsigned int PCNT2_CNT __AT (0x4008680C);
+
+//  <item> Reg_PCNT2_CNT
+//    <i> PCNT2_CNT [31..0] (@ 0x4008680C) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_CNT>>0) & 0xFFFFFFFF), ( (PCNT2_CNT &= ~(0xFFFFFFFF<<0)), (PCNT2_CNT |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_CNT_CNT
+//    <i> CNT [15..0] (@ 0x4008680C) </i>
+//    <edit> 
+//      <loc> ( (short int)((PCNT2_CNT>>0) & 0xFFFE), ( (PCNT2_CNT &= ~(0xFFFE<<0)), (PCNT2_CNT |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  PCNT2_TOP  -------------------------------------------
+
+unsigned int PCNT2_TOP __AT (0x40086810);
+
+//  <item> Reg_PCNT2_TOP
+//    <i> PCNT2_TOP [31..0] (@ 0x40086810) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_TOP>>0) & 0xFFFFFFFF), ( (PCNT2_TOP &= ~(0xFFFFFFFF<<0)), (PCNT2_TOP |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_TOP_TOP
+//    <i> TOP [15..0] (@ 0x40086810) </i>
+//    <edit> 
+//      <loc> ( (short int)((PCNT2_TOP>>0) & 0xFFFE), ( (PCNT2_TOP &= ~(0xFFFE<<0)), (PCNT2_TOP |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ---------------------------------------  PCNT2_TOPB  -------------------------------------------
+
+unsigned int PCNT2_TOPB __AT (0x40086814);
+
+//  <item> Reg_PCNT2_TOPB
+//    <i> PCNT2_TOPB [31..0] (@ 0x40086814) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_TOPB>>0) & 0xFFFFFFFF), ( (PCNT2_TOPB &= ~(0xFFFFFFFF<<0)), (PCNT2_TOPB |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_TOPB_TOPB
+//    <i> TOPB [15..0] (@ 0x40086814) </i>
+//    <edit> 
+//      <loc> ( (short int)((PCNT2_TOPB>>0) & 0xFFFE), ( (PCNT2_TOPB &= ~(0xFFFE<<0)), (PCNT2_TOPB |= ((Gui_u16:GuiVal & 0xFFFE)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// ----------------------------------------  PCNT2_IF  --------------------------------------------
+
+unsigned int PCNT2_IF __AT (0x40086818);
+
+//  <item> Reg_PCNT2_IF
+//    <i> PCNT2_IF [31..0] (@ 0x40086818) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_IF>>0) & 0xFFFFFFFF), ( (PCNT2_IF &= ~(0xFFFFFFFF<<0)), (PCNT2_IF |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_IF_UF
+//    <i> UF [0] (@ 0x40086818) </i>
+//    <check> 
+//      <loc> PCNT2_IF </loc>
+//      <o.0..0> UF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IF_OF
+//    <i> OF [1] (@ 0x40086818) </i>
+//    <check> 
+//      <loc> PCNT2_IF </loc>
+//      <o.1..1> OF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IF_DIRCNG
+//    <i> DIRCNG [2] (@ 0x40086818) </i>
+//    <check> 
+//      <loc> PCNT2_IF </loc>
+//      <o.2..2> DIRCNG
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  PCNT2_IFS  -------------------------------------------
+
+unsigned int PCNT2_IFS __AT (0x4008681C);
+
+//  <item> Reg_PCNT2_IFS
+//    <i> PCNT2_IFS [31..0] (@ 0x4008681C) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_IFS>>0) & 0xFFFFFFFF), ( (PCNT2_IFS &= ~(0xFFFFFFFF<<0)), (PCNT2_IFS |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_IFS_UF
+//    <i> UF [0] (@ 0x4008681C) </i>
+//    <check> 
+//      <loc> PCNT2_IFS </loc>
+//      <o.0..0> UF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IFS_OF
+//    <i> OF [1] (@ 0x4008681C) </i>
+//    <check> 
+//      <loc> PCNT2_IFS </loc>
+//      <o.1..1> OF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IFS_DIRCNG
+//    <i> DIRCNG [2] (@ 0x4008681C) </i>
+//    <check> 
+//      <loc> PCNT2_IFS </loc>
+//      <o.2..2> DIRCNG
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  PCNT2_IFC  -------------------------------------------
+
+unsigned int PCNT2_IFC __AT (0x40086820);
+
+//  <item> Reg_PCNT2_IFC
+//    <i> PCNT2_IFC [31..0] (@ 0x40086820) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_IFC>>0) & 0xFFFFFFFF), ( (PCNT2_IFC &= ~(0xFFFFFFFF<<0)), (PCNT2_IFC |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_IFC_UF
+//    <i> UF [0] (@ 0x40086820) </i>
+//    <check> 
+//      <loc> PCNT2_IFC </loc>
+//      <o.0..0> UF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IFC_OF
+//    <i> OF [1] (@ 0x40086820) </i>
+//    <check> 
+//      <loc> PCNT2_IFC </loc>
+//      <o.1..1> OF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IFC_DIRCNG
+//    <i> DIRCNG [2] (@ 0x40086820) </i>
+//    <check> 
+//      <loc> PCNT2_IFC </loc>
+//      <o.2..2> DIRCNG
+//    </check>
+//  </item>
+//  
+
+
+// ----------------------------------------  PCNT2_IEN  -------------------------------------------
+
+unsigned int PCNT2_IEN __AT (0x40086824);
+
+//  <item> Reg_PCNT2_IEN
+//    <i> PCNT2_IEN [31..0] (@ 0x40086824) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_IEN>>0) & 0xFFFFFFFF), ( (PCNT2_IEN &= ~(0xFFFFFFFF<<0)), (PCNT2_IEN |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_IEN_UF
+//    <i> UF [0] (@ 0x40086824) </i>
+//    <check> 
+//      <loc> PCNT2_IEN </loc>
+//      <o.0..0> UF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IEN_OF
+//    <i> OF [1] (@ 0x40086824) </i>
+//    <check> 
+//      <loc> PCNT2_IEN </loc>
+//      <o.1..1> OF
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_IEN_DIRCNG
+//    <i> DIRCNG [2] (@ 0x40086824) </i>
+//    <check> 
+//      <loc> PCNT2_IEN </loc>
+//      <o.2..2> DIRCNG
+//    </check>
+//  </item>
+//  
+
+
+// ---------------------------------------  PCNT2_ROUTE  ------------------------------------------
+
+unsigned int PCNT2_ROUTE __AT (0x40086828);
+
+//  <item> Reg_PCNT2_ROUTE
+//    <i> PCNT2_ROUTE [31..0] (@ 0x40086828) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_ROUTE>>0) & 0xFFFFFFFF), ( (PCNT2_ROUTE &= ~(0xFFFFFFFF<<0)), (PCNT2_ROUTE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_ROUTE_LOCATION
+//    <i> LOCATION [9..8] (@ 0x40086828) </i>
+//    <edit> 
+//      <loc> ( (char)((PCNT2_ROUTE>>8) & 0x2), ( (PCNT2_ROUTE &= ~(0x2<<8)), (PCNT2_ROUTE |= ((Gui_u8:GuiVal & 0x2)<<8)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+
+
+// --------------------------------------  PCNT2_FREEZE  ------------------------------------------
+
+unsigned int PCNT2_FREEZE __AT (0x4008682C);
+
+//  <item> Reg_PCNT2_FREEZE
+//    <i> PCNT2_FREEZE [31..0] (@ 0x4008682C) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_FREEZE>>0) & 0xFFFFFFFF), ( (PCNT2_FREEZE &= ~(0xFFFFFFFF<<0)), (PCNT2_FREEZE |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_FREEZE_REGFREEZE
+//    <i> REGFREEZE [0] (@ 0x4008682C) </i>
+//    <check> 
+//      <loc> PCNT2_FREEZE </loc>
+//      <o.0..0> REGFREEZE
+//    </check>
+//  </item>
+//  
+
+
+// -------------------------------------  PCNT2_SYNCBUSY  -----------------------------------------
+
+unsigned int PCNT2_SYNCBUSY __AT (0x40086830);
+
+//  <item> Reg_PCNT2_SYNCBUSY
+//    <i> PCNT2_SYNCBUSY [31..0] (@ 0x40086830) </i>
+//    <edit> 
+//      <loc> ( (int)((PCNT2_SYNCBUSY>>0) & 0xFFFFFFFF), ( (PCNT2_SYNCBUSY &= ~(0xFFFFFFFF<<0)), (PCNT2_SYNCBUSY |= ((Gui_u32:GuiVal & 0xFFFFFFFF)<<0)) ) ) </loc>
+//    </edit>
+//  </item>
+//  
+//  <item> PCNT2_SYNCBUSY_CTRL
+//    <i> CTRL [0] (@ 0x40086830) </i>
+//    <check> 
+//      <loc> PCNT2_SYNCBUSY </loc>
+//      <o.0..0> CTRL
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_SYNCBUSY_CMD
+//    <i> CMD [1] (@ 0x40086830) </i>
+//    <check> 
+//      <loc> PCNT2_SYNCBUSY </loc>
+//      <o.1..1> CMD
+//    </check>
+//  </item>
+//  
+//  <item> PCNT2_SYNCBUSY_TOPB
+//    <i> TOPB [2] (@ 0x40086830) </i>
+//    <check> 
+//      <loc> PCNT2_SYNCBUSY </loc>
+//      <o.2..2> TOPB
+//    </check>
+//  </item>
+//  

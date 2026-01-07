@@ -1,0 +1,9 @@
+;[SignumSystemsTraceInitFile]
+;Title=TMPM330 ETM Initialization
+
+sd 0x40000004 |= 0x7C;    ; PACR reg - Output on 5 trace pins
+sd 0x40000008 |= 0x7C;    ; PAFR1 reg - Enable on 5 trace pins
+
+trace clear
+trace enable
+trace etm portsize=4

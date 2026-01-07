@@ -1,0 +1,10 @@
+The RAM_Function program demonstrates how to define a function that
+executes in RAM. This may be useful for IAP Flash programming or to 
+improve to the performance with slow external Flash devices.
+
+Functions that are be executed in RAM should reside in a seperate
+source module. Using the 'Options for File' dialog you can simply change
+the 'Code / Const' area of a module to a memory space in physical RAM.
+
+Available memory areas are declared in the 'Target' tab of the
+'Options for Target' dialog.

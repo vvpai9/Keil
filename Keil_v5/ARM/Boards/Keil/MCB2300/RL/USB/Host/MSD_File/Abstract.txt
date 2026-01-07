@@ -1,0 +1,31 @@
+This is an RL-USB-Host and RL Flash File System file manipulation example.
+You can create, read, copy, delete files from the Mass Storage 
+Device and format the device. 
+
+Example functionality:
+ - Clock Settings:
+   - XTAL   =  12 MHz
+   - PLL    = 288 MHz
+   - CCLK   =  48 MHz
+   - USBCLK =  48 MHz
+
+ - Communication Interface Settings:
+   - UART1: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+The MSD_FILE program is a standalone application loaded into
+on-chip flash and available for two targets:
+
+MCB2300:   Standalone application for Keil MCB2300 Board using
+           COM port as a communication interface.
+
+MCB2300 RT_Agent:
+           Standalone application for Keil MCB2300 Board using
+           RT Agent as a communication interface. You can test
+           it only with ULINK2 from uVision debugger.
+
+Note: 
+    - set jumper D- to 1[2 3] 
+    - set jumper D+ to 1[2 3]
+
+Documentation on the Web: 
+  http://www.keil.com/support/man/docs/rlarm/rlarm_fs_ex_msd.htm

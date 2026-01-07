@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
+  <vendor>CrankSoftware</vendor>
+  <name>iMXRT10xx</name>
+  <description>Embedded graphical user interface development tools for building exceptional user experiences.</description>
+  <url>https://resources.cranksoftware.com/cranksoftware/cmsis/</url>
+   <license>documentation/License.txt</license>
+  <supportContact>https://www.cranksoftware.com/contact-us</supportContact>
+  <!-- optional license file -->
+  <!-- 
+  <license>
+  </license>
+  -->
+  
+  <releases>
+    <release version="8.1.0" date="2023-11-08">
+      Crank iMXRT10XX 8.1.0 CMSIS Release
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Crank Software</keyword>
+    <keyword>Ametek</keyword>
+    <keyword>GUI</keyword>
+    <keyword>Graphical User Interface</keyword>
+    <keyword>Storyboard</keyword>
+  </keywords>
+
+  <!-- apis section (optional - for Application Programming Interface descriptions) -->
+  <!-- 
+  <apis>
+  </apis>
+  -->
+  
+  <requirements>
+    <packages>
+        <package vendor="NXP" name="MIMXRT1052_DFP"/>
+        <package vendor="NXP" name="MIMXRT1062_DFP"/>
+        <package vendor="NXP" name="MIMXRT1064_DFP"/>
+    </packages>
+  </requirements>
+
+<!-- optional taxonomy section for defining new compone nt Class and Group names -->
+<taxonomy>
+    <description Cclass="Crank Software">Crank Software Binaries and Source for GUI Integration</description>
+    <description Cclass="Crank Software" Cgroup="Storyboard Engine">Runtime Binaries and Includes</description>
+    <description Cclass="Crank Software" Cgroup="Runtime Source">Runtime Source Files</description>
+    <description Cclass="Crank Software" Cgroup="Display">Display and Touch Support Files</description>
+    <description Cclass="Crank Software" Cgroup="Board">Board Support Files</description>
+    <description Cclass="Crank Software" Cgroup="Memory">Memory Configuration Files</description>
+</taxonomy>
+  
+
+  <!-- examples section (optional for all Software Packs)-->
+  <examples>
+      <example name="CoffeeAppBitmapCCallbacks1050" folder="mcuxpresso" doc="RT10XXEVKStoryboardIntegrationWithMCUXpresso.pdf" version="8.1">
+          <description>A coffee maker demo using bitmap font rendering and C callbacks</description>
+          <board Dvendor="NXP:11" vendor="NXP" name="MIMXRT1052DVL6B"/>
+          <project>
+              <environment name="mcuxpresso" folder="./mcuxpresso/rt1050" load="mcuxpresso/rt1050/CoffeeAppBitmapCCallbacks1050.zip"/>
+          </project>
+          <attributes>
+          </attributes>
+      </example>
+      <example name="CoffeeAppFreetypeCCallbacks1050" folder="mcuxpresso" doc="RT10XXEVKStoryboardIntegrationWithMCUXpresso.pdf" version="8.1">
+          <description>A coffee maker demo using Freetype font rendering and C callbacks</description>
+          <board Dvendor="NXP:11" vendor="NXP" name="MIMXRT1052DVL6B"/>
+          <project>
+              <environment name="mcuxpresso" folder="./mcuxpresso/rt1050" load="mcuxpresso/rt1050/CoffeeAppFreetypeCCallbacks1050.zip"/>
+          </project>
+          <attributes>
+          </attributes>
+      </example>
+      <example name="CoffeeAppBitmapCCallbacks1060" folder="mcuxpresso" doc="RT10XXEVKStoryboardIntegrationWithMCUXpresso.pdf" version="8.1">
+          <description>A coffee maker demo using bitmap font rendering and C callbacks</description>
+          <board Dvendor="NXP:11" vendor="NXP" name="MIMXRT1062DVJ6A"/>
+          <project>
+              <environment name="mcuxpresso" folder="./mcuxpresso/rt1060" load="mcuxpresso/rt1060/CoffeeAppBitmapCCallbacks.zip"/>
+          </project>
+          <attributes>
+          </attributes>
+      </example>
+      <example name="CoffeeAppFreetypeCCallbacks1060" folder="mcuxpresso" doc="RT10XXEVKStoryboardIntegrationWithMCUXpresso.pdf" version="8.1">
+          <description>A coffee maker demo using Freetype font rendering and C callbacks</description>
+          <board Dvendor="NXP:11" vendor="NXP" name="MIMXRT1062DVJ6A"/>
+          <project>
+              <environment name="mcuxpresso" folder="./mcuxpresso/rt1060" load="mcuxpresso/rt1060/CoffeeAppFreetypeCCallbacks.zip"/>
+          </project>
+          <attributes>
+          </attributes>
+      </example>
+      <example name="CoffeeAppBitmapCCallbacks1064" folder="mcuxpresso" doc="RT10XXEVKStoryboardIntegrationWithMCUXpresso.pdf" version="8.1">
+          <description>A coffee maker demo using bitmap font rendering and C callbacks</description>
+          <board Dvendor="NXP:11" vendor="NXP" name="MIMXRT1064"/>
+          <project>
+              <environment name="mcuxpresso" folder="./mcuxpresso/rt1064" load="mcuxpresso/rt1064/CoffeeAppBitmapCCallbacks.zip"/>
+          </project>
+          <attributes>
+          </attributes>
+      </example>
+      <example name="CoffeeAppFreetypeCCallbacks1064" folder="mcuxpresso" doc="RT10XXEVKStoryboardIntegrationWithMCUXpresso.pdf" version="8.1">
+          <description>A coffee maker demo using Freetype font rendering and C callbacks</description>
+          <board Dvendor="NXP:11" vendor="NXP" name="MIMXRT1064"/>
+          <project>
+              <environment name="mcuxpresso" folder="./mcuxpresso/rt1064" load="mcuxpresso/rt1064/CoffeeAppFreetypeCCallbacks.zip"/>
+          </project>
+          <attributes>
+          </attributes>
+      </example>
+  </examples>
+  
+<conditions>
+  <condition id="NXP_CM7">                           <!-- defines the condition with the ID "CM7" -->
+    <description>True if the active device has a Cortex-M7 processor</description>
+    <require Dvendor="NXP:11"/>                 <!-- NXP is device vendor -->
+    <require Dcore="Cortex-M7"/>                 <!-- device has a Cortex-M7 processor -->
+  </condition>
+  <condition id="GCC_ARM">
+    <description>Validate a compatible toolchain is used</description>
+    <accept Tcompiler="GCC" />
+    <accept Tcompiler="ARMCC" />
+  </condition>
+  <condition id="CM7_TC">
+    <description>Validate a compatible toolchain is used</description>
+    <require condition="NXP_CM7"/>
+    <require condition="GCC_ARM"/>
+  </condition>
+  <condition id="RT105X">
+    <description>Validate the board type is an RT1050 variant</description>
+    <require Dname="*RT105*"/>
+  </condition>
+  <condition id="RT1060">
+    <description>Validate the board type is an RT1060 variant</description>
+    <require Dname="*RT106[02]*"/>
+  </condition>
+  <condition id="RT1064">
+    <description>Validate the board type is an RT1064 variant</description>
+    <require Dname="*RT1064*"/>
+  </condition>
+  <condition id="RT10XX_CM7">
+    <description>Combine the CPU and Hardware specification</description>
+    <require condition="CM7_TC"/>
+    <accept condition="RT105X"/>
+    <accept condition="RT1060"/>
+    <accept condition="RT1064"/>
+  </condition>
+</conditions>
+
+<components>
+    <bundle Cbundle="Crank Software" Cclass="Graphics" Cversion="8.1.0">
+            <description>Storyboard Runtime Binaries and Source Files</description>
+            <doc>documentation/CrankStoryboardSuite.pdf</doc>
+            <component Cgroup="Runtime Libraries" Cversion="8.1.0" condition="RT10XX_CM7">
+                <description>Crank Storyboard Runtime</description>
+                <files>
+                    <file category="include" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/include/freertos/"/>
+                    <file category="include" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/include/"/>
+                    
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libgre.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libgreal.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libgreio.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/liblogging-util.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libsbfreetype.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libsbimage.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libsblua.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libsbpng.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libsbvfs.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libsbz.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libsoil.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libswrender.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libswrmgr.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/lib/libcanvas.a"/>
+
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libfont-plugin-freetype.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libfont-plugin-sbfont.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-animation.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-canvas.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-capture-playback.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-ccallback.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-circle.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-fio_std.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-fio_vfs.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-gradient.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-gesture.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-greio.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-logger.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-lua.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-lua_canvas.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-lua_os.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-lua_utf8.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-luagredom.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-metrics.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-poly.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-rtext.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-sbimage-png.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-sbimage-soil.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-screen-drag.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-screen-dump.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-screen-fade.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-screen-path.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-timer.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-trace.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-validator.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-validator-lua.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/libgre-plugin-video.a"/>
+                    <file category="library" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/plugins/librender-plugin-swrender.a"/>
+
+                    <file category="other"  name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/runtime.json"/>
+                </files>
+            </component>
+            <component Cgroup="Runtime Source" Cversion="8.1.0" condition="RT10XX_CM7">
+                <description>GREAL Library Source</description>
+                <files>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/greal_alloc.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/greal_timer.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_alloc.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_fatfs_fileio.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_getcwd.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_getenv.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_getsubopt.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_metrics.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_sync.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_thread.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_time.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_timer.c"/>
+                    <file category="sourceC" name="storyboard/runtime/freertos-mcuxpresso-cortexm7-swrender-DFP-obj/src/lib/greal/freertos/sb_freertos_uname.c"/>
+                </files>
+            </component>
+            <component Cgroup="Board" condition="RT10XX_CM7">
+                <description>Board Support Files</description>
+                <files>
+                    <file category="source" name="board/rt1050/peripherals.c" condition="RT105X"/>
+                    <file category="header" name="board/rt1050/peripherals.h" condition="RT105X"/>
+
+                    <file category="source" name="board/rt1060/peripherals.c" condition="RT1060"/>
+                    <file category="header" name="board/rt1060/peripherals.h" condition="RT1060"/>
+                    <file category="source" name="board/rt1060/pin_mux.c" condition="RT1060"/>
+                    <file category="header" name="board/rt1060/pin_mux.h" condition="RT1060"/>
+
+                    <file category="source" name="board/rt1064/peripherals.c" condition="RT1064"/>
+                    <file category="header" name="board/rt1064/peripherals.h" condition="RT1064"/>
+                    <file category="source" name="board/rt1064/pin_mux.c" condition="RT1064"/>
+                    <file category="header" name="board/rt1064/pin_mux.h" condition="RT1064"/>
+
+                </files>
+            </component>
+            <component Cgroup="Display" condition="RT10XX_CM7">
+                <description>Display and Touch Configuration Files</description>
+                <files>
+                    <file category="source" name="board/rt1050/lcd.c" condition="RT105X"/>
+                    <file category="header" name="board/rt1050/lcd.h" condition="RT105X"/>
+                    <file category="source" name="board/rt1050/touch.c" condition="RT105X"/>
+                    <file category="source" name="board/rt1050/touch.h" condition="RT105X"/>
+                    
+                    <file category="source" name="board/rt1060/lcd.c" condition="RT1060"/>
+                    <file category="header" name="board/rt1060/lcd.h" condition="RT1060"/>
+                    <file category="source" name="board/rt1060/touch.c" condition="RT1060"/>
+                    <file category="source" name="board/rt1060/touch.h" condition="RT1060"/>
+                    
+                    <file category="source" name="board/rt1064/lcd.c" condition="RT1064"/>
+                    <file category="header" name="board/rt1064/lcd.h" condition="RT1064"/>
+                    <file category="source" name="board/rt1064/touch.c" condition="RT1064"/>
+                    <file category="source" name="board/rt1064/touch.h" condition="RT1064"/>
+                </files>
+            </component>
+            <component Cgroup="Memory" condition="RT10XX_CM7">
+                <description>Memory Configuration Files</description>
+                <files>
+                    <file category="linkerScript" name="configuration/rt1050/MIMXRT1052xxxxx_flexspi_nor.ld" condition="RT105X"/>
+                    <file category="linkerScript" name="configuration/rt1060/MIMXRT1062xxxxx_flexspi_nor.ld" condition="RT1060"/>
+                    <file category="linkerScript" name="configuration/rt1064/MIMXRT1064xxxxx_flexspi_nor.ld" condition="RT1064"/>
+                </files>
+            </component>
+            <component Cgroup="Task" condition="RT10XX_CM7">
+                <description>SBEngine Task Files</description>
+                <files>
+                    <file category="source" name="storyboard/source/sbengine_plugins_template.h"/>
+                    <file category="sourceC" name="storyboard/source/sbengine_task_pxp_template.c"/>
+                </files>
+            </component>
+    </bundle>
+</components>
+  
+</package>

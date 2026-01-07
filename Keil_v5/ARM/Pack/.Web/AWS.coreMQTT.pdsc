@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package schemaVersion="1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PACK.xsd">
+  <name>coreMQTT</name>
+
+  <description>Client implementation of the MQTT 3.1.1 specification for embedded devices.</description>
+
+  <vendor>AWS</vendor>
+
+  <license>LICENSE</license>
+
+  <url>https://freertos-cmsis-packs.s3.us-west-2.amazonaws.com/</url>
+
+  <releases>
+    <release date="2025-06-09" version="5.1.0">Based on the https://github.com/FreeRTOS/coreMQTT/tree/v2.3.1 repository.</release>
+    <release date="2023-02-23" version="5.0.0">Based on the https://github.com/FreeRTOS/coreMQTT/tree/v2.1.1 repository.</release>
+    <release date="2022-06-16" version="4.0.0">Based on the https://github.com/FreeRTOS/coreMQTT/tree/v1.1.0 repository.</release>
+    <release date="2020-12-15" version="1.1.0-Beta">Based on the https://github.com/FreeRTOS/coreMQTT/tree/v1.1.0 repository.</release>
+  </releases>
+
+  <components>
+    <component Cclass="FreeRTOS" Cgroup="coreMQTT" Cversion="2.3.1">
+      <description>Client implementation of the MQTT 3.1.1 specification for embedded devices.</description>
+      <files>
+        <file category="source" name="coreMQTT/source/core_mqtt.c"/>
+        <file category="source" name="coreMQTT/source/core_mqtt_serializer.c"/>
+        <file category="source" name="coreMQTT/source/core_mqtt_state.c"/>
+        <file category="include" name="coreMQTT/source/include/"/>
+        <file category="include" name="coreMQTT/source/interface/"/>
+      </files>
+    </component>
+  </components>
+</package>
+

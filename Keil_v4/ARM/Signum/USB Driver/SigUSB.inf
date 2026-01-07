@@ -1,0 +1,72 @@
+; Copyright 2003-2007
+; Signum Systems Corp.
+; SigUSB.inf
+; USB 2.0 Add-On Driver support for 32-bit Windows Vista/XP/2000
+
+[Version]
+Signature   = "$CHICAGO$"
+Class       = SignumUSB
+ClassGUID   = {53F12DC4-BDE7-484e-AD4E-35958B05760E}
+Provider    = %SigString%
+DriverVer   = 10/25/2007,2.04
+CatalogFile = SigUSB.cat
+
+[ClassInstall] 
+AddReg=AddRegClassInstallSection
+
+[ClassInstall32] 
+AddReg=AddRegClassInstallSection
+
+[AddRegClassInstallSection]
+HKR,,,,"%SigUSBDevices%"
+HKR,,Icon,,"-20"
+
+[SourceDisksNames]
+1=%Distribution%,SigUSB.inf,, 
+
+[SourceDisksFiles]
+SigUsb.sys = 1
+
+[DestinationDirs]
+JTAGJET.FilesNT.Ext = 10,System32\Drivers
+
+[Manufacturer]
+%SigString% = SignumDeviceList
+
+[SignumDeviceList]
+; This VID/PID identifiers are used by Signum Systems devices :
+"Signum Systems JTAGjet Emulator"         = JTAGJET.Install, USB\VID_138E&PID_7D11
+"Signum Systems JTAGjet Emulator"         = JTAGJET.Install, USB\VID_04B4&PID_7D11
+"Signum Systems ADM51 Emulator"           = JTAGJET.Install, USB\VID_138E&PID_7D12
+"Signum Systems ADM51 Emulator"           = JTAGJET.Install, USB\VID_04B4&PID_7D12
+
+[JTAGJET.Install.NT]
+CopyFiles = JTAGJET.FilesNT.Ext
+AddReg    = JTAGJET.AddRegNT
+
+[JTAGJET.Install.NT.Services]
+Addservice = JTAGJET, 0x00000002, JTAGJET.AddService
+
+[JTAGJET.AddService]
+DisplayName    = %JTAGJET.ServiceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\SigUSB.sys
+LoadOrderGroup = Base
+
+[JTAGJET.AddRegNT]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,SigUSB.sys
+
+[JTAGJET.FilesNT.Ext]
+SigUSB.sys,,,2
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+Distribution        = "Signum Systems Distribution Media"
+SigString           = "Signum Systems Corp."
+SigUSBDevices       = "Signum Systems USB Emulators"
+JTAGJET.ServiceDesc = "Signum Systems USB Driver (SigUSB.sys)"

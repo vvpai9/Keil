@@ -1,0 +1,49 @@
+The Blinky project is an example program for the 'AT91SAM9XE512'
+using Atmel 'AT91SAM9XE-EK' Evaluation Board and demonstrating
+interrupt usage.
+
+Example functionality:                                                   
+ - 1 LED blinks
+ - time of LED switching is determined by Programmable Interrupt 
+   Timer (PIT) working in interrupt mode
+
+Clocks: Oscillator      =  18.432000 MHz
+        PLLA            =  96.109714 MHz
+        Processor Clock =  96.109714 MHz
+        Master Clock    =  96.109714 MHz
+
+The Blinky program is available for different targets:
+  Simulator         configured for software Simulator
+  SAM9XE Int RAM:   configured for on-chip RAM (32kB)
+                    (used for target debugging)
+  SAM9XE Int Flash: configured for on-chip Flash (512kB)
+                    (used for target debugging and production)
+  SAM9XE Ext SDRAM: configured for external SDRAM (64MB)
+                    downloaded to external DataFlash (8.25MB)
+                    (used for target debugging and production)
+  SAM9XE Ext SDRAM - SAMICE: configured for external SDRAM (64MB)
+                    downloaded to external DataFlash (8.25MB),
+                    prepared to be downloaded and debugged with SAMICE
+                    (used for target debugging and production)
+
+IMPORTANT:
+  - when board is used for the first time, after board is powered, 
+    take J10 off for a short while, to reset RSTC_MR register and 
+    then put it back on
+
+Notes: 
+  - For "SAM9XE Ext SDRAM" target if Debug is selected 
+    the code is loaded to External SDRAM and debugging happens there, 
+    if Download to Flash Memory is selected the code downloads to 
+    External DataFlash
+  - Bootloader has to be downloaded to flash for "SAM9XE Ext SDRAM"
+    version to work as standalone. This is done by opening 
+    Bootloader project and clicking on "Download to Flash Memory" 
+    button.
+
+How to start:
+  1. Open Bootloader project and click on "Download to Flash Memory"
+     button
+  2. Select "SAM9XE Ext SDRAM" target in this project and 
+     click on "Download to Flash Memory" button
+  3. Reset the board

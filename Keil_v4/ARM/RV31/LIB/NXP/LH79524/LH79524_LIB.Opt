@@ -1,0 +1,52 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (LH79524 Library), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(ASM Source Files),1,0,0
+GRPOPT 2,(C Source Files),1,0,0
+
+OPTFFF 1,1,2,0,0,0,0,0,<.\lh79524_int_vec.s><lh79524_int_vec.s> 
+OPTFFF 2,2,1,0,0,0,0,0,<.\lh79524_adc_driver.c><lh79524_adc_driver.c> 
+OPTFFF 2,3,1,0,0,0,0,0,<.\lh79524_clcdc_driver.c><lh79524_clcdc_driver.c> 
+OPTFFF 2,4,1,0,0,0,0,0,<.\lh79524_dma_driver.c><lh79524_dma_driver.c> 
+OPTFFF 2,5,1,0,0,0,0,0,<.\lh79524_gpio_driver.c><lh79524_gpio_driver.c> 
+OPTFFF 2,6,1,0,0,0,0,0,<.\lh79524_i2s_driver.c><lh79524_i2s_driver.c> 
+OPTFFF 2,7,1,0,0,0,0,0,<.\lh79524_int_driver.c><lh79524_int_driver.c> 
+OPTFFF 2,8,1,0,0,0,0,0,<.\lh79524_mmu_driver.c><lh79524_mmu_driver.c> 
+OPTFFF 2,9,1,0,0,0,0,0,<.\lh79524_rtc_driver.c><lh79524_rtc_driver.c> 
+OPTFFF 2,10,1,0,0,0,0,0,<.\lh79524_ssp_driver.c><lh79524_ssp_driver.c> 
+OPTFFF 2,11,1,0,0,0,0,0,<.\lh79524_timer0_driver.c><lh79524_timer0_driver.c> 
+OPTFFF 2,12,1,0,0,0,0,0,<.\lh79524_timer_driver.c><lh79524_timer_driver.c> 
+OPTFFF 2,13,1,0,0,0,0,0,<.\lh79524_uart_driver.c><lh79524_uart_driver.c> 
+OPTFFF 2,14,1,0,0,0,0,0,<.\lh79524_wdt_driver.c><lh79524_wdt_driver.c> 
+
+
+TARGOPT 1, (LH79524 Library)
+ ADSCLK=11289600
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\Output\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 255
+  OPTBL 0,(Data Sheet)<DATASHTS\PHILIPS\LH79524_LH79525_DS.PDF>
+  OPTBL 1,(User Manual)<DATASHTS\PHILIPS\LH79524_LH79525_UM.PDF>
+  OPTDL (SARM.DLL)(-cLH79500)(DARMSH.DLL)(-pLH79524)(SARM.DLL)()(TARMSH.DLL)(-pLH79524)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\UL2ARM.DLL)()()()
+  OPTKEY 0,(UL2ARM)(-U268772636 -O15 -S0 -C0 -FO7 -FD20000000 -FC800 -FN0)
+  OPTDF 0x2
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

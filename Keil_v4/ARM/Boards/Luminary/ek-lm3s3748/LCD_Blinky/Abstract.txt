@@ -1,0 +1,21 @@
+The LCD_Blinky project is a simple program for the Luminary 
+'LM3S3748' microcontroller using 'Luminary LM3S3748 Evaluation 
+Board'.
+
+It blinks the Status LED and shows time and navigator 
+states on OLED display.
+
+Example functionality:
+ - Clock Settings:
+   - XTAL             = 8.00 MHz
+   - PLL not used 
+   - SYS   = XTAL     = 8.00 MHz
+ - LED STATUS toggles every 1 second
+   (LED STATUS is connected to PF0)
+ - Navigator position is shown on OLED display
+ - If Navigator is pressed time is stopped
+
+The Blinky program is available in different targets:
+  Simulator:      runs in µVision Simulator
+  LM3S3748 Flash: runs from Internal Flash located on chip
+                  (used for production or target debugging)

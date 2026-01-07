@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+  <name>NUCLEO-L552ZE-Q_BSP</name>
+  <vendor>Keil</vendor>
+  <description overview="Documents/OVERVIEW.md">STMicroelectronics STM32L5 Series NUCLEO-L552ZE-Q Board Support Pack</description>
+  <url>https://www.keil.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/ST_NUCLEO-L552ZE-Q_BSP.git</repository>
+  <license>LICENSES</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="Apache-2.0 License for CMSIS add-ons"                  name="LICENSE-Apache-2.0"   spdx="Apache-2.0"/>
+      <license title="BSD-3-Clause License for STMicroelectronics STM32 HAL" name="LICENSE-BSD-3-Clause" spdx="BSD-3-Clause"/>
+    </licenseSet>
+  </licenseSets>
+
+  <releases>
+    <release version="2.1.0" date="2025-09-17" tag="v2.1.0">
+      Blinky project:
+      - Specified thread names using thread attributes
+      - Renamed thread IDs
+      - Modified app_main_thread (replaced loop forever)
+      - Added dbgconf files
+      - Added DWARF-5 debug information
+      - Added generated output files
+      - Updated RTE_Components.h file
+      Package Description (pdsc):
+      - Removed 'compatibleDevice' element
+    </release>
+    <release version="2.0.0" date="2024-12-18" tag="v2.0.0">
+      Updated for new CMSIS-Toolbox CubeMX integration
+      Removed BSP drivers
+      Removed Platform project
+      Migrated Blinky example to CMSIS Solution
+      CMSIS-Drivers:
+      - Updated VIO driver to API 1.0.0
+      Pack Description:
+      - Added LICENSE file
+      - Updated schemaVersion (1.7.36)
+    </release>
+    <release version="1.2.0" date="2021-12-15">
+      Synchronize with STM32CubeL5 Firmware Package version V1.4.0
+      Projects:
+      - Update CubeMX project
+      - Override default HAL_InitTick function
+      - Update Platform project: Blocking stdin_getchar in stdio retarget
+      Replace documentation files with links
+      Update schemaVersion (1.7.2)
+    </release>
+    <release version="1.1.2" date="2021-07-12">
+      Blinky project:
+      - update RTX configuration (CMSIS 5.8.0)
+      Platform project (synchronize with CB_Lab4Layer):
+      - update RTX configuration (CMSIS 5.8.0)
+      - update App layer description
+      - compiler optimization -O1
+    </release>
+    <release version="1.1.1" date="2020-11-19">
+      Synchronized with STM32CubeL5 Firmware Package version V1.3.1
+      Updated CubeMX examples
+      Platform project (synchronize with CB_Lab4Layer):
+      - Updated Peripheral Interrupts Priority
+      - Restructured README.md
+      - Added board selection to board layer
+      Updated board description (add debugProbe)
+    </release>
+    <release version="1.1.0" date="2020-07-16">
+      Drivers:
+      - Updated CMSIS-VIO driver
+      Example projects:
+      - Updated CMSIS-RTOS2 Blinky
+      - Updated CMSIS-RTOS2 Platform
+    </release>
+    <release version="1.0.0" date="2020-05-18">
+      Initial public release.
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32L5</keyword>
+    <keyword>NUCLEO-L552ZE-Q</keyword>
+  </keywords>
+
+  <requirements>
+    <packages>
+      <package vendor="Keil" name="STM32L5xx_DFP"      version="2.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS"              version="6.0.0-0"/>
+      <package vendor="ARM"  name="CMSIS-Driver_STM32" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
+  <conditions>
+    <!-- Board Condition -->
+    <condition id="NUCLEO-L552ZE-Q">
+      <description>STMicroelectronics NUCLEO-L552ZE-Q Board</description>
+      <require Bvendor="STMicroelectronics" Bname="NUCLEO-L552ZE-Q"/>
+    </condition>
+
+    <!-- Board Condition + CMSIS Driver GPIO-->
+    <condition id="NUCLEO-L552ZE-Q GPIO">
+      <description>STMicroelectronics NUCLEO-L552ZE-Q Board with CMSIS Driver GPIO</description>
+      <require condition="NUCLEO-L552ZE-Q"/>
+      <require Cclass="CMSIS Driver" Cgroup="GPIO"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- CMSIS VIO Driver component for NUCLEO-L552ZE-Q -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cversion="2.0.0" Capiversion="1.0.0" condition="NUCLEO-L552ZE-Q GPIO">
+      <description>I/O implementation for NUCLEO-L552ZE-Q</description>
+      <RTE_Components_h>
+        #define RTE_VIO_BOARD
+        #define RTE_VIO_NUCLEO_L552ZE_Q
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="CMSIS/Driver/vio_NUCLEO-L552ZE-Q.c"/>
+      </files>
+    </component>
+  </components>
+
+  <boards>
+    <!-- NUCLEO-L552ZE-Q -->
+    <board vendor="STMicroelectronics" name="NUCLEO-L552ZE-Q" revision="Rev.C"
+           salesContact="https://www.st.com/content/st_com/en/contact-us.html">
+      <description>STM32 Nucleo-144 development board with STM32L552ZETxQ MCU</description>
+      <image small="Images/nucleo-l552ze-q_small.png"
+             large="Images/nucleo-l552ze-q_large.png"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/nucleo-l552ze-q.html" title="NUCLEO-L552ZE-Q Board"/>
+      <book category="overview"  name="https://www.st.com/resource/en/data_brief/nucleo-l552ze-q.pdf" title="Data Brief"/>
+      <book category="manual"    name="https://www.st.com/resource/en/user_manual/um2581-stm32l5-nucleo144-board-mb1361-stmicroelectronics.pdf" title="User Manual"/>
+      <book category="schematic" name="https://www.st.com/resource/en/schematic_pack/mb1361-l552zeq-c02_schematic.pdf" title="Schematics"/>
+      <book category="other"     name="Documents/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32L552ZETxQ"/>
+      <feature type="ODbg"      n="1"              name="On-board ST-LINK/V2-1"/>
+      <feature type="PWR"       n="5"              name="USB VBUS, ext. VIN, ext. 5V, ext +3.3V, 5V_USB_C"/>
+      <feature type="CustomFF"  n="2"              name="STMicroelectronics Morpho connector"/>
+      <feature type="ArduinoFF" n="2"              name="STMicroelectronics Arduino connector"/>
+      <feature type="USB"       n="1"              name="USB Type-C Sink device FS"/>
+      <feature type="Button"    n="2"              name="Push-buttons: User and Reset"/>
+      <feature type="LED"       n="5"              name="LEDs: COM, Power, User LEDs"/>
+      <debugInterface adapter="ST-Link" connector="Micro-USB"/>
+      <debugProbe connector="Micro-USB" debugClock="10000000" debugLink="swd" name="ST-Link"/>
+    </board>
+  </boards>
+
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
+      <board name="NUCLEO-L552ZE-Q" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
+      </project>
+    </example>
+  </examples>
+</package>

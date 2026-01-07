@@ -1,0 +1,56 @@
+; Copyright 2003-2007
+; Signum Systems Corp.
+; SigUSB98.inf
+; USB 2.0 Add-On Driver support for Windows ME/98
+
+[Version]
+Signature  = "$CHICAGO$"
+Class      = SignumUSB
+ClassGUID  = {53F12DC4-BDE7-484e-AD4E-35958B05760E}
+Provider   = %SigString%
+DriverVer  = 11/05/2007, 2.04
+
+[ClassInstall] 
+AddReg=AddRegClassInstallSection
+
+[AddRegClassInstallSection]
+HKR,,,,"%SigUSBDevices%"
+HKR,,Icon,,"-20"
+
+[SourceDisksNames]
+1=%Distribution%,SigUSB98.inf,, 
+
+[SourceDisksFiles]
+SigUsb98.sys = 1
+
+[DestinationDirs]
+JTAGJET.Files.Ext = 10,System32\Drivers
+
+[Manufacturer]
+%SigString% = SignumDeviceList
+
+[SignumDeviceList]
+; This VID/PID identifiers are used by Signum Systems devices :
+"Signum Systems JTAGjet Emulator"         = JTAGJET.Install, USB\VID_138E&PID_7D11
+"Signum Systems JTAGjet Emulator"         = JTAGJET.Install, USB\VID_04B4&PID_7D11
+"Signum Systems ADM51 Emulator"           = JTAGJET.Install, USB\VID_138E&PID_7D12
+"Signum Systems ADM51 Emulator"           = JTAGJET.Install, USB\VID_04B4&PID_7D12
+
+[JTAGJET.Install]
+CopyFiles = JTAGJET.Files.Ext
+AddReg    = JTAGJET.AddReg
+
+[JTAGJET.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,SigUSB98.sys
+
+[JTAGJET.Files.Ext]
+SigUSB98.sys,,,2
+
+;---------------------------------------------------------------;
+
+[Strings]
+Distribution        = "Signum Systems Distribution Media"
+SigString           = "Signum Systems Corp."
+SigUSBDevices       = "Signum Systems USB Emulators"
+JTAGJET.ServiceDesc = "Signum Systems USB Driver (SigUSB98.sys)"

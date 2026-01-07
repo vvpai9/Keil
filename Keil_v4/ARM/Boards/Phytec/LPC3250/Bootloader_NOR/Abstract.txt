@@ -1,0 +1,17 @@
+The 2-nd level Bootloader for NXP LPC32x0 
+(configured for External SDRAM and loaded to 
+External NOR Flash on the Phytec Board)
+
+This is a 2-nd level bootloader for the NXP 
+LPC32x0 microcontroller with External NOR 
+Flash and External SDRAM. 
+It downloads to first 32kB of the NOR Flash.
+The 1-st level bootloader that is in ROM of 
+LPC32x0 jumps to this bootloader and starts it.
+
+The 2-nd level bootloader's main function is to 
+copy user program from the External NOR Flash 
+to the External SDRAM and start it.
+
+Just select Flash -> Download to download it 
+to the NOR Flash.

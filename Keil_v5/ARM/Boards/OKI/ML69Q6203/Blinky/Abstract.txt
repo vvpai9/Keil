@@ -1,0 +1,32 @@
+The Blinky project is a demo program for the ML69Q6203
+using OKI ML69Q6203 Microcontroller Board.
+
+It displays numbers on the 7-segment LED Display
+(0, 1, ..., A, b, C, d, E, F).
+
+The demo continues to count on the 7-segment LED Display
+in an infinite loop. Pressing the SW3 (IRQ) button on the
+board will reverse the counting direction.
+
+Boards switches setting:
+
+   No.| SW1 DIP Switches | Setting
+   ===============================
+    1 |   Operating Mode | OFF    
+    2 |   BOOT0          | ON     
+    3 |   BOOT1          | ON     
+    4 |   Ext MEM/GPIO   | OFF    
+    5 |   IDE/NAND Flash | ON     
+    6 |   IDE/NAND Flash | ON     
+    7 |   WAIT0          | ON     
+    8 |   WAIT1          | ON     
+
+The Blinky program is available in different targets:
+  ML69Q6203 Flash: configured for on-chip Flash ROM
+                   (used for production or target debugging)
+  ML69Q6203 IRAM:  configured to run from on-chip RAM
+                   (may be used for target debugging) 
+  ML69Q6203 SRAM:  configured to run from off-chip SRAM
+                   (may be used for target debugging) 
+  ML69Q6203 DRAM:  configured to run from off-chip DRAM
+                   (may be used for target debugging) 
